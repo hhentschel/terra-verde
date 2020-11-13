@@ -13,6 +13,7 @@ use craft\helpers\App;
 return [
     // Global settings
     '*' => [
+        'devMode' => (getenv('DEV_MODE') === "true") ? true : false,
         // Default Week Start Day (0 = Sunday, 1 = Monday...)
         'defaultWeekStartDay' => 1,
 
@@ -24,6 +25,12 @@ return [
 
         // The secure key Craft will use for hashing and encrypting data
         'securityKey' => App::env('SECURITY_KEY'),
+
+        'aliases' => array(
+            '@basePath' => getenv('BASE_PATH'),
+            '@baseUrl' => getenv('BASE_URL'),
+            '@rootUrl' => getenv('ROOT_URL'),
+        ),
     ],
 
     // Dev environment settings
