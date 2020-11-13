@@ -1,0 +1,59 @@
+// -----------------------------------------------------------------------------
+// #INPUTS
+// -----------------------------------------------------------------------------
+
+/**
+ * Globals
+ */
+
+// typo - if you change this, don't forget to change it in `css/utils/_typography.scss`
+$input--font-size: $font-size--base;
+
+// general
+$input--display: block;
+$input--max-width: 100%;
+$input--height: null;
+
+// padding
+$input--padding-vertical: px-to-em(12, $input--font-size);
+$input--padding-horizontal: px-to-em(8, $input--font-size);
+
+// textarea specials
+$textarea--display: block;
+$textarea--width: 100%;
+$textarea--height: null;
+$textarea--padding-vertical: px-to-em(12, $input--font-size);
+$textarea--padding-horizontal: px-to-em(8, $input--font-size);
+
+.input {
+  @include inputStyles();
+  width: $input--max-width;
+  padding: $input--padding-vertical $input--padding-horizontal;
+
+  @if (has($input--height)) {
+    height: $input--height;
+  }
+}
+
+.textarea {
+  @include inputStyles();
+  padding: $textarea--padding-vertical $textarea--padding-horizontal;
+  width: $textarea--width;
+
+  @if (has($textarea--height)) {
+    height: $textarea--height;
+  }
+}
+
+.select {
+  @include inputStyles();
+  width: $input--max-width;
+
+  appearance: none;
+  cursor: pointer;
+  padding: $input--padding-vertical $input--padding-horizontal;
+
+  @if (has($input--height)) {
+    height: $input--height;
+  }
+}

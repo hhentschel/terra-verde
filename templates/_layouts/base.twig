@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html lang="{{ currentSite.language }}"
+  dir="{{ craft.app.i18n.getLocaleById(currentSite.id).getOrientation() }}">
+  <head>
+    {% include '_layouts/_includes/head' %}
+  </head>
+  <body class="{{ body_class ?? null }} {{
+    craft.app.request.isMobileBrowser()
+      ? 'is-mobile-browser'
+      : 'is-desktop-browser'
+    }}">
+    {% block layout %}
+    {% endblock %}
+
+    {% include '_layouts/_includes/scripts' %}
+  </body>
+</html>

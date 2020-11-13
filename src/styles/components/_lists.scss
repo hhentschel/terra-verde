@@ -1,0 +1,95 @@
+// General List style
+
+// typo - if you change this, don't forget to change it in `css/utils/_typography.scss`
+$list--font-size: $font-size--base;
+
+$list--padding-left: px-to-em(18, $list--font-size);
+$list--margin-bottom: size();
+
+// UL styles
+$list--ul-style-type: disc;
+$list--ul-item-color: $color--black;
+$list--ul-item-background: null;
+$list--ul-item-padding: px-to-em(5, $list--font-size) 0;
+
+// OL Styles
+$list--ol-item-padding: $list--ul-item-padding;
+$list--ol-item-color: $list--ul-item-color;
+$list--ol-item-background: $list--ul-item-background;
+
+//OL Counter Styles
+$list--ol-counter-color: $color--primary;
+$list--ol-counter-background: null;
+
+.list,
+.list ol,
+.list ul,
+.#{$formatted-text-class} ol,
+.#{$formatted-text-class} ul {
+  padding-left: $list--padding-left;
+  margin: 0 0 $list--margin-bottom;
+
+  li {
+    &:last-child {
+      padding-bottom: 0;
+    }
+
+    ul,
+    ol {
+      margin-bottom: 0;
+    }
+  }
+}
+
+// stylelint-disable
+.list,
+.#{$formatted-text-class} ul,
+.list ul {
+  list-style-type: $list--ul-style-type;
+
+  li {
+    padding: $list--ul-item-padding;
+
+    @if (has($list--ul-item-color)) {
+      color: $list--ul-item-color;
+    }
+
+    @if (has($list--ul-item-background)) {
+      background: $list--ul-item-background;
+    }
+  }
+}
+
+.list--ordered,
+.list--ordered ol,
+.#{$formatted-text-class} ol {
+  list-style: none;
+  counter-reset: li;
+
+  li {
+    counter-increment: li;
+
+    padding: $list--ol-item-padding;
+
+    &:before {
+      content: counter(li);
+
+      display: inline-block;
+      margin-left: -1 * $list--padding-left - $list--padding-left / 2;
+      margin-right: $list--padding-left / 2;
+      width: $list--padding-left;
+
+      text-align: right;
+      direction: rtl;
+
+      @if (has($list--ol-counter-color)) {
+        color: $list--ol-counter-color;
+      }
+
+      @if (has($list--ol-counter-background)) {
+        background: $list--ol-counter-background;
+      }
+    }
+  }
+}
+// stylelint-enable

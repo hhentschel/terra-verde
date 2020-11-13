@@ -1,0 +1,11 @@
+/.env
+/.idea
+/vendor
+.DS_Store
+node_modules/*
+package-lock.json
+web/assets/scripts/*
+web/assets/styles/*
+web/content/*
+_backup/*
+--templates/*

@@ -1,0 +1,30 @@
+// -----------------------------------------------------------------------------
+// #COLORS
+// -----------------------------------------------------------------------------
+
+$color--white: #fff !default;
+$color--black: #000 !default;
+
+/* grey */
+$color--grey: #767676;
+$color--grey-darkest: #444;
+$color--grey-darker: #666;
+$color--grey-dark: #808080;
+
+$color--grey-light: #d9d9d9;
+$color--grey-lighter: #e7e7e7;
+$color--grey-lightest: #f7f7f7;
+
+$color--disabled-text: $color--grey-light;
+$color--disabled-background: $color--grey-lightest;
+$color--disabled-border: $color--grey-lighter;
+
+/* primary */
+$color--primary: #f47f4e;
+
+/* secondary */
+$color--secondary: #234;
+
+/* text */
+$color--text: #333;
+$color--hover-text: $color--black;

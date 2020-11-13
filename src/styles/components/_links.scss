@@ -1,0 +1,45 @@
+/**
+ * Globals
+ */
+
+// transitions
+$link--transition-duration: speed();
+$link--transition-properties: color;
+$link--transition-easing: easing();
+
+// styles
+$link--color: $color--primary;
+$link--hover-color: $color--black;
+$link--focus-color: null;
+$link--active-color: null;
+
+$link--text-decoration: none;
+$link--hover-text-decoration: null;
+
+.link,
+.#{$formatted-text-class} a {
+  color: $link--color;
+  cursor: pointer;
+  text-decoration: $link--text-decoration;
+  transition: $link--transition-properties $link--transition-duration
+    $link--transition-easing;
+
+  &:hover {
+    color: $link--hover-color;
+    @if (has($link--hover-text-decoration)) {
+      text-decoration: $link--hover-text-decoration;
+    }
+  }
+
+  &:focus {
+    @if (has($link--focus-color)) {
+      color: $link--focus-color;
+    }
+  }
+
+  &:active {
+    @if (has($link--active-color)) {
+      color: $link--active-color;
+    }
+  }
+}

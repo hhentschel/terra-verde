@@ -1,0 +1,88 @@
+// -----------------------------------------------------------------------------
+// #TYPOGRAPHY
+// -----------------------------------------------------------------------------
+
+/**
+ *  Phone - standard defined in `utils/settings`
+ */
+$typography--phone: (
+  default: (
+    font-size: px-to-rem(16),
+  ),
+  title: (
+    font-size: px-to-rem(28),
+  ),
+  heading: (
+    font-family: $font-family--heading,
+    font-weight: $font-weight--heading,
+  ),
+  input: (),
+  h1: (
+    font-size: px-to-rem(32),
+  ),
+  h2: (
+    font-size: px-to-rem(24),
+  ),
+  h3: (
+    font-size: px-to-rem(18),
+  ),
+  h4: (
+    font-size: px-to-rem(16),
+  ),
+  test: (
+    font-family: $font-family--heading,
+    font-weight: $font-weight--heading,
+    font-size: px-to-rem(28),
+  ),
+);
+
+/**
+ *  Tablet portrait
+ */
+$typography--tablet-portrait: ();
+
+/**
+ *  Tablet landscape
+ */
+$typography--tablet-landscape: ();
+
+/**
+ *  Desktop
+ */
+$typography--desktop: (
+  default: (
+    font-size: px-to-rem(18),
+  ),
+  title: (
+    font-size: px-to-rem(48),
+  ),
+  h1: (
+    font-size: px-to-rem(48),
+  ),
+  h2: (
+    font-size: px-to-rem(36),
+  ),
+  h3: (
+    font-size: px-to-rem(24),
+  ),
+  h4: (
+    font-size: px-to-rem(18),
+  ),
+  test: (
+    font-size: px-to-rem(348),
+  ),
+);
+
+/**
+ * Desktop big
+ */
+$typography--desktop-big: ();
+
+// dialog-typo is a dependency, don't touch this! https://www.youtube.com/watch?v=otCpCn0l4Wo
+$dialog-typo: (
+  phone: $typography--phone,
+  tablet-portrait: $typography--tablet-portrait,
+  tablet-landscape: $typography--tablet-landscape,
+  desktop: $typography--desktop,
+  desktop-big: $typography--desktop-big,
+);

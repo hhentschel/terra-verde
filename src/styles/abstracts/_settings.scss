@@ -1,0 +1,91 @@
+// -----------------------------------------------------------------------------
+// #SETTINGS
+// -----------------------------------------------------------------------------
+
+/**
+ *  Typography
+ */
+$font-size--base: 16 !global;
+
+$font-family--heading: 'Arial, sans-serif';
+$font-weight--heading: 700;
+
+$font-family--base: 'Arial, sans-serif';
+$font-weight--base: 400;
+
+$line-height--base: 1.25;
+
+/**
+*  Spacing
+*/
+$size--base: 24 !global;
+
+/**
+*  Grid
+*/
+$container--max-width: 1200px !global;
+
+/**
+*  Breakpoint Settings
+*/
+
+// refers always to a key inside the $breakpoint map (see `css/utils/_breakpoints`)
+$breakpoint--base: phone;
+
+// phone min is 0
+$phone--max: 600px !global;
+
+$tablet-portrait--min: 601px !global;
+$tablet-portrait--max: 900px !global;
+
+$tablet-landscape--min: 901px !global;
+$tablet-landscape--max: 1200px !global;
+
+$desktop--min: 1201px !global;
+$desktop--max: 1800px !global;
+
+$desktop-big--min: 1801px !global;
+
+/**
+ *  CSS Framework
+ */
+
+// used for conditional rendering in sass
+$sass-null: null;
+
+/**
+ * Base spacing units - for boxes (horizontal and vertical)
+ */
+// TODO: May change to other kind of naming/size handling
+$space--xxs: 0.1875rem; // 3px
+$space--xs: 0.375rem; // 6px
+$space--s: 0.5625rem; // 9px
+$space--m: 0.75rem; // 12px
+$space--xm: 1.125rem; // 18px
+$space--l: 1.5rem; // 24px
+$space--xl: 2.25rem; // 36px
+$space--xxl: 3rem; // 48px
+$space--xxxl: 4rem; // 64px
+$space--xxxxl: 6rem; // 96px
+
+// override default breakpoint from dialog
+$dialog-breakpoint-default: $breakpoint--base;
+
+// support for dialog-typography
+$dialog-breakpoints: (
+  phone: 'max-width: #{$phone--max}',
+  tablet-portrait: 'min-width: #{$tablet-portrait--min}',
+  tablet-landscape: 'min-width: #{$tablet-landscape--min}',
+  desktop: 'min-width: #{$desktop--min}',
+  desktop-big: 'min-width: #{$desktop-big--min}',
+);
+
+// reserved for dialog-typography
+@mixin bp($name) {
+  @media ( #{map-get( $dialog-breakpoints, $name )} ) {
+    @content;
+  }
+}
+
+// wysiwyg editor class
+$formatted-text-class: 'formatted-text';
