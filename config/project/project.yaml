@@ -1,0 +1,17 @@
+dateModified: 1605278870
+email:
+  fromEmail: p@henrik-hentschel.de
+  fromName: 'Terra Verde'
+  transportType: craft\mail\transportadapters\Sendmail
+system:
+  edition: pro
+  live: true
+  name: 'Terra Verde'
+  schemaVersion: 3.5.13
+  timeZone: America/Los_Angeles
+users:
+  allowPublicRegistration: false
+  defaultGroup: null
+  photoSubpath: null
+  photoVolumeUid: null
+  requireEmailVerification: true

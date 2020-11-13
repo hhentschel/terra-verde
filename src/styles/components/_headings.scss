@@ -1,0 +1,49 @@
+$heading--color: $color--black;
+
+$heading--1-margin-bottom: size();
+$heading--2-margin-bottom: size();
+$heading--3-margin-bottom: size();
+$heading--4-margin-bottom: size();
+
+.heading {
+  display: block;
+}
+
+.heading,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @include typo(heading);
+  margin-top: 0;
+
+  @if (has($heading--color)) {
+    color: $heading--color;
+  }
+}
+
+h1,
+.heading--1 {
+  @include typo(h1);
+  margin-bottom: $heading--1-margin-bottom;
+}
+
+h2,
+.heading--2 {
+  @include typo(h2);
+  margin-bottom: $heading--2-margin-bottom;
+}
+
+h3,
+.heading--3 {
+  @include typo(h3);
+  margin-bottom: $heading--3-margin-bottom;
+}
+
+h4,
+.heading--4 {
+  @include typo(h4);
+  margin-bottom: $heading--4-margin-bottom;
+}

@@ -1,0 +1,19 @@
+/**
+ * Map for all durations used in the project
+ */
+$speeds: (
+  hover: 250ms,
+  background: 650ms,
+  pageSlide: 1s,
+);
+
+/**
+ * function to get the values of the durations map
+ */
+@function speed($key: hover) {
+  @if not map-has-key($speeds, $key) {
+    @error 'Unknown duration key: `#{$key}`.';
+  }
+
+  @return map-get($speeds, $key);
+}

@@ -1,0 +1,19 @@
+/**
+ * Map for all easings used in the project
+ */
+$easings: (
+  color: ease,
+  opacity: cubic-bezier(0, 0, 0.3, 1),
+  open: cubic-bezier(0.52, 0.01, 0.16, 1),
+);
+
+/**
+ * function to get the values of the easings map
+ */
+@function easing($key: color) {
+  @if not map-has-key($easings, $key) {
+    @error 'Unknown easing key: `#{$key}`.';
+  }
+
+  @return map-get($easings, $key);
+}

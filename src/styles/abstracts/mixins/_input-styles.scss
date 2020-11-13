@@ -1,0 +1,110 @@
+$transition-properties: border-color, color, background-color;
+
+@mixin inputStyles(
+  // colors
+  $input--background-color: $color--grey-lightest,
+  $input--placeholder-color: $color--grey,
+  $input--text-color: $color--text,
+  // border
+  $input--border-color: $color--grey-light,
+  $input--border-radius: 0,
+  $input--border-width: 1px,
+  // hover
+  $input--hover-background-color: null,
+  $input--hover-border-color: $color--grey-darker,
+  $input--hover-placeholder-color: null,
+  $input--hover-text-color: null,
+  // focus
+  $input--focus-border-color: $color--grey-darker,
+  $input--focus-text-color: null,
+  $input--focus-placeholder-color: null,
+  $input--focus-background-color: null,
+  // disabled
+  $input--disabled-border-color: $color--disabled-border,
+  $input--disabled-text-color: $color--disabled-text,
+  $input--disabled-placeholder-color: $color--disabled-text,
+  $input--disabled-background-color: $color--disabled-background,
+  // transitions
+  $input--transition-duration: speed(),
+  $input--transition-easing: easing(),
+  $input--transition-properties: $transition-properties
+) {
+  @include typo(input);
+  background-color: $input--background-color;
+  border: solid $input--border-color;
+  border-width: $input--border-width;
+  border-radius: $input--border-radius;
+  outline: none;
+
+  transition: $input--transition-duration $input--transition-easing;
+  transition-property: $input--transition-properties;
+
+  @if (has($input--text-color)) {
+    color: $input--text-color;
+  }
+
+  &::placeholder {
+    @if (has($input--placeholder-color)) {
+      color: $input--placeholder-color;
+
+      transition: $input--transition-duration $input--transition-easing;
+      transition-property: $input--transition-properties;
+    }
+  }
+
+  &:hover {
+    @if (has($input--hover-text-color)) {
+      color: $input--hover-text-color;
+    }
+    @if (has($input--hover-background-color)) {
+      background-color: $input--hover-background-color;
+    }
+    @if (has($input--hover-border-color)) {
+      border-color: $input--hover-border-color;
+    }
+
+    &::placeholder {
+      @if (has($input--hover-placeholder-color)) {
+        color: $input--hover-placeholder-color;
+      }
+    }
+  }
+
+  &:focus {
+    @if (has($input--focus-text-color)) {
+      color: $input--focus-text-color;
+    }
+    @if (has($input--focus-background-color)) {
+      background-color: $input--focus-background-color;
+    }
+    @if (has($input--focus-border-color)) {
+      border-color: input--focus-border-color;
+    }
+
+    &::placeholder {
+      @if (has($input--focus-placeholder-color)) {
+        color: $input--focus-placeholder-color;
+      }
+    }
+  }
+
+  &[disabled] {
+    cursor: not-allowed;
+
+    @if (has($input--disabled-text-color)) {
+      color: $input--disabled-text-color;
+    }
+    @if (has($input--disabled-background-color)) {
+      background-color: $input--disabled-background-color;
+    }
+    @if (has($input--disabled-border-color)) {
+      border-color: $input--disabled-border-color;
+    }
+
+    &::placeholder {
+      @if (has($input--disabled-placeholder-color)) {
+        color: $input--disabled-placeholder-color;
+      }
+    }
+  }
+}

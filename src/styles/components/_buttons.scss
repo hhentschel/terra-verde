@@ -1,0 +1,255 @@
+/**
+ * Globals
+ */
+
+// transitions
+$button--transition-duration: speed();
+$button--transition-properties: color, background-color;
+$button--transition-easing: easing();
+
+/**
+ * Primary
+ */
+
+// typo - if you change this, don't forget to change it in `css/utils/_typography.scss`
+$button-primary--font-size: $font-size--base;
+
+// padding
+$button-primary--horizontal-padding: px-to-em(12, $button-primary--font-size);
+$button-primary--vertical-padding: px-to-em(16, $button-primary--font-size);
+
+// colors
+$button-primary--color: $color--primary;
+$button-primary--background-color: $color--white;
+$button-primary--border-color: $color--primary;
+
+// hover
+$button-primary--hover-color: $color--white;
+$button-primary--hover-background-color: $color--primary;
+$button-primary--hover-border-color: $color--primary;
+
+// active
+$button-primary--active-color: $color--white;
+$button-primary--active-background-color: $color--primary;
+$button-primary--active-border-color: $color--primary;
+
+// focus
+$button-primary--focus-color: null;
+$button-primary--focus-background-color: null;
+$button-primary--focus-border-color: null;
+
+// disabled
+$button-primary--disabled-color: $color--disabled-text;
+$button-primary--disabled-background-color: $color--disabled-background;
+$button-primary--disabled-border-color: $color--disabled-border;
+
+// borders
+$button-primary--border-radius: 0;
+$button-primary--border-width: 2px;
+
+/**
+ * Secondary
+ */
+
+// typo - if you change this, don't forget to change it in `css/utils/_typography.scss`
+$button-secondary--font-size: $font-size--base;
+
+// padding
+$button-secondary--horizontal-padding: px-to-em(
+  8,
+  $button-secondary--font-size
+);
+$button-secondary--vertical-padding: px-to-em(12, $button-secondary--font-size);
+
+// colors
+$button-secondary--color: $color--secondary;
+$button-secondary--background-color: $color--white;
+$button-secondary--border-color: $color--secondary;
+
+// hover
+$button-secondary--hover-color: $color--white;
+$button-secondary--hover-background-color: $color--secondary;
+$button-secondary--hover-border-color: $color--secondary;
+
+// active
+$button-secondary--active-color: $color--white;
+$button-secondary--active-background-color: $color--secondary;
+$button-secondary--active-border-color: $color--secondary;
+
+// focus
+$button-secondary--focus-color: null;
+$button-secondary--focus-background-color: null;
+$button-secondary--focus-border-color: null;
+
+// disabled
+$button-secondary--disabled-color: $color--disabled-text;
+$button-secondary--disabled-background-color: $color--disabled-background;
+$button-secondary--disabled-border-color: $color--disabled-border;
+
+// borders
+$button-secondary--border-radius: 0;
+$button-secondary--border-width: 2px;
+
+.button {
+  transition-property: $button--transition-properties;
+  transition-duration: $button--transition-duration;
+  transition-timing-function: $button--transition-easing;
+
+  /**
+   *  Primary styles
+   */
+  &--primary {
+    padding: $button-primary--horizontal-padding
+      $button-primary--vertical-padding;
+
+    @if (has($button-primary--background-color)) {
+      background-color: $button-primary--background-color;
+    }
+    @if (has($button-primary--color)) {
+      color: $button-primary--color;
+    }
+    @if (has($button-primary--border-radius)) {
+      border-radius: $button-primary--border-radius;
+    }
+    @if (has($button-primary--border-width)) {
+      border: $button-primary--border-width solid $button-primary--border-color;
+    }
+
+    &:focus {
+      @if (has($button-primary--focus-background-color)) {
+        background-color: $button-primary--focus-background-color;
+      }
+
+      @if (has($button-primary--focus-color)) {
+        color: $button-primary--focus-color;
+      }
+
+      @if (has($button-primary--focus-border-color)) {
+        border-color: $button-primary--focus-border-color;
+      }
+    }
+
+    &:hover {
+      @if (has($button-primary--hover-background-color)) {
+        background-color: $button-primary--hover-background-color;
+      }
+
+      @if (has($button-primary--hover-color)) {
+        color: $button-primary--hover-color;
+      }
+
+      @if (has($button-primary--hover-border-color)) {
+        border-color: $button-primary--hover-border-color;
+      }
+    }
+
+    &[disabled],
+    &[disabled]:hover {
+      @if (has($button-primary--disabled-background-color)) {
+        background-color: $button-primary--disabled-background-color;
+      }
+
+      @if (has($button-primary--disabled-color)) {
+        color: $button-primary--disabled-color;
+      }
+
+      @if (has($button-primary--disabled-border-color)) {
+        border-color: $button-primary--disabled-border-color;
+      }
+    }
+  }
+
+  // primary active
+  &--primary.button--active,
+  &--primary.button--active:hover {
+    @if (has($button-primary--active-background-color)) {
+      background-color: $button-primary--active-background-color;
+    }
+    @if (has($button-primary--active-color)) {
+      color: $button-primary--active-color;
+    }
+    @if (has($button-primary--active-border-color)) {
+      border-color: $button-primary--active-border-color;
+    }
+  }
+
+  /**
+   *  Secondary styles
+   */
+  &--secondary {
+    padding: $button-secondary--horizontal-padding
+      $button-secondary--vertical-padding;
+
+    @if (has($button-secondary--background-color)) {
+      background-color: $button-secondary--background-color;
+    }
+    @if (has($button-secondary--color)) {
+      color: $button-secondary--color;
+    }
+    @if (has($button-secondary--border-radius)) {
+      border-radius: $button-secondary--border-radius;
+    }
+    @if (has($button-secondary--border-width)) {
+      border: $button-secondary--border-width
+        solid
+        $button-secondary--border-color;
+    }
+
+    &:focus {
+      @if (has($button-secondary--focus-background-color)) {
+        background-color: $button-secondary--focus-background-color;
+      }
+
+      @if (has($button-secondary--focus-color)) {
+        color: $button-secondary--focus-color;
+      }
+
+      @if (has($button-secondary--focus-border-color)) {
+        border-color: $button-secondary--focus-border-color;
+      }
+    }
+
+    &:hover {
+      @if (has($button-secondary--hover-background-color)) {
+        background-color: $button-secondary--hover-background-color;
+      }
+
+      @if (has($button-secondary--hover-color)) {
+        color: $button-secondary--hover-color;
+      }
+
+      @if (has($button-secondary--hover-border-color)) {
+        border-color: $button-secondary--hover-border-color;
+      }
+    }
+
+    &[disabled],
+    &[disabled]:hover {
+      @if (has($button-secondary--disabled-background-color)) {
+        background-color: $button-secondary--disabled-background-color;
+      }
+
+      @if (has($button-secondary--disabled-color)) {
+        color: $button-secondary--disabled-color;
+      }
+
+      @if (has($button-secondary--disabled-border-color)) {
+        border-color: $button-secondary--disabled-border-color;
+      }
+    }
+  }
+
+  // secondary active
+  &--secondary.button--active,
+  &--secondary.button--active:hover {
+    @if (has($button-secondary--active-background-color)) {
+      background-color: $button-secondary--active-background-color;
+    }
+    @if (has($button-secondary--active-color)) {
+      color: $button-secondary--active-color;
+    }
+    @if (has($button-secondary--active-border-color)) {
+      border-color: $button-secondary--active-border-color;
+    }
+  }
+}

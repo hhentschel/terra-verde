@@ -1,0 +1,8 @@
+baseUrl: $PRIMARY_SITE_URL
+handle: default
+hasUrls: true
+language: de
+name: 'Terra Verde'
+primary: true
+siteGroup: 56e224de-e1ef-4c9a-897c-ab4a05fd8c96
+sortOrder: 1

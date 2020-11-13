@@ -1,0 +1,109 @@
+/**
+ * Strip the unit from a number (e.g. 18px --> 18).
+ */
+@function strip-units($number) {
+  @return $number / ($number * 0 + 1);
+}
+
+/**
+ * Tint the color with transparency
+ * @param  {string} $color      - hex color code
+ * @param  {float} $percentage - percentage of transparency
+ */
+@function tint($color, $percentage) {
+  @if $percentage == 0.1 {
+    @return lighten($color, 45%);
+  }
+  @if $percentage == 0.2 {
+    @return lighten($color, 40%);
+  }
+  @if $percentage == 0.3 {
+    @return lighten($color, 35%);
+  }
+  @if $percentage == 0.4 {
+    @return lighten($color, 30%);
+  }
+  @if $percentage == 0.5 {
+    @return lighten($color, 25%);
+  }
+  @if $percentage == 0.6 {
+    @return lighten($color, 20%);
+  }
+  @if $percentage == 0.7 {
+    @return lighten($color, 15%);
+  }
+  @if $percentage == 0.8 {
+    @return lighten($color, 10%);
+  }
+  @if $percentage == 0.9 {
+    @return lighten($color, 5%);
+  }
+}
+
+/**
+ * helper functions
+ */
+
+/**
+ * calculate the em value from pixel values
+ * @param  {int}   $px: desired pixel value
+ * @param {int}    $ref: reference font size of the component
+ * Notes:
+ * reference is only needed, if the font-size is not the same as the $font-size--base
+ */
+@function px-to-em($px, $ref: $font-size--base) {
+  @return to-em(to-px($px) / to-px($ref));
+}
+
+/**
+ * calculate the rem value from pixel values
+ * @param  {int}   $px: desired pixel value
+ */
+@function px-to-rem($px) {
+  @return to-rem(to-px($px) / to-px($font-size--base));
+}
+
+/**
+ * calculate the px value from from a rem value
+ * @param  {int}   $rem: desired pixel value
+ */
+@function rem-to-px($rem) {
+  @return to-px(strip-units($rem) * $font-size--base);
+}
+/**
+ * adds the em unit to the value
+ * @param  {float}   $val: desired em value
+ */
+@function to-em($val) {
+  @return ($val * 1em); // stylelint-disable-line
+}
+/**
+ * adds the rem unit to the value
+ * @param  {float}   $val: desired rem value
+ */
+@function to-rem($val) {
+  @return ($val * 1rem); // stylelint-disable-line
+}
+/**
+ * adds the em unity to the value
+ * @param  {float}   $px: desired em value
+ */
+@function to-px($val) {
+  @return ($val * 1px); // stylelint-disable-line
+}
+/**
+ * calculate the relative value for line height out of the pixel value
+ * @param  {int}   $px: desired pixel value
+ * @param {int}    $font-size: the reference font-size value in px
+ */
+@function px-to-lh($px, $font-size: $font-size--base) {
+  @return (strip-units($px) / strip-units($font-size));
+}
+
+/**
+ * check if the value of the variable is null.
+ * Note: used for conditional rendering in the framework
+ */
+@function has($var) {
+  @return $var != $sass-null;
+}

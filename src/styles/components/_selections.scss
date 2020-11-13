@@ -1,0 +1,363 @@
+/**
+ * Globals
+ */
+$selection--label-padding-left: px-to-rem(12);
+$selection--margin-bottom: size(quarter);
+
+$selection--border-color: $color--grey-light;
+
+$selection--hover-label-color: $color--hover-text;
+
+$selection--disabled-label-color: $color--disabled-text;
+
+// transition
+$selection--transition-duration: speed();
+$selection--transition-easing: easing();
+
+/**
+ * Checkbox
+ */
+
+// box styles
+$checkbox--width: px-to-rem(24);
+$checkbox--height: px-to-rem(24);
+$checkbox--background-color: $color--grey-lightest;
+$checkbox--margin-bottom: size(quarter);
+
+$checkbox--border-width: 2px;
+
+// checkmark styles
+$checkbox--checkmark-position-top: px-to-rem(4);
+$checkbox--checkmark-position-left: px-to-rem(9);
+$checkbox--checkmark-width: px-to-rem(6);
+$checkbox--checkmark-height: px-to-rem(12);
+$checkbox--checkmark-border-width: 2px;
+$checkbox--checkmark-color: $color--primary;
+
+// hover
+$checkbox--hover-background-color: null;
+$checkbox--hover-border-color: $color--grey-dark;
+
+// checked
+$checkbox--checked-background-color: null;
+$checkbox--checked-border-color: $color--primary;
+
+// disabled
+$checkbox--disabled-background-color: $color--disabled-background;
+$checkbox--disabled-border-color: $color--disabled-border;
+$checkbox--disabled-checkmark-color: $color--disabled-text;
+
+// focus
+$checkbox--focus-background-color: $checkbox--hover-background-color;
+$checkbox--focus-border-color: $checkbox--hover-border-color;
+
+// transitions
+$checkbox--transition-property: background-color, border-color;
+
+/**
+ * Radio
+ */
+
+// box styles
+$radio--width: px-to-rem(24);
+$radio--height: px-to-rem(24);
+$radio--background-color: $color--grey-lightest;
+$radio--margin-bottom: size(quarter);
+
+$radio--border-width: 2px;
+
+// bullet styles
+$radio--bullet-width: px-to-rem(8);
+$radio--bullet-height: px-to-rem(8);
+$radio--bullet-color: $color--primary;
+$radio--bullet-border-radius: 100%;
+
+// hover
+$radio--hover-background-color: null;
+$radio--hover-border-color: $color--grey-dark;
+
+// checked
+$radio--checked-background-color: null;
+$radio--checked-border-color: $color--primary;
+
+// disabled
+$radio--disabled-background-color: $color--disabled-background;
+$radio--disabled-border-color: $color--disabled-border;
+$radio--disabled-bullet-color: $color--disabled-text;
+
+// focus
+$radio--focus-background-color: null;
+$radio--focus-border-color: null;
+
+// transitions
+$radio--transition-property: background-color, border-color;
+
+/* stylelint-disable */
+.selection {
+  position: relative;
+
+  margin-bottom: $selection--margin-bottom;
+
+  &__input {
+    @include visually-hidden;
+    pointer-events: none;
+
+    @if (has($selection--hover-label-color)) {
+      &:hover + .selection__label {
+        color: $selection--hover-label-color;
+      }
+    }
+
+    &[disabled] + .selection__label {
+      cursor: not-allowed;
+
+      @if (has($selection--disabled-label-color)) {
+        color: $selection--disabled-label-color;
+      }
+    }
+  }
+
+  &__label {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+
+    transition: $selection--transition-duration color
+      $selection--transition-easing;
+
+    &:before {
+      display: block;
+      content: '';
+
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    &:after {
+      display: block;
+      content: '';
+
+      position: absolute;
+    }
+  }
+
+  /**
+   * Checkbox
+   **/
+  &--checkbox {
+    .selection__label {
+      min-height: $checkbox--height;
+      padding-left: $checkbox--width + $selection--label-padding-left;
+
+      // container styles
+      &:before {
+        width: $checkbox--width;
+        height: $checkbox--height;
+
+        background-color: $checkbox--background-color;
+        @if (has($checkbox--border-width)) {
+          border: solid $selection--border-color;
+          border-width: $checkbox--border-width;
+        }
+        transition: $selection--transition-duration
+          $selection--transition-easing;
+        transition-property: $checkbox--transition-property;
+      }
+
+      // checkmark styles
+      &:after {
+        top: $checkbox--checkmark-position-top;
+        left: $checkbox--checkmark-position-left;
+
+        width: $checkbox--checkmark-width;
+        height: $checkbox--checkmark-height;
+
+        border: solid $checkbox--checkmark-color;
+        border-width: 0 $checkbox--checkmark-border-width
+          $checkbox--checkmark-border-width 0;
+
+        transform: rotate(45deg) scale(0);
+        transition: transform $selection--transition-duration
+          $selection--transition-easing;
+      }
+    }
+
+    // focus state
+    .selection__input:focus + .selection__label {
+      &:before {
+        @if (has($checkbox--focus-background-color)) {
+          background-color: $checkbox--focus-background-color;
+        }
+
+        @if (has($checkbox--focus-border-color)) {
+          border-color: $checkbox--focus-border-color;
+        }
+      }
+    }
+
+    // hover state
+    .selection__input:hover + .selection__label {
+      &:before {
+        @if (has($checkbox--hover-background-color)) {
+          background-color: $checkbox--hover-background-color;
+        }
+
+        @if (has($checkbox--hover-border-color)) {
+          border-color: $checkbox--hover-border-color;
+        }
+      }
+    }
+
+    // checked state
+    .selection__input:checked + .selection__label,
+    .selection__input:checked:focus + .selection__label,
+    .selection__input:checked:hover + .selection__label {
+      &:before {
+        @if (has($checkbox--checked-background-color)) {
+          background-color: $checkbox--checked-background-color;
+        }
+
+        @if (has($checkbox--checked-border-color)) {
+          border-color: $checkbox--checked-border-color;
+        }
+      }
+
+      // show the checkmark
+      &:after {
+        transform: rotate(45deg) scale(1);
+      }
+    }
+
+    // disabled state
+    .selection__input[disabled] + .selection__label,
+    .selection__input[disabled]:hover + .selection__label {
+      &:before {
+        @if (has($checkbox--disabled-background-color)) {
+          background-color: $checkbox--disabled-background-color;
+        }
+
+        @if (has($checkbox--disabled-border-color)) {
+          border-color: $checkbox--disabled-border-color;
+        }
+      }
+
+      // disabled checkmar style
+      @if (has($checkbox--disabled-checkmark-color)) {
+        &:after {
+          border-color: $checkbox--disabled-checkmark-color;
+        }
+      }
+    }
+  }
+
+  /**
+   * Radio
+   **/
+  &--radio {
+    .selection__label {
+      min-height: $radio--height;
+      padding-left: ($radio--width + $selection--label-padding-left);
+
+      // container styles
+      &:before {
+        width: $radio--width;
+        height: $radio--height;
+
+        background-color: $radio--background-color;
+        @if (has($radio--border-width)) {
+          border: $radio--border-width solid $selection--border-color;
+        }
+
+        border-radius: 100%;
+
+        transition: $selection--transition-duration
+          $selection--transition-easing;
+        transition-property: $radio--transition-property;
+      }
+
+      // radio bullet styles
+      &:after {
+        top: $radio--height / 2;
+        left: $radio--width / 2;
+
+        width: $radio--bullet-width;
+        height: $radio--bullet-height;
+
+        background-color: $radio--bullet-color;
+        border-radius: $radio--bullet-border-radius;
+
+        transform: translate(-50%, -50%) scale(0);
+        transition: transform $selection--transition-duration
+          $selection--transition-easing;
+      }
+    }
+
+    // focus state
+    .selection__input:focus + .selection__label {
+      &:before {
+        @if (has($radio--focus-background-color)) {
+          background-color: $radio--focus-background-color;
+        }
+
+        @if (has($radio--focus-border-color)) {
+          border-color: $radio--focus-border-color;
+        }
+      }
+    }
+
+    // hover state
+    .selection__input:hover + .selection__label {
+      &:before {
+        @if (has($radio--hover-background-color)) {
+          background-color: $radio--hover-background-color;
+        }
+
+        @if (has($radio--hover-border-color)) {
+          border-color: $radio--hover-border-color;
+        }
+      }
+    }
+
+    // checked state
+    .selection__input:checked + .selection__label,
+    .selection__input:checked:focus + .selection__label,
+    .selection__input:checked:hover + .selection__label {
+      &:before {
+        @if (has($radio--checked-background-color)) {
+          background-color: $radio--checked-background-color;
+        }
+
+        @if (has($radio--checked-border-color)) {
+          border-color: $radio--checked-border-color;
+        }
+      }
+
+      // show the checkmark
+      &:after {
+        transform: translate(-50%, -50%) scale(1);
+      }
+    }
+
+    // disabled state
+    .selection__input[disabled] + .selection__label,
+    .selection__input[disabled]:hover + .selection__label {
+      &:before {
+        @if (has($radio--disabled-background-color)) {
+          background-color: $radio--disabled-background-color;
+        }
+
+        @if (has($radio--disabled-border-color)) {
+          border-color: $radio--disabled-border-color;
+        }
+      }
+
+      // disabled checkmark style
+      @if (has($radio--disabled-bullet-color)) {
+        &:after {
+          background-color: $radio--disabled-bullet-color;
+        }
+      }
+    }
+  }
+}

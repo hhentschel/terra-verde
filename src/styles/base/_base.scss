@@ -1,0 +1,28 @@
+/**
+ * Base
+ */
+html {
+  color: $color--text;
+  font-size: $font-size--base / 16 * 100%;
+  font-family: $font-family--base;
+}
+
+body {
+  font-family: $font-family--base;
+}
+
+figure {
+  margin: 0;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+sub,
+sup {
+  font-size: 62%;
+}

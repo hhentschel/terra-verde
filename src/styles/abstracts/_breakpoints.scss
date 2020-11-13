@@ -1,0 +1,116 @@
+/**
+ * Map for the project breakpoints.
+ * the breakpoint variables are defined in settings.scss
+ */
+$breakpoints: (
+  phone: (
+    max: $phone--max,
+  ),
+  tablet-portrait: (
+    min: $tablet-portrait--min,
+    max: $tablet-portrait--max,
+  ),
+  tablet-landscape: (
+    min: $tablet-landscape--min,
+    max: $tablet-landscape--max,
+  ),
+  tablet: (
+    min: $tablet-portrait--min,
+    max: $tablet-landscape--max,
+  ),
+  desktop: (
+    min: $desktop--min,
+    max: $desktop--max,
+  ),
+  desktop-big: (
+    min: $desktop-big--min,
+  ),
+);
+
+// override default breakpoint from dialog
+$dialog-breakpoint-default: $breakpoint--base !global;
+
+// support for dialog-typography
+$dialog-breakpoints: (
+  phone: 'max-width: #{$phone--max}',
+  tablet-portrait: 'min-width: #{$tablet-portrait--min}',
+  tablet-landscape: 'min-width: #{$tablet-landscape--min}',
+  desktop: 'min-width: #{$desktop--min}',
+  desktop-big: 'min-width: #{$desktop-big--min}',
+);
+
+// reserved for dialog-typography
+@mixin bp($name) {
+  @media ( #{map-get( $dialog-breakpoints, $name )} ) {
+    @content;
+  }
+}
+
+/**
+ * Use the breakpoints of this project.
+ * if you have a breakpoint key with a hyphen, you need to make a string out of it (tablet-portrait -> 'tablet-portrait')
+ *
+ * Examples:
+ * @include breakpoint('tablet-portrait') -> takes the min of the tablet-portrait
+ * @include breakpoint(desktop, only) -> takes the min and max value from the desktop breakpoint
+ * @include breakpoint(phone, desktop) -> takes the min of the phone and the max of the desktop
+ *
+ * @param  {string} $base-key - key of the min breakpoint
+ * @param  {string} $additional - key for breakpoint or 'only'
+ */
+@mixin breakpoint($base-key, $additional: null) {
+  @if not map-has-key($breakpoints, $base-key) {
+    @error 'Unknown breakpoint: `#{$base-key}`.';
+  }
+
+  $base-map: map-get($breakpoints, $base-key);
+  $base-min: map-get($base-map, 'min');
+  $base-max: map-get($base-map, 'max');
+
+  $media-query: '';
+
+  @if $additional == null {
+    @if $base-min == null {
+      $media-query: 'max-width: #{$base-max}';
+    } @else {
+      $media-query: 'min-width: #{$base-min}';
+    }
+  } @else if $additional == 'only' {
+    @if $base-min == null {
+      $media-query: 'max-width: #{$base-max}';
+    } @else if $base-max == null {
+      $media-query: 'min-width: #{$base-min}';
+    } @else {
+      $media-query: 'min-width: #{$base-min}) and (max-width #{$base-max}';
+    }
+  } @else {
+    @if not map-has-key($breakpoints, $additional) {
+      @error 'Unknown breakpoint: `#{$additional}`.';
+    }
+    $second: map-get($breakpoints, $additional);
+
+    @if (type-of($second) == 'map') {
+      $second-max: map-get($second, 'max');
+
+      @if $second-max {
+        @if $base-min == null {
+          $media-query: 'max-width: #{$second-max}';
+        } @else if ($second-max < $base-min) {
+          @error 'Please define the breakpoint `#{$additional}` before `#{$base-key}` -> @include breakpoint(`#{$additional}`, `#{$base-key}`)';
+        } @else {
+          $media-query: 'min-width: #{$base-min}) and (max-width: #{$second-max}';
+        }
+      } @else {
+        @if $base-min == null {
+          @error 'You dont need a media query for that';
+        } @else {
+          $media-query: 'min-width: #{$base-min}';
+        }
+      }
+    }
+  }
+
+  @media screen and ($media-query) {
+    @content;
+  }
+}
