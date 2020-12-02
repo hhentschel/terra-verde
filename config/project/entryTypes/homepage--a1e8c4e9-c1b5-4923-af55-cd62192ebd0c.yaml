@@ -1,0 +1,38 @@
+fieldLayouts:
+  f809e081-6779-41da-b809-4a17aa33825b:
+    tabs:
+      -
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\EntryTitleField
+            warning: null
+            width: 100
+        name: Inhalt
+        sortOrder: 1
+handle: homepage
+hasTitleField: false
+name: Startseite
+section: e5c66396-f991-4b4c-8edc-5e4960340ca3
+sortOrder: 1
+titleFormat: '{section.name|raw}'
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
