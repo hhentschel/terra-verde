@@ -57,3 +57,56 @@
     {{ text|raw }}
   {% endspaceless %}
 {% endmacro %}
+
+{# @var craft \craft\web\twig\variables\CraftVariable #}
+{# @var entry \craft\elements\Entry #}
+{#
+  Set Active Class
+  ------------------------------------------------------------
+  {% import '_partials/macros/_macro-isActive.twig' as macroIsActive  %}
+  {{ macroIsActive.isActive('news', -1, 'cn') }}
+#}
+{% macro isActive(segments, position, prefix, cn) %}
+  {% spaceless %}
+    {% set segments = segments|default(null) %}
+    {% set position = position|default(- 1) %}
+    {% set prefix = prefix|default(null) %}
+    {% set cn = cn|default('active') %}
+
+    {% if
+      segments is iterable
+        and craft.app.request.getSegment(position) in segments %}
+      {{ prefix ? prefix ~ cn : cn }}
+    {% elseif craft.app.request.getSegment(position) == segments %}
+      {{ prefix ? prefix ~ cn : cn }}
+    {% endif %}
+  {% endspaceless %}
+{% endmacro %}
+
+{# Loading SVG ICONS
+#
+# Tutorial: http://craftsnippets.com/articles/working-with-svg-images-in-craft-cms-templates
+#}
+{% macro svg(path, attributes, alt) %}
+  {% set attributes = attributes ? attributes : null %}
+  {% set alt = alt ? alt : null %}
+  {# settings #}
+  {% set directory = 'svg' %}
+  {# logic #}
+  {% if path is defined and path is not empty %}
+    {% set svg = svg('@webroot/assets/icons/' ~ path ~ '.svg') %}
+    {% if alt %}
+      {% set svg = svg|prepend('<title>' ~ alt ~ '</title>') %}
+    {% endif %}
+    {% if attributes and attributes is not iterable %}
+      {% set svg =
+        svg|attr({
+          class: attributes
+        })
+      %}
+    {% elseif attributes and attributes is iterable %}
+      {% set svg = svg|attr(attributes) %}
+    {% endif %}
+    {{ svg|raw }}
+  {% endif %}
+{% endmacro %}

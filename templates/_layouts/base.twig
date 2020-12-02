@@ -1,15 +1,12 @@
+{% set classDev = devMode ? 'dev' : '' %}
 <!DOCTYPE HTML>
-<html lang="{{ currentSite.language }}"
-  dir="{{ craft.app.i18n.getLocaleById(currentSite.id).getOrientation() }}">
+<html lang="{{ currentSite.language }}">
   <head>
     {% include '_layouts/_includes/head' %}
   </head>
-  <body class="{{ body_class ?? null }} {{
-    craft.app.request.isMobileBrowser()
-      ? 'is-mobile-browser'
-      : 'is-desktop-browser'
-    }}">
+  <body class="{{ classDev }}">
     {% block layout %}
+
     {% endblock %}
 
     {% include '_layouts/_includes/scripts' %}
