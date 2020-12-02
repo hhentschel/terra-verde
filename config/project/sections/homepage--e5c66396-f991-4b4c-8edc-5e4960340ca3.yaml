@@ -1,0 +1,23 @@
+enableVersioning: true
+handle: homepage
+name: Startseite
+previewTargets:
+  -
+    __assoc__:
+      -
+        - label
+        - 'Primäre eintrag Seite'
+      -
+        - urlFormat
+        - '{url}'
+      -
+        - refresh
+        - '1'
+propagationMethod: all
+siteSettings:
+  dd0cd05e-0cb9-4a76-b993-3cb70e6fc147:
+    enabledByDefault: true
+    hasUrls: true
+    template: _pages/home/index
+    uriFormat: __home__
+type: single
