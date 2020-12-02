@@ -11,7 +11,6 @@
 @import 'abstracts/functions';
 @import 'abstracts/mixins';
 @import 'abstracts/typography';
-@import 'abstracts/sizes';
 @import 'abstracts/z-index';
 @import 'abstracts/speed';
 @import 'abstracts/easings';
@@ -27,12 +26,14 @@
 @import 'layout/header';
 @import 'layout/content';
 @import 'layout/footer';
+@import 'layout/responsive-view-handler';
 
 // components
 @import 'components/buttons';
 @import 'components/formatted-text';
 @import 'components/headings';
 @import 'components/inputs';
+@import 'components/image';
 @import 'components/links';
 @import 'components/lists';
 @import 'components/selections';

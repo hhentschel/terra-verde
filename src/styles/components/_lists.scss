@@ -1,61 +1,89 @@
 // General List style
 
 // typo - if you change this, don't forget to change it in `css/utils/_typography.scss`
-$list--font-size: $font-size--base;
+$list__margin-vertical: px-to-rem($space--xm);
 
-$list--padding-left: px-to-em(18, $list--font-size);
-$list--margin-bottom: size();
+$list__item-vertical-padding: px-to-rem(3);
+$list__item-icon-text-distance: px-to-rem(6);
 
-// UL styles
-$list--ul-style-type: disc;
-$list--ul-item-color: $color--black;
-$list--ul-item-background: null;
-$list--ul-item-padding: px-to-em(5, $list--font-size) 0;
+$list__ul-item-icon-vertical-offset: px-to-rem(14);
+$list__ul-item-icon-height: px-to-rem(1);
+$list__ul-item-icon-width--level-0: px-to-rem(12);
+$list__ul-item-icon-width--level-1: $list__ul-item-icon-width--level-0 / 2;
+$list__ul-item-offset-left--level-0: $list__ul-item-icon-width--level-0 +
+  $list__item-icon-text-distance;
+$list__ul-item-offset-left--level-1: $list__ul-item-icon-width--level-1 +
+  $list__item-icon-text-distance;
 
-// OL Styles
-$list--ol-item-padding: $list--ul-item-padding;
-$list--ol-item-color: $list--ul-item-color;
-$list--ol-item-background: $list--ul-item-background;
+$list__ol-item-counter-width--level-0: px-to-rem(18);
+$list__ol-item-counter-width--level-1: px-to-rem(30);
+$list__ol-item-offset-left--level-0: $list__ol-item-counter-width--level-0 +
+  $list__item-icon-text-distance;
+$list__ol-item-offset-left--level-1: $list__ol-item-counter-width--level-1 +
+  $list__item-icon-text-distance;
 
-//OL Counter Styles
-$list--ol-counter-color: $color--primary;
-$list--ol-counter-background: null;
+$list__check-item-icon-width: px-to-rem(24);
 
+// UL & OL styles
 .list,
 .list ol,
 .list ul,
 .#{$formatted-text-class} ol,
 .#{$formatted-text-class} ul {
-  padding-left: $list--padding-left;
-  margin: 0 0 $list--margin-bottom;
+  margin: $list__margin-vertical 0;
 
   li {
+    padding-top: $list__item-vertical-padding;
+    padding-bottom: $list__item-vertical-padding;
+
+    &:before {
+      content: '';
+      float: left;
+      flex-grow: 0;
+      flex-shrink: 0;
+    }
+
     &:last-child {
       padding-bottom: 0;
     }
 
     ul,
     ol {
+      margin-top: 0;
       margin-bottom: 0;
+    }
+
+    a {
+      border-bottom: none;
+      padding-bottom: 0;
     }
   }
 }
 
-// stylelint-disable
 .list,
 .#{$formatted-text-class} ul,
 .list ul {
-  list-style-type: $list--ul-style-type;
-
   li {
-    padding: $list--ul-item-padding;
+    padding-left: $list__ul-item-icon-width--level-0 +
+      $list__item-icon-text-distance;
 
-    @if (has($list--ul-item-color)) {
-      color: $list--ul-item-color;
+    &:before {
+      height: $list__ul-item-icon-height;
+      width: $list__ul-item-icon-width--level-0;
+      margin-top: $list__ul-item-icon-vertical-offset;
+      margin-right: $list__item-icon-text-distance;
+      margin-left: -$list__ul-item-offset-left--level-0;
+      background-color: currentColor;
     }
 
-    @if (has($list--ul-item-background)) {
-      background: $list--ul-item-background;
+    li {
+      padding-left: $list__ul-item-icon-width--level-1 +
+        $list__item-icon-text-distance;
+
+      &:before {
+        width: $list__ul-item-icon-width--level-1;
+        margin-left: -$list__ul-item-offset-left--level-1;
+      }
     }
   }
 }
@@ -68,28 +96,25 @@ $list--ol-counter-background: null;
 
   li {
     counter-increment: li;
-
-    padding: $list--ol-item-padding;
+    padding-left: $list__ol-item-counter-width--level-0 +
+      $list__item-icon-text-distance;
 
     &:before {
-      content: counter(li);
-
-      display: inline-block;
-      margin-left: -1 * $list--padding-left - $list--padding-left / 2;
-      margin-right: $list--padding-left / 2;
-      width: $list--padding-left;
-
+      content: counters(li, '.') '.';
+      min-width: $list__ol-item-counter-width--level-0;
+      margin-left: -$list__ol-item-offset-left--level-0;
+      margin-right: $list__item-icon-text-distance;
       text-align: right;
-      direction: rtl;
+    }
 
-      @if (has($list--ol-counter-color)) {
-        color: $list--ol-counter-color;
-      }
+    li {
+      padding-left: $list__ol-item-counter-width--level-1 +
+        $list__item-icon-text-distance;
 
-      @if (has($list--ol-counter-background)) {
-        background: $list--ol-counter-background;
+      &:before {
+        min-width: $list__ol-item-counter-width--level-1;
+        margin-left: -$list__ol-item-offset-left--level-1;
       }
     }
   }
 }
-// stylelint-enable
