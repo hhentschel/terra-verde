@@ -1,76 +1,23 @@
 // -----------------------------------------------------------------------------
 // #FORMATTED TEXT (e.g. for WYSIWYG-Editoren)
 // -----------------------------------------------------------------------------
-.formatted-text {
+.#{$formatted-text-class} {
+  & > * {
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
   a {
     cursor: pointer;
     padding-bottom: 1px;
 
     &:empty {
       display: none;
-    }
-  }
-
-  ul,
-  ol {
-    li {
-      padding: $space--xxs 0 $space--xxs $space--m;
-
-      // stylelint-disable-next-line
-      a {
-        border-bottom: none;
-        padding-bottom: 0;
-      }
-
-      li {
-        // stylelint-disable-next-line
-        &:last-child {
-          padding-bottom: 0;
-        }
-      }
-    }
-  }
-
-  ul {
-    overflow: hidden;
-    padding: 0 0 $space--m $space--l;
-
-    // stylelint-disable-next-line
-    li {
-      &:before {
-        position: absolute;
-
-        display: block;
-        content: '';
-        height: $space--xs;
-        margin-left: -$space--m;
-        margin-right: $space--xs;
-        margin-top: $space--s;
-        width: $space--xs;
-        background-image: url($minus);
-        background-position: 50% 50%;
-        background-repeat: no-repeat;
-        background-size: 100%;
-      }
-    }
-
-    ul {
-      padding-bottom: 0;
-      padding-left: $space--l;
-    }
-  }
-
-  ol {
-    padding-bottom: $space--m;
-    padding-left: $space--xl;
-
-    ol {
-      padding-bottom: 0;
-    }
-
-    // stylelint-disable-next-line
-    li {
-      padding-left: 0;
     }
   }
 }

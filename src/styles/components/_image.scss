@@ -1,0 +1,19 @@
+.image {
+  &__wrapper {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__img {
+    display: flex;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+  }
+
+  &__caption {
+    @include typo(caption);
+
+    margin-top: px-to-rem($space--xxs);
+  }
+}

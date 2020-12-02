@@ -3,27 +3,9 @@
 // -----------------------------------------------------------------------------
 
 /**
- *  Typography
- */
-$font-size--base: 16 !global;
-
-$font-family--heading: 'Arial, sans-serif';
-$font-weight--heading: 700;
-
-$font-family--base: 'Arial, sans-serif';
-$font-weight--base: 400;
-
-$line-height--base: 1.25;
-
-/**
-*  Spacing
-*/
-$size--base: 24 !global;
-
-/**
 *  Grid
 */
-$container--max-width: 1200px !global;
+$container--max-width: 1378;
 
 /**
 *  Breakpoint Settings
@@ -42,9 +24,74 @@ $tablet-landscape--min: 901px !global;
 $tablet-landscape--max: 1200px !global;
 
 $desktop--min: 1201px !global;
-$desktop--max: 1800px !global;
+$desktop--max: 1920px !global;
 
-$desktop-big--min: 1801px !global;
+$desktop-big--min: 1921px !global;
+
+// override default breakpoint from dialog
+$dialog-breakpoint-default: $breakpoint--base;
+
+/**
+ *  Typography
+ */
+$font-size--base: 18 !global;
+
+$font-family--heading: 'Frutiger LT W01_55 Roman';
+$font-weight--heading: 400;
+
+$font-family--base: 'Frutiger LT W01_55 Roman';
+$font-weight--base: 400;
+$font-weight--base-bold: 600;
+
+$font-family--light: 'Frutiger LT W01_55 Roman'; // use 'Frutiger LT W01_45 Light'; when provided
+$font-weight--light: 400;
+
+$font-family--bold: 'Frutiger LT W01_65 Bold';
+$font-weight--bold: 400;
+
+// $line-height--xs: 1.15; // 32.5px
+$line-height--s: 1.15; // 32.5px
+$line-height--xm: 1.35; // 36px
+$line-height--m: 1.65; // 43px
+$line-height--l: 1.8; // 32px
+$line-height--base: $line-height--m;
+
+$font-size-xs: 13;
+$font-size-s: 15;
+$font-size-m: 18;
+$font-size-xm: 21;
+$font-size-l: 24;
+$font-size-xl-p: 26;
+$font-size-xl: 32;
+$font-size-xxl-p: 38;
+$font-size-xxl: 52;
+$font-size-xxxl-p: 48;
+$font-size-xxxl: 72;
+
+/**
+ * Base spacing units - for boxes (horizontal and vertical)
+ */
+$space--xxs: 3;
+$space--xs: 6;
+$space--s: 9;
+$space--m: 18;
+$space--xm: 36;
+$space--xxm: 54;
+$space--l: 72;
+$space--xl: 90;
+$space--xxl: 108;
+$space--xxxl: 140;
+
+/**
+ * Grid
+ */
+$grid__space-outer-padding-horizontal--phone: 30;
+$grid__space-outer-padding-horizontal--tablet: 60;
+$grid__space-outer-padding-horizontal--desktop: 110;
+
+$grid__space-gutter--phone: 36;
+$grid__space-gutter--tablet: 36;
+$grid__space-gutter--desktop: 60;
 
 /**
  *  CSS Framework
@@ -53,39 +100,14 @@ $desktop-big--min: 1801px !global;
 // used for conditional rendering in sass
 $sass-null: null;
 
-/**
- * Base spacing units - for boxes (horizontal and vertical)
- */
-// TODO: May change to other kind of naming/size handling
-$space--xxs: 0.1875rem; // 3px
-$space--xs: 0.375rem; // 6px
-$space--s: 0.5625rem; // 9px
-$space--m: 0.75rem; // 12px
-$space--xm: 1.125rem; // 18px
-$space--l: 1.5rem; // 24px
-$space--xl: 2.25rem; // 36px
-$space--xxl: 3rem; // 48px
-$space--xxxl: 4rem; // 64px
-$space--xxxxl: 6rem; // 96px
-
-// override default breakpoint from dialog
-$dialog-breakpoint-default: $breakpoint--base;
-
-// support for dialog-typography
-$dialog-breakpoints: (
-  phone: 'max-width: #{$phone--max}',
-  tablet-portrait: 'min-width: #{$tablet-portrait--min}',
-  tablet-landscape: 'min-width: #{$tablet-landscape--min}',
-  desktop: 'min-width: #{$desktop--min}',
-  desktop-big: 'min-width: #{$desktop-big--min}',
-);
-
-// reserved for dialog-typography
-@mixin bp($name) {
-  @media ( #{map-get( $dialog-breakpoints, $name )} ) {
-    @content;
-  }
-}
-
 // wysiwyg editor class
 $formatted-text-class: 'formatted-text';
+
+// teaser box shadow
+$teaser__box-shadow: 0 0.277rem 0.66rem rgba(15, 68, 94, 0.3); // 0 5px 12px (basierend auf 1rem = 18px)
+
+// hover scale factor
+$hover-scale-factor: 1.02;
+
+// background gradient angle
+$background-gradient__angle: 280deg;

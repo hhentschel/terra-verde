@@ -3,43 +3,209 @@
  */
 
 // transitions
-$link--transition-duration: speed();
-$link--transition-properties: color;
-$link--transition-easing: easing();
+$link__transition-duration: speed();
+$link__transition-properties: color;
+$link__transition-easing: easing();
 
 // styles
-$link--color: $color--primary;
-$link--hover-color: $color--black;
-$link--focus-color: null;
-$link--active-color: null;
+$link__color: $color--primary;
+$link__color-hover: $color--black;
 
-$link--text-decoration: none;
-$link--hover-text-decoration: null;
+$link__icon-size: px-to-rem(24);
+$link__icon-width--internal: px-to-rem(42);
+$link__icon-height--internal: px-to-rem(18);
 
-.link,
-.#{$formatted-text-class} a {
-  color: $link--color;
+$link__icon-distance: px-to-rem($space--m);
+$link__icon-distance--formatted-text: px-to-rem($space--s);
+$link__icon-distance--external: px-to-rem($space--xm);
+$link__icon-distance--external-secondary: px-to-rem($space--m);
+
+$link__icon-offset-horizontal: $link__icon-size + $link__icon-distance;
+$link__icon-offset-horizontal--formatted-text: $link__icon-size +
+  $link__icon-distance--formatted-text;
+$link__icon-offset-vertical: px-to-rem(3);
+$link__icon-offset-vertical--formatted-text: px-to-rem(6);
+
+$link__text-decoration: none;
+
+$link__button-padding: px-to-rem(15) px-to-rem(15); //tbd wenn icon vorhanden ist
+$link__button-border-radius: 3px;
+$link__button-secondary-color: $color--primary;
+$link__button-secondary-color-hover: $color--primary-hover;
+
+.link {
+  $this: &;
+
+  @include typo(linkInline);
+  @include interactionStyle(
+    color,
+    $link__color,
+    $link__color-hover,
+    $link__color-hover
+  );
+
+  display: inline-flex;
+  align-items: flex-start;
+  position: relative;
+  color: $link__color;
   cursor: pointer;
-  text-decoration: $link--text-decoration;
-  transition: $link--transition-properties $link--transition-duration
-    $link--transition-easing;
+  text-decoration: $link__text-decoration;
+  transition: $link__transition-properties $link__transition-duration
+    $link__transition-easing;
 
-  &:hover {
-    color: $link--hover-color;
-    @if (has($link--hover-text-decoration)) {
-      text-decoration: $link--hover-text-decoration;
+  &__text {
+    flex: 1 0 0;
+  }
+
+  &__icon-wrapper {
+    flex: 0 1 auto;
+
+    &--internal {
+      position: relative;
+      display: inline-flex;
+      width: $link__icon-width--internal;
+      height: $link__icon-height--internal;
+      margin-left: $link__icon-distance--external;
     }
   }
 
-  &:focus {
-    @if (has($link--focus-color)) {
-      color: $link--focus-color;
+  &__icon {
+    width: 100%;
+
+    &--internal {
+      position: absolute;
+      margin-top: px-to-rem(-$space--s);
     }
   }
 
-  &:active {
-    @if (has($link--active-color)) {
-      color: $link--active-color;
+  &--icon {
+    &-before {
+      margin-left: $link__icon-offset-horizontal;
+
+      &:before {
+        position: absolute;
+        display: inline-block;
+
+        content: '';
+        width: $link__icon-size;
+        height: $link__icon-size;
+        margin-left: -$link__icon-offset-horizontal;
+        margin-top: $link__icon-offset-vertical;
+
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-color: currentColor;
+      }
+    }
+  }
+
+  &--external {
+    &:before {
+      mask-image: url('../icons/external_24.svg');
+    }
+  }
+
+  &--download {
+    &:before {
+      mask-image: url('../icons/download_24.svg');
+    }
+  }
+
+  &--button {
+    @include typo(button);
+
+    justify-content: space-between;
+    padding: $link__button-padding;
+    margin-left: 0;
+    border: 1px solid currentColor;
+    border-radius: $link__button-border-radius;
+
+    &:before {
+      content: none;
+    }
+
+    &#{$this}--color-blue {
+      @include interactionStyle(
+        color,
+        $color--white,
+        $color--white,
+        $color--white
+      );
+      background: linear-gradient(
+        279deg,
+        $color--blue-gradient-start 0%,
+        $color--blue-gradient-end 100%
+      );
+
+      @media (hover: hover) {
+        &:hover {
+          background: $color--blue-dark;
+        }
+      }
+    }
+
+    &#{$this}--color-white {
+      @include interactionStyle(
+        color,
+        $link__button-secondary-color,
+        $link__button-secondary-color-hover,
+        $link__button-secondary-color-hover
+      );
+      @include interactionStyle(
+        border-color,
+        $link__button-secondary-color,
+        $link__button-secondary-color-hover,
+        $link__button-secondary-color-hover
+      );
+
+      background-color: $color--white;
+      border-width: 1px;
+      border-style: solid;
+
+      #{$this}__icon-wrapper--internal {
+        margin-left: $link__icon-distance--external-secondary;
+      }
+    }
+  }
+
+  &--full-width {
+    width: 100%;
+  }
+}
+
+.#{$formatted-text-class} p a {
+  @extend .link;
+
+  display: inline;
+  border-bottom: 1px solid currentColor;
+
+  // External links
+  &[rel] {
+    @extend .link--icon-before;
+    @extend .link--external;
+
+    margin-left: $link__icon-offset-horizontal--formatted-text;
+
+    &:before {
+      margin-top: $link__icon-offset-vertical--formatted-text;
+      margin-left: -$link__icon-offset-horizontal--formatted-text;
+    }
+  }
+
+  // Internal links (may extend if needed)
+  &[href$='.png'],
+  &[href$='.jpg'],
+  &[href$='.pdf'],
+  &[href$='.docx'],
+  &[href$='.xlsx'] {
+    @extend .link--icon-before;
+    @extend .link--download;
+
+    margin-left: $link__icon-offset-horizontal--formatted-text;
+
+    &:before {
+      margin-top: $link__icon-offset-vertical--formatted-text;
+      margin-left: -$link__icon-offset-horizontal--formatted-text;
     }
   }
 }

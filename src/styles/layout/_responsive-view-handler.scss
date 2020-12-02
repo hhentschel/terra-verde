@@ -1,0 +1,40 @@
+.dev {
+  &:after {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: z(overlay);
+
+    min-width: px-to-rem(36);
+    min-height: px-to-rem(36);
+    padding: px-to-rem($space--xxs) px-to-rem($space--xs);
+    background-color: $color--orange;
+    text-align: center;
+  }
+}
+
+@include breakpoint('phone', 'only') {
+  body:after {
+    content: 'xs';
+  }
+}
+@include breakpoint('tablet-portrait') {
+  body:after {
+    content: 'sm';
+  }
+}
+@include breakpoint('tablet-landscape') {
+  body:after {
+    content: 'md';
+  }
+}
+@include breakpoint('desktop') {
+  body:after {
+    content: 'lg';
+  }
+}
+@include breakpoint('desktop-big') {
+  body:after {
+    content: 'xl';
+  }
+}

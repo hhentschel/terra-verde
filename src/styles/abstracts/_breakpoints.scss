@@ -2,7 +2,7 @@
  * Map for the project breakpoints.
  * the breakpoint variables are defined in settings.scss
  */
-$breakpoints: (
+ $breakpoints: (
   phone: (
     max: $phone--max,
   ),
@@ -52,8 +52,8 @@ $dialog-breakpoints: (
  *
  * Examples:
  * @include breakpoint('tablet-portrait') -> takes the min of the tablet-portrait
- * @include breakpoint(desktop, only) -> takes the min and max value from the desktop breakpoint
- * @include breakpoint(phone, desktop) -> takes the min of the phone and the max of the desktop
+ * @include breakpoint('desktop', 'only') -> takes the min and max value from the desktop breakpoint
+ * @include breakpoint('phone', 'desktop') -> takes the min of the phone and the max of the desktop
  *
  * @param  {string} $base-key - key of the min breakpoint
  * @param  {string} $additional - key for breakpoint or 'only'

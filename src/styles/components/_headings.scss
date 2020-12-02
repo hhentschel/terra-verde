@@ -1,10 +1,5 @@
 $heading--color: $color--black;
 
-$heading--1-margin-bottom: size();
-$heading--2-margin-bottom: size();
-$heading--3-margin-bottom: size();
-$heading--4-margin-bottom: size();
-
 .heading {
   display: block;
 }
@@ -13,37 +8,62 @@ $heading--4-margin-bottom: size();
 h1,
 h2,
 h3,
-h4,
-h5,
-h6 {
+h4 {
   @include typo(heading);
-  margin-top: 0;
-
-  @if (has($heading--color)) {
-    color: $heading--color;
-  }
+  color: $color--headings;
+  word-break: break-word;
+  hyphens: auto;
 }
 
 h1,
 .heading--1 {
   @include typo(h1);
-  margin-bottom: $heading--1-margin-bottom;
+  margin: 0 0 px-to-rem($space--xm);
+
+  @include breakpoint('tablet') {
+    margin: 0 0 px-to-rem($space--xm);
+  }
 }
 
 h2,
 .heading--2 {
   @include typo(h2);
-  margin-bottom: $heading--2-margin-bottom;
+  margin: px-to-rem($space--xxm) 0 px-to-rem($space--m);
+
+  @include breakpoint('tablet') {
+    margin: px-to-rem($space--l) 0 px-to-rem($space--m);
+  }
 }
 
 h3,
 .heading--3 {
   @include typo(h3);
-  margin-bottom: $heading--3-margin-bottom;
+  margin: px-to-rem($space--xm) 0 px-to-rem($space--m);
+
+  @include breakpoint('tablet') {
+    margin: px-to-rem($space--xxm) 0 px-to-rem($space--m);
+  }
 }
 
 h4,
 .heading--4 {
   @include typo(h4);
-  margin-bottom: $heading--4-margin-bottom;
+  margin: px-to-rem($space--xm) 0 px-to-rem($space--m);
+
+  @include breakpoint('tablet') {
+    margin: px-to-rem($space--xxm) 0 px-to-rem($space--m);
+  }
+}
+
+.heading--no-margin {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.heading--no-margin-top {
+  margin-top: 0;
+}
+
+.heading--no-margin-bottom {
+  margin-bottom: 0;
 }
