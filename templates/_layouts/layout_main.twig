@@ -2,10 +2,18 @@
 
 {% block layout %}
   {% include '_layouts/_includes/header' %}
+  {% if craft.app.request.isMobileBrowser() %}
+    <div class="mobile-nav">
+      {% include '_components/_nav/_nav-main/nav-main-phone' %}
+    </div>
+  {% endif %}
 
   <main role="main">
-    {% block content %}
-    {% endblock %}
+    <div class="content">
+      {% block content %}
+
+      {% endblock %}
+    </div>
   </main>
 
   {% include '_layouts/_includes/footer' %}

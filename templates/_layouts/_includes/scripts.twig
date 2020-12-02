@@ -1,11 +1,2 @@
-{% if devMode %}
-  <script type="module"
-    src="assets/scripts/modules/regular-example.js"></script>
-  <script type="module"
-    src="assets/scripts/modules/multiple-export-example.js"></script>
-  <script type="module"
-    src="assets/scripts/modules/singleton-example.js"></script>
-  <script type="module" src="assets/scripts/main.js"></script>
-{% else %}
-  <script src="assets/scripts/main.min.js"></script>
-{% endif %}
+{% set file = devMode ? 'main.js' : 'main.min.js' %}
+<script src="{{ alias('@web') }}/assets/scripts/{{ file }}"></script>
