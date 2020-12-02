@@ -1,0 +1,25 @@
+/**
+ * Sets :hover and :active style based on @media (hover: hover)
+ */
+/* stylelint-disable-next-line at-rule-name-newline-after */
+@mixin interactionStyle(
+  $property: color,
+  $value: '',
+  $valueHover: $value,
+  $valueActive: $value
+) {
+  #{$property}: $value;
+
+  &:hover {
+    // prevent value beeing set differently on hover on touch devices (e.g. by bootstrap)
+    #{$property}: $value;
+
+    @media (hover: hover) {
+      #{$property}: $valueHover;
+    }
+  }
+
+  &:not(:disabled):not(.disabled):active {
+    #{$property}: $valueActive;
+  }
+}
