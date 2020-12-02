@@ -6,25 +6,78 @@ $color--white: #fff !default;
 $color--black: #000 !default;
 
 /* grey */
-$color--grey: #767676;
-$color--grey-darkest: #444;
+$color--grey: #a3a3a3;
+$color--grey-darkest: #363636;
 $color--grey-darker: #666;
-$color--grey-dark: #808080;
+$color--grey-dark: #848484;
+$color--grey-light: #c2c2c2;
+$color--grey-lighter: #e0e0e0;
+$color--grey-lightest: #f8f8f8;
 
-$color--grey-light: #d9d9d9;
-$color--grey-lighter: #e7e7e7;
-$color--grey-lightest: #f7f7f7;
+$color--grey-gradient-start: #f7f7f9;
+$color--grey-gradient-end: #e9ebef;
+
+// blue
+$color--blue: #369;
+$color--blue-dark: #0d3256;
+$color--blue-light: #6e849a;
+$color--blue-lighter: #9eadbb;
+$color--blue-lightest: #e6f6ff;
+
+$color--blue-gradient-start: #0f4880;
+$color--blue-gradient-end: #326aa1;
+$color--blue-gradient-primary-end: #2f6ba7;
+
+// turquoise
+$color--turqoise: #9cc;
+$color--turqoise-dark: #5e8e8e;
+$color--turqoise-light: #c1e0e0;
+
+// red
+$color--red: #ba3c51;
+$color--red-dark: #9e5662;
+$color--red-light: #c99;
+
+$color--red-gradient-start: #9e6069;
+$color--red-gradient-end: #be828c;
+
+// green
+$color--green-gradient-start: rgba(124, 180, 180, 0.4);
+$color--green-gradient-end: rgba(153, 204, 204, 0.4);
+
+// orange
+$color--orange: #c93;
+$color--orange-dark: #b4821f;
+$color--orange-light: #dbb770;
+
+//disabled
+$color--disabled: #94a3b2;
+
+/* primary */
+$color--primary: $color--blue;
+$color--primary-hover: $color--blue-dark;
+$color--primary-gradient-start: $color--blue;
+$color--primary-gradient-end: $color--blue-gradient-primary-end;
+$color--primary-disabled: $color--disabled;
+
+/* secondary */
+$color--secondary: $color--red;
+$color--secondary-hover: $color--red-dark;
+$color--secondary-gradient-start: $color--red-gradient-start;
+$color--secondary-gradient-end: $color--red-gradient-end;
+$color--secondary-disabled: $color--disabled;
+
+/* special */
+$color--special-gradient-start: $color--green-gradient-start;
+$color--special-gradient-end: $color--green-gradient-end;
+$color--special-disabled: $color--disabled;
+
+/* text */
+$color--text: $color--blue-dark;
+$color--hover-text: $color--black;
+$color--headings: $color--blue-dark;
+$color--meta: $color--grey-darker;
 
 $color--disabled-text: $color--grey-light;
 $color--disabled-background: $color--grey-lightest;
 $color--disabled-border: $color--grey-lighter;
-
-/* primary */
-$color--primary: #f47f4e;
-
-/* secondary */
-$color--secondary: #234;
-
-/* text */
-$color--text: #333;
-$color--hover-text: $color--black;

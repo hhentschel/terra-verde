@@ -5,71 +5,203 @@
 /**
  *  Phone - standard defined in `utils/settings`
  */
-$typography--phone: (
+ $typography--phone: (
   default: (
-    font-size: px-to-rem(16),
-  ),
-  title: (
-    font-size: px-to-rem(28),
+    font-size: px-to-rem($font-size-m),
   ),
   heading: (
     font-family: $font-family--heading,
     font-weight: $font-weight--heading,
   ),
+  button: (
+    font-size: px-to-rem($font-size-s),
+    line-height: $line-height--m,
+  ),
   input: (),
+  title: (
+    font-size: px-to-rem($font-size-xm),
+  ),
   h1: (
-    font-size: px-to-rem(32),
+    font-size: px-to-rem($font-size-xxl-p),
+    line-height: $line-height--s,
   ),
   h2: (
-    font-size: px-to-rem(24),
+    font-size: px-to-rem($font-size-xl),
+    line-height: $line-height--xm,
   ),
   h3: (
-    font-size: px-to-rem(18),
+    font-size: px-to-rem($font-size-xl-p),
+    line-height: $line-height--m,
   ),
   h4: (
-    font-size: px-to-rem(16),
+    font-size: px-to-rem($font-size-xm),
+    line-height: $line-height--xm,
   ),
-  test: (
-    font-family: $font-family--heading,
-    font-weight: $font-weight--heading,
-    font-size: px-to-rem(28),
+  lead: (
+    font-family: $font-family--base,
+    font-size: px-to-rem($font-size-xl),
+    font-weight: $font-weight--base,
+  ),
+  p: (
+    font-family: $font-family--light,
+    font-size: px-to-rem($font-size-m),
+    font-weight: $font-weight--light,
+    line-height: $line-height--s,
+  ),
+  linkInline: (
+    font-weight: $font-weight--base-bold,
+  ),
+  pills: (
+    font-size: px-to-rem($font-size-s),
+  ),
+  teaserFormLeafletsTitle: (
+    font-size: px-to-rem($font-size-l),
+  ),
+  navMain: (
+    font-size: px-to-rem($font-size-s),
+  ),
+  navServiceDesktop: (
+    font-size: px-to-rem($font-size-s),
+  ),
+  navMainLightText: (
+    font-family: $font-family--light,
+  ),
+  navMainMainText: (
+    font-family: $font-family--bold,
+  ),
+  navMainFlyoutTitle: (
+    font-family: $font-family--base,
+    font-size: px-to-rem($font-size-xm),
+  ),
+  navLanguageTriggerActive: (
+    font-family: $font-family--bold,
+  ),
+  navMainMobileBold: (
+    font-family: $font-family--bold,
+    font-size: px-to-rem($font-size-s),
+  ),
+  navMainMobileText: (
+    font-size: px-to-rem($font-size-s),
+  ),
+  navServiceMobile: (
+    font-size: px-to-rem($font-size-xs),
+  ),
+  navMainMobileHeader: (
+    font-size: px-to-rem($font-size-s),
+  ),
+  linkButton: (
+    font-size: px-to-rem($font-size-s),
+  ),
+  linkButtonBig: (
+    font-size: px-to-rem($font-size-m),
+  ),
+  teaserNavTextTitle: (
+    font-size: px-to-rem($font-size-xm),
+  ),
+  teaserNavTextParagraph: (
+    font-size: px-to-rem($font-size-s),
+  ),
+  teaserNavIconTitle: (
+    font-size: px-to-rem($font-size-s),
+  ),
+  teaserNewsMeta: (
+    font-size: px-to-rem($font-size-s),
+  ),
+  teaserNewsTitle: (
+    font-size: px-to-rem($font-size-xm),
+  ),
+  accordionTitle: (
+    font-size: px-to-rem($font-size-xm),
+  ),
+  caption: (
+    font-size: px-to-rem($font-size-s),
   ),
 );
 
 /**
  *  Tablet portrait
  */
-$typography--tablet-portrait: ();
+$typography--tablet-portrait: (
+  title: (
+    font-size: px-to-rem($font-size-xl),
+  ),
+  h1: (
+    font-size: px-to-rem($font-size-xxxl),
+  ),
+  h2: (
+    font-size: px-to-rem($font-size-xl),
+  ),
+  h3: (
+    font-size: px-to-rem($font-size-xl-p),
+    line-height: $line-height--xm,
+  ),
+  h4: (
+    font-size: px-to-rem($font-size-l),
+  ),
+  lead: (
+    font-size: px-to-rem($font-size-l),
+  ),
+  navMainFlyoutTitle: (
+    font-size: px-to-rem($font-size-l),
+  ),
+  teaserNavTextTitle: (
+    font-size: px-to-rem($font-size-l),
+  ),
+  teaserNavTextParagraph: (
+    font-size: px-to-rem($font-size-m),
+  ),
+  teaserNavIconTitle: (
+    font-size: px-to-rem($font-size-m),
+  ),
+  teaserNewsMeta: (
+    font-size: px-to-rem($font-size-m),
+  ),
+  teaserNewsTitle: (
+    font-size: px-to-rem($font-size-l),
+  ),
+  accordionTitle: (
+    font-size: px-to-rem($font-size-l),
+  ),
+);
 
 /**
  *  Tablet landscape
  */
-$typography--tablet-landscape: ();
+$typography--tablet-landscape: (
+  h2: (
+    font-size: px-to-rem($font-size-xxl),
+  ),
+);
 
 /**
  *  Desktop
  */
 $typography--desktop: (
-  default: (
-    font-size: px-to-rem(18),
-  ),
-  title: (
-    font-size: px-to-rem(48),
-  ),
   h1: (
-    font-size: px-to-rem(48),
+    font-size: px-to-rem($font-size-xxxl),
+    line-height: $line-height--s,
   ),
   h2: (
-    font-size: px-to-rem(36),
+    font-size: px-to-rem($font-size-xxl),
+    line-height: $line-height--xm,
   ),
   h3: (
-    font-size: px-to-rem(24),
+    font-size: px-to-rem($font-size-xl),
+    line-height: $line-height--xm,
   ),
   h4: (
-    font-size: px-to-rem(18),
+    font-size: px-to-rem($font-size-xm),
+    line-height: $line-height--s,
   ),
-  test: (
-    font-size: px-to-rem(348),
+  lead: (
+    font-family: $font-family--base,
+    font-size: px-to-rem($font-size-xl),
+    font-weight: $font-weight--base,
+  ),
+  p: (
+    font-family: $font-family--light,
+    font-size: px-to-rem($font-size-m),
+    font-weight: $font-weight--light,
   ),
 );
 
