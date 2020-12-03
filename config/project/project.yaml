@@ -1,8 +1,21 @@
-dateModified: 1606903260
+dateModified: 1607020852
 email:
   fromEmail: p@henrik-hentschel.de
   fromName: 'Terra Verde'
   transportType: craft\mail\transportadapters\Sendmail
+plugins:
+  commerce:
+    edition: pro
+    enabled: true
+    schemaVersion: 3.2.9
+  feed-me:
+    edition: standard
+    enabled: true
+    schemaVersion: 4.3.0
+  redactor:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.3.0
 system:
   edition: pro
   live: true

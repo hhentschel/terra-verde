@@ -1,0 +1,18 @@
+contentColumnType: text
+fieldGroup: 842f167d-10b6-44fb-826b-d13831f73ff9
+handle: homepage
+instructions: ''
+name: Startseite
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: null
+  code: ''
+  columnType: null
+  initialRows: '4'
+  multiline: ''
+  placeholder: ''
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText
