@@ -83,6 +83,21 @@
   {% endspaceless %}
 {% endmacro %}
 
+{% macro activeLinkClass(linkUri, requestSegmentNumber) %}
+
+    {# Request the relevant path segment in the URL #}
+    {% set nthRequestSegment = craft.app.request.segment(requestSegmentNumber) %}
+
+    {# Split the link's URI into a list of path segments #}
+    {% set linkSegments = linkUri|split('/') %}
+
+    {# Get the path segment relevant for our comparison #}
+    {% set nthLinkSegment = linkSegments[requestSegmentNumber - 1] %}
+
+    {# Return `active` if the nthLinkSegment equals the nthRequestSegment #}
+    {% if nthLinkSegment == nthRequestSegment %}active{% endif %}
+
+{% endmacro %}
 {# Loading SVG ICONS
 #
 # Tutorial: http://craftsnippets.com/articles/working-with-svg-images-in-craft-cms-templates
