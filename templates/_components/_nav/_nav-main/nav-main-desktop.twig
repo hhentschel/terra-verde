@@ -1,0 +1,59 @@
+
+
+{# ARBEITNEHMENDE & PENSIONIERTE DB QUERY #}
+{#% set navNew = craft.entries.section('newStructure').status(null).all() %#}
+
+{# ÜBER UNS & ORGANISATION, JOBS & MEHR #}
+{#% set navAboutUs = craft.entries.section('aboutUsStructure').level(1).all() %#}
+
+
+{# IMPORT MACROS #}
+{% import '_helpers/macros.twig' as macros %}
+
+
+
+{% set homeLink = craft.entries.section('homepage').one() %}
+{% set ueberunsLink = craft.entries.section('aboutUsStructure').one()  %}
+{% set neuesLink = craft.entries.section('newStructure').one() %}
+{% set verkaufsstellenLink = craft.entries.section('sellingPointsStructure').one() %}
+{% set produzentenLink = craft.entries.section('producersStructure').one() %}
+{% set detailhandelLink = craft.entries.section('retailTradeStructure').one() %}
+
+
+{% set url = craft.app.request.pathInfo %}
+
+
+<nav class="nav-main" role="navigation">
+  <h2 class="visually-hidden">
+    {{ 'nav.mainNavigation'|t }}
+  </h2>
+  <ul class="nav-main__list">
+
+    <li>
+      <a class="nav__link {% if craft.app.request.segments|last == "" %}active{% endif %}" href="/">{{ "Home"|t }}</a>
+    </li>
+
+    <li>
+        <a class="nav__link {{ macros.activeLinkClass(ueberunsLink.uri, ueberunsLink.level) }}" href="{{ ueberunsLink.url }}">{{ "Uber uns"|t }}</a>
+    </li>
+
+    <li>
+      <a class="nav__link {{ macros.activeLinkClass(neuesLink.uri, neuesLink.level) }}" href="{{ neuesLink.url }}">{{ "Neues"|t }}</a>
+    </li>
+
+    <li>
+      <a class="nav__link {{ macros.activeLinkClass(verkaufsstellenLink.uri, verkaufsstellenLink.level) }}" href="{{ verkaufsstellenLink.url }}">{{ "Verkaufsstellen"|t }}</a>
+    </li>
+
+    <li>
+        <a class="nav__link {{ macros.activeLinkClass(produzentenLink.uri, produzentenLink.level) }}" href="{{ produzentenLink.url }}">{{ "Produzenten"|t }}</a>
+    </li>
+
+    <li>
+      <a class="nav__link {{ macros.activeLinkClass(detailhandelLink.uri, detailhandelLink.level) }}" href="{{ detailhandelLink.url }}">{{ "Detailhandel"|t }}</a>
+    </li>
+
+
+  </ul>
+
+</nav>
