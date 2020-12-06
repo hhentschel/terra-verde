@@ -1,11 +1,13 @@
 {% extends '_layouts/base' %}
 
+
 {% block layout %}
+  <div class="grid">
   {% include '_layouts/_includes/header' %}
   {% if craft.app.request.isMobileBrowser() %}
-    <div class="mobile-nav">
-      {% include '_components/_nav/_nav-main/nav-main-mobile' %}
-    </div>
+  <div class="mobile-nav">
+    {% include '_components/_nav/_nav-main/nav-main-mobile' %}
+  </div>
   {% endif %}
 
   {% include '_layouts/_includes/sidebar' %}
@@ -19,4 +21,5 @@
   </main>
 
   {% include '_layouts/_includes/footer' %}
+</div>
 {% endblock %}

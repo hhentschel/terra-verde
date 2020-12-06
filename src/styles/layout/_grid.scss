@@ -57,7 +57,7 @@
 .grid {
   @supports (display: grid) {
   display: grid;
-  grid-gap: 10px;
+  grid-gap: 0;
   grid-template-columns: repeat(4, [col] 25% ) ;
   grid-template-rows: repeat(3, [row] auto  );
   background-color: #fff;
