@@ -1,5 +1,5 @@
 {# This is the Store Product View template #}
-{% extends "_layouts/main" %}
+{% extends "/_layouts/main" %}
 
 
 
@@ -9,7 +9,7 @@
     <div class="row">
         <div class="intro large-12 small-12 columns ">
             <p>
-                <small><a href="/shop">&larr;Supplies</a></small>
+                <small><a href="/shop">&larr; zurück zum Shop</a></small>
             </p>
         </div>
 
@@ -48,7 +48,7 @@
                        value="commerce/cart/update-cart">
                 <input type="hidden" name="cartUpdatedNotice"
                        value="Added {{ product.title }} to the cart.">
-                {{ redirectInput('store/cart') }}
+                {{ redirectInput('shop/cart') }}
                 {{ csrfInput() }}
                 <input type="hidden" name="qty" value="1">
                 <input type="hidden" name="purchasableId"

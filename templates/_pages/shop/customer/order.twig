@@ -2,7 +2,7 @@
 {% set number = craft.app.request.param('number') %}
 {% set order = craft.orders().number(number).one() %}
 {% if not order %}
-    {% redirect 'store/customer' %}
+    {% redirect 'shop/customer' %}
 {% endif %}
 {% block main %}
     <div class="row">

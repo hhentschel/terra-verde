@@ -11,7 +11,7 @@
             <h4>Shipping Method</h4>
             <form method="post">
                 <input type="hidden" name="action" value="commerce/cart/update-cart">
-                {{ redirectInput('store/checkout/payment') }}
+                {{ redirectInput('shop/checkout/payment') }}
                 {{ csrfInput() }}
                 {% for handle, method in cart.availableShippingMethods %}
                     <div class="shipping-options">

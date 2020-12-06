@@ -4,7 +4,7 @@
     {% set states = craft.commerce.states.allEnabledStates %}
     <form method="post">
         <input type="hidden" name="action" value="commerce/cart/update-cart">
-        {{ redirectInput('store/checkout/shipping') }}
+        {{ redirectInput('shop/checkout/shipping') }}
         {{ csrfInput() }}
         <div class="row">
             <div class="intro large-12 small-12 columns">
