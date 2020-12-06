@@ -10,7 +10,9 @@
   </div>
   {% endif %}
 
-  {% include '_layouts/_includes/sidebar' %}
+  {% if craft.app.request.absoluteUrl != siteUrl %}
+    {% include '_layouts/_includes/sidebar' %}
+  {% endif %}
 
   <main role="main" class="main">
     <div class="content">
