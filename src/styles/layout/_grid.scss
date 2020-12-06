@@ -13,6 +13,11 @@
   grid-template-rows: repeat(3, [row] auto  );
   background-color: #fff;
   color: #444;
+
+  > * {
+    width: 100%;
+    float: none;
+  }
   }
 }
 
