@@ -1,0 +1,91 @@
+// FLEXBOX CSS GRID
+// by Laptev Pavel
+// https://pavellaptev.github.io/
+
+// VARiABLES
+$grid-columns: 12;
+
+// phone grid
+$grid-phone-sideMargin: px-to-rem($grid__space-outer-padding-horizontal--phone);
+$grid-phone-gutter: px-to-rem($grid__space-gutter--phone);
+
+// tablet grid
+$grid-tablet-sideMargin: px-to-rem(
+  $grid__space-outer-padding-horizontal--tablet
+);
+$grid-tablet-gutter: px-to-rem($grid__space-gutter--tablet);
+
+// desktop grid
+$grid-desktop-sideMargin: px-to-rem(
+  $grid__space-outer-padding-horizontal--desktop
+);
+$grid-desktop-gutter: px-to-rem($grid__space-gutter--desktop);
+
+// FUNCTIONS AND MiXINS
+@function col-width($i, $columns) {
+  @return 100% / $columns * $i;
+}
+
+@mixin row-props($gutter) {
+  display: flex;
+  flex-wrap: wrap;
+  width: calc(100% + #{$gutter});
+  margin-left: -$gutter/2;
+  margin-right: -$gutter/2;
+}
+@mixin col-props($i, $columns, $gutter) {
+  width: col-width($i, $columns);
+  padding-left: $gutter/2;
+  padding-right: $gutter/2;
+}
+@mixin columns-loop($name, $columns, $gutter) {
+  @for $i from 0 through $columns {
+    &-#{$name}-#{$i} {
+      @include col-props($i, $columns, $gutter);
+    }
+
+    &-#{$name}-shift-#{$i} {
+      margin-left: col-width($i, $columns);
+    }
+  }
+}
+@mixin grid-base() {
+  max-width: px-to-rem($container--max-width);
+  margin: 0 auto;
+  padding-left: $grid-phone-sideMargin;
+  padding-right: $grid-phone-sideMargin;
+
+  @include breakpoint('tablet-landscape') {
+    padding-left: $grid-tablet-sideMargin;
+    padding-right: $grid-tablet-sideMargin;
+  }
+  @include breakpoint('desktop') {
+    padding-left: $grid-desktop-sideMargin;
+    padding-right: $grid-desktop-sideMargin;
+  }
+}
+
+// CLASSES
+.grid {
+  @include grid-base();
+}
+
+.row {
+  @include row-props($grid-phone-gutter);
+  @include breakpoint('tablet') {
+    @include row-props($grid-tablet-gutter);
+  }
+  @include breakpoint('desktop') {
+    @include row-props($grid-desktop-gutter);
+  }
+}
+
+.col {
+  @include columns-loop(xs, $grid-columns, $grid-phone-gutter);
+  @include breakpoint('tablet') {
+    @include columns-loop(md, $grid-columns, $grid-tablet-gutter);
+  }
+  @include breakpoint('desktop') {
+    @include columns-loop(lg, $grid-columns, $grid-desktop-gutter);
+  }
+}
