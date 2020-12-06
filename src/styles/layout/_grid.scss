@@ -26,6 +26,8 @@
   }
 }
 .sidebar {
+  width: 25%;
+  float: left;
   @supports (display: grid) {
   grid-column: col ;
   grid-row: row 2 ;
@@ -33,6 +35,8 @@
   }
 }
 .main {
+  width: 75%;
+  float: left;
   @supports (display: grid) {
   grid-column: col 2 / span 3 ;
   grid-row: row 2 ;
@@ -41,6 +45,8 @@
 }
 
 .footer {
+  width: 100%;
+  
   @supports (display: grid) {
   grid-column: col / span 4;
   grid-row: row 3;
