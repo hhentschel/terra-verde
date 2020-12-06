@@ -1,8 +1,40 @@
 
+$grid-phone-sideMargin: px-to-rem($grid__space-outer-padding-horizontal--phone);
+$grid-phone-gutter: px-to-rem($grid__space-gutter--phone);
+
+// tablet grid
+$grid-tablet-sideMargin: px-to-rem(
+  $grid__space-outer-padding-horizontal--tablet
+);
+$grid-tablet-gutter: px-to-rem($grid__space-gutter--tablet);
+
+// desktop grid
+$grid-desktop-sideMargin: px-to-rem(
+  $grid__space-outer-padding-horizontal--desktop
+);
+$grid-desktop-gutter: px-to-rem($grid__space-gutter--desktop);
+
 
 // CLASSES
 .grid {
+  // $this: &;
+
   display: table-cell;
+
+  max-width: px-to-rem($container--max-width);
+  margin: 0 auto;
+
+  padding-left: $grid-phone-sideMargin;
+  padding-right: $grid-phone-sideMargin;
+
+  @include breakpoint('tablet-landscape') {
+    padding-left: $grid-tablet-sideMargin;
+    padding-right: $grid-tablet-sideMargin;
+  }
+  @include breakpoint('desktop') {
+    padding-left: $grid-desktop-sideMargin;
+    padding-right: $grid-desktop-sideMargin;
+  }
 }
 
 
@@ -41,6 +73,11 @@
   @supports (display: grid) {
   grid-column: col 2 / span 3 ;
   grid-row: row 2 ;
+  
+  .page--home & {
+    grid-column: col 1 / span 4 ;
+
+  }
   }
 }
 
