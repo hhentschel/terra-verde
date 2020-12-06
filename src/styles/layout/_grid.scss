@@ -2,7 +2,7 @@
 
 // CLASSES
 .grid {
-  display: flex;
+  display: table-cell;
 }
 
 
@@ -13,7 +13,7 @@
   @supports (display: grid) {
   grid-column: col / span 1;
   grid-row: row ;
-  background: lightblue;
+  background-color: lightblue;
   }
 }
 .header {
@@ -22,21 +22,21 @@
   @supports (display: grid) {
   grid-column: col 2 / span 3 ;
   grid-row: row ;
-  background: lightcoral;
+  background-color: lightcoral;
   }
 }
 .sidebar {
   @supports (display: grid) {
   grid-column: col ;
   grid-row: row 2 ;
-  background: lightgoldenrodyellow;
+  background-color: lightgoldenrodyellow;
   }
 }
 .main {
   @supports (display: grid) {
   grid-column: col 2 / span 3 ;
   grid-row: row 2 ;
-  background: lightgreen;
+  background-color: lightgreen;
   }
 }
 
@@ -44,7 +44,7 @@
   @supports (display: grid) {
   grid-column: col / span 4;
   grid-row: row 3;
-  background: lightsalmon;
+  background-color: lightsalmon;
   }
 }
 
