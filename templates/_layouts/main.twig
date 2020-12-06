@@ -8,10 +8,12 @@
     </div>
   {% endif %}
 
-  <main role="main">
+  {% include '_layouts/_includes/sidebar' %}
+
+  <main role="main" class="main">
     <div class="content">
       {% block content %}
-        hallo
+
       {% endblock %}
     </div>
   </main>
