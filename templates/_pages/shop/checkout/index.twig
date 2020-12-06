@@ -1,7 +1,7 @@
 {% if currentUser %}
-    {% redirect 'store/checkout/addresses' %}
+    {% redirect 'shop/checkout/addresses' %}
 {% endif %}
-{% extends "_layouts/main" %}
+{% extends "/_layouts/main" %}
 {% set cart = craft.commerce.carts.cart %}
 
 {% block main %}
@@ -14,7 +14,7 @@
             <form method="post" accept-charset="UTF-8">
                 {{ csrfInput() }}
                 <input type="hidden" name="action" value="users/login">
-                {{ redirectInput('store/checkout/addresses') }}
+                {{ redirectInput('shop/checkout/addresses') }}
                 <label for="loginName">Email</label>
                 <input id="loginName" class="u-full-width" type="text"
                        name="loginName" placeholder="email@site.com"
@@ -37,7 +37,7 @@
             <form method="POST">
                 <input type="hidden" name="action"
                        value="commerce/cart/update-cart">
-                {{ redirectInput('store/checkout/addresses') }}
+                {{ redirectInput('shop/checkout/addresses') }}
                 {{ csrfInput() }}
                 <label for="">Email</label>
                 <input class="u-full-width" type="text" value="{{ cart.email }}"

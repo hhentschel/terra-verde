@@ -22,7 +22,7 @@
             {% set customerOrders = craft.orders.customerId(craft.commerce.customers.customer).isCompleted(true).all() %}
             {% for order in customerOrders %}
                 <tr>
-                    <td><a href="{{ url('store/customer/order', { number: order.number }) }}">Order #{{ order.id }}</a></td>
+                    <td><a href="{{ url('shop/customer/order', { number: order.number }) }}">Order #{{ order.id }}</a></td>
                     <td>{{ order.dateOrdered | date }}</td>
                     <td>{{ order.totalQty }} item{% if order.totalQty > 1 %}s{% endif %}</td>
                     <td>{{ order.totalPrice | currency(order.currency) }}</td>
@@ -35,7 +35,7 @@
     <div class="row">
         {% set cartItems = craft.commerce.carts.cart %}
         {% if cartItems.hasLineItems() %}
-            <a href="/store/cart" class="button medium secondary">Finish Your Current Order</a>
+            <a href="/shop/cart" class="button medium secondary">Finish Your Current Order</a>
         {% endif %}
     </div>
 {% endblock %}

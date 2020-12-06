@@ -34,7 +34,7 @@ style="background-size: 100%; height: 200px; background-image: linear-gradient(r
                      value="commerce/cart/update-cart">
               <input type="hidden" name="cartUpdatedNotice"
                      value="Updated line items.">
-              {{ redirectInput('store/cart') }}
+              {{ redirectInput('shop/cart') }}
               {{ csrfInput() }}
               <tr>
                   <td style="width:5%;">
@@ -89,7 +89,7 @@ style="background-size: 100%; height: 200px; background-image: linear-gradient(r
                   <form method="POST">
                       <input type="hidden" name="action"
                              value="commerce/cart/update-cart">
-                      {{ redirectInput('store/cart') }}
+                      {{ redirectInput('shop/cart') }}
                       {{ csrfInput() }}
                       <input type="text"
                              name="couponCode"
@@ -120,11 +120,11 @@ style="background-size: 100%; height: 200px; background-image: linear-gradient(r
           </tbody>
       </table>
       <a class="button medium secondary radius"
-         href="{{ url('/store') }}">Continue Shopping</a>
+         href="{{ url('/shop') }}">Continue Shopping</a>
       <a class="button medium primary radius"
-         href="{{ url('store/checkout') }}">Checkout</a>
+         href="{{ url('shop/checkout') }}">Checkout</a>
   {% else %}
-      <p>You have no items in the cart. <a href="/store">Add some and
+      <p>You have no items in the cart. <a href="/shop">Add some and
               get brewing!</a></p>
   {% endif %}
 </div>

@@ -12,7 +12,8 @@
 
 <ul>
 
-  {% set products = craft.products().type('whitewine').limit(10).all() %}
+  {#% set products = craft.products().type('whitewine').limit(10).all() %#}
+  {% set products = craft.products().limit(10).all() %}
 
   {% for product in products %}
     <li>
