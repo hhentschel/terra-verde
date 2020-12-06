@@ -2,37 +2,57 @@
 
 // CLASSES
 .grid {
+  display: flex;
+}
+
+.grid {
+  @supports (display: grid) {
   display: grid;
   grid-gap: 10px;
   grid-template-columns: repeat(4, [col] 25% ) ;
   grid-template-rows: repeat(3, [row] auto  );
   background-color: #fff;
   color: #444;
+  }
 }
 
 .logo {
+  width: 25%;
+  float: left;
+  @supports (display: grid) {
   grid-column: col / span 1;
   grid-row: row ;
-  background: lightblue
+  background: lightblue;
+  }
 }
 .header {
+  width: 75%;
+  float: left;
+  @supports (display: grid) {
   grid-column: col 2 / span 3 ;
   grid-row: row ;
   background: lightcoral;
+  }
 }
 .sidebar {
+  @supports (display: grid) {
   grid-column: col ;
   grid-row: row 2 ;
-  background: lightgoldenrodyellow
+  background: lightgoldenrodyellow;
+  }
 }
 .main {
+  @supports (display: grid) {
   grid-column: col 2 / span 3 ;
   grid-row: row 2 ;
-  background: lightgreen
+  background: lightgreen;
+  }
 }
 
 .footer {
+  @supports (display: grid) {
   grid-column: col / span 4;
   grid-row: row 3;
   background: lightsalmon;
+  }
 }
