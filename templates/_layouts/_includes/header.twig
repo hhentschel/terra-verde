@@ -1,5 +1,13 @@
 <div class="logo">
-  LOGO
+  <a class="header__logo-link" href="/{{ currentSite.language }}">
+    <img class="header__logo"
+      src="{{
+      alias(
+        '@rootUrl'
+      )
+      }}/assets/images/logo/TerraVerde_jpg_gross.jpeg"
+      alt="Gastrosocial Logo" />
+  </a>
 </div>
 
 <header class="header">
@@ -38,15 +46,7 @@
 
         <div class="header__content-desktop">
           <div class="header__top-row">
-            <a class="header__logo-link" href="/{{ currentSite.language }}">
-              <img class="header__logo"
-                src="{{
-                alias(
-                  '@rootUrl'
-                )
-                }}/assets/images/logo/TerraVerde_jpg_gross.jpeg"
-                alt="Gastrosocial Logo" />
-            </a>
+
             <div class="header__nav-service">
               {% include '_components/_nav/_nav-service/nav-service-desktop' %}
             </div>
