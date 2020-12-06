@@ -10,47 +10,47 @@
 .logo {
   width: 25%;
   float: left;
+  background-color: #add8e6;
   @supports (display: grid) {
   grid-column: col / span 1;
   grid-row: row ;
-  background-color: #add8e6;
   }
 }
 .header {
   width: 75%;
   float: left;
+  background-color: #f08080;
   @supports (display: grid) {
   grid-column: col 2 / span 3 ;
   grid-row: row ;
-  background-color: #f08080;
   }
 }
 .sidebar {
   width: 25%;
   float: left;
+  background-color: #fafad2;
   @supports (display: grid) {
   grid-column: col ;
   grid-row: row 2 ;
-  background-color: #fafad2;
   }
 }
 .main {
   width: 75%;
   float: left;
+  background-color: #90ee90;
   @supports (display: grid) {
   grid-column: col 2 / span 3 ;
   grid-row: row 2 ;
-  background-color: #90ee90;
   }
 }
 
 .footer {
   width: 100%;
+  background-color: #ffa07a;
   
   @supports (display: grid) {
   grid-column: col / span 4;
   grid-row: row 3;
-  background-color: #ffa07a;
   }
 }
 
