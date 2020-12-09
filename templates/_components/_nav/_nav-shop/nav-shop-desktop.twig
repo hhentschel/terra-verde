@@ -1,0 +1,16 @@
+
+{% if cart.lineItems|length %}
+<div class="">
+  <div class="">
+    <div class="">
+      <div>
+        <a class="" href=" {{ url('shop/cart') }}">
+          {% if cart.totalQty %}<span  class="">{{ cart.totalQty }}</span>{% endif %}
+          {% include 'shop/_images/cart.svg' %}
+          <strong class="">({{ cart.itemSubtotal|currency(cart.currency) }})</strong>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endif %}

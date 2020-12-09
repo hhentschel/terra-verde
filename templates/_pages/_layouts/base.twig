@@ -1,0 +1,14 @@
+{% set classDev = devMode ? 'dev' : '' %}
+<!DOCTYPE HTML>
+<html lang="{{ currentSite.language }}">
+  <head>
+    {% include '_layouts/_includes/head' %}
+  </head>
+  <body class="{{ classDev }} {% if bodyClass is defined %}page--{{ bodyClass }}{% endif %}">
+    {% block layout %}
+
+    {% endblock %}
+
+    {% include '_layouts/_includes/scripts' %}
+  </body>
+</html>
