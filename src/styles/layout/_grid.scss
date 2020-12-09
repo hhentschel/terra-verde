@@ -45,7 +45,7 @@ $grid-desktop-gutter: px-to-rem($grid__space-gutter--desktop);
   background-color: #add8e6;
   @supports (display: grid) {
   grid-column: col / span 1;
-  grid-row: row ;
+  grid-row: row;
   }
 }
 .header {
