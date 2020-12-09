@@ -1,13 +1,13 @@
 {% if currentUser %}
     {% redirect 'shop/checkout/addresses' %}
 {% endif %}
-{% extends "/_layouts/main" %}
+{% extends "_layouts/main" %}
 {% set cart = craft.commerce.carts.cart %}
 
-{% block main %}
+{% block content %}
     <div class="row">
         <div class="intro large-12 small-12 columns text-center">
-            <p>Hallo Checkout</p>
+            <p></p>
         </div>
         <div class="large-6 small-12 columns">
             <h4>Log In</h4>
