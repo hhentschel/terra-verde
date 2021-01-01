@@ -28,7 +28,8 @@ h1,
 
 h2,
 .heading--2 {
-  @include typo(h2);
+  // @include typo(h2);
+  @include clamp('font-size',12px,3vw,px-to-rem(30));
   margin: px-to-rem($space--xxm) 0 px-to-rem($space--m);
 
   @include breakpoint('tablet') {

@@ -25,6 +25,12 @@
   desktop-big: (
     min: $desktop-big--min,
   ),
+  below-container-maximum: (
+    max: #{$container--max-width}px,
+  ),
+  above-container-maximum: (
+    min: #{$container--max-width}px,
+  ),
 );
 
 // override default breakpoint from dialog
@@ -37,6 +43,8 @@ $dialog-breakpoints: (
   tablet-landscape: 'min-width: #{$tablet-landscape--min}',
   desktop: 'min-width: #{$desktop--min}',
   desktop-big: 'min-width: #{$desktop-big--min}',
+  below-container-maximum: 'max-width: #{$container--max-width}',
+  above-container-maximum: 'min-width: #{$container--max-width}',
 );
 
 // reserved for dialog-typography

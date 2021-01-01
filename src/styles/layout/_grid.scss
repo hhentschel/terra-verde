@@ -1,108 +1,127 @@
-
-$grid-phone-sideMargin: px-to-rem($grid__space-outer-padding-horizontal--phone);
-$grid-phone-gutter: px-to-rem($grid__space-gutter--phone);
-
-// tablet grid
-$grid-tablet-sideMargin: px-to-rem(
-  $grid__space-outer-padding-horizontal--tablet
-);
-$grid-tablet-gutter: px-to-rem($grid__space-gutter--tablet);
-
-// desktop grid
-$grid-desktop-sideMargin: px-to-rem(
-  $grid__space-outer-padding-horizontal--desktop
-);
-$grid-desktop-gutter: px-to-rem($grid__space-gutter--desktop);
-
-
-// CLASSES
-.grid {
-  // $this: &;
-
-  display: table-cell;
-
-  max-width: px-to-rem($container--max-width);
-  margin: 0 auto;
-
-  padding-left: $grid-phone-sideMargin;
-  padding-right: $grid-phone-sideMargin;
-
-  @include breakpoint('tablet-landscape') {
-    padding-left: $grid-tablet-sideMargin;
-    padding-right: $grid-tablet-sideMargin;
-  }
-  @include breakpoint('desktop') {
-    padding-left: $grid-desktop-sideMargin;
-    padding-right: $grid-desktop-sideMargin;
-  }
+.main-nav {
+  grid-area: nav;
 }
-
-
-
-.logo {
-  width: 25%;
-  float: left;
-  background-color: #add8e6;
-  @supports (display: grid) {
-  grid-column: col / span 1;
-  grid-row: row;
-  }
-}
-.header {
-  width: 75%;
-  float: left;
-  background-color: #f08080;
-  @supports (display: grid) {
-  grid-column: col 2 / span 3 ;
-  grid-row: row ;
-  }
-}
-.sidebar {
-  width: 25%;
-  float: left;
-  background-color: #fafad2;
-  @supports (display: grid) {
-  grid-column: col ;
-  grid-row: row 2 ;
-  }
+// .side {
+//   grid-area: sidebar;
+// }
+// .ad {
+//   grid-area: ad;
+// }
+.footer {
+  grid-area: footer;
 }
 .main {
-  width: 75%;
-  float: left;
-  background-color: #90ee90;
-  @supports (display: grid) {
-  grid-column: col 2 / span 3 ;
-  grid-row: row 2 ;
-  
-  .page--home & {
-    grid-column: col 1 / span 4 ;
+  grid-area: content;
+}
 
-  }
+.wrapper {
+  display: grid;
+  gap: 0px;
+  
+  grid-template-areas:
+    "header"
+    "header2"
+    "content"
+    "footer";
+}
+
+@media (min-width: 600px) {
+  .wrapper {
+    grid-template-columns: 1fr 3fr;
+    grid-template-areas:
+      "header  header"
+      "header2  header2"
+      "content content"
+      "footer footer";
   }
 }
 
-.footer {
-  width: 100%;
-  background-color: #ffa07a;
-  
-  @supports (display: grid) {
-  grid-column: col / span 4;
-  grid-row: row 3;
-  }
+
+@media (min-width: 900px) {
+  .wrapper {
+    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-areas:
+      "header header  header"
+      "header2 header2  header2"
+      "content    content content"
+      "content    content content"
+      "footer footer  footer"
+   }
 }
 
-.grid {
-  @supports (display: grid) {
+.content__grid {
+  max-width: 1280px;
+  margin: 0 auto;
   display: grid;
   grid-gap: 0;
-  grid-template-columns: repeat(4, [col] 25% ) ;
+  // background-color: yellow;
+  grid-template-columns: repeat(12, [col] 1fr ) ;
   grid-template-rows: repeat(3, [row] auto  );
-  background-color: #fff;
-  color: #444;
-
-  > * {
-    width: 100%;
-    float: none;
-  }
-  }
 }
+
+.content__grid--top {
+  grid-column: col 1 / span 12 ;
+  grid-row: row ;
+}
+
+.content__grid--4-23 {
+  grid-column: col 4 / span 6 ;
+  grid-row: row 2;
+  // background: red;
+}
+.content__grid--4-24 {
+  grid-column: col 4 / span 9 ;
+  grid-row: row 2;
+  background: red;
+}
+
+
+.content__grid--wide {
+  grid-column: col 1 / span 12 ;
+  grid-row: row 2;
+  background: red;
+}
+
+
+.content__grid--3-1 {
+  grid-column: col / span 4;
+  grid-row: row 2 ;
+  background: lightcoral;
+}
+.content__grid--3-2 {
+  grid-column: col 5 / span 4;
+  grid-row: row 2 ;
+  background: lightgoldenrodyellow;
+}
+.content__grid--3-3 {
+  grid-column: col 9 / span 4;
+  grid-row: row 2 ;
+  background: lightpink;
+}
+
+
+.content__grid--4-1 {
+  grid-column: col / span 3;
+  grid-row: row 2 ;
+  // background: lightblue;
+  position: relative;
+}
+.content__grid--4-2 {
+  grid-column: col 4 / span 3 ;
+  grid-row: row 2;
+  background: red;
+}
+.content__grid--4-3 {
+  grid-column: col 7 / span 3 ;
+  grid-row: row 2;
+  background: red;
+}
+.content__grid--4-4 {
+  grid-column: col 10 / span 3 ;
+  grid-row: row 2;
+  // background: lightgrey;
+}
+
+
+
+

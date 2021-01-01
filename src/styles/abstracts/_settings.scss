@@ -37,17 +37,17 @@ $dialog-breakpoint-default: $breakpoint--base;
  */
 $font-size--base: 18 !global;
 
-$font-family--heading: 'Frutiger LT W01_55 Roman';
+$font-family--heading: 'Open Sans';
 $font-weight--heading: 400;
 
-$font-family--base: 'Frutiger LT W01_55 Roman';
+$font-family--base: 'Open Sans';
 $font-weight--base: 400;
 $font-weight--base-bold: 600;
 
-$font-family--light: 'Frutiger LT W01_55 Roman'; // use 'Frutiger LT W01_45 Light'; when provided
+$font-family--light: 'Open Sans'; // use 'Frutiger LT W01_45 Light'; when provided
 $font-weight--light: 400;
 
-$font-family--bold: 'Frutiger LT W01_65 Bold';
+$font-family--bold: 'Open Sans Bold';
 $font-weight--bold: 400;
 
 // $line-height--xs: 1.15; // 32.5px
@@ -86,13 +86,13 @@ $space--xxxl: 140;
 /**
  * Grid
  */
-$grid__space-outer-padding-horizontal--phone: 30;
-$grid__space-outer-padding-horizontal--tablet: 60;
-$grid__space-outer-padding-horizontal--desktop: 110;
-
-$grid__space-gutter--phone: 36;
-$grid__space-gutter--tablet: 36;
-$grid__space-gutter--desktop: 60;
+ $grid__space-outer-padding-horizontal--phone: 30;
+ $grid__space-outer-padding-horizontal--tablet: 60;
+ $grid__space-outer-padding-horizontal--desktop: 110;
+ 
+ $grid__space-gutter--phone: 36;
+ $grid__space-gutter--tablet: 36;
+ $grid__space-gutter--desktop: 60;
 
 /**
  *  CSS Framework

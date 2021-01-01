@@ -1,3 +1,44 @@
 // -----------------------------------------------------------------------------
 // #NAVIGATION
 // -----------------------------------------------------------------------------
+.nav {
+
+  &__link {
+
+    &.active {
+      border-bottom: 2px solid $color--text;
+    }
+  }
+
+  &-main {
+    background-color: $color--white;
+    padding: px-to-rem($space--m) 0;
+    height: px-to-rem(65);
+    &__list {
+      display: flex;
+      justify-content: flex-end;
+      
+      &-item {
+        &:not(:last-child) {
+          margin-right: px-to-rem($space--m);
+        }
+      }
+    }
+  }
+  
+  &-service {
+    height: px-to-rem(65);
+    background-color: $color--white;
+    padding: px-to-rem($space--m) 0;
+    font-size: px-to-rem(15);
+    &__list {
+      display: flex;
+      justify-content: flex-end;
+      &-item {
+        &:not(:last-child) {
+          margin-right: px-to-rem($space--m);
+        }
+      }
+    }
+  }
+}
