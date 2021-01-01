@@ -18,7 +18,7 @@
 {% set neuesLink = craft.entries.section('newStructure').one() %}
 {% set verkaufsstellenLink = craft.entries.section('sellingPointsStructure').one() %}
 {% set produzentenLink = craft.entries.section('producersStructure').one() %}
-{% set detailhandelLink = craft.entries.section('retailTradeStructure').one() %}
+
 
 
 {% set url = craft.app.request.pathInfo %}
@@ -30,32 +30,28 @@
   </h2>
   <ul class="nav-main__list">
 
-    <li>
+    <li class="nav-main__list-item">
       <a class="nav__link {% if craft.app.request.segments|last == "" %}active{% endif %}" href="/">{{ "Home"|t }}</a>
     </li>
 
-    <li>
+    <li class="nav-main__list-item">
         <a class="nav__link {{ macros.activeLinkClass(shopLink.uri, shopLink.level) }}" href="{{ shopLink.url }}">{{ "Shop"|t }}</a>
     </li>
 
-    <li>
+    <li class="nav-main__list-item">
       <a class="nav__link {{ macros.activeLinkClass(ueberunsLink.uri, ueberunsLink.level) }}" href="{{ ueberunsLink.url }}">{{ "Über uns"|t }}</a>
-  </li>
+    </li>
 
-    <li>
+    <li class="nav-main__list-item">
       <a class="nav__link {{ macros.activeLinkClass(neuesLink.uri, neuesLink.level) }}" href="{{ neuesLink.url }}">{{ "Neues"|t }}</a>
     </li>
 
-    <li>
+    <li class="nav-main__list-item">
       <a class="nav__link {{ macros.activeLinkClass(verkaufsstellenLink.uri, verkaufsstellenLink.level) }}" href="{{ verkaufsstellenLink.url }}">{{ "Verkaufsstellen"|t }}</a>
     </li>
 
-    <li>
+    <li class="nav-main__list-item">
         <a class="nav__link {{ macros.activeLinkClass(produzentenLink.uri, produzentenLink.level) }}" href="{{ produzentenLink.url }}">{{ "Produzenten"|t }}</a>
-    </li>
-
-    <li>
-      <a class="nav__link {{ macros.activeLinkClass(detailhandelLink.uri, detailhandelLink.level) }}" href="{{ detailhandelLink.url }}">{{ "Detailhandel"|t }}</a>
     </li>
 
 

@@ -19,6 +19,12 @@
 //     url('../fonts/93b7d028-28f3-473a-821f-7a139c59305a.woff2') format('woff2');
 // }
 
+// @font-face {
+//   font-family: Open Sans Regular;
+//   src: url('../fonts/OpenSans-Regular.ttf') format('ttf');
+//   // font-display: swap;
+// }
+
 html {
   color: $color--text;
   font-size: $font-size--base / 16 * 100%;

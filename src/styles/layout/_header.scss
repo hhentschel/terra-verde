@@ -5,4 +5,48 @@
   h2 {
     font-size: 20px;
   }
+
+  &__logo {
+    max-width: px-to-rem(180);
+    padding: px-to-rem($space--m);
+    background-color: $color--white;
+    border-radius: px-to-rem($space--xxs);
+  }
+
+  // &__content {
+
+  //   &-desktop {
+  //     display: flex;
+  //     justify-content: space-between;
+  //   }
+  // }
+}
+
+
+
+.header-top {
+  grid-area: header;
+  // background: $color--white;
+  position: fixed;
+  width: 100%;
+
+  &-line {
+    height: px-to-rem(65);
+    background-color: white;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+}
+.header { 
+  width: 100%;
+  max-width: 2000px;
+  margin: 0 auto;
+  min-height: 60vh;
+  grid-area: header2;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }

@@ -1,4 +1,4 @@
-<div class="logo">
+{# <div class="logo">
   <a class="header__logo-link" href="/{{ currentSite.language }}">
     <img class="header__logo"
       src="{{
@@ -8,26 +8,87 @@
       }}/assets/images/logo/TerraVerde_jpg_gross.jpeg"
       alt="Gastrosocial Logo" />
   </a>
-</div>
+</div> #}
 
-<header class="header">
-  <div class="header__background"></div>
+{% set heroImage = entry.imageHomepage.one() %}
 
-  <div class="grid">
-    <div class="row">
-      <div class="col col-xs-12 col-md-12 col-lg-12">
-        <div class="header__content-mobile">
-          <!-- <img class="header__logo-mobile"
-            src="{#{
+<div class="header-top">
+  <div class="header-top-line"></div>
+  <div class="content__grid">
+    <div class="content__grid--top">
+      <h1 class="visually-hidden">Header area</h1>
+    </div>
+    <div class="content__grid--4-1">
+      <div class="logo">
+        <a class="header__logo-link" href="/">
+          <img class="header__logo"
+            src="{{
             alias(
               '@rootUrl'
             )
-            }#}/assets/images/logo/GastroSocial_LOGO.svg"
-            alt="Gastrosocial Logo" /> -->
+            }}/assets/images/logo/TerraVerde_jpg_gross.jpeg"
+            alt="Terra Verde Logo" />
+        </a>
+      </div>
+    </div>
+    <div class="content__grid--4-23">
+      <div class="header__content-desktop">
+
+        {% include '_components/_nav/_nav-main/nav-main-desktop' %}
+
+      </div>
+    </div>
+
+    <div class="content__grid--4-4">
+      <div class="header__nav-service">
+        {% include '_components/_nav/_nav-service/nav-service-desktop' %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<header class="header" class="header" style="background-image: url('{{ heroImage.url() }}');">
+  {# <div class="header__background"></div> #}
+
+
+  <div class="content__grid">
+    <div class="content__grid--top">
+      <h1 class="visually-hidden">Header area</h1>
+    </div>
+    <div class="content__grid--4-1">
+      {# <div class="logo">
+        <a class="header__logo-link" href="/">
+          <img class="header__logo"
+            src="{{
+            alias(
+              '@rootUrl'
+            )
+            }}/assets/images/logo/TerraVerde_jpg_gross.jpeg"
+            alt="Terra Verde Logo" />
+        </a>
+      </div> #}
+    </div>
+    <div class="content__grid--4-23">
+      <div class="header__content-desktop">
+
+        {% include '_components/_nav/_nav-main/nav-main-desktop' %}
+
+      </div>
+    </div>
+
+    <div class="content__grid--4-4">
+      <div class="header__nav-service">
+        {% include '_components/_nav/_nav-service/nav-service-desktop' %}
+      </div>
+    </div>
+  </div>
+
+
+        {# <div class="header__content-mobile">
+
           <div class="header__menu-button-wrapper">
             <button class="header__menu-button-mobile" type="button">
               <span class="header__menu-button-text">
-                {#{ 'nav.mainNavigation.menutext'|t }#}
               </span>
               <div class="header__menu-button-mobile-line-wrapper">
                 <span class="header__menu-button-mobile-line header__menu-button-mobile-line--first">
@@ -47,19 +108,15 @@
         <div class="header__content-desktop">
           <div class="header__top-row">
 
+            {% include '_components/_nav/_nav-main/nav-main-desktop' %}
+
+          </div>
+          <div class="header__bottom-row">
             <div class="header__nav-service">
               {% include '_components/_nav/_nav-service/nav-service-desktop' %}
             </div>
           </div>
-          <div class="header__bottom-row">
-            {% include '_components/_nav/_nav-main/nav-main-desktop' %}
-          </div>
 
-          <div class="header__shop">
-            {% include '_components/_nav/_nav-shop/nav-shop-desktop' %}
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+        </div> #}
+
 </header>
