@@ -1,9 +1,9 @@
 {
   "require": {
     "craftcms/cms": "^3.5.10",
-    "craftcms/commerce": "3.2.12",
-    "craftcms/feed-me": "4.3.1",
-    "craftcms/redactor": "2.8.4",
+    "craftcms/commerce": "3.2.14.1",
+    "craftcms/feed-me": "4.3.5.1",
+    "craftcms/redactor": "2.8.5",
     "vlucas/phpdotenv": "^3.4.0"
   },
   "require-dev": {
@@ -18,7 +18,7 @@
     "sort-packages": true,
     "optimize-autoloader": true,
     "platform": {
-      "php": "7.0"
+      "php": "7.4.12"
     }
   },
   "scripts": {
