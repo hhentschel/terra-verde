@@ -1,8 +1,8 @@
 contentColumnType: text
-fieldGroup: 57003c64-aadc-404d-a990-553d81d5fef3
-handle: homepage
+fieldGroup: d5eb7b01-8b1f-4b3f-83c7-ccfa4c76d49d
+handle: imageAltText
 instructions: ''
-name: Startseite
+name: 'Bild Alt-Text'
 searchable: false
 settings:
   byteLimit: null

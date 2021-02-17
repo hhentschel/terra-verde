@@ -1,0 +1,38 @@
+fieldLayouts:
+  b8f79c61-a0f4-4561-8989-f42266d06135:
+    tabs:
+      -
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\AssetTitleField
+            warning: null
+            width: 100
+        name: Inhalt
+        sortOrder: 1
+handle: products
+hasUrls: true
+name: Produkte
+settings:
+  path: '@webroot/assets/images/content/products/'
+sortOrder: 1
+type: craft\volumes\Local
+url: '@web/assets/images/content/products/'

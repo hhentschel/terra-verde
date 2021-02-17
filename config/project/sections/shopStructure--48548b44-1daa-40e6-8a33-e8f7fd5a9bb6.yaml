@@ -1,0 +1,26 @@
+enableVersioning: true
+handle: shopStructure
+name: Shop
+previewTargets:
+  -
+    __assoc__:
+      -
+        - label
+        - 'Primäre eintrag Seite'
+      -
+        - urlFormat
+        - '{url}'
+      -
+        - refresh
+        - '1'
+propagationMethod: all
+siteSettings:
+  dd0cd05e-0cb9-4a76-b993-3cb70e6fc147:
+    enabledByDefault: true
+    hasUrls: true
+    template: shop/index
+    uriFormat: '{slug}'
+structure:
+  maxLevels: null
+  uid: f013bcf0-ba07-4a61-a23b-dff7bece2293
+type: structure

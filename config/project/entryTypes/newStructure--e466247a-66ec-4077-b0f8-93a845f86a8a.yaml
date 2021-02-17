@@ -1,5 +1,5 @@
 fieldLayouts:
-  f809e081-6779-41da-b809-4a17aa33825b:
+  811b887b-2b76-40d9-8be1-76895282a48f:
     tabs:
       -
         elements:
@@ -26,31 +26,13 @@ fieldLayouts:
             type: craft\fieldlayoutelements\EntryTitleField
             warning: null
             width: 100
-          -
-            fieldUid: 763aeea2-9aa6-475b-ab99-66fb8c6b67f2
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            warning: null
-            width: 100
-          -
-            fieldUid: 0ea32ec6-2007-4dcf-b0f1-12ac84095283
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            warning: null
-            width: 100
         name: Inhalt
         sortOrder: 1
-handle: homepage
-hasTitleField: false
-name: Startseite
-section: e5c66396-f991-4b4c-8edc-5e4960340ca3
+handle: newStructure
+hasTitleField: true
+name: Neues
+section: 9547c4b2-034f-4e07-9a02-b94d052fec7c
 sortOrder: 1
-titleFormat: '{section.name|raw}'
+titleFormat: null
 titleTranslationKeyFormat: null
 titleTranslationMethod: site

@@ -1,4 +1,4 @@
-dateModified: 1607020852
+dateModified: 1613555623
 email:
   fromEmail: p@henrik-hentschel.de
   fromName: 'Terra Verde'
@@ -7,11 +7,54 @@ plugins:
   commerce:
     edition: pro
     enabled: true
-    schemaVersion: 3.2.9
+    licenseKey: 0AK0ZI2780A8KYFBX5GSBRKM
+    schemaVersion: 3.2.13
+    settings:
+      activeCartDuration: 3600
+      allowEmptyCartOnCheckout: false
+      autoSetNewCartAddresses: true
+      cartVariable: cart
+      defaultView: commerce/products
+      dimensionUnits: mm
+      emailSenderAddress: ''
+      emailSenderAddressPlaceholder: null
+      emailSenderName: ''
+      emailSenderNamePlaceholder: null
+      freeOrderPaymentStrategy: complete
+      gatewayPostRedirectTemplate: ''
+      loadCartRedirectUrl: null
+      minimumTotalPriceStrategy: default
+      orderPdfFilenameFormat: 'Order-{number}'
+      orderPdfPath: shop/special/receipt
+      orderReferenceFormat: '{{number[:7]}}'
+      paymentCurrency: null
+      pdfAllowRemoteImages: false
+      pdfPaperOrientation: portrait
+      pdfPaperSize: letter
+      purgeInactiveCarts: true
+      purgeInactiveCartsDuration: 7776000
+      requireBillingAddressAtCheckout: false
+      requireShippingAddressAtCheckout: false
+      requireShippingMethodSelectionAtCheckout: false
+      showCustomerInfoTab: true
+      updateBillingDetailsUrl: ''
+      updateCartSearchIndexes: true
+      useBillingAddressForTax: false
+      validateBusinessTaxIdAsVatId: false
+      validateCartCustomFieldsOnSubmission: false
+      weightUnits: g
+  expanded-singles:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
   feed-me:
     edition: standard
     enabled: true
     schemaVersion: 4.3.0
+  formie:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.1.5
   redactor:
     edition: standard
     enabled: true
@@ -20,7 +63,7 @@ system:
   edition: pro
   live: true
   name: 'Terra Verde'
-  schemaVersion: 3.5.13
+  schemaVersion: 3.6.4
   timeZone: America/Los_Angeles
 users:
   allowPublicRegistration: false
