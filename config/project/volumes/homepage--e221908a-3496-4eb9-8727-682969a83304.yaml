@@ -1,12 +1,5 @@
-descriptionFormat: ''
-handle: clothing
-hasDimensions: true
-hasProductTitleField: true
-hasVariantTitleField: true
-hasVariants: false
-name: Clothing
-productFieldLayouts:
-  e409dd29-0075-4315-8e13-29d2ed37e770:
+fieldLayouts:
+  528a51eb-0387-4323-a0e6-0d02c62394b9:
     tabs:
       -
         elements:
@@ -30,16 +23,16 @@ productFieldLayouts:
             step: null
             tip: null
             title: null
-            type: craft\commerce\fieldlayoutelements\ProductTitleField
+            type: craft\fieldlayoutelements\AssetTitleField
             warning: null
             width: 100
         name: Inhalt
         sortOrder: 1
-productTitleFormat: ''
-siteSettings:
-  dd0cd05e-0cb9-4a76-b993-3cb70e6fc147:
-    hasUrls: true
-    template: shop/products/_product
-    uriFormat: 'shop/products/{slug}'
-skuFormat: ''
-titleFormat: '{product.title}'
+handle: homepage
+hasUrls: true
+name: Startseite
+settings:
+  path: '@webroot/assets/images/content/homepage/'
+sortOrder: 3
+type: craft\volumes\Local
+url: '@web/assets/images/content/homepage/'

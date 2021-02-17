@@ -1,8 +1,8 @@
 contentColumnType: text
-fieldGroup: 57003c64-aadc-404d-a990-553d81d5fef3
-handle: homepage
+fieldGroup: 546e63c7-3ad2-424d-ad71-31f33a561a7f
+handle: phone
 instructions: ''
-name: Startseite
+name: Telefon
 searchable: false
 settings:
   byteLimit: null

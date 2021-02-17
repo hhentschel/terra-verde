@@ -1,0 +1,26 @@
+enableVersioning: true
+handle: infoStructure
+name: Info
+previewTargets:
+  -
+    __assoc__:
+      -
+        - label
+        - 'Primäre eintrag Seite'
+      -
+        - urlFormat
+        - '{url}'
+      -
+        - refresh
+        - '1'
+propagationMethod: all
+siteSettings:
+  dd0cd05e-0cb9-4a76-b993-3cb70e6fc147:
+    enabledByDefault: true
+    hasUrls: true
+    template: _pages/info/index
+    uriFormat: '{slug}'
+structure:
+  maxLevels: null
+  uid: 204b0ad6-be74-4da6-9160-748bb1491809
+type: structure

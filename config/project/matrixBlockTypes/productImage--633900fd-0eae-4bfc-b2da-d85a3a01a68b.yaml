@@ -1,0 +1,83 @@
+field: 944f60e0-b559-4698-bb4d-3d2eec04eef6
+fieldLayouts:
+  d01ce461-4626-48ef-8b97-98c904bf4cfa:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 80046407-de11-4bdb-9670-56b00656fb46
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 59672db5-e56b-482e-a7d2-5cbddc49280f
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  59672db5-e56b-482e-a7d2-5cbddc49280f:
+    contentColumnType: text
+    fieldGroup: null
+    handle: caption
+    instructions: ''
+    name: Bildunterschrift
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  80046407-de11-4bdb-9670-56b00656fb46:
+    contentColumnType: string
+    fieldGroup: null
+    handle: image
+    instructions: ''
+    name: Bild
+    searchable: false
+    settings:
+      allowSelfRelations: false
+      allowUploads: true
+      allowedKinds:
+        - image
+      defaultUploadLocationSource: 'volume:63339d3e-c6d1-4455-be6d-33715340baf0'
+      defaultUploadLocationSubpath: ''
+      limit: '1'
+      localizeRelations: false
+      previewMode: full
+      restrictFiles: '1'
+      selectionLabel: ''
+      showSiteMenu: true
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: false
+      singleUploadLocationSource: 'volume:63339d3e-c6d1-4455-be6d-33715340baf0'
+      singleUploadLocationSubpath: ''
+      source: null
+      sources:
+        - 'volume:63339d3e-c6d1-4455-be6d-33715340baf0'
+      targetSiteId: null
+      useSingleFolder: false
+      validateRelatedElements: false
+      viewMode: list
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
+handle: productImage
+name: Produktbild
+sortOrder: 2
