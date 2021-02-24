@@ -15,17 +15,23 @@
 }
 
 .wrapper {
-  display: grid;
+  @supports (display: grid) {
+    display: grid;
+  }
+  display: flex;
   gap: 0px;
-  
   grid-template-areas:
     "header"
     "header2"
     "content"
     "footer";
+
+    @include breakpoint('tablet-landscape') {  
+      background: green;
+    }
 }
 
-@media (min-width: 600px) {
+@include breakpoint('tablet-portrait') {
   .wrapper {
     grid-template-columns: 1fr 3fr;
     grid-template-areas:
@@ -37,7 +43,7 @@
 }
 
 
-@media (min-width: 900px) {
+@include breakpoint('tablet-landscape') {
   .wrapper {
     grid-template-columns: 1fr 4fr 1fr;
     grid-template-areas:
@@ -50,78 +56,115 @@
 }
 
 .content__grid {
+  @supports (display: grid) {
+    display: grid;
+  }
   max-width: 1280px;
   margin: 0 auto;
-  display: grid;
+  display: flex;
   grid-gap: 0;
-  // background-color: yellow;
+  background-color: yellow;
   grid-template-columns: repeat(12, [col] 1fr ) ;
   grid-template-rows: repeat(3, [row] auto  );
-}
-
-.content__grid--top {
-  grid-column: col 1 / span 12 ;
-  grid-row: row ;
-}
-
-.content__grid--4-23 {
-  grid-column: col 4 / span 6 ;
-  grid-row: row 2;
-  // background: red;
-}
-.content__grid--4-24 {
-  grid-column: col 4 / span 9 ;
-  grid-row: row 2;
-  background: red;
-}
 
 
-.content__grid--wide {
-  grid-column: col 1 / span 12 ;
-  grid-row: row 2;
-  background: red;
-}
+  &--top {
+    grid-column: col 1 / span 12 ;
+    grid-row: row ;
+    width: 100%;
+  }
+
+  &--4 {
+    @supports not (display: grid) {
+      display: 25%;
+    }
+  }
+
+  &--3 {
+    @supports not (display: grid) {
+      display: 33.33%;
+    }
+  }
+
+  &--2 {
+    @supports not (display: grid) {
+      display: 50%;
+    }
+  }
 
 
-.content__grid--3-1 {
-  grid-column: col / span 4;
-  grid-row: row 2 ;
-  background: lightcoral;
-}
-.content__grid--3-2 {
-  grid-column: col 5 / span 4;
-  grid-row: row 2 ;
-  background: lightgoldenrodyellow;
-}
-.content__grid--3-3 {
-  grid-column: col 9 / span 4;
-  grid-row: row 2 ;
-  background: lightpink;
-}
+  &--4-23 {
+    grid-column: col 4 / span 6 ;
+    grid-row: row 2;
+    background: red;
+  }
+  &--4-24 {
+    grid-column: col 4 / span 9 ;
+    grid-row: row 2;
+    background: lightcoral;
+  }
 
 
-.content__grid--4-1 {
-  grid-column: col / span 3;
-  grid-row: row 2 ;
-  // background: lightblue;
-  position: relative;
-}
-.content__grid--4-2 {
-  grid-column: col 4 / span 3 ;
-  grid-row: row 2;
-  background: red;
-}
-.content__grid--4-3 {
-  grid-column: col 7 / span 3 ;
-  grid-row: row 2;
-  background: red;
-}
-.content__grid--4-4 {
-  grid-column: col 10 / span 3 ;
-  grid-row: row 2;
-  // background: lightgrey;
-}
+  &--wide {
+    grid-column: col 1 / span 12 ;
+    // grid-row: row 2;
+    background: lightcyan;
+  }
 
+  /* HALF */
+  &--2-1 {
+    grid-column: col / span 6;
+    grid-row: row 2 ;
+    background: lightgreen;
+  }
+  &--2-2 {
+    grid-column: col 7 / span 6;
+    grid-row: row 2 ;
+    background: lightgoldenrodyellow;
+  }
+
+
+  /* DRITTEL */
+  &--3-1 {
+    grid-column: col / span 4;
+    grid-row: row 2 ;
+    background: lightgreen;
+  }
+  &--3-2 {
+    grid-column: col 5 / span 4;
+    grid-row: row 2 ;
+    background: lightgoldenrodyellow;
+  }
+  &--3-3 {
+    grid-column: col 9 / span 4;
+    grid-row: row 2 ;
+    background: lightpink;
+  }
+  
+  /*  VIERTEL */ 
+  &--4-1 {
+    grid-column: col / span 3;
+    grid-row: row 2 ;
+    // background: lightblue;
+    position: relative;
+  }
+  &--4-2 {
+    grid-column: col 4 / span 3 ;
+    grid-row: row 2;
+    background: red;
+  }
+  &--4-3 {
+    grid-column: col 7 / span 3 ;
+    grid-row: row 2;
+    background: red;
+  }
+  &--4-4 {
+    grid-column: col 10 / span 3 ;
+    grid-row: row 2;
+    background: lightgrey;
+  }
+  
+}
 
 
 

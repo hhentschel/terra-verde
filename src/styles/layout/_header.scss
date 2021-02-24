@@ -7,7 +7,7 @@
   }
 
   &__logo {
-    max-width: px-to-rem(180);
+    max-width: px-to-rem(170);
     padding: px-to-rem($space--m);
     background-color: $color--white;
     border-radius: px-to-rem($space--xxs);
@@ -26,19 +26,20 @@
 
 .header-top {
   grid-area: header;
-  // background: $color--white;
+  background: $color--white;
   position: fixed;
   width: 100%;
+  height: px-to-rem(180);
 
-  &-line {
-    height: px-to-rem(65);
-    background-color: white;
-    position: absolute;
-    z-index: -1;
-    top: 0;
-    left: 0;
-    right: 0;
-  }
+  // &-line {
+  //   height: px-to-rem(65);
+  //   background-color: white;
+  //   position: absolute;
+  //   z-index: -1;
+  //   top: 0;
+  //   left: 0;
+  //   right: 0;
+  // }
 }
 .header { 
   width: 100%;
