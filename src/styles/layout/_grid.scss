@@ -75,14 +75,14 @@
   }
 
   &--4 {
-    @supports not (display: grid) {
-      display: 25%;
+    @supports (display: grid) {
+      width: 25%;
     }
   }
 
   &--3 {
     @supports not (display: grid) {
-      display: 33.33%;
+      width: 33.33%;
     }
   }
 
