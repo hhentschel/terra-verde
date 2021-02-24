@@ -77,7 +77,7 @@ function cleanJsFolder() {
 }
 
 /* JAVASCRIPT */
-
+// lints javascript
 function esLint() {
   return gulp.src([jsDevFolderWatch])
     .pipe(gulpPlumber()) // prevents watch from breaking due to scss errors in stylelint
@@ -85,13 +85,22 @@ function esLint() {
     .pipe(eslint.format());
 }
 
-// copies plain es6 files from dev to dest folder
+// produces main.js and sourcemap
 function jsDev() {
-  return gulp.src(jsDevFolderWatch)
-    .pipe(gulp.dest(jsDestFolder));
+  return browserify({
+    entries: [jsDevFolder + jsMainFile],
+  })
+    .transform(babelify, { presets: ['@babel/preset-env'] })
+    .bundle()
+    .pipe(source(jsMainFile))
+    .pipe(buffer())
+    .pipe(sourcemaps.init({ loadMaps: true }))
+    .pipe(sourcemaps.write('./'))
+    .pipe(gulp.dest(jsDestFolder))
+    .pipe(browserSync.stream());
 }
 
-// produces min.js file and sourcemap
+// produces main.min.js file and sourcemap
 function jsProd() {
   return browserify({
     entries: [jsDevFolder + jsMainFile],
