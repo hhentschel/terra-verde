@@ -10,10 +10,12 @@
   </a>
 </div> #}
 
-{% set heroImage = entry.imageHomepage.one() %}
+{# {% set heroImage = entry.imageHomepage %} #}
+{% set img = entry.imageHomepage is defined and entry.imageHomepage is not empty ? entry.imageHomepage.one() : null %}
+{% set heroImage = img ? img.url : '' %}
 
 <div class="header-top">
-  <div class="header-top-line"></div>
+  {# <div class="header-top-line"></div> #}
   <div class="content__grid">
     <div class="content__grid--top">
       <h1 class="visually-hidden">Header area</h1>
@@ -47,26 +49,20 @@
   </div>
 </div>
 
-<header class="header" class="header" style="background-image: url('{{ heroImage.url() }}');">
+{% if heroImage %}
+{# <header class="header" class="header" style="background-image: url('{{ heroImage.url() }}');"> #}
+  <header class="header" class="header" style="background-image: url('{{ heroImage }}');">
+{% endif %}
+
   {# <div class="header__background"></div> #}
 
 
-  <div class="content__grid">
+  {# <div class="content__grid">
     <div class="content__grid--top">
       <h1 class="visually-hidden">Header area</h1>
     </div>
     <div class="content__grid--4-1">
-      {# <div class="logo">
-        <a class="header__logo-link" href="/">
-          <img class="header__logo"
-            src="{{
-            alias(
-              '@rootUrl'
-            )
-            }}/assets/images/logo/TerraVerde_jpg_gross.jpeg"
-            alt="Terra Verde Logo" />
-        </a>
-      </div> #}
+
     </div>
     <div class="content__grid--4-23">
       <div class="header__content-desktop">
@@ -81,7 +77,7 @@
         {% include '_components/_nav/_nav-service/nav-service-desktop' %}
       </div>
     </div>
-  </div>
+  </div> #}
 
 
         {# <div class="header__content-mobile">

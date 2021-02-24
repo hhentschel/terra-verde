@@ -3,6 +3,7 @@
 {% import '_helpers/macros.twig' as macros %}
 
 {% set detailhandelLink = craft.entries.section('retailTradeStructure').one() %}
+{% set sucheLink = craft.entries.section('searchSingle').one() %}
 
 {% set url = craft.app.request.pathInfo %}
 
@@ -13,7 +14,18 @@
   <ul class="nav-service__list">
 
     <li class="nav-service__list-item">
-      <a class="nav__link {{ macros.activeLinkClass(detailhandelLink.uri, detailhandelLink.level) }}" href="{{ detailhandelLink.url }}">{{ "Suche"|t }}</a>
+      {# <a class="nav__link {{ macros.activeLinkClass(sucheLink.uri, sucheLink.level) }}" href="{{ sucheLink.url }}">{{ "Suche"|t }}</a> #}
+      <a href="{{ sucheLink.url }}"
+        class="nav__link {{
+        macros.isActive(
+          'test',
+          1,
+          'nav-service__list-item--'
+        )
+        }}">
+        {{ 'Suche'|t }}
+      </a>
+
     </li>
 
     <li class="nav-service__list-item">

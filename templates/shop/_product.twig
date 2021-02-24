@@ -25,8 +25,9 @@
         {% set variant = product.defaultVariant %}
 
         <div class="large-6 small-12 columns">
-            <img src="{{ product.productImage.one().getUrl('productListing') }}"
-                 alt="{{ product.name }}"/>
+            {# <img src="{{ product.productImage.one().getUrl('productListing') }}"
+                 alt="{{ product.name }}"/> #}
+
         </div>
         <div class="large-6 small-12 columns">
             <h3>{{ product.title }}</h3>
@@ -36,9 +37,9 @@
             </p>
             <h4>
                 {% if variant.onSale %}
-                <strike>{{ variant.price | currency('USD') }}</strike> {{ variant.salePrice | currency('USD') }}
+                <strike>{{ variant.price | currency('CHF') }}</strike> {{ variant.salePrice | currency('CHF') }}
                 {% else %}
-                {{ variant.price | currency('USD') }}</h4>
+                {{ variant.price | currency('CHF') }}</h4>
                 {% endif %}
             <p>SKU: {{ variant.sku }}</p>
 
@@ -62,7 +63,7 @@
         <div class="large-12 small-12 columns">
             <div class="row">
                 <div class="product-description">
-                    {% for block in product.productDescription.all() %}
+                    {# {% for block in product.productDescription.all() %}
                         {% switch block.type %}
                         {% case 'descriptionCopy' %}
                             {{ block.text }}
@@ -75,7 +76,7 @@
                                 </p>
                             </div>
                         {% endswitch %}
-                    {% endfor %}
+                    {% endfor %} #}
                 </div>
             </div>
         </div>

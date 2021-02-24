@@ -1,8 +1,17 @@
 
 {% extends "_layouts/main" %}
+{% set pageTitle = entry.pageTitle is not empty ? entry.pageTitle : entry.title
+%}
 
 {% block content %}
 
-<h2>Neues</h2>
+<div class="content__grid">
+  <div class="content__grid--top">
+    <h1 class="heading heading--h1">
+      {{ pageTitle }}
+    </h1>
+  </div>
+</div>
 
 {% endblock %}
+
