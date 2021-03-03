@@ -1,0 +1,55 @@
+// transitions
+$pills--hover-easing: easing();
+$pills--hover-duration: speed();
+$pills--transition-properties: color, background-color;
+
+.pills {
+  $this: &;
+
+  @include typo(pills);
+  display: flex;
+  flex-wrap: wrap;
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__label {
+    border-radius: px-to-rem(25);
+    cursor: pointer;
+    padding: px-to-rem(10) px-to-rem(18);
+    border: 1px solid;
+    border-color: inherit;
+    margin: 0 px-to-rem($space--m) px-to-rem($space--m) 0;
+    transition: $pills--hover-easing;
+    transition-duration: $pills--hover-duration;
+    transition-property: $pills--transition-properties;
+
+    @include interactionStyle(
+      color,
+      $color--blue-dark,
+      $color--disabled,
+      $color--disabled
+    );
+  }
+
+  &__input:checked + {
+    #{$this}__label {
+      @include interactionStyle(
+        background-color,
+        $color--blue-dark,
+        $color--blue-dark,
+        $color--white
+      );
+      @include interactionStyle(
+        color,
+        $color--white,
+        $color--white,
+        $color--white
+      );
+      border-color: inherit;
+      cursor: not-allowed;
+    }
+  }
+}

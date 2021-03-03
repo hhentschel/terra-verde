@@ -58,14 +58,15 @@
 .content__grid {
   @supports (display: grid) {
     display: grid;
+    grid-template-columns: repeat(12, [col] 1fr ) ;
+    grid-template-rows: repeat(3, [row] auto  );
+    grid-gap: 0;
   }
   max-width: 1280px;
   margin: 0 auto;
   display: flex;
-  grid-gap: 0;
+  flex-wrap: wrap;
   background-color: yellow;
-  grid-template-columns: repeat(12, [col] 1fr ) ;
-  grid-template-rows: repeat(3, [row] auto  );
 
 
   &--top {
@@ -76,20 +77,23 @@
 
   &--4 {
     @supports (display: grid) {
-      width: 25%;
+      width: auto;
     }
+    width: 25%;
   }
-
+  
   &--3 {
-    @supports not (display: grid) {
-      width: 33.33%;
+    @supports (display: grid) {
+      width: auto;
     }
+    width: 33.33%;
   }
-
+  
   &--2 {
-    @supports not (display: grid) {
-      display: 50%;
+    @supports (display: grid) {
+      width: auto;
     }
+    display: 50%;
   }
 
 

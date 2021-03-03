@@ -1,53 +1,236 @@
 // -----------------------------------------------------------------------------
 // #HEADER
 // -----------------------------------------------------------------------------
+// .header {
+//   h2 {
+//     font-size: 20px;
+//   }
+
+//   &__logo {
+//     max-width: px-to-rem(170);
+//     padding: px-to-rem($space--m);
+//     background-color: $color--white;
+//     border-radius: px-to-rem($space--xxs);
+//   }
+// }
+
+
+
+// .header-top {
+//   grid-area: header;
+//   background: $color--white;
+//   position: fixed;
+//   width: 100%;
+//   height: px-to-rem(180);
+
+// }
+// .header { 
+//   width: 100%;
+//   max-width: 2000px;
+//   margin: 0 auto;
+//   min-height: 60vh;
+//   grid-area: header2;
+//   background-position: center center;
+//   background-repeat: no-repeat;
+//   background-size: cover;
+// }
+
+
+
+// -----------------------------------------------------------------------------
+// #HEADER
+// -----------------------------------------------------------------------------
+
+$header--height-mobile: px-to-rem($header-height--phone);
+
+$header-logo--height: px-to-rem(170);
+$header-logo--height-sticky: px-to-rem(100);
+$header-logo--height-mobile: px-to-rem(22);
+
+$header-background__offset-bottom--desktop: px-to-rem(44);
+
+//transition
+$header--transition-sticky-property: transform;
+$header--transition-sticky-duration: speed(hover);
+$header--transition-sticky-timining-function: easing(open);
+//transition logo
+$header-logo--transition-sticky-property: height;
+$header-logo--transition-sticky-duration: speed(hover);
+$header-logo--transition-sticky-timining-function: easing(open);
+// transition mobile-nav
+$header-mobile-nav--transition-properties: transform;
+$header-mobile-nav--transition-duration: speed(open);
+$header-mobile-nav--transition-duration-easing: easing(color);
+//transition overlay
+$header-login-overlay--transition-properties: transform;
+$header-login-overlay--transition-duration: speed(open);
+$header-login-overlay--transition-duration-easing: easing(open);
+
 .header {
-  h2 {
-    font-size: 20px;
+  $this: &;
+
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: z(nav);
+  transition-property: $header--transition-sticky-property;
+  transition-duration: $header--transition-sticky-duration;
+  transition-timing-function: $header--transition-sticky-timining-function;
+
+  &--home {
+    background: linear-gradient(
+      268deg,
+      rgba(255, 255, 255, 0.93) 48%,
+      rgba(255, 255, 255, 0.67) 95%
+    );
+    mix-blend-mode: normal;
+  }
+
+  &__background {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(
+      242deg,
+      $color--grey-gradient-start 0%,
+      $color--grey-gradient-end 100%
+    );
+    z-index: z(negative);
+
+    &--transparent {
+      background: linear-gradient(
+        268.9deg,
+        rgba(255, 255, 255, 0.931) 47.83%,
+        rgba(255, 255, 255, 0.686) 94.99%
+      );
+    }
+
+    @include breakpoint('desktop') {
+      height: calc(100% - #{$header-background__offset-bottom--desktop});
+    }
+  }
+
+  &__content {
+    &-mobile {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: $header--height-mobile;
+
+      @include breakpoint('tablet-landscape') {
+        display: none;
+      }
+    }
+
+    &-desktop {
+      display: none;
+
+      @include breakpoint('tablet-landscape') {
+        display: flex;
+        flex-direction: column;
+      }
+
+      #{$this}__nav-service {
+        margin-left: auto;
+      }
+    }
+  }
+
+  /**
+   * Mobile Header
+   */
+  &__logo-mobile {
+    height: $header-logo--height-mobile;
+  }
+
+  &__menu-button-wrapper {
+    display: flex;
+    justify-content: center;
+    z-index: z(top);
+  }
+
+  &__menu-button-text {
+    @include typo(navMainMobileText);
+    margin-right: px-to-rem($space--xs);
+  }
+
+  &__menu-button-mobile {
+    display: flex;
+    align-items: center;
+
+    &-line {
+      display: block;
+      height: 1px;
+      width: px-to-rem(23);
+      background-color: $color--blue-gradient-primary-end;
+      margin: px-to-rem(7) 0 0;
+      &--first {
+        margin-top: px-to-rem(0);
+      }
+    }
+  }
+
+  /**
+   * Desktop Header
+   */
+  &__top-row,
+  &__bottom-row {
+    transition-property: $header--transition-sticky-property;
+    transition-duration: $header--transition-sticky-duration;
+    transition-timing-function: $header--transition-sticky-timining-function;
+  }
+
+  /* Top Row */
+  &__top-row {
+    display: flex;
+    // justify-content: space-between;
+    align-items: center;
+    padding: 0;
+    z-index: z(up); // for nav-language
+  }
+
+  &__logo-link {
+    display: flex;
   }
 
   &__logo {
-    max-width: px-to-rem(170);
-    padding: px-to-rem($space--m);
-    background-color: $color--white;
-    border-radius: px-to-rem($space--xxs);
+    height: $header-logo--height;
+    transition-property: $header-logo--transition-sticky-property;
+    transition-duration: $header-logo--transition-sticky-duration;
+    transition-timing-function: $header-logo--transition-sticky-timining-function;
   }
 
-  // &__content {
+  /* Bottom Row */
+  &__bottom-row {
+    background-color: $color--white;
+    margin: 0 px-to-rem(-$grid__space-outer-padding-horizontal--phone);
 
-  //   &-desktop {
-  //     display: flex;
-  //     justify-content: space-between;
-  //   }
-  // }
-}
+    @include breakpoint('tablet-landscape') {
+      margin: 0 px-to-rem(-$grid__space-outer-padding-horizontal--tablet);
+    }
+  }
 
+  &--sticky {
+    box-shadow: $teaser__box-shadow;
 
+    @include breakpoint('tablet-landscape') {
+      transform: translateY(px-to-rem(-$space--xm));
+    }
 
-.header-top {
-  grid-area: header;
-  background: $color--white;
-  position: fixed;
-  width: 100%;
-  height: px-to-rem(180);
+    #{$this}__top-row {
+      @include breakpoint('tablet-landscape') {
+        transform: translateY(px-to-rem($space--s + $space--xxs));
+      }
+    }
 
-  // &-line {
-  //   height: px-to-rem(65);
-  //   background-color: white;
-  //   position: absolute;
-  //   z-index: -1;
-  //   top: 0;
-  //   left: 0;
-  //   right: 0;
-  // }
-}
-.header { 
-  width: 100%;
-  max-width: 2000px;
-  margin: 0 auto;
-  min-height: 60vh;
-  grid-area: header2;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
+    #{$this}__logo {
+      @include breakpoint('tablet-landscape') {
+        height: $header-logo--height-sticky;
+      }
+    }
+
+    #{$this}__background {
+      height: 100%;
+    }
+  }
 }

@@ -3,6 +3,16 @@
 // -----------------------------------------------------------------------------
 
 .content {
-  min-height: 100vh;
-  margin-top: px-to-rem(180);
+  padding: px-to-rem($content-spacing--phone) 0 px-to-rem($space--xxm);
+
+  @include breakpoint('tablet-landscape') {
+    padding: px-to-rem($content-spacing--tablet-landscape) 0 px-to-rem($space--xxm);
+  }
+  @include breakpoint('desktop') {
+    padding: px-to-rem($content-spacing--desktop) 0 px-to-rem($space--xxm);
+  }
+
+  &--has-image {
+    padding: 0 0 px-to-rem($space--xxm);
+  }
 }

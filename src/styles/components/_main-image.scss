@@ -1,0 +1,69 @@
+// -----------------------------------------------------------------------------
+// #MAIN IMAGE
+// -----------------------------------------------------------------------------
+
+.main-image {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  height: px-to-rem(260);
+  min-height: 32vh;
+  max-width: px-to-rem($display--max-width);
+  margin-bottom: px-to-rem($space--xm);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0 auto;
+
+  @include breakpoint('tablet') {
+    margin-bottom: px-to-rem($space--xxl);
+    min-height: 80vh;
+  }
+
+  
+  &--full {
+    min-height: 40vh;
+
+    @include breakpoint('tablet-portrait') {
+      margin-bottom: px-to-rem($space--xxl);
+      min-height: 50vh;
+    }
+    @include breakpoint('tablet-landscape') {
+      margin-bottom: px-to-rem($space--xxl);
+      min-height: 50vh;
+    }
+    @include breakpoint('desktop') {
+      min-height: 50vh;
+    }
+  }
+
+  &__content {
+    color: $color--white;
+    display: flex;
+    align-items: center;
+    z-index: z(up);
+  }
+
+
+  &__icon-wrapper {
+    display: flex;
+    justify-content: center;
+
+    margin-bottom: 6%;
+  }
+
+  &__icon {
+    height: px-to-rem(36);
+    width: px-to-rem(36);
+
+    @include breakpoint('tablet-portrait') {
+      height: px-to-rem(60);
+      width: px-to-rem(60);
+    }
+    @include breakpoint('tablet-landscape') {
+      height: px-to-rem(80);
+      width: px-to-rem(80);
+    }
+  }
+}

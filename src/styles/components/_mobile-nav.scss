@@ -1,0 +1,179 @@
+// transitions
+$mobile-nav--transition-properties: transform;
+$mobile-nav--transition-duration: speed(open);
+$mobile-nav--transition-duration-easing: easing(opacity);
+$mobile-nav-backbutton-transition-properties: opacity, transform;
+
+
+$mobile-nav--main-text-color: $color--blue-gradient-primary-end;
+
+$mobile-nav-main--list-gradient-start: $color--blue-gradient-start;
+$mobile-nav-main--list-gradient-end: $color--blue-gradient-end;
+
+.mobile-nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  background-color: $color--white;
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  width: 100%;
+  transition: $mobile-nav--transition-properties $mobile-nav--transition-duration
+    $mobile-nav--transition-duration-easing;
+  transform: translateX(-100%);
+  z-index: z(overlay);
+
+  @include breakpoint('tablet-landscape') {
+    display: none;
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &--expanded {
+    transform: translateX(0);
+  }
+
+  &__main {
+    position: relative;
+    height: 100%;
+    min-height: 100vh;
+  }
+
+  &__list {
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: $color--white;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 0 px-to-rem($grid__space-outer-padding-horizontal--phone) px-to-rem(90);
+    transition: transform 0.5s cubic-bezier(0.52, 0.01, 0.16, 1);
+    width: 100%;
+
+    &-item {
+      border-bottom: 1px solid $color--grey-darker;
+
+      &:first-child {
+        border-top: 1px solid $color--grey-darker;
+      }
+
+      &.nav-main__expanded {
+        border-top: 3px solid $color--blue-gradient-primary-end;
+      }
+    }
+
+    &--active {
+      transform: translateX(0);
+      visibility: visible;
+      z-index: z(navActive);
+    }
+
+    &--hidden {
+      transform: translateX(100%);
+    }
+
+    &-teaser {
+      margin: px-to-rem($space--xxm) 0 0 auto;
+      max-width: calc(100% - #{px-to-rem($grid__space-gutter--phone)});
+      transform: translateX(px-to-rem($grid__space-outer-padding-horizontal--phone));
+    }
+  }
+
+  &__trigger {
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+
+  &__text {
+    @include typo(navMainMobileText);
+    position: relative;
+    color: $mobile-nav--main-text-color;
+    display: block;
+    padding: px-to-rem($space--m) 0;
+    text-align: left;
+    width: 100%;
+
+    &--active:after {
+      content: ' ';
+      position: absolute;
+      top: 0;
+      left: -(px-to-rem(($space--xs * 2)));
+      height: 100%;
+      width: 3px;
+      background: linear-gradient(
+        280deg,
+        $nav-main--list-gradient-start 0%,
+        $nav-main--list-gradient-end 100%
+      );
+    }
+
+    &--bold {
+      @include typo(navMainMobileBold);
+      text-transform: uppercase;
+    }
+  }
+
+  &__link {
+    @include typo(navMainMobileText);
+    color: $mobile-nav--main-text-color;
+    display: block;
+    text-align: left;
+    width: 100%;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    padding: 0 px-to-rem($grid__space-outer-padding-horizontal--phone);
+    min-height: px-to-rem(60);
+  }
+
+  &__button-close {
+    margin-left: auto;
+  }
+
+  &__language {
+    &-list {
+      display: flex;
+      margin-left: px-to-rem($space--xm + $space--xs);
+
+      &-item {
+        margin-right: px-to-rem($space--m + $space--xs);
+      }
+    }
+
+    &-link {
+      color: $color--grey-darker;
+
+      &--active {
+        color: $color--blue;
+        font-family: $font-family--bold;
+      }
+    }
+  }
+
+  &__button-back {
+    @include typo(navMainMobileHeader);
+    color: $mobile-nav--main-text-color;
+    opacity: 0;
+    transform: translateX(50%);
+    transition-property: $mobile-nav-backbutton-transition-properties;
+    transition-duration: $mobile-nav--transition-duration;
+    transition-timing-function: $mobile-nav--transition-duration;
+    width: 0;
+    visibility: hidden;
+
+    &--active {
+      opacity: 1;
+      transform: translateX(0);
+      visibility: visible;
+      width: auto;
+    }
+  }
+}

@@ -1,13 +1,12 @@
 $transition-properties: border-color, color, background-color;
-
+/* stylelint-disable-next-line at-rule-name-newline-after */
 @mixin inputStyles(
   // colors
-  $input--background-color: $color--grey-lightest,
   $input--placeholder-color: $color--grey,
   $input--text-color: $color--text,
   // border
-  $input--border-color: $color--grey-light,
-  $input--border-radius: 0,
+  $input--border-color: $color--blue-dark,
+  $input--border-radius: 3px,
   $input--border-width: 1px,
   // hover
   $input--hover-background-color: null,
@@ -30,7 +29,6 @@ $transition-properties: border-color, color, background-color;
   $input--transition-properties: $transition-properties
 ) {
   @include typo(input);
-  background-color: $input--background-color;
   border: solid $input--border-color;
   border-width: $input--border-width;
   border-radius: $input--border-radius;

@@ -25,7 +25,7 @@
 
 // layout
 @import 'layout/navigation';
-@import 'layout/grid';
+@import 'layout/grid2';
 @import 'layout/header';
 @import 'layout/content';
 @import 'layout/footer';
@@ -37,6 +37,15 @@
 @import 'components/headings';
 @import 'components/inputs';
 @import 'components/image';
+@import 'components/accordion';
+@import 'components/form';
+@import 'components/main-image';
+@import 'components/nav-main';
+@import 'components/mobile-nav';
+@import 'components/pills';
+@import 'components/search';
+@import 'components/table';
+@import 'components/video';
 @import 'components/links';
 @import 'components/lists';
 @import 'components/selections';
