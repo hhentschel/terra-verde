@@ -1,17 +1,21 @@
+/**
+ * Map for all zindexes used in the project
+ */
 $z-index: (
-  example: 100,
+  negative: -1,
+  default: 0,
+  up: 1,
+  spotlight: 5,
+  nav: 10,
+  navActive: 100,
+  overlay: 1000,
+  top: 10000,
 );
 
-@function z-index($key) {
+@function z($key: default) {
+  @if not map-has-key($z-index, $key) {
+    @error 'Unknown zindex key: `#{$key}`.';
+  }
+
   @return map-get($z-index, $key);
 }
-
-@mixin z($key) {
-  z-index: z-index($key);
-}
-
-// usage example
-
-// .navigation {
-//   @include z(example);
-// }

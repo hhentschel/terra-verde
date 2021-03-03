@@ -5,6 +5,7 @@ $easings: (
   color: ease,
   opacity: cubic-bezier(0, 0, 0.3, 1),
   open: cubic-bezier(0.52, 0.01, 0.16, 1),
+  transform: ease-out,
 );
 
 /**

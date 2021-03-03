@@ -6,28 +6,28 @@
 .section {
   
   &__teaser {
-    height: 200px;
+    // height: 200px;
     background-color: mediumvioletred;
   }
 
   &__title {
     background-color: lightseagreen;
-    height: 100px;
+    // min-height: 100px;
     margin: 0;
   }
   
   &__campaigns {
     background-color: lightslategray;
-    height: 100px;
+    // min-height: 100px;
   }
   
   &__new-products{
     background-color: limegreen;
-    height: 100px;
+    // min-height: 100px;
   }
   
   &__favorites {
     background-color: mediumseagreen;
-    height: 100px;
+    // min-height: 100px;
   }
 }

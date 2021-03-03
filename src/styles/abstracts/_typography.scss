@@ -5,12 +5,12 @@
 /**
  *  Phone - standard defined in `utils/settings`
  */
- $typography--phone: (
+$typography--phone: (
   default: (
     font-size: px-to-rem($font-size-m),
   ),
   heading: (
-    font-family: $font-family--heading,
+    font-family: $font-family--heading, 
     font-weight: $font-weight--heading,
   ),
   button: (
@@ -20,6 +20,9 @@
   input: (),
   title: (
     font-size: px-to-rem($font-size-xm),
+    line-height: $line-height--xm,
+    text-align: center,
+    text-transform: uppercase
   ),
   h1: (
     font-size: px-to-rem($font-size-xxl-p),
@@ -37,10 +40,13 @@
     font-size: px-to-rem($font-size-xm),
     line-height: $line-height--xm,
   ),
-  lead: (
+  h2furtherContent: (
+    font-size: px-to-rem($font-size-xm),
+    line-height: $line-height--xm,
+  ),
+  lead : (
     font-family: $font-family--base,
-    font-size: px-to-rem($font-size-xl),
-    font-weight: $font-weight--base,
+    font-size: px-to-rem($font-size-xm),
   ),
   p: (
     font-family: $font-family--light,
@@ -49,7 +55,7 @@
     line-height: $line-height--s,
   ),
   linkInline: (
-    font-weight: $font-weight--base-bold,
+    font-family: $font-family--bold,
   ),
   pills: (
     font-size: px-to-rem($font-size-s),
@@ -116,6 +122,50 @@
   caption: (
     font-size: px-to-rem($font-size-s),
   ),
+  contentHeaderClaim: (
+    font-family: $font-family--playfair-display,
+    font-size: px-to-rem($font-size-xm),
+    line-height: $line-height--s,
+  ),
+  footer: (
+    font-size: px-to-rem($font-size-xs),
+  ),
+  footerTitle: (
+    font-size: px-to-rem($font-size-s),
+  ),
+  formInput: (
+    font-family: $font-family--light,
+    line-height: $line-height--m,
+  ),
+  formInstruction: (
+    font-size: px-to-rem($font-size-xxs),
+  ),
+  alertMessages: (
+    font-size: px-to-rem($font-size-s),
+    font-family: $font-family--light,
+  ),
+  searchTitle: (
+    font-size: px-to-rem($font-size-l)
+  ),
+  searchArea: (
+    font-family: $font-family--light,
+    font-size: px-to-rem($font-size-s),
+  ),
+  teaserPlusContentText: (
+    font-size: px-to-rem($font-size-xxs),
+  ),
+  teaserNewsNav: (
+    font-size: px-to-rem($font-size-s),
+  ),
+  supportConsulting: (
+    font-family: $font-family--light,
+  ),
+  table: (
+    font-family: $font-family--light,
+  ),
+  tableHeading: (
+    font-family: $font-family--heading,
+  )
 );
 
 /**
@@ -133,13 +183,16 @@ $typography--tablet-portrait: (
   ),
   h3: (
     font-size: px-to-rem($font-size-xl-p),
-    line-height: $line-height--xm,
   ),
   h4: (
     font-size: px-to-rem($font-size-l),
   ),
+  h2furtherContent: (
+    font-size: px-to-rem($font-size-xl),
+  ),
   lead: (
     font-size: px-to-rem($font-size-l),
+    line-height: $line-height--m,
   ),
   navMainFlyoutTitle: (
     font-size: px-to-rem($font-size-l),
@@ -162,6 +215,12 @@ $typography--tablet-portrait: (
   accordionTitle: (
     font-size: px-to-rem($font-size-l),
   ),
+  contentHeaderClaim: (
+    font-size: px-to-rem($font-size-xxl),
+  ),
+  teaserNewsNav: (
+    font-size: px-to-rem($font-size-m),
+  ),
 );
 
 /**
@@ -178,30 +237,19 @@ $typography--tablet-landscape: (
  */
 $typography--desktop: (
   h1: (
-    font-size: px-to-rem($font-size-xxxl),
-    line-height: $line-height--s,
+    font-size: px-to-rem($font-size-xxxl)
   ),
   h2: (
     font-size: px-to-rem($font-size-xxl),
-    line-height: $line-height--xm,
   ),
   h3: (
     font-size: px-to-rem($font-size-xl),
-    line-height: $line-height--xm,
   ),
   h4: (
     font-size: px-to-rem($font-size-xm),
-    line-height: $line-height--s,
   ),
-  lead: (
-    font-family: $font-family--base,
-    font-size: px-to-rem($font-size-xl),
-    font-weight: $font-weight--base,
-  ),
-  p: (
-    font-family: $font-family--light,
-    font-size: px-to-rem($font-size-m),
-    font-weight: $font-weight--light,
+  contentHeaderClaim: (
+    font-size: px-to-rem($font-size-xxxxl),
   ),
 );
 

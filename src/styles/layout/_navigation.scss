@@ -16,7 +16,7 @@
     height: px-to-rem(65);
     &__list {
       display: flex;
-      justify-content: flex-end;
+      // justify-content: flex-end;
       
       &-item {
         &:not(:last-child) {

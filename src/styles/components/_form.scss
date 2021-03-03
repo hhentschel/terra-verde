@@ -1,0 +1,130 @@
+//transition
+$form-input--transition-duration: speed(hover);
+$form-input--transition-easing: easing();
+$form-input--transition-properties: transform, backround-color;
+
+$form-input--label-pos-y: px-to-rem($space--xs * 2);
+
+$form-input--spacing: px-to-rem($space--m + $space--xs);
+
+.form {
+  @include typo(formInput);
+  $this: &;
+
+  &__message {
+    @include typo(alertMessages);
+    padding: px-to-rem($space--m) $form-input--spacing;
+
+    &--success {
+      background: linear-gradient(
+        $background-gradient__angle,
+        $color--green-gradient-start 0%,
+        $color--green-gradient-end 100%
+      );
+    }
+
+    &--error {
+      background-color: $color--red;
+      color: $color--white;
+    }
+  }
+
+  &--has-error {
+    #{$this}__label {
+      color: $color--red-error;
+    }
+
+    #{$this}__input {
+      border: 2px solid $color--red-error;
+    }
+
+    #{$this}__select {
+      border: 2px solid $color--red-error;
+    }
+
+    #{$this}__input-icon--error {
+      display: block;
+
+      svg > path {
+        fill: $color--red-error;
+      }
+    }
+  }
+
+  &--freeform {
+    width: 100%;
+  }
+
+  &__selection {
+    margin-top: px-to-rem($space--m);
+  }
+
+  &__input-wrapper {
+    position: relative;
+  }
+
+  &__row {
+    margin-bottom: px-to-rem($space--xm);
+  }
+
+  &__label {
+    &--animated {
+      position: absolute;
+      left: px-to-rem($space--m);
+      padding: 0 px-to-rem($space--xs);
+      transform: translateY($form-input--label-pos-y);
+      transition-duration: $form-input--transition-duration;
+      transition-property: $form-input--transition-properties;
+      transition-timing-function: $form-input--transition-easing;
+      transform-origin: 0% 100%;
+    }
+
+    &--active {
+      background-color: $color--white;
+      transform: translateY(-#{$form-input--label-pos-y}) scale(0.8);
+      transform-origin: 0% 0%;
+    }
+  }
+
+  &__button-wrapper {
+    text-align: right;
+  }
+
+  &__instructions {
+    @include typo(formInstruction);
+    color: $color--grey-darker;
+    margin-top: px-to-rem($space--s);
+
+    &--indented {
+      margin-left: $form-input--spacing;
+    }
+  }
+
+  &__input-icon {
+    position: absolute;
+    right: $form-input--spacing;
+    top: 50%;
+    transform: translateY(-50%);
+
+    &--error {
+      display: none;
+    }
+
+    &--top {
+      top: $form-input--spacing;
+    }
+
+    &--select {
+      top: px-to-rem(30);
+    }
+  }
+
+  &__select {
+    background-image: url('../icons/carret_down_24.svg');
+    background-repeat: no-repeat;
+    background-size: px-to-rem(24);
+    background-position: calc(100% - #{$form-input--spacing}) center;
+    content: ' ';
+    display: inline-block;
+  }
+}

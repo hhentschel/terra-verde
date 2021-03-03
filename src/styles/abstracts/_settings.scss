@@ -5,8 +5,8 @@
 /**
 *  Grid
 */
-// $container--max-width: 1378;
-$container--max-width: 1500;
+$container--max-width: 1600;
+$display--max-width: 1920;
 
 /**
 *  Breakpoint Settings
@@ -37,18 +37,21 @@ $dialog-breakpoint-default: $breakpoint--base;
  */
 $font-size--base: 18 !global;
 
-$font-family--heading: 'Open Sans';
+$font-family--heading: 'Frutiger LT W01_55 Roman';
 $font-weight--heading: 400;
 
-$font-family--base: 'Open Sans';
+$font-family--base: 'Frutiger LT W01_55 Roman';
 $font-weight--base: 400;
 $font-weight--base-bold: 600;
 
-$font-family--light: 'Open Sans'; // use 'Frutiger LT W01_45 Light'; when provided
+$font-family--light: 'Frutiger LT W01_45 Light';
 $font-weight--light: 400;
 
-$font-family--bold: 'Open Sans Bold';
+$font-family--bold: 'Frutiger LT W01_65 Bold';
 $font-weight--bold: 400;
+
+$font-family--playfair-display: 'Playfair Display';
+
 
 // $line-height--xs: 1.15; // 32.5px
 $line-height--s: 1.15; // 32.5px
@@ -57,6 +60,7 @@ $line-height--m: 1.65; // 43px
 $line-height--l: 1.8; // 32px
 $line-height--base: $line-height--m;
 
+$font-size-xxs: 12;
 $font-size-xs: 13;
 $font-size-s: 15;
 $font-size-m: 18;
@@ -65,9 +69,10 @@ $font-size-l: 24;
 $font-size-xl-p: 26;
 $font-size-xl: 32;
 $font-size-xxl-p: 38;
-$font-size-xxl: 52;
 $font-size-xxxl-p: 48;
+$font-size-xxl: 52;
 $font-size-xxxl: 72;
+$font-size-xxxxl: 86;
 
 /**
  * Base spacing units - for boxes (horizontal and vertical)
@@ -86,13 +91,13 @@ $space--xxxl: 140;
 /**
  * Grid
  */
- $grid__space-outer-padding-horizontal--phone: 30;
- $grid__space-outer-padding-horizontal--tablet: 60;
- $grid__space-outer-padding-horizontal--desktop: 110;
- 
- $grid__space-gutter--phone: 36;
- $grid__space-gutter--tablet: 36;
- $grid__space-gutter--desktop: 60;
+$grid__space-outer-padding-horizontal--phone: 30;
+$grid__space-outer-padding-horizontal--tablet: 60;
+$grid__space-outer-padding-horizontal--desktop: 110;
+
+$grid__space-gutter--phone: 36;
+$grid__space-gutter--tablet: 36;
+$grid__space-gutter--desktop: 60;
 
 /**
  *  CSS Framework
@@ -107,8 +112,22 @@ $formatted-text-class: 'formatted-text';
 // teaser box shadow
 $teaser__box-shadow: 0 0.277rem 0.66rem rgba(15, 68, 94, 0.3); // 0 5px 12px (basierend auf 1rem = 18px)
 
+// text shadow
+$main-claim__text-shadow: 0 4px 12px rgba(102, 102, 102, 0.6);
+
 // hover scale factor
 $hover-scale-factor: 1.02;
 
 // background gradient angle
 $background-gradient__angle: 280deg;
+
+// spacing content
+$content-spacing--phone: 90;
+$content-spacing--tablet-landscape: 380;
+$content-spacing--desktop: 270;
+
+//header height
+$header-height--desktop: 186;
+$header-height--tablet-landscape: 270;
+$header-height--tablet-portrait: 312;
+$header-height--phone: 60;

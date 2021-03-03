@@ -1,0 +1,43 @@
+
+.table-container {
+  display: block;
+  overflow-x: auto;
+  width: 100%;
+}
+
+table {
+  @include typo(table);
+  max-width: 100%;
+  hyphens: none;
+  width: 100%;
+
+  tr {
+    border-bottom: 1px solid $color--grey-lighter;
+  }
+
+  td {
+    &:not(:last-child) {
+      padding: px-to-rem($space--m) px-to-rem($space--xxm) px-to-rem($space--m) 0;
+    }
+
+    > p {
+      margin: 0;
+      line-height: $line-height--base;
+    }
+  }
+
+  thead {
+    @include typo(tableHeading);
+
+    tr {
+      border-bottom: 2px solid $color--grey-lighter;
+
+      th {
+        &:not(:last-child) {
+          padding: px-to-rem($space--m) px-to-rem($space--xm) px-to-rem($space--m) 0;
+        }
+        text-align: left;
+      }
+    }
+  }
+}
