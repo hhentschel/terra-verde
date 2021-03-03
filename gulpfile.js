@@ -160,7 +160,7 @@ function cssMinify() {
 function browserSyncTask() {
   return new Promise((resolve) => {
     const filePath = __dirname;
-    filePath.split('htdocs');
+    filePath.split('localhost');
 
     lineReader.eachLine(envFile, (line) => {
       if (line.includes('ROOT_URL')) {
