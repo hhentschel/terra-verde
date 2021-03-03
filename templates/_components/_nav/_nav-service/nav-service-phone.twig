@@ -1,0 +1,38 @@
+{% set navContact = craft.entries.section('contact').one() %}
+{% set navSearch = craft.entries.section('search').one() %}
+{# Import Macros #}
+{% import '_helpers/macros.twig' as macros %}
+
+<ul class="nav-service-phone-list">
+  <h2 class="visually-hidden">
+    {{ 'nav.serviceNavigation'|t }}
+  </h2>
+  <li class="nav-service-phone-list__item">
+    <button class="nav-login__button" aria-haspopup="true">
+      {{ 'nav.loginNavTitle'|translate }}
+    </button>
+  </li>
+
+
+  <li class="nav-service-phone-list__item">
+    <a href="{{ navContact.url }}"
+      class="link link--icon-before link--mail {{
+      macros.isActive(
+        'nav.service.slug.contact'|t
+      )
+      }}">
+      <span class="link__text">{{ navContact.title }}</span>
+    </a>
+  </li>
+  <li class="nav-service-phone-list__item">
+    <a href="{{ navSearch.url }}"
+      class="link link--icon-before link--search {{
+      macros.isActive(
+        'nav.service.slug.search'|t
+      )
+      }}">
+      <span class="link__text">{{ navSearch.title }}</span>
+    </a>
+  </li>
+
+</ul>

@@ -3,119 +3,16 @@
     <h2 class="visually-hidden">
       Footer
     </h2>
-
-    <div class="content__grid">
-      <div class="content__grid--top footer__top">
-        <h2>Newsletter</h2>
+    <div class="grid">
+      <div class="row">
+        <div class="col col-xs-12 col-md-6 col-lg-12 footer__top">
+          <h2>Newsletter</h2>
+      </div>
+      </div>
     </div>
-      <div class="content__grid--4 content__grid--4-1">
-
-        <div class="footer--box footer--contact">
-          <h2 class="footer--heading">Kontakt</h2>
-          {% if footerGlobal.adress %}
-          <div>
-            {{footerGlobal.adress}}
-          </div>
-          {% endif %}
-
-          <div class="footer--contact__phone">
-            {% if footerGlobal.phone %}
-            <span>
-              <a href="tel:{{footerGlobal.phone}}">{{footerGlobal.phone}}</a>
-            </span>
-            {% endif %}
-
-            {% if footerGlobal.fax %}
-            <span>
-              {{footerGlobal.fax}}
-            </span>
-            {% endif %}
-          </div>
-
-          <div class="footer--contact__email">
-            {% if footerGlobal.emailOne %}
-            <span>
-              {{footerGlobal.emailOne}}
-            </span>
-            {% endif %}
-
-            {% if footerGlobal.emailTwo %}
-            <span class="emailTwo">
-              {{footerGlobal.emailTwo}}
-            </span>
-            {% endif %}
-          </div>
-        </div>
-
-      </div>
-      <div class="content__grid--4 content__grid--4-2">
-        <div class="footer--box footer--aboutus">
-          <h2 class="footer--heading">Über uns</h2>
-
-            {% set entries = craft.entries.section('aboutusStructure').level(2) %}
-
-          <ul>
-            {% for entry in entries %}
-              <li>
-                <a href="{{entry.url}}">
-                  {{ entry.title }}</li>
-                </a>
-            {% endfor %}
-          </ul>
-        </div>
-
-      </div>
-
-      <div class="content__grid--4 content__grid--4-3">
-
-        <div class="footer--box footer--info">
-          <h2 class="footer--heading">Info</h2>
-
-            {% set entries = craft.entries.section('infoStructure') %}
-
-            <ul>
-              {% for entry in entries %}
-                <li>
-                  <a href="{{entry.url}}">
-                    {{ entry.title }}</li>
-                  </a>
-              {% endfor %}
-            </ul>
-        </div>
-
-      </div>
-
-      <div class="content__grid--4 content__grid--4-4">
-
-        <div class="footer--box footer--openinghours">
-          <h2 class="footer--heading">Öffnungszeiten</h2>
-
-          {% if footerGlobal.openingHoursOne %}
-            <span>
-              {{footerGlobal.openingHoursOne}}
-            </span>
-          {% endif %}
-          {% if footerGlobal.openingHoursTwo %}
-            <span>
-              {{footerGlobal.openingHoursTwo}}
-            </span>
-          {% endif %}
-        </div>
-
-      </div>
-  </div>
-
-    <!-- <div class="footer__top">
-      <h2>Newsletter</h2>
-    </div> -->
-    {# <div class="grid">
+    <div class="grid">
       <div class="row">
         <div class="col col-xs-12 col-md-6 col-lg-3">
-
-
-
-        <div class="footer__bottom">
-
           <div class="footer--box footer--contact">
             <h2 class="footer--heading">Kontakt</h2>
             {% if footerGlobal.adress %}
@@ -152,8 +49,8 @@
               {% endif %}
             </div>
           </div>
-
-
+        </div>
+        <div class="col col-xs-12 col-md-6 col-lg-3">
           <div class="footer--box footer--aboutus">
             <h2 class="footer--heading">Über uns</h2>
 
@@ -168,8 +65,8 @@
               {% endfor %}
             </ul>
           </div>
-
-
+        </div>
+        <div class="col col-xs-12 col-md-6 col-lg-3">
           <div class="footer--box footer--info">
             <h2 class="footer--heading">Info</h2>
 
@@ -184,8 +81,8 @@
                 {% endfor %}
               </ul>
           </div>
-
-
+        </div>
+        <div class="col col-xs-12 col-md-6 col-lg-3">
           <div class="footer--box footer--openinghours">
             <h2 class="footer--heading">Öffnungszeiten</h2>
 
@@ -203,5 +100,5 @@
         </div>
       </div>
     </div>
-    </div> #}
+
 </footer>

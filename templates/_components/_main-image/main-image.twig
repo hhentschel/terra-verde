@@ -1,0 +1,9 @@
+{% import '_helpers/macros.twig' as macros %}
+{% set fullHeight = entry.getSection().handle == 'homepage'
+  ? 'main-image--full'
+  : ''
+%}
+
+<div class="main-image {{ fullHeight }}"
+  style="background-image: url({{ entry.mainImage.one.url }})">
+</div>

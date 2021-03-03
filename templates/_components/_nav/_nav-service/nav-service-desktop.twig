@@ -1,9 +1,9 @@
-
 {# IMPORT MACROS #}
 {% import '_helpers/macros.twig' as macros %}
 
 {% set detailhandelLink = craft.entries.section('retailTradeStructure').one() %}
 {% set sucheLink = craft.entries.section('searchSingle').one() %}
+{% set instashop = craft.entries.section('instashop').one() %}
 
 {% set url = craft.app.request.pathInfo %}
 
@@ -12,32 +12,45 @@
     {{ 'nav.serviceNavigation'|t }}
   </h2>
   <ul class="nav-service__list">
+    <li class="nav-service__list-item">
+      <a href="{{ detailhandelLink.url }}"
+        class="nav__link {{
+        macros.isActive(
+          'detailhandel',
+          1,
+          'nav-service__list-item--'
+        )
+        }}">
+        {{ 'Detailhandel'|t }}
+      </a>
+    </li>
 
     <li class="nav-service__list-item">
-      {# <a class="nav__link {{ macros.activeLinkClass(sucheLink.uri, sucheLink.level) }}" href="{{ sucheLink.url }}">{{ "Suche"|t }}</a> #}
+      <a href="{{ instashop.url }}"
+        class="nav__link {{
+        macros.isActive(
+          'suche',
+          1,
+          'nav-service__list-item--'
+        )
+        }}">
+        {{ 'InstaShop'|t }}
+      </a>
+    </li>
+
+    <li class="nav-service__list-item">
       <a href="{{ sucheLink.url }}"
         class="nav__link {{
         macros.isActive(
-          'test',
+          'suche',
           1,
           'nav-service__list-item--'
         )
         }}">
         {{ 'Suche'|t }}
       </a>
-
-    </li>
-
-    <li class="nav-service__list-item">
-      <a class="nav__link {{ macros.activeLinkClass(detailhandelLink.uri, detailhandelLink.level) }}" href="{{ detailhandelLink.url }}">{{ "Insta-Shop"|t }}</a>
-    </li>
-
-    <li class="nav-service__list-item">
-      <a class="nav__link {{ macros.activeLinkClass(detailhandelLink.uri, detailhandelLink.level) }}" href="{{ detailhandelLink.url }}">{{ "Detailhandel"|t }}</a>
     </li>
 
     {% include '_components/_nav/_nav-shop/nav-shop-desktop' %}
-
   </ul>
-
 </nav>
