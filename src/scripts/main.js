@@ -4,5 +4,7 @@
 
 // imports
 
-import './modules/regular-example';
-import './modules/singleton-example';
+import './modules/nav-main';
+import './modules/mobile-nav';
+import './modules/header';
+import './modules/responsive-view-handler';
