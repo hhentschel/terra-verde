@@ -1,0 +1,111 @@
+{# Import Macros #}
+{% import '_helpers/macros.twig' as macros %}
+
+{# ARBEITGEBER & SELBSTSTÄNDIGE DB QUERY #}
+{% set navEmployerInsurances =
+  craft.entries.section('employerStructure').status(null).limit(null).all()
+%}
+
+{% if navEmployerInsurances is not empty %}
+  <ul class="mobile-nav__list mobile-nav__list--hidden">
+    {% nav navEntry in navEmployerInsurances %}
+    {% set lastUriSegment = navEntry.uri|split('/')|last %}
+    <li class="mobile-nav__list-item">
+      {% if navEntry.type == 'employerOverviewPage' and navEntry.level == 1 %}
+        <button class="mobile-nav__trigger" type="button">
+          <span class="mobile-nav__text mobile-nav__text--bold {{
+            macros.isActive(
+              navEntry.slug,
+              2,
+              'mobile-nav__text--'
+            )
+            }}">
+            {{ navEntry.title }}
+          </span>
+        </button>
+      {% elseif
+        navEntry.status == 'disabled'
+          and navEntry.type == 'employerOverviewPage'
+          and navEntry.level == 2 %}
+        <button aria-expanded="false" class="mobile-nav__trigger nav-expanded">
+          <span class="mobile-nav__text {{
+            macros.isActive(
+              navEntry.slug,
+              - 1,
+              'mobile-nav__text--'
+            )
+            }}">
+            {{ navEntry.title }}
+          </span>
+          {{
+            macros.svg('carret_down_24')|attr({
+              class: 'icon icon--24 nav-main__list-icon'
+            })
+          }}
+        </button>
+      {% elseif
+        navEntry.status == 'live' and navEntry.type == 'employerDetailPage' %}
+        <a href="{{ navEntry.url }}" class="link">
+          <span class="mobile-nav__text  {{
+            macros.isActive(
+              navEntry.slug,
+              - 1,
+              'mobile-nav__text--'
+            )
+            }}">
+            {{ navEntry.title }}
+          </span>
+        </a>
+      {% endif %}
+      {% ifchildren %}
+      <ul class="{{
+        navEntry.hasDescendants and navEntry.level == 2
+          ? 'nav-main__sublist'
+          : 'mobile-nav__list mobile-nav__list--hidden'
+        }}">
+        {% if
+          navEntry.id == 494
+            and flyoutGlobals.linkFlyoutEmployerRepeater is defined
+            and flyoutGlobals.linkFlyoutEmployerRepeater is not empty %}
+          <li class="nav-main__custom-entries">
+            {% for block in flyoutGlobals.linkFlyoutEmployerRepeater.all() %}
+              {% set entry = block.buttonLinkToEntry.one() %}
+              <a class="link link--button link--internal link--color-blue link--icon-after nav-main__custom-links"
+                href="{{ entry.url }}">
+                <span class="link__text">{{ block.linkText }}</span>
+                <div class="link__icon-wrapper link__icon-wrapper--internal">
+                  {{
+                    macros.svg('arrow_42')|attr({
+                      class: 'link__icon link__icon--internal icon icon--42'
+                    })
+                  }}
+                </div>
+              </a>
+            {% endfor %}
+          </li>
+        {% endif %}
+        {% if
+          navEntry.status == 'live'
+            and navEntry.type == 'employerOverviewPage'
+            and navEntry.level == 1 %}
+          <li class="mobile-nav__list-item">
+            <a class="link" href="{{ navEntry.url }}">
+              <span class="mobile-nav__text  {{
+                macros.isActive(
+                  navEntry.slug,
+                  - 1,
+                  'mobile-nav__text--'
+                )
+                }}">
+                {{ 'nav.overview'|t }}
+              </span>
+            </a>
+          </li>
+        {% endif %}
+        {% children %}
+      </ul>
+      {% endifchildren %}
+    </li>
+    {% endnav %}
+  </ul>
+{% endif %}

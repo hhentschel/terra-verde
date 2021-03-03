@@ -1,0 +1,108 @@
+{# IMPORT MACROS #}
+{% import '_helpers/macros.twig' as macros %}
+
+<div class="mobile-nav__wrapper">
+  <div class="mobile-nav__header">
+    <button class="mobile-nav__button-back" type="button"></button>
+    <button class="mobile-nav__button-back" type="button">
+      {{ 'nav.mainNavigation.home'|t }}
+    </button>
+    <button class="mobile-nav__button-close">
+      <span class="visually-hidden">
+        {{ 'nav.mainNavigation.menuClose'|t }}
+      </span>
+      {{
+        macros.svg('close_24')|attr({
+          class: 'icon icon--24'
+        })
+      }}
+    </button>
+  </div>
+
+  <nav class="mobile-nav__main" role="navigation">
+    <h2 class="visually-hidden">
+      {{ 'nav.mainNavigation'|t }}
+    </h2>
+    <ul class="mobile-nav__list mobile-nav__list--active">
+      {# Starteite #}
+      <li class="mobile-nav__list-item">
+        <a href="/{{ currentSite.language }}" class="link">
+          <span class="mobile-nav__text mobile-nav__text--bold {{
+            craft.app.request.url == '/' ~ currentSite.language
+              ? 'mobile-nav__text--active'
+            }}">
+            {{ 'Startseite'|t }}
+          </span>
+        </a>
+      </li>
+      {# ARBEITGEBER & SELBSTSTÄNDIGE #}
+      <li class="mobile-nav__list-item">
+        <button class="mobile-nav__trigger" type="button">
+          <span class="mobile-nav__text mobile-nav__text--bold {{
+            macros.isActive(
+              'nav.mainNavigation.slug.employer'|t,
+              1,
+              'mobile-nav__text--'
+            )
+            }}">
+            {{ 'nav.mainNavigation.employer'|t }}
+          </span>
+        </button>
+        {% include '_components/_nav/_nav-main/nav-main-employer-phone' %}
+      </li>
+      {# END ARBEITGEBER & SELBSTSTÄNDIGE #}
+
+      {# ARBEITNEHMENDE & PENSIONIERTE #}
+      <li class="mobile-nav__list-item">
+        <button class="mobile-nav__trigger" type="button">
+          <span class="mobile-nav__text mobile-nav__text--bold  {{
+            macros.isActive(
+              'nav.mainNavigation.slug.worker'|t,
+              1,
+              'mobile-nav__text--'
+            )
+            }}">
+            {{ 'nav.mainNavigation.Worker'|t }}
+          </span>
+        </button>
+        {% include '_components/_nav/_nav-main/nav-main-worker-phone' %}
+      </li>
+      {# END ARBEITNEHMENDE & PENSIONIERTE #}
+
+      {# ÜBER UNS & ORGANISATION, JOBS & MEHR #}
+      <li class="mobile-nav__list-item">
+        <button class="mobile-nav__trigger" type="button">
+          <span class="mobile-nav__text mobile-nav__text--bold  {{
+            macros.isActive(
+              'nav.mainNavigation.slug.aboutus'|t,
+              1,
+              'mobile-nav__text--'
+            )
+            }}">
+            {{ 'nav.mainNavigation.aboutus'|t }}
+          </span>
+        </button>
+        {% include '_components/_nav/_nav-main/nav-main-worker-about-us-phone' %}
+      </li>
+      {# END ÜBER UNS & ORGANISATION, JOBS & MEHR #}
+
+      {# RATGEBER #}
+      <li class="mobile-nav__list-item">
+        <button class="mobile-nav__trigger" type="button">
+          <span class="mobile-nav__text mobile-nav__text--bold  {{
+            macros.isActive(
+              'nav.mainNavigation.slug.advisor'|t,
+              1,
+              'mobile-nav__text--'
+            )
+            }}">
+            {{ 'nav.mainNavigation.advisor'|t }}
+          </span>
+        </button>
+        {% include '_components/_nav/_nav-main/nav-main-advisor-phone' %}
+      </li>
+      {# END RATGEBER #}
+      <li>{% include '_components/_nav/_nav-service/nav-service-phone' %}</li>
+    </ul>
+  </nav>
+</div>

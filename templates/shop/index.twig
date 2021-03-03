@@ -1,77 +1,21 @@
-{% extends "_layouts/main" %}
+{% extends '_layouts/main' %}
 
+{% set pageTitle = entry.pageTitle is not empty ? entry.pageTitle : entry.title
+%}
 
 {% block content %}
+  <div class="grid">
+    <div class="row">
+      <div class="col col-xs-12 col-md-12 col-lg-12">
+        <h1 class="heading heading--h1">
+          {{ pageTitle }}
+        </h1>
+      </div>
+    </div>
 
-<div class="row">
-<div class="intro large-12 small-12 columns ">
-   <p>
-       <small><a href="/shop">&larr;Supplies</a></small>
-   </p>
-</div>
-
-<ul>
-
-  {#% set products = craft.products().type('whitewine').limit(10).all() %#}
-  {% set products = craft.products().limit(10).all() %}
-
-  {% for product in products %}
-
-    {% set img = productImage is defined and productImage is not empty ? product.productImage.one() : null %}
-    {% set imageUrl = product.productImage.one() ? product.productImage.one().getUrl('productListing') : '' %}
-    {% set imageStandardAltText = img
-      and img.imageAltText is defined
-      and img.imageAltText is not empty
-      ? img.imageAltText
-      : ''
-    %}
-    {% set imageAltText = imageAltText is defined and imageAltText is not empty
-      ? imageAltText
-      : imageStandardAltText
-    %}
-    {% set imageStandardCaption = img
-      and img.imageCaption is defined
-      and img.imageCaption is not empty
-      ? img.imageCaption
-      : ''
-    %}
-    {% set imageCaption = imageCaption is defined and imageCaption is not empty
-      ? imageCaption
-      : imageStandardCaption
-    %}
-
-    <li>
-      <a href="{{ product.url }}">
-        {% if imageUrl %}
-        <figure class="image">
-          <div class="image__wrapper">
-            <img class="image__img" src="{{ imageUrl }}" alt="{{ imageAltText }}" />
-          </div>
-          {% if imageCaption %}
-            <figcaption class="image__caption">
-              {{ imageCaption }}
-            </figcaption>
-          {% endif %}
-        </figure>
-      {% endif %}
-
-
-
-        {{ product.title}} - {{ product.defaultPrice |currency('CHF') }}
-        <h5>{{product.title }}</h5>
-        <p>{{ product.defaultPrice |currency('CHF')}}</p>
-        </a>
-      </li>
-
-  {% endfor %}
-
-
-</ul>
-
-</div>
-
-
-
-
-
+    <div class="row">
+      <div class="col col-xs-12 col-md-12 col-lg-12">
+          {% include "_layouts/_includes/shop.twig" %}
+      </div>
+    </div>
 {% endblock %}

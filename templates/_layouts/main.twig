@@ -1,22 +1,25 @@
+{% set contentPaddingClass = entry.mainImage is not empty ? 'content--has-image'
+%}
+
 {% extends '_layouts/base' %}
 
 
 {% block layout %}
 
-  <div class="grid gridbase wrapper">
     {% include '_layouts/_includes/header' %}
-    {% if craft.app.request.isMobileBrowser() %}
     <div class="mobile-nav">
-      {% include '_components/_nav/_nav-main/nav-main-mobile' %}
+      {% include '_components/_nav/_nav-main/nav-main-phone' %}
     </div>
-    {% endif %}
 
     {% if craft.app.request.absoluteUrl != siteUrl %}
     {% include '_layouts/_includes/sidebar' %}
     {% endif %}
 
     <main role="main" class="main">
-      <div class="content">
+      <div class="content {{ contentPaddingClass }}">
+        {% if entry.mainImage is not empty %}
+          {% include '_components/_main-image/main-image' %}
+        {% endif %}
         {% block content %}
 
         {% endblock %}
@@ -24,5 +27,5 @@
     </main>
 
     {% include '_layouts/_includes/footer' %}
-  </div>
+
 {% endblock %}

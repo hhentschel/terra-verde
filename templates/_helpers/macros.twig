@@ -71,7 +71,7 @@
     {% set segments = segments|default(null) %}
     {% set position = position|default(- 1) %}
     {% set prefix = prefix|default(null) %}
-    {% set cn = cn|default('active') %}
+    {% set cn = cn|default('is-active') %}
 
     {% if
       segments is iterable
@@ -83,21 +83,18 @@
   {% endspaceless %}
 {% endmacro %}
 
-
 {% macro activeLinkClass(linkUri, requestSegmentNumber) %}
+  {# Request the relevant path segment in the URL #}
+  {% set nthRequestSegment = craft.app.request.segment(requestSegmentNumber) %}
 
-    {# Request the relevant path segment in the URL #}
-    {% set nthRequestSegment = craft.app.request.segment(requestSegmentNumber) %}
+  {# Split the link's URI into a list of path segments #}
+  {% set linkSegments = linkUri|split('/') %}
 
-    {# Split the link's URI into a list of path segments #}
-    {% set linkSegments = linkUri|split('/') %}
+  {# Get the path segment relevant for our comparison #}
+  {% set nthLinkSegment = linkSegments[requestSegmentNumber - 1] %}
 
-    {# Get the path segment relevant for our comparison #}
-    {% set nthLinkSegment = linkSegments[requestSegmentNumber - 1] %}
-
-    {# Return `active` if the nthLinkSegment equals the nthRequestSegment #}
-    {% if nthLinkSegment == nthRequestSegment %}active{% endif %}
-
+  {# Return `active` if the nthLinkSegment equals the nthRequestSegment #}
+  {% if nthLinkSegment == nthRequestSegment %}active{% endif %}
 {% endmacro %}
 {# Loading SVG ICONS
 #
