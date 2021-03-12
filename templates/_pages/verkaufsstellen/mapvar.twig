@@ -1,0 +1,33 @@
+{% set query = craft.app.request.getQueryParam('query') %}
+{% set province = craft.app.request.getQueryParam('province') %}
+{% set formPost = query or province %}
+
+{# get the ip location stuff from smartmap #}
+{% set visitor = googleMaps.getVisitor() %}
+
+{# add provinces where stores exist - needed for ip location #}
+{% set validProvinces = [
+  'Alberta',
+  'British Columbia',
+  'Manitoba',
+  'Ontario',
+  'Nova Scotia'
+] %}
+
+{% set provinceMapping = {
+  '': 'Province',
+  AB: 'Alberta',
+  BC: 'British Columbia',
+  MB: 'Manitoba',
+  NB: 'New Brunswick',
+  NL: 'Newfoundland',
+  NS: 'Nova Scotia',
+  ON: 'Ontario',
+  PE: 'PEI',
+  QC: 'Quebec',
+  SK: 'Saskatchewan',
+  NU: 'Nunavut',
+  YT: 'Yukon'
+} %}
+{# p= long name province= shortname #}
+{% set p = provinceMapping[province] %}

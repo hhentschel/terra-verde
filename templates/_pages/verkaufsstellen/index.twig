@@ -3,13 +3,74 @@
 %}
 
 {% block content %}
+<script>
+
+</script>
+
   <div class="grid">
     <div class="row">
       <div class="col col-xs-12 col-md-12 col-lg-12">
-        <h1 class="heading heading--h1">
+        {% include '_components/breadcrumb.twig' %}
+        <h2 class="heading heading--h2 heading--site heading--no-margin-top">
           {{ pageTitle }}
-        </h1>
+        </h2>
       </div>
     </div>
   </div>
+
+    <section class="grid">
+    <div class="row">
+      <div class="col col-xs-12 col-md-12 col-lg-3">
+        <ul>
+          {% set relatedSection =
+            craft.entries.section('sellingPointsStructure').all()
+          %}
+          {% if relatedSection|length %}
+            {% for entry in relatedSection %}
+              {# <li><a href="{{ entry.url }}">{{ entry.title }}</a></li> #}
+              <li onclick="openInfoWindow('my-map', 'adressMap', {{ entry.id }})">
+            {{ entry.title }}
+        </li>
+            {% endfor %}
+          {% endif %}
+        </ul>
+      </div>
+      <div class="col col-xs-12 col-md-12 col-lg-9">
+
+      <form action="" method="get">
+        <input type="search"
+          name="storequery"
+          id="storequery"
+          class="form-control"
+          placeholder="Stadt" />
+
+        <button class="btn btn-primary" type="submit">{{'search.title'|t}}</button>
+      </form>
+
+
+      {# Get proximity search target from user query #}
+      {% set target = craft.app.request.getParam('storequery') ?? null %}
+
+
+      {% set options = {
+        'id': 'my-map',
+        'zoom': 12,
+        'infoWindowTemplate': '_components/_map-info-window/info-window',
+         'target': target,
+        'range': 10,
+        'units': 'kilometers'
+      } %}
+
+      {# Get all locations #}
+      {% set locations = craft.entries
+        .section('sellingPointsStructure')
+        .adressMap(options)
+        .all() %}
+      {# Create a dynamic map with markers #}
+      {{ googleMaps.map(locations, options).tag() }}
+
+    </div>
+      </div>
+    </div>
+  </section>
 {% endblock %}
