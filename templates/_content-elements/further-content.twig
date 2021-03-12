@@ -1,0 +1,254 @@
+{# Import Macros #}
+{% import '_helpers/macros.twig' as macros %}
+
+{# Teaser Text #}
+{% set showTeaserText = showTeaserText is defined ? showTeaserText : false %}
+{% set teaserTextSliderTitle = teaserTextSliderTitle is not empty
+  ? teaserTextSliderTitle
+  : ''
+%}
+{% set teaserTextSliderItems = teaserTextSliderItems is defined
+  and teaserTextSliderItems is not empty
+  ? teaserTextSliderItems
+  : null
+%}
+{% set teaserTextBackgroundColor = teaserTextBackgroundColor is not empty
+  ? teaserTextBackgroundColor
+  : 'red'
+%}
+
+{# Teaser News #}
+{% set showTeaserNews = showTeaserNews is defined ? showTeaserNews : false %}
+{% set teaserNewsSliderShowAutomatic = teaserNewsSliderVariantSelector is defined
+  and teaserNewsSliderVariantSelector == 'auto'
+%}
+{% set teaserNewsSliderShowManual = teaserNewsSliderVariantSelector is defined
+  and teaserNewsSliderVariantSelector == 'manual'
+%}
+{% set teaserNewsSliderTitle = teaserNewsSliderTitle is defined
+  and teaserNewsSliderTitle is not empty
+  ? teaserNewsSliderTitle
+  : ''
+%}
+{% set teaserNewsSliderLinkText = teaserNewsSliderLinkText is defined
+  and teaserNewsSliderLinkText is not empty
+  ? teaserNewsSliderLinkText
+  : ''
+%}
+{% set teaserNewsSliderLinkUrl =
+  craft.entries().section('newsStoriesOverview').one().url
+%}
+{% set teaserNewsCategoryArticleTopics = teaserNewsCategoryArticleTopics is defined
+  and teaserNewsCategoryArticleTopics is not empty
+  ? teaserNewsCategoryArticleTopics
+  : null
+%}
+{% set teaserNewsSliderItems = teaserNewsSliderShowManual
+  and teaserNewsSliderManualChoice is defined
+  ? teaserNewsSliderManualChoice
+  : craft.entries().section('channelNewsStories').relatedTo(
+    teaserNewsCategoryArticleTopics
+  ).limit(
+    6
+  )
+%}
+
+{# Consulting & Support #}
+{% set showConsultingSupport = showConsultingSupport is defined
+  ? showConsultingSupport
+  : false
+%}
+
+{# Document & Links #}
+{% set showDocumentLinks = showDocumentLinks is defined
+  ? showDocumentLinks
+  : false
+%}
+
+{# Ouput #}
+{% if
+  showTeaserText
+    or showTeaserNews
+    or showConsultingSupport
+    or showDocumentLinks %}
+  <div class="further-content layout-helper__margin-top--xl">
+    {# Teaser Text Slider #}
+    {% if showTeaserText and teaserTextSliderItems %}
+      <section class="further-content__section layout-helper__margin-top--none layout-helper__margin-bottom--l">
+        <div class="further-content__header layout-helper__margin-bottom--xs">
+          <div class="grid">
+            <div class="row">
+              <div class="col col-xs-12 col-md-10 col-md-shift-1 col-lg-8 col-lg-shift-2">
+                <h2 class="heading heading--h2-further-content heading--no-margin">
+                  {{ teaserTextSliderTitle }}
+                </h2>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="further-content__section-content">
+          {# Teaser Text Slider #}
+          {% include '_components/_teasers/teaser-slider.twig' with {
+            items: teaserTextSliderItems,
+            teaserBackgroundColor: teaserTextBackgroundColor,
+            type: 'teaser-nav-text'
+          } %}
+        </div>
+      </section>
+    {% endif %}
+    {# Teaser News Slider #}
+    {% if
+      showTeaserNews
+        and (teaserNewsSliderShowAutomatic == true
+          or teaserNewsSliderShowManual == true) %}
+      <section class="further-content__section layout-helper__margin-top--none layout-helper__margin-bottom--l">
+        {% if
+          teaserNewsSliderTitle is defined
+            and teaserNewsSliderTitle is not empty %}
+          {% include '_components/_content-elements/section-header.twig' with {
+            teaserTitle: teaserNewsSliderTitle,
+            teaserLinkText: teaserNewsSliderLinkText,
+            teaserLinkUrl: teaserNewsSliderLinkUrl
+          } %}
+        {% endif %}
+        {% if teaserNewsSliderItems|length %}
+          <div class="further-content__section-content">
+            {% if teaserNewsSliderShowManual %}
+              {% include '_components/_teasers/teaser-slider.twig' with {
+                items: teaserNewsSliderItems,
+                type: 'teaser-news'
+              } %}
+            {% endif %}
+            {% if teaserNewsSliderShowAutomatic %}
+              {% include '_components/_teasers/teaser-slider.twig' with {
+                items: teaserNewsSliderItems,
+                type: 'teaser-news-queried'
+              } %}
+            {% endif %}
+          </div>
+        {% endif %}
+      </section>
+    {% endif %}
+
+    {# Consulting & Support #}
+    {% if showConsultingSupport %}
+      <section class="further-content__section layout-helper__margin-top--none layout-helper__margin-bottom--l">
+        <div class="further-content__header layout-helper__margin-bottom--xs">
+          <div class="grid">
+            <div class="row">
+              <div class="col col-xs-12 col-md-10 col-md-shift-1 col-lg-8 col-lg-shift-2">
+                <h2 class="heading further-content__title heading--no-margin">
+                  {{ 'furtherContent.Title.ConsultingSupport'|t }}
+                </h2>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="further-content__section-content">
+          <div class="grid">
+            <div class="row">
+              <div class="col col-xs-12 col-md-10 col-md-shift-1 col-lg-8 col-lg-shift-2">
+                <div class="further-content__section-lead layout-helper__margin-bottom--xs">
+                  <p>
+                    {{ 'furtherContent.Lead.Consulting'|t }}
+                  </p>
+                </div>
+              </div>
+              <div class="col col-xs-12 col-md-10 col-md-shift-1 col-lg-4 col-lg-shift-2">
+                <div class="further-content__support-item">
+                  {{
+                    macros.svg('contact_60')|attr({
+                      class: 'further-content__icon icon icon--75
+                      '
+                    })
+                  }}
+                  <dl class="further-content__definition-list">
+                    <dt class="further-content__definition-term">
+                      {{ 'contact.phone.title'|t }}
+                    </dt>
+                    <dd class="further-content__definition-description">
+                      <a class="link"
+                        href="tel:{{
+                        seomatic.site.identity.genericTelephone
+                        }}">
+                        {{ seomatic.site.identity.genericTelephone }}
+                      </a>
+                    </dd>
+                    <dt class="further-content__definition-term">
+                      {{ 'contact.email.title'|t }}
+                    </dt>
+                    <dd class="further-content__definition-description">
+                      {% if entry.ConsultingSupportAlternativeEmail %}
+                        {{
+                          macros.emailLinks(
+                            entry.ConsultingSupportAlternativeEmail,
+                            'link'
+                          )
+                        }}
+                      {% else %}
+                        {{
+                          macros.emailLinks(
+                            seomatic.site.identity.genericEmail,
+                            'link'
+                          )
+                        }}
+                      {% endif %}
+                    </dd>
+                  </dl>
+                </div>
+              </div>
+              <div class="col col-xs-12 col-md-10 col-md-shift-1 col-lg-4 col-lg-shift-0">
+                <div class="further-content__support-item">
+                  {{
+                    macros.svg('time_60')|attr({
+                      class: 'further-content__icon icon icon--75'
+                    })
+                  }}
+                  <dl class="further-content__definition-list">
+                    <dt class="further-content__definition-term">
+                      {{ 'content.openingDaysTitle'|t }}
+                    </dt>
+                    <dd class="further-content__definition-description">
+                      {{ 'content.openingDaysAM'|t }}
+                    </dd>
+                    <dd class="further-content__definition-description further-content__definition-description--right">
+                      {{ 'content.openingDaysPM'|t }}
+                    </dd>
+                  </dl>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    {% endif %}
+
+    {# Document & Links #}
+    {% if showDocumentLinks %}
+      <section class="further-content__section layout-helper__margin-top--none layout-helper__margin-bottom--l">
+        <div class="further-content__header layout-helper__margin-bottom--xs">
+          <div class="grid">
+            <div class="row">
+              <div class="col col-xs-12 col-md-10 col-md-shift-1 col-lg-8 col-lg-shift-2">
+                <h2 class="heading heading--no-margin further-content__title">
+                  {{ 'furtherContent.Title.DocLinks'|t }}
+                </h2>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="further-content__section-content">
+          {% if
+            entry.documentsLinks is defined
+              and entry.documentsLinks is not empty %}
+            {% include '_components/_content-elements/content-elements-loop' with {
+              contentElements: entry.documentsLinks.level(1),
+              usesGrid: true
+            } %}
+          {% endif %}
+        </div>
+      </section>
+    {% endif %}
+  </div>
+{% endif %}

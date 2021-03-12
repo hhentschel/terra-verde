@@ -1,31 +1,30 @@
-{% set contentPaddingClass = entry.mainImage is not empty ? 'content--has-image'
+{% set contentPaddingClass = entry.mainImage is not empty
+  ? 'content--has-image'
+  : ''
 %}
 
 {% extends '_layouts/base' %}
 
-
 {% block layout %}
+  {% include '_layouts/_includes/header' %}
+  <div class="mobile-nav">
+    {% include '_components/_nav/_nav-main/nav-main-phone' %}
+  </div>
 
-    {% include '_layouts/_includes/header' %}
-    <div class="mobile-nav">
-      {% include '_components/_nav/_nav-main/nav-main-phone' %}
-    </div>
-
-    {% if craft.app.request.absoluteUrl != siteUrl %}
+  {% if craft.app.request.absoluteUrl != siteUrl %}
     {% include '_layouts/_includes/sidebar' %}
-    {% endif %}
+  {% endif %}
 
-    <main role="main" class="main">
-      <div class="content {{ contentPaddingClass }}">
-        {% if entry.mainImage is not empty %}
-          {% include '_components/_main-image/main-image' %}
-        {% endif %}
-        {% block content %}
+  <main role="main" class="main">
+    <div class="content {{ contentPaddingClass }}">
+      {% if entry.mainImage is not empty %}
+        {% include '_components/_main-image/main-image' %}
+      {% endif %}
+      {% block content %}
 
-        {% endblock %}
-      </div>
-    </main>
+      {% endblock %}
+    </div>
+  </main>
 
-    {% include '_layouts/_includes/footer' %}
-
+  {% include '_layouts/_includes/footer' %}
 {% endblock %}

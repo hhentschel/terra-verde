@@ -18,7 +18,7 @@
         macros.isActive(
           'detailhandel',
           1,
-          'nav-service__list-item--'
+          'nav__link--'
         )
         }}">
         {{ 'Detailhandel'|t }}
@@ -27,26 +27,14 @@
 
     <li class="nav-service__list-item">
       <a href="{{ instashop.url }}"
-        class="nav__link {{
-        macros.isActive(
-          'suche',
-          1,
-          'nav-service__list-item--'
-        )
-        }}">
+        class="nav__link {{ macros.isActive('instashop', 1, 'nav__link--') }}">
         {{ 'InstaShop'|t }}
       </a>
     </li>
 
     <li class="nav-service__list-item">
       <a href="{{ sucheLink.url }}"
-        class="nav__link {{
-        macros.isActive(
-          'suche',
-          1,
-          'nav-service__list-item--'
-        )
-        }}">
+        class="nav__link {{ macros.isActive('suche', 1, 'nav__link--') }}">
         {{ 'Suche'|t }}
       </a>
     </li>

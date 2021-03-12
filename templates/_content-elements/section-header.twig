@@ -1,0 +1,42 @@
+{% set teaserTitle = teaserTitle is defined and teaserTitle is not empty
+  ? teaserTitle
+  : ''
+%}
+{% set teaserLinkText = teaserLinkText is defined
+  and teaserLinkText is not empty
+  ? teaserLinkText
+  : ''
+%}
+{% set teaserLinkUrl = teaserLinkUrl is defined and teaserLinkUrl is not empty
+  ? teaserLinkUrl
+  : ''
+%}
+{% set sectionTitlePos = sectionTitlePos is defined and sectionTitlePos is not empty
+  ? 'section-header__heading--left'
+  : ''
+%}
+<div class="section-header layout-helper__margin-bottom--xs">
+  <div class="grid">
+    <div class="row">
+      <div class="col col-xs-12 col-md-12 col-lg-12">
+        <div class="section-header__wrapper">
+          {% if teaserLinkUrl and teaserLinkText %}
+            <div class="section-header__link-wrapper">
+              {% include '_components/_content-elements/link' with {
+                linkUrl: teaserLinkUrl,
+                linkText: teaserLinkText,
+                target: 'internal',
+                iconPosition: 'after'
+              } %}
+            </div>
+          {% endif %}
+          {% if teaserTitle %}
+            <h2 class="section-header__heading {{ sectionTitlePos }} heading heading--h2-further-content heading--no-margin">
+              {{ teaserTitle }}
+            </h2>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

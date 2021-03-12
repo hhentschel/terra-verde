@@ -1,0 +1,167 @@
+{% if
+  contentElementsStartpage is defined
+    and contentElementsStartpage is not empty %}
+  {% set contentArray = [] %}
+  {# this is an include since it is used again inside a accordion #}
+  {% for block in contentElementsStartpage.all() %}
+    {% set useGrid = true %}
+    {% set cmt = '' %} {# classMarginTop #}
+    {% set cmb = '' %} {# classMarginBottom #}
+    {% set colClasses = '' %}
+    {% set contentBlock = '' %}
+    {% if
+      loop.index0 == 0 and loop.index == (contentElementsStartpage|length) %}
+      {% set cmt = 'layout-helper__margin-top--none' %}
+      {% set cmb = 'layout-helper__margin-bottom--none' %}
+    {% elseif loop.index0 == 0 %}
+      {% set cmt = 'layout-helper__margin-top--none' %}
+    {% elseif loop.index == (contentElementsStartpage|length) %}
+      {% set cmb = 'layout-helper__margin-bottom--none' %}
+    {% endif %}
+
+    {% switch block.type.handle %}
+
+    {# Teaser Offer #}
+    {% case 'teaserOffer' %}
+    {% set useGrid = false %}
+    {% set cmt = cmt ? cmt : 'layout-helper__margin-top--xl' %}
+    {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--xl' %}
+    {% set contentBlock %}
+      {% include '_components/_teasers/teaser-offer.twig' with {
+        teaserUrl: block.teaserEntry.one().url,
+        teaserTitle: block.teaserTitle,
+        teaserSubtitle: block.teaserSubtitle,
+        teaserButtonText: block.teaserButtonText,
+        teaserItems: block.children,
+        teaserColor: block.teaserOffersColor
+      } %}
+    {% endset %}
+
+    {# Teaser News Big #}
+    {% case 'teaserNewsBig' %}
+    {% set cmt = cmt ? cmt : 'layout-helper__margin-top--m' %}
+    {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--m' %}
+    {% set colClasses = 'col col-xs-12 col-md-12 col-lg-12' %}
+    {% set contentBlock %}
+      {% include '_components/_teasers/teaser-news-big.twig' with {
+        teaser: block.teaserNewsEntry.one(),
+        imgPosition: block.teaserNewsImagePosition
+      } %}
+    {% endset %}
+
+    {# Teaser News Slider #}
+    {% case 'teaserNewsSlider' %}
+    {% set useGrid = false %}
+    {% set cmt = cmt ? cmt : 'layout-helper__margin-top--m' %}
+    {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--xl' %}
+    {% set colClasses = 'col col-xs-12 col-md-12 col-lg-12' %}
+    {% set categoryArticleTopic = block.categoryArticleTopic is not empty
+      ? block.categoryArticleTopic
+      : ''
+    %}
+    {% set teaserNewsSliderTitle = block.teaserNewsSliderTitle is defined
+      and block.teaserNewsSliderTitle is not empty
+      ? block.teaserNewsSliderTitle
+      : ''
+    %}
+    {% set teaserNewsSliderLinkText = block.teaserNewsSliderLinkText is defined
+      and block.teaserNewsSliderLinkText is not empty
+      ? block.teaserNewsSliderLinkText
+      : ''
+    %}
+    {% set teaserNewsSliderLinkUrl =
+      craft.entries().section('newsStoriesOverview').one().url
+    %}
+    {% set teaserNewsSliderItems = block.children is defined
+      and block.children is not empty
+      and block.teaserNewsSliderVariantSelector == 'manual'
+      ? block.children
+      : craft.entries().section('channelNewsStories').relatedTo(
+        categoryArticleTopic
+      ).limit(
+        6
+      )
+    %}
+    {% set contentBlock %}
+      {% if
+        teaserNewsSliderTitle
+          or (teaserNewsSliderLinkText and teaserNewsSliderLinkUrl) %}
+        {% include '_components/_content-elements/section-header.twig' with {
+          teaserTitle: teaserNewsSliderTitle,
+          teaserLinkText: teaserNewsSliderLinkText,
+          teaserLinkUrl: teaserNewsSliderLinkUrl
+        } %}
+      {% endif %}
+      {% include '_components/_teasers/teaser-slider.twig' with {
+        items: teaserNewsSliderItems,
+        type: block.teaserNewsSliderVariantSelector == 'manual'
+          ? 'teaser-news'
+          : 'teaser-news-queried'
+      } %}
+    {% endset %}
+
+    {# Teaser Icon List #}
+    {% case 'teaserIconList' %}
+    {% set cmt = cmt ? cmt : 'layout-helper__margin-top--m' %}
+    {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--xl' %}
+    {% set colClasses = 'col col-xs-12 col-md-12 col-lg-12' %}
+    {% set contentBlock %}
+      {% include '_components/_teasers/teaser-list.twig' with {
+        items: block.children,
+        type: 'teaser-nav-icon'
+      } %}
+    {% endset %}
+
+    {% case 'teaserPluspointList' %}
+    {% set useGrid = false %}
+    {% set cmt = cmt ? cmt : 'layout-helper__margin-top--xl' %}
+    {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--xl' %}
+    {% set contentBlock %}
+      {% include '_components/_teasers/teaser-plus-point.twig' with {
+        teaserTitle: block.teaserTitle,
+        teaserItems: block.children
+      } %}
+    {% endset %}
+
+    {% case 'teaserKeyFiguresListStartpage' %}
+    {% set useGrid = false %}
+    {% set cmt = cmt ? cmt : 'layout-helper__margin-top--xl' %}
+    {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--xl' %}
+    {% set contentBlock %}
+      {% include '_components/_teasers/teaser-key-figures.twig' with {
+        teaserTitle: block.teaserTitle,
+        teaserItems: block.children
+      } %}
+    {% endset %}
+
+    {% endswitch %}
+
+    {# Build Block and add it to contentArray #}
+    {% if useGrid %}
+      {% set content %}
+        <div class="grid">
+          <div class="row {{ cmt }} {{ cmb }}">
+            <div class="{{ colClasses }}">
+              {{ contentBlock }}
+            </div>
+          </div>
+        </div>
+      {% endset %}
+    {% else %}
+      {% set content %}
+        <div class="{{ cmt }} {{ cmb }}">
+          {{ contentBlock }}
+        </div>
+      {% endset %}
+    {% endif %}
+
+    {% set contentArray = contentArray|merge([content]) %}
+  {% endfor %}
+
+  {# Ouput #}
+  <div class="content-elements-startpage layout-helper__overflow--x-hidden">
+    {% for contentElement in contentArray %}
+      {{ contentElement }}
+    {% endfor %}
+  </div>
+{% endif %}

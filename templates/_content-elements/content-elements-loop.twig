@@ -1,0 +1,293 @@
+{% if contentElements is defined and contentElements is not empty %}
+  {% set usesGrid = usesGrid is defined and usesGrid == true ? true : false %}
+  {% set contentArray = [] %}
+  {# this is an include since it is used again inside a accordion #}
+  {% for block in contentElements.all() %}
+    {% set cmt = '' %} {# classMarginTop #}
+    {% set cmb = '' %} {# classMarginBottom #}
+    {% set colClasses = '' %}
+    {% set contentBlock = '' %}
+    {% if loop.index0 == 0 and loop.index == (contentElements|length) %}
+      {% set cmt = 'layout-helper__margin-top--none' %}
+      {% set cmb = 'layout-helper__margin-bottom--none' %}
+    {% elseif loop.index0 == 0 %}
+      {% set cmt = 'layout-helper__margin-top--none' %}
+    {% elseif loop.index == (contentElements|length) %}
+      {% set cmb = 'layout-helper__margin-bottom--none' %}
+    {% endif %}
+
+    {% switch block.type.handle %}
+    {# formattedText Block #}
+    {% case 'formattedText' %}
+    {% set cmt = cmt ? cmt : 'layout-helper__margin-top--none' %}
+    {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--m' %}
+    {% set colClasses =
+      'col col-xs-12 col-md-10 col-md-shift-1 col-lg-8 col-lg-shift-2'
+    %}
+    {% set contentBlock %}
+      {% include '_components/_content-elements/formatted-text' with {
+        formattedText: block.textStandardWithoutH1
+      } %}
+    {% endset %}
+
+    {# titleH2 Block #}
+    {% case 'titleH2' %}
+    {% set cmt = cmt ? cmt : 'layout-helper__margin-top--m' %}
+    {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--xxs' %}
+    {% set colClasses =
+      'col col-xs-12 col-md-10 col-md-shift-1 col-lg-8 col-lg-shift-2'
+    %}
+    {% set contentBlock %}
+      <h2 class="heading heading--h2 heading--no-margin">
+        {{ block.titleH2 }}
+      </h2>
+    {% endset %}
+
+    {# table Block #}
+    {% case 'table' %}
+    {% set cmt = cmt ? cmt : 'layout-helper__margin-top--m' %}
+    {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--xxs' %}
+    {% set colClasses =
+      'col col-xs-12 col-md-10 col-md-shift-1 col-lg-8 col-lg-shift-2'
+    %}
+    {% set contentBlock %}
+      <div class="table-container">
+        {{ block.tableContent }}
+      </div>
+    {% endset %}
+
+    {# titleH3 Block #}
+    {% case 'titleH3' %}
+    {% set cmt = cmt ? cmt : 'layout-helper__margin-top--s' %}
+    {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--xxs' %}
+    {% set colClasses =
+      'col col-xs-12 col-md-10 col-md-shift-1 col-lg-8 col-lg-shift-2'
+    %}
+    {% set contentBlock %}
+      <h3 class="heading heading--h3 heading--no-margin">
+        {{ block.titleH3 }}
+      </h3>
+    {% endset %}
+
+    {# titleH4 Block #}
+    {% case 'titleH4' %}
+    {% set cmt = cmt ? cmt : 'layout-helper__margin-top--s' %}
+    {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--xxs' %}
+    {% set colClasses =
+      'col col-xs-12 col-md-10 col-md-shift-1 col-lg-8 col-lg-shift-2'
+    %}
+    {% set contentBlock %}
+      <h4 class="heading heading--h4 heading--no-margin">
+        {{ block.titleH4 }}
+      </h4>
+    {% endset %}
+
+    {# buttonLinkInternal Block #}
+    {% case 'buttonLinkInternal' %}
+    {% set cmt = cmt ? cmt : 'layout-helper__margin-top--xs' %}
+    {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--xs' %}
+    {% set colClasses =
+      'col col-xs-12 col-md-10 col-md-shift-1 col-lg-8 col-lg-shift-2'
+    %}
+    {% set contentBlock %}
+      {% include '_components/_content-elements/link' with {
+        linkUrl: block.buttonLinkToEntry.one().url(),
+        linkText: block.linkText,
+        type: 'button',
+        target: 'internal',
+        iconPosition: 'after',
+        buttonLinkColor: block.buttonLinkColor
+      } %}
+    {% endset %}
+
+    {# LinkInternal Block #}
+    {% case 'LinkInternal' %}
+    {% set cmt = cmt ? cmt : 'layout-helper__margin-top--xs' %}
+    {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--xs' %}
+    {% set colClasses =
+      'col col-xs-12 col-md-10 col-md-shift-1 col-lg-8 col-lg-shift-2'
+    %}
+    {% set contentBlock %}
+      {% include '_components/_content-elements/link' with {
+        linkUrl: block.linkToEntry.one().url(),
+        linkText: block.linkText,
+        target: 'internal',
+        iconPosition: 'before'
+      } %}
+    {% endset %}
+
+    {# externalLink Block #}
+    {% case 'externalLink' %}
+    {% set cmt = cmt ? cmt : 'layout-helper__margin-top--xs' %}
+    {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--xs' %}
+    {% set colClasses =
+      'col col-xs-12 col-md-10 col-md-shift-1 col-lg-8 col-lg-shift-2'
+    %}
+    {% set contentBlock %}
+      {% include '_components/_content-elements/link' with {
+        linkUrl: block.externalLink,
+        linkText: block.linkText,
+        target: 'external',
+        iconPosition: 'before'
+      } %}
+    {% endset %}
+
+    {# linkDownload Block #}
+    {% case 'linkDownload' %}
+    {% set cmt = cmt ? cmt : 'layout-helper__margin-top--xs' %}
+    {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--xs' %}
+    {% set colClasses =
+      'col col-xs-12 col-md-10 col-md-shift-1 col-lg-8 col-lg-shift-2'
+    %}
+    {% set contentBlock %}
+      {% include '_components/_content-elements/link' with {
+        linkUrl: block.linkToDownload.one().url(),
+        linkText: block.linkText,
+        target: 'download',
+        iconPosition: 'before'
+      } %}
+    {% endset %}
+
+    {# Image Block #}
+    {% case 'image' %}
+    {% set cmt = cmt ? cmt : 'layout-helper__margin-top--m' %}
+    {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--m' %}
+    {% set colClasses =
+      'col col-xs-12 col-md-10 col-md-shift-1 col-lg-8 col-lg-shift-2'
+    %}
+    {% set contentBlock %}
+      {% include '_components/_content-elements/image' with {
+        img: block.image,
+        imageAltText: block.imageAltText,
+        imageCaption: block.imageCaption
+      } %}
+    {% endset %}
+
+    {# Image Block #}
+    {% case 'youtubeVideo' %}
+    {% set cmt = cmt ? cmt : 'layout-helper__margin-top--m' %}
+    {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--m' %}
+    {% set colClasses =
+      'col col-xs-12 col-md-10 col-md-shift-1 col-lg-8 col-lg-shift-2'
+    %}
+    {% set contentBlock %}
+      {% include '_components/_content-elements/video' with {
+        videoSrc: block.youtubeVideoSrc
+      } %}
+    {% endset %}
+
+    {# Teaser News Big #}
+    {% case 'teaserNewsBig' %}
+    {% set cmt = cmt ? cmt : 'layout-helper__margin-top--m' %}
+    {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--m' %}
+    {% set colClasses = 'col col-xs-12 col-md-12 col-lg-12' %}
+    {% set contentBlock %}
+      {% include '_components/_teasers/teaser-news-big' with {
+        teaser: block.teaserNewsEntry.one(),
+        imgPosition: block.teaserNewsImagePosition
+      } %}
+    {% endset %}
+
+    {# Teaser Text Big #}
+    {% case 'teaserTextBig' %}
+    {% set cmt = cmt ? cmt : 'layout-helper__margin-top--m' %}
+    {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--m' %}
+    {% set colClasses = 'col col-xs-12 col-md-12 col-lg-12' %}
+    {% set contentBlock %}
+      {% include '_components/_teasers/teaser-nav-text.twig' with {
+        teaserUrl: block.teaserEntry.one().url,
+        teaserTitle: block.teaserTitle,
+        teaserText: block.teaserText,
+        teaserButtonText: block.teaserButtonText,
+        teaserBackgroundColor: block.teaserBackgroundColor,
+        teaserIsBig: true
+      } %}
+    {% endset %}
+
+    {# Teaser Text List #}
+    {% case 'teaserTextList' %}
+    {% set cmt = cmt ? cmt : 'layout-helper__margin-top--m' %}
+    {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--xl' %}
+    {% set colClasses = 'col col-xs-12 col-md-12 col-lg-12' %}
+    {% set contentBlock %}
+      {% include '_components/_teasers/teaser-list' with {
+        items: block.children,
+        teaserBackgroundColor: block.teaserBackgroundColor,
+        type: 'teaser-nav-text'
+      } %}
+    {% endset %}
+
+    {# Teaser Kennzahlen #}
+    {% case 'teaserKeyFigureList' %}
+    {% set cmt = cmt ? cmt : 'layout-helper__margin-top--m' %}
+    {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--xl' %}
+    {% set colClasses = 'col col-xs-12 col-md-12 col-lg-12' %}
+    {% set contentBlock %}
+      {% include '_components/_teasers/teaser-key-figures' with {
+        teaserItems: block.children,
+        teaserType: 'small'
+      } %}
+    {% endset %}
+
+    {# Teaser Support & Kontakt #}
+    {% case 'consultingSupportBox' %}
+    {% set cmt = cmt ? cmt : 'layout-helper__margin-top--m' %}
+    {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--xl' %}
+    {% set colClasses = 'col col-xs-12 col-md-12 col-lg-12' %}
+    {% set contentBlock %}
+      {% include '_components/_teasers/teaser-consulting-support' with {
+        teaserTitle: block.teaserTitle,
+        teaserText: block.teaserText
+      } %}
+    {% endset %}
+
+    {# Accordion Block #}
+    {% case 'accordion' %}
+    {% set cmt = cmt ? cmt : 'layout-helper__margin-top--m' %}
+    {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--l' %}
+    {% set colClasses =
+      'col col-xs-12 col-md-10 col-md-shift-1 col-lg-8 col-lg-shift-2'
+    %}
+    {% set contentBlock %}
+      {% include '_components/_content-elements/accordion' with {
+        items: block.children
+      } %}
+    {% endset %}
+
+    {% endswitch %}
+
+    {# Build Block and add it to contentArray #}
+    {% if usesGrid %}
+      {% set content %}
+        <div class="row {{ cmt }} {{ cmb }}">
+          <div class="{{ colClasses }}">
+            {{ contentBlock }}
+          </div>
+        </div>
+      {% endset %}
+    {% else %}
+      {% set content %}
+        <div class="{{ cmt }} {{ cmb }}">
+          {{ contentBlock }}
+        </div>
+      {% endset %}
+    {% endif %}
+
+    {% set contentArray = contentArray|merge([content]) %}
+  {% endfor %}
+
+  {# Ouput #}
+  <div class="content-elements">
+    {% if usesGrid %}
+      <div class="grid">
+        {% for contentElement in contentArray %}
+          {{ contentElement }}
+        {% endfor %}
+      </div>
+    {% else %}
+      {% for contentElement in contentArray %}
+        {{ contentElement }}
+      {% endfor %}
+    {% endif %}
+  </div>
+{% endif %}

@@ -1,4 +1,4 @@
-<ul>
+<ul class="shop-list">
   {# {% set products = craft.products().type('whitewine').limit(10).all() %} #}
   {% set products = craft.products().limit(10).all() %}
   {# {% set products = craft.products().limit(10).all() %} #}
@@ -33,8 +33,8 @@
       : imageStandardCaption
     %}
 
-    <li>
-      <a href="{{ product.url }}">
+    <li class="shop-list__item">
+      <a href="{{ product.url }}" class="shop-list__link">
         {% if imageUrl %}
           <figure class="image">
             <div class="image__wrapper">
@@ -50,13 +50,14 @@
           </figure>
         {% endif %}
 
-        {{ product.title }} - {{ product.defaultPrice|currency('CHF') }}
-        <h5>
-          {{ product.title }}
-        </h5>
-        <p>
-          {{ product.defaultPrice|currency('CHF') }}
-        </p>
+        <div class="shop-list__text">
+          <h5>
+            {{ product.title }}
+          </h5>
+          <p>
+            {{ product.defaultPrice|currency('CHF') }}
+          </p>
+        </div>
       </a>
     </li>
   {% endfor %}
