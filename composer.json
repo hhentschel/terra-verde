@@ -4,6 +4,7 @@
     "craftcms/commerce": "3.2.14.1",
     "craftcms/feed-me": "4.3.5.1",
     "craftcms/redactor": "2.8.5",
+    "doublesecretagency/craft-googlemaps": "^4.0",
     "vlucas/phpdotenv": "^3.4.0"
   },
   "require-dev": {
