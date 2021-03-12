@@ -3,27 +3,40 @@
  */
 
 //  @font-face {
+//   font-family: 'Open Sans Regular';
+//   src: url('../fonts/OpenSans-Regular.ttf') format('ttf');
+//   font-display: swap;
+// }
+// @font-face {
+//   font-family: 'Open Sans Bold';
+//   src: url('../fonts/OpenSans-Bold.ttf') format('ttf');
+//   font-display: swap;
+// }
+// @font-face {
+//   font-family: 'Open Sans Semibold';
+//   src: url('../fonts/OpenSans-SemiBold.ttf') format('ttf');
+//   font-display: swap;
+// }
+// @font-face {
 //   font-family: Frutiger LT W01_55 Roman;
 //   src: url('../fonts/0811514e-6660-4043-92c1-23d0b8caaa2f.woff2')
 //       format('woff2'),
 //     url('../fonts/aeae8cac-ba4d-40d2-bbcf-936f2c7dcfe6.woff') format('woff');
-// }
-// @font-face {
-//   font-family: Frutiger LT W01_65 Bold;
-//   src: url('../fonts/ede01147-5581-4d28-afc0-303f4c771fd2.woff') format('woff'),
-//     url('../fonts/63541a87-effb-4b23-a1e5-aded6ef8e33d.woff2') format('woff2');
-// }
-// @font-face {
-//   font-family: Frutiger LT W01_45 Light;
-//   src: url('../fonts/1f5eb399-3fe2-4a88-946d-1621c81da877.woff') format('woff'),
-//     url('../fonts/93b7d028-28f3-473a-821f-7a139c59305a.woff2') format('woff2');
+//   font-display: swap;
 // }
 
-// @font-face {
-//   font-family: Open Sans Regular;
-//   src: url('../fonts/OpenSans-Regular.ttf') format('ttf');
-//   // font-display: swap;
-// }
+@font-face {
+  font-family: 'Bodoni Reg';
+  src: url('../fonts/BodoniFLF-Roman.ttf') format('ttf');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Bodoni Bold';
+  src: url('../fonts/BodoniFLF-Bold.ttf') format('ttf');
+  font-display: swap;
+}
+
 
 html {
   color: $color--text;
@@ -36,8 +49,11 @@ figure {
   margin: 0;
 }
 
+span {
+  font-family: $font-family--base;
+}
+
 p {
-  font-family: $font-family--light;
   margin: px-to-rem($space--m) 0;
   font-weight: $font-weight--light;
   line-height: $line-height--l;

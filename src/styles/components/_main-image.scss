@@ -10,14 +10,14 @@
   height: px-to-rem(260);
   min-height: 32vh;
   max-width: px-to-rem($display--max-width);
-  margin-bottom: px-to-rem($space--xm);
+  // margin-bottom: px-to-rem($space--xm);
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
   margin: 0 auto;
 
   @include breakpoint('tablet') {
-    margin-bottom: px-to-rem($space--xxl);
+    // margin-bottom: px-to-rem($space--xxl);
     min-height: 80vh;
   }
 
@@ -26,11 +26,11 @@
     min-height: 40vh;
 
     @include breakpoint('tablet-portrait') {
-      margin-bottom: px-to-rem($space--xxl);
+      margin-top: px-to-rem($space--xxl);
       min-height: 50vh;
     }
     @include breakpoint('tablet-landscape') {
-      margin-bottom: px-to-rem($space--xxl);
+      margin-top: px-to-rem(170);
       min-height: 50vh;
     }
     @include breakpoint('desktop') {

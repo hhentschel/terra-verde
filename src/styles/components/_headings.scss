@@ -31,6 +31,7 @@ h2,
   @include typo(h2);
   // @include clamp('font-size',12px,3vw,px-to-rem(30));
   margin: px-to-rem($space--xxm) 0 px-to-rem($space--m);
+  font-weight: $font-weight--semi-bold;
 
   @include breakpoint('tablet') {
     margin: px-to-rem($space--l) 0 px-to-rem($space--m);
@@ -55,6 +56,10 @@ h4,
   @include breakpoint('tablet') {
     margin: px-to-rem($space--xxm) 0 px-to-rem($space--m);
   }
+}
+
+.heading--site {
+  font-weight: $font-weight--semi-bold;
 }
 
 .heading--no-margin {

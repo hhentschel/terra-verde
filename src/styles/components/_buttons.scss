@@ -19,8 +19,8 @@ $button-primary--horizontal-padding: px-to-em(12, $button-primary--font-size);
 $button-primary--vertical-padding: px-to-em(16, $button-primary--font-size);
 
 // colors
-$button-primary--color: $color--primary;
-$button-primary--background-color: $color--white;
+$button-primary--color: $color--white;
+$button-primary--background-color: $color--primary;
 $button-primary--border-color: $color--primary;
 
 // hover
