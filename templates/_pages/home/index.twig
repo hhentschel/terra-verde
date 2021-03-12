@@ -2,207 +2,175 @@
 {% set bodyClass = 'home' %}
 
 {% block content %}
-  <div class="grid">
+  <section class="grid">
     <div class="row">
       <div class="col col-xs-12 col-md-12 col-lg-12">
         <h1 class="heading heading--title">
+          <span class="visually-hidden">{{ 'main.orgName'|t }} -</span>
           {{ entry.homepage }}
         </h1>
       </div>
     </div>
+  </section>
 
-    <div class="content__grid--wide">
+  <section class="grid">
+    <div class="row">
       <div class="quicklinks">
         <h2 class="visually-hidden">
           Quicklinks
         </h2>
+      </div>
 
-        <article class="content__grid">
-          <div class="content__grid--3 content__grid--3-1">
-            <h3>
-              Delikatessen
-            </h3>
-          </div>
+      <div class="col col-xs-12 col-md-12 col-lg-4">
+        <h3>
+          Delikatessen
+        </h3>
+      </div>
 
-          <div class="content__grid--3 content__grid--3-2">
-            <h3>
-              Weine
-            </h3>
-          </div>
+      <div class="col col-xs-12 col-md-12 col-lg-4">
+        <h3>
+          Weine
+        </h3>
+      </div>
 
-          <div class="content__grid--3 content__grid--3-3">
-            <h3>
-              Geschenksets
-            </h3>
-          </div>
-        </article>
+      <div class="col col-xs-12 col-md-12 col-lg-4">
+        <h3>
+          Geschenksets
+        </h3>
       </div>
     </div>
+  </section>
 
-    <section class="section__teaser content__grid--wide">
-      <h2>
-        Alle Neuheiten
-      </h2>
-      <div>
-        {% for type in craft.commerce.productTypes.allProductTypes %}
-          <ul>
-            <li><a href="{{ type.name }}">{{ type.name }}</a></li>
-          </ul>
-        {% endfor %}
-
-        {# Create a product query with the 'type' and 'limit' parameters #}
-        {% set myProductQuery =
-          craft.products().type('delicatesses').limit(10)
-        %}
-
-        {# Fetch the products #}
-        {% set products = myProductQuery.all() %}
-
-        {# Display the products #}
-        {% for product in products %}
-          <h2>
-            <a href="{{ product.url }}">{{ product.title }}</a>
-          </h2>
-          {{ product.productDescription }}
-          <a href="{{ product.url }}">Learn more</a>
-        {% endfor %}
+  {# Alle Neuheiten #}
+  <section class="grid">
+    <div class="row">
+      <div class="col col-xs-12 col-md-12 col-lg-12">
+        <h2 class="heading heading--h2">
+          Alle Neuheiten
+        </h2>
+        <div>
+          {% for type in craft.commerce.productTypes.allProductTypes %}
+            <ul>
+              <li><a href="{{ type.name }}">{{ type.name }}</a></li>
+            </ul>
+          {% endfor %}
+        </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <div class="">
-      <section class="section__selection">
-        <h2 class="section__title">
+  {# Auswahl aus dem Shop #}
+  <section class="grid">
+    <div class="row">
+      <div class="col col-xs-12 col-md-12 col-lg-12">
+        <h2 class="heading heading--h2">
           Auswahl aus dem Shop
         </h2>
-
-        <div class="section__campaigns">
-          <h3>
-            Aktionen
-          </h3>
-
-          <div class="">
-            <div class="">
-              {% for sale in craft.commerce.sales.allSales %}
-                {% if sale is defined and sale is not empty %}
-                  {{ sale.name }} - {{ sale.description }}
-                {% endif %}
-              {% endfor %}
-
-              {% set sales = craft.commerce.sales.getAllSales() %}
-              {% set categories = [] %}
-              {% set variantIds = [] %}
-
-              {% for sale in sales %}
-                {% set categories = categories|merge(sale.categoryIds) %}
-                {% set variantIds = variantIds|merge(sale.purchasableIds) %}
-              {% endfor %}
-
-              {% set productIds = [] %}
-              {% for product in craft.products.relatedTo(categories).all() %}
-                {% set productIds = productIds|merge([product.id]) %}
-              {% endfor %}
-
-              {% set variants = craft.variants.id(variantIds).all() %}
-              {% for variant in variants %}
-                {% set productIds = productIds|merge([variant.productId]) %}
-              {% endfor %}
-
-              {% set products =
-                craft.products.id(productIds).with('variants').all()
-              %}
-
-              <ol>
-                {% for product in products %}
-                  {% set variant = product.defaultVariant %}
-                  {% if variant.onSale %}
-                    <li>
-                      {{ variant.title }}:{{ variant.price }} - {{
-                        variant.salePrice
-                      }}
-                    </li>
-                  {% else %}
-                    <li>{{ product.title }}</li>
-                  {% endif %}
-                {% endfor %}
-              </ol>
-              {# {% include '_layouts/_includes/shop.twig' %} #}
-            </div>
-          </div>
-        </div>
-        <div class="section__new-products">
-          <div class="grid">
-            <div class="row">
-              <h3>
-                Neuheiten
-              </h3>
-            </div>
-          </div>
-
-          <div class="grid">
-            <div class="row">
-              <div class="col col-xs-12 col-md-6 col-lg-4">
-                P1
-              </div>
-              <div class="col col-xs-12 col-md-6 col-lg-4">
-                P2
-              </div>
-              <div class="col col-xs-12 col-md-6 col-lg-4">
-                P3
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="section__favorites">
-          <h3>
-            Beliebteste
-          </h3>
-        </div>
-      </section>
-    </div>
-  </div>
-
-  {# <section class="section">
-    <div class="">
-      <div class="row">
-
-        <div class="col col-xs-12 col-md-10 col-md-shift-1 col-lg-8 col-lg-shift-2">
-          <h1 class="heading heading--h1">
-            {{ entry.homepage }}
-          </h1>
-
-          <!-- <h2 class="heading heading--h2">
-            Heading H2
-          </h2> -->
-
-          <div class="quicklinks">
-            <h2 class="visually-hidden">Quicklinks</h2>
-            <h3>Delikatessen</h3>
-            <h3>Weine</h3>
-            <h3>Geschenksets</h3>
-
-          </div>
-
-          <section class="shop__peek">
-            <h2>Auswahl aus dem Shop</h2>
-            <a href="/shop">Shop</a>
-
-
-            <section class="section__home shop__peek--sales">
-
-            </section>
-
-            <section class="section__home shop__peek--new">
-
-            </section>
-
-            <section class="section__home shop__peek--favorites">
-
-            </section>
-
-          </section>
-        </div>
-
       </div>
+    </div>
+  </section>
 
-  </section>#}
+  {# Aktionen #}
+  <section class="grid">
+    <div class="row">
+      <div class="col col-xs-12 col-md-12 col-lg-12">
+        <h3 class="heading heading--h3">
+          Aktionen
+        </h3>
+      </div>
+    </div>
+
+    <div class="">
+      <div class="">
+        {% for sale in craft.commerce.sales.allSales %}
+          {% if sale is defined and sale is not empty %}
+            {{ sale.name }} - {{ sale.description }}
+          {% endif %}
+        {% endfor %}
+
+        {% set sales = craft.commerce.sales.getAllSales() %}
+        {% set categories = [] %}
+        {% set variantIds = [] %}
+
+        {% for sale in sales %}
+          {% set categories = categories|merge(sale.categoryIds) %}
+          {% set variantIds = variantIds|merge(sale.purchasableIds) %}
+        {% endfor %}
+
+        {% set productIds = [] %}
+        {% for product in craft.products.relatedTo(categories).all() %}
+          {% set productIds = productIds|merge([product.id]) %}
+        {% endfor %}
+
+        {% set variants = craft.variants.id(variantIds).all() %}
+        {% for variant in variants %}
+          {% set productIds = productIds|merge([variant.productId]) %}
+        {% endfor %}
+
+        {% set products =
+          craft.products.id(productIds).with('variants').all()
+        %}
+
+        <ol>
+          {% for product in products %}
+            {% set variant = product.defaultVariant %}
+            {% if variant.onSale %}
+              <li>
+                {{ variant.title }}:{{ variant.price }} - {{
+                  variant.salePrice
+                }}
+              </li>
+            {% else %}
+              <li>{{ product.title }}</li>
+            {% endif %}
+          {% endfor %}
+        </ol>
+        {# {% include '_layouts/_includes/shop.twig' %} #}
+      </div>
+    </div>
+  </section>
+
+  {# Neuheiten #}
+  <section class="grid">
+    <div class="row">
+      <div class="col col-xs-12 col-md-12 col-lg-12">
+        <h3 class="heading heading--h3">
+          Neuheiten
+        </h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col col-xs-12 col-md-6 col-lg-4">
+        P1
+      </div>
+      <div class="col col-xs-12 col-md-6 col-lg-4">
+        P2
+      </div>
+      <div class="col col-xs-12 col-md-6 col-lg-4">
+        P3
+      </div>
+    </div>
+  </section>
+
+  {# Beliebteste #}
+  <section class="grid">
+    <div class="row">
+      <div class="col col-xs-12 col-md-12 col-lg-12">
+        <h3 class="heading heading--h3">
+          Beliebteste
+        </h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col col-xs-12 col-md-6 col-lg-4">
+        P1
+      </div>
+      <div class="col col-xs-12 col-md-6 col-lg-4">
+        P2
+      </div>
+      <div class="col col-xs-12 col-md-6 col-lg-4">
+        P3
+      </div>
+    </div>
+  </section>
 {% endblock %}
