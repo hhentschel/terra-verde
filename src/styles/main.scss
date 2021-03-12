@@ -24,7 +24,6 @@
 @import 'base/base';
 
 // layout
-@import 'layout/navigation';
 @import 'layout/grid2';
 @import 'layout/header';
 @import 'layout/content';
@@ -33,12 +32,15 @@
 
 // components
 @import 'components/buttons';
+@import 'components/breadcrumbs';
 @import 'components/formatted-text';
 @import 'components/headings';
 @import 'components/inputs';
 @import 'components/image';
 @import 'components/accordion';
 @import 'components/form';
+@import 'components/map';
+@import 'components/newsletter';
 @import 'components/main-image';
 @import 'components/nav-main';
 @import 'components/mobile-nav';

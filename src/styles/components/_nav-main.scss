@@ -23,6 +23,62 @@ $nav-main--button-list--carret-transition-duration: speed(hover);
 $nav-main--button-list--carret-transition-properties: transform;
 $nav-main--button-list--carret-transition-easing: easing(open);
 
+
+
+// -----------------------------------------------------------------------------
+// #NAVIGATION
+// -----------------------------------------------------------------------------
+.nav {
+  $this: &;
+  &__link {
+
+    &:hover {
+      border-bottom: 1px solid $color--text;
+      padding-bottom: px-to-rem($space--xs);
+    }
+
+    &--is-active {
+      border-bottom: 1px solid $color--text;
+      padding-bottom: px-to-rem($space--xs);
+    }
+  }
+
+  &-main {
+    background-color: $color--white;
+    padding: px-to-rem($space--m) 0;
+    height: px-to-rem(65);
+    margin-left: px-to-rem($space--xm);
+    &__list {
+      display: flex;
+      // justify-content: flex-end;
+      
+      &-item {
+        &:not(:last-child) {
+          margin-right: px-to-rem($space--m);
+        }
+      }
+    }
+  }
+  
+  &-service {
+    height: px-to-rem(65);
+    background-color: $color--white;
+    padding: px-to-rem($space--m) 0;
+    font-size: px-to-rem(15);
+    &__list {
+      display: flex;
+      justify-content: flex-end;
+      &-item {
+        &:not(:last-child) {
+          margin-right: px-to-rem($space--m);
+        }
+      }
+    }
+  }
+}
+
+
+
 // .nav-main {
 //   $this: &;
 

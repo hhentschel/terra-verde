@@ -49,7 +49,7 @@ $typography--phone: (
     font-size: px-to-rem($font-size-xm),
   ),
   p: (
-    font-family: $font-family--light,
+    font-family: $font-family--base,
     font-size: px-to-rem($font-size-m),
     font-weight: $font-weight--light,
     line-height: $line-height--s,
@@ -70,7 +70,7 @@ $typography--phone: (
     font-size: px-to-rem($font-size-s),
   ),
   navMainLightText: (
-    font-family: $font-family--light,
+    font-family: $font-family--base,
   ),
   navMainMainText: (
     font-family: $font-family--bold,
@@ -101,31 +101,11 @@ $typography--phone: (
   linkButtonBig: (
     font-size: px-to-rem($font-size-m),
   ),
-  teaserNavTextTitle: (
-    font-size: px-to-rem($font-size-xm),
-  ),
-  teaserNavTextParagraph: (
-    font-size: px-to-rem($font-size-s),
-  ),
-  teaserNavIconTitle: (
-    font-size: px-to-rem($font-size-s),
-  ),
-  teaserNewsMeta: (
-    font-size: px-to-rem($font-size-s),
-  ),
-  teaserNewsTitle: (
-    font-size: px-to-rem($font-size-xm),
-  ),
   accordionTitle: (
     font-size: px-to-rem($font-size-xm),
   ),
   caption: (
     font-size: px-to-rem($font-size-s),
-  ),
-  contentHeaderClaim: (
-    font-family: $font-family--playfair-display,
-    font-size: px-to-rem($font-size-xm),
-    line-height: $line-height--s,
   ),
   footer: (
     font-size: px-to-rem($font-size-xs),
@@ -134,7 +114,7 @@ $typography--phone: (
     font-size: px-to-rem($font-size-s),
   ),
   formInput: (
-    font-family: $font-family--light,
+    font-family: $font-family--base,
     line-height: $line-height--m,
   ),
   formInstruction: (
@@ -142,26 +122,17 @@ $typography--phone: (
   ),
   alertMessages: (
     font-size: px-to-rem($font-size-s),
-    font-family: $font-family--light,
+    font-family: $font-family--base,
   ),
   searchTitle: (
     font-size: px-to-rem($font-size-l)
   ),
   searchArea: (
-    font-family: $font-family--light,
+    font-family: $font-family--base,
     font-size: px-to-rem($font-size-s),
-  ),
-  teaserPlusContentText: (
-    font-size: px-to-rem($font-size-xxs),
-  ),
-  teaserNewsNav: (
-    font-size: px-to-rem($font-size-s),
-  ),
-  supportConsulting: (
-    font-family: $font-family--light,
   ),
   table: (
-    font-family: $font-family--light,
+    font-family: $font-family--base,
   ),
   tableHeading: (
     font-family: $font-family--heading,
@@ -240,10 +211,10 @@ $typography--desktop: (
     font-size: px-to-rem($font-size-xxxl)
   ),
   h2: (
-    font-size: px-to-rem($font-size-xxl),
+    font-size: px-to-rem($font-size-xxxl-p),
   ),
   h3: (
-    font-size: px-to-rem($font-size-xl),
+    font-size: px-to-rem($font-size-xxl-p),
   ),
   h4: (
     font-size: px-to-rem($font-size-xm),
