@@ -1,0 +1,291 @@
+{% extends '_layouts/main' %}
+{% set pageTitle = entry.pageTitle is not empty ? entry.pageTitle : entry.title
+%}
+
+{% block content %}
+  <div class="grid">
+    <div class="row">
+      <div class="col col-xs-12 col-md-12 col-lg-12">
+        <h1 class="heading heading--h1">
+          {{ pageTitle }}
+        </h1>
+      </div>
+    </div>
+  </div>
+
+    <section class="grid">
+    <div class="row">
+      <div class="col col-xs-12 col-md-12 col-lg-3">
+        <ul>
+          {% set relatedSection =
+            craft.entries.section('sellingPointsStructure').all()
+          %}
+          {% if relatedSection|length %}
+            {% for entry in relatedSection %}
+              <li><a href="{{ entry.url }}">{{ entry.title }}</a></li>
+            {% endfor %}
+          {% endif %}
+        </ul>
+      </div>
+      <div class="col col-xs-12 col-md-12 col-lg-9">
+
+      {% set query = craft.app.request.getQueryParam('query') %}
+      {% set province = craft.app.request.getQueryParam('province') %}
+      {% set formPost = query or province %}
+
+      {# get the ip location stuff from smartmap #}
+      {% set visitor = googleMaps.getVisitor() %}
+
+      {# add provinces where stores exist - needed for ip location #}
+      {% set validProvinces = [
+        'Alberta',
+        'British Columbia',
+        'Manitoba',
+        'Ontario',
+        'Nova Scotia'
+      ] %}
+
+      {% set provinceMapping = {
+        '': 'Province',
+        AB: 'Alberta',
+        BC: 'British Columbia',
+        MB: 'Manitoba',
+        NB: 'New Brunswick',
+        NL: 'Newfoundland',
+        NS: 'Nova Scotia',
+        ON: 'Ontario',
+        PE: 'PEI',
+        QC: 'Quebec',
+        SK: 'Saskatchewan',
+        NU: 'Nunavut',
+        YT: 'Yukon'
+      } %}
+      {# p= long name province= shortname #}
+      {% set p = provinceMapping[province] %}
+
+      {# Get all locations #}
+      {# {% set locations = craft.entries.section('sellingPointsStructure').all() %} #}
+
+      {# {% set options = {
+        'zoom': 12,
+        'infoWindowTemplate': '_components/_map-info-window/info-window'
+      } %} #}
+
+
+
+
+         {% if not formPost %}
+
+          {#Set options according to detected location #}
+          {% if visitor and (visitor.state in validProvinces) %}
+
+              {# options for iplocation map #}
+              {% set options = {
+                  id: 'storeLocator',
+
+                  zoomControl: true,
+                  draggable: true,
+                  infoWindowTemplate: '_components/_map-info-window/info-window',
+                  markerOptions: {
+                      icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png'
+                  },
+                  infoWindowOptions: {
+                      maxWidth: 200
+                  },
+              } %}
+
+          {# Set default options #}
+          {% else %}
+
+              {# options for default map #}
+               {% set options = {
+                  id: 'storeLocator',
+
+                  zoomControl: true,
+                  draggable: true,
+                  infoWindowTemplate: '_components/_map-info-window/info-window',
+                  markerOptions: {
+                      icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png'
+                  },
+                  infoWindowOptions: {
+                      maxWidth: 200
+                  },
+              } %}
+
+          {% endif %}
+          {# end default map options #}
+
+        {% else %}
+
+          {# begin filtered map options i.e. no center set #}
+          {% set options = {
+              id: 'storeLocator',
+
+              zoom: 7,
+              zoomControl: true,
+              draggable: true,
+
+              markerOptions: {
+                  icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png'
+              },
+              infoWindowOptions: {
+                  maxWidth: 200
+              },
+          } %}
+          {# end filtered map otions #}
+        {% endif %}
+
+      {% include '_pages/verkaufsstellen/form.twig' %}
+      {# {% include '_pages/verkaufsstellen/mapoptions.twig' %} #}
+
+
+            {% if not formPost %}
+  show map based on ip location or default if invalid province detected
+    {# no filter find all stores, this is before searching or filtering based on ip #}
+
+        {% set locations = craft.entries.section('sellingPointsStructure').limit(null).find() %}
+
+        {#Set find results based on ip location #}
+        {% if visitor and (visitor.state in validProvinces) %}
+
+          {# add geo location to map on landing without form submission #}
+
+          {% set components = {'country': 'CA', 'administrative_area' : 'craft.smartMap.visitor.state'} %}
+          {% set params = {
+            target: craft.smartMap.visitor.state,
+            range: 500,
+            units: "kilometers",
+            components: components,
+          } %}
+
+          {% set allStores = craft.entries.mapAddress(params).order('distance').find() %}
+
+        {% else %} {# if no ip or ip location returns no results show default map #}
+if no ip or ip location returns no results show default map
+          {% set locations = craft.entries.section('sellingPointsStructure').limit(1000).find() %}
+
+        {% endif %}
+   {{ googleMaps.map(locations, options).tag() }}
+{% else %}
+  show map based on user input of city/postal code and/or province
+         {% set params = {
+          target: 'Canada',
+          range:  30000,
+          units:  'kilometers'
+        } %}
+
+        {# get all stores #}
+        {% set entries = craft.entries.mapAddress(params).order('distance').find() %}
+
+        {# search filters via post variable #}
+        {% set components = {'country': 'CA'} %}
+
+        {% set desiredProvince = province %}
+        {% set filteredByProvince = [] %}
+
+
+           {% if query %}{# begin query check #}
+
+          {% set components = {'country': 'CA'} %}
+          {% set params = {
+            target: query,
+            range: 100,
+            units: "kilometers",
+            components: components,
+          } %}
+
+          {% set allStores = craft.entries.mapAddress(params).order('distance').find() %}
+
+          {# check if there are no results on the query #}
+          {% if allStores is empty %}
+            <p>No results found for <strong>{{ query }}</strong>. Here is a map of all our stores.</p>
+
+            {% set defaultParams = {
+              target: 'Canada',
+              range: 30000,
+              units: "kilometers",
+              components: components,
+            } %}
+
+            {% set options = options | merge({center: {
+                'lat':findAStore.mapCenterLatitude,
+                'lng':findAStore.mapCenterLongitude
+              }, 'zoom':findAStore.zoomLevel}) %}
+
+            {% set allStores = craft.entries.mapAddress(defaultParams).order('distance').find() %}
+
+          {% endif %}
+          {# end check for no results #}
+
+        {% endif %}
+
+
+            {# when both query and province exist do this #}
+        {% if province and query %}
+
+          {#
+            limit results using code from conditional above on province
+            and filter based on query
+          #}
+
+          {% set params = {
+              target: query,
+              range:  100,
+              units:  'kilometers'
+          } %}
+          {% set entries = craft.entries.mapAddress(params).order('distance').find() %}
+
+          {# copied from above #}
+          {% set desiredProvince = province %}
+          {% set filteredByProvince = [] %}
+
+              {% for entry in entries %}
+
+                {% if entry.mapAddress.state == desiredProvince %}
+                    {% set filteredByProvince = filteredByProvince|merge([entry]) %}
+                {% endif %}
+
+              {% endfor %}
+          {# end copied #}
+
+          {% if filteredByProvince is empty %}{# check if anything matches combined search #}
+
+            <p>No results found for <strong>{{ query }}</strong> in <strong>{{ p }}</strong>. Here is a map of all our stores.</p>
+
+            {% set defaultParams = {
+              target: 'Canada',
+              range: 30000,
+              units: "kilometers",
+              components: components,
+            } %}
+
+            {% set options = options | merge({center: {
+                'lat':findAStore.mapCenterLatitude,
+                'lng':findAStore.mapCenterLongitude
+              }, 'zoom':findAStore.zoomLevel}) %}
+
+            {% set allStores = craft.entries.mapAddress(defaultParams).order('distance').find() %}
+
+          {% else %}
+
+            {# output combined results #}
+            {% set allStores = filteredByProvince %}
+
+          {% endif %}
+
+        {% endif %}
+
+
+
+   {{ googleMaps.map(locations, options).tag() }}
+{% endif %}
+
+
+
+      {# Create a dynamic map with markers #}
+      {# {{ googleMaps.map(locations, options).tag() }} #}
+    </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

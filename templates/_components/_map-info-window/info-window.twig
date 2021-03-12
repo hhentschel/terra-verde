@@ -1,0 +1,32 @@
+{# Get the entry's thumbnail image #}
+{% set image = entry.mapThumbnail.one() %}
+
+{# This example uses Tailwind CSS #}
+<div class="pl-1 pt-1">
+  {# Show thumbnail if it exists #}
+  {% if image %}
+    <img alt="Thumbnail image"
+      src="{{ image.url }}"
+      style="max-width:320px"
+      class="rounded border border-gray-500" />
+  {% endif %}
+
+  {# Show entry and address information #}
+  <div class="px-1 pb-1">
+    <div class="pt-2 text-gray-800 text-xl font-bold">
+      {{ entry.title }}
+    </div>
+    <div class="pt-1 text-gray-800 text-base">
+      {{ address }}
+    </div>
+    <div class="pt-2 text-base">
+      <a class="text-blue-700" href="{{ entry.url }}#hours">Hours</a>
+      &nbsp;&bull;&nbsp;
+      <a class="text-blue-700" href="{{ address.linkToDirections() }}">
+        Directions
+      </a>
+      &nbsp;&bull;&nbsp;
+      <a class="text-blue-700" href="{{ entry.url }}#info">More Information</a>
+    </div>
+  </div>
+</div>
