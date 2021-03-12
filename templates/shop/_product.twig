@@ -1,9 +1,6 @@
 {# This is the Store Product View template #}
 {% extends "_layouts/main" %}
 
-
-
-
 {% block content %}
 
     <div class="row">
@@ -13,14 +10,11 @@
             </p>
         </div>
 
-
         {# {% set products = craft.products().type('supplies').limit(10).all() %}
 
         {% for product in products %}
           <li>{{ product.title}} - {{ product.defaultPrice |currency('CHF') }}</li>
         {% endfor %} #}
-
-
 
         {% set variant = product.defaultVariant %}
 

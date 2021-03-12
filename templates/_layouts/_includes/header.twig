@@ -1,10 +1,5 @@
-
-
-
-
-
 {% set headerBackground = entry.mainImage is not empty
-  ? 'header__background--with-image header__background--transparent'
+  ? 'header__background--with-image'
   : ''
 %}
 
@@ -15,13 +10,15 @@
       <div class="col col-xs-12 col-md-12 col-lg-12">
         <div class="header__content-mobile">
           <a class="header__logo-link" href="/{{ currentSite.language }}">
+            <span class="header__logo-line">Terra</span>
             <img class="header__logo"
               src="{{
               alias(
                 '@rootUrl'
               )
-              }}/assets/images/logo/TerraVerde_jpg_gross.jpeg"
-            alt="Terra Verde Logo" />
+              }}/assets/images/logo/TerraVerde_Logo05.jpg"
+              alt="Terra Verde Logo" />
+            <span class="header__logo-line">Verde</span>
           </a>
           <div class="header__menu-button-wrapper">
             <button class="header__menu-button-mobile" type="button">
@@ -46,13 +43,15 @@
         <div class="header__content-desktop">
           <div class="header__top-row">
             <a class="header__logo-link" href="/{{ currentSite.language }}">
+              <span class="header__logo-line">Terra</span>
               <img class="header__logo"
                 src="{{
                 alias(
                   '@rootUrl'
                 )
-                }}/assets/images/logo/TerraVerde_jpg_gross.jpeg"
-            alt="Terra Verde Logo" />
+                }}/assets/images/logo/TerraVerde_Logo05.jpg"
+                alt="Terra Verde Logo" />
+              <span class="header__logo-line">Verde</span>
             </a>
 
             {% include '_components/_nav/_nav-main/nav-main-desktop' %}
@@ -61,10 +60,8 @@
               {% include '_components/_nav/_nav-service/nav-service-desktop' %}
             </div>
           </div>
-
         </div>
       </div>
     </div>
   </div>
 </header>
-

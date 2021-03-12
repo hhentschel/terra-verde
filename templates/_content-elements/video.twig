@@ -1,0 +1,12 @@
+{% set videoSrc = videoSrc is defined and videoSrc is not empty ? videoSrc : ''
+%}
+
+{% if videoSrc %}
+  <div class="video">
+    <iframe class="video__frame"
+      src="{{ videoSrc }}"
+      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen=""
+      frameborder="0"></iframe>
+  </div>
+{% endif %}

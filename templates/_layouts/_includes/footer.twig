@@ -1,35 +1,70 @@
+{% import '_helpers/macros.twig' as macros %}
+
 <footer class="footer">
 
-    <h2 class="visually-hidden">
-      Footer
-    </h2>
+  <h2 class="visually-hidden">
+    Footer
+  </h2>
+  <div class="footer__top">
     <div class="grid">
       <div class="row">
-        <div class="col col-xs-12 col-md-6 col-lg-12 footer__top">
-          <h2>Newsletter</h2>
-      </div>
+        <div class="col col-xs-12 col-md-6 col-lg-3">
+          <h3 class="heading--3 heading--no-margin">Newsletter</h3>
+        </div>
+
+        <div class="col col-xs-12 col-md-6 col-lg-9">
+          <form class="newsletter__form" action="" method="post">
+            {{ csrfInput() }}
+            {{ redirectInput('thankyou') }}
+            <input type="hidden" name="action" value="mailchimp-subscribe/audience/subscribe">
+            <input type="hidden" name="audienceId" value="1fr4ew09qv">
+
+            {% set subscribeResponse = mailchimpSubscribe is defined and mailchimpSubscribe.action == 'subscribe' ? mailchimpSubscribe : null %}
+
+            {% if subscribeResponse %}
+                {% if not subscribeResponse.success %}
+                    <p>An error occured: {{ subscribeResponse.message }}</p>
+                {% endif %}
+            {% endif %}
+
+            <div>
+                <label class="visually-hidden" for="emailInput"{% if subscribeResponse and subscribeResponse.errorCode=='1000' %} class="error"{% endif %}>
+                    Email:
+                </label>
+                <input id="emailInput" class="input" placeholder="E-Mail" type="text" name="email"
+                    {% if subscribeResponse and not subscribeResponse.success %}value="{{ subscribeResponse.values.email ?? '' }}"{% endif %}/>
+            </div>
+
+            {# <input type="submit" name="" class="button button--primary" value="Abonnieren"/> #}
+            <button type="submit" name="" class="button button--primary">Abonnieren</button>
+          </form>
+        </div>
       </div>
     </div>
+  </div>
+
+  <div class="footer__bottom">
     <div class="grid">
       <div class="row">
         <div class="col col-xs-12 col-md-6 col-lg-3">
           <div class="footer--box footer--contact">
-            <h2 class="footer--heading">Kontakt</h2>
+            <h3 class="footer--heading">Kontakt</h3>
             {% if footerGlobal.adress %}
-            <div>
+            <div class="footer--contact__adress">
               {{footerGlobal.adress}}
             </div>
             {% endif %}
 
             <div class="footer--contact__phone">
               {% if footerGlobal.phone %}
-              <span>
-                <a href="tel:{{footerGlobal.phone}}">{{footerGlobal.phone}}</a>
+              <span class="contact__phone">
+                Tel <a href="tel:{{footerGlobal.phone}}">{{footerGlobal.phone}}</a>
               </span>
               {% endif %}
 
               {% if footerGlobal.fax %}
-              <span>
+              <span class="contact__fax">
+                Fax
                 {{footerGlobal.fax}}
               </span>
               {% endif %}
@@ -37,14 +72,14 @@
 
             <div class="footer--contact__email">
               {% if footerGlobal.emailOne %}
-              <span>
-                {{footerGlobal.emailOne}}
+              <span class="emailOne">
+                {{ macros.emailLinks(footerGlobal.emailOne, "email") }}
               </span>
               {% endif %}
 
               {% if footerGlobal.emailTwo %}
               <span class="emailTwo">
-                {{footerGlobal.emailTwo}}
+                {{ macros.emailLinks(footerGlobal.emailTwo, "email") }}
               </span>
               {% endif %}
             </div>
@@ -52,7 +87,7 @@
         </div>
         <div class="col col-xs-12 col-md-6 col-lg-3">
           <div class="footer--box footer--aboutus">
-            <h2 class="footer--heading">Über uns</h2>
+            <h3 class="footer--heading">Über uns</h3>
 
               {% set entries = craft.entries.section('aboutusStructure').level(2) %}
 
@@ -68,7 +103,7 @@
         </div>
         <div class="col col-xs-12 col-md-6 col-lg-3">
           <div class="footer--box footer--info">
-            <h2 class="footer--heading">Info</h2>
+            <h3 class="footer--heading">Info</h3>
 
               {% set entries = craft.entries.section('infoStructure') %}
 
@@ -84,7 +119,7 @@
         </div>
         <div class="col col-xs-12 col-md-6 col-lg-3">
           <div class="footer--box footer--openinghours">
-            <h2 class="footer--heading">Öffnungszeiten</h2>
+            <h3 class="footer--heading">Öffnungszeiten</h3>
 
             {% if footerGlobal.openingHoursOne %}
               <span>
@@ -100,5 +135,5 @@
         </div>
       </div>
     </div>
-
+  </div>
 </footer>

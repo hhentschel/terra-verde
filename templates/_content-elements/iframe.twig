@@ -1,0 +1,10 @@
+{% if iframeLegend is defined and iframeLegend is not empty %}
+  <figure>
+    <iframe src="{{ iframeSource }}"></iframe>
+    <figcaption>
+      {{ iframeLegend }}
+    </figcaption>
+  </figure>
+{% else %}
+  <iframe src="{{ iframeSource }}"></iframe>
+{% endif %}
