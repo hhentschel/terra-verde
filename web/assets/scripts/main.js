@@ -38,6 +38,7 @@ var Header = /*#__PURE__*/function () {
     _defineProperty(this, "classes", {
       header: 'header',
       headerSticky: 'header--sticky',
+      // headerLogo: 'header--logo',
       headerBackground: 'header__background',
       headerBackgroundTransparent: 'header__background--transparent',
       headerWithImage: 'header__background--with-image',
