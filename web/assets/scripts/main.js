@@ -9,7 +9,124 @@ require("./modules/header");
 
 require("./modules/responsive-view-handler");
 
-},{"./modules/header":2,"./modules/mobile-nav":3,"./modules/nav-main":4,"./modules/responsive-view-handler":5}],2:[function(require,module,exports){
+var _accordion = _interopRequireDefault(require("./modules/accordion"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+/**
+ * Use this file for main application handling and initializing of modules
+ */
+// imports
+
+/* Accordions */
+var accordions = document.querySelectorAll('.accordion');
+accordions.forEach(function (accordion) {
+  new _accordion["default"](accordion);
+});
+
+},{"./modules/accordion":2,"./modules/header":3,"./modules/mobile-nav":4,"./modules/nav-main":5,"./modules/responsive-view-handler":6}],2:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var Accordion = /*#__PURE__*/function () {
+  function Accordion(accordion) {
+    var _this = this;
+
+    _classCallCheck(this, Accordion);
+
+    _defineProperty(this, "classes", {
+      accordion: 'accordion',
+      accordionPanel: 'accordion__panel',
+      accordionTrigger: 'accordion__trigger',
+      accordionContent: 'accordion__content',
+      accordionContentWrapper: 'accordion__content-wrapper',
+      accordionPanelOpen: 'accordion__panel--open'
+    });
+
+    _defineProperty(this, "ariaAttributes", {
+      hidden: 'aria-hidden',
+      expanded: 'aria-expanded'
+    });
+
+    _defineProperty(this, "html", {
+      accordion: null,
+      accordionPanels: [],
+      accordionTriggers: []
+    });
+
+    this.accordion = accordion;
+    this.accordionPanels = this.accordion.querySelectorAll(".".concat(this.classes.accordionPanel));
+    this.accordionTriggers = this.accordion.querySelectorAll(".".concat(this.classes.accordionTrigger));
+    this.events(); // open accordion panel if open per default
+
+    this.accordionPanels.forEach(function (panel) {
+      if (panel.classList.contains(_this.classes.accordionPanelOpen)) {
+        _this.openPanelContent(panel);
+      }
+    });
+  }
+
+  _createClass(Accordion, [{
+    key: "events",
+    value: function events() {
+      var _this2 = this;
+
+      this.accordionTriggers.forEach(function (trigger) {
+        trigger.addEventListener('click', _this2.clickHandler.bind(_this2));
+      });
+    }
+  }, {
+    key: "clickHandler",
+    value: function clickHandler(event) {
+      var panel = event.currentTarget.parentNode;
+
+      if (panel.classList.contains(this.classes.accordionPanelOpen)) {
+        this.closePanelContent(panel);
+      } else {
+        this.openPanelContent(panel);
+      }
+    }
+  }, {
+    key: "openPanelContent",
+    value: function openPanelContent(accordionPanel) {
+      var accordionContent = accordionPanel.querySelector(".".concat(this.classes.accordionContent));
+      var accordionContentWrapper = accordionPanel.querySelector(".".concat(this.classes.accordionContentWrapper));
+      var accordionTrigger = accordionPanel.querySelector(".".concat(this.classes.accordionTrigger));
+      accordionTrigger.setAttribute(this.ariaAttributes.expanded, 'true');
+      accordionContent.setAttribute(this.ariaAttributes.hidden, 'false');
+      accordionContent.style.maxHeight = "".concat(accordionContentWrapper.offsetHeight, "px");
+      accordionPanel.classList.add(this.classes.accordionPanelOpen);
+    }
+  }, {
+    key: "closePanelContent",
+    value: function closePanelContent(accordionPanel) {
+      var accordionContent = accordionPanel.querySelector(".".concat(this.classes.accordionContent));
+      var accordionTrigger = accordionPanel.querySelector(".".concat(this.classes.accordionTrigger));
+      accordionTrigger.setAttribute(this.ariaAttributes.expanded, 'false');
+      accordionContent.setAttribute(this.ariaAttributes.hidden, 'true');
+      accordionContent.style.maxHeight = 0;
+      accordionPanel.classList.remove(this.classes.accordionPanelOpen);
+    }
+  }]);
+
+  return Accordion;
+}();
+
+exports["default"] = Accordion;
+
+},{}],3:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -113,7 +230,7 @@ var _default = new Header();
 
 exports["default"] = _default;
 
-},{}],3:[function(require,module,exports){
+},{}],4:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -248,7 +365,7 @@ var _default = new MobileNav();
 
 exports["default"] = _default;
 
-},{}],4:[function(require,module,exports){
+},{}],5:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -386,7 +503,7 @@ var _default = new NavMain();
 
 exports["default"] = _default;
 
-},{}],5:[function(require,module,exports){
+},{}],6:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
