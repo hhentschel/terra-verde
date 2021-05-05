@@ -10,7 +10,7 @@
 {% set homeLink = craft.entries.section('homepage').one() %}
 {% set ueberunsLink = craft.entries.section('aboutUsStructure').one() %}
 {% set shopLink = craft.entries.section('shopStructure').one() %}
-{% set neuesLink = craft.entries.section('newStructure').one() %}
+{% set aktuellLink = craft.entries.section('newStructure').one() %}
 {% set verkaufsstellenLink =
   craft.entries.section('sellingPointsStructureSingle').one()
 %}
@@ -42,9 +42,9 @@
     </li>
 
     <li class="nav-main__list-item">
-      <a href="{{ neuesLink.url }}"
-        class="nav__link {{ macros.isActive('neues', 1, 'nav__link--') }}">
-        {{ 'Neues'|t }}
+      <a href="{{ aktuellLink.url }}"
+        class="nav__link {{ macros.isActive('aktuell', 1, 'nav__link--') }}">
+        {{ 'Aktuell'|t }}
       </a>
     </li>
 

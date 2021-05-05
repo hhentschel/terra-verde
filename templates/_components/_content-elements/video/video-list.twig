@@ -1,0 +1,16 @@
+{% set videoItemSize = block.level > 1 ? 'video__list-item--small' : '' %}
+<div class="video">
+  <ul class="video__list">
+    {% for videoItem in videoItems.all() %}
+      <li class="video__list-item {{ videoItemSize }}">
+        <div class="video__wrapper">
+          <iframe class="video__frame"
+            src="{{ videoItem.youtubeVideoSource }}"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen=""
+            frameborder="0"></iframe>
+        </div>
+      </li>
+    {% endfor %}
+  </ul>
+</div>

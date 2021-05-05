@@ -1,0 +1,15 @@
+{% set imageSizeParam = imageSize is defined and imageSize is not empty
+  ? imageSize
+  : ''
+%}
+<div class="image-text">
+  {% include '_components/_content-elements/image' with {
+    img: img,
+    imageAltText: imageAltText,
+    imageCaption: imageCaption,
+    imageSize: imageSizeParam
+  } %}
+  <div class="formatted-text image-text__text">
+    {{ formattedText }}
+  </div>
+</div>

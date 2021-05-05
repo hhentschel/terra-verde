@@ -1,0 +1,36 @@
+{% set items = items is defined and items is not empty ? items : null %}
+
+{% if items %}
+  <section class="grid">
+    <div>
+      <h2 class="visually-hidden">
+        Quicklinks
+      </h2>
+
+      <ul class="row quicklinks">
+        {% for item in items.all() %}
+          <li class="col col-xs-12 col-md-12 col-lg-4 quicklinks__items">
+            <a href="{{ item.buttonLinkToEntry.one().url() }}">
+              {% include '_components/_content-elements/image' with {
+                img: item.image,
+                imageAltText: item.imageAltText,
+                imageCaption: item.imageCaption
+              } %}
+              <h2 class="heading heading--2 heading--no-margin-top">
+                {{ item.titleH2 }}
+              </h2>
+            </a>
+            {% include '_components/_content-elements/link' with {
+              linkUrl: item.buttonLinkToEntry.one().url(),
+              linkText: item.linkText,
+              type: 'button',
+              target: 'internal',
+              iconPosition: 'after',
+              buttonLinkColorSimple: item.buttonLinkColorSimple
+            } %}
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </section>
+{% endif %}

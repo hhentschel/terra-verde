@@ -5,11 +5,11 @@
 
   {% for product in products %}
     {% set img = productImage is defined and productImage is not empty
-      ? product.productImage.one()
+      ? product.articleImage.one()
       : null
     %}
-    {% set imageUrl = product.productImage.one()
-      ? product.productImage.one().getUrl('productListing')
+    {% set imageUrl = product.articleImage.one()
+      ? product.articleImage.one().getUrl('productListing')
       : ''
     %}
     {% set imageStandardAltText = img

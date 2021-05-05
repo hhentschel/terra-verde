@@ -1,4 +1,5 @@
-{% set contentPaddingClass = entry.mainImage is not empty
+{% set contentPaddingClass = entry.mainImage is defined
+  and entry.mainImage is not empty
   ? 'content--has-image'
   : ''
 %}
@@ -17,9 +18,17 @@
 
   <main role="main" class="main">
     <div class="content {{ contentPaddingClass }}">
-      {% if entry.mainImage is not empty %}
+      {# {% set message = craft.app.session.getFlash('notice', null, true) %}
+      {% if message %}
+        <p style="background-color:orange; padding: 10px; margin: 0; text-align: center; position: relative; top: 170px; z-index: 1; color: white;">
+          {{ message }}
+        </p>
+      {% endif %} #}
+
+      {% if entry.mainImage is defined and entry.mainImage is not empty %}
         {% include '_components/_main-image/main-image' %}
       {% endif %}
+
       {% block content %}
 
       {% endblock %}
@@ -27,4 +36,5 @@
   </main>
 
   {% include '_layouts/_includes/footer' %}
+  {% include '_layouts/_includes/sprig' %}
 {% endblock %}

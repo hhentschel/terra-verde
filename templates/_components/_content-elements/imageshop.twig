@@ -1,5 +1,9 @@
-{% set img = img is defined and img is not empty ? img.one() : null %}
-{% set imageUrl = img ? img.url : '' %}
+{% set img = product.articleImage is defined
+  and product.articleImage is not empty
+  ? product.articleImage.one()
+  : null
+%}
+{% set imageUrl = img ? img.url('productDetail') : '' %}
 {% set imageStandardAltText = img
   and img.imageAltText is defined
   and img.imageAltText is not empty

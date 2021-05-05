@@ -100,6 +100,24 @@
       } %}
     {% endset %}
 
+    {# buttonLinkInternal Block #}
+    {% case 'buttonLinkInternalSimple' %}
+    {% set cmt = cmt ? cmt : 'layout-helper__margin-top--xs' %}
+    {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--xs' %}
+    {% set colClasses =
+      'col col-xs-12 col-md-10 col-md-shift-1 col-lg-8 col-lg-shift-2'
+    %}
+    {% set contentBlock %}
+      {% include '_components/_content-elements/link' with {
+        linkUrl: block.buttonLinkToEntry.one().url(),
+        linkText: block.linkText,
+        type: 'button',
+        target: 'internal',
+        iconPosition: 'after',
+        buttonLinkColor: block.buttonLinkColorSimple
+      } %}
+    {% endset %}
+
     {# LinkInternal Block #}
     {% case 'LinkInternal' %}
     {% set cmt = cmt ? cmt : 'layout-helper__margin-top--xs' %}
@@ -163,6 +181,38 @@
       } %}
     {% endset %}
 
+    {# ImageText 30/70 Block #}
+    {% case 'imageText' %}
+    {% set cmt = cmt ? cmt : 'layout-helper__margin-top--m' %}
+    {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--m' %}
+    {% set colClasses =
+      'col col-xs-12 col-md-10 col-md-shift-1 col-lg-8 col-lg-shift-2'
+    %}
+    {% set contentBlock %}
+      {% include '_components/_content-elements/image-text' with {
+        img: block.image,
+        imageAltText: block.imageAltText,
+        imageCaption: block.imageCaption,
+        formattedText: block.textStandardWithoutH1,
+        imageSize: 'image--one-third'
+      } %}
+    {% endset %}
+
+    {# Image 1/2 Block #}
+    {% case 'imageHalfWidth' %}
+    {% set cmt = cmt ? cmt : 'layout-helper__margin-top--m' %}
+    {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--m' %}
+    {% set colClasses =
+      'col col-xs-12 col-md-10 col-md-shift-1 col-lg-8 col-lg-shift-2'
+    %}
+    {% set contentBlock %}
+      {% include '_components/_content-elements/image' with {
+        img: block.image,
+        imageAltText: block.imageAltText,
+        imageSizeParam: 'image--half'
+      } %}
+    {% endset %}
+
     {# Image Block #}
     {% case 'youtubeVideo' %}
     {% set cmt = cmt ? cmt : 'layout-helper__margin-top--m' %}
@@ -173,71 +223,6 @@
     {% set contentBlock %}
       {% include '_components/_content-elements/video' with {
         videoSrc: block.youtubeVideoSrc
-      } %}
-    {% endset %}
-
-    {# Teaser News Big #}
-    {% case 'teaserNewsBig' %}
-    {% set cmt = cmt ? cmt : 'layout-helper__margin-top--m' %}
-    {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--m' %}
-    {% set colClasses = 'col col-xs-12 col-md-12 col-lg-12' %}
-    {% set contentBlock %}
-      {% include '_components/_teasers/teaser-news-big' with {
-        teaser: block.teaserNewsEntry.one(),
-        imgPosition: block.teaserNewsImagePosition
-      } %}
-    {% endset %}
-
-    {# Teaser Text Big #}
-    {% case 'teaserTextBig' %}
-    {% set cmt = cmt ? cmt : 'layout-helper__margin-top--m' %}
-    {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--m' %}
-    {% set colClasses = 'col col-xs-12 col-md-12 col-lg-12' %}
-    {% set contentBlock %}
-      {% include '_components/_teasers/teaser-nav-text.twig' with {
-        teaserUrl: block.teaserEntry.one().url,
-        teaserTitle: block.teaserTitle,
-        teaserText: block.teaserText,
-        teaserButtonText: block.teaserButtonText,
-        teaserBackgroundColor: block.teaserBackgroundColor,
-        teaserIsBig: true
-      } %}
-    {% endset %}
-
-    {# Teaser Text List #}
-    {% case 'teaserTextList' %}
-    {% set cmt = cmt ? cmt : 'layout-helper__margin-top--m' %}
-    {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--xl' %}
-    {% set colClasses = 'col col-xs-12 col-md-12 col-lg-12' %}
-    {% set contentBlock %}
-      {% include '_components/_teasers/teaser-list' with {
-        items: block.children,
-        teaserBackgroundColor: block.teaserBackgroundColor,
-        type: 'teaser-nav-text'
-      } %}
-    {% endset %}
-
-    {# Teaser Kennzahlen #}
-    {% case 'teaserKeyFigureList' %}
-    {% set cmt = cmt ? cmt : 'layout-helper__margin-top--m' %}
-    {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--xl' %}
-    {% set colClasses = 'col col-xs-12 col-md-12 col-lg-12' %}
-    {% set contentBlock %}
-      {% include '_components/_teasers/teaser-key-figures' with {
-        teaserItems: block.children,
-        teaserType: 'small'
-      } %}
-    {% endset %}
-
-    {# Teaser Support & Kontakt #}
-    {% case 'consultingSupportBox' %}
-    {% set cmt = cmt ? cmt : 'layout-helper__margin-top--m' %}
-    {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--xl' %}
-    {% set colClasses = 'col col-xs-12 col-md-12 col-lg-12' %}
-    {% set contentBlock %}
-      {% include '_components/_teasers/teaser-consulting-support' with {
-        teaserTitle: block.teaserTitle,
-        teaserText: block.teaserText
       } %}
     {% endset %}
 

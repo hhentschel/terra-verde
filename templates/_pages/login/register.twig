@@ -1,0 +1,141 @@
+{% macro errorList(errors) %}
+  {% if errors %}
+    {{
+      ul(
+        errors,
+        {
+          class: 'errors'
+        }
+      )
+    }}
+  {% endif %}
+{% endmacro %}
+
+<form method="post" accept-charset="UTF-8">
+  {{ csrfInput() }}
+  {{ actionInput('users/save-user') }}
+  {# {{ redirectInput('/register-success/') }} #}
+  {{ redirectInput(craft.app.user.returnUrl) }}
+
+  <label for="userTitle">Anrede</label>
+  {{
+    input(
+      'text',
+      'fields[userTitle]',
+      user.userTitle ?? null,
+      {
+        id: 'userTitle',
+        class: 'input'
+      }
+    )
+  }}
+
+  {% if user is defined %}
+    {{ _self.errorList(user.getErrors('userTitle')) }}
+  {% endif %}
+
+  <label for="firstName">Vorname</label>
+  {{
+    input(
+      'text',
+      'firstName',
+      user.firstName ?? null,
+      {
+        id: 'firstName',
+        class: 'input'
+      }
+    )
+  }}
+
+  {% if user is defined %}
+    {{ _self.errorList(user.getErrors('firstName')) }}
+  {% endif %}
+
+  <label for="lastName">Nachname</label>
+  {{
+    input(
+      'text',
+      'lastName',
+      user.lastName ?? null,
+      {
+        id: 'lastName',
+        class: 'input'
+      }
+    )
+  }}
+
+  {% if user is defined %}
+    {{ _self.errorList(user.getErrors('lastName')) }}
+  {% endif %}
+
+  <label for="email">E-Mail</label>
+  {{
+    input(
+      'email',
+      'email',
+      user.email ?? null,
+      {
+        id: 'email',
+        class: 'input'
+      }
+    )
+  }}
+
+  {% if user is defined %}
+    {{ _self.errorList(user.getErrors('email')) }}
+  {% endif %}
+
+  <label for="password">Passwort</label>
+  {{
+    input(
+      'password',
+      'password',
+      null,
+      {
+        id: 'password',
+        class: 'input'
+      }
+    )
+  }}
+
+
+  <label for="fields[userCompany]">Firma</label>
+  <input id="Company" type="text" class="input" name="fields[userCompany]"
+  {%- if account is defined %} value="{{ account.userCompany}}"{% endif -%}>
+
+  <label for="fields[userAdress]">Strasse</label>
+  <input id="Address" type="text" class="input" name="fields[userAdress]"
+  {%- if account is defined %} value="{{ account.userAdress}}"{% endif -%}>
+
+  <label for="fields[userAdditionalAdress]">Zusatz Adresse</label>
+  <input id="AddressAdditional" type="text" class="input" name="fields[userAdditionalAdress]"
+  {%- if account is defined %} value="{{ account.userAdditionalAdress}}"{% endif -%}>
+
+  <label for="fields[userTelephone]">Telefon</label>
+  <input id="Telephone" type="text" class="input" name="fields[userTelephone]"
+  {%- if account is defined %} value="{{ account.userTelephone}}"{% endif -%}>
+
+  <label for="fields[userTelephoneMobile]">Telefon Mobile</label>
+  <input id="TelephoneMobile" type="text" class="input" name="fields[userTelephoneMobile]"
+  {%- if account is defined %} value="{{ account.userTelephoneMobile}}"{% endif -%}>
+
+  <label for="fields[userCity]">Stadt</label>
+  <input id="City" type="text" class="input" name="fields[userCity]"
+  {%- if account is defined %} value="{{ account.userCity}}"{% endif -%}>
+
+  <label for="fields[userZip]">Postleitzahl</label>
+  <input id="City" type="text" class="input" name="fields[userZip]"
+  {%- if account is defined %} value="{{ account.userZip}}"{% endif -%}>
+
+  <label for="fields[userNotice]">Mitteilung</label>
+  <textarea id="Notice" type="number" class="textarea" name="fields[userNotice]"
+  {%- if account is defined %} value="{{ account.userNotice}}"{% endif -%}>
+  </textarea>
+
+
+  {% if user is defined %}
+    {{ _self.errorList(user.getErrors('password')) }}
+  {% endif %}
+
+  <button type="submit" class="button button--primary">Registrieren</button>
+</form>

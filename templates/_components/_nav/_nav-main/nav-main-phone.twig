@@ -1,6 +1,17 @@
 {# IMPORT MACROS #}
 {% import '_helpers/macros.twig' as macros %}
 
+{% set homeLink = craft.entries.section('homepage').one() %}
+{% set ueberunsLink =
+  craft.entries.section('aboutUsStructure').level(1).all()
+%}
+{% set shopLink = craft.entries.section('shopStructure').one() %}
+{% set neuesLink = craft.entries.section('newStructure').one() %}
+{% set verkaufsstellenLink =
+  craft.entries.section('sellingPointsStructureSingle').one()
+%}
+{% set produzentenLink = craft.entries.section('producersStructure').one() %}
+
 <div class="mobile-nav__wrapper">
   <div class="mobile-nav__header">
     <button class="mobile-nav__button-back" type="button"></button>
@@ -35,41 +46,24 @@
           </span>
         </a>
       </li>
-      {# ARBEITGEBER & SELBSTSTÄNDIGE #}
+      {# SHOP #}
       <li class="mobile-nav__list-item">
         <button class="mobile-nav__trigger" type="button">
           <span class="mobile-nav__text mobile-nav__text--bold {{
             macros.isActive(
-              'nav.mainNavigation.slug.employer'|t,
+              'nav.mainNavigation.slug.shop'|t,
               1,
               'mobile-nav__text--'
             )
             }}">
-            {{ 'nav.mainNavigation.employer'|t }}
+            {{ 'Shop'|t }}
           </span>
         </button>
-        {% include '_components/_nav/_nav-main/nav-main-employer-phone' %}
+        {% include '_components/_nav/_nav-main/nav-main-shop-phone' %}
       </li>
-      {# END ARBEITGEBER & SELBSTSTÄNDIGE #}
+      {# END SHOP #}
 
-      {# ARBEITNEHMENDE & PENSIONIERTE #}
-      <li class="mobile-nav__list-item">
-        <button class="mobile-nav__trigger" type="button">
-          <span class="mobile-nav__text mobile-nav__text--bold  {{
-            macros.isActive(
-              'nav.mainNavigation.slug.worker'|t,
-              1,
-              'mobile-nav__text--'
-            )
-            }}">
-            {{ 'nav.mainNavigation.Worker'|t }}
-          </span>
-        </button>
-        {% include '_components/_nav/_nav-main/nav-main-worker-phone' %}
-      </li>
-      {# END ARBEITNEHMENDE & PENSIONIERTE #}
-
-      {# ÜBER UNS & ORGANISATION, JOBS & MEHR #}
+      {# ÜBER UNS #}
       <li class="mobile-nav__list-item">
         <button class="mobile-nav__trigger" type="button">
           <span class="mobile-nav__text mobile-nav__text--bold  {{
@@ -79,29 +73,59 @@
               'mobile-nav__text--'
             )
             }}">
-            {{ 'nav.mainNavigation.aboutus'|t }}
+            {{ 'Über uns'|t }}
           </span>
         </button>
-        {% include '_components/_nav/_nav-main/nav-main-worker-about-us-phone' %}
+        {% include '_components/_nav/_nav-main/nav-main-about-us-phone' %}
       </li>
-      {# END ÜBER UNS & ORGANISATION, JOBS & MEHR #}
+      {# END ÜBER UNS #}
 
-      {# RATGEBER #}
+      {# PRODUZENTEN #}
       <li class="mobile-nav__list-item">
         <button class="mobile-nav__trigger" type="button">
           <span class="mobile-nav__text mobile-nav__text--bold  {{
             macros.isActive(
-              'nav.mainNavigation.slug.advisor'|t,
+              'nav.mainNavigation.slug.worker'|t,
               1,
               'mobile-nav__text--'
             )
             }}">
-            {{ 'nav.mainNavigation.advisor'|t }}
+            {{ 'Produzenten'|t }}
           </span>
         </button>
-        {% include '_components/_nav/_nav-main/nav-main-advisor-phone' %}
+        {% include '_components/_nav/_nav-main/nav-main-manufactors-phone' %}
       </li>
-      {# END RATGEBER #}
+      {# END PRODUZENTEN #}
+
+      {# VERKAUFSSTELLEN #}
+      <li class="mobile-nav__list-item">
+        <a href="{{ verkaufsstellenLink.url }}"
+          class="mobile-nav__text mobile-nav__text--bold  {{
+          macros.isActive(
+            'verkaufsstellen',
+            1,
+            'nav__link--'
+          )
+          }}">
+          {{ 'Verkaufsstellen'|t }}
+        </a>
+      </li>
+      {# END VERKAUFSSTELLEN #}
+
+      {# NEUES #}
+      <li class="mobile-nav__list-item">
+        <a href="{{ neuesLink.url }}"
+          class="mobile-nav__text mobile-nav__text--bold  {{
+          macros.isActive(
+            'neues',
+            1,
+            'nav__link--'
+          )
+          }}">
+          {{ 'Neues'|t }}
+        </a>
+      </li>
+      {# END NEUES #}
       <li>{% include '_components/_nav/_nav-service/nav-service-phone' %}</li>
     </ul>
   </nav>

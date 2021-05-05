@@ -3,14 +3,16 @@
 {% set cart = craft.commerce.carts.cart %}
 {% block content %}
 
-<div class="row">
-<div class="intro large-12 small-12 columns ">
+   <div class="grid">
+    <div class="row">
+      <div class="col col-xs-12 col-md-12 col-lg-12">
+<div class="intro  ">
    <p>
        <small><a href="">Shop</a></small>
    </p>
 </div>
 
-<div class="small-12 large-12 columns">
+<div class="">
   {% if cart.lineItems | length %}
       <table style="width:100%;">
           <thead>
@@ -124,6 +126,8 @@
 </div>
 
 
+</div>
+</div>
 </div>
 
 

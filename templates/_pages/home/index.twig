@@ -1,48 +1,172 @@
 {% extends '_layouts/main' %}
 {% set bodyClass = 'home' %}
 
+{% set navNewArticles = craft.entries.id(99).one() %}
+
+{% import '_helpers/macros.twig' as macros %}
+
 {% block content %}
   <section class="grid">
     <div class="row">
       <div class="col col-xs-12 col-md-12 col-lg-12">
         <h1 class="heading heading--title">
-          <span class="visually-hidden">{{ 'main.orgName'|t }} -</span>
-          {{ entry.homepage }}
+          <span class="visually-hidden">
+            {{ 'main.orgName'|t }} - {{ 'main.title'|t }}
+          </span>
         </h1>
       </div>
     </div>
   </section>
 
+  {% include '_components/_content-elements/content-elements-startpage-loop' with {
+    contentElementsStartpage: entry.contentElementsStartpage.level(1),
+    usesGrid: false
+  } %}
+
+  {# Auswahl aus dem Shop #}
   <section class="grid">
     <div class="row">
-      <div class="quicklinks">
-        <h2 class="visually-hidden">
-          Quicklinks
+      <div class="col col-xs-12 col-md-12 col-lg-12">
+        <h2 class="heading heading--h2">
+          Auswahl aus dem Shop
         </h2>
-      </div>
-
-      <div class="col col-xs-12 col-md-12 col-lg-4">
-        <h3>
-          Delikatessen
-        </h3>
-      </div>
-
-      <div class="col col-xs-12 col-md-12 col-lg-4">
-        <h3>
-          Weine
-        </h3>
-      </div>
-
-      <div class="col col-xs-12 col-md-12 col-lg-4">
-        <h3>
-          Geschenksets
-        </h3>
+        <a class="home__link" href="{{ navNewArticles.url }}">
+          <span class="link__text link__text--section">{{ 'Shop'|t }}</span>
+          <div class="link__icon-wrapper link__icon-wrapper--internal">
+            {{
+              macros.svg('arrow_42')|attr({
+                class: 'link__icon link__icon--internal icon icon--42'
+              })
+            }}
+          </div>
+        </a>
       </div>
     </div>
   </section>
 
-  {# Alle Neuheiten #}
-  <section class="grid">
+  {# Aktionen #}
+  <section class="section-home section-home__campaigns">
+    <div class="grid">
+      <div class="row">
+        <div class="col col-xs-12 col-md-12 col-lg-12">
+          <h3 class="heading heading--h3">
+            Aktionen
+          </h3>
+        </div>
+      </div>
+
+      {% set products = entry.homeSales %}
+      <div class="row">
+        {% if products|length %}
+          {% for product in products %}
+            {% set variant = product.defaultVariant %}
+            <div class="col col-xs-12 col-md-6 col-lg-4">
+              <a href="{{ product.url }}">{{ product.title }}</a>
+              <p>
+                {% if variant.onSale %}
+                  <strike>
+                    {{ variant.price|currency('CHF') }}
+                  </strike>
+                  {{ variant.salePrice|currency('CHF') }}
+                {% else %}
+                  {{ variant.price|currency('CHF') }}
+                {% endif %}
+              </p>
+            </div>
+          {% endfor %}
+        {% endif %}
+      </div>
+    </div>
+  </section>
+
+  {# Neuheiten #}
+  <section class="section-home section-home__newproducts">
+    <div class="grid">
+      <div class="row">
+        <div class="col col-xs-12 col-md-12 col-lg-12">
+          <h3 class="heading heading--h3">
+            Neuheiten
+          </h3>
+          <a class="section-home__link" href="{{ navNewArticles.url }}">
+            <span class="link__text link__text--section">
+              {{ 'Alle Neuheiten'|t }}
+            </span>
+            <div class="link__icon-wrapper link__icon-wrapper--internal">
+              {{
+                macros.svg('arrow_42')|attr({
+                  class: 'link__icon link__icon--internal icon icon--42'
+                })
+              }}
+            </div>
+          </a>
+        </div>
+      </div>
+      {% set products = entry.homeNewProduct %}
+      <div class="row section-home__row-products">
+        {% if products|length %}
+          {% for product in products %}
+            <div class="col col-xs-12 col-md-6 col-lg-4">
+              <a href="{{ product.url }}" class="section-home__product">
+                {% include '_components/_content-elements/imageshop' %}
+                <h4 class="heading heading--h4">
+                  {{ product.title }}
+                </h4>
+
+                {% if currentUser %}
+                  {% if currentUser.isInGroup('userGroupPrivate') %}
+                    <p>
+                      <strong>
+                        {{ product.defaultPrice|currency('CHF') }}
+                      </strong>
+                      {# {{ product.pricePrivateCustomer|currency('CHF') }} #}
+                    </p>
+                  {% else %}
+                    <p>
+                      <strong>
+                        {{ product.priceRetailTrader|currency('CHF') }}
+                      </strong>
+                    </p>
+                  {% endif %}
+                {% else %}
+                  <p>
+                    <strong>{{ product.defaultPrice|currency('CHF') }}</strong>
+                  </p>
+                {% endif %}
+              </a>
+            </div>
+          {% endfor %}
+        {% endif %}
+      </div>
+    </div>
+    <div class="section-home__overlay"></div>
+  </section>
+
+  {# Beliebteste #}
+  <section class="section-home section-home__favorites">
+    <div class="grid">
+      <div class="row">
+        <div class="col col-xs-12 col-md-12 col-lg-12">
+          <h3 class="heading heading--h3">
+            Beliebteste
+          </h3>
+        </div>
+      </div>
+      {% set products = entry.homeFavorites %}
+      <div class="row">
+        {% if products|length %}
+          {% for product in products %}
+            <div class="col col-xs-12 col-md-6 col-lg-4">
+              <a href="{{ product.url }}">{{ product.title }}</a>
+            </div>
+          {% endfor %}
+        {% endif %}
+      </div>
+    </div>
+  </section>
+{% endblock %}
+
+{# Alle Neuheiten #}
+{# <section class="grid">
     <div class="row">
       <div class="col col-xs-12 col-md-12 col-lg-12">
         <h2 class="heading heading--h2">
@@ -57,30 +181,9 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> #}
 
-  {# Auswahl aus dem Shop #}
-  <section class="grid">
-    <div class="row">
-      <div class="col col-xs-12 col-md-12 col-lg-12">
-        <h2 class="heading heading--h2">
-          Auswahl aus dem Shop
-        </h2>
-      </div>
-    </div>
-  </section>
-
-  {# Aktionen #}
-  <section class="grid">
-    <div class="row">
-      <div class="col col-xs-12 col-md-12 col-lg-12">
-        <h3 class="heading heading--h3">
-          Aktionen
-        </h3>
-      </div>
-    </div>
-
-    <div class="">
+{# <div class="">
       <div class="">
         {% for sale in craft.commerce.sales.allSales %}
           {% if sale is defined and sale is not empty %}
@@ -125,52 +228,6 @@
             {% endif %}
           {% endfor %}
         </ol>
-        {# {% include '_layouts/_includes/shop.twig' %} #}
+       {% include '_layouts/_includes/shop.twig' %}
       </div>
-    </div>
-  </section>
-
-  {# Neuheiten #}
-  <section class="grid">
-    <div class="row">
-      <div class="col col-xs-12 col-md-12 col-lg-12">
-        <h3 class="heading heading--h3">
-          Neuheiten
-        </h3>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col col-xs-12 col-md-6 col-lg-4">
-        P1
-      </div>
-      <div class="col col-xs-12 col-md-6 col-lg-4">
-        P2
-      </div>
-      <div class="col col-xs-12 col-md-6 col-lg-4">
-        P3
-      </div>
-    </div>
-  </section>
-
-  {# Beliebteste #}
-  <section class="grid">
-    <div class="row">
-      <div class="col col-xs-12 col-md-12 col-lg-12">
-        <h3 class="heading heading--h3">
-          Beliebteste
-        </h3>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col col-xs-12 col-md-6 col-lg-4">
-        P1
-      </div>
-      <div class="col col-xs-12 col-md-6 col-lg-4">
-        P2
-      </div>
-      <div class="col col-xs-12 col-md-6 col-lg-4">
-        P3
-      </div>
-    </div>
-  </section>
-{% endblock %}
+    </div> #}
