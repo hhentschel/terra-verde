@@ -1,9 +1,9 @@
 {# IMPORT MACROS #}
 {% import '_helpers/macros.twig' as macros %}
 
-{% set detailhandelLink = craft.entries.section('retailTradeStructure').one() %}
+{% set loginLink = craft.entries.section('loginStructure').one() %}
 {% set sucheLink = craft.entries.section('searchSingle').one() %}
-{% set instashop = craft.entries.section('instashop').one() %}
+{# {% set instashop = craft.entries.section('instashop').one() %} #}
 
 {% set url = craft.app.request.pathInfo %}
 
@@ -11,26 +11,23 @@
   <h2 class="visually-hidden">
     {{ 'nav.serviceNavigation'|t }}
   </h2>
+
   <ul class="nav-service__list">
     <li class="nav-service__list-item">
-      <a href="{{ detailhandelLink.url }}"
-        class="nav__link {{
-        macros.isActive(
-          'detailhandel',
-          1,
-          'nav__link--'
-        )
-        }}">
-        {{ 'Detailhandel'|t }}
-      </a>
+      {% if currentUser %}
+        {{ currentUser.username }}
+        <a href="{{ logoutUrl }}" class="nav__link">{{ 'Logout'|t }}</a>
+      {% else %}
+        <a href="{{ loginLink.url }}" class="nav__link">{{ 'Login'|t }}</a>
+      {% endif %}
     </li>
 
-    <li class="nav-service__list-item">
+    {# <li class="nav-service__list-item">
       <a href="{{ instashop.url }}"
         class="nav__link {{ macros.isActive('instashop', 1, 'nav__link--') }}">
         {{ 'InstaShop'|t }}
       </a>
-    </li>
+    </li> #}
 
     <li class="nav-service__list-item">
       <a href="{{ sucheLink.url }}"

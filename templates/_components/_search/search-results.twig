@@ -1,0 +1,114 @@
+{% import '_helpers/macros.twig' as macros %}
+{% set query = query ?? '' %}
+{% set offset = offset ?? 0 %}
+{% set limit = 8 %}
+{% set sectionArea = '' %}
+
+<form sprig class="search__form">
+  <label class="visually-hidden" for="search-field">
+    {{ 'search.button.text'|t }}
+  </label>
+  <input s-replace=".search__results"
+    class="search__input"
+    type="text"
+    name="query"
+    aria-controls="search-results"
+    id="search-field"
+    value="{{ query }}" />
+  <button type="submit" class="search__button">
+    {{
+      macros.svg('search_24')|attr({
+        class: 'icon icon--24 search__icon'
+      })
+    }}
+    <span class="visually-hidden">{{ 'search.button.text'|t }}</span>
+  </button>
+</form>
+{% set entryQuery = craft.entries.search(query) %}
+{% set entries = entryQuery.offset(offset).status(null).limit(limit).all() %}
+<div class="search__wrapper">
+  {% if query %}
+    <p>
+      {{ entryQuery|length }} {{ 'search.results.length'|t }}
+    </p>
+    <div class="search__results" aria-live="polite">
+      {% if entryQuery is not empty %}
+        {% for entry in entries %}
+          {% set url = entry.filesFormsLeaflets is defined
+            and entry.filesFormsLeaflets is not empty
+            ? entry.filesFormsLeaflets.one().url
+            : entry.url
+          %}
+          <div class="search__item">
+            {% switch entry.section.handle %}
+            {% case 'employerStructure' %}
+            {% set sectionArea = 'search.results.area.emplyoer' %}
+            {% case 'workerStructur' %}
+            {% set sectionArea = 'search.results.area.worker' %}
+            {% case 'aboutUsStructure' %}
+            {% set sectionArea = 'search.results.area.aboutUs' %}
+            {% case 'channelNewsStories' %}
+            {% set sectionArea = 'search.results.area.news.stories' %}
+            {% case 'advisorStructure' %}
+            {% set sectionArea = 'search.results.area.news.advisor' %}
+            {% case 'formsLeafletsStructure' %}
+            {% set sectionArea = 'search.results.area.form.leaftlets' %}
+            {% endswitch %}
+
+            <a class="search__link"
+              {{ entry.type == 'formularExtern' ? 'target="_blank"' }}
+              href="{{
+              entry.type == 'formularExtern'
+                ? entry.externalLink
+                : url
+              }}">
+              {% if sectionArea %}
+                <span class="search__area">{{ sectionArea|t }}</span>
+              {% endif %}
+              <h3 class="search__title">
+                {% if
+                  entry.type == 'formularExtern'
+                    or entry.type == 'internalform' %}
+                  {{
+                    macros.svg('formular_24')|attr({
+                      class: 'icon icon--24 search__title-icon'
+                    })
+                  }}
+                {% elseif entry.type == 'filesFormsLeaflets' %}
+                  {{
+                    macros.svg('download_24')|attr({
+                      class: 'icon icon--24 search__title-icon'
+                    })
+                  }}
+                {% endif %}
+                {{ entry.title }}
+              </h3>
+              {% if entry.leadText is defined and entry.leadText is not empty %}
+                <p class="search__text">
+                  {{ entry.leadText }}
+                </p>
+              {% endif %}
+            </a>
+          </div>
+        {% endfor %}
+
+        {% if entryQuery.count() > offset + (entries|length) %}
+          <div class="search__load-more">
+            <button sprig
+              s-val:offset="{{ offset + limit }}"
+              s-replace=".search__results"
+              s-target=".search__load-more"
+              s-swap="outerHTML"
+              class="button button--secondary">
+              {{ 'search.loadmore.text'|t }}
+            </button>
+          </div>
+        {% endif %}
+      {% else %}
+        <p>
+          {{ 'search.no.results'|t }}
+        </p>
+      {% endif %}
+    </div>
+  {% endif %}
+</div>

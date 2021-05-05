@@ -1,0 +1,57 @@
+<form method="post" accept-charset="UTF-8">
+  {{ csrfInput() }}
+  {{ actionInput('users/login') }}
+
+  <label for="loginName">E-Mail</label>
+  {{
+    input(
+      'text',
+      'loginName',
+      craft.app.user.rememberedUsername,
+      {
+        id: 'loginName',
+        class: 'input'
+      }
+    )
+  }}
+
+  <label for="password">Passwort</label>
+  {{
+    input(
+      'password',
+      'password',
+      null,
+      {
+        id: 'password',
+        class: 'input'
+      }
+    )
+  }}
+
+  <div class="selection selection--checkbox">
+    <label class="selection__label">
+      {{
+        input(
+          'checkbox',
+          'rememberMe',
+          '1',
+          {
+            class: 'selection--input'
+          }
+        )
+      }}Remember me
+    </label>
+  </div>
+
+  <button type="submit" class="button button--primary">Login</button>
+
+  {% if errorMessage is defined %}
+    <p>
+      {{ errorMessage }}
+    </p>
+  {% endif %}
+</form>
+
+<p>
+  <a href="{{ url('reset-password') }}" class="button">Passwort vergessen?</a>
+</p>

@@ -11,40 +11,38 @@
    <div class="grid">
     <div class="row">
       <div class="col col-xs-12 col-md-12 col-lg-12">
-        {% include '_components/breadcrumb.twig' %}
-        <h3>{{ product.title }}, {{ product.articleVolume }}{{ product.articleUnit }}</h3>
-      </div>
+      {% include '_components/breadcrumb.twig' %}
 
-      <div class="col col-xs-12 col-md-12 col-lg-6">
-        {% include '_components/_content-elements/imageshop' %}
-      </div>
+        {# {% set products = craft.products().type('supplies').limit(10).all() %}
 
+        {% for product in products %}
+          <li>{{ product.title}} - {{ product.defaultPrice |currency('CHF') }}</li>
+        {% endfor %} #}
 
-      <div class="col col-xs-12 col-md-12 col-lg-6">
-             {% set variant = product.defaultVariant %}
+        {% set variant = product.defaultVariant %}
 
-            <p>{{ product.articleVolume }}{{ product.articleUnit }}</p>
+        <div class="">
+            {# <img src="{{ product.productImage.one().getUrl('productListing') }}"
+                 alt="{{ product.name }}"/> #}
+
+        </div>
+        <div class="">
+            <h3>{{ product.title }}</h3>
+            <p>{% if variant.stock > 0 %}<span
+                        class="success label">vorrätig</span>{% else %}<span
+                        class="alert label">nicht vorrätig</span>{% endif %}
+            </p>
             <h4>
                 {% if variant.onSale %}
                 <strike>{{ variant.price | currency('CHF') }}</strike> {{ variant.salePrice | currency('CHF') }}
                 {% else %}
-                {{ variant.price | currency('CHF') }}
+                {{ variant.price | currency('CHF') }}</h4>
                 {% endif %}
-            </h4>
-            <p>{% if variant.stock > 0 %}<span
-              class="success label">vorrätig</span>{% else %}<span
-              class="alert label">nicht vorrätig</span>{% endif %}
-            </p>
-
             <p>SKU: {{ variant.sku }}</p>
 
-            <p>EAN: {{ product.articleEanNumber }}</p>
-            <p>Beschreibung: {{ product.articleDescription }}, {{ product.articleVolume }}{{ product.articleUnit }}</p>
-            <p>Lagerung: {{ product.articleStorage }}</p>
-            <p>Bio Zertifizierung: {{ product.articleBioZertifisation }}</p>
-            <p>Nährstoffe: {{ product.articleNutritionalValue }}</p>
-            <p>Vegan: {{ product.articleVegan }}</p>
-            {# <p>Kategorie: {{ product.articleCategories }}</p> #}
+            {% include '_components/_content-elements/imageshop' %}
+
+            <p>Kategorie: {{ product.articleCategories }}</p>
 
             {# Add cart Button #}
             <form method="POST">
@@ -57,10 +55,10 @@
                 <input type="hidden" name="qty" value="1">
                 <input type="hidden" name="purchasableId"
                        value="{{ variant.id }}">
-                <input class="button" type="submit" value="In den Warenkorb" {% if variant.stock <= 0 %}disabled {% endif %} >
+                <input class="button radius" type="submit" value="Add to cart">
             </form>
 
-      </div>
+        </div>
 
 
         <div class="">

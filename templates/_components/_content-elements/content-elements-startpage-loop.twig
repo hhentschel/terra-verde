@@ -1,0 +1,128 @@
+{% if
+  contentElementsStartpage is defined
+    and contentElementsStartpage is not empty %}
+  {% set contentArray = [] %}
+  {# this is an include since it is used again inside a accordion #}
+  {% for block in contentElementsStartpage.all() %}
+    {% set useGrid = true %}
+    {% set cmt = '' %} {# classMarginTop #}
+    {% set cmb = '' %} {# classMarginBottom #}
+    {% set colClasses = '' %}
+    {% set contentBlock = '' %}
+    {% if
+      loop.index0 == 0 and loop.index == (contentElementsStartpage|length) %}
+      {% set cmt = 'layout-helper__margin-top--none' %}
+      {% set cmb = 'layout-helper__margin-bottom--none' %}
+    {% elseif loop.index0 == 0 %}
+      {% set cmt = 'layout-helper__margin-top--none' %}
+    {% elseif loop.index == (contentElementsStartpage|length) %}
+      {% set cmb = 'layout-helper__margin-bottom--none' %}
+    {% endif %}
+
+    {% switch block.type.handle %}
+
+    {# Quciklinks #}
+    {% case 'quicklinkList' %}
+    {% set useGrid = false %}
+    {% set cmt = cmt ? cmt : 'layout-helper__margin-top--xl' %}
+    {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--xl' %}
+    {% set contentBlock %}
+      {% include '_components/_quicklinks/quicklink.twig' with {
+        items: block.children
+      } %}
+    {% endset %}
+
+    {# Image Block #}
+    {% case 'image' %}
+    {% set cmt = cmt ? cmt : 'layout-helper__margin-top--m' %}
+    {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--m' %}
+    {% set colClasses =
+      'col col-xs-12 col-md-10 col-md-shift-1 col-lg-8 col-lg-shift-2'
+    %}
+    {% set contentBlock %}
+      {% include '_components/_content-elements/image' with {
+        img: block.image,
+        imageAltText: block.imageAltText,
+        imageCaption: block.imageCaption
+      } %}
+    {% endset %}
+
+    {# Teaser News Big #}
+    {% case 'teaserNewsBig' %}
+    {% set cmt = cmt ? cmt : 'layout-helper__margin-top--m' %}
+    {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--m' %}
+    {% set colClasses = 'col col-xs-12 col-md-12 col-lg-12' %}
+    {% set contentBlock %}
+      {% include '_components/_teasers/teaser-news-big.twig' with {
+        teaser: block.teaserNewsEntry.one(),
+        imgPosition: block.teaserNewsImagePosition
+      } %}
+    {% endset %}
+
+    {# buttonLinkInternal Block #}
+    {% case 'buttonLinkInternal' %}
+    {% set cmt = cmt ? cmt : 'layout-helper__margin-top--xs' %}
+    {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--xs' %}
+    {% set colClasses =
+      'col col-xs-12 col-md-10 col-md-shift-1 col-lg-8 col-lg-shift-2'
+    %}
+    {% set contentBlock %}
+      {% include '_components/_content-elements/link' with {
+        linkUrl: block.buttonLinkToEntry.one().url(),
+        linkText: block.linkText,
+        type: 'button',
+        target: 'internal',
+        iconPosition: 'after',
+        buttonLinkColor: block.buttonLinkColor
+      } %}
+    {% endset %}
+
+    {# buttonLinkInternal Block #}
+    {% case 'buttonLinkInternalSimple' %}
+    {% set cmt = cmt ? cmt : 'layout-helper__margin-top--xs' %}
+    {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--xs' %}
+    {% set colClasses =
+      'col col-xs-12 col-md-10 col-md-shift-1 col-lg-8 col-lg-shift-2'
+    %}
+    {% set contentBlock %}
+      {% include '_components/_content-elements/link' with {
+        linkUrl: block.buttonLinkToEntry.one().url(),
+        linkText: block.linkText,
+        type: 'button',
+        target: 'internal',
+        iconPosition: 'after',
+        buttonLinkColor: block.buttonLinkColorSimple
+      } %}
+    {% endset %}
+
+    {% endswitch %}
+
+    {# Build Block and add it to contentArray #}
+    {% if useGrid %}
+      {% set content %}
+        <div class="grid">
+          <div class="row {{ cmt }} {{ cmb }}">
+            <div class="{{ colClasses }}">
+              {{ contentBlock }}
+            </div>
+          </div>
+        </div>
+      {% endset %}
+    {% else %}
+      {% set content %}
+        <div class="{{ cmt }} {{ cmb }}">
+          {{ contentBlock }}
+        </div>
+      {% endset %}
+    {% endif %}
+
+    {% set contentArray = contentArray|merge([content]) %}
+  {% endfor %}
+
+  {# Ouput #}
+  <div class="content-elements-startpage layout-helper__overflow--x-hidden">
+    {% for contentElement in contentArray %}
+      {{ contentElement }}
+    {% endfor %}
+  </div>
+{% endif %}

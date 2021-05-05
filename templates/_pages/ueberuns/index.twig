@@ -5,7 +5,7 @@
 {% block content %}
   <div class="grid">
     <div class="row">
-      <div class="col col-xs-12 col-md-12 col-lg-12">
+      <div class="col col-xs-12 col-md-12 col-lg-12 col-lg-shift-3">
         {% include '_components/breadcrumb.twig' %}
         <h2 class="heading heading--h2 heading--site heading--no-margin-top">
           {{ pageTitle }}
@@ -29,7 +29,12 @@
         </ul>
       </div>
 
-      <div class="col col-xs-12 col-md-12 col-lg-9"></div>
+      <div class="col col-xs-12 col-md-12 col-lg-9">
+        {% include '_components/_content-elements/content-elements-loop' with {
+          contentElements: entry.contentElements.level(1),
+          usesGrid: false
+        } %}
+      </div>
     </div>
   </section>
 {% endblock %}

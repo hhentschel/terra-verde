@@ -1,5 +1,6 @@
-{% set navContact = craft.entries.section('contact').one() %}
-{% set navSearch = craft.entries.section('search').one() %}
+{% set navSearch = craft.entries.section('searchSingle').one() %}
+{% set loginLink = craft.entries.section('loginStructure').one() %}
+{# {% set instashop = craft.entries.section('instashop').one() %} #}
 {# Import Macros #}
 {% import '_helpers/macros.twig' as macros %}
 
@@ -7,32 +8,27 @@
   <h2 class="visually-hidden">
     {{ 'nav.serviceNavigation'|t }}
   </h2>
-  <li class="nav-service-phone-list__item">
-    <button class="nav-login__button" aria-haspopup="true">
-      {{ 'nav.loginNavTitle'|translate }}
-    </button>
-  </li>
-
 
   <li class="nav-service-phone-list__item">
-    <a href="{{ navContact.url }}"
-      class="link link--icon-before link--mail {{
-      macros.isActive(
-        'nav.service.slug.contact'|t
-      )
-      }}">
-      <span class="link__text">{{ navContact.title }}</span>
+    <a href="{{ loginLink.url }}"
+      class="nav__link {{ macros.isActive('login', 1, 'nav__link--') }}">
+      {{ 'Login'|t }}
     </a>
   </li>
+
+  {# <li class="nav-service-phone-list__item">
+    <a href="{{ instashop.url }}"
+      class="nav__link {{ macros.isActive('instashop', 1, 'nav__link--') }}">
+      {{ 'InstaShop'|t }}
+    </a>
+  </li> #}
+
   <li class="nav-service-phone-list__item">
     <a href="{{ navSearch.url }}"
-      class="link link--icon-before link--search {{
-      macros.isActive(
-        'nav.service.slug.search'|t
-      )
-      }}">
-      <span class="link__text">{{ navSearch.title }}</span>
+      class="nav__link {{ macros.isActive('suche', 1, 'nav__link--') }}">
+      {{ 'Suche'|t }}
     </a>
   </li>
 
+  {% include '_components/_nav/_nav-shop/nav-shop-desktop' %}
 </ul>

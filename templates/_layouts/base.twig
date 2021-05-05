@@ -8,6 +8,22 @@
   </head>
   <body class="{{ classDev }} {% if bodyClass is defined %}page--{{ bodyClass }}{% endif %}">
     {# {% include '_layouts/_includes/grid-overlay.twig' %} #}
+
+  {# {% if currentUser %}
+    {% do craft.app.session.setFlash(
+      'notice',
+      'Hallo, Sie haben sich erfolgreich eingeloggt'
+    ) %}
+  {% endif %}
+
+  {% if not currentUser %}
+      {% do craft.app.session.setFlash(
+      'notice',
+      'Hallo, Sie haben sich erfolgreich abgemeldetttt'
+    ) %}
+  {% endif %} #}
+
+
     {% block layout %}
 
     {% endblock %}

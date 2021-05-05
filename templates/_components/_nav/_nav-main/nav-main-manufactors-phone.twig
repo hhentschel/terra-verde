@@ -1,18 +1,18 @@
 {# Import Macros #}
 {% import '_helpers/macros.twig' as macros %}
 
-{# ARBEITGEBER & SELBSTSTÄNDIGE DB QUERY #}
-{% set navEmployerInsurances =
-  craft.entries.section('employerStructure').status(null).limit(null).all()
+{# PRODUZENTEN DB QUERY #}
+{% set navWorker =
+  craft.entries.section('producersStructure').status(null).limit(null).all()
 %}
 
-{% if navEmployerInsurances is not empty %}
+{% if navWorker is not empty %}
   <ul class="mobile-nav__list mobile-nav__list--hidden">
-    {% nav navEntry in navEmployerInsurances %}
+    {% nav navEntry in navWorker %}
     {% set lastUriSegment = navEntry.uri|split('/')|last %}
     <li class="mobile-nav__list-item">
-      {% if navEntry.type == 'employerOverviewPage' and navEntry.level == 1 %}
-        <button class="mobile-nav__trigger" type="button">
+      {% if navEntry.type == 'workerOverviewPage' and navEntry.level == 1 %}
+        <button class="mobile-nav__trigger">
           <span class="mobile-nav__text mobile-nav__text--bold {{
             macros.isActive(
               navEntry.slug,
@@ -25,7 +25,7 @@
         </button>
       {% elseif
         navEntry.status == 'disabled'
-          and navEntry.type == 'employerOverviewPage'
+          and navEntry.type == 'workerOverviewPage'
           and navEntry.level == 2 %}
         <button aria-expanded="false" class="mobile-nav__trigger nav-expanded">
           <span class="mobile-nav__text {{
@@ -44,9 +44,9 @@
           }}
         </button>
       {% elseif
-        navEntry.status == 'live' and navEntry.type == 'employerDetailPage' %}
+        navEntry.status == 'live' and navEntry.type == 'workerDetailPage' %}
         <a href="{{ navEntry.url }}" class="link">
-          <span class="mobile-nav__text  {{
+          <span class="mobile-nav__text {{
             macros.isActive(
               navEntry.slug,
               - 1,
@@ -64,11 +64,11 @@
           : 'mobile-nav__list mobile-nav__list--hidden'
         }}">
         {% if
-          navEntry.id == 494
-            and flyoutGlobals.linkFlyoutEmployerRepeater is defined
-            and flyoutGlobals.linkFlyoutEmployerRepeater is not empty %}
-          <li class="nav-main__custom-entries">
-            {% for block in flyoutGlobals.linkFlyoutEmployerRepeater.all() %}
+          navEntry.id == 595
+            and flyoutGlobals.linkFlyoutWorkerRepeater is defined
+            and flyoutGlobals.linkFlyoutWorkerRepeater is not empty %}
+          <div class="nav-main__custom-entries">
+            {% for block in flyoutGlobals.linkFlyoutWorkerRepeater.all() %}
               {% set entry = block.buttonLinkToEntry.one() %}
               <a class="link link--button link--internal link--color-blue link--icon-after nav-main__custom-links"
                 href="{{ entry.url }}">
@@ -82,15 +82,15 @@
                 </div>
               </a>
             {% endfor %}
-          </li>
+          </div>
         {% endif %}
         {% if
           navEntry.status == 'live'
-            and navEntry.type == 'employerOverviewPage'
+            and navEntry.type == 'workerOverviewPage'
             and navEntry.level == 1 %}
           <li class="mobile-nav__list-item">
             <a class="link" href="{{ navEntry.url }}">
-              <span class="mobile-nav__text  {{
+              <span class="mobile-nav__text {{
                 macros.isActive(
                   navEntry.slug,
                   - 1,

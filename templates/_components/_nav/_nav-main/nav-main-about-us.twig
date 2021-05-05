@@ -1,0 +1,52 @@
+{# Import Macros #}
+{% import '_helpers/macros.twig' as macros %}
+
+{% if navAboutUs is not empty %}
+  <div class="nav-main__flyout-content">
+    <ul class="nav-main__flyout-item col-md-6 col-lg-4">
+      {% nav navEntry in navAboutUs %}
+      {% set lastUriSegment = navEntry.uri|split('/')|last %}
+      <li class="nav-main__flyout-list-item">
+        {% if
+          navEntry.status == 'live' and navEntry.type == 'aboutUsDetailPage' %}
+          <a href="{{ navEntry.url }}"
+            class="link nav-main__flyout-list-link {{
+            macros.isActive(
+              lastUriSegment,
+              - 1,
+              'nav-main__flyout-list-link--'
+            )
+            }}">
+            {{ navEntry.title }}
+          </a>
+        {% elseif
+          navEntry.status == 'disabled'
+            and navEntry.type == 'aboutUsOverviewPage'
+            and navEntry.level == 1 %}
+          <button aria-expanded="false"
+            class="nav-main__flyout-list-button nav-expanded {{
+            macros.isActive(
+              lastUriSegment,
+              - 1,
+              'nav-main__flyout-list-link--'
+            )
+            }}">
+            <span>{{ navEntry.title }}</span>
+            {{
+              macros.svg('carret_down_24')|attr({
+                class: 'icon icon--24 nav-main__list-icon'
+              })
+            }}
+          </button>
+        {% endif %}
+
+        {% ifchildren %}
+        <ul class="nav-main__sublist">
+          {% children %}
+        </ul>
+        {% endifchildren %}
+      </li>
+      {% endnav %}
+    </ul>
+  </div>
+{% endif %}

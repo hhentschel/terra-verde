@@ -24,6 +24,12 @@
     : ''
   %}
 
+  {% set colorClassSimple = buttonLinkColorSimple is defined
+    and buttonLinkColorSimple is not empty
+    ? 'link--color-' ~ buttonLinkColorSimple
+    : ''
+  %}
+
   {# Width class #}
   {% set widthClass = fullWidth is defined and fullWidth == true
     ? 'link--full-width'
@@ -52,8 +58,8 @@
 
   {# Output #}
   <a class="link {{ typeClass }} {{ targetClass }} {{ colorClass }} {{
-    widthClass
-    }} {{ iconPositionClass }}"
+    colorClassSimple
+    }} {{ widthClass }} {{ iconPositionClass }}"
     {{ targetBlankAttribute }}
     {{ downloadAttribute }}
     href="{{ linkUrl }}">
