@@ -144,6 +144,28 @@ $link__button-secondary-color-hover: $color--primary-hover;
       }
     }
 
+    &#{$this}--color-lightblue {
+      @include interactionStyle(
+        color,
+        $link__button-secondary-color,
+        $link__button-secondary-color-hover,
+        $link__button-secondary-color-hover
+      );
+      background: none;
+      border-color: transparent;
+    }
+
+    &#{$this}--color-brown {
+      @include interactionStyle(
+        color,
+        $color--brown,
+        $link__button-secondary-color-hover,
+        $link__button-secondary-color-hover
+      );
+      background: none;
+      border-color: transparent;
+    }
+
     &#{$this}--color-white {
       @include interactionStyle(
         color,
@@ -160,6 +182,29 @@ $link__button-secondary-color-hover: $color--primary-hover;
 
       background-color: $color--white;
       border-width: 1px;
+      border-style: solid;
+
+      #{$this}__icon-wrapper--internal {
+        margin-left: $link__icon-distance--external-secondary;
+      }
+    }
+
+    &#{$this}--color-white-simple {
+      @include interactionStyle(
+        color,
+        $color--white,
+        $color--grey-lightest,
+        $color--grey-lightest
+      );
+      @include interactionStyle(
+        border-color,
+        $link__button-secondary-color,
+        $link__button-secondary-color-hover,
+        $link__button-secondary-color-hover
+      );
+
+      background-color: $color--white;
+      border-width: 0px;
       border-style: solid;
 
       #{$this}__icon-wrapper--internal {

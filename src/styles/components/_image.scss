@@ -1,4 +1,27 @@
 .image {
+
+  &--half {
+    flex: 0 0 100%;
+    max-width: 100%;
+
+    @include breakpoint('tablet') {
+      flex: 0 0 50%;
+      max-width: 50%;
+    }
+  }
+
+  &--one-third {
+    flex: 0 0 100%;
+    max-width: 100%;
+
+    @include breakpoint('tablet-landscape') {
+      flex: 0 0 30%;
+      margin-right: px-to-rem($space--xm);
+      max-width: 30%;
+    }
+  }
+
+
   &__wrapper {
     display: flex;
     justify-content: center;

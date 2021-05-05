@@ -1,0 +1,23 @@
+.image-text {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: px-to-rem($space--xm);
+
+  @include breakpoint('tablet-landscape') {
+    margin-bottom: 0;
+    flex-direction: row;
+  }
+
+  &__image {
+    margin-bottom: px-to-rem($space--m);
+
+    @include breakpoint('tablet-landscape') {
+      margin-right: px-to-rem($space--xxm);
+      margin-bottom: 0;
+    }
+  }
+
+  &__text {
+    @include lhCrop(1.8);
+  }
+}
