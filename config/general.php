@@ -23,14 +23,24 @@ return [
         // Control panel trigger word
         'cpTrigger' => 'aceto',
 
+        'useEmailAsUsername' => true,
+
+        'autoLoginAfterAccountActivation' => true,
+        'activateAccountSuccessPath' => '/login/activation-success.twig',
+
+        'postLogoutRedirect' => 'login',
+        'postLoginRedirect' => '/',
+
         // The secure key Craft will use for hashing and encrypting data
         'securityKey' => App::env('SECURITY_KEY'),
 
         'aliases' => array(
-            '@basePath' => getenv('BASE_PATH'),
-            '@baseUrl' => getenv('BASE_URL'),
-            '@rootUrl' => getenv('ROOT_URL'),
-        ),
+          '@basePath' => getenv('BASE_PATH'),
+          '@baseUrl' => getenv('BASE_URL'),
+          '@rootUrl' => getenv('ROOT_URL'),
+      ),
+
+      'limitAutoSlugsToAscii' => true,
     ],
 
     // Dev environment settings
