@@ -31,7 +31,7 @@ fieldLayouts:
 handle: sellingPointsStructure
 hasTitleField: true
 name: Verkaufsstellen
-section: 34eecfa5-9662-4a5c-addd-6a484fbebe8d
+section: 34eecfa5-9662-4a5c-addd-6a484fbebe8d # Verkaufsstellen Orte
 sortOrder: 1
 titleFormat: null
 titleTranslationKeyFormat: null
