@@ -10,3 +10,4 @@ web/assets/images/content/*
 web/content/*
 _backup/*
 --templates/*
+web/assets/files/
