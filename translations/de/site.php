@@ -63,7 +63,10 @@ return array(
 
 
 //Suche
-
+"search.loadmore.text" => "Mehr laden",
+"search.button.text" => "Suchen",
+"search.no.results" => "Es wurden keine Resultate gefunden.",
+"search.results.length" => "Treffer",
 
 "contact.phone.title" => "Telefon",
 "contact.email.title" => "E-Mail"

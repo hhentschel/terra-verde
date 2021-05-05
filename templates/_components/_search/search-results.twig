@@ -34,11 +34,7 @@
     <div class="search__results" aria-live="polite">
       {% if entryQuery is not empty %}
         {% for entry in entries %}
-          {% set url = entry.filesFormsLeaflets is defined
-            and entry.filesFormsLeaflets is not empty
-            ? entry.filesFormsLeaflets.one().url
-            : entry.url
-          %}
+          {% set url = entry.url %}
           <div class="search__item">
             {% switch entry.section.handle %}
             {% case 'employerStructure' %}
