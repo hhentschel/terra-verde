@@ -84,10 +84,18 @@ $typography--phone: (
   ),
   navMainMobileBold: (
     font-family: $font-family--bold,
-    font-size: px-to-rem($font-size-s),
+    font-size: px-to-rem($font-size-m),
   ),
   navMainMobileText: (
     font-size: px-to-rem($font-size-s),
+  ),
+  navMainMobileLogoLine: (
+    font-size: px-to-rem($font-size-xxs),
+    line-height: 0.7,
+    letter-spacing: 0.2rem,
+    font-family: $font-family--logo-bold,
+    font-weight: $font-weight--logo-bold,
+    text-transform: uppercase,
   ),
   navServiceMobile: (
     font-size: px-to-rem($font-size-xs),
@@ -221,6 +229,10 @@ $typography--desktop: (
   ),
   contentHeaderClaim: (
     font-size: px-to-rem($font-size-xxxxl),
+  ),
+  navMainMobileLogoLine: (
+    font-size: px-to-rem($font-size-m),
+    letter-spacing: 0.78rem,
   ),
 );
 

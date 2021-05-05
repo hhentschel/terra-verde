@@ -11,8 +11,6 @@
       
       a {
         position: relative;
-
-     
       }
 
       &:not(:last-child ){
@@ -22,24 +20,26 @@
       &.is-active {
         color: $color--text;
         position: relative;
-
-
-        &:after,
-        &:before { 
-          position: absolute;
-        left: -22px;
-        top: 60%;
-        background: rgba($color--text, 0.6);
-        content: '';
-        height: 2px;
-        width: 10px;
-        transform: rotate(-45deg);
       }
-      
-      &:before {
-          transform: rotate(45deg);
-          top: 37%;
 
+      &:not(:first-child ){
+        a {
+          &:after,
+          &:before { 
+          position: absolute;
+          left: -22px;
+          top: 60%;
+          background: rgba($color--text, 0.6);
+          content: '';
+          height: 1px;
+          width: 7px;
+          transform: rotate(-50deg);
+        }
+        
+        &:before {
+            transform: rotate(50deg);
+            top: 44%;
+          }
         }
       }
     }

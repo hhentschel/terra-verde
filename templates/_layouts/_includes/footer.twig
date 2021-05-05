@@ -1,5 +1,5 @@
 {% import '_helpers/macros.twig' as macros %}
-
+{% cache globally using key "footer" %}
 <footer class="footer">
 
   <h2 class="visually-hidden">
@@ -39,21 +39,30 @@
             <button type="submit" name="" class="button button--primary">Abonnieren</button>
           </form>
         </div>
+
+        {% set formQuery = craft.formie.forms()
+            .handle('newsletter') %}
+
+        {% set form = formQuery.one() %}
+
+        <p>{{ form.title }}</p>
+
+        {{ craft.formie.renderform('newsletter')}}
+        {# {{ form.eMail }} #}
+
+
+
+
       </div>
     </div>
   </div>
 
-  <div class="footer__bottom">
+  <div class="footer__middle">
     <div class="grid">
       <div class="row">
-        <div class="col col-xs-12 col-md-6 col-lg-3">
+        <div class="col col-xs-12 col-md-6 col-lg-6">
           <div class="footer--box footer--contact">
             <h3 class="footer--heading">Kontakt</h3>
-            {% if footerGlobal.adress %}
-            <div class="footer--contact__adress">
-              {{footerGlobal.adress}}
-            </div>
-            {% endif %}
 
             <div class="footer--contact__phone">
               {% if footerGlobal.phone %}
@@ -83,8 +92,24 @@
               </span>
               {% endif %}
             </div>
+
           </div>
+            {% if footerGlobal.adress %}
+              <div class="footer--contact__adress">
+                {{footerGlobal.adress}}
+              </div>
+            {% endif %}
+
+
         </div>
+
+         {# <div class="col col-xs-12 col-md-6 col-lg-3">
+          <div class="footer--box footer--info">
+            <h3 class="footer--heading"></h3>
+
+          </div>
+        </div> #}
+
         <div class="col col-xs-12 col-md-6 col-lg-3">
           <div class="footer--box footer--aboutus">
             <h3 class="footer--heading">Über uns</h3>
@@ -92,7 +117,7 @@
               {% set entries = craft.entries.section('aboutusStructure').level(2) %}
 
             <ul>
-              {% for entry in entries %}
+              {% for entry in entries.all() %}
                 <li>
                   <a href="{{entry.url}}">
                     {{ entry.title }}</li>
@@ -101,26 +126,15 @@
             </ul>
           </div>
         </div>
-        <div class="col col-xs-12 col-md-6 col-lg-3">
-          <div class="footer--box footer--info">
-            <h3 class="footer--heading">Info</h3>
 
-              {% set entries = craft.entries.section('infoStructure') %}
-
-              <ul>
-                {% for entry in entries %}
-                  <li>
-                    <a href="{{entry.url}}">
-                      {{ entry.title }}</li>
-                    </a>
-                {% endfor %}
-              </ul>
-          </div>
-        </div>
         <div class="col col-xs-12 col-md-6 col-lg-3">
           <div class="footer--box footer--openinghours">
-            <h3 class="footer--heading">Öffnungszeiten</h3>
-
+            <h3 class="footer--heading">Laden</h3>
+            {% if footerGlobal.adress %}
+            <div class="footer--contact__adress">
+              {{footerGlobal.adress}}
+            </div>
+            {% endif %}
             {% if footerGlobal.openingHoursOne %}
               <span>
                 {{footerGlobal.openingHoursOne}}
@@ -136,4 +150,28 @@
       </div>
     </div>
   </div>
+
+  <div class="footer__bottom">
+    <div class="grid">
+      <div class="row">
+        <div class="col col-xs-12 col-md-6 col-lg-12">
+        <ul class="nav__service">
+          <li class="nav__service--items">
+            <a href="/agb">
+                {{'nav.footer.slug.agb'|t}}
+            </a>
+          </li>
+          <li class="nav__service--items">
+            <a href="/impressum">
+                {{'nav.footer.slug.imprint'|t}}
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
 </footer>
+
+{% endcache %}
