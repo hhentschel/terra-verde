@@ -31,7 +31,7 @@ fieldLayouts:
 handle: retailTradeStructure
 hasTitleField: true
 name: Detailhandel
-section: e9d74d60-1b19-494e-a1af-537c054484c9
+section: e9d74d60-1b19-494e-a1af-537c054484c9 # Login
 sortOrder: 1
 titleFormat: null
 titleTranslationKeyFormat: null

@@ -31,7 +31,7 @@ fieldLayouts:
 handle: newStructure
 hasTitleField: true
 name: Neues
-section: 9547c4b2-034f-4e07-9a02-b94d052fec7c
+section: 9547c4b2-034f-4e07-9a02-b94d052fec7c # Neues
 sortOrder: 1
 titleFormat: null
 titleTranslationKeyFormat: null

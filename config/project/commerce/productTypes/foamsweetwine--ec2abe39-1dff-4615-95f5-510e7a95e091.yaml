@@ -34,7 +34,7 @@ productFieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: 944f60e0-b559-4698-bb4d-3d2eec04eef6
+            fieldUid: 944f60e0-b559-4698-bb4d-3d2eec04eef6 # Produkt Beschreibung Alt
             instructions: null
             label: null
             required: false
@@ -43,7 +43,7 @@ productFieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: d59a8a70-d5e0-42b4-b4d8-d3602f3bbe03
+            fieldUid: d59a8a70-d5e0-42b4-b4d8-d3602f3bbe03 # Produkt Bild
             instructions: null
             label: null
             required: false
