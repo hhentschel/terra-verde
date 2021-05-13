@@ -1,0 +1,31 @@
+{% extends '_layouts/main' %}
+
+{% block content %}
+  <section class="grid">
+    <div class="row">
+      <div class="col col-xs-12 col-md-12 col-lg-12">
+        <h3>
+          Vielen Dank für Ihre Registrierung!
+        </h3>
+        <p>
+          Wir haben eine E-Mail mit einem Bestätigungslink an folgende Adresse
+          gesandt:
+        <p>
+        <p>
+          <strong>{{ craft.app.request.getQueryParam('user') }}</strong>
+        </p>
+        <p>
+            Falls sie keine E-Mail erhalten haben, schauen sie bitte im Spam
+            Ordner nach, ansonsten wenden Sie sich bitte per E-Mail an
+            shop@terra-verde.ch. <br />Vielen Dank.
+          </p>
+
+          {# {{ craft.app.request.getQueryParam('email') }} #}
+          {# {{ craft.app.request.getQueryParam('user.email') }} #}
+          {# {{ craft.app.request.getQueryParam('id') }} #}
+
+        </p>
+      </div>
+    </div>
+  </section>
+{% endblock %}

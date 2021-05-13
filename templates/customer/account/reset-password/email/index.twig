@@ -1,0 +1,26 @@
+{% extends '_layouts/main' %}
+
+{% block content %}
+  <section class="grid">
+    <div class="row">
+      <div class="col col-xs-12 col-md-12 col-lg-12">
+        <h3>
+          E-Mail wurde versendet.
+        </h3>
+
+        <p>
+           Wir haben Ihnen eine E-Mail mit einem Link zum Zurücksetzen des
+          Passwortes an folgende Adresse gesendet:
+        <p>
+        <p>
+          <strong> {{ craft.app.user.rememberedUsername }}</strong>
+        </p>
+        <p>
+            Falls sie keine E-Mail erhalten haben, schauen sie bitte im Spam
+            Ordner nach, ansonsten wenden Sie sich bitte per E-Mail an
+            shop@terra-verde.ch. <br />Vielen Dank.
+          </p>
+      </div>
+    </div>
+  </section>
+{% endblock %}

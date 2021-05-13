@@ -26,10 +26,15 @@ return [
         'useEmailAsUsername' => true,
 
         'autoLoginAfterAccountActivation' => true,
-        'activateAccountSuccessPath' => '/login/activation-success.twig',
+        'setPasswordSuccessPath' => '/customer/account/login',
+        'activateAccountSuccessPath' => '/customer/account/activation-success/',
 
-        'postLogoutRedirect' => 'login',
+        'postLogoutRedirect' => '/customer/account/logout/',
         'postLoginRedirect' => '/',
+
+        // setPasswordPath
+
+        // 'loginPath' => '/',
 
         // The secure key Craft will use for hashing and encrypting data
         'securityKey' => App::env('SECURITY_KEY'),
@@ -39,6 +44,11 @@ return [
           '@baseUrl' => getenv('BASE_URL'),
           '@rootUrl' => getenv('ROOT_URL'),
       ),
+
+      // https://craftcms.com/knowledge-base/enabling-fuzzy-search
+      'defaultSearchTermOptions' => [
+        'subLeft' => true,
+      ],
 
       'limitAutoSlugsToAscii' => true,
     ],
