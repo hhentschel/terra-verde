@@ -1,4 +1,4 @@
-dateModified: 1615550390
+dateModified: 1620910530
 email:
   fromEmail: p@henrik-hentschel.de
   fromName: 'Terra Verde'
@@ -67,7 +67,7 @@ system:
   edition: pro
   live: true
   name: 'Terra Verde'
-  schemaVersion: 3.6.6
+  schemaVersion: 3.6.8
   timeZone: America/Los_Angeles
 users:
   allowPublicRegistration: false

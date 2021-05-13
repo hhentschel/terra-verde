@@ -1,11 +1,11 @@
-field: 944f60e0-b559-4698-bb4d-3d2eec04eef6
+field: 944f60e0-b559-4698-bb4d-3d2eec04eef6 # Produkt Beschreibung Alt
 fieldLayouts:
   d01ce461-4626-48ef-8b97-98c904bf4cfa:
     tabs:
       -
         elements:
           -
-            fieldUid: 80046407-de11-4bdb-9670-56b00656fb46
+            fieldUid: 80046407-de11-4bdb-9670-56b00656fb46 # Bild
             instructions: null
             label: null
             required: false
@@ -14,7 +14,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: 59672db5-e56b-482e-a7d2-5cbddc49280f
+            fieldUid: 59672db5-e56b-482e-a7d2-5cbddc49280f # Bildunterschrift
             instructions: null
             label: null
             required: false
@@ -25,7 +25,7 @@ fieldLayouts:
         name: Content
         sortOrder: 1
 fields:
-  59672db5-e56b-482e-a7d2-5cbddc49280f:
+  59672db5-e56b-482e-a7d2-5cbddc49280f: # Bildunterschrift
     contentColumnType: text
     fieldGroup: null
     handle: caption
@@ -44,7 +44,7 @@ fields:
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\PlainText
-  80046407-de11-4bdb-9670-56b00656fb46:
+  80046407-de11-4bdb-9670-56b00656fb46: # Bild
     contentColumnType: string
     fieldGroup: null
     handle: image

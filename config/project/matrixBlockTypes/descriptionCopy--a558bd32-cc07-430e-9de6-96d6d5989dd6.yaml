@@ -1,11 +1,11 @@
-field: 944f60e0-b559-4698-bb4d-3d2eec04eef6
+field: 944f60e0-b559-4698-bb4d-3d2eec04eef6 # Produkt Beschreibung Alt
 fieldLayouts:
   e3f955f3-9132-4c35-a529-4f0b143b945b:
     tabs:
       -
         elements:
           -
-            fieldUid: 52b07f6a-0a03-4f36-90a6-237e75e980b9
+            fieldUid: 52b07f6a-0a03-4f36-90a6-237e75e980b9 # Text
             instructions: null
             label: null
             required: false
@@ -16,7 +16,7 @@ fieldLayouts:
         name: Content
         sortOrder: 1
 fields:
-  52b07f6a-0a03-4f36-90a6-237e75e980b9:
+  52b07f6a-0a03-4f36-90a6-237e75e980b9: # Text
     contentColumnType: text
     fieldGroup: null
     handle: text
