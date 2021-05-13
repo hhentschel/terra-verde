@@ -14,8 +14,10 @@
 <form method="post" accept-charset="UTF-8">
   {{ csrfInput() }}
   {{ actionInput('users/save-user') }}
+  {{ redirectInput('/customer/account/activation-email/?user={email}') }}
   {# {{ redirectInput('/register-success/') }} #}
-  {{ redirectInput(craft.app.user.returnUrl) }}
+  {# {{ redirectInput(craft.app.user.returnUrl) }} #}
+
 
   <label for="userTitle">Anrede</label>
   {{
@@ -98,6 +100,10 @@
     )
   }}
 
+  {% if user is defined %}
+    {{ _self.errorList(user.getErrors('password')) }}
+  {% endif %}
+
 
   <label for="fields[userCompany]">Firma</label>
   <input id="Company" type="text" class="input" name="fields[userCompany]"
@@ -132,10 +138,6 @@
   {%- if account is defined %} value="{{ account.userNotice}}"{% endif -%}>
   </textarea>
 
-
-  {% if user is defined %}
-    {{ _self.errorList(user.getErrors('password')) }}
-  {% endif %}
 
   <button type="submit" class="button button--primary">Registrieren</button>
 </form>

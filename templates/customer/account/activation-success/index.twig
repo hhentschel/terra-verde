@@ -1,0 +1,18 @@
+{% extends '_layouts/main' %}
+
+{% block content %}
+  <section class="grid">
+    <div class="row">
+      <div class="col col-xs-12 col-md-12 col-lg-6">
+        <h3>
+          Hallo {{ currentUser }},<br /> Vielen Dank für Ihre Registrierung!
+        </h3>
+        <p>
+          Sie haben sich mit folgender E-Mail Adresse registriert, dass ist
+          gleichzeitig ihr Benutzername:<br />
+          <strong>{{ currentUser.email }}</stong>
+        </p>
+      </div>
+    </div>
+  </section>
+{% endblock %}
