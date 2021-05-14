@@ -47,7 +47,7 @@
             {# <p>Kategorie: {{ product.articleCategories }}</p> #}
 
             {# Add cart Button #}
-            <form method="POST">
+            {# <form method="POST">
                 <input type="hidden" name="action"
                        value="commerce/cart/update-cart">
                 <input type="hidden" name="cartUpdatedNotice"
@@ -58,7 +58,23 @@
                 <input type="hidden" name="purchasableId"
                        value="{{ variant.id }}">
                 <input class="button" type="submit" value="In den Warenkorb" {% if variant.stock <= 0 %}disabled {% endif %} >
+            </form> #}
+
+            <form sprig s-method="post" s-action="commerce/cart/update-cart">
+                <input type="hidden" name="cartUpdatedNotice"
+                       value="Added {{ product.title }} to the cart.">
+                <input type="hidden" name="qty" value="1">
+                <input type="hidden" name="purchasableId" value="{{ variant.id }}">
+                <input class="button" type="submit" value="In den Warenkorb" {% if variant.stock <= 0 %}disabled {% endif %} >
             </form>
+
+            {% if success is defined and success %}
+                Product added to your cart!
+            {% elseif errors is defined %}
+                {% for error in errors %}
+                  <p class="error">{{ error|first }}</p>
+                {% endfor %}
+            {% endif %}
 
       </div>
 

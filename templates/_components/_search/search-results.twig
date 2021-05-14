@@ -1,8 +1,9 @@
 {% import '_helpers/macros.twig' as macros %}
-{% set query = query ?? '' %}
+
 {% set offset = offset ?? 0 %}
 {% set limit = 3 %}
-{% set sectionArea = '' %}
+
+{% set query = query ?? '' %}
 
 <form sprig class="search__form">
   <label class="visually-hidden" for="search-field">
@@ -14,7 +15,8 @@
     name="query"
     value="{{ query }}"
     aria-controls="search-results"
-    s-replace=".search__results" />
+    s-replace=".search__results"
+    autofocus="true" />
   <button type="submit" class="search__button">
     {{
       macros.svg('search_24')|attr({
