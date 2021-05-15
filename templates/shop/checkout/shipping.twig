@@ -13,7 +13,7 @@
             {% endif %}
 
             {% if not cart.availableShippingMethodOptions|length %}
-              <p class="my-3 ">No shipping methods available.</p>
+              <p class="my-3 ">Keine Versandmöglichkeiten verfügbar.</p>
               <div>
                 <a class="{{ classes.btn.base ~ ' ' ~ classes.btn.blue }}" href="{{ url('shop/checkout/payment-method') }}">Continue to payment method</a>
               </div>

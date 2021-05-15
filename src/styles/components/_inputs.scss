@@ -25,6 +25,11 @@ $textarea--height: null;
 $textarea--padding-vertical: px-to-em(12, $input--font-size);
 $textarea--padding-horizontal: px-to-em(8, $input--font-size);
 
+// colors
+$button-primary--color: $color--white;
+$button-primary--background-color: $color--primary;
+$button-primary--border-color: $color--primary;
+
 .input {
   @include inputStyles();
   width: $input--max-width;
@@ -33,7 +38,31 @@ $textarea--padding-horizontal: px-to-em(8, $input--font-size);
   @if (has($input--height)) {
     height: $input--height;
   }
+
+ 
 }
+
+input[type='submit'].input {
+  &__form {
+    padding: $button-primary--horizontal-padding
+    $button-primary--vertical-padding;
+
+    @if (has($button-primary--background-color)) {
+      background-color: $button-primary--background-color;
+    }
+    @if (has($button-primary--color)) {
+      color: $button-primary--color;
+    }
+    @if (has($button-primary--border-radius)) {
+      border-radius: $button-primary--border-radius;
+    }
+    @if (has($button-primary--border-width)) {
+      border: $button-primary--border-width solid $button-primary--border-color;
+    }
+
+  }
+}
+
 
 .textarea {
   @include inputStyles();

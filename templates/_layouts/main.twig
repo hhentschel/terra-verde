@@ -20,11 +20,12 @@
 
       {% include '_layouts/_includes/flash-notices' %}
 
-      <div class="container mx-auto p-6 flex-grow">
-        {% block content %}
+      {# <div class="container mx-auto p-6 flex-grow"> #}
+      {% include 'shop/_includes/nav-checkout' %}
+      {% block content %}
 
-        {% endblock %}
-      </div>
+      {% endblock %}
+      {# </div> #}
     </div>
   </main>
 
