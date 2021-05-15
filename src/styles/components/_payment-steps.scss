@@ -1,0 +1,30 @@
+.payment-steps {
+
+  text-align: center;
+  width: 100%;
+  margin: 0 auto;
+  
+  &__nav {
+    display: flex;
+
+    &--link {
+      flex: 1 1 0%;
+      text-decoration: none;
+      padding: 0 0 (px-to-rem($space--s)) 0;
+    }
+  }
+
+  &__bar {
+    background-color: $color--grey-lighter;
+    height: px-to-rem($space--s);
+    margin-top: px-to-rem($space--s);
+    &--active {
+      
+      background-color: $color--primary;
+      opacity: 1;
+      height: px-to-rem($space--s);
+      margin-top: px-to-rem(-$space--s);
+      
+    }
+  }
+}
