@@ -1,0 +1,53 @@
+.flex {
+  display: flex;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+
+.flex-grow {
+  flex-grow: 1;
+}
+
+.relative {
+  position: relative;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
+.p-6 {
+  padding: 1.5rem;
+}
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.-mx-8 {
+  margin-right: px-to-rem(-36);
+  margin-left: px-to-rem(-36);
+}
+
+.px-8 {
+  padding-right: px-to-rem(36);
+  padding-left: px-to-rem(36);
+}
+
+.pr-8 {
+  padding-right: px-to-rem(36);
+}
+
+.pl-8 {
+  padding-left: px-to-rem(36);
+}
+
+.mt-6 {
+  margin-top: px-to-rem(36);
+}
+
+.mt-3 {
+  margin-top: px-to-rem(18);
+}
