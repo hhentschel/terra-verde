@@ -11,14 +11,14 @@
 {% endif %}
 
 <div class="{{ classes.box.base }}">
-  <h3 class="mt-0 text-lg font-bold">
+  <h3 class="heading heading--3 heading--no-margin-top">
     Bestellübersicht
   </h3>
 
   {% if showShippingAddress %}
-    <div class="border-b border-gray-300 pb-3">
-      <h4 class="font-semibold mt-3">
-        Versand nach
+    <div class="">
+      <h4 class="heading heading--4 heading--no-margin-top">
+        Versand nach:
       </h4>
       {% if cart.shippingAddress %}
         <div class="address-select js-address-select border-0">
@@ -33,8 +33,9 @@
       {% endif %}
 
       {% if currentUser %}
-        <a class="edit" href="{{ url('shop/checkout/addresses') }}">
-          Bearbeiten
+        <a class="edit button button--edit button--secondary"
+          href="{{ url('shop/checkout/addresses') }}">
+          Adresse bearbeiten
         </a>
       {% endif %}
     </div>
@@ -50,13 +51,13 @@
         {% if cart.shippingMethod %}
           {{ cart.shippingMethod.name }}
         {% else %}
-          keine Versansart ausgwählt.
+          keine Versandart ausgwählt.
         {% endif %}
       </div>
     </div>
   {% endif %}
 
-  <h4 class="font-semibold mt-3">
+  <h4 class="heading heading--4 heading--no-margin-top">
     Artikel
   </h4>
   {% for item in cart.lineItems %}
@@ -90,11 +91,8 @@
     {# If the order requires a shipping method be selected, you could redirect back to the shipping page until
        one is applied to the order (`{% redirect "shop/checkout/shipping" %}`) #}
     <div class="border-b border-gray-300 pb-3">
-      <strong>Versand</strong> nichts ausgewählt. <a href="{{
-        url(
-          'shop/checkout/shipping'
-        )
-        }}">
+      <strong>Versand</strong> nicht ausgewählt.
+      <a href="{{ url('shop/checkout/shipping') }}">
         Eine Versandart auswählen.
       </a>
     </div>

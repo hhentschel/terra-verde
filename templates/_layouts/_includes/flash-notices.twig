@@ -1,31 +1,47 @@
 {# Add `or true` to this if condition to temporarily see what this flash notice would look like #}
-{% if flashNotice %}
-    <div class="bg-blue-500 text-white">
-        <div class="container mx-auto px-6 py-4">
-            {{ flashNotice ?? 'Test flash notice' }}
-        </div>
-    </div>
-{% endif %}
+ <!-- Template: {{ _self }}.twig -->
 
-{# Add `or true` to this if condition to temporarily see what this flash error would look like #}
-{% if flashError %}
-    <div class="bg-red-500 text-white">
-        <div class="container mx-auto px-6 py-4">
-            {{ flashError ?? 'Test flash error' }}
-        </div>
-    </div>
-{% endif %}
+      {% if flashNotice %}
+          <div class="flash-notice__container flash-notice__container--info">
+              <section class="grid">
+                <div class="row">
+                  <div class="col col-xs-12 col-md-12 col-lg-12">
+                    {{ flashNotice ?? 'Test flash notice' }}
+                  </div>
+                </div>
+              </section>
+          </div>
+      {% endif %}
 
-{% if cart.errors|length %}
-    <div class="bg-red-500 text-white">
-        <div class="container mx-auto px-6 py-4">
-            {% for attribute, errors in cart.errors %}
-                {% if loop.first %}<ul>{% endif %}
-                {% for key, error in errors %}
-                    <li>{{ attribute }}: {{ error }}</li>
-                {% endfor %}
-                {% if loop.last %}</ul>{% endif %}
-            {% endfor %}
-        </div>
-    </div>
-{% endif %}
+      {# Add `or true` to this if condition to temporarily see what this flash error would look like #}
+      {% if flashError %}
+          <div class="flash-notice__container flash-notice__container--error">
+            <section class="grid">
+              <div class="row">
+                <div class="col col-xs-12 col-md-12 col-lg-12">
+                {{ flashError ?? 'Test flash error' }}
+                </div>
+              </div>
+            </section>
+          </div>
+      {% endif %}
+
+      {% if cart.errors|length %}
+          <div class="flash-notice__container flash-notice__container--error">
+            <section class="grid">
+              <div class="row">
+                <div class="col col-xs-12 col-md-12 col-lg-12">
+                  {% for attribute, errors in cart.errors %}
+                      {% if loop.first %}<ul>{% endif %}
+                      {% for key, error in errors %}
+                          <li>{{ attribute }}: {{ error }}</li>
+                      {% endfor %}
+                      {% if loop.last %}</ul>{% endif %}
+                  {% endfor %}
+                </div>
+              </div>
+            </section>
+          </div>
+      {% endif %}
+
+

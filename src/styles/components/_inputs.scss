@@ -12,6 +12,7 @@ $input--font-size: $font-size--base;
 // general
 $input--display: block;
 $input--max-width: 100%;
+$input--width-small: 100px;
 $input--height: null;
 
 // padding
@@ -39,10 +40,27 @@ $button-primary--border-color: $color--primary;
     height: $input--height;
   }
 
- 
+  &-small {
+    width: $input--width-small;
+  }
 }
 
+.newsletter__form input[type='text'],
+.newsletter__form input[type='email'] {
+  @include inputStyles();
+  width: $input--max-width;
+  padding: $input--padding-vertical $input--padding-horizontal;
+
+  @if (has($input--height)) {
+    height: $input--height;
+  }
+
+  margin: 0 0 px-to-rem($space--s) 0;
+}
+
+
 input[type='submit'].input {
+  width: auto;
   &__form {
     padding: $button-primary--horizontal-padding
     $button-primary--vertical-padding;
@@ -60,6 +78,23 @@ input[type='submit'].input {
       border: $button-primary--border-width solid $button-primary--border-color;
     }
 
+  }
+}
+
+input[type='radio']{
+  position: relative;
+  right: 0;
+  &:checked {
+    background-color:$color--primary;
+    height: 20px;
+    border-radius: 9999px;
+    display: flex;
+    width: 20px;
+    position: relative;
+    left: 0;
+    z-index: 100;
+    margin: 0 px-to-rem($space--m);
+   
   }
 }
 

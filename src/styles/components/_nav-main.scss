@@ -65,6 +65,10 @@ $nav-main--button-list--carret-transition-easing: easing(open);
     background-color: $color--white;
     padding: px-to-rem($space--m) 0;
     font-size: px-to-rem(15);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: px-to-rem(110);
     &__list {
       display: flex;
       justify-content: flex-end;
@@ -72,7 +76,27 @@ $nav-main--button-list--carret-transition-easing: easing(open);
         &:not(:last-child) {
           margin-right: px-to-rem($space--m);
         }
+        
+        &-cart-wrapper {
+          position: relative;
+          top: -5px;
       }
+      
+      &-cart {
+        position: relative;
+        background-color: $color--white;
+        cursor: pointer;
+        margin: 0;
+        padding: px-to-rem($space--s);
+        // shadow-lg
+      }
+
+      .currentuser {
+        display: inline-block;
+      }
+      }
+
+
     }
   }
 }

@@ -18,6 +18,36 @@
     .button--primary {
       margin-left: px-to-rem($space--m);
     }
+
+    color: $color--black;
+
+    // .button__container {
+    //   margin: 0;
+    //   padding: 0;
+    // }
+
+    // .email-input__container {
+    //   margin: 0;
+    //   padding: 0;
+    // }
+
+    .form__wrapper {
+      display: flex;
+      align-items: center;
+      height: 100%;
+    }
+
+    .email-input__container {
+      width: 250px;
+      height: 100%;
+    }
+
+    .fui-page {
+      display: flex;
+    }
+    .fui-row {
+      margin: 0;
+    }
   }
   
   &__middle {

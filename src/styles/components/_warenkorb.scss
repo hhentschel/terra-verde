@@ -1,0 +1,145 @@
+.form__cart {
+
+  &-table {
+    width: 100%;
+    margin-top: px-to-rem($space--s);
+
+    &--head {
+      background-color: $color--blue-lighter;
+      color: $color--white;
+    }
+
+    &--item {
+      padding: px-to-rem($space--s) px-to-rem($space--m) px-to-rem($space--s) 0;
+    }
+
+    &--item-left {
+      text-align: left;
+    }
+
+    &--item-middle {
+      text-align: left;
+    }
+
+    &--item-right {
+      text-align: right;
+    }
+
+    &--options {
+      position: relative;
+      background-color: $color--grey-lightest;
+      margin-top: px-to-rem($space--s);
+    }
+
+    &--note {
+      margin-top: px-to-rem($space--m);
+
+      label {
+        text-transform: uppercase;
+        font-size: $font-size-s;
+        display: block;
+        color: $color--grey-light;
+      }
+    }
+    &--item-prices {
+      padding: px-to-rem($space--s);
+      text-align: right;
+    }
+
+    &--item-price-name {
+      font-size: px-to-rem($font-size-s);
+      padding-right: px-to-rem($space--s);
+    }
+
+    &--item-price-number {
+      font-size: px-to-rem($font-size-s);
+    }
+
+    &--item-price-number-bold {
+      font-family: $font-family--bold;
+      font-weight: 700;
+      padding: px-to-rem($space--s) 0;
+    }
+
+    &--item-price {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    &--item-addprice {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    &--item-pricesubtotal {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding: px-to-rem($space--s);
+    }
+
+    &--item-pricesubtotal-number {
+      font-family: $font-family--bold;
+      font-weight: 700;
+      font-size: px-to-rem($font-size-xm);
+    }
+
+    &--item-pricetotal {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding: px-to-rem($space--m) px-to-rem($space--s);
+    }
+
+    &--item-pricetotal-number {
+      font-family: $font-family--bold;
+      font-weight: 700;
+      font-size: px-to-rem($font-size-l);
+    }
+
+    &--coupon {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    &--coupon-box {
+      width: 100%;
+      text-align: left;
+      padding: px-to-rem($space--xm);
+      max-width: 24rem;
+      background-color: $color--grey-lightest;
+      border: 0;
+    }
+
+    &--buttons {
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+      height: 100%;
+      padding: px-to-rem($space--xm) 0; 
+    }
+
+    &--buttons-container {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &--adjustments-order {
+      text-align: right;
+      padding: px-to-rem($space--s) 0;
+      border-top: 2px solid $color--grey-lighter;
+    }
+
+  }
+
+
+}
