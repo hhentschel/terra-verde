@@ -12,16 +12,28 @@
     {{ 'nav.serviceNavigation'|t }}
   </h2>
 
-  <ul class="nav-service__list">
+  <ul class="nav-service__list nav-service__list-top">
     <li class="nav-service__list-item">
       {% if currentUser %}
-        {{ currentUser.username }}
+        <span class="currentuser">
+          <span>Eingeloggt als:</span>
+          <strong>{{ currentUser.friendlyName }}</strong> ({{
+            currentUser.username
+          }})
+        </span>
+      {% endif %}
+    </li>
+
+    <li class="nav-service__list-item">
+      {% if currentUser %}
         <a href="{{ logoutUrl }}" class="nav__link">{{ 'Logout'|t }}</a>
       {% else %}
         <a href="{{ loginLink.url }}" class="nav__link">{{ 'Login'|t }}</a>
       {% endif %}
     </li>
+  </ul>
 
+  <ul class="nav-service__list nav-service__list-bottom">
     {# <li class="nav-service__list-item">
       <a href="{{ instashop.url }}"
         class="nav__link {{ macros.isActive('instashop', 1, 'nav__link--') }}">
@@ -36,6 +48,6 @@
       </a>
     </li>
 
-    {% include '_components/_nav/_nav-shop/nav-shop-desktop' %}
+    {# {% include '_components/_nav/_nav-shop/nav-shop-desktop' %} #}
   </ul>
 </nav>

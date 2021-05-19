@@ -239,6 +239,11 @@ $button-secondary--border-width: 2px;
     }
   }
 
+  &--edit {
+    margin: px-to-rem($space--m) 0;
+    display: inline-block;
+  }
+
   // secondary active
   &--secondary.button--active,
   &--secondary.button--active:hover {

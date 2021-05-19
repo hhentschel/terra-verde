@@ -1,3 +1,8 @@
 .visually-hidden {
   @include visually-hidden();
 }
+
+
+.hidden {
+  display: none;
+}

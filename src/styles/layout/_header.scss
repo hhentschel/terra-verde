@@ -97,6 +97,9 @@ $header-login-overlay--transition-duration-easing: easing(open);
 
       #{$this}__nav-service {
         margin-left: auto;
+        display: flex;
+        flex-direction: column;
+        align-self: flex-start;
       }
     }
   }

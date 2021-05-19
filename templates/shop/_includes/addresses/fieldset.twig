@@ -1,6 +1,6 @@
 <!-- Template: {{ _self }}.twig -->
 <div class="js-address-fieldset {{ class }}">
-    <h2 class="text-lg font-bold">{{ title }}</h2>
+    <h3 class="heading heading--3 heading--no-margin-top">{{ title }}</h3>
     {% if addresses and currentUser %}
       <div class="flex flex-wrap -mx-4 pb-4">
         {% for address in addresses %}
@@ -15,7 +15,7 @@
                 <div class="actions">
                   <ul>
                     <li>
-                      <a class="edit" href="{{ url('shop/customer/addresses/edit?addressId='~ address.id ~'&redirect='~craft.app.request.fullPath)}}">Edit</a>
+                      <a class="button button--secondary button--edit" href="{{ url('shop/customer/addresses/edit?addressId='~ address.id ~'&redirect='~craft.app.request.fullPath)}}">Ändern</a>
                     </li>
                   </ul>
                 </div>
@@ -39,7 +39,7 @@
                 <label>
                   <input type="radio" name="{{ name }}Id"
                          {% if not addresses|length or addressHasErrors %}checked="checked"{% endif %} value=""/>
-                  <strong>{{ "New" }} {{ title }}</strong>
+                  <strong>{{ "Neue" }} {{ title }}</strong>
                 </label>
             </div>
         {% endif %}

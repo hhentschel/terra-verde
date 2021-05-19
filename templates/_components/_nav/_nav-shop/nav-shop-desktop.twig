@@ -1,12 +1,13 @@
-
 {% if cart.lineItems|length %}
-
-  <li class="nav-service__list-item">
+  {# <li class="nav-service__list-item">
     <a class="" href=" {{ url('shop/cart') }}">
       {% if cart.totalQty %}<span  class="">{{ cart.totalQty }}</span>{% endif %}
       {% include 'shop/_images/cart.svg' %}
       <strong class="">({{ cart.itemSubtotal|currency(cart.currency) }})</strong>
     </a>
-  </li>
+  </li> #}
 
+  <li class="nav-service__list-item">
+    {% include 'shop/_includes/floating-cart' %}
+  </li>
 {% endif %}

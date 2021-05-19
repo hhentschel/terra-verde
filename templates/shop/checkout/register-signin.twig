@@ -44,13 +44,13 @@
 
                   <div class="field mt-3">
                     <label for="loginName">E-Mail</label>
-                    <input id="loginName" class="{{ classes.input }} mt-1 w-full" type="text" name="loginName" placeholder="email@site.com"
+                    <input id="loginName" class="input" type="text" name="loginName" placeholder="email@site.com"
                            value="{{ craft.app.user.getRememberedUsername() }}">
                   </div>
 
                   <div class="field mt-3">
                     <label for="loginPassword">Password</label>
-                    <input id="loginPassword" class="{{ classes.input }} mt-1 w-full" type="password" name="password">
+                    <input id="loginPassword" class="input" type="password" name="password">
                   </div>
 
                   <div class="field mt-3">
@@ -65,7 +65,7 @@
                         <a href="{{ url('shop/customer/forgot-password') }}">Passwort vergessen?</a>
                     </div>
                     <div>
-                        <input type="submit" value="Login" class="{{ classes.btn.base ~ ' ' ~ classes.btn.blue }}"/>
+                        <input type="submit" value="Login" class="input input__form"/>
                     </div>
                   </div>
                 </form>
