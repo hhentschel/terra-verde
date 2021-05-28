@@ -34,9 +34,9 @@ $button-primary--active-background-color: $color--primary;
 $button-primary--active-border-color: $color--primary;
 
 // focus
-$button-primary--focus-color: null;
-$button-primary--focus-background-color: null;
-$button-primary--focus-border-color: null;
+$button-primary--focus-background-color: $color--primary;
+$button-primary--focus-color: $color--white;
+$button-primary--focus-border-color: inherit;
 
 // disabled
 $button-primary--disabled-color: $color--disabled-text;
@@ -77,9 +77,9 @@ $button-secondary--active-background-color: $color--secondary;
 $button-secondary--active-border-color: $color--secondary;
 
 // focus
-$button-secondary--focus-color: null;
-$button-secondary--focus-background-color: null;
-$button-secondary--focus-border-color: null;
+$button-secondary--focus-color: inherit;
+$button-secondary--focus-background-color: inherit;
+$button-secondary--focus-border-color: inherit;
 
 // disabled
 $button-secondary--disabled-color: $color--disabled-text;
@@ -94,7 +94,7 @@ $button-secondary--border-width: 2px;
   transition-property: $button--transition-properties;
   transition-duration: $button--transition-duration;
   transition-timing-function: $button--transition-easing;
-
+  display: inline-block;
   /**
    *  Primary styles
    */

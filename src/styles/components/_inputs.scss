@@ -11,7 +11,7 @@ $input--font-size: $font-size--base;
 
 // general
 $input--display: block;
-$input--max-width: 100%;
+$input--max-width: 300px;
 $input--width-small: 100px;
 $input--height: null;
 
@@ -34,6 +34,7 @@ $button-primary--border-color: $color--primary;
 .input {
   @include inputStyles();
   width: $input--max-width;
+  display: block;
   padding: $input--padding-vertical $input--padding-horizontal;
 
   @if (has($input--height)) {
@@ -61,7 +62,8 @@ $button-primary--border-color: $color--primary;
 
 input[type='submit'].input {
   width: auto;
-  &__form {
+  display: block;
+  &.input__primary {
     padding: $button-primary--horizontal-padding
     $button-primary--vertical-padding;
 
@@ -77,7 +79,26 @@ input[type='submit'].input {
     @if (has($button-primary--border-width)) {
       border: $button-primary--border-width solid $button-primary--border-color;
     }
+  }
 
+  &.input__secondary {
+    padding: $button-secondary--horizontal-padding
+      $button-secondary--vertical-padding;
+
+    @if (has($button-secondary--background-color)) {
+      background-color: $button-secondary--background-color;
+    }
+    @if (has($button-secondary--color)) {
+      color: $button-secondary--color;
+    }
+    @if (has($button-secondary--border-radius)) {
+      border-radius: $button-secondary--border-radius;
+    }
+    @if (has($button-secondary--border-width)) {
+      border: $button-secondary--border-width
+        solid
+        $button-secondary--border-color;
+    }
   }
 }
 

@@ -1,0 +1,12 @@
+
+.card-holder-last-name,
+.card-holder-first-name,
+.card-number,
+.card-expiry,
+.card-cvc   {
+  @include inputStyles();
+  display: inline-block;
+  padding: px-to-rem($space--s);
+  margin: px-to-rem($space--s) 0;
+}
+

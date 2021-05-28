@@ -46,7 +46,7 @@ html {
 }
 
 body {
-  &:not(.focus--active) a:focus,
+  // &:not(.focus--active) a:focus,
   &:not(.focus--active) button:focus,
   &:not(.focus--active) select:focus,
   &:not(.focus--active) textarea:focus {

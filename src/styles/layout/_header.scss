@@ -152,16 +152,23 @@ $header-login-overlay--transition-duration-easing: easing(open);
   &__top-row {
     display: flex;
     // justify-content: space-between;
-    align-items: center;
+    // align-items: center;
     padding: 0;
     z-index: z(up); // for nav-language
+  }
+
+  &__top-nav {
+    display: flex;
+    flex-direction: column-reverse;
+    width: 100%;
+    height: 100%;
   }
 
   &__logo-link {
     display: flex;
     flex-direction: column;
     width: auto;
-    padding: px-to-rem($space--m) 0;
+    padding: px-to-rem(($space--m) + ($space--s)) 0;
   }
 
   &__logo {
