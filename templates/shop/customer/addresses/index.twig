@@ -6,77 +6,84 @@
   {% set primaryBillingAddress = customer.getPrimaryBillingAddress() %}
   {% set primaryShippingAddress = customer.getPrimaryShippingAddress() %}
 
-  {% if customer.addresses|length %}
-    <div class="flex justify-between items-center">
-      <h1>
-        Manage your addresses
-      </h1>
-      <a class="button button-primary right"
-        href="{{ url('shop/customer/addresses/edit') }}">
-        Add New Address
-      </a>
-    </div>
 
-    <div class="grid-addresses mt-6">
-      {% for address in customer.addresses %}
-        <div class="address-card">
-          {% include 'shop/_includes/addresses/address' with {
-            address: address
-          } %}
-
-          <div class="buttons mt-4">
-            <a class="button button-primary"
-              href="{{ url('shop/customer/addresses/edit') }}?addressId={{
-              address.id
-              }}">
-              Edit
-            </a>
-            <form method="post" action="">
-              {{ actionInput('commerce/customer-addresses/delete') }}
-              {{ hiddenInput('id', address.id) }}
-              {{ csrfInput() }}
-              <input type="submit" value="Delete" />
-            </form>
-          </div>
-
-          <div>
-            <strong>
-              {% if
-                primaryBillingAddress
-                  and primaryBillingAddress.id == address.id %}
-                <i class="fa fa-check text-green"></i> Primary Billing
-              {% endif %}
-            </strong>
-          </div>
-          <div>
-            <strong>
-              {% if
-                primaryShippingAddress
-                  and primaryShippingAddress.id == address.id %}
-                <i class="fa fa-check text-green"></i> Primary Shipping
-              {% endif %}
-            </strong>
-          </div>
-        </div>
-      {% endfor %}
-    </div>
-  {% else %}
-    <h1 class="text-center">
-      Manage your addresses
-    </h1>
-
-    <hr />
-
-    <div class="empty-index">
-      <i class="fas fa-address-book"></i>
-      <div>
-        You don’t have any addresses yet.<div class="mt-6">
-          <a class="button button-primary"
+<section class="grid">
+    <div class="row">
+      <div class="col col-xs-12 col-md-12 col-lg-12">
+      {% if customer.addresses|length %}
+        <div class="flex justify-between items-center">
+          <h2 class="heading heading--2">
+            Adressen verwalten
+          </h2>
+          <a class="link"
             href="{{ url('shop/customer/addresses/edit') }}">
-            Add a new address
+            Neue Adresse hinzufügen
           </a>
+        </div>
+
+        <div class="grid-addresses mt-6">
+          {% for address in customer.addresses %}
+            <div class="address-card">
+              {% include 'shop/_includes/addresses/address' with {
+                address: address
+              } %}
+
+              <div class="buttons mt-4">
+                <a class="button button--primary layout-helper__margin-vertical--xs"
+                  href="{{ url('shop/customer/addresses/edit') }}?addressId={{
+                  address.id
+                  }}">
+                  Bearbeiten
+                </a>
+                <form method="post" action="">
+                  {{ actionInput('commerce/customer-addresses/delete') }}
+                  {{ hiddenInput('id', address.id) }}
+                  {{ csrfInput() }}
+                  <input type="submit" class="input input__secondary layout-helper__margin-bottom--xs" value="löschen" />
+                </form>
+              </div>
+
+              <div>
+                <strong>
+                  {% if
+                    primaryBillingAddress
+                      and primaryBillingAddress.id == address.id %}
+                    <i class="fa fa-check text-green"></i> Haupt-Rechnungsadresse
+                  {% endif %}
+                </strong>
+              </div>
+              <div>
+                <strong>
+                  {% if
+                    primaryShippingAddress
+                      and primaryShippingAddress.id == address.id %}
+                    <i class="fa fa-check text-green"></i> Haupt-Versandadresse
+                  {% endif %}
+                </strong>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      {% else %}
+        <h2 class="heading heading--2">
+            Adressen verwalten
+          </h2>
+
+        <hr />
+
+        <div class="empty-index">
+          <i class="fas fa-address-book"></i>
+          <div>
+            Noch keine Adressen hinterlegt.<div class="mt-6">
+              <a class="button button-primary"
+                href="{{ url('shop/customer/addresses/edit') }}">
+                neue Adresse hinzufügen
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  {% endif %}
+  </section>
+    {% endif %}
 {% endblock %}

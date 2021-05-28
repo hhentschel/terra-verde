@@ -4,11 +4,11 @@
   <section class="grid">
     <div class="row">
       <div class="col col-xs-12 col-md-12 col-lg-12">
-        <h3>
+        <h3 class="heading heading--3">
           Password zurücksetzten
         </h3>
 
-        <p>
+        <p class="layout-helper__margin-bottom--xs">
           E-Mail Adresse eingeben für die das Passwort zurückgesetzt werden soll
         </p>
 
@@ -24,7 +24,8 @@
               'loginName',
               loginName ?? craft.app.user.rememberedUsername,
               {
-                id: 'loginName'
+                id: 'loginName',
+                class: 'input layout-helper__margin-bottom--xxs'
               }
             )
           }}
@@ -40,7 +41,9 @@
             }}
           {% endif %}
 
-          <button type="submit">Abschicken</button>
+          <button type="submit" class="button button--primary">
+            Abschicken
+          </button>
         </form>
       </div>
     </div>

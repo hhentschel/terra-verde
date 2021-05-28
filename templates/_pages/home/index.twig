@@ -9,7 +9,7 @@
   <section class="grid">
     <div class="row">
       <div class="col col-xs-12 col-md-12 col-lg-12">
-        <h1 class="heading heading--title">
+        <h1 class="heading heading--title heading--no-margin">
           <span class="visually-hidden">
             {{ 'main.orgName'|t }} - {{ 'main.title'|t }}
           </span>
@@ -30,7 +30,8 @@
         <h2 class="heading heading--h2">
           Auswahl aus dem Shop
         </h2>
-        <a class="home__link" href="{{ navNewArticles.url }}">
+        <a class="home__link layout-helper__margin-bottom--s"
+          href="{{ navNewArticles.url }}">
           <span class="link__text link__text--section">{{ 'Shop'|t }}</span>
           <div class="link__icon-wrapper link__icon-wrapper--internal">
             {{
@@ -105,7 +106,7 @@
       <div class="row section-home__row-products">
         {% if products|length %}
           {% for product in products %}
-            <div class="col col-xs-12 col-md-6 col-lg-4">
+            <div class="col col-xs-12 col-md-4 col-lg-4">
               <a href="{{ product.url }}" class="section-home__product">
                 {% include '_components/_content-elements/imageshop' %}
                 <h4 class="heading heading--h4">
