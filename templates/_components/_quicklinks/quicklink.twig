@@ -9,14 +9,15 @@
 
       <ul class="row quicklinks">
         {% for item in items.all() %}
-          <li class="col col-xs-12 col-md-12 col-lg-4 quicklinks__items">
-            <a href="{{ item.buttonLinkToEntry.one().url() }}">
+          <li class="col col-xs-12 col-md-4 col-lg-4 quicklinks__items">
+            <a href="{{ item.buttonLinkToEntry.one().url() }}"
+              class="quicklinks__items--link">
               {% include '_components/_content-elements/image' with {
                 img: item.image,
                 imageAltText: item.imageAltText,
                 imageCaption: item.imageCaption
               } %}
-              <h2 class="heading heading--2 heading--no-margin-top">
+              <h2 class="heading heading--2 heading--no-margin">
                 {{ item.titleH2 }}
               </h2>
             </a>
