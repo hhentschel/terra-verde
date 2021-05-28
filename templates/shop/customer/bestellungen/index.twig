@@ -1,0 +1,107 @@
+{% extends '/_layouts/main' %}
+
+{% set extraHead %}
+  {# We don't want the order info to get indexed by search engines #}
+  <meta name="robots" content="noindex" />
+{% endset %}
+
+{# The `withLineItems()` parameter avoids n+1 queries when looping over a large number of orders #}
+{% set orders =
+  craft.orders.customer(craft.commerce.customers.customer).isCompleted(
+    true
+  ).withLineItems().all()
+%}
+
+{% block content %}
+  <!-- Template: {{ _self }}.twig -->
+  {% if currentUser %}
+    {% set orders =
+      craft.orders.customer(craft.commerce.customers.customer).isCompleted(
+        true
+      ).all()
+    %}
+
+    <section class="grid">
+      <div class="row">
+        <div class="col col-xs-12 col-md-12 col-lg-12">
+          {% include '_components/breadcrumb.twig' %}
+          <a href="/shop/customer" class="link">zurück zum Kundenkonto</a>
+          <h2 class="heading heading--2">
+            Meine Bestellungen
+          </h2>
+
+          {% if orders|length %}
+            <table class="w-full mb-8 mt-3">
+              <thead>
+                <tr class="bg-gray-300 text-left">
+                  <th class="p-2">
+                    {{ 'Order' }}
+                  </th>
+                  <th class="p-2">
+                    {{ 'Date' }}
+                  </th>
+                  <th class="p-2">
+                    {{ 'Total Quantity' }}
+                  </th>
+                  <th class="p-2">
+                    {{ 'Total' }}
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {# Get completed orders for the current customer #}
+                {% for order in orders %}
+                  {% set rowClass = cycle(['bg-gray-100', ''], loop.index0) %}
+                  <tr class="{{ rowClass }}">
+                    <td class="p-2">
+                      <a href="{{
+                        url(
+                          'shop/customer/order',
+                          {
+                            number: order.number
+                          }
+                        )
+                        }}">
+                        Bestellung {{ order.reference }}
+                      </a>
+                    </td>
+                    <td class="p-2">
+                      {{ order.dateOrdered|date }}
+                    </td>
+                    <td class="p-2">
+                      {{ order.totalQty }} items
+                    </td>
+                    <td class="p-2">
+                      {{ order.totalPriceAsCurrency }}
+                    </td>
+                  </tr>
+                  <tr class="{{ rowClass }} text-sm">
+                    <td class="p-2" colspan="4">
+                      <div class="border-t border-gray-300 border-dashed p-2">
+                        <h4 class="text-gray-500 tracking-wide font-mono text-xs uppercase">
+                          Artikel
+                        </h4>
+                        <ul>
+                          {% for item in order.lineItems %}
+                            <li>{{ item.qty }} x {{ item.description }}</li>
+                          {% endfor %}
+                        </ul>
+                      </div>
+                    </td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          {% else %}
+            <div class="empty-index">
+              <i class="fas fa-box-open"></i>
+              <p>
+                Keine Bestellungen vorhanden. <br />
+              </p>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </section>
+  {% endif %}
+{% endblock %}

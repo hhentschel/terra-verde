@@ -27,7 +27,7 @@
       user.userTitle ?? null,
       {
         id: 'userTitle',
-        class: 'input'
+        class: 'input layout-helper__margin-bottom--xxs'
       }
     )
   }}
@@ -44,7 +44,7 @@
       user.firstName ?? null,
       {
         id: 'firstName',
-        class: 'input'
+        class: 'input layout-helper__margin-bottom--xxs'
       }
     )
   }}
@@ -61,7 +61,7 @@
       user.lastName ?? null,
       {
         id: 'lastName',
-        class: 'input'
+        class: 'input layout-helper__margin-bottom--xxs'
       }
     )
   }}
@@ -78,7 +78,7 @@
       user.email ?? null,
       {
         id: 'email',
-        class: 'input'
+        class: 'input layout-helper__margin-bottom--xxs'
       }
     )
   }}
@@ -95,7 +95,7 @@
       null,
       {
         id: 'password',
-        class: 'input'
+        class: 'input layout-helper__margin-bottom--xxs'
       }
     )
   }}
@@ -106,35 +106,35 @@
 
 
   <label for="fields[userCompany]">Firma</label>
-  <input id="Company" type="text" class="input" name="fields[userCompany]"
+  <input id="Company" type="text" class="input layout-helper__margin-bottom--xxs" name="fields[userCompany]"
   {%- if account is defined %} value="{{ account.userCompany}}"{% endif -%}>
 
   <label for="fields[userAdress]">Strasse</label>
-  <input id="Address" type="text" class="input" name="fields[userAdress]"
+  <input id="Address" type="text" class="input layout-helper__margin-bottom--xxs" name="fields[userAdress]"
   {%- if account is defined %} value="{{ account.userAdress}}"{% endif -%}>
 
   <label for="fields[userAdditionalAdress]">Zusatz Adresse</label>
-  <input id="AddressAdditional" type="text" class="input" name="fields[userAdditionalAdress]"
+  <input id="AddressAdditional" type="text" class="input layout-helper__margin-bottom--xxs" name="fields[userAdditionalAdress]"
   {%- if account is defined %} value="{{ account.userAdditionalAdress}}"{% endif -%}>
 
   <label for="fields[userTelephone]">Telefon</label>
-  <input id="Telephone" type="text" class="input" name="fields[userTelephone]"
+  <input id="Telephone" type="text" class="input layout-helper__margin-bottom--xxs" name="fields[userTelephone]"
   {%- if account is defined %} value="{{ account.userTelephone}}"{% endif -%}>
 
   <label for="fields[userTelephoneMobile]">Telefon Mobile</label>
-  <input id="TelephoneMobile" type="text" class="input" name="fields[userTelephoneMobile]"
+  <input id="TelephoneMobile" type="text" class="input layout-helper__margin-bottom--xxs" name="fields[userTelephoneMobile]"
   {%- if account is defined %} value="{{ account.userTelephoneMobile}}"{% endif -%}>
 
   <label for="fields[userCity]">Stadt</label>
-  <input id="City" type="text" class="input" name="fields[userCity]"
+  <input id="City" type="text" class="input layout-helper__margin-bottom--xxs" name="fields[userCity]"
   {%- if account is defined %} value="{{ account.userCity}}"{% endif -%}>
 
   <label for="fields[userZip]">Postleitzahl</label>
-  <input id="City" type="text" class="input" name="fields[userZip]"
+  <input id="City" type="text" class="input layout-helper__margin-bottom--xxs" name="fields[userZip]"
   {%- if account is defined %} value="{{ account.userZip}}"{% endif -%}>
 
   <label for="fields[userNotice]">Mitteilung</label>
-  <textarea id="Notice" type="number" class="textarea" name="fields[userNotice]"
+  <textarea id="Notice" type="number" class="textarea layout-helper__margin-bottom--xxs" name="fields[userNotice]"
   {%- if account is defined %} value="{{ account.userNotice}}"{% endif -%}>
   </textarea>
 

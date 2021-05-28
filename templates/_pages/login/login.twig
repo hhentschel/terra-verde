@@ -10,7 +10,7 @@
       craft.app.user.rememberedUsername,
       {
         id: 'loginName',
-        class: 'input'
+        class: 'input layout-helper__margin-bottom--xxs'
       }
     )
   }}
@@ -23,12 +23,12 @@
       null,
       {
         id: 'password',
-        class: 'input'
+        class: 'input layout-helper__margin-bottom--xxs'
       }
     )
   }}
 
-  <div class="selection selection--checkbox">
+  <div class="selection">
     <label class="selection__label">
       {{
         input(
@@ -39,11 +39,14 @@
             class: 'selection--input'
           }
         )
-      }}Remember me
+      }}Angemeldet bleiben
     </label>
   </div>
 
-  <button type="submit" class="button button--primary">Login</button>
+  <button type="submit"
+    class="button button--primary layout-helper__margin-vertical--xxs">
+    Login
+  </button>
 
   {% if errorMessage is defined %}
     <p>
@@ -53,7 +56,7 @@
 </form>
 
 <p>
-  <a href="{{ url('/customer/account/reset-password') }}" class="button">
+  <a href="{{ url('/customer/account/reset-password') }}" class="link">
     Passwort vergessen?
   </a>
 </p>

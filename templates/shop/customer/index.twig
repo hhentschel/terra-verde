@@ -21,94 +21,59 @@
       ).all()
     %}
 
-    <h1 class="text-3xl block sm:inline">
-      My Orders
-    </h1>
-
-    {% if orders|length %}
-      <table class="w-full mb-8 mt-3">
-        <thead>
-          <tr class="bg-gray-300 text-left">
-            <th class="p-2">
-              {{ 'Order' }}
-            </th>
-            <th class="p-2">
-              {{ 'Date' }}
-            </th>
-            <th class="p-2">
-              {{ 'Total Quantity' }}
-            </th>
-            <th class="p-2">
-              {{ 'Total' }}
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          {# Get completed orders for the current customer #}
-          {% for order in orders %}
-            {% set rowClass = cycle(['bg-gray-100', ''], loop.index0) %}
-            <tr class="{{ rowClass }}">
-              <td class="p-2">
-                <a href="{{
-                  url(
-                    'shop/customer/order',
-                    {
-                      number: order.number
-                    }
-                  )
-                  }}">
-                  Order {{ order.reference }}
-                </a>
-              </td>
-              <td class="p-2">
-                {{ order.dateOrdered|date }}
-              </td>
-              <td class="p-2">
-                {{ order.totalQty }} items
-              </td>
-              <td class="p-2">
-                {{ order.totalPriceAsCurrency }}
-              </td>
-            </tr>
-            <tr class="{{ rowClass }} text-sm">
-              <td class="p-2" colspan="4">
-                <div class="border-t border-gray-300 border-dashed p-2">
-                  <h4 class="text-gray-500 tracking-wide font-mono text-xs uppercase">
-                    Items
-                  </h4>
-                  <ul>
-                    {% for item in order.lineItems %}
-                      <li>{{ item.qty }} x {{ item.description }}</li>
-                    {% endfor %}
-                  </ul>
-                </div>
-              </td>
-            </tr>
-          {% endfor %}
-        </tbody>
-      </table>
-    {% else %}
-      <div class="empty-index">
-        <i class="fas fa-box-open"></i>
-        <p>
-          You don’t have any orders yet. <br /><a href="{{
-            url(
-              'shop/products'
-            )
-            }}">
-            Continue shopping
-          </a>
-        </p>
+    <section class="grid">
+      <div class="row">
+        <div class="col col-xs-12 col-md-12 col-lg-6">
+          <h2 class="heading heading--2">
+            Kundenkonto
+          </h2>
+        </div>
       </div>
-    {% endif %}
+    </section>
 
-    <hr class="my-3" />
+    <section class="grid">
+      <div class="row">
+        <div class="col col-xs-12 col-md-12 col-lg-6">
+          <div class="account">
+            <div>
+              <span>Eingeloggt als:</span>
+              <strong>{{ currentUser.friendlyName }}</strong>
+            </div>
+            <div>
+              <span>E-Mail:</span> <strong>{{ currentUser.username }}</strong>
+            </div>
+            <ul class="account__list">
+              <li class="account__list-item">
+                <a href="/shop/customer/bestellungen/"
+                  class="account__list-link link">
+                  Meine Bestellungen
+                </a>
+              </li>
+              <li class="account__list-item">
+                <a class="account__list-link link"
+                  href="{{ url('shop/customer/cards') }}">
+                  Bezahlmöglichkeiten bearbeiten
+                </a>
+              </li>
 
-    <div>
-      <a class="{{ classes.btn.base ~ ' ' ~ classes.btn.blue }}"
-        href="{{ url('shop/customer/cards') }}">
-        Manage Stored Cards
-      </a>
-    </div>
+              <li class="account__list-item">
+                <a class="account__list-link link"
+                  href="{{ url('shop/customer/addresses') }}">
+                  Adressen verwalten
+                </a>
+              </li>
+            </ul>
+
+            <a href="{{ logoutUrl }}" class="button button--primary">
+              {{ 'Logout'|t }}
+            </a>
+          </div>
+        </div>
+
+        <div class="col col-xs-12 col-md-12 col-lg-6"></div>
+      </div>
+    </section>
+  {% else %}
+    {% redirect 'login/' %}
   {% endif %}
 {% endblock %}
