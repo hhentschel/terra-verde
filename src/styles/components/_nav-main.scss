@@ -45,9 +45,15 @@ $nav-main--button-list--carret-transition-easing: easing(open);
 
   &-main {
     background-color: $color--white;
-    padding: px-to-rem($space--m) 0;
+    padding: px-to-rem($space--xxm) 0 0 px-to-rem($space--xm);
     height: px-to-rem(65);
-    margin-left: px-to-rem($space--xm);
+    // margin-left: px-to-rem($space--xm);
+    width: 100%;
+
+        .header--sticky & {
+          padding-top: px-to-rem(($space--s));
+        }
+
     &__list {
       display: flex;
       // justify-content: flex-end;
@@ -56,6 +62,11 @@ $nav-main--button-list--carret-transition-easing: easing(open);
         &:not(:last-child) {
           margin-right: px-to-rem($space--m);
         }
+
+        &:last-child {
+          margin-left: auto;
+          font-size: px-to-rem(15);
+        }
       }
     }
   }
@@ -63,15 +74,17 @@ $nav-main--button-list--carret-transition-easing: easing(open);
   &-service {
     height: px-to-rem(65);
     background-color: $color--white;
-    padding: px-to-rem($space--m) 0;
+    // padding: px-to-rem($space--m) 0;
     font-size: px-to-rem(15);
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    height: px-to-rem(110);
+    // justify-content: space-between;
+    height: auto;
     &__list {
       display: flex;
       justify-content: flex-end;
+      padding-top: px-to-rem($space--s);
+
       &-item {
         &:not(:last-child) {
           margin-right: px-to-rem($space--m);
@@ -93,10 +106,19 @@ $nav-main--button-list--carret-transition-easing: easing(open);
 
       .currentuser {
         display: inline-block;
-      }
+        }
       }
 
+      &-top {
+        padding-top: px-to-rem(($space--m) - ($space--xs));
+      }
+      // &-bottom {
+      //   padding-top: px-to-rem($space--xxm);
 
+      //   .header--sticky & {
+      //     padding-top: px-to-rem(($space--m));
+      //   }
+      // }
     }
   }
 }

@@ -4,6 +4,7 @@
 
 .content {
   padding: px-to-rem($content-spacing--phone) 0 px-to-rem($space--xxm);
+  min-height: calc(100vh - 440px);
 
   @include breakpoint('tablet-landscape') {
     padding: px-to-rem($content-spacing--tablet-landscape) 0 px-to-rem($space--xxm);

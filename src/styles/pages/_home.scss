@@ -7,10 +7,36 @@
   .home__link {
     text-align: left;
     color: $color--primary;
-    
+    display: block;
+  }
+}
+
+.homepage-news {
+  position: absolute;
+  right: 0;
+  background-color: $color--beige-light;
+  bottom: -50px;
+  max-width: 30vw;
+  padding: px-to-rem($space--xxm);
+
+  &__time,
+  &__location {
+    display: block;
   }
 
+  &__title {
+    font-weight: $font-weight--bold;
+  }
+}
 
+.circle--bio {
+  border-radius: 999px;
+  background-color: $color--beige-light;
+  height: 50px;
+  width: 50px;
+  position: absolute;
+  left: px-to-rem($space--m);
+  bottom: px-to-rem($space--m);
 }
 
 .section-home {
@@ -84,9 +110,30 @@
   &__items {
     display: flex;
     flex-direction: column;
+    padding-bottom: px-to-rem($space--xxm);
+    justify-content: space-between;
 
     .link--button {
       align-self: center;
+      display: flex;
+      flex-direction: row;
+      
+      @include breakpoint('tablet-portrait') {
+        flex-direction: column;
+        .link__icon-wrapper--internal {
+          align-self: center;
+          margin-left: 0;
+        }
+      }
+
+      @include breakpoint('tablet-landscape') {
+        flex-direction: row;
+      }
     }
   }
+
+  // &__items--link {
+  //   display: flex;
+  //   flex-direction: column;
+  // }
 }
