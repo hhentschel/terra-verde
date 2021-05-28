@@ -11,6 +11,7 @@
 {% set ueberunsLink = craft.entries.section('aboutUsStructure').one() %}
 {% set shopLink = craft.entries.section('shopStructure').one() %}
 {% set aktuellLink = craft.entries.section('newStructure').one() %}
+{% set sucheLink = craft.entries.section('searchSingle').one() %}
 {% set verkaufsstellenLink =
   craft.entries.section('sellingPointsStructureSingle').one()
 %}
@@ -71,6 +72,13 @@
         )
         }}">
         {{ 'Produzenten'|t }}
+      </a>
+    </li>
+
+    <li class="nav-main__list-item nav-main__list-item-last">
+      <a href="{{ sucheLink.url }}"
+        class="nav__link {{ macros.isActive('suche', 1, 'nav__link--') }}">
+        {{ 'Suche'|t }}
       </a>
     </li>
   </ul>
