@@ -13,6 +13,7 @@ $button--transition-easing: easing();
 
 // typo - if you change this, don't forget to change it in `css/utils/_typography.scss`
 $button-primary--font-size: $font-size--base;
+$button-primary-shop--font-size: $font-size-s;
 
 // padding
 $button-primary--horizontal-padding: px-to-em(12, $button-primary--font-size);

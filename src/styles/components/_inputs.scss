@@ -13,6 +13,7 @@ $input--font-size: $font-size--base;
 $input--display: block;
 $input--max-width: 300px;
 $input--width-small: 100px;
+$input--width-xsmall: 65px;
 $input--height: null;
 
 // padding
@@ -43,6 +44,9 @@ $button-primary--border-color: $color--primary;
 
   &-small {
     width: $input--width-small;
+  }
+  &-xsmall {
+    width: $input--width-xsmall;
   }
 }
 
