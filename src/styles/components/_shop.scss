@@ -4,8 +4,8 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
 
 :root {
   --grid-col-breakpoint: 13rem;
-  --grid-col-gap: 2rem;
-  --grid-row-gap: 2rem;
+  --grid-col-gap: 0.75rem;
+  --grid-row-gap: 2.75rem;
 }
 
 .shop-list {
@@ -50,11 +50,10 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
  
 
   &__item {
-    background-color: $color--beige-light;
     width: 100%;
     display: flex;
     justify-content: center;
-    
+    flex-direction: column;
 
     @supports not (display: grid) {
       @include breakpoint('tablet-landscape') {
@@ -70,19 +69,36 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    padding: 0 ($shop-list__grid-gutter--phone / 2) ($shop-list__grid-gutter--phone / 3) ($shop-list__grid-gutter--phone / 2);
+
+    @include breakpoint('tablet-landscape') {
+      padding: 0 $shop-list__grid-gutter--tablet / 2 $shop-list__grid-gutter--tablet / 2 $shop-list__grid-gutter--tablet / 2;
+    }
+    @include breakpoint('desktop') {
+      padding: 0 ($shop-list__grid-gutter--desktop / 2) ($shop-list__grid-gutter--desktop / 3) ($shop-list__grid-gutter--desktop / 2);
+    }
+  }
+
+  &__item-cart {
+    display: flex;
+
+    .button--primary {
+      padding: px-to-rem($space--s);
+      width: 100%;
+      margin-left: px-to-rem($space--s);
+      font-size: px-to-rem($button-primary-shop--font-size);
+    }
+  }
+
+  &__image {
+    background-color: $color--beige-light;
   }
 
   &__link {
     display: block;
     height: 100%;
 
-    padding: $shop-list__grid-gutter--phone / 2;
-
-    @include breakpoint('tablet-landscape') {
-      padding: $shop-list__grid-gutter--tablet / 2;
-    }
-    @include breakpoint('desktop') {
-      padding: $shop-list__grid-gutter--desktop / 2;
-    }
+    
   }
 }

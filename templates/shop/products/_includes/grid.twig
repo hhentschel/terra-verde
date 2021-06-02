@@ -1,60 +1,120 @@
 <!-- Template: {{ _self }}.twig -->
 
 
-<div class="my-6">
-    <div class="grid gap-3 gap-y-9 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
-        {% for product in products %}
-            <div class="relative">
-                <div>
-                    <a class="block" href="{{ product.url }}">
-                      {% set productImage = product.defaultVariant.featureImage.one() ?? null %}
-                      <div
-                           {% if productImage %} style="background-image: url('{{ productImage.url }}')" {% endif %}
-                           class="bg-cover bg-center bg-gray-300 hover:bg-gray-200 h-32 rounded">
+    <div class="row">
+      {# <div class="col col-xs-12 col-md-12 col-lg-3">
+        <ul>
+          {% for type in craft.commerce.productTypes.allProductTypes %}
+            <li><a href="{{ type.name }}">{{ type.name }}</a></li>
+          {% endfor %}
+        </ul>
+      </div> #}
+
+
+      <div class="col col-xs-12 col-md-12 col-lg-12">
+
+      {# <div class="grid gap-3 gap-y-9 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3"> #}
+      <div class="shop-list">
+          {% for product in products %}
+
+              {# {% set img = product.defaultVariant.featureImage.one() ?? null %} #}
+              {% set img = product.articleImage.one() ?? null %}
+              {% set imageUrl = product.articleImage.one()
+                ? product.articleImage.one().getUrl('productListing')
+                : ''
+              %}
+              {% set imageStandardAltText = img
+                and img.imageAltText is defined
+                and img.imageAltText is not empty
+                ? img.imageAltText
+                : ''
+              %}
+              {% set imageAltText = imageAltText is defined and imageAltText is not empty
+                ? imageAltText
+                : imageStandardAltText
+              %}
+              {% set imageStandardCaption = img
+                and img.imageCaption is defined
+                and img.imageCaption is not empty
+                ? img.imageCaption
+                : ''
+              %}
+              {% set imageCaption = imageCaption is defined and imageCaption is not empty
+                ? imageCaption
+                : imageStandardCaption
+              %}
+              <div class="shop-list__item">
+                <a class="shop-list__link" href="{{ product.url }}" >
+                  <div class="shop-list__image">
+                      {% if imageUrl %}
+                      <figure class="image">
+                        <div class="image__wrapper">
+                          <img class="image__img"
+                            src="{{ imageUrl }}"
+                            alt="{{ imageAltText }}" />
+                        </div>
+                        {% if imageCaption %}
+                          <figcaption class="image__caption">
+                            {{ imageCaption }}
+                          </figcaption>
+                        {% endif %}
+                      </figure>
+                    {% endif %}
+                  </div>
+                  <div class="shop-list__text">
+                    <h5 class="layout-helper__margin-bottom--none">
+                      {{ product.title }}
+                    </h5>
+                    <span>
+                      {{ product.defaultPrice|currency('CHF') }}
+                    </span>
+                  </div>
+                </a>
+                  {# <div class="shop-list__description">
+                      <p>{{ product.articleDescription}}</p>
+                  </div> #}
+                  <form method="post" class="js-form">
+                      {{ actionInput('commerce/cart/update-cart') }}
+                       {{
+                        hiddenInput(
+                          'successMessage',
+                          ('Artikel ' ~ product.title ~ ' wurde zum Warenkorb hinzugefügt.')|hash
+                        )
+                      }}
+                      {{ csrfInput() }}
+                      {# <div class="">
+                          <h4>Varianten</h4>
+                          <select name="purchasableId"
+                                  class="js-purchasableId block appearance-none w-full ">
+                              {% for variant in product.getVariants() %}
+                                  <option value="{{ variant.id }}">{{ variant.title }} {{ variant.sku }} {{ variant.salePrice|currency(cart.currency) }}</option>
+                              {% endfor %}
+                          </select>
+                          <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center">
+                              <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg"
+                                  viewBox="0 0 20 20">
+                                  <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
+                              </svg>
+                          </div>
+                      </div> #}
+                      <div class="shop-list__item-cart">
+                          <input class="input input-xsmall"
+                                name="qty" type="number" step="1" min="1" placeholder="Menge" value="1">
+                        {% if product.availableForPurchase %}
+                          <button type="submit"
+                                  class="m-0 button button--primary text-center">In den Warenkorb
+                          </button>
+                        {% else %}
+                          <div type="submit"
+                                  class="m-0 {{ classes.btn.base ~ ' ' ~ classes.btn.grey }} text-center">nicht verfügbar
+                          </div>
+                        {% endif %}
                       </div>
-                    </a>
-                </div>
-                <div class="mt-6">
-                    <p class="text-lg text-bold tracking-wide mb-2">
-                        <a class="text-blue-500 hover:text-blue-400" href="{{ product.url }}">{{ product.title }}</a>
-                    </p>
-                    <p>Description of the item here.</p>
-                </div>
-                <form method="post" class="js-form mt-6">
-                    {{ actionInput('commerce/cart/update-cart') }}
-                    {{ hiddenInput('successMessage', ('Added '~ product.title ~' to the cart.')|hash) }}
-                    {{ csrfInput() }}
-                    <div class="inline-block relative w-full">
-                        <select name="purchasableId"
-                                class="js-purchasableId block appearance-none w-full border border-gray-200 hover:border-gray-500 px-4 py-2 pr-8 rounded leading-tight focus:outline-none focus:ring">
-                            {% for variant in product.getVariants() %}
-                                <option value="{{ variant.id }}">{{ variant.title }} {{ variant.sku }} {{ variant.salePrice|currency(cart.currency) }}</option>
-                            {% endfor %}
-                        </select>
-                        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-500">
-                            <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg"
-                                 viewBox="0 0 20 20">
-                                <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="mt-1 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2">
-                        <input class="mr-0 mb-1 md:mr-1 md:mb-0 sm:mb-1 border border-gray-200 hover:border-gray-500 px-4 py-2 pr-8 rounded leading-tight focus:outline-none focus:ring"
-                               name="qty" type="number" step="1" min="1" placeholder="Quantity" value="1">
-                      {% if product.availableForPurchase %}
-                        <button type="submit"
-                                class="m-0 {{ classes.btn.base ~ ' ' ~ classes.btn.blue }} text-center">Add to cart
-                        </button>
-                      {% else %}
-                        <div type="submit"
-                                class="m-0 {{ classes.btn.base ~ ' ' ~ classes.btn.grey }} text-center">Unavailable
-                        </div>
-                      {% endif %}
-                    </div>
-                    <div class="mt-1"><label><input type="checkbox" name="options[giftWrapped]" value="yes"> Gift wrap
-                            item</label></div>
-                </form>
-            </div>
-        {% endfor %}
+                      {# <div class="mt-1"><label><input type="checkbox" name="options[giftWrapped]" value="yes"> als Geschenk einpacken</label></div> #}
+                  </form>
+
+              </div>
+          {% endfor %}
+      </div>
     </div>
-</div>
+  </div>
