@@ -56,7 +56,7 @@
         </div>
       </div>
 
-      {% set products = entry.homeSales %}
+      {% set products = entry.homeSales.all() %}
       <div class="row">
         {% if products|length %}
           {% for product in products %}
