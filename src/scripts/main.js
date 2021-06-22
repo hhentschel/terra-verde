@@ -6,6 +6,7 @@
 
 import './modules/nav-main';
 import './modules/mobile-nav';
+import './modules/focus';
 import './modules/header';
 import './modules/responsive-view-handler';
 import Accordion from './modules/accordion';
