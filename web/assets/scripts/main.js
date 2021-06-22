@@ -5,6 +5,8 @@ require("./modules/nav-main");
 
 require("./modules/mobile-nav");
 
+require("./modules/focus");
+
 require("./modules/header");
 
 require("./modules/responsive-view-handler");
@@ -24,7 +26,7 @@ accordions.forEach(function (accordion) {
   new _accordion["default"](accordion);
 });
 
-},{"./modules/accordion":2,"./modules/header":3,"./modules/mobile-nav":4,"./modules/nav-main":5,"./modules/responsive-view-handler":6}],2:[function(require,module,exports){
+},{"./modules/accordion":2,"./modules/focus":3,"./modules/header":4,"./modules/mobile-nav":5,"./modules/nav-main":6,"./modules/responsive-view-handler":7}],2:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -142,6 +144,64 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+var FocusHandler = /*#__PURE__*/function () {
+  function FocusHandler() {
+    _classCallCheck(this, FocusHandler);
+
+    _defineProperty(this, "classes", {
+      tabbingActive: 'focus--active'
+    });
+
+    this.init();
+  }
+
+  _createClass(FocusHandler, [{
+    key: "init",
+    value: function init() {
+      window.addEventListener('keydown', this.focusHandler.bind(this));
+    }
+  }, {
+    key: "focusHandler",
+    value: function focusHandler(event) {
+      if (event.keyCode === 9) {
+        document.body.classList.add(this.classes.tabbingActive);
+        window.removeEventListener('keydown', this.focusHandler);
+        window.addEventListener('mousedown', this.handleMouseDownOnce.bind(this));
+      }
+    }
+  }, {
+    key: "handleMouseDownOnce",
+    value: function handleMouseDownOnce() {
+      document.body.classList.remove(this.classes.tabbingActive);
+      window.removeEventListener('mousedown', this.handleMouseDownOnce);
+      window.addEventListener('keydown', this.handleFirstTab);
+    }
+  }]);
+
+  return FocusHandler;
+}(); // export as singleton
+
+
+var _default = new FocusHandler();
+
+exports["default"] = _default;
+
+},{}],4:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 var Header = /*#__PURE__*/function () {
   function Header() {
     _classCallCheck(this, Header);
@@ -230,7 +290,7 @@ var _default = new Header();
 
 exports["default"] = _default;
 
-},{}],4:[function(require,module,exports){
+},{}],5:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -365,7 +425,7 @@ var _default = new MobileNav();
 
 exports["default"] = _default;
 
-},{}],5:[function(require,module,exports){
+},{}],6:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -503,7 +563,7 @@ var _default = new NavMain();
 
 exports["default"] = _default;
 
-},{}],6:[function(require,module,exports){
+},{}],7:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
