@@ -11,7 +11,8 @@ $input--font-size: $font-size--base;
 
 // general
 $input--display: block;
-$input--max-width: 300px;
+$input--max-width: 100%;
+$input--width-medium: 300px;
 $input--width-small: 100px;
 $input--width-xsmall: 65px;
 $input--height: null;
@@ -48,13 +49,20 @@ $button-primary--border-color: $color--primary;
   &-xsmall {
     width: $input--width-xsmall;
   }
+  &-medium {
+    width: $input--width-medium;
+  }
 }
 
 .newsletter__form input[type='text'],
 .newsletter__form input[type='email'] {
   @include inputStyles();
-  width: $input--max-width;
   padding: $input--padding-vertical $input--padding-horizontal;
+  
+  @include breakpoint('desktop') {
+    width: 100%;
+
+  }
 
   @if (has($input--height)) {
     height: $input--height;

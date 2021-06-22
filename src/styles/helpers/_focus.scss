@@ -1,0 +1,19 @@
+ //transition
+$focus--transition-property-transform: outline;
+$focus--transition-duration: speed(focus);
+$focus--transition-timing-function: easing(focus);
+
+.focus {
+  &--active {
+    a:focus,
+    button:focus,
+    input:focus,
+    select:focus,
+    textarea:focus {
+      outline: 2px solid;
+      transition-property: $focus--transition-property-transform;
+      transition-duration: $focus--transition-duration;
+      transition-timing-function: $focus--transition-timing-function;
+    }
+  }
+}
