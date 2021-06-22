@@ -11,7 +11,7 @@
   {% endif %}
 {% endmacro %}
 
-<form method="post" accept-charset="UTF-8">
+<form method="post" accept-charset="UTF-8" class="form form-registration">
   {{ csrfInput() }}
   {{ actionInput('users/save-user') }}
   {{ redirectInput('/customer/account/activation-email/?user={email}') }}
@@ -19,124 +19,151 @@
   {# {{ redirectInput(craft.app.user.returnUrl) }} #}
 
 
-  <label for="userTitle">Anrede</label>
-  {{
-    input(
-      'text',
-      'fields[userTitle]',
-      user.userTitle ?? null,
-      {
-        id: 'userTitle',
-        class: 'input layout-helper__margin-bottom--xxs'
-      }
-    )
-  }}
+  {# <div class="form-registration__item">
+    <label for="userTitle">Anrede</label>
+    {{
+      input(
+        'text',
+        'fields[userTitle]',
+        user.userTitle ?? null,
+        {
+          id: 'userTitle',
+          class: 'input layout-helper__margin-bottom--xxs'
+        }
+      )
+    }}
 
-  {% if user is defined %}
-    {{ _self.errorList(user.getErrors('userTitle')) }}
-  {% endif %}
+    {% if user is defined %}
+      {{ _self.errorList(user.getErrors('userTitle')) }}
+    {% endif %}
+  </div> #}
 
-  <label for="firstName">Vorname</label>
-  {{
-    input(
-      'text',
-      'firstName',
-      user.firstName ?? null,
-      {
-        id: 'firstName',
-        class: 'input layout-helper__margin-bottom--xxs'
-      }
-    )
-  }}
+  <div class="form-registration__item">
+    <label for="firstName">Vorname</label>
+    {{
+      input(
+        'text',
+        'firstName',
+        user.firstName ?? null,
+        {
+          id: 'firstName',
+          class: 'input layout-helper__margin-bottom--xxs'
+        }
+      )
+    }}
 
-  {% if user is defined %}
-    {{ _self.errorList(user.getErrors('firstName')) }}
-  {% endif %}
+    {% if user is defined %}
+      {{ _self.errorList(user.getErrors('firstName')) }}
+    {% endif %}
+  </div>
 
-  <label for="lastName">Nachname</label>
-  {{
-    input(
-      'text',
-      'lastName',
-      user.lastName ?? null,
-      {
-        id: 'lastName',
-        class: 'input layout-helper__margin-bottom--xxs'
-      }
-    )
-  }}
+  <div class="form-registration__item">
+    <label for="lastName">Nachname</label>
+    {{
+      input(
+        'text',
+        'lastName',
+        user.lastName ?? null,
+        {
+          id: 'lastName',
+          class: 'input layout-helper__margin-bottom--xxs'
+        }
+      )
+    }}
 
-  {% if user is defined %}
-    {{ _self.errorList(user.getErrors('lastName')) }}
-  {% endif %}
+    {% if user is defined %}
+      {{ _self.errorList(user.getErrors('lastName')) }}
+    {% endif %}
+  </div>
 
-  <label for="email">E-Mail</label>
-  {{
-    input(
-      'email',
-      'email',
-      user.email ?? null,
-      {
-        id: 'email',
-        class: 'input layout-helper__margin-bottom--xxs'
-      }
-    )
-  }}
+  <div class="form-registration__item">
+    <label for="email">E-Mail *</label>
+    {{
+      input(
+        'email',
+        'email',
+        user.email ?? null,
+        {
+          id: 'email',
+          class: 'input layout-helper__margin-bottom--xxs'
+        }
+      )
+    }}
 
-  {% if user is defined %}
-    {{ _self.errorList(user.getErrors('email')) }}
-  {% endif %}
+    {% if user is defined %}
+      {{ _self.errorList(user.getErrors('email')) }}
+    {% endif %}
+  </div>
 
-  <label for="password">Passwort</label>
-  {{
-    input(
-      'password',
-      'password',
-      null,
-      {
-        id: 'password',
-        class: 'input layout-helper__margin-bottom--xxs'
-      }
-    )
-  }}
+  <div class="form-registration__item">
+    <label for="password">Passwort *</label>
+    {{
+      input(
+        'password',
+        'password',
+        null,
+        {
+          id: 'password',
+          class: 'input layout-helper__margin-bottom--xxs'
+        }
+      )
+    }}
 
-  {% if user is defined %}
-    {{ _self.errorList(user.getErrors('password')) }}
-  {% endif %}
+    {% if user is defined %}
+      {{ _self.errorList(user.getErrors('password')) }}
+    {% endif %}
+  </div>
 
 
-  <label for="fields[userCompany]">Firma</label>
-  <input id="Company" type="text" class="input layout-helper__margin-bottom--xxs" name="fields[userCompany]"
-  {%- if account is defined %} value="{{ account.userCompany}}"{% endif -%}>
+  <div class="form-registration__item">
+    <label for="fields[userCompany]">Firma</label>
+    <input id="Company" type="text" class="input layout-helper__margin-bottom--xxs" name="fields[userCompany]"
+    {%- if account is defined %} value="{{ account.userCompany}}"{% endif -%}>
+  </div>
 
-  <label for="fields[userAdress]">Strasse</label>
-  <input id="Address" type="text" class="input layout-helper__margin-bottom--xxs" name="fields[userAdress]"
-  {%- if account is defined %} value="{{ account.userAdress}}"{% endif -%}>
+  <div class="form-registration__item">
+    <label for="fields[userAdress]">Strasse</label>
+    <input id="Address" type="text" class="input layout-helper__margin-bottom--xxs" name="fields[userAdress]"
+    {%- if account is defined %} value="{{ account.userAdress}}"{% endif -%}>
+  </div>
 
-  <label for="fields[userAdditionalAdress]">Zusatz Adresse</label>
-  <input id="AddressAdditional" type="text" class="input layout-helper__margin-bottom--xxs" name="fields[userAdditionalAdress]"
-  {%- if account is defined %} value="{{ account.userAdditionalAdress}}"{% endif -%}>
 
-  <label for="fields[userTelephone]">Telefon</label>
-  <input id="Telephone" type="text" class="input layout-helper__margin-bottom--xxs" name="fields[userTelephone]"
-  {%- if account is defined %} value="{{ account.userTelephone}}"{% endif -%}>
+  <div class="form-registration__item">
+    <label for="fields[userAdditionalAdress]">Zusatz Adresse</label>
+    <input id="AddressAdditional" type="text" class="input layout-helper__margin-bottom--xxs" name="fields[userAdditionalAdress]"
+    {%- if account is defined %} value="{{ account.userAdditionalAdress}}"{% endif -%}>
+  </div>
 
-  <label for="fields[userTelephoneMobile]">Telefon Mobile</label>
-  <input id="TelephoneMobile" type="text" class="input layout-helper__margin-bottom--xxs" name="fields[userTelephoneMobile]"
-  {%- if account is defined %} value="{{ account.userTelephoneMobile}}"{% endif -%}>
+  <div class="form-registration__item">
+    <label for="fields[userTelephone]">Telefon</label>
+    <input id="Telephone" type="text" class="input layout-helper__margin-bottom--xxs" name="fields[userTelephone]"
+    {%- if account is defined %} value="{{ account.userTelephone}}"{% endif -%}>
+  </div>
 
-  <label for="fields[userCity]">Stadt</label>
-  <input id="City" type="text" class="input layout-helper__margin-bottom--xxs" name="fields[userCity]"
-  {%- if account is defined %} value="{{ account.userCity}}"{% endif -%}>
+  <div class="form-registration__item">
+    <label for="fields[userTelephoneMobile]">Telefon Mobile</label>
+    <input id="TelephoneMobile" type="text" class="input layout-helper__margin-bottom--xxs" name="fields[userTelephoneMobile]"
+    {%- if account is defined %} value="{{ account.userTelephoneMobile}}"{% endif -%}>
+  </div>
 
-  <label for="fields[userZip]">Postleitzahl</label>
-  <input id="City" type="text" class="input layout-helper__margin-bottom--xxs" name="fields[userZip]"
-  {%- if account is defined %} value="{{ account.userZip}}"{% endif -%}>
+  <div class="form-registration__item">
+    <label for="fields[userCity]">Stadt</label>
+    <input id="City" type="text" class="input layout-helper__margin-bottom--xxs" name="fields[userCity]"
+    {%- if account is defined %} value="{{ account.userCity}}"{% endif -%}>
+  </div>
 
-  <label for="fields[userNotice]">Mitteilung</label>
-  <textarea id="Notice" type="number" class="textarea layout-helper__margin-bottom--xxs" name="fields[userNotice]"
-  {%- if account is defined %} value="{{ account.userNotice}}"{% endif -%}>
-  </textarea>
+  <div class="form-registration__item">
+    <label for="fields[userZip]">Postleitzahl</label>
+    <input id="City" type="text" class="input layout-helper__margin-bottom--xxs" name="fields[userZip]"
+    {%- if account is defined %} value="{{ account.userZip}}"{% endif -%}>
+  </div>
+
+  <div class="form-registration__item">
+    <label for="fields[userNotice]">Mitteilung</label>
+    <textarea id="Notice" type="number" class="textarea layout-helper__margin-bottom--xxs" name="fields[userNotice]"
+    {%- if account is defined %} value="{{ account.userNotice}}"{% endif -%}>
+    </textarea>
+  </div>
 
 
   <button type="submit" class="button button--primary">Registrieren</button>
