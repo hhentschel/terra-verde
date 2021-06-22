@@ -51,8 +51,20 @@ $form-input--spacing: px-to-rem($space--m + $space--xs);
     }
   }
 
-  &--freeform {
+  &-registration{
     width: 100%;
+    display: flex;
+    // flex-direction: column;
+    flex-wrap: wrap;
+
+    &__item {
+      flex: 0 1 50%;
+      width: 50%;
+
+      input {
+        width: 90%;
+      }
+    }
   }
 
   &__selection {
