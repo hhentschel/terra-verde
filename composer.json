@@ -1,5 +1,6 @@
 {
   "require": {
+    "aelvan/mailchimp-subscribe": "^3.0",
     "craftcms/cms": "^3.5.10",
     "craftcms/commerce": "3.2.17.4",
     "craftcms/feed-me": "4.3.6",
