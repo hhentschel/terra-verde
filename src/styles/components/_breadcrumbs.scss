@@ -11,6 +11,7 @@
       
       a {
         position: relative;
+        font-size: px-to-rem($font-size-s);
       }
 
       &:not(:last-child ){
