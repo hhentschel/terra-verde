@@ -1,0 +1,42 @@
+{% extends '_layouts/main' %}
+{% set pageTitle = entry.pageTitle is not empty ? entry.pageTitle : entry.title
+%}
+
+
+{% block content %}
+  <div class="grid">
+    <div class="row">
+      <div class="col col-xs-12 col-md-12 col-lg-12">
+        {% include '_components/breadcrumb.twig' %}
+        <h2 class="heading heading--h2 heading--site heading--no-margin-top">
+          {{ pageTitle }}
+        </h2>
+      </div>
+    </div>
+  </div>
+
+  <section class="grid">
+    <div class="row">
+      <div class="col col-xs-12 col-md-12 col-lg-12">
+
+        <div class="content__detail-header">
+          <div class="content__detail-image producers-overview__image">
+            {% include '_components/_content-elements/image' %}
+          </div>
+
+          <div class="content__detail-lead producers-overview__lead">
+            {{ entry.leadText }}
+          </div>
+        </div>
+
+        {% include '_components/_content-elements/content-elements-loop' with {
+          contentElements: entry.contentElements.level(1),
+          usesGrid: false
+        } %}
+
+      </div>
+
+      </div>
+    </div>
+  </section>
+{% endblock %}

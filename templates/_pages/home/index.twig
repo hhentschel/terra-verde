@@ -81,7 +81,7 @@
   </section>
 
   {# Neuheiten #}
-  <section class="section-home section-home__newproducts">
+  <section class="section-home section-home__stripe section-home__newproducts">
     <div class="grid">
       <div class="row">
         <div class="col col-xs-12 col-md-12 col-lg-12">
@@ -109,28 +109,24 @@
             <div class="col col-xs-12 col-md-4 col-lg-4">
               <a href="{{ product.url }}" class="section-home__product">
                 {% include '_components/_content-elements/imageshop' %}
-                <h4 class="heading heading--h4">
+                <h4 class="section-home__product--heading">
                   {{ product.title }}
                 </h4>
 
                 {% if currentUser %}
                   {% if currentUser.isInGroup('userGroupPrivate') %}
-                    <p>
-                      <strong>
+                    <p class="section-home__product--price">
                         {{ product.defaultPrice|currency('CHF') }}
-                      </strong>
                       {# {{ product.pricePrivateCustomer|currency('CHF') }} #}
                     </p>
                   {% else %}
-                    <p>
-                      <strong>
+                    <p class="section-home__product--price">
                         {{ product.priceRetailTrader|currency('CHF') }}
-                      </strong>
                     </p>
                   {% endif %}
                 {% else %}
-                  <p>
-                    <strong>{{ product.defaultPrice|currency('CHF') }}</strong>
+                 <p class="section-home__product--price">
+                    {{ product.defaultPrice|currency('CHF') }}
                   </p>
                 {% endif %}
               </a>

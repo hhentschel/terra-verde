@@ -10,12 +10,12 @@
 {% set homeLink = craft.entries.section('homepage').one() %}
 {% set ueberunsLink = craft.entries.section('aboutUsStructure').one() %}
 {% set shopLink = craft.entries.section('shopStructure').one() %}
-{% set aktuellLink = craft.entries.section('newStructure').one() %}
+{% set aktuellLink = craft.entries.section('newsOverview').one() %}
 {% set sucheLink = craft.entries.section('searchSingle').one() %}
-{% set verkaufsstellenLink =
+{# {% set verkaufsstellenLink =
   craft.entries.section('sellingPointsStructureSingle').one()
-%}
-{% set produzentenLink = craft.entries.section('producersStructure').one() %}
+%} #}
+{% set produzentenLink = craft.entries.section('producersOverview').one() %}
 
 {% set url = craft.app.request.pathInfo %}
 
@@ -49,7 +49,7 @@
       </a>
     </li>
 
-    <li class="nav-main__list-item">
+    {# <li class="nav-main__list-item">
       <a href="{{ verkaufsstellenLink.url }}"
         class="nav__link {{
         macros.isActive(
@@ -60,7 +60,7 @@
         }}">
         {{ 'Verkaufsstellen'|t }}
       </a>
-    </li>
+    </li> #}
 
     <li class="nav-main__list-item">
       <a href="{{ produzentenLink.url }}"

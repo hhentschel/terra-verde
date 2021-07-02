@@ -10,18 +10,97 @@
         {% include '_components/breadcrumb.twig' %}
       </div>
     </div>
-    <div class="row">
-      <div class="col col-xs-12 col-md-12 col-lg-10 col-lg-shift-2">
+    <div class="row product-detail">
+      <div class="col col-xs-12 col-md-12 col-lg-12 ">
 
-        <div class="">
-          <div class="">
-            <div class="bg-cover bg-center bg-gray-300 h-64 rounded"></div>
+        <h2 class="heading layout-helper__margin-top--s">
+          {{ product.defaultVariant.title }}
+        </h2>
+
+        <div class="row">
+          <div class="col col-xs-12 col-md-12 col-lg-6">
+            <div class="product-detail__image">
+              {% include '_components/_content-elements/imageshop' %}
+            </div>
           </div>
-          <div class="">
-            <h2 class="heading layout-helper__margin-top--s">
-              {{ product.defaultVariant.title }}
-            </h2>
+          <div class="col col-xs-12 col-md-12 col-lg-6">
 
+             <h4 class="">
+              {{ product.articleDescription}}
+            </h4>
+
+            <h4 class="">
+              Varianten
+            </h4>
+            <form method="post" class="js-form product-detail__form">
+              {{ actionInput('commerce/cart/update-cart') }}
+              {{
+                hiddenInput(
+                  'successMessage',
+                  ('Artikel ' ~ product.title ~ ' wurde zum Warenkorb hinzugefügt.')|hash
+                )
+              }}
+              {{ csrfInput() }}
+              <div class="product-detail__form-addtobasket">
+                {% for variant in product.variants %}
+                  {{
+                    hiddenInput('purchasables[' ~ loop.index ~ '][id]', variant.id)
+                  }}
+                  <div class="form-addtobasket__info">
+                    <div class="form-addtobasket__info-variant">
+                      <span>{{ variant.title }}</span>
+                       {% if variant.articleVolume %}
+                          <span> {{variant.articleVolume}}{{ variant.articleUnit }}</span>
+                        {% endif %}
+                    </div>
+
+
+                                       <div class="form-addtobasket__info-stock">
+                        {% if variant.stock > 0 %}
+                          <span class="">verfügbar</span>
+                        {% else %}
+                          <span class="">momentan nicht verfügbar</span>
+                        {% endif %}
+                    </div>
+
+                    <div class="form-addtobasket__info-price">
+
+                      {% if variant.onSale %}
+                        <del>
+                          {{ variant.priceAsCurrency }}
+                        </del><br />{{ variant.salePriceAsCurrency }}
+                      {% else %}
+                        {{ variant.priceAsCurrency }}
+                      {% endif %}
+                    </div>
+
+                    <div class="form-addtobasket__info-quantity pl-2 w-1/4">
+                      <input class="{{ classes.input }} input w-full"
+                        type="text"
+                        name="purchasables[{{ loop.index }}][qty]"
+                        value="0" />
+                    </div>
+
+                  </div>
+                {% endfor %}
+                <div class="form-addtobasket__info-button">
+                  <button type="submit"
+                    class="button button--primary">
+                    In den Warenkorb
+                  </button>
+                </div>
+              </div>
+            </form>
+
+          </div>
+
+          <div class="col col-xs-12 col-md-12 col-lg-6">
+          </div>
+
+
+          <div class="col col-xs-12 col-md-12 col-lg-6">
+
+            <h3 class="heading heading--3">Beschreibung</h3>
             {% if product.articleNumber %}
               <p> Artikelnummer: {{ product.articleNumber }}</p>
             {% endif %}
@@ -29,10 +108,6 @@
             {% if product.articleVolume %}
               <span> {{product.articleVolume}}{{ product.articleUnit }}</span>
             {% endif %}
-
-            <h4 class="text-gray-500 mt-3">
-              {{ product.articleDescription}}
-            </h4>
 
             {% if product.articleStorage %}
               <p> Lagerung: {{ product.articleStorage }}</p>
@@ -66,61 +141,8 @@
               <p> EAN-Nummer: {{ product.articleEanNumber }}</p>
             {% endif %}
 
-
-
-
-
-
-            <h4 class="text-gray-500 mt-3">
-              Varianten
-            </h4>
-            <form method="post" class="js-form">
-              {{ actionInput('commerce/cart/update-cart') }}
-              {{
-                hiddenInput(
-                  'successMessage',
-                  ('Artikel ' ~ product.title ~ ' wurde zum Warenkorb hinzugefügt.')|hash
-                )
-              }}
-              {{ csrfInput() }}
-              <div>
-                {% for variant in product.variants %}
-                  {{
-                    hiddenInput('purchasables[' ~ loop.index ~ '][id]', variant.id)
-                  }}
-                  <div class="flex items-center justify-between w-full">
-                    <div class="w-1/2">
-                      <span class="italic">{{ variant.title }}</span>
-                       {% if variant.articleVolume %}
-                          <span> {{variant.articleVolume}}{{ variant.articleUnit }}</span>
-                        {% endif %}
-                    </div>
-                    <div class="pl-2 w-1/4">
-                      <input class="{{ classes.input }} input w-full"
-                        type="text"
-                        name="purchasables[{{ loop.index }}][qty]"
-                        value="0" />
-                    </div>
-                    <div class="pl-2 text-right w-1/4">
-                      {% if variant.onSale %}
-                        <del class="text-sm text-gray-500">
-                          {{ variant.priceAsCurrency }}
-                        </del><br />{{ variant.salePriceAsCurrency }}
-                      {% else %}
-                        {{ variant.priceAsCurrency }}
-                      {% endif %}
-                    </div>
-                  </div>
-                {% endfor %}
-                <div class="">
-                  <button type="submit"
-                    class="button button--primary">
-                    In den Warenkorb
-                  </button>
-                </div>
-              </div>
-            </form>
           </div>
+
         </div>
 
       </div>
