@@ -1,0 +1,55 @@
+.product-detail {
+
+  &__image {
+    padding: px-to-rem($space--xm);
+    background-color: $color--brown-lightest;
+  }
+
+}
+
+.form-addtobasket {
+
+  display: flex;
+
+  &__info {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: px-to-rem($space--m) 0;
+  }
+  
+  &__info-variant {
+    flex: 1 1 100%;
+    margin-bottom: px-to-rem($space--m);
+  }
+
+  &__info-quantity {
+    width: 25%;
+    align-self: center;
+  }
+
+  &__info-price{
+    align-self: center;
+    font-size: px-to-rem($space--xm);
+  }
+
+  &__info-stock{
+    align-self: center;
+    font-size: px-to-rem($space--s);
+  }
+
+  &__info-button {
+    display: flex;
+    justify-content: flex-end;
+    
+    .button {
+      background-color: $color--grey-dark;
+      border-color: $color--grey-dark;
+    }
+  }
+}
+
+
+.form-addtobasket__info {
+  
+}
