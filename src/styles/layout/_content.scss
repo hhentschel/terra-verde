@@ -16,4 +16,16 @@
   &--has-image {
     padding: 0 0 px-to-rem($space--xxm);
   }
+
+  &__detail {
+    
+    &-header {
+      display: flex;
+      margin: px-to-rem($space--xm) 0;
+    }
+
+    &-image {
+      flex: 1 0 50%;
+    }
+  }
 }
