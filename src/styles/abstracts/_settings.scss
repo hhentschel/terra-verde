@@ -18,10 +18,10 @@ $breakpoint--base: phone;
 // phone min is 0
 $phone--max: 600px !global;
 
-$tablet-portrait--min: 601px !global;
-$tablet-portrait--max: 900px !global;
+$tablet-portrait--min: 740px !global;
+$tablet-portrait--max: 960px !global;
 
-$tablet-landscape--min: 901px !global;
+$tablet-landscape--min: 961px !global;
 $tablet-landscape--max: 1200px !global;
 
 $desktop--min: 1201px !global;

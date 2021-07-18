@@ -129,25 +129,6 @@ $mobile-nav--main-text-color: $color--bluegrey;
     margin-left: auto;
   }
 
-  &__language {
-    &-list {
-      display: flex;
-      margin-left: px-to-rem($space--xm + $space--xs);
-
-      &-item {
-        margin-right: px-to-rem($space--m + $space--xs);
-      }
-    }
-
-    &-link {
-      color: $color--grey-darker;
-
-      &--active {
-        color: $color--blue;
-        font-family: $font-family--bold;
-      }
-    }
-  }
 
   &__button-back {
     @include typo(navMainMobileHeader);
@@ -170,6 +151,10 @@ $mobile-nav--main-text-color: $color--bluegrey;
 
 
   .nav-service-phone-list {
-    margin-top: px-to-rem($space--xxm);
+    margin-top: px-to-rem($space--xm);
+
+    &__item {
+      margin: 0 0 px-to-rem($space--m) 0;
+    }
   }
 }

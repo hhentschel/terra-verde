@@ -3,17 +3,17 @@
   &__wrapper {
     position: absolute;
     top: 0;
-    right: 0;
+    right:0;
     // width: 33%;
     z-index: 100;
-    
+    min-width: 350px;
   }
 
   &__box {
     position: relative;
     background-color: $color--white;
     padding: px-to-rem($space--m);
-    margin: px-to-rem($space--m);
+    margin: px-to-rem($space--m) 0;
     --tw-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),0 10px 10px -5px rgba(0, 0, 0, 0.04);
     box-shadow: var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow);
   }
@@ -22,9 +22,22 @@
     position: absolute;
     right: 0;
     top: 0;
-    margin: px-to-rem($space--s) px-to-rem($space--m) 0 0;
+    margin: px-to-rem($space--s) px-to-rem($space--m) px-to-rem($space--m) 0;
+    padding: px-to-rem($space--s) 0 px-to-rem($space--s) px-to-rem($space--s);
+
+    &:hover {
+      cursor: pointer;
+    }
 
     &-icon {
+      height: 30px;
+      background-color: $color--primary;
+      width: 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: $color--white;
+
       // cursor-pointer uppercase text-gray-400 hover:text-gray-800
     }
   }
