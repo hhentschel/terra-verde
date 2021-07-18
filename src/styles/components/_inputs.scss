@@ -132,6 +132,13 @@ input[type='radio']{
 }
 
 
+input[type="checkbox"] {
+  height: 20px;
+  width: 20px;
+  margin: 0 px-to-rem($space--s) 0 0;
+}
+
+
 .textarea {
   @include inputStyles();
   padding: $textarea--padding-vertical $textarea--padding-horizontal;
