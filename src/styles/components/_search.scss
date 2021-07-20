@@ -2,6 +2,17 @@
 // #SEARCH
 // -----------------------------------------------------------------------------
 
+$shop-list__grid-gutter--phone: px-to-rem($grid__space-gutter--phone);
+$shop-list__grid-gutter--tablet: px-to-rem($grid__space-gutter--tablet);
+$shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
+
+:root {
+  --grid-col-breakpoint: 10rem;
+  --grid-col-gap: 0.75rem;
+  --grid-row-gap: 2.75rem;
+}
+
+
 .search {
   $this: &;
 
@@ -53,21 +64,59 @@
   }
 
   &__results {
-    border-top: 1px solid $color--grey-darker;
+    // border-top: 1px solid $color--grey-darker;
   }
 
-  &__item {
-    border-top: 1px solid $color--grey-darker;
-
-    &:first-of-type {
-      border-top: none;
+  &__results-list {
+    @supports (display: grid) {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(var(--grid-col-breakpoint), 1fr));
+      grid-column-gap: var(--grid-col-gap);
+      grid-row-gap: var(--grid-row-gap);
+      grid-auto-rows: 1fr;
+      margin: 0;
+    }
+  
+    @supports not (display: grid) {
+      display: flex;
+      flex-wrap: wrap;
+      margin: -$shop-list__grid-gutter--phone * 2;
+  
+      @include breakpoint('tablet-landscape') {
+        margin: -$shop-list__grid-gutter--tablet / 2;
+      }
+      @include breakpoint('desktop') {
+        margin: -$shop-list__grid-gutter--desktop / 2;
+      }
     }
   }
 
-  &__title {
-    @include typo(searchTitle);
+  &__results-item {
+    border-top: 1px solid $color--grey-darker;
+
+    width: 100%;
     display: flex;
-    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: px-to-rem($space--m);
+
+    @supports not (display: grid) {
+      @include breakpoint('tablet-landscape') {
+        width: 50%;
+      }
+      @include breakpoint('desktop') {
+        width: 33.33%;
+      }
+    }
+
+    figure {
+      margin: px-to-rem($space--m) 0 px-to-rem($space--s) 0;
+    }
+  }
+
+  &__results-title {
+    display: flex;
+    justify-content: center;
     margin: 0;
 
     &-icon {
