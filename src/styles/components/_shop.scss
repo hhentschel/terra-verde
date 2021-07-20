@@ -17,6 +17,7 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
     display: flex;
     align-items: center;
     margin: 0 0 px-to-rem($space--s) 0;
+    font-size: px-to-rem($font-size-s);
   }
 
   &__pagination {
@@ -91,6 +92,28 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
     }
   }
 
+
+  //GESCHENKSETS CHECKBOXES
+  &__gift {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: auto;
+
+    @include breakpoint('tablet-portrait') {
+      height: 100px;
+    }
+
+    &--checkbox {
+      width: 100%;
+
+      @include breakpoint('tablet-landscape') {
+        width: 50%;
+      }
+
+    }
+  }
+
 }
 
 
@@ -160,9 +183,6 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
     }
   }
 
-
- 
-
   &__item {
     width: 100%;
     display: flex;
@@ -225,7 +245,13 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
   &__link {
     display: block;
     height: 100%;
+  }
 
-    
+  &__no-result {
+    text-align: center;
+    padding: px-to-rem($space--xm);
+    font-family: $font-family--bold;
+    font-weight: 700;
+    font-size: px-to-rem($font-size-xm);
   }
 }
