@@ -65,44 +65,51 @@
                         {% endif %}
                     </div>
 
+                    <div class="form-addtobasket__info-pricestockadd">
+                      <div class="form-addtobasket__info-pricestock">
+                        <div class="form-addtobasket__info-price">
+                          {% if variant.onSale %}
+                            <del>
+                              {{ variant.priceAsCurrency }}
+                            </del><br />{{ variant.salePriceAsCurrency }}
+                          {% else %}
+                            {{ variant.priceAsCurrency }}
+                          {% endif %}
+                        </div>
 
-                                       <div class="form-addtobasket__info-stock">
-                        {% if variant.stock > 0 %}
-                          <span class="">verfügbar</span>
-                        {% else %}
-                          <span class="">momentan nicht verfügbar</span>
-                        {% endif %}
-                    </div>
+                        <div class="form-addtobasket__info-stock">
+                            {% if variant.stock > 0 %}
+                              <span class="">verfügbar</span>
+                            {% else %}
+                              <span class="">momentan nicht verfügbar</span>
+                            {% endif %}
+                        </div>
+                      </div>
 
-                    <div class="form-addtobasket__info-price">
 
-                      {% if variant.onSale %}
-                        <del>
-                          {{ variant.priceAsCurrency }}
-                        </del><br />{{ variant.salePriceAsCurrency }}
-                      {% else %}
-                        {{ variant.priceAsCurrency }}
-                      {% endif %}
-                    </div>
+                      <div class="form-addtobasket__info-add">
+                        <div class="form-addtobasket__info-quantity">
+                          <input class="input form-addtobasket__info-quantity--input"
+                            type="text"
+                            name="purchasables[{{ loop.index }}][qty]"
+                            value="1"
+                            step="1"
+                            min="1"
+                            />
+                        </div>
 
-                    <div class="form-addtobasket__info-quantity pl-2 w-1/4">
-                      <input class="{{ classes.input }} input w-full"
-                        type="text"
-                        name="purchasables[{{ loop.index }}][qty]"
-                        value="1"
-                        step="1"
-                        min="1"
-                         />
+                        <div class="form-addtobasket__info-button">
+                          <button type="submit"
+                            class="button button--primary">
+                            In den Warenkorb
+                          </button>
+                        </div>
+                      </div>
                     </div>
 
                   </div>
                 {% endfor %}
-                <div class="form-addtobasket__info-button">
-                  <button type="submit"
-                    class="button button--primary">
-                    In den Warenkorb
-                  </button>
-                </div>
+
               </div>
             </form>
 
