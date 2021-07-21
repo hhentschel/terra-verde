@@ -35,6 +35,15 @@
           usesGrid: false
         } %}
       </div>
+
+        {% if entry.id == 106 %}
+
+        <div class="col col-xs-12 col-md-6 col-lg-9 col-lg-shift-3">
+          <div class="form__wrapper">
+            {% include '_pages/newsletter/index.twig' %}
+            </div>
+          </div>
+        {% endif %}
     </div>
   </section>
 {% endblock %}
