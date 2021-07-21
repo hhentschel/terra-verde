@@ -42,8 +42,9 @@
 
 
 
+
         {# Formie Newsletter Form #}
-         {% set formQuery = craft.formie.forms()
+         {# {% set formQuery = craft.formie.forms()
             .handle('newsletter') %}
 
         {% set form = formQuery.one() %}
@@ -65,8 +66,18 @@
           <div class="form__wrapper">
             {{ craft.formie.renderform('newsletter', options)}}
           </div>
+        </div> #}
+
+        <div class="col col-xs-12 col-md-6 col-lg-3">
+          <h3 class="heading--3 heading--no-margin">Newsletter</h3>
         </div>
 
+
+        <div class="col col-xs-12 col-md-6 col-lg-9">
+          <div class="form__wrapper">
+            {% include '_pages/newsletter/index.twig' %}
+            </div>
+          </div>
 
 
       </div>
