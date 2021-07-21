@@ -167,6 +167,7 @@
     {% endset %}
 
     {# Image Block #}
+
     {% case 'image' %}
     {% set cmt = cmt ? cmt : 'layout-helper__margin-top--m' %}
     {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--m' %}
@@ -174,10 +175,10 @@
       'col col-xs-12 col-md-10 col-md-shift-1 col-lg-8 col-lg-shift-2'
     %}
     {% set contentBlock %}
-      {% include '_components/_content-elements/image' with {
+      {% include '_components/_content-elements/imagecontent' with {
         img: block.image,
         imageAltText: block.imageAltText,
-        imageCaption: block.imageCaption
+        imageCaption: block.imageCaption,
       } %}
     {% endset %}
 
@@ -188,13 +189,15 @@
     {% set colClasses =
       'col col-xs-12 col-md-10 col-md-shift-1 col-lg-8 col-lg-shift-2'
     %}
+    {% set transform = transformation|default('imageOneThird') %}
     {% set contentBlock %}
       {% include '_components/_content-elements/image-text' with {
         img: block.image,
         imageAltText: block.imageAltText,
         imageCaption: block.imageCaption,
         formattedText: block.textStandardWithoutH1,
-        imageSize: 'image--one-third'
+        imageSize: 'image--one-third',
+        transform: transform
       } %}
     {% endset %}
 
@@ -206,14 +209,14 @@
       'col col-xs-12 col-md-10 col-md-shift-1 col-lg-8 col-lg-shift-2'
     %}
     {% set contentBlock %}
-      {% include '_components/_content-elements/image' with {
+      {% include '_components/_content-elements/imagecontent' with {
         img: block.image,
         imageAltText: block.imageAltText,
         imageSizeParam: 'image--half'
       } %}
     {% endset %}
 
-    {# Image Block #}
+    {# Video Block #}
     {% case 'youtubeVideo' %}
     {% set cmt = cmt ? cmt : 'layout-helper__margin-top--m' %}
     {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--m' %}

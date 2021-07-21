@@ -20,7 +20,18 @@
         <div class="row">
           <div class="col col-xs-12 col-md-12 col-lg-6">
             <div class="product-detail__image">
-              {% include '_components/_content-elements/imageshop' %}
+
+              {% set transform = transformation|default('productDetail') %}
+              {% set img = product.articleImage.one() ?? null %}
+
+              {% if img is defined %}
+                {% include '_components/_content-elements/image'
+                  with {
+                    img: img,
+                    transform: transform
+                    } %}
+              {% endif %}
+
             </div>
           </div>
           <div class="col col-xs-12 col-md-12 col-lg-6">
