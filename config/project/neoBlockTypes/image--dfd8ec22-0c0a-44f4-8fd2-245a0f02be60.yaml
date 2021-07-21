@@ -1,0 +1,25 @@
+childBlocks: null
+field: 9f46731d-7fdd-4245-9ca1-719db0672448 # Inhaltselemente
+fieldLayouts:
+  cee308b0-8238-4075-9171-e7ca25136182:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 57e5fec1-460f-4063-a3db-815af978dc8f # Bild
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Inhalt
+        sortOrder: 1
+handle: image
+maxBlocks: 0
+maxChildBlocks: 0
+maxSiblingBlocks: 0
+name: Bild
+sortOrder: 12
+topLevel: true

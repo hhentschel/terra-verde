@@ -1,5 +1,6 @@
+columnSuffix: null
 contentColumnType: text
-fieldGroup: 546e63c7-3ad2-424d-ad71-31f33a561a7f
+fieldGroup: 546e63c7-3ad2-424d-ad71-31f33a561a7f # Kontakt | Globals
 handle: openingHoursOne
 instructions: ''
 name: Öffnungszeiten
@@ -11,7 +12,7 @@ settings:
   columnType: null
   initialRows: '4'
   multiline: ''
-  placeholder: ''
+  placeholder: null
   uiMode: normal
 translationKeyFormat: null
 translationMethod: none

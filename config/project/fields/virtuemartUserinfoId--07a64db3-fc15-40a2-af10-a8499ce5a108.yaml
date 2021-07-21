@@ -1,0 +1,19 @@
+columnSuffix: null
+contentColumnType: text
+fieldGroup: 84b58543-313b-40d6-a50b-2fbf9262c271 # Benutzer
+handle: virtuemartUserinfoId
+instructions: ''
+name: VirtueMart-userInfo-Id
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: null
+  code: ''
+  columnType: null
+  initialRows: '4'
+  multiline: ''
+  placeholder: null
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

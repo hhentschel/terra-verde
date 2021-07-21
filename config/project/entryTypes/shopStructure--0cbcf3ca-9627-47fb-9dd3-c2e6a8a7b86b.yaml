@@ -31,7 +31,7 @@ fieldLayouts:
 handle: shopStructure
 hasTitleField: true
 name: Shop
-section: 48548b44-1daa-40e6-8a33-e8f7fd5a9bb6
+section: 48548b44-1daa-40e6-8a33-e8f7fd5a9bb6 # Shop
 sortOrder: 1
 titleFormat: null
 titleTranslationKeyFormat: null

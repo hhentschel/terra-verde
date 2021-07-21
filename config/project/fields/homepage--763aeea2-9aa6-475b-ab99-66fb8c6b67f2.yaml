@@ -1,9 +1,10 @@
+columnSuffix: null
 contentColumnType: text
-fieldGroup: 57003c64-aadc-404d-a990-553d81d5fef3
+fieldGroup: 57003c64-aadc-404d-a990-553d81d5fef3 # Startseite
 handle: homepage
 instructions: ''
 name: Startseite
-searchable: false
+searchable: true
 settings:
   byteLimit: null
   charLimit: null
@@ -11,7 +12,7 @@ settings:
   columnType: null
   initialRows: '4'
   multiline: ''
-  placeholder: ''
+  placeholder: null
   uiMode: normal
 translationKeyFormat: null
 translationMethod: none

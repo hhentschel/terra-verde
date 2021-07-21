@@ -1,0 +1,11 @@
+handle: newsletterForm
+name: 'Newsletter Form'
+outputCssLayout: null
+outputCssLocation: inside-form
+outputCssTheme: '1'
+outputJsBase: '1'
+outputJsLocation: page-footer
+outputJsTheme: '1'
+sortOrder: 99
+template: ''
+useCustomTemplates: null

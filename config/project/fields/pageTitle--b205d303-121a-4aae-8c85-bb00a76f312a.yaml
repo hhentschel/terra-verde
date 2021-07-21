@@ -1,0 +1,19 @@
+columnSuffix: null
+contentColumnType: text
+fieldGroup: 2133d0ff-1af0-4a47-b4ab-4b5da820381e # Einzeleinträge
+handle: pageTitle
+instructions: 'Seitentitel hier überschreiben, wenn anders als Navigationstitel.'
+name: Titel
+searchable: true
+settings:
+  byteLimit: null
+  charLimit: null
+  code: ''
+  columnType: null
+  initialRows: '4'
+  multiline: ''
+  placeholder: null
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

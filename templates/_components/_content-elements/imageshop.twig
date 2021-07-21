@@ -1,6 +1,6 @@
 {% set img = product.articleImage.one() ?? null %}
 {% set imageUrl = product.articleImage.one()
-  ? product.articleImage.one().getUrl('productHome')
+  ? product.articleImage.one().getUrl('productListing')
   : ''
 %}
 

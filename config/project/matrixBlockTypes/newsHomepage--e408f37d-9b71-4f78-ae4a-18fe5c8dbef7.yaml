@@ -1,0 +1,137 @@
+field: 3e5c3431-66db-4b4c-97d4-8069da3cc21e # News
+fieldLayouts:
+  e7e08df2-4307-4986-8774-66b74901d062:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: dfaab58f-1a21-400b-804b-168b3442cc1e # Titel
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: b2d6c348-fea4-4475-b096-15d5b21075bd # Ort
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 3a6dc86b-ac74-45a6-bd26-0fb73094890e # Zeitpunkt
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: c243569d-1495-477e-81d5-8e56d348fc88 # Text
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  3a6dc86b-ac74-45a6-bd26-0fb73094890e: # Zeitpunkt
+    columnSuffix: null
+    contentColumnType: text
+    fieldGroup: null
+    handle: newsHomepageTime
+    instructions: ''
+    name: Zeitpunkt
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  b2d6c348-fea4-4475-b096-15d5b21075bd: # Ort
+    columnSuffix: null
+    contentColumnType: text
+    fieldGroup: null
+    handle: newsHomepageLocation
+    instructions: ''
+    name: Ort
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  c243569d-1495-477e-81d5-8e56d348fc88: # Text
+    columnSuffix: null
+    contentColumnType: text
+    fieldGroup: null
+    handle: newsHomepageText
+    instructions: ''
+    name: Text
+    searchable: true
+    settings:
+      availableTransforms: '*'
+      availableVolumes: '*'
+      cleanupHtml: true
+      columnType: text
+      configSelectionMode: choose
+      defaultTransform: ''
+      manualConfig: ''
+      purifierConfig: ''
+      purifyHtml: '1'
+      redactorConfig: ''
+      removeEmptyTags: '1'
+      removeInlineStyles: '1'
+      removeNbsp: '1'
+      showHtmlButtonForNonAdmins: ''
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: false
+      uiMode: enlarged
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\redactor\Field
+  dfaab58f-1a21-400b-804b-168b3442cc1e: # Titel
+    columnSuffix: null
+    contentColumnType: text
+    fieldGroup: null
+    handle: newsHomepageTitle
+    instructions: ''
+    name: Titel
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+handle: newsHomepage
+name: News
+sortOrder: 1

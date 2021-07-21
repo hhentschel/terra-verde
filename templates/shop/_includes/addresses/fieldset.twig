@@ -2,9 +2,9 @@
 <div class="js-address-fieldset {{ class }}">
     <h3 class="heading heading--3 heading--no-margin-top">{{ title }}</h3>
     {% if addresses and currentUser %}
-      <div class="flex flex-wrap -mx-4 pb-4">
+      <div class="">
         {% for address in addresses %}
-          <div class="px-2 w-1/2 pb-2">
+          <div class="">
             <label class="block address-select js-address-select {{ classes.box.base }}" data-address-id="{{ address.id }}">
                 <div class="js-radio">
                     <input type="radio" name="{{ name }}Id"

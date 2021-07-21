@@ -1,0 +1,33 @@
+columnSuffix: null
+contentColumnType: string
+fieldGroup: f80417a4-4032-4133-b6b3-695f48119fa2 # Map
+handle: mapThumbnail
+instructions: ''
+name: 'Karten Vorschaubild'
+searchable: false
+settings:
+  allowSelfRelations: false
+  allowUploads: true
+  allowedKinds: null
+  defaultUploadLocationSource: 'volume:3bb39d28-0fde-4351-82f7-4a35d96e4a3b' # Karten Vorschaubilder
+  defaultUploadLocationSubpath: ''
+  limit: ''
+  localizeRelations: false
+  previewMode: full
+  restrictFiles: ''
+  selectionLabel: ''
+  showSiteMenu: true
+  showUnpermittedFiles: false
+  showUnpermittedVolumes: false
+  singleUploadLocationSource: 'volume:63339d3e-c6d1-4455-be6d-33715340baf0' # Produkte
+  singleUploadLocationSubpath: ''
+  source: null
+  sources:
+    - 'volume:3bb39d28-0fde-4351-82f7-4a35d96e4a3b' # Karten Vorschaubilder
+  targetSiteId: null
+  useSingleFolder: false
+  validateRelatedElements: false
+  viewMode: list
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Assets

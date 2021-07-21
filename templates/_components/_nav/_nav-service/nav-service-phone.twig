@@ -9,13 +9,6 @@
     {{ 'nav.serviceNavigation'|t }}
   </h2>
 
-  <li class="nav-service-phone-list__item">
-    <a href="{{ loginLink.url }}"
-      class="nav__link {{ macros.isActive('login', 1, 'nav__link--') }}">
-      {{ 'Login'|t }}
-    </a>
-  </li>
-
   {# <li class="nav-service-phone-list__item">
     <a href="{{ instashop.url }}"
       class="nav__link {{ macros.isActive('instashop', 1, 'nav__link--') }}">
@@ -24,11 +17,30 @@
   </li> #}
 
   <li class="nav-service-phone-list__item">
-    <a href="{{ navSearch.url }}"
-      class="nav__link {{ macros.isActive('suche', 1, 'nav__link--') }}">
-      {{ 'Suche'|t }}
-    </a>
+    {% if currentUser %}
+      <span class="currentuser">
+        <a href="/shop/customer">
+          Kundenkonto
+          {# | <strong>{{ currentUser.friendlyName }}</strong> #}
+        </a>
+      </span>
+    {% endif %}
   </li>
 
-  {% include '_components/_nav/_nav-shop/nav-shop-desktop' %}
+   {% if currentUser %}
+      {# <a href="{{ logoutUrl }}" class="nav__link">{{ 'Logout'|t }}</a> #}
+      {% include '_components/_nav/_nav-shop/nav-shop-desktop' %}
+    {% else %}
+    <li class="nav-service-phone-list__item">
+      <a href="{{ loginLink.url }}" class="nav__link">{{ 'Login'|t }}</a>
+    </li>
+    {% endif %}
+
+
+    <li class="nav-service-phone-list__item">
+      <a href="{{ navSearch.url }}"
+        class="nav__link {{ macros.isActive('suche', 1, 'nav__link--') }}">
+        {{ 'Suche'|t }}
+      </a>
+    </li>
 </ul>

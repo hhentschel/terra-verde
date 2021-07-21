@@ -1,0 +1,16 @@
+columnSuffix: null
+contentColumnType: string
+fieldGroup: 4fe8dfc1-b512-4508-a756-d29539b14b62 # Artikel
+handle: articleDescriptionMatrix
+instructions: ''
+name: 'Produkt Beschreibung Alt'
+searchable: false
+settings:
+  contentTable: '{{%matrixcontent_articledescriptionmatrix}}'
+  maxBlocks: ''
+  minBlocks: ''
+  propagationKeyFormat: null
+  propagationMethod: all
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

@@ -26,6 +26,7 @@ fieldLayouts:
         sortOrder: 1
 fields:
   59672db5-e56b-482e-a7d2-5cbddc49280f: # Bildunterschrift
+    columnSuffix: null
     contentColumnType: text
     fieldGroup: null
     handle: caption
@@ -39,12 +40,13 @@ fields:
       columnType: null
       initialRows: '4'
       multiline: ''
-      placeholder: ''
+      placeholder: null
       uiMode: normal
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\PlainText
   80046407-de11-4bdb-9670-56b00656fb46: # Bild
+    columnSuffix: null
     contentColumnType: string
     fieldGroup: null
     handle: image
@@ -56,7 +58,7 @@ fields:
       allowUploads: true
       allowedKinds:
         - image
-      defaultUploadLocationSource: 'volume:63339d3e-c6d1-4455-be6d-33715340baf0'
+      defaultUploadLocationSource: 'volume:63339d3e-c6d1-4455-be6d-33715340baf0' # Produkte
       defaultUploadLocationSubpath: ''
       limit: '1'
       localizeRelations: false
@@ -66,11 +68,11 @@ fields:
       showSiteMenu: true
       showUnpermittedFiles: false
       showUnpermittedVolumes: false
-      singleUploadLocationSource: 'volume:63339d3e-c6d1-4455-be6d-33715340baf0'
+      singleUploadLocationSource: 'volume:63339d3e-c6d1-4455-be6d-33715340baf0' # Produkte
       singleUploadLocationSubpath: ''
       source: null
       sources:
-        - 'volume:63339d3e-c6d1-4455-be6d-33715340baf0'
+        - 'volume:63339d3e-c6d1-4455-be6d-33715340baf0' # Produkte
       targetSiteId: null
       useSingleFolder: false
       validateRelatedElements: false

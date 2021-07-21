@@ -5,11 +5,13 @@
 {% set ueberunsLink =
   craft.entries.section('aboutUsStructure').level(1).all()
 %}
+{% set ueberunsLink = craft.entries.section('aboutUsStructure').one() %}
 {% set shopLink = craft.entries.section('shopStructure').one() %}
-{% set neuesLink = craft.entries.section('newStructure').one() %}
-{% set verkaufsstellenLink =
+{% set aktuellLink = craft.entries.section('newsOverview').one() %}
+
+{# {% set verkaufsstellenLink =
   craft.entries.section('sellingPointsStructureSingle').one()
-%}
+%} #}
 {% set produzentenLink = craft.entries.section('producersStructure').one() %}
 
 <div class="mobile-nav__wrapper">
@@ -48,57 +50,48 @@
       </li>
       {# SHOP #}
       <li class="mobile-nav__list-item">
-        <button class="mobile-nav__trigger" type="button">
-          <span class="mobile-nav__text mobile-nav__text--bold {{
-            macros.isActive(
-              'nav.mainNavigation.slug.shop'|t,
-              1,
-              'mobile-nav__text--'
-            )
-            }}">
-            {{ 'Shop'|t }}
-          </span>
-        </button>
-        {% include '_components/_nav/_nav-main/nav-main-shop-phone' %}
+        <a href="{{ shopLink.url }}"
+          class="mobile-nav__text mobile-nav__text--bold {{ macros.isActive('shop', 1, 'mobile-nav__text--') }}">
+          {{ 'Shop'|t }}
+        </a>
       </li>
       {# END SHOP #}
 
       {# ÜBER UNS #}
-      <li class="mobile-nav__list-item">
-        <button class="mobile-nav__trigger" type="button">
-          <span class="mobile-nav__text mobile-nav__text--bold  {{
-            macros.isActive(
-              'nav.mainNavigation.slug.aboutus'|t,
-              1,
-              'mobile-nav__text--'
-            )
-            }}">
-            {{ 'Über uns'|t }}
-          </span>
-        </button>
-        {% include '_components/_nav/_nav-main/nav-main-about-us-phone' %}
+       <li class="mobile-nav__list-item">
+        <a href="{{ ueberunsLink.url }}"
+          class="mobile-nav__text mobile-nav__text--bold {{ macros.isActive('ueberuns', 1, 'mobile-nav__text--') }}">
+          {{ 'Über uns'|t }}
+        </a>
       </li>
       {# END ÜBER UNS #}
 
+      {# Aktuell #}
+      <li class="mobile-nav__list-item">
+        <a href="{{ aktuellLink.url }}"
+          class="mobile-nav__text mobile-nav__text--bold {{ macros.isActive('aktuell', 1, 'mobile-nav__text--') }}">
+          {{ 'Aktuell'|t }}
+        </a>
+      </li>
+      {# END NEUES #}
+
       {# PRODUZENTEN #}
       <li class="mobile-nav__list-item">
-        <button class="mobile-nav__trigger" type="button">
-          <span class="mobile-nav__text mobile-nav__text--bold  {{
-            macros.isActive(
-              'nav.mainNavigation.slug.worker'|t,
-              1,
-              'mobile-nav__text--'
-            )
-            }}">
-            {{ 'Produzenten'|t }}
-          </span>
-        </button>
-        {% include '_components/_nav/_nav-main/nav-main-manufactors-phone' %}
+        <a href="{{ produzentenLink.url }}"
+          class="mobile-nav__text mobile-nav__text--bold {{
+          macros.isActive(
+            'produzenten',
+            1,
+            'mobile-nav__text--'
+          )
+          }}">
+          {{ 'Produzenten'|t }}
+        </a>
       </li>
       {# END PRODUZENTEN #}
 
       {# VERKAUFSSTELLEN #}
-      <li class="mobile-nav__list-item">
+      {# <li class="mobile-nav__list-item">
         <a href="{{ verkaufsstellenLink.url }}"
           class="mobile-nav__text mobile-nav__text--bold  {{
           macros.isActive(
@@ -109,23 +102,10 @@
           }}">
           {{ 'Verkaufsstellen'|t }}
         </a>
-      </li>
+      </li> #}
       {# END VERKAUFSSTELLEN #}
 
-      {# NEUES #}
-      <li class="mobile-nav__list-item">
-        <a href="{{ neuesLink.url }}"
-          class="mobile-nav__text mobile-nav__text--bold  {{
-          macros.isActive(
-            'neues',
-            1,
-            'nav__link--'
-          )
-          }}">
-          {{ 'Neues'|t }}
-        </a>
-      </li>
-      {# END NEUES #}
+
       <li>{% include '_components/_nav/_nav-service/nav-service-phone' %}</li>
     </ul>
   </nav>

@@ -1,0 +1,10 @@
+childBlocks:
+  - accordionPanel
+field: 9f46731d-7fdd-4245-9ca1-719db0672448 # Inhaltselemente
+handle: accordion
+maxBlocks: 0
+maxChildBlocks: 0
+maxSiblingBlocks: 0
+name: Akkordeon
+sortOrder: 17
+topLevel: true

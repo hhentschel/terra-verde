@@ -1,0 +1,21 @@
+columnSuffix: null
+contentColumnType: string
+fieldGroup: 57003c64-aadc-404d-a990-553d81d5fef3 # Startseite
+handle: homeSales
+instructions: ''
+name: Aktionen
+searchable: true
+settings:
+  allowSelfRelations: false
+  limit: '3'
+  localizeRelations: false
+  selectionLabel: ''
+  showSiteMenu: true
+  source: null
+  sources: '*'
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: null
+translationKeyFormat: null
+translationMethod: site
+type: craft\commerce\fields\Products

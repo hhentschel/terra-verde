@@ -1,0 +1,34 @@
+childBlocks: null
+field: 9f46731d-7fdd-4245-9ca1-719db0672448 # Inhaltselemente
+fieldLayouts:
+  3ea5593f-0a48-4251-bee3-30499486f062:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 15e8e382-ef35-4ba0-b82a-fd65b047ea1e # Link Text
+            instructions: ''
+            label: ''
+            required: '1'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 667e84c9-349c-41fc-b5dd-be60c8d94861 # Downloadlink
+            instructions: ''
+            label: ''
+            required: '1'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Inhalt
+        sortOrder: 1
+handle: linkDownload
+maxBlocks: 0
+maxChildBlocks: 0
+maxSiblingBlocks: 0
+name: 'Download Link (mit Icon)'
+sortOrder: 10
+topLevel: true

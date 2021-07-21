@@ -1,0 +1,133 @@
+columnSuffix: null
+contentColumnType: string
+fieldGroup: 8e1d4181-5012-4bbc-9a55-048bb89f0863 # Super Filter
+handle: superFilterReleaseDate
+instructions: null
+name: 'Release Date'
+searchable: true
+settings:
+  optgroups: true
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - 2011
+        -
+          - value
+          - '2011'
+    -
+      __assoc__:
+        -
+          - label
+          - 2012
+        -
+          - value
+          - '2012'
+    -
+      __assoc__:
+        -
+          - label
+          - 2013
+        -
+          - value
+          - '2013'
+    -
+      __assoc__:
+        -
+          - label
+          - 2014
+        -
+          - value
+          - '2014'
+    -
+      __assoc__:
+        -
+          - label
+          - 2015
+        -
+          - value
+          - '2015'
+    -
+      __assoc__:
+        -
+          - label
+          - 2016
+        -
+          - value
+          - '2016'
+    -
+      __assoc__:
+        -
+          - label
+          - 2017
+        -
+          - value
+          - '2017'
+    -
+      __assoc__:
+        -
+          - label
+          - 2018
+        -
+          - value
+          - '2018'
+    -
+      __assoc__:
+        -
+          - label
+          - 2019
+        -
+          - value
+          - '2019'
+    -
+      __assoc__:
+        -
+          - label
+          - 2020
+        -
+          - value
+          - '2020'
+    -
+      __assoc__:
+        -
+          - label
+          - 2021
+        -
+          - value
+          - '2021'
+    -
+      __assoc__:
+        -
+          - label
+          - 2022
+        -
+          - value
+          - '2022'
+    -
+      __assoc__:
+        -
+          - label
+          - 2023
+        -
+          - value
+          - '2023'
+    -
+      __assoc__:
+        -
+          - label
+          - 2024
+        -
+          - value
+          - '2024'
+    -
+      __assoc__:
+        -
+          - label
+          - 2025
+        -
+          - value
+          - '2025'
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown

@@ -1,0 +1,387 @@
+{# Sets default values. #}
+{% set articleCategoriesDeli = articleCategoriesDeli ?? [] %}
+{% set catGroupDeli = catGroupDeli ?? [] %}
+{% set articleCategoriesWine = articleCategoriesWine ?? [] %}
+{% set articleCategoriesStatus = articleCategoriesStatus ?? [] %}
+{# {% set page = page ?? 1 %} #}
+{% set prices = prices ?? [] %}
+
+{% if reset is defined %}
+    {% set articleCategoriesDeli = [] %}
+    {% set articleCategoriesWine = [] %}
+    {% set articleCategoriesStatus = [] %}
+    {% set prices = [] %}
+{% endif %}
+
+{# Create an array of filters. #}
+{% set filters = {
+    delikatessen: articleCategoriesDeli,
+    weine: articleCategoriesWine,
+    prices: prices,
+} %}
+
+    {# delikatessen: articleCategoriesDeli, #}
+
+{# Push the URL into the history stack with the filters, adding extra values. #}
+{% do sprig.pushUrl('?' ~ filters|merge({
+    delikatessen: articleCategoriesDeli,
+    weine: articleCategoriesWine,
+})|url_encode) %}
+
+
+
+{# Get options from field (https://craftcms.com/docs/3.x/dropdown-fields.html#saving-dropdown-fields). #}
+
+
+{# Get options from category groups. #}
+{% set catDeliOptions = craft.categories.group('catGroupDeli').all() %}
+{% set catWineOptions = craft.categories.group('catGroupWine').all() %}
+{% set catStatusOptions = craft.categories.group('catGroupStatus').all() %}
+
+{# Create custom options with conditions. #}
+{% set priceOptions = [
+    {
+        label: '1 - 20 CHF',
+        condition: ['and', 'defaultPrice >= 1', 'defaultPrice <= 20'],
+    },
+    {
+        label: '21 - 50 CHF',
+        condition: ['and', 'defaultPrice >= 21', 'defaultPrice <= 50'],
+    },
+    {
+        label: '51 - 100',
+        condition: ['and', 'defaultPrice >= 51', 'defaultPrice <= 100'],
+    },
+    {
+        label: '> 100',
+        condition: ['and', 'defaultPrice > 100'],
+    },
+] %}
+
+{# Generate a product query, eager-loading relationship fields. #}
+{# https://craftcms.com/docs/3.x/element-queries.html #}
+{% set productQuery = craft.products.with(['image', 'articleCategoriesDeli', 'articleCategoriesWine', 'articleCategoriesStatus']) %}
+
+
+
+{# Paginate entry query to get page info. #}
+{# {% set pageInfo = sprig.paginate(productQuery, page) %} #}
+{# Get entries from page results. #}
+{# {% set products = pageInfo.pageResults %} #}
+{# Defines maximum number of pages to show. #}
+{# {% set maxPages = 5 %} #}
+
+
+
+
+{% if articleCategoriesDeli is not empty %}
+    {# https://craftcms.com/docs/3.x/relations.html#the-andrelatedto-parameter #}
+    {% do productQuery.andRelatedTo(articleCategoriesDeli) %}
+{% endif %}
+
+{% if articleCategoriesWine is not empty %}
+    {# https://craftcms.com/docs/3.x/relations.html#the-andrelatedto-parameter #}
+    {% do productQuery.andRelatedTo(articleCategoriesWine) %}
+{% endif %}
+
+{% if articleCategoriesStatus is not empty %}
+    {# https://craftcms.com/docs/3.x/relations.html#the-andrelatedto-parameter #}
+    {% do productQuery.andRelatedTo(articleCategoriesStatus) %}
+{% endif %}
+
+{% set priceConditions = ['or'] %}
+{% for price in prices %}
+    {% if priceOptions[price] is defined %}
+        {# https://craftcms.com/docs/3.x/dev/filters.html#push #}
+        {% set priceConditions = priceConditions|push(priceOptions[price].condition) %}
+    {% endif %}
+{% endfor %}
+{# https://craftcms.com/docs/3.x/element-queries.html#advanced-element-queries #}
+{% do productQuery.andWhere(priceConditions) %}
+
+{# Get products from query. #}
+{% set products = productQuery.all() %}
+
+<section>
+  <div class="grid">
+
+    <div class="row">
+      <div class="col col-xs-12 col-md-12 col-lg-6">
+      </div>
+      <div class="col col-xs-12 col-md-12 col-lg-6">
+        <h3 class="heading heading--3">
+          Filter zurücksetzen
+          <a href="" sprig s-val:reset="1" title="Reset">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 inline" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+          </a>
+        </h3>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col col-xs-12 col-md-12 col-lg-6">
+      </div>
+      <div class="col col-xs-12 col-md-12 col-lg-6">
+        <h4 class="heading heading--4">
+          Status
+        </h4>
+        {% for catStatusOption in catStatusOptions %}
+          <div class="">
+              <input sprig type="checkbox" id="catstatus-{{ catStatusOption.id }}" name="articleCategoriesStatus[]" value="{{ catStatusOption.id }}" {{ catStatusOption.id in articleCategoriesStatus ? 'checked' }}>
+              <label for="catstatus-{{ catStatusOption.id }}" class="truncate">
+                  {{ catStatusOption.title }}
+              </label>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col col-xs-12 col-md-12 col-lg-6">
+        <h4 class="heading heading--4">
+          Delikatessen
+        </h4>
+        {% for catDeliOption in catDeliOptions %}
+            <div class="flex items-center">
+                <input sprig type="checkbox" id="catdeli-{{ catDeliOption.id }}" name="articleCategoriesDeli[]" value="{{ catDeliOption.id }}" {{ catDeliOption.id in articleCategoriesDeli ? 'checked' }}>
+                <label for="catdeli-{{ catDeliOption.id }}" class="text-sm leading-5 font-medium text-cool-gray-500 truncate ml-1">
+                    {{ catDeliOption.title }}
+                </label>
+            </div>
+        {% endfor %}
+      </div>
+
+      <div class="col col-xs-12 col-md-12 col-lg-3">
+        <h4 class="heading heading--4">
+          Weine
+        </h4>
+        {% for catWineOption in catWineOptions %}
+            <div class="flex items-center">
+                <input sprig type="checkbox" id="catwine-{{ catWineOption.id }}" name="articleCategoriesWine[]" value="{{ catWineOption.id }}" {{ catWineOption.id in articleCategoriesWine ? 'checked' }}>
+                <label for="catwine-{{ catWineOption.id }}" class="text-sm leading-5 font-medium text-cool-gray-500 truncate ml-1">
+                    {{ catWineOption.title }}
+                </label>
+            </div>
+        {% endfor %}
+      </div>
+
+      <div class="col col-xs-12 col-md-12 col-lg-3">
+        <h4 class="heading heading--4">
+          Preise
+        </h4>
+        {% for key, priceOption in priceOptions %}
+            <div class="flex items-center">
+                <input sprig type="checkbox" id="price-{{ key }}" name="prices[]" value="{{ key }}" {{ key in prices ? 'checked' }}>
+                <label for="price-{{ key }}" class="text-sm leading-5 font-medium text-cool-gray-500 truncate ml-1">
+                    {{ priceOption.label }}
+                </label>
+            </div>
+        {% endfor %}
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+{#
+
+
+<table class="min-w-full divide-y divide-gray-200">
+
+    <tbody class="bg-white divide-y divide-gray-200">
+        {% for product in products %}
+
+            <tr>
+                <td class="px-6 py-4 whitespace-no-wrap">
+                    <div class="flex items-center space-x-3">
+                        <div class="flex-shrink-0">
+                            {% set image = product.image[0] ?? null %}
+                            {% if image %}
+                                <img src="{{ image.getUrl('thumb') }}" alt="{{ product.title }}" class="h-10 w-10 block rounded-full">
+                            {% endif %}
+
+                        </div>
+                        <div class="text-sm leading-5">
+                            <div class="font-medium text-gray-900">
+                                {{ product.title }}
+                            </div>
+                            <div class="text-gray-500">
+                                {{ product.defaultPriceAsCurrency }}
+                            </div>
+
+                        </div>
+                    </div>
+
+
+
+                </td>
+
+            </tr>
+        {% endfor %}
+        {% if products|length == 0 %}
+            <tr>
+                <td colspan="6" class="px-6 py-3 whitespace-no-wrap">
+                    <div class="text-center text-lg leading-7 text-gray-700">
+                        Keine Produkte gefunden
+                    </div>
+                </td>
+            </tr>
+        {% endif %}
+    </tbody>
+</table> #}
+
+
+
+      <div class="shop-list">
+          {% for product in products %}
+
+              {% set img = product.articleImage.one() ?? null %}
+              {% set imageUrl = product.articleImage.one()
+                ? product.articleImage.one().getUrl('productListing')
+                : ''
+              %}
+              {% set imageStandardAltText = img
+                and img.imageAltText is defined
+                and img.imageAltText is not empty
+                ? img.imageAltText
+                : ''
+              %}
+              {% set imageAltText = imageAltText is defined and imageAltText is not empty
+                ? imageAltText
+                : imageStandardAltText
+              %}
+              {% set imageStandardCaption = img
+                and img.imageCaption is defined
+                and img.imageCaption is not empty
+                ? img.imageCaption
+                : ''
+              %}
+              {% set imageCaption = imageCaption is defined and imageCaption is not empty
+                ? imageCaption
+                : imageStandardCaption
+              %}
+              <div class="shop-list__item">
+                <a class="shop-list__link hallo" href="{{ product.url }}" >
+                  <div class="shop-list__image">
+                      {% if imageUrl %}
+                      <figure class="image">
+                        <div class="image__wrapper">
+                          <img class="image__img"
+                            src="{{ imageUrl }}"
+                            alt="{{ imageAltText }}" />
+                        </div>
+                        {% if imageCaption %}
+                          <figcaption class="image__caption">
+                            {{ imageCaption }}
+                          </figcaption>
+                        {% endif %}
+                      </figure>
+                    {% endif %}
+                  </div>
+                  <div class="shop-list__text">
+                    <h5 class="layout-helper__margin-bottom--none">
+                      {{ product.title }}
+                    </h5>
+                    <span>
+                      {{ product.defaultPrice|currency('CHF') }}
+                    </span>
+                  </div>
+                </a>
+
+                  <form method="post" class="js-form">
+                      {# {{ actionInput('commerce/cart/update-cart') }}
+                       {{
+                        hiddenInput(
+                          'successMessage',
+                          ('Artikel ' ~ product.title ~ ' wurde zum Warenkorb hinzugefügt.')|hash
+                        )
+                      }}
+                      {{ csrfInput() }} #}
+
+                      <div class="shop-list__item-cart">
+                          <input class="input input-xsmall"
+                                name="qty" type="number" step="1" min="1" placeholder="Menge" value="1">
+                        {% if product.availableForPurchase %}
+                          <button type="submit"
+                                  class="m-0 button button--primary text-center">In den Warenkorb
+                          </button>
+                        {% else %}
+                          <div type="submit"
+                                  class="m-0 {{ classes.btn.base ~ ' ' ~ classes.btn.grey }} text-center">nicht verfügbar
+                          </div>
+                        {% endif %}
+                      </div>
+                  </form>
+
+              </div>
+          {% endfor %}
+
+          {% if products|length == 0 %}
+            <div class="">
+              Keine Produkte gefunden
+            </div>
+          {% endif %}
+      </div>
+
+
+
+      {# <div class="px-4 sm:px-0">
+            <div class="flex-1 flex justify-between sm:hidden">
+                <div>
+                    {% if page > 1 %}
+                        <a sprig s-val:page="{{ page - 1 }}" href="#" class="relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm leading-5 font-medium rounded-md text-gray-700 bg-white hover:text-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150">
+                            Previous
+                        </a>
+                    {% endif %}
+                </div>
+                <div>
+                    {% if page < pageInfo.totalPages %}
+                        <a sprig s-val:page="{{ page + 1 }}" href="#" class="ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm leading-5 font-medium rounded-md text-gray-700 bg-white hover:text-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150">
+                            Next
+                        </a>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
+                <p class="text-sm leading-5 text-gray-700">
+                    Showing
+                    <span class="font-medium">{{ pageInfo.first }}</span>
+                    -
+                    <span class="font-medium">{{ pageInfo.last }}</span>
+                    of
+                    <span class="font-medium">{{ pageInfo.total }}</span>
+                    entries
+                </p>
+                <div class="flex items-center space-x-4">
+                    <p class="text-sm leading-5 text-gray-700">
+                        Page
+                        <span class="font-medium">{{ pageInfo.currentPage }}</span>
+                        of
+                        <span class="font-medium">{{ pageInfo.totalPages }}</span>
+                        pages
+                    </p>
+                    <nav class="relative z-0 inline-flex shadow-sm">
+                        <a sprig s-val:page="{{ page > 1 ? page - 1 : 1 }}" href="#" class="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm leading-5 font-medium text-gray-500 hover:text-gray-400 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-500 transition ease-in-out duration-150" aria-label="Previous">
+                            <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+                            </svg>
+                        </a>
+                        {% for pageNumber in pageInfo.dynamicRange(maxPages) %}
+                            <a sprig s-val:page="{{ pageNumber }}" href="#" class="-ml-px relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm leading-5 font-medium hover:text-gray-500 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150 {{ pageNumber == page ? 'bg-gray-100 text-gray-600' : 'text-gray-700' }}">
+                                {{ pageNumber }}
+                            </a>
+                        {% endfor %}
+                        <a sprig s-val:page="{{ page < pageInfo.totalPages ? page + 1 : pageInfo.totalPages }}" href="#" class="-ml-px relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm leading-5 font-medium text-gray-500 hover:text-gray-400 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-500 transition ease-in-out duration-150" aria-label="Next">
+                            <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                            </svg>
+                        </a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+ #}

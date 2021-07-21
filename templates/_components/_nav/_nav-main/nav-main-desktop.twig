@@ -1,8 +1,3 @@
-{# ARBEITNEHMENDE & PENSIONIERTE DB QUERY #}
-{# % set navNew = craft.entries.section('newStructure').status(null).all() % #}
-
-{# ÜBER UNS & ORGANISATION, JOBS & MEHR #}
-{# % set navAboutUs = craft.entries.section('aboutUsStructure').level(1).all() % #}
 
 {# IMPORT MACROS #}
 {% import '_helpers/macros.twig' as macros %}
@@ -11,7 +6,9 @@
 {% set ueberunsLink = craft.entries.section('aboutUsStructure').one() %}
 {% set shopLink = craft.entries.section('shopStructure').one() %}
 {% set aktuellLink = craft.entries.section('newsOverview').one() %}
-{% set sucheLink = craft.entries.section('searchSingle').one() %}
+
+{% set loginLink = craft.entries.section('loginStructure').one() %}
+
 {# {% set verkaufsstellenLink =
   craft.entries.section('sellingPointsStructureSingle').one()
 %} #}
@@ -76,10 +73,7 @@
     </li>
 
     <li class="nav-main__list-item nav-main__list-item-last">
-      <a href="{{ sucheLink.url }}"
-        class="nav__link {{ macros.isActive('suche', 1, 'nav__link--') }}">
-        {{ 'Suche'|t }}
-      </a>
+        {% include '_components/_nav/_nav-service/nav-service-desktop' %}
     </li>
   </ul>
 </nav>

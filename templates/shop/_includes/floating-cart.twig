@@ -3,7 +3,11 @@
 <div x-data="{ expanded: {{ flashNotice and 'shop/warenkorb' not in craft.app.request.pathInfo and 'shop/checkout' not in craft.app.request.pathInfo ? "true" : "false" }} }">
   <div class="transition duration-500 ease-in-out transform hover:scale-110 " >
         <div @click="expanded = true" class="cursor-pointer bg-white rounded-lg relative">
-            {% if cart.totalQty %}<span x-show="!expanded" class="absolute -mr-3 -mt-3 right-0 top-0 py-1 px-2 rounded-full bg-red-800 text-white text-xs">{{ cart.totalQty }}</span>{% endif %}
+            {% if cart.totalQty %}
+            <span x-show="!expanded" class="nav-service__list-item-cartsize">
+              {{ cart.totalQty }}
+            </span>
+            {% endif %}
             {% include 'shop/_images/cart.svg' %}
         </div>
     </div>
@@ -29,7 +33,7 @@
                     </div>
                 {% else %}
                     <div class="mb-3">
-                        <p>Warenkorb ist leer, <a class="underline text-blue-500" href="{{ url('shop/products') }}">zum Shop</a>.</p>
+                        <p>Warenkorb ist leer, <a class="underline text-blue-500" href="{{ url('shop/produkte') }}">zum Shop</a>.</p>
                     </div>
                 {% endfor %}
               </div>
@@ -58,67 +62,3 @@
 
 </div>
 {% endif %}
-
-
-
-
-<!-- Template: {{ _self }}.twig -->
-{# {% if 'checkout' not in craft.app.request.pathInfo %}
-<div x-data="{ expanded: {{ flashNotice and 'shop/warenkorb' not in craft.app.request.pathInfo and 'shop/checkout' not in craft.app.request.pathInfo ? "true" : "false" }} }">
-  <div class="absolute right-0 top-0 transition duration-500 ease-in-out transform hover:scale-110 " >
-        <div @click="expanded = true" class="cursor-pointer m-6 p-3 bg-white rounded-lg relative shadow-lg hover:shadow-xl">
-            {% if cart.totalQty %}<span x-show="!expanded" class="absolute -mr-3 -mt-3 right-0 top-0 py-1 px-2 rounded-full bg-red-800 text-white text-xs">{{ cart.totalQty }}</span>{% endif %}
-            {% include 'shop/_images/cart.svg' %}
-        </div>
-    </div>
-
-    <div @click.away="expanded = false" x-show="expanded" class="absolute w-full md:w-1/2 xl:w-1/3 right-0 top-0">
-        <div class="m-6 p-4 bg-white rounded-lg shadow-xl relative">
-            <div class="absolute right-0 top-0 mr-4 mt-4">
-                <span @click="expanded = false"  class="cursor-pointer uppercase text-gray-400 hover:text-gray-800">&times;</span>
-            </div>
-            <div class="mt-6">
-              <div class="text-sm">
-                {% for item in cart.lineItems %}
-                    <div class="floating-cart__content-item">
-                      <div class="floating-cart__content-itemname">
-                        <div class="truncate">
-                          {{ item.description }}
-                        </div>
-                        <div class="">{% if item.qty %}&times;{{ item.qty }}{% endif %}</div>
-                      </div>
-                      <div>
-                        {{ item.subtotal|currency(cart.currency) }}
-                      </div>
-                    </div>
-                {% else %}
-                    <div class="mb-3">
-                        <p>Warenkorb ist leer, <a class="underline text-blue-500" href="{{ url('shop/products') }}">zum Shop</a>.</p>
-                    </div>
-                {% endfor %}
-              </div>
-
-              {% if cart.lineItems|length %}
-                <div class="floating-cart__content-total ">
-                  <div class="">
-                    <span class="floating-cart__content-subtotal">Subtotal:</span>
-                    <strong class="floating-cart__content-subtotalnumber">{{ cart.itemSubtotal|currency(cart.currency) }}</strong>
-                  </div>
-                  <div class="">
-                    <div class="floating-cart__content-buttons">
-                      <div>
-                        <a class="button button--secondary" href=" {{ url('shop/cart') }}">Warenkorb ansehen</a>
-                      </div>
-                      <div>
-                        <a class="button button--primary" href="{{ url('shop/checkout') }}">Bezahlen</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              {% endif %}
-            </div>
-        </div>
-    </div>
-</div>
-{% endif %}
- #}

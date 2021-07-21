@@ -1,0 +1,270 @@
+{# Sets default values. #}
+{% set articleCategoriesDeli = articleCategoriesDeli ?? [] %}
+{% set articleCategoriesWine = articleCategoriesWine ?? [] %}
+{% set articleCategoriesStatus = articleCategoriesStatus ?? [] %}
+{% set prices = prices ?? [] %}
+
+{% if reset is defined %}
+    {% set articleCategoriesDeli = [] %}
+    {% set articleCategoriesWine = [] %}
+    {% set articleCategoriesStatus = [] %}
+    {% set prices = [] %}
+{% endif %}
+
+{# Create an array of filters. #}
+{% set filters = {
+    delikatessen: articleCategoriesDeli,
+    articleCategoriesWine: articleCategoriesWine,
+    prices: prices,
+} %}
+
+
+{# Push the URL into the history stack with the filters, adding extra values. #}
+{% do sprig.pushUrl('?' ~ filters|merge({
+    articleCategoriesWine: articleCategoriesWine,
+    delikatessen: articleCategoriesDeli,
+})|url_encode) %}
+
+{# Get options from field (https://craftcms.com/docs/3.x/dropdown-fields.html#saving-dropdown-fields). #}
+
+
+{# Get options from category groups. #}
+{% set catDeliOptions = craft.categories.group('catGroupDeli').all() %}
+{% set catWineOptions = craft.categories.group('catGroupWine').all() %}
+{% set catStatusOptions = craft.categories.group('catGroupStatus').all() %}
+
+{# Create custom options with conditions. #}
+{% set priceOptions = [
+    {
+        label: '1 - 20 CHF',
+        condition: ['and', 'defaultPrice >= 1', 'defaultPrice <= 20'],
+    },
+    {
+        label: '21 - 50 CHF',
+        condition: ['and', 'defaultPrice >= 21', 'defaultPrice <= 50'],
+    },
+    {
+        label: '51 - 100',
+        condition: ['and', 'defaultPrice >= 51', 'defaultPrice <= 100'],
+    },
+    {
+        label: '> 100',
+        condition: ['and', 'defaultPrice > 100'],
+    },
+] %}
+
+{# Generate a product query, eager-loading relationship fields. #}
+{# https://craftcms.com/docs/3.x/element-queries.html #}
+{% set productQuery = craft.products.with(['image', 'articleCategoriesDeli', 'articleCategoriesWine', 'articleCategoriesStatus']) %}
+
+
+{% if articleCategoriesDeli is not empty %}
+    {# https://craftcms.com/docs/3.x/relations.html#the-andrelatedto-parameter #}
+    {% do productQuery.andRelatedTo(articleCategoriesDeli) %}
+{% endif %}
+
+{% if articleCategoriesWine is not empty %}
+    {# https://craftcms.com/docs/3.x/relations.html#the-andrelatedto-parameter #}
+    {% do productQuery.andRelatedTo(articleCategoriesWine) %}
+{% endif %}
+
+{% if articleCategoriesStatus is not empty %}
+    {# https://craftcms.com/docs/3.x/relations.html#the-andrelatedto-parameter #}
+    {% do productQuery.andRelatedTo(articleCategoriesStatus) %}
+{% endif %}
+
+{% set priceConditions = ['or'] %}
+{% for price in prices %}
+    {% if priceOptions[price] is defined %}
+        {# https://craftcms.com/docs/3.x/dev/filters.html#push #}
+        {% set priceConditions = priceConditions|push(priceOptions[price].condition) %}
+    {% endif %}
+{% endfor %}
+{# https://craftcms.com/docs/3.x/element-queries.html#advanced-element-queries #}
+{% do productQuery.andWhere(priceConditions) %}
+
+{# Get products from query. #}
+{% set products = productQuery.all() %}
+
+<div class="flex overflow-hidden">
+    <div class="flex-1 overflow-auto focus:outline-none" tabindex="0">
+        <main class="flex-1 relative pb-8 z-0 overflow-y-auto">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
+                <div class="space-y-2">
+                    <h2 class="heading heading--3">
+                        Filter zurücksetzen
+                        <a href="" sprig s-val:reset="1" title="Reset">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 inline" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </a>
+
+                    </h2>
+
+                    <section>
+                      <div class="grid">
+                        <div class="row">
+                          <div class="col col-xs-12 col-md-12 col-lg-3">
+                            <h4 class="heading heading--4">
+                              Delikatessen
+                            </h4>
+                            {% for catStatusOption in catStatusOptions %}
+                              <div class="">
+                                  <input sprig type="checkbox" id="catstatus-{{ catStatusOption.id }}" name="articleCategoriesStatus[]" value="{{ catStatusOption.id }}" {{ catStatusOption.id in articleCategoriesStatus ? 'checked' }}>
+                                  <label for="catstatus-{{ catStatusOption.id }}" class="">
+                                      {{ catStatusOption.title }}
+                                  </label>
+                              </div>
+                            {% endfor %}
+                          </div>
+                        </div>
+                      </div>
+                    </section>
+
+                    <div class="grid gap-3 sm:grid-cols-4">
+
+                        <div class="bg-white overflow-hidden shadow rounded-lg px-4 py-3">
+                            <div class="text-md leading-7 font-medium text-cool-gray-900">
+                                Delikatessen
+                            </div>
+                            {% for catDeliOption in catDeliOptions %}
+                                <div class="flex items-center">
+                                    <input sprig type="checkbox" id="catdeli-{{ catDeliOption.id }}" name="articleCategoriesDeli[]" value="{{ catDeliOption.id }}" {{ catDeliOption.id in articleCategoriesDeli ? 'checked' }}>
+                                    <label for="catdeli-{{ catDeliOption.id }}" class="text-sm leading-5 font-medium text-cool-gray-500 truncate ml-1">
+                                        {{ catDeliOption.title }}
+                                    </label>
+                                </div>
+                            {% endfor %}
+                        </div>
+                        <div class="bg-white overflow-hidden shadow rounded-lg px-4 py-3">
+                            <div class="text-md leading-7 font-medium text-cool-gray-900">
+                                Weine
+                            </div>
+                            {% for catWineOption in catWineOptions %}
+                                <div class="flex items-center">
+                                    <input sprig type="checkbox" id="catwine-{{ catWineOption.id }}" name="articleCategoriesWine[]" value="{{ catWineOption.id }}" {{ catWineOption.id in articleCategoriesWine ? 'checked' }}>
+                                    <label for="catwine-{{ catWineOption.id }}" class="text-sm leading-5 font-medium text-cool-gray-500 truncate ml-1">
+                                        {{ catWineOption.title }}
+                                    </label>
+                                </div>
+                            {% endfor %}
+                        </div>
+                        <div class="bg-white overflow-hidden shadow rounded-lg px-4 py-3">
+                            <div class="text-md leading-7 font-medium text-cool-gray-900">
+                                Status
+                            </div>
+                            {% for catStatusOption in catStatusOptions %}
+                                <div class="flex items-center">
+                                    <input sprig type="checkbox" id="catstatus-{{ catStatusOption.id }}" name="articleCategoriesStatus[]" value="{{ catStatusOption.id }}" {{ catStatusOption.id in articleCategoriesStatus ? 'checked' }}>
+                                    <label for="catstatus-{{ catStatusOption.id }}" class="text-sm leading-5 font-medium text-cool-gray-500 truncate ml-1">
+                                        {{ catStatusOption.title }}
+                                    </label>
+                                </div>
+                            {% endfor %}
+                        </div>
+                        <div class="bg-white overflow-hidden shadow rounded-lg px-4 py-3">
+                            <div class="text-md leading-7 font-medium text-cool-gray-900">
+                                Preis
+                            </div>
+                            {% for key, priceOption in priceOptions %}
+                                <div class="flex items-center">
+                                    <input sprig type="checkbox" id="price-{{ key }}" name="prices[]" value="{{ key }}" {{ key in prices ? 'checked' }}>
+                                    <label for="price-{{ key }}" class="text-sm leading-5 font-medium text-cool-gray-500 truncate ml-1">
+                                        {{ priceOption.label }}
+                                    </label>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+                    <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+                        <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                            <table class="min-w-full divide-y divide-gray-200">
+                                <thead>
+                                    <tr>
+                                        <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                                            Produkt
+                                        </th>
+
+                                        <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                                            Delikatessen
+                                        </th>
+                                        <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                                            Weine
+                                        </th>
+                                         <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                                            Status
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody class="bg-white divide-y divide-gray-200">
+                                    {% for product in products %}
+                                        <tr>
+                                            <td class="px-6 py-4 whitespace-no-wrap">
+                                                <div class="flex items-center space-x-3">
+                                                    <div class="flex-shrink-0">
+                                                        {% set image = product.image[0] ?? null %}
+                                                        {% if image %}
+                                                            <img src="{{ image.getUrl('thumb') }}" alt="{{ product.title }}" class="h-10 w-10 block rounded-full">
+                                                        {% endif %}
+                                                    </div>
+                                                    <div class="text-sm leading-5">
+                                                        <div class="font-medium text-gray-900">
+                                                            {{ product.title }}
+                                                        </div>
+                                                        <div class="text-gray-500">
+                                                            {{ product.defaultPriceAsCurrency }}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </td>
+
+                                            <td class="px-6 py-3 whitespace-no-wrap">
+                                                <div class="text-sm leading-5 text-gray-500">
+                                                    {% for catDeli in product.articleCategoriesDeli %}
+                                                        {{ catDeli.title }}
+                                                        {{- not loop.last ? ',' }}
+                                                    {% endfor %}
+                                                </div>
+                                            </td>
+                                            <td class="px-6 py-3 whitespace-no-wrap">
+                                                <div class="text-sm leading-5 text-gray-500">
+                                                    {% for catWine in product.articleCategoriesWine %}
+                                                        {{ catWine.title }}
+                                                        {{- not loop.last ? ',' }}
+                                                    {% endfor %}
+                                                </div>
+                                            </td>
+                                            <td class="px-6 py-3 whitespace-no-wrap">
+                                                <div class="text-sm leading-5 text-gray-500">
+                                                    {% for catStatus in product.articleCategoriesStatus %}
+                                                        {{ catStatus.title }}
+                                                        {{- not loop.last ? ',' }}
+                                                    {% endfor %}
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                    {% if products|length == 0 %}
+                                        <tr>
+                                            <td colspan="6" class="px-6 py-3 whitespace-no-wrap">
+                                                <div class="text-center text-lg leading-7 text-gray-700">
+                                                    Keine Produkte gefunden
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+</div>

@@ -1,24 +1,26 @@
 <!-- Template: {{ _self }}.twig -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <title>
-      Shop
+      Shopppppp
     </title>
 
     {# <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script> #}
     {# <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet"> #}
-    {# {% if extraHead is defined %}{{ extraHead }}{% endif %} #}
+    {% if extraHead is defined %}{{ extraHead }}{% endif %}
   </head>
   <body class="relative text-gray-800 flex flex-col min-h-screen">
-    {# {% if cart is not defined %}
-    {% set cart = craft.commerce.carts.cart %}
-{% endif %} #}
+  layouts/main
+    {% if cart is not defined %}
+      {% set cart = craft.commerce.carts.cart %}
+    {% endif %}
 
-    {# {% set flashNotice = craft.app.session.getFlash('notice') %}
-{% set flashError = craft.app.session.getFlash('error') %} #}
+
+{% set flashNotice = craft.app.session.getFlash('notice') %}
+{% set flashError = craft.app.session.getFlash('error') %}
 
     {# {% set classes = {
       input: 'border border-gray-300 hover:border-gray-500 px-4 py-2 leading-tight rounded',
@@ -43,38 +45,6 @@
     {% include 'shop/_includes/nav-checkout' %} #}
     </header>
 
-    {# Add `or true` to this if condition to temporarily see what this flash notice would look like #}
-    {# {% if flashNotice %}
-    <div class="bg-blue-500 text-white">
-        <div class="container mx-auto px-6 py-4">
-            {{ flashNotice ?? 'Test flash notice' }}
-        </div>
-    </div>
-{% endif %} #}
-
-    {# Add `or true` to this if condition to temporarily see what this flash error would look like #}
-    {# {% if flashError %}
-    <div class="bg-red-500 text-white">
-        <div class="container mx-auto px-6 py-4">
-            {{ flashError ?? 'Test flash error' }}
-        </div>
-    </div>
-{% endif %}
-
-{% if cart.errors|length %}
-    <div class="bg-red-500 text-white">
-        <div class="container mx-auto px-6 py-4">
-            {% for attribute, errors in cart.errors %}
-                {% if loop.first %}<ul>{% endif %}
-                {% for key, error in errors %}
-                    <li>{{ attribute }}: {{ error }}</li>
-                {% endfor %}
-                {% if loop.last %}</ul>{% endif %}
-            {% endfor %}
-        </div>
-    </div>
-{% endif %} #}
-
     {% block layout %}
       <div class="container mx-auto p-6 flex-grow">
         {% block content %}
@@ -86,8 +56,8 @@
     {# <footer>
     {% include 'shop/_includes/footer' %}
 </footer> #}
-
-    {# {% if devMode %}
+{#
+    {% if devMode %}
     <script>console.log('Cart on page load: ', {{ cart.toArray()|json_encode|raw }});</script>
 {% endif %} #}
   </body>

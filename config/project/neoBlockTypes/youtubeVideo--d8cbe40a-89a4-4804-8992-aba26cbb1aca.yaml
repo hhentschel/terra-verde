@@ -1,0 +1,25 @@
+childBlocks: null
+field: 9f46731d-7fdd-4245-9ca1-719db0672448 # Inhaltselemente
+fieldLayouts:
+  3e094b04-b6d0-42aa-91a9-5459f65e9569:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 0b42c27d-7e98-4101-b0bd-4f1dacb84869 # Youtube Video Src
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Inhalt
+        sortOrder: 1
+handle: youtubeVideo
+maxBlocks: 0
+maxChildBlocks: 0
+maxSiblingBlocks: 0
+name: 'Youtube Video'
+sortOrder: 13
+topLevel: true
