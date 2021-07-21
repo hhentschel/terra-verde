@@ -3,9 +3,19 @@
 
   &__form {
     display: flex;
+    flex-wrap: wrap;
+
+    @include breakpoint('tablet-portrait') {
+      flex-wrap: nowrap;
+    }
     
     .mc-field-group {
-      margin: 0 px-to-rem($space--m) 0 0;
+      margin: px-to-rem($space--m) 0 px-to-rem($space--s) 0;
+      width: 100%;
+
+      @include breakpoint('tablet-portrait') {
+        margin: 0 px-to-rem($space--m) 0 0;
+      }
     }
   }
 }
