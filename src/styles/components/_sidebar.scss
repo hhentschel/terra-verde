@@ -1,0 +1,25 @@
+
+.nav-sidebar {
+
+  &__item {
+    display: block;
+    
+  }
+  
+  &__link {
+    display: block;
+    padding: px-to-rem($space--xs) 0;
+    font-size: px-to-rem($font-size-m);
+    border-bottom: 1px solid $color--white;
+
+    &:hover {
+      border-bottom: 1px solid $color--text;
+    }
+    
+  }
+
+  &__link--active {
+    border-bottom: 1px solid $color--text;
+    padding-bottom: px-to-rem($space--xs);
+  }
+}
