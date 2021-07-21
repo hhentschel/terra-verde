@@ -24,8 +24,26 @@
   }
 
   &__info-quantity {
-    width: 25%;
+    width: 20%;
     align-self: center;
+    margin: 0 px-to-rem($space--s) 0 0;
+
+    &--input {
+      padding: px-to-rem(12) px-to-rem($space--xs);
+      text-align: center;
+    }
+  }
+
+  &__info-pricestockadd{
+    display: flex;
+    justify-content: space-between;
+    margin: px-to-rem($space--m) 0;
+  }
+
+  &__info-add{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
   }
 
   &__info-price{
