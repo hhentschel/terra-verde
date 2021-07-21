@@ -12,19 +12,9 @@
 {% set prices = prices ?? [] %}
 
 
-
- {% if cart is not defined %}
-      {% set cart = craft.commerce.carts.cart %}
-    {% endif %}
-
-
-
-{# {% set allowedSectionHandles = ['catGroupDeli', 'catGroupWine', 'catGroupStatus', 'catGroupGiftDegu' ] %}
-{% set allowedSections = allowedSectionHandles|map(handle => craft.app.sections.sectionByHandle(handle)) %}
-
-{% set section = section in allowedSectionHandles ? section : allowedSectionHandles|join(',') %} #}
-
-
+{% if cart is not defined %}
+  {% set cart = craft.commerce.carts.cart %}
+{% endif %}
 
 {% if reset is defined %}
     {% set articleCategoriesDeli = [] %}
@@ -37,27 +27,13 @@
     {% set page = '' %}
 {% endif %}
 
-
-
-
-    {#
-    delikatessen: articleCategoriesDeli,
-    weine: articleCategoriesWine,
-    geschenke: articleCategoriesGift,
-    prices: prices,
-    #}
-
-
 {# Get options from field (https://craftcms.com/docs/3.x/dropdown-fields.html#saving-dropdown-fields). #}
-
 
 {# Get options from category groups. #}
 {% set catDeliOptions = craft.categories.group('catGroupDeli').all() %}
 {% set catWineOptions = craft.categories.group('catGroupWine').all() %}
 {% set catStatusOptions = craft.categories.group('catGroupStatus').all() %}
 {% set catGiftOptions = craft.categories.group('catGroupGift').all() %}
-
-
 
 
 {# Create custom options with conditions. #}
@@ -80,22 +56,8 @@
     },
 ] %}
 
-
 {# Defines limit options. #}
 {% set limitOptions = [16, 24, 48] %}
-
-
-{# Generate a product query, eager-loading relationship fields. #}
-{# https://craftcms.com/docs/3.x/element-queries.html #}
-
-{# {% set productQuery = craft.products.with(['articleCategoriesDeli', 'articleCategoriesWine', 'articleCategoriesStatus', 'articleCategoriesGift']) %} #}
-
-{# {% set productQuery = craft.products({
-    search: search,
-    limit: limit,
-    })
-    .with(['articleCategoriesDeli', 'articleCategoriesWine', 'articleCategoriesStatus', 'articleCategoriesGift'])
-%} #}
 
 {% set catDeliID = catDeliID in articleCategoriesDeli ? catDeliID : articleCategoriesDeli|join(',') %}
 {% set catGiftID = catDeliID in articleCategoriesGift ? catDeliID : articleCategoriesGift|join(',') %}
@@ -125,8 +87,10 @@
             withTransforms: ['productListing']
         }]
     ],
-})) %}
+}))
+ %}
 
+{# .order('RAND()') #}
 
 {# Defines maximum number of pages to show. #}
 {% set maxPages = 8 %}
@@ -170,26 +134,7 @@
 
 {% set products = pageInfo.pageResults %}
 
-
-
-
 {% set catSlug = craft.categories.id(catDeliID).first() %}
-
-{# {% set catDeliBalsamico = craft.categories()
-    .id(1647)
-    .one() %}
-
-{% set catGiftSets = craft.categories()
-    .id(10748)
-    .one() %} #}
-
-{# {% set catIDDeli = craft.request.getQuery('sectionID') %} #}
-{# {% set categoryID = craft.categories.id(sectionID).one() %} #}
-
-
-
-
-
 
 {# Push the URL into the history stack with the filters, adding extra values. #}
 {% do sprig.pushUrl('?' ~ filters|merge({
@@ -333,54 +278,26 @@
     <div class="shop-list">
         {% for product in products %}
 
-            {# {% set img = product.articleImage.one() ?? null %}
-            {% set imageUrl = product.articleImage.one()
-              ? product.articleImage.one().getUrl('productListing')
-              : ''
-            %}
-            {% set imageStandardAltText = img
-              and img.imageAltText is defined
-              and img.imageAltText is not empty
-              ? img.imageAltText
-              : ''
-            %}
-            {% set imageAltText = imageAltText is defined and imageAltText is not empty
-              ? imageAltText
-              : imageStandardAltText
-            %}
-            {% set imageStandardCaption = img
-              and img.imageCaption is defined
-              and img.imageCaption is not empty
-              ? img.imageCaption
-              : ''
-            %}
-            {% set imageCaption = imageCaption is defined and imageCaption is not empty
-              ? imageCaption
-              : imageStandardCaption
-            %} #}
             <div class="shop-list__item">
               <a class="shop-list__link" href="{{ product.url }}" >
                 <div class="shop-list__image">
 
-                  {% set image = product.articleImage[0] ?? null %}
+                  {# {% set image = product.articleImage[0] ?? null %}
                   {% if image %}
                       <img src="{{ image.getUrl('productListing') }}" alt="{{ product.title }}" class="block">
+                  {% endif %} #}
+
+                  {% set transform = transformation|default('productListing') %}
+                  {% set img = product.articleImage.one() ?? null %}
+
+                  {% if img is defined %}
+                    {% include '_components/_content-elements/image'
+                      with {
+                        image: img,
+                        transform: transform
+                        } %}
                   {% endif %}
 
-                    {# {% if imageUrl %}
-                    <figure class="image">
-                      <div class="image__wrapper">
-                        <img class="image__img"
-                          src="{{ imageUrl }}"
-                          alt="{{ imageAltText }}" />
-                      </div>
-                      {% if imageCaption %}
-                        <figcaption class="image__caption">
-                          {{ imageCaption }}
-                        </figcaption>
-                      {% endif %}
-                    </figure>
-                  {% endif %} #}
                 </div>
                 <div class="shop-list__text">
                   <h5 class="layout-helper__margin-bottom--none">
@@ -402,11 +319,6 @@
                     }}
                     {# {{ hiddenInput('qty', 1) }} #}
                     {{ csrfInput() }}
-
-                    {# {{ actionInput('commerce/cart/update-cart') }}
-                    {{ successMessageInput('Artikel ' ~ product.title ~ ' wurde zum Warenkorb hinzugefügt.')|hash }}
-                    {{ hiddenInput('clearNotices', true) }}
-                    {{ csrfInput() }} #}
 
                     <div class="shop-list__item-cart">
                         <div class="item-cart__variants">
