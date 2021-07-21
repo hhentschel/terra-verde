@@ -1,0 +1,46 @@
+columnSuffix: null
+contentColumnType: string
+fieldGroup: d5eb7b01-8b1f-4b3f-83c7-ccfa4c76d49d # Inhaltselemente
+handle: buttonLinkColorSimple
+instructions: ''
+name: 'Link Farbe (simple Button)'
+searchable: false
+settings:
+  optgroups: true
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - hellblau
+        -
+          - value
+          - lightblue
+        -
+          - default
+          - '1'
+    -
+      __assoc__:
+        -
+          - label
+          - braun
+        -
+          - value
+          - brown
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - weiss
+        -
+          - value
+          - white-simple
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown

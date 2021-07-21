@@ -36,7 +36,43 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: 0ea32ec6-2007-4dcf-b0f1-12ac84095283
+            fieldUid: 0ea32ec6-2007-4dcf-b0f1-12ac84095283 # Bild
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: e45ebe2d-560e-4f8b-9bc9-6bda46de1a4f # Inhaltselemente Startseite
+            instructions: ''
+            label: ''
+            required: ''
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: a6f0989b-fec7-4460-8864-b015e8efc34e # Neuheiten
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 4c495c1a-4db8-48e1-94fc-15ba7f24bd25 # Aktionen
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: eb0e12f9-6563-4af9-a66b-b29028951bcb # Beliebteste
             instructions: null
             label: null
             required: false
@@ -46,10 +82,23 @@ fieldLayouts:
             width: 100
         name: Inhalt
         sortOrder: 1
+      -
+        elements:
+          -
+            fieldUid: 3e5c3431-66db-4b4c-97d4-8069da3cc21e # News
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: News
+        sortOrder: 2
 handle: homepage
 hasTitleField: false
 name: Startseite
-section: e5c66396-f991-4b4c-8edc-5e4960340ca3
+section: e5c66396-f991-4b4c-8edc-5e4960340ca3 # Startseite
 sortOrder: 1
 titleFormat: '{section.name|raw}'
 titleTranslationKeyFormat: null

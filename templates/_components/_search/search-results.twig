@@ -1,21 +1,23 @@
 {% import '_helpers/macros.twig' as macros %}
 
 {% set offset = offset ?? 0 %}
-{% set limit = 3 %}
+{% set limit = 12 %}
 
-{% set query = query ?? '' %}
+{% set search = search ?? '' %}
 
-<form sprig class="search__form">
+<form class="search__form" s-replace=".search__wrapper">
   <label class="visually-hidden" for="search-field">
     {{ 'search.button.text'|t }}
   </label>
   <input id="search"
     type="text"
     class="search__input"
-    name="query"
-    value="{{ query }}"
+    name="search"
+    value="{{ search }}"
+    sprig
+    s-trigger="keyup changed delay:300ms"
     aria-controls="search-results"
-    s-replace=".search__results"
+
     autofocus="true" />
   <button type="submit" class="search__button">
     {{
@@ -27,28 +29,28 @@
   </button>
 </form>
 
-{% set entryQuery = craft.products.search(query) %}
+{% set entryQuery = craft.products.search(search) %}
 {% set products = entryQuery.offset(offset).limit(limit).all() %}
 
 <div class="search__wrapper">
-  {% if query %}
+  {% if search %}
     <p>
       {{ entryQuery|length }} {{ 'search.results.length'|t }}
     </p>
     <div class="search__results" aria-live="polite">
       {% if entryQuery is not empty %}
-        <div class="search__item">
-          <ul>
+          <ul class="search__results-list">
             {% for product in products %}
-              <li>
+              <li class="search__results-item">
                 <a href="{{ product.url }}">
+                  <span class="search__results-title">
+                    {{ product.title }}
+                  </span>
                   {% include '_components/_content-elements/imageshop' %}
-                  {{ product.title }}
                 </a>
               </li>
             {% endfor %}
           </ul>
-        </div>
 
         {% if entryQuery.count() > offset + (products|length) %}
           <div class="search__load-more">

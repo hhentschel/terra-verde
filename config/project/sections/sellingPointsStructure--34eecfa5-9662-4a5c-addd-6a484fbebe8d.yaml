@@ -1,6 +1,7 @@
+defaultPlacement: end
 enableVersioning: true
 handle: sellingPointsStructure
-name: Verkaufsstellen
+name: 'Verkaufsstellen Orte'
 previewTargets:
   -
     __assoc__:
@@ -15,11 +16,11 @@ previewTargets:
         - '1'
 propagationMethod: all
 siteSettings:
-  dd0cd05e-0cb9-4a76-b993-3cb70e6fc147:
+  dd0cd05e-0cb9-4a76-b993-3cb70e6fc147: # Terra Verde
     enabledByDefault: true
     hasUrls: true
-    template: _pages/verkaufsstellen/index
-    uriFormat: '{slug}'
+    template: _pages/verkaufsstellen/_entry
+    uriFormat: '{% if object.level == 1 %}verkaufsstellen/{slug}{% else %}{parent.uri}/{slug}{% endif %}'
 structure:
   maxLevels: null
   uid: 1f262d1c-2a57-4da5-9e82-050b32349a2e

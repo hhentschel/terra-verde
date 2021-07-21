@@ -1,0 +1,23 @@
+columnSuffix: null
+contentColumnType: string
+fieldGroup: 8e1d4181-5012-4bbc-9a55-048bb89f0863 # Super Filter
+handle: superFilterShowTags
+instructions: null
+name: 'Show Tags'
+searchable: false
+settings:
+  allowLimit: false
+  allowMultipleSources: false
+  allowSelfRelations: false
+  limit: null
+  localizeRelations: false
+  selectionLabel: null
+  showSiteMenu: false
+  source: 'taggroup:6545750d-55a9-4713-99e3-2aa767e3bb97' # Show Tags
+  sources: '*'
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: null
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Tags

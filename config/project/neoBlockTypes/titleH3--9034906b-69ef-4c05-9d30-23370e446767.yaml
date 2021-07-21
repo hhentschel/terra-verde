@@ -1,0 +1,25 @@
+childBlocks: null
+field: 9f46731d-7fdd-4245-9ca1-719db0672448 # Inhaltselemente
+fieldLayouts:
+  3b068269-918e-4203-a73d-dcde7f126fc1:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: cbf7f593-68bf-4c83-b97d-b6959558cb3e # Titel H3
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Inhalt
+        sortOrder: 1
+handle: titleH3
+maxBlocks: 0
+maxChildBlocks: 0
+maxSiblingBlocks: 0
+name: 'Titel H3'
+sortOrder: 3
+topLevel: true

@@ -1,0 +1,40 @@
+fieldLayouts:
+  1d221156-f409-4f72-91b8-5cb19f1e7c4d:
+    tabs:
+      -
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\AssetTitleField
+            warning: null
+            width: 100
+        name: Inhalt
+        sortOrder: 1
+handle: contentImages
+hasUrls: true
+name: Inhaltsbilder
+settings:
+  path: '@webroot/assets/images/content/content/'
+sortOrder: 0
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
+type: craft\volumes\Local
+url: '@web/assets/images/content/content/'

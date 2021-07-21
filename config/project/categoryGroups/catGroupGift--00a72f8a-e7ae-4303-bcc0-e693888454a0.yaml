@@ -1,0 +1,41 @@
+defaultPlacement: end
+fieldLayouts:
+  3e429cc1-eb73-4e69-bbad-f6c1a741e5f7:
+    tabs:
+      -
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\TitleField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+handle: catGroupGift
+name: Geschenke
+siteSettings:
+  dd0cd05e-0cb9-4a76-b993-3cb70e6fc147: # Terra Verde
+    hasUrls: true
+    template: null
+    uriFormat: 'geschenke/{slug}'
+structure:
+  maxLevels: null
+  uid: 03de2fba-88de-4c93-8dbc-c10f11c14870

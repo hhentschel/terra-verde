@@ -1,5 +1,5 @@
 handle: dummy
-isFrontendEnabled: true
+isFrontendEnabled: false
 name: Dummy
 paymentType: purchase
 settings: null

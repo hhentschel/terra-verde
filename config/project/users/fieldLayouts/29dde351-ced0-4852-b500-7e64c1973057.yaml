@@ -1,0 +1,144 @@
+tabs:
+  -
+    elements:
+      -
+        fieldUid: 1baab5b6-ddf1-4a49-8435-b3bd6a0cc383 # Anrede
+        instructions: null
+        label: null
+        required: false
+        tip: null
+        type: craft\fieldlayoutelements\CustomField
+        warning: null
+        width: 25
+      -
+        fieldUid: 982a8eec-f2e3-4260-b25a-904d904b42a9 # Firma
+        instructions: null
+        label: null
+        required: false
+        tip: null
+        type: craft\fieldlayoutelements\CustomField
+        warning: null
+        width: 75
+      -
+        fieldUid: ada66c36-aa65-4328-b07e-d15f78f13aca # Fax
+        instructions: null
+        label: null
+        required: false
+        tip: null
+        type: craft\fieldlayoutelements\CustomField
+        warning: null
+        width: 50
+      -
+        fieldUid: c280f1d1-4f12-4055-8607-8006585970fd # Telefon
+        instructions: null
+        label: null
+        required: false
+        tip: null
+        type: craft\fieldlayoutelements\CustomField
+        warning: null
+        width: 50
+      -
+        fieldUid: 3e664364-e972-44e5-9819-78e6cf9ba210 # Telefon (Mobile)
+        instructions: null
+        label: null
+        required: false
+        tip: null
+        type: craft\fieldlayoutelements\CustomField
+        warning: null
+        width: 50
+      -
+        fieldUid: 942ff559-0290-4738-ae31-bd8570484d25 # Adresse
+        instructions: null
+        label: null
+        required: false
+        tip: null
+        type: craft\fieldlayoutelements\CustomField
+        warning: null
+        width: 50
+      -
+        fieldUid: fdcda0cf-8d3c-45eb-ae6f-6a586a0b8d57 # Zusatz Adresse
+        instructions: null
+        label: null
+        required: false
+        tip: null
+        type: craft\fieldlayoutelements\CustomField
+        warning: null
+        width: 50
+      -
+        fieldUid: be930c36-7ffe-488b-b6c5-783c77c32830 # Stadt
+        instructions: null
+        label: null
+        required: false
+        tip: null
+        type: craft\fieldlayoutelements\CustomField
+        warning: null
+        width: 50
+      -
+        fieldUid: dbadaaf2-9348-4069-9d8d-3e8e37e3d775 # Postleitzahl
+        instructions: null
+        label: null
+        required: false
+        tip: null
+        type: craft\fieldlayoutelements\CustomField
+        warning: null
+        width: 50
+      -
+        fieldUid: a43c6629-df33-4fa2-a5ca-e073c8ca5841 # Mitteilung
+        instructions: null
+        label: null
+        required: false
+        tip: null
+        type: craft\fieldlayoutelements\CustomField
+        warning: null
+        width: 100
+    name: Info
+    sortOrder: 1
+  -
+    elements:
+      -
+        fieldUid: 4ff5359a-7eb1-4b55-8c8e-757d5eb9f541 # VirtueMart-user-Id
+        instructions: null
+        label: null
+        required: false
+        tip: null
+        type: craft\fieldlayoutelements\CustomField
+        warning: null
+        width: 100
+      -
+        fieldUid: 07a64db3-fc15-40a2-af10-a8499ce5a108 # VirtueMart-userInfo-Id
+        instructions: null
+        label: null
+        required: false
+        tip: null
+        type: craft\fieldlayoutelements\CustomField
+        warning: null
+        width: 100
+      -
+        fieldUid: 34406d5e-074d-493b-9894-adb4145b5f83 # AGB
+        instructions: null
+        label: null
+        required: false
+        tip: null
+        type: craft\fieldlayoutelements\CustomField
+        warning: null
+        width: 50
+      -
+        fieldUid: fcafffd6-069a-4a92-95f7-70ffeac6759d # Alterüberprüfung
+        instructions: null
+        label: null
+        required: false
+        tip: null
+        type: craft\fieldlayoutelements\CustomField
+        warning: null
+        width: 50
+      -
+        fieldUid: 9dd685d0-40db-4d68-81b5-48322accac9a # Zustimmung
+        instructions: null
+        label: null
+        required: false
+        tip: null
+        type: craft\fieldlayoutelements\CustomField
+        warning: null
+        width: 100
+    name: VirtueMart
+    sortOrder: 2

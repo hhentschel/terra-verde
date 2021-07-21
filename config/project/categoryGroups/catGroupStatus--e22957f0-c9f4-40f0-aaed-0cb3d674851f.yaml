@@ -1,0 +1,41 @@
+defaultPlacement: end
+fieldLayouts:
+  f4ec98a8-63f0-45b0-af03-5c996f800e1c:
+    tabs:
+      -
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\TitleField
+            warning: null
+            width: 100
+        name: Inhalt
+        sortOrder: 1
+handle: catGroupStatus
+name: Status
+siteSettings:
+  dd0cd05e-0cb9-4a76-b993-3cb70e6fc147: # Terra Verde
+    hasUrls: true
+    template: null
+    uriFormat: 'status/{slug}'
+structure:
+  maxLevels: null
+  uid: c9f8974a-c076-4e0e-9ab5-6b243cd18438

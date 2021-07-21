@@ -4,7 +4,7 @@ fieldLayouts:
       -
         elements:
           -
-            fieldUid: 4fbda939-0a27-483c-a7c8-7def0a9418ee
+            fieldUid: 4fbda939-0a27-483c-a7c8-7def0a9418ee # Adresse
             instructions: null
             label: null
             required: false
@@ -13,7 +13,7 @@ fieldLayouts:
             warning: null
             width: 50
           -
-            fieldUid: a6d404c5-d5dc-4ac6-846b-d068efafba1a
+            fieldUid: a6d404c5-d5dc-4ac6-846b-d068efafba1a # Telefon
             instructions: null
             label: null
             required: false
@@ -22,7 +22,7 @@ fieldLayouts:
             warning: null
             width: 25
           -
-            fieldUid: ab11f679-477b-4903-9086-d00fb5489f93
+            fieldUid: ab11f679-477b-4903-9086-d00fb5489f93 # Fax
             instructions: null
             label: null
             required: false
@@ -33,7 +33,7 @@ fieldLayouts:
           -
             type: craft\fieldlayoutelements\HorizontalRule
           -
-            fieldUid: 2a604d11-f35a-4546-a33a-b2465e0017a9
+            fieldUid: 2a604d11-f35a-4546-a33a-b2465e0017a9 # Email 1
             instructions: null
             label: null
             required: false
@@ -42,7 +42,7 @@ fieldLayouts:
             warning: null
             width: 50
           -
-            fieldUid: af1c566f-cdf2-4ae1-a225-934165929d1a
+            fieldUid: af1c566f-cdf2-4ae1-a225-934165929d1a # Email 2
             instructions: null
             label: null
             required: false
@@ -53,7 +53,7 @@ fieldLayouts:
           -
             type: craft\fieldlayoutelements\HorizontalRule
           -
-            fieldUid: 673dbddb-972b-44b7-b50c-ac5b649321ab
+            fieldUid: 673dbddb-972b-44b7-b50c-ac5b649321ab # Öffnungszeiten
             instructions: null
             label: null
             required: false
@@ -62,7 +62,7 @@ fieldLayouts:
             warning: null
             width: 50
           -
-            fieldUid: 023a6dc1-c7ac-4b4a-9908-220b69485841
+            fieldUid: 023a6dc1-c7ac-4b4a-9908-220b69485841 # Öffnungszeiten Samstag
             instructions: null
             label: null
             required: false
@@ -74,3 +74,4 @@ fieldLayouts:
         sortOrder: 1
 handle: footerGlobal
 name: Footer
+sortOrder: 2

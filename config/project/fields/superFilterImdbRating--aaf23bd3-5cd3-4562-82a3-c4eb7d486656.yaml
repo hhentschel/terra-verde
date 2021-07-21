@@ -1,0 +1,60 @@
+columnSuffix: null
+contentColumnType: string
+fieldGroup: 8e1d4181-5012-4bbc-9a55-048bb89f0863 # Super Filter
+handle: superFilterImdbRating
+instructions: null
+name: 'Imdb Rating'
+searchable: true
+settings:
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - 4
+        -
+          - value
+          - '4'
+    -
+      __assoc__:
+        -
+          - label
+          - 5
+        -
+          - value
+          - '5'
+    -
+      __assoc__:
+        -
+          - label
+          - 6
+        -
+          - value
+          - '6'
+    -
+      __assoc__:
+        -
+          - label
+          - 7
+        -
+          - value
+          - '7'
+    -
+      __assoc__:
+        -
+          - label
+          - 8
+        -
+          - value
+          - '8'
+    -
+      __assoc__:
+        -
+          - label
+          - 9
+        -
+          - value
+          - '9'
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\RadioButtons

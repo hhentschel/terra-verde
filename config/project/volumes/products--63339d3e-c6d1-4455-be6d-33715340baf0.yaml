@@ -34,5 +34,7 @@ name: Produkte
 settings:
   path: '@webroot/assets/images/content/products/'
 sortOrder: 1
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
 type: craft\volumes\Local
 url: '@web/assets/images/content/products/'

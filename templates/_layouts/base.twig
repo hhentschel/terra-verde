@@ -28,13 +28,12 @@
       }
     } %}
 
+      {% set flashNotice = craft.app.session.getFlash('notice') %}
+      {% set flashError = craft.app.session.getFlash('error') %}
 
-    {% set flashNotice = craft.app.session.getFlash('notice') %}
-    {% set flashError = craft.app.session.getFlash('error') %}
+      {% block layout %}
 
-    {% block layout %}
-
-    {% endblock %}
+      {% endblock %}
 
     {% include '_layouts/_includes/scripts' %}
 

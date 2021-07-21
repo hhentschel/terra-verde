@@ -1,0 +1,32 @@
+fieldLayouts:
+  e7c0c9f8-e3bd-41d8-aa79-cc5e3493c431:
+    tabs:
+      -
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\TitleField
+            warning: null
+            width: 100
+        name: Inhalt
+        sortOrder: 1
+handle: superFiltershowTags
+name: 'Show Tags'

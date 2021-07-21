@@ -28,7 +28,8 @@
                   <div class="mt-3">
                     <form method="post">
                       {{ actionInput('commerce/cart/update-cart') }}
-                      {{ redirectInput('shop/checkout/payment-method') }}
+                      {{ redirectInput('shop/checkout/payment') }}
+                      {# {{ redirectInput('shop/checkout/payment-method') }} #}
                       {{ csrfInput() }}
 
                       {% for handle, method in cart.availableShippingMethodOptions %}

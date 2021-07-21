@@ -1,0 +1,24 @@
+columnSuffix: null
+contentColumnType: string
+fieldGroup: 8e1d4181-5012-4bbc-9a55-048bb89f0863 # Super Filter
+handle: superFilterGenre
+instructions: null
+name: Genre
+searchable: false
+settings:
+  allowLimit: false
+  allowMultipleSources: false
+  allowSelfRelations: false
+  branchLimit: null
+  limit: null
+  localizeRelations: false
+  selectionLabel: null
+  showSiteMenu: false
+  source: 'group:c34200c2-6fd8-4eaa-afaa-7076e4ee7461'
+  sources: '*'
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: null
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Categories

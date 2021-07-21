@@ -1,0 +1,25 @@
+childBlocks: null
+field: 9f46731d-7fdd-4245-9ca1-719db0672448 # Inhaltselemente
+fieldLayouts:
+  ae0a4eac-af53-427b-a198-2a3d875b8f1a:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: c3f0c673-202d-479d-bbfc-ae5189d0760d # Tabelle
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Inhalt
+        sortOrder: 1
+handle: table
+maxBlocks: 0
+maxChildBlocks: 0
+maxSiblingBlocks: 0
+name: Tabelle
+sortOrder: 6
+topLevel: true

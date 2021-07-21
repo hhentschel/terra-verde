@@ -1,3 +1,4 @@
+defaultPlacement: end
 enableVersioning: true
 handle: newStructure
 name: Neues
@@ -15,11 +16,11 @@ previewTargets:
         - '1'
 propagationMethod: all
 siteSettings:
-  dd0cd05e-0cb9-4a76-b993-3cb70e6fc147:
+  dd0cd05e-0cb9-4a76-b993-3cb70e6fc147: # Terra Verde
     enabledByDefault: true
     hasUrls: true
-    template: _pages/neues/index
-    uriFormat: '{slug}'
+    template: _pages/aktuell/entry
+    uriFormat: 'aktuell/{slug}'
 structure:
   maxLevels: null
   uid: 94c1e190-c7ab-4543-90a9-e7d6cc43a68a

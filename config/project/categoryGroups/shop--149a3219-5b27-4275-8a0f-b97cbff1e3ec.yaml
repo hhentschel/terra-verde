@@ -1,0 +1,77 @@
+defaultPlacement: end
+fieldLayouts:
+  166b596f-e29a-4ee8-8a58-d4452aae565f:
+    tabs:
+      -
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\TitleField
+            warning: null
+            width: 100
+          -
+            fieldUid: 641bd187-bf07-49f6-9cdd-90462c76cc88 # Nummer
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: 4572c692-2d3a-4c96-ae75-06bc37ceb6e2 # Einordnung
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: b3b2990b-d4d1-42dc-81cd-09d825a893a0 # Bezeichnung
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: 05cb055e-53ce-470a-9d53-333696986ac7 # Zusatz
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+        name: Inhalt
+        sortOrder: 1
+handle: shop
+name: Shop
+siteSettings:
+  dd0cd05e-0cb9-4a76-b993-3cb70e6fc147: # Terra Verde
+    hasUrls: true
+    template: null
+    uriFormat: 'shop/{slug}'
+structure:
+  maxLevels: null
+  uid: fad6640f-5fe2-444d-83f5-79a159820d8a
