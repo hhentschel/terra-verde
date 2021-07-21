@@ -3,5 +3,9 @@
 
   &__form {
     display: flex;
+    
+    .mc-field-group {
+      margin: 0 px-to-rem($space--m) 0 0;
+    }
   }
 }
