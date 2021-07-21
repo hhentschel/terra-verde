@@ -172,7 +172,7 @@
       <div class="col col-xs-12 col-md-4 col-lg-4">
 
         <div class="">
-            <label for="search" class="heading--4 heading">
+            <label for="search" class="heading--2 heading no-border">
                 Suche
             </label>
             <div class="">
@@ -183,9 +183,9 @@
       </div>
 
       <div class="col col-xs-12 col-md-2 col-lg-2">
-        <h4 class="heading heading--4 layout-helper__margin-top--none">
+        <h2 class="heading heading--2 layout-helper__margin-top--none">
           Aktuell
-        </h4>
+        </h2>
         {% for catStatusOption in catStatusOptions %}
           <div class="filter__checkbox">
               <input sprig type="checkbox" id="catstatus-{{ catStatusOption.id }}" name="articleCategoriesStatus[]" value="{{ catStatusOption.id }}" {{ catStatusOption.id in articleCategoriesStatus ? 'checked' }}>
@@ -197,9 +197,9 @@
       </div>
 
        <div class="col col-xs-12 col-md-6 col-lg-6">
-        <h4 class="heading heading--4 layout-helper__margin-top--none">
+        <h2 class="heading heading--2 layout-helper__margin-top--none">
           Geschenksets
-        </h4>
+        </h2>
         <div class="filter__gift">
          {% for catGiftOption in catGiftOptions %}
           <div class="filter__checkbox">
@@ -226,9 +226,9 @@
 
     <div class="row">
       <div class="col col-xs-12 col-md-12 col-lg-9">
-        <h4 class="heading heading--4">
+        <h2 class="heading heading--2">
           Delikatessen
-        </h4>
+        </h2>
           <div class="filter__deli">
             {% for catDeliOption in catDeliOptions %}
                 <div class="filter__checkbox filter__deli--checkbox">
@@ -242,9 +242,9 @@
       </div>
 
       <div class="col col-xs-12 col-md-12 col-lg-3">
-        <h4 class="heading heading--4">
+        <h2 class="heading heading--2">
           Weine
-        </h4>
+        </h2>
         {% for catWineOption in catWineOptions %}
             <div class="filter__checkbox">
                 <input sprig type="checkbox" id="catwine-{{ catWineOption.id }}" name="articleCategoriesWine[]" value="{{ catWineOption.id }}" {{ catWineOption.id in articleCategoriesWine ? 'checked' }}>
@@ -300,9 +300,9 @@
 
                 </div>
                 <div class="shop-list__text">
-                  <h5 class="layout-helper__margin-bottom--none">
+                  <h3 class="layout-helper__margin-bottom--none">
                     {{ product.title }}
-                  </h5>
+                  </h3>
                   <span>
                     {{ product.defaultPrice|currency('CHF') }}
                   </span>
