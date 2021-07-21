@@ -12,20 +12,36 @@
 }
 
 .homepage-news {
-  position: absolute;
-  right: 0;
+  display: none;
   background-color: $color--beige-light;
-  bottom: -50px;
-  max-width: 30vw;
-  padding: px-to-rem($space--xxm);
-
+  
+  &__title {
+    font-weight: $font-weight--bold;
+  }
+  
   &__time,
   &__location {
     display: block;
   }
+  
+  @include breakpoint('tablet-landscape') {
+    display: block;
+    position: absolute;
+    right: 0;
+    bottom: -50px;
+    max-width: 30vw;
+    padding: px-to-rem($space--xxm);
+  }
+  
+  &--mobile {
+    display: block;
+    margin-top: -(px-to-rem($space--xl));
+    margin-bottom: px-to-rem($space--xxm);
+    padding: px-to-rem($space--xm);
 
-  &__title {
-    font-weight: $font-weight--bold;
+    @include breakpoint('tablet-landscape') {
+      display: none;
+    }
   }
 }
 
@@ -56,6 +72,10 @@
 
   &__product {
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
 
     &--heading {
       text-align: center;
@@ -111,7 +131,10 @@
   
   &__campaigns {
     background-color: $color--primary;
-    // min-height: 100px;
+
+    .heading--h3 {
+      color: $color--white;
+    }
   }
   
   &__favorites {
