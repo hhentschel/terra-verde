@@ -12,6 +12,20 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
 
 .filter {
   margin: 0 0 px-to-rem($space--m) 0;
+
+
+  .heading--2 {
+    font-size: px-to-rem($font-size-m);
+    font-weight: 300;
+    text-transform: uppercase;
+    border-bottom: 1px solid $color--text;
+    padding-bottom: px-to-rem($space--xs);
+  }
+
+  .no-border {
+    border: 0;
+    padding: 0;
+  }
   
   &__checkbox {
     display: flex;
@@ -203,6 +217,7 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-between;
 
     padding: 0 ($shop-list__grid-gutter--phone / 2) ($shop-list__grid-gutter--phone / 3) ($shop-list__grid-gutter--phone / 2);
 
@@ -210,7 +225,16 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
       padding: 0 $shop-list__grid-gutter--tablet / 2 $shop-list__grid-gutter--tablet / 2 $shop-list__grid-gutter--tablet / 2;
     }
     @include breakpoint('desktop') {
-      padding: 0 ($shop-list__grid-gutter--desktop / 2) ($shop-list__grid-gutter--desktop / 3) ($shop-list__grid-gutter--desktop / 2);
+      padding: ($shop-list__grid-gutter--desktop / 4) ($shop-list__grid-gutter--desktop / 2) ($shop-list__grid-gutter--desktop / 3) ($shop-list__grid-gutter--desktop / 2);
+    }
+
+    > h3 {
+      line-height: $line-height--xm;
+      text-align: center;
+      padding: px-to-rem($space--s);
+    }
+    > span {
+      font-weight: $font-weight--bold;
     }
   }
 
@@ -245,6 +269,7 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
   &__link {
     display: block;
     height: 100%;
+    padding-bottom: px-to-rem($space--m);
   }
 
   &__no-result {
