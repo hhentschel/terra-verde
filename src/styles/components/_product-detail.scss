@@ -38,6 +38,12 @@
     display: flex;
     justify-content: space-between;
     margin: px-to-rem($space--m) 0;
+    flex-wrap: wrap;
+    
+    @include breakpoint('tablet-landscape') {
+      
+      flex-wrap: nowrap;
+    }
   }
 
   &__info-add{
@@ -53,7 +59,14 @@
 
   &__info-stock{
     align-self: center;
-    font-size: px-to-rem($space--s);
+    font-size: px-to-rem($space--m);
+
+    &-in {
+      color: $color--green;
+    }
+    &-out {
+      color: $color--red-error;
+    }
   }
 
   &__info-button {

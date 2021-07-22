@@ -18,7 +18,7 @@
         </h2>
 
         <div class="row">
-          <div class="col col-xs-12 col-md-12 col-lg-6">
+          <div class="col col-xs-12 col-md-6 col-lg-6">
             <div class="product-detail__image">
 
               {% set transform = transformation|default('productDetail') %}
@@ -34,7 +34,7 @@
 
             </div>
           </div>
-          <div class="col col-xs-12 col-md-12 col-lg-6">
+          <div class="col col-xs-12 col-md-6 col-lg-6">
 
              <h4 class="">
               {{ product.articleDescription}}
@@ -79,9 +79,9 @@
 
                         <div class="form-addtobasket__info-stock">
                             {% if variant.stock > 0 %}
-                              <span class="">verfügbar</span>
+                              <span class="form-addtobasket__info-stock-in">verfügbar</span>
                             {% else %}
-                              <span class="">momentan nicht verfügbar</span>
+                              <span class="form-addtobasket__info-stock-out">momentan nicht verfügbar</span>
                             {% endif %}
                         </div>
                       </div>
@@ -95,6 +95,9 @@
                             value="1"
                             step="1"
                             min="1"
+                            {% if variant.stock < 0 %}
+                              disabled
+                            {% endif %}
                             />
                         </div>
 
@@ -115,11 +118,11 @@
 
           </div>
 
-          <div class="col col-xs-12 col-md-12 col-lg-6">
+          <div class="col col-xs-12 col-md-6 col-lg-6">
           </div>
 
 
-          <div class="col col-xs-12 col-md-12 col-lg-6">
+          <div class="col col-xs-12 col-md-6 col-lg-6">
 
             <h3 class="heading heading--3">Beschreibung</h3>
             {% if product.articleNumber %}
