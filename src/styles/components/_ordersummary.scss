@@ -1,0 +1,51 @@
+
+
+.ordersummary {
+  &__info {
+    display: flex;
+    flex-direction: column;
+    
+    @include breakpoint('tablet-landscape') {
+      flex-direction: row;
+
+    }
+  }
+
+  &__info-term {
+    width: auto;
+    margin: px-to-rem($space--xxs) 0;
+    
+    @include breakpoint('tablet-landscape') {
+      width: 20%;
+
+    }
+  }
+
+  &__info-data {
+    font-weight: $font-weight--bold;
+  }
+
+  &__table {
+    margin: px-to-rem($space--xm) 0;
+    &-head {
+      background-color: $color--grey-lighter;
+      padding: px-to-rem($space--xs);
+    }
+
+    .table-head {
+      &__product {
+        text-align: left;
+      }
+      
+      &__qyt {
+        
+      }
+      
+      &__price {
+        vertical-align: middle;
+        text-align: right;
+      }
+    }
+  }
+
+}
