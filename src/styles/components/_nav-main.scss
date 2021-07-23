@@ -114,7 +114,7 @@ $nav-main--button-list--carret-transition-easing: easing(open);
         border-radius: 50%;
         top: 0;
         font-size: px-to-rem(10);
-        padding: px-to-rem($space--xs) px-to-rem($space--s);
+        padding: px-to-rem(4) px-to-rem($space--s);
         margin: -(px-to-rem($space--m)) 0 -(px-to-rem($space--m)) 0;
         background-color: $color--primary;
         color: $color--white;

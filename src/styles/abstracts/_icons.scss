@@ -18,6 +18,13 @@
   }
 }
 
+.icon--svg {
+  height: 1.5em;
+  width: 1.5em;
+  fill: inherit;
+    stroke: inherit;
+}
+
 .icon--24 {
   height: px-to-rem(24);
   width: px-to-rem(24);

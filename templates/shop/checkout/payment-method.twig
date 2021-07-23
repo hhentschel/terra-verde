@@ -31,9 +31,10 @@
 
         {% if availableGateways|length %}
           <div class="mt-3">
-            <form method="post" action="" class="relative border-b-1 mb-4">
+            <form method="post" action="" class="forms__checkout relative border-b-1 mb-4">
               {{ actionInput('commerce/cart/update-cart') }}
               {{ redirectInput('shop/checkout/payment') }}
+
               {{ csrfInput() }}
 
               <div class="mt-3">
@@ -42,6 +43,10 @@
                   paymentSources: paymentSources
                 } %}
               </div>
+
+              {# <div>
+                 {% include 'shop/checkout/_includes/pickup-bill' %}
+              </div> #}
 
               <div class="mt-3">
                 {% include 'shop/checkout/_includes/currencies' %}
@@ -56,6 +61,15 @@
             </form>
           </div>
         {% endif %}
+
+        {# <form method="post">
+            {{ csrfInput() }}
+            {{ hiddenInput('action', 'commerce/cart/complete') }}
+            {{ redirectInput('/shop/customer/order?number='~cart.number~'&success=true') }}
+
+            <button type="submit">Commit to Buy</button>
+        </form> #}
+
       </div>
       <div class="col col-xs-12 col-md-4 col-lg-4">
         {% include 'shop/checkout/_includes/order-summary' with {

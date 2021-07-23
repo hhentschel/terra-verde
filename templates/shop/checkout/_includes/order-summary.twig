@@ -15,30 +15,36 @@
     Bestellübersicht
   </h3>
 
-  {% if showShippingAddress %}
-    <div class="">
-      <h4 class="heading heading--4 heading--no-margin-top">
-        Versand nach:
-      </h4>
-      {% if cart.shippingAddress %}
-        <div class="address-select js-address-select border-0">
-          {% include 'shop/_includes/addresses/address' with {
-            address: cart.shippingAddress
-          } %}
-        </div>
-      {% else %}
-        <p>
-          Keine Versandadresse ausgewählt.
-        </p>
-      {% endif %}
+ {% if cart.shippingMethodHandle == 'pickUpAtStore' %}
+      {{ hiddenInput('shippingSameAsBilling', 1) }}
+  {% else %}
 
-      {% if currentUser %}
-        <a class="edit button button--edit button--secondary"
-          href="{{ url('shop/checkout/addresses') }}">
-          Adresse bearbeiten
-        </a>
-      {% endif %}
-    </div>
+    {% if showShippingAddress %}
+      <div class="">
+        <h4 class="heading heading--4 heading--no-margin-top">
+          Versand nach:
+        </h4>
+        {% if cart.shippingAddress %}
+          <div class="address-select js-address-select border-0">
+            {% include 'shop/_includes/addresses/address' with {
+              address: cart.shippingAddress
+            } %}
+          </div>
+        {% else %}
+          <p>
+            Keine Versandadresse ausgewählt.
+          </p>
+        {% endif %}
+
+        {% if currentUser %}
+          <a class="edit button button--edit button--secondary"
+            href="{{ url('shop/checkout/addresses') }}">
+            Adresse bearbeiten
+          </a>
+        {% endif %}
+      </div>
+    {% endif %}
+
   {% endif %}
 
   {% if showShippingMethod %}
