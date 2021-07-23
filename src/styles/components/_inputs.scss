@@ -117,6 +117,7 @@ input[type='submit'].input {
 input[type='radio']{
   position: relative;
   right: 0;
+  
   &:checked {
     background-color:$color--primary;
     height: 20px;
@@ -128,6 +129,16 @@ input[type='radio']{
     z-index: 100;
     margin: 0 px-to-rem($space--m);
    
+  }
+
+  .forms__checkout & {
+    -webkit-appearance: radio;
+    margin: 0 px-to-rem($space--m);
+    width: 20px; 
+
+    &:checked {
+      -webkit-appearance: radio;
+    }
   }
 }
 
