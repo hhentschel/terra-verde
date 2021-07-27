@@ -137,10 +137,7 @@
         {% if cart.shippingMethodHandle == 'pickUpAtStore' %}
         hui
           {# {% set totalDiscount = (cart.totalPrice * (5/100)) %} #}
-          {% set totalDiscount = '4' %}
-          <pre>
-            {{ dump(totalDiscount) }}
-          </pre>
+          {# {% set totalDiscount = '4' %} #}
           {{ ((cart.totalDiscount * - 1) * (5/100) )|commerceCurrency(cart.currency) }}
         {% else %}
         hä

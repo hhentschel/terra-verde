@@ -278,10 +278,14 @@
     <div class="shop-list">
         {% for product in products %}
 
+            {% for variant in product.getVariants() %}
             <div class="shop-list__item">
               <a class="shop-list__link" href="{{ product.url }}" >
                 <div class="shop-list__image">
-
+                  {% if variant.onSale %}
+                  <div class="onsale">
+                  </div>
+                   {% endif %}
                   {# {% set image = product.articleImage[0] ?? null %}
                   {% if image %}
                       <img src="{{ image.getUrl('productListing') }}" alt="{{ product.title }}" class="block">
@@ -299,14 +303,21 @@
                   {% endif %}
 
                 </div>
+
                 <div class="shop-list__text">
                   <h3 class="layout-helper__margin-bottom--none">
                     {{ product.title }}
                   </h3>
                   <span>
-                    {{ product.defaultPrice|currency('CHF') }}
+                    {% if variant.onSale %}
+                      <strike>{{variant.price|currency('CHF')}}</strike>
+                      {{ variant.salePrice|currency('CHF')}}
+                    {% else %}
+                      {{ product.defaultPrice|currency('CHF') }}
+                    {% endif %}
                   </span>
                 </div>
+
               </a>
 
                 <form method="post" class="js-form">
@@ -403,6 +414,8 @@
 
             </div>
         {% endfor %}
+
+     {% endfor %}
 
     </div>
   {#  shop-list ende #}

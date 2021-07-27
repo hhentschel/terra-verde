@@ -262,8 +262,32 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
     background-color: $color--beige-light;
     height: 250px;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    position: relative;
+    // align-items: center;
+    // justify-content: center;
+  }
+
+  .onsale {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 70px 70px 0 0;
+    border-color: $color--green transparent transparent transparent;
+    align-self: flex-start;
+
+    &::after {
+      content: 'Aktion';
+      position:absolute;
+      top: 12px;
+      width: 50px;
+      left: 0;
+      text-align: center;
+      font-size: 16px;
+      transform: rotate(-45deg);
+      display:block;
+      color: $color--white;
+    }
   }
 
   &__link {
