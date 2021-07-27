@@ -116,14 +116,15 @@
                     <tr class="">
                         <td class="text-right" colspan="2">
                             {% if not cart.hasErrors() and item.adjustments|length %}
-                                <div class="text-left text-2xs uppercase tracking-wider text-gray-600">Anpassungen</div>
-                                <div class="border-t border-gray-300 border-dotted mt-1">
+                                {# <div class="text-left text-2xs uppercase tracking-wider text-gray-600">Anpassungen</div> #}
+                                <div class="border-gray-300 border-dotted mt-1">
                                     {% for adjustment in item.adjustments %}
                                         <div class="flex w-full mt-2 text-sm">
                                             <div class="text-left">
-                                                <strong class="text-gray-400 text-xs uppercase">{{ adjustment.type }}</strong><br>
-                                                {{ adjustment.name }}
-                                                {% if adjustment.isEstimated %}<i class="text-grey-dark">{{ 'Estimated' }}</i>{% endif %}<br>
+                                                {# <strong class="">{{ adjustment.type }}</strong> #}
+                                                Steuer:
+                                                {# {{ adjustment.name }} #}
+                                                {% if adjustment.isEstimated %}<i class="text-grey-dark">{{ 'Estimated' }}</i>{% endif %}
                                                 <span class="text-gray-600 text-xs">{{ adjustment.description }}</span>
                                             </div>
                                             <div class="ml-auto">

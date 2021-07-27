@@ -134,7 +134,19 @@
         Rabatt:
       </div>
       <div>
-        {{ (cart.totalDiscount * - 1)|commerceCurrency(cart.currency) }}
+        {% if cart.shippingMethodHandle == 'pickUpAtStore' %}
+        hui
+          {# {% set totalDiscount = (cart.totalPrice * (5/100)) %} #}
+          {% set totalDiscount = '4' %}
+          <pre>
+            {{ dump(totalDiscount) }}
+          </pre>
+          {{ ((cart.totalDiscount * - 1) * (5/100) )|commerceCurrency(cart.currency) }}
+        {% else %}
+        hä
+          {{ (cart.totalDiscount * - 1)|commerceCurrency(cart.currency) }}
+        {% endif %}
+
       </div>
     </div>
     <div class="flex w-full justify-end items-center">
