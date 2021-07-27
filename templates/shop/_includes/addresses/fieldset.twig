@@ -32,17 +32,18 @@
             {% set addressHasErrors = false %}
         {% endif %}
 
-        {% if currentUser %}
-            <div class="js-radio">
+
                 {# If we have no addresses expand the 'New Address" fields by default it to being checked.
                    If we have errors on the address also check and expand. #}
+        {# {% if currentUser %}
+            <div class="js-radio">
                 <label>
                   <input type="radio" name="{{ name }}Id"
                          {% if not addresses|length or addressHasErrors %}checked="checked"{% endif %} value=""/>
                   <strong>{{ "Neue" }} {{ title }}</strong>
                 </label>
             </div>
-        {% endif %}
+        {% endif %} #}
 
         <div class="js-body {% if currentUser %}hidden{% endif %}">
             {% if addressHasErrors %}<span class="flash">{{ cart.getErrors(name)|join }}</span><br>{% endif %}
