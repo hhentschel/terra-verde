@@ -54,9 +54,11 @@
                       {% endfor %}
                       <span class="flash">{{ cart.getErrors('shippingMethod')|join }}</span>
 
-                      <div class="mt-3">
+                    <div class="checkout__steps">
+                      <div class="checkout__steps--button">
                         <input type="submit" class="input input__primary" value="Versand wählen und weiter"/>
                       </div>
+                    </div>
                     </form>
                   </div>
                 {% endif %}

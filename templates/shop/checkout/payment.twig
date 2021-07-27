@@ -1,7 +1,7 @@
 {% extends '/_layouts/main' %}
 
 {% block content %}
-
+     {% set availableGateways = craft.commerce.gateways.getAllCustomerEnabledGateways %}
 
     {% if not cart.gateway %}
         {%  redirect 'shop/checkout/payment-method' %}
@@ -31,9 +31,25 @@
                 <div class="{{ classes.box.base }}">
 
                   <form method="post" action="" class="js-paymentSource-form" id="paymentForm">
-                      {{ actionInput('commerce/payments/pay') }}
+                      {# {{ actionInput('commerce/payments/pay') }}
                       {{ redirectInput(siteUrl('shop/customer/order', { number: cart.number, success: 'true' })) }}
-                      {{ hiddenInput('cancelUrl', siteUrl('shop/checkout/payment')|hash) }}
+                      {{ hiddenInput('cancelUrl', siteUrl('shop/checkout/payment')|hash) }} #}
+
+
+                        {% set id = 4 %}
+                        {% if id == cart.gatewayId %}
+                          {# {{ actionInput('commerce/cart/update-cart') }} #}
+                          {{ successMessageInput('Vielen Dank! Ihre Bestellung wurde abgeschickt') }}
+                          {{ hiddenInput('action', 'commerce/cart/complete') }}
+                          {{ redirectInput('/shop/customer/order?number='~cart.number~'&success=true') }}
+
+                          {% else %}
+                            {{ actionInput('commerce/payments/pay') }}
+                            {{ redirectInput(siteUrl('shop/customer/order', { number: cart.number, success: 'true' })) }}
+                            {{ hiddenInput('cancelUrl', siteUrl('shop/checkout/payment')|hash) }}
+                          {% endif %}
+
+
                       {{ hiddenInput('orderEmail', cart.email) }}
 
                       {{ csrfInput() }}
@@ -74,7 +90,14 @@
                         'craft\\commerce\\paypalcheckout\\gateways\\Gateway',
                       ] %}
                         <div class="mt-3 text-right">
-                          <button class="button button--primary" type="submit">{{ cart.totalPrice|commerceCurrency(cart.paymentCurrency,convert=true) }} jetzt bezahlen</button>
+                          <button class="button button--primary" type="submit">
+                              {% set id = 4 %}
+                              {% if id == cart.gatewayId %}
+                                Bestellung abschicken
+                              {% else %}
+                                {{ cart.totalPrice|commerceCurrency(cart.paymentCurrency,convert=true) }} jetzt bezahlen
+                              {% endif %}
+                          </button>
                         </div>
                       {% endif %}
                   </form>
