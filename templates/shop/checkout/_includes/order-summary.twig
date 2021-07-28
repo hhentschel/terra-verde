@@ -15,6 +15,7 @@
     Bestellübersicht
   </h3>
 
+   {% if cart.shippingMethodHandle != 'pickUpAtStore' %}
     {% if showShippingAddress %}
       <div class="">
         <h4 class="heading heading--4 heading--no-margin-top">
@@ -40,6 +41,7 @@
         {% endif %}
       </div>
     {% endif %}
+  {% endif %}
 
   {% if showShippingMethod %}
     <div class="checkout__box checkout__box--section">
