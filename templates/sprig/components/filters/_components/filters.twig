@@ -178,6 +178,7 @@
             <div class="">
                 <input sprig s-trigger="keyup changed delay:300ms" id="search" name="search" value="{{ search }}" type="text" placeholder="Suchbegriff..." class="form-input input">
             </div>
+            <p>Suchebegriff eingeben, Resulate werden unterhalb angezeigt.</p>
         </div>
 
       </div>
@@ -350,14 +351,17 @@
                         <div class="item-cart__qty-btn">
                           <input class="input input-xsmall"
                                   name="qty" type="number" step="1" min="1" placeholder="Menge" value="1">
-                          {% if product.availableForPurchase %}
+
+                          {# product.availableForPurchase #}
+                          {% if variant.stock > 0 %}
                             <button type="submit"
                                     class="m-0 button button--primary text-center">In den Warenkorb
                             </button>
                           {% else %}
-                            <div type="submit"
-                                    class="m-0 {{ classes.btn.base ~ ' ' ~ classes.btn.grey }} text-center">nicht verfügbar
-                            </div>
+                          <button disabled type="submit"
+                                    class="disabled button button--primary text-center">nicht verfügbar
+                            </button>
+
                           {% endif %}
                         </div>
                     </div>
