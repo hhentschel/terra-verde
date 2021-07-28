@@ -26,6 +26,11 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
     border: 0;
     padding: 0;
   }
+
+  &__hint {
+    font-size: px-to-rem($font-size-xs);
+    line-height: $line-height--s;
+  }
   
   &__checkbox {
     display: flex;
@@ -73,6 +78,7 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
       align-items: center;
       margin: 0 px-to-rem($space--s) 0 0;
     }
+
   }
 
 
