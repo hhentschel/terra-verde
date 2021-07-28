@@ -33,6 +33,16 @@ $button-primary--color: $color--white;
 $button-primary--background-color: $color--primary;
 $button-primary--border-color: $color--primary;
 
+// hover 
+$button-primary--hover-color: $color--white;
+$button-primary--hover-background-color: rgba($color--primary, 0.8);
+$button-primary--hover-border-color: $color--primary;
+
+// hover secondary
+$button-secondary--hover-color: $color--white;
+$button-secondary--hover-background-color: rgba($color--secondary, 0.8);
+$button-secondary--hover-border-color: $color--secondary;
+
 .input {
   @include inputStyles();
   width: $input--max-width;
@@ -91,6 +101,20 @@ input[type='submit'].input {
     @if (has($button-primary--border-width)) {
       border: $button-primary--border-width solid $button-primary--border-color;
     }
+
+    &:hover {
+      @if (has($button-primary--hover-background-color)) {
+        background-color: $button-primary--hover-background-color;
+      }
+
+      @if (has($button-primary--hover-color)) {
+        color: $button-primary--hover-color;
+      }
+
+      @if (has($button-primary--hover-border-color)) {
+        border-color: $button-primary--hover-border-color;
+      }
+    }
   }
 
   &.input__secondary {
@@ -110,6 +134,20 @@ input[type='submit'].input {
       border: $button-secondary--border-width
         solid
         $button-secondary--border-color;
+    }
+
+    &:hover {
+      @if (has($button-secondary--hover-background-color)) {
+        background-color: $button-secondary--hover-background-color;
+      }
+
+      @if (has($button-secondary--hover-color)) {
+        color: $button-secondary--hover-color;
+      }
+
+      @if (has($button-secondary--hover-border-color)) {
+        border-color: $button-secondary--hover-border-color;
+      }
     }
   }
 }

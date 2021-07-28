@@ -10,14 +10,10 @@
   {% set showShippingMethod = false %}
 {% endif %}
 
-<div class="{{ classes.box.base }}">
+<div class="checkout__box checkout__box-summary">
   <h3 class="heading heading--3 heading--no-margin-top">
     Bestellübersicht
   </h3>
-
- {% if cart.shippingMethodHandle == 'pickUpAtStore' %}
-      {{ hiddenInput('shippingSameAsBilling', 1) }}
-  {% else %}
 
     {% if showShippingAddress %}
       <div class="">
@@ -45,10 +41,8 @@
       </div>
     {% endif %}
 
-  {% endif %}
-
   {% if showShippingMethod %}
-    <div class="border-b border-gray-300 pb-3">
+    <div class="checkout__box checkout__box--section">
       <h4 class="font-semibold mt-3">
         Versandart
       </h4>
@@ -63,7 +57,7 @@
     </div>
   {% endif %}
 
-  <h4 class="heading heading--4 heading--no-margin-top">
+  <h4 class="heading layout-helper__margin-top--xxs">
     Artikel
   </h4>
   {% for item in cart.lineItems %}
@@ -96,7 +90,7 @@
   {% if not cart.shippingMethod %}
     {# If the order requires a shipping method be selected, you could redirect back to the shipping page until
        one is applied to the order (`{% redirect "shop/checkout/shipping" %}`) #}
-    <div class="border-b border-gray-300 pb-3">
+    <div class="checkout__box checkout__box--section">
       <strong>Versand</strong> nicht ausgewählt.
       <a href="{{ url('shop/checkout/shipping') }}">
         Eine Versandart auswählen.
@@ -104,7 +98,7 @@
     </div>
   {% endif %}
 
-  <div class="mt-3 pt-3 border-t border-gray-300">
+  <div class="checkout__box checkout__box--section">
     <div class="flex w-full justify-end items-center text-xs text-gray-500">
       <div class="pr-2">
         Versand:
@@ -135,12 +129,21 @@
       </div>
       <div>
         {% if cart.shippingMethodHandle == 'pickUpAtStore' %}
-        hui
-          {# {% set totalDiscount = (cart.totalPrice * (5/100)) %} #}
-          {# {% set totalDiscount = '4' %} #}
-          {{ ((cart.totalDiscount * - 1) * (5/100) )|commerceCurrency(cart.currency) }}
+
+          {# 92.50 #}
+          {% set totalcartDiscount = (cart.totalDiscount * - 1) %}
+
+          {% set totalPricePlusTax = (cart.totalPrice) +  (totalcartDiscount) %}
+
+          {# Abholrabatt 87.50 #}
+          {% set pickupDiscount = (totalPricePlusTax * (5/100)) %}
+
+          {# Abholrabatt und andere Rabatte zusammenrechnen #}
+          {% set totalSumDiscount =  totalcartDiscount + pickupDiscount %}
+
+          {{ ((totalSumDiscount) )|commerceCurrency(cart.currency) }}
         {% else %}
-        hä
+
           {{ (cart.totalDiscount * - 1)|commerceCurrency(cart.currency) }}
         {% endif %}
 
@@ -151,7 +154,18 @@
         Total:
       </div>
       <div class="text-lg font-bold">
-        {{ cart.totalPrice|commerceCurrency(cart.currency) }}
+        {% if cart.shippingMethodHandle == 'pickUpAtStore' %}
+
+          {# {% set pickupDiscount = (totalPricePlusTax * (5/100)) %} #}
+
+          {% set totalPriceMinusPickupDiscount = ((cart.totalPrice) - pickupDiscount) %}
+          {{ totalPriceMinusPickupDiscount|commerceCurrency(cart.currency) }}
+
+        {% else %}
+
+          {{ cart.totalPrice|commerceCurrency(cart.currency) }}
+
+        {% endif %}
       </div>
     </div>
   </div>

@@ -26,7 +26,7 @@ $button-primary--border-color: $color--primary;
 
 // hover
 $button-primary--hover-color: $color--white;
-$button-primary--hover-background-color: $color--primary;
+$button-primary--hover-background-color: rgba($color--primary, 0.8);
 $button-primary--hover-border-color: $color--primary;
 
 // active
@@ -69,7 +69,7 @@ $button-secondary--border-color: $color--secondary;
 
 // hover
 $button-secondary--hover-color: $color--white;
-$button-secondary--hover-background-color: $color--secondary;
+$button-secondary--hover-background-color: rgba($color--secondary, 0.8);
 $button-secondary--hover-border-color: $color--secondary;
 
 // active

@@ -46,8 +46,10 @@
 
 
     {% if cart.hasNotices() %}
-    <div class="bg-blue-400 text-white">
-        <div class="container mx-auto px-6 py-4 relative">
+   <div class="flash-notice__container flash-notice__container--info">
+      <section class="grid">
+          <div class="row">
+            <div class="col col-xs-12 col-md-12 col-lg-12">
             <span>Warenkorb Hinweis</span>
             {% set entriesByType = cart.getNotices()|group('type') %}
             {% for type, notices in entriesByType %}
@@ -65,7 +67,9 @@
                     schliessen
                 </button>
             </form>
+            </div>
         </div>
+      </section>
     </div>
     {% endif %}
 

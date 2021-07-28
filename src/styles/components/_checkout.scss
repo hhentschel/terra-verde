@@ -8,3 +8,29 @@
     justify-content: flex-end;
   }
 }
+
+
+.checkout {
+
+  &__box {
+    padding: px-to-rem($space--xm);
+    background-color: $color--grey-lightest;
+  }
+
+  &__box-summary {
+    h3 {
+      font-size: px-to-rem($font-size-xm);
+    }
+  }
+
+  &__box--section {
+    padding: px-to-rem($space--xs) 0 px-to-rem($space--m) 0;
+    border-bottom: 1px solid $color--grey-light;
+  }
+
+  &__box--button {
+    display: flex;
+    justify-content: flex-end;
+    margin: px-to-rem($space--m) 0 0 0;
+  }
+}

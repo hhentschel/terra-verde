@@ -162,7 +162,7 @@
             </div> #}
 
             <div class="flex -mx-4 mt-3">
-                <div class="flex-1 mx-4">
+                <div class="">
                     <label for="{{ modelName }}-city">Stadt</label>
                     <input type="text" id="{{ modelName }}-city" class="input" name="{{ modelName }}[city]" value="{{ model ? model.city : '' }}">
                     {% if model and model.getErrors('city') %}
@@ -181,7 +181,7 @@
 
 
             <div class="flex -mx-4 mt-3">
-              <div class="flex-1 mx-4">
+              <div class="">
                 <label for="{{ modelName }}-countryId">Land *</label>
                 <select class="js-address-country input" name="{{ modelName }}[countryId]">
                   {% for key, option in countries %}

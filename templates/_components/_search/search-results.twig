@@ -46,7 +46,16 @@
                   <span class="search__results-title">
                     {{ product.title }}
                   </span>
-                  {% include '_components/_content-elements/imageshop' %}
+                  {% set transform = transformation|default('productListing') %}
+                  {% set img = product.articleImage.one() ?? null %}
+
+                  {% if img is defined %}
+                    {% include '_components/_content-elements/image'
+                      with {
+                        image: img,
+                        transform: transform
+                        } %}
+                  {% endif %}
                 </a>
               </li>
             {% endfor %}

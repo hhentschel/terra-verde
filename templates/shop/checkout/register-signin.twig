@@ -91,7 +91,7 @@
 
                     <div class="field mt-3">
                       <label for="username">Benutzername</label>
-                      <input id="username" class="{{ classes.input }}" type="text" name="username"
+                      <input id="username" class="input" type="text" name="username"
                              {%- if user is defined %} value="{{ user.username }}"{% endif -%}>
 
                       {% if user is defined %}
@@ -101,7 +101,7 @@
 
                     <div class="field mt-3">
                       <label for="email">E-Mail</label>
-                      <input id="email" class="{{ classes.input }}" type="text" name="email"
+                      <input id="email" class="input" type="text" name="email"
                              {%- if user is defined %} value="{{ user.email }}"{% endif %}
                              {%- if user is not defined and cart.email %} value="{{ cart.email }}"{% endif %}>
 
@@ -112,7 +112,7 @@
 
                     <div class="field mt-3">
                       <label for="savePassword">Passwort</label>
-                      <input id="savePassword" class="{{ classes.input }}" type="password" name="password">
+                      <input id="savePassword" class="input" type="password" name="password">
 
                       {% if user is defined %}
                         {{ errorList(user.getErrors('password')) }}
@@ -127,9 +127,9 @@
             </div>
         </div>
         <div class="col col-xs-12 col-md-8 col-lg-6">
-            <h4 class="heading heading--4 heading--no-margin">Checkout</h4>
+            <h4 class="heading heading--4 heading--no-margin">Zur Kasse</h4>
             <div class="mt-3">
-              <a href="{{ url('shop/checkout/addresses')}}">Oder, als Gast fortfahren &rarr;</a>
+              <a href="{{ url('shop/checkout/addresses')}}">Als Gast fortfahren &rarr;</a>
             </div>
         </div>
     </div>

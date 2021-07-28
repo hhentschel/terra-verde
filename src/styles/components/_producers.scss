@@ -1,12 +1,11 @@
 .producers {
 
-  margin: px-to-rem($space--xm) 0;
-
   &-overview {
     display: flex;
     flex-direction: column;
     &__title {
       flex: 1;
+      font-size: px-to-rem($font-size-xl-p); 
     }
     
     &__preview {
@@ -25,11 +24,16 @@
         @include breakpoint('tablet-landscape') {
           flex: 1 0 30%;
           margin: 0 px-to-rem($space--xm) 0 0;
+        }
 
+        .image__wrapper {
+          justify-content: flex-start;
         }
       }
       &-lead {
-        
+        p {
+          margin: 0 0 px-to-rem($space--m) 0;
+        }
       }
     }
 

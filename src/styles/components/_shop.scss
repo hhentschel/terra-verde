@@ -232,6 +232,7 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
       line-height: $line-height--xm;
       text-align: center;
       padding: px-to-rem($space--s);
+      font-size: px-to-em($space--m);
     }
     > span {
       font-weight: $font-weight--bold;
