@@ -89,7 +89,7 @@
 
                     {% from _self import errorList %}
 
-                    <div class="field mt-3">
+                    {# <div class="field mt-3">
                       <label for="username">Benutzername</label>
                       <input id="username" class="input" type="text" name="username"
                              {%- if user is defined %} value="{{ user.username }}"{% endif -%}>
@@ -97,7 +97,7 @@
                       {% if user is defined %}
                       {{ errorList(user.getErrors('username')) }}
                       {% endif %}
-                    </div>
+                    </div> #}
 
                     <div class="field mt-3">
                       <label for="email">E-Mail</label>
