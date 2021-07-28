@@ -28,17 +28,16 @@
                   {% endfor %}
                 {% endif %}
 
-                <div class="{{ classes.box.base }}">
+                <div class="checkout__box checkout__box--button">
 
                   <form method="post" action="" class="js-paymentSource-form" id="paymentForm">
-                      {# {{ actionInput('commerce/payments/pay') }}
+                      {{ actionInput('commerce/payments/pay') }}
                       {{ redirectInput(siteUrl('shop/customer/order', { number: cart.number, success: 'true' })) }}
-                      {{ hiddenInput('cancelUrl', siteUrl('shop/checkout/payment')|hash) }} #}
+                      {{ hiddenInput('cancelUrl', siteUrl('shop/checkout/payment')|hash) }}
 
 
-                        {% set id = 4 %}
+                        {# {% set id = 4 %}
                         {% if id == cart.gatewayId %}
-                          {# {{ actionInput('commerce/cart/update-cart') }} #}
                           {{ successMessageInput('Vielen Dank! Ihre Bestellung wurde abgeschickt') }}
                           {{ hiddenInput('action', 'commerce/cart/complete') }}
                           {{ redirectInput('/shop/customer/order?number='~cart.number~'&success=true') }}
@@ -47,8 +46,9 @@
                             {{ actionInput('commerce/payments/pay') }}
                             {{ redirectInput(siteUrl('shop/customer/order', { number: cart.number, success: 'true' })) }}
                             {{ hiddenInput('cancelUrl', siteUrl('shop/checkout/payment')|hash) }}
-                          {% endif %}
+                          {% endif %} #}
 
+                          {# {{ actionInput('commerce/cart/update-cart') }} #}
 
                       {{ hiddenInput('orderEmail', cart.email) }}
 
@@ -67,7 +67,7 @@
 
                           {% if cart.gateway.supportsPaymentSources() and currentUser %}
                               <div class="checkbox">
-                                  <label><input type="checkbox" name="savePaymentSource" value="1" /> {{ "Save card for future purchases" }}</label>
+                                  <label><input type="checkbox" name="savePaymentSource" value="1" /> {{ "Angaben für spätere Einkäufe sichern" }}</label>
                               </div><br />
                           {% endif %}
 
@@ -89,7 +89,7 @@
                       {% if className(cart.gateway) not in [
                         'craft\\commerce\\paypalcheckout\\gateways\\Gateway',
                       ] %}
-                        <div class="mt-3 text-right">
+                        <div class="checkout__box--button">
                           <button class="button button--primary" type="submit">
                               {% set id = 4 %}
                               {% if id == cart.gatewayId %}

@@ -31,11 +31,31 @@
 
                 {% if entry.contentElements is defined and entry.contentElements is not empty %}
                   <a href="{{ entry.url }}" class="producers-overview__preview-image">
-                    {% include '_components/_content-elements/image' %}
+
+                  {% set transform = transformation|default('imageOneThird') %}
+                  {% set img = entry.image.one() ?? null %}
+
+                  {% if img is defined %}
+                    {% include '_components/_content-elements/image'
+                      with {
+                        image: img,
+                        transform: transform
+                        } %}
+                  {% endif %}
+
                   </a>
                 {% else %}
                   <div class="producers-overview__preview-image">
-                    {% include '_components/_content-elements/image' %}
+                    {% set transform = transformation|default('imageOneThird') %}
+                    {% set img = entry.image.one() ?? null %}
+
+                    {% if img is defined %}
+                      {% include '_components/_content-elements/image'
+                        with {
+                          image: img,
+                          transform: transform
+                          } %}
+                    {% endif %}
                   </div>
                 {% endif %}
 

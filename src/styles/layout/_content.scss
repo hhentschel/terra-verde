@@ -25,7 +25,13 @@
     }
 
     &-image {
-      flex: 1 0 50%;
+      flex: 1 0 30%;
+    }
+
+    &-lead {
+      p {
+        margin: 0 0 px-to-rem($space--xm) 0;
+      }
     }
   }
 }

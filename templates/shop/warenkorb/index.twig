@@ -121,11 +121,10 @@
                                     {% for adjustment in item.adjustments %}
                                         <div class="flex w-full mt-2 text-sm">
                                             <div class="text-left">
-                                                {# <strong class="">{{ adjustment.type }}</strong> #}
-                                                Steuer:
-                                                {# {{ adjustment.name }} #}
-                                                {% if adjustment.isEstimated %}<i class="text-grey-dark">{{ 'Estimated' }}</i>{% endif %}
-                                                <span class="text-gray-600 text-xs">{{ adjustment.description }}</span>
+                                                <strong class="">{{ adjustment.type }}</strong>
+                                                {{ adjustment.name }}
+                                                {# {% if adjustment.isEstimated %}<i class="text-grey-dark">{{ 'Estimated' }}</i>{% endif %}
+                                                <span class="text-gray-600 text-xs">{{ adjustment.description }}</span> #}
                                             </div>
                                             <div class="ml-auto">
                                                 <span class="text-gray-500" title="{{ adjustment.amount }}"> {{ adjustment.amount|commerceCurrency(cart.currency) }}</span>
@@ -191,13 +190,13 @@
                         </td>
                     </tr>
                 {% endif %}
-                <tr>
-                    <td colspan="2" class="border-t-2 border-gray-300">
+                <tr class="cart__box cart__box--flex">
+                    {# <td colspan="2" class="border-t-2 border-gray-300">
                         <div class="pt-3">
                             {% include 'shop/warenkorb/_includes/shipping-estimator' %}
                         </div>
-                    </td>
-                    <td class="form__cart-table--adjustments-order">
+                    </td> #}
+                    <td colspan="4" class="form__cart-table--adjustments-order">
                         {% if not cart.hasErrors() %}
                             <div class="mt-3">
                                 <strong class="text-sm text-gray-600">Bestellung</strong>
@@ -232,7 +231,7 @@
                         <div class="form__cart-table--coupon">
                             <div class="{{ cart.getFirstError('couponCode') ? classes.box.error : classes.box.base }} form__cart-table--coupon-box">
                                 {# The Update Coupon form uses the single update controller action #}
-                                <h4 class="heading heading--4 heading--no-margin-top">Coupon Code</h4>
+                                <h4 class="heading heading--4 heading--no-margin-top">Gutschein Code</h4>
                                 {% if cart.getFirstError('couponCode') %}
                                     <div class="text-red-500">{{ cart.getFirstError('couponCode') }}</div>
                                 {% endif %}
@@ -241,7 +240,7 @@
                                     <input type="text" name="couponCode" width="11"
                                            class="input {% if cart.getFirstError('couponCode') %}text-red-500{% endif %}"
                                            value="{{ cart.couponCode }}"
-                                           placeholder="{{ "Coupon Code" }}">
+                                           placeholder="{{ "Gutschein Code" }}">
                                 </div>
                             </div>
                         </div>

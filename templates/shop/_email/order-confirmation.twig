@@ -179,37 +179,16 @@
                               {% endfor %}
                           </div>
                       {% endif %}
-                       {% if order.shippingMethodHandle == 'pickUpAtStore' %}
-                            {% set totalcartDiscount = (order.getTotalDiscount * - 1) %}
-                            {% set totalPricePlusTax = (order.totalPrice) +  (totalcartDiscount) %}
-                            {# Abholrabatt 87.50 #}
-                            {% set pickupDiscount = (totalPricePlusTax * (5/100) * - 1) %}
-
-                            <div class="flex w-full items-center mt-2 text-sm">
-                                <div class="">
-                                    Rabatt 5% Abholung:
-                                </div>
-                                <div class="ml-auto">
-                                    <span class="text-gray-500">{{ pickupDiscount|commerceCurrency(order.currency) }}</span>
-                                </div>
-                            </div>
-                        {% endif %}
 
                       <div class="flex items-center w-full justify-end mt-3" title="{{ item.total }}">
                           <div class="text-sm text-gray-600 pr-2">Total:</div>
-                          {% if order.shippingMethodHandle == 'pickUpAtStore' %}
-                            {% set itemTotalDiscountPickup = (item.total) - (pickupDiscount * - 1) %}
-
-                            <div class="font-bold">{{ itemTotalDiscountPickup|commerceCurrency(order.currency) }}</div>
-                          {% else %}
-                            <div class="font-bold">{{ item.total|commerceCurrency(order.currency) }}</div>
-                          {% endif %}
+                          <div class="font-bold">{{ item.total|commerceCurrency(order.currency) }}</div>
                       </div>
                   </td>
               </tr>
           {% endfor %}
 
-          {# <tr>
+          <tr>
               <td></td>
               <td colspan="2" class="text-right pr-3 pb-3">
                   <div class="flex items-center w-full justify-end border-t border-gray-300 border-dotted pt-3"
@@ -218,7 +197,7 @@
                       <div class="font-bold">{{ order.itemSubTotal|commerceCurrency(order.currency) }}</div>
                   </div>
               </td>
-          </tr> #}
+          </tr>
 
           {% if order.orderAdjustments|length %}
               <tr class="border-t-2 border-gray-300">
@@ -268,38 +247,12 @@
                   </div>
                   <div class="flex items-center w-full justify-end" title="{{ order.getTotalDiscount() }}">
                       <div class="text-xs text-gray-500 pr-2">Rabbatt:</div>
-                      <div class="text-sm text-gray-500">
-                      {% if order.shippingMethodHandle == 'pickUpAtStore' %}
-                            {% set totalcartDiscount = (order.getTotalDiscount * - 1) %}
-                            {% set totalPricePlusTax = (order.totalPrice) +  (totalcartDiscount) %}
-                            {# Abholrabatt 87.50 #}
-                            {% set pickupDiscount = (totalPricePlusTax * (5/100)) %}
-
-                            {% set totalcartDiscountPlusPickupDiscount = (totalcartDiscount) + (pickupDiscount) %}
-
-                            {{ totalcartDiscountPlusPickupDiscount|commerceCurrency(order.currency) }}
-                        {% else %}
-                            {{ order.getTotalDiscount()|commerceCurrency(order.currency) }}
-                        {% endif %}
-
-
-                      </div>
+                      <div class="text-sm text-gray-500">{{ order.getTotalDiscount()|commerceCurrency(order.currency) }}</div>
                   </div>
 
                   <div class="flex items-center w-full justify-end mt-3" title="{{ order.totalPrice }}">
                       <div class="text-gray-600 pr-2">Preis:</div>
-                      {# <div class="text-xl font-bold">{{ order.totalPrice|commerceCurrency(order.currency) }}</div> #}
-                        {% if order.shippingMethodHandle == 'pickUpAtStore' %}
-                            {% set totalcartDiscount = (order.totalDiscount * - 1) %}
-                            {% set totalPricePlusTax = (order.totalPrice) +  (totalcartDiscount) %}
-                            {# Abholrabatt 87.50 #}
-                            {% set pickupDiscount = (totalPricePlusTax * (5/100)) %}
-
-                            {% set totalPriceMinusPickupDiscount = ((order.totalPrice) - pickupDiscount) %}
-                            <strong>{{ totalPriceMinusPickupDiscount|commerceCurrency(order.currency) }}</strong>
-                        {% else %}
-                            <strong>{{ order.totalPrice|commerceCurrency(order.currency) }}</strong>
-                        {% endif %}
+                      <div class="text-xl font-bold">{{ order.totalPrice|commerceCurrency(order.currency) }}</div>
                   </div>
               </td>
           </tr>

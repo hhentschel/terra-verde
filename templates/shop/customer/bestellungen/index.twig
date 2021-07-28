@@ -35,16 +35,19 @@
               <thead>
                 <tr class="bg-gray-300 text-left">
                   <th class="p-2">
-                    {{ 'Order' }}
+                    {{ 'Bestellung' }}
                   </th>
                   <th class="p-2">
-                    {{ 'Date' }}
+                    {{ 'Datum' }}
                   </th>
                   <th class="p-2">
-                    {{ 'Total Quantity' }}
+                    {{ 'Anzahl Produkte' }}
                   </th>
                   <th class="p-2">
                     {{ 'Total' }}
+                  </th>
+                  <th class="p-2">
+                    {{ 'Status' }}
                   </th>
                 </tr>
               </thead>
@@ -69,14 +72,17 @@
                       {{ order.dateOrdered|date }}
                     </td>
                     <td class="p-2">
-                      {{ order.totalQty }} items
+                      {{ order.totalQty }} Produkte
                     </td>
                     <td class="p-2">
                       {{ order.totalPriceAsCurrency }}
                     </td>
+                    <td class="p-2">
+                      <span style="color:{{ order.orderStatus.color }}">{{ order.orderStatus }}</span>
+                    </td>
                   </tr>
                   <tr class="{{ rowClass }} text-sm">
-                    <td class="p-2" colspan="4">
+                    <td class="p-2" colspan="5">
                       <div class="border-t border-gray-300 border-dashed p-2">
                         <h4 class="text-gray-500 tracking-wide font-mono text-xs uppercase">
                           Artikel
