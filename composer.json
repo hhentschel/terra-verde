@@ -23,7 +23,8 @@
   "autoload": {
     "psr-4": {
       "terraverde\\": "modules/cqcontrolpanel/",
-      "modules\\terraverdemodule\\": "modules/terraverdemodule/src"
+      "modules\\terraverdemodule\\": "modules/terraverdemodule/src",
+      "modules\\orderdiscount\\": "modules/orderdiscount/"
     }
   },
   "config": {
