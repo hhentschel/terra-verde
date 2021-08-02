@@ -1,9 +1,9 @@
 format: null
-handle: productDetail
-height: 600
+handle: imageContentFull
+height: null
 interlace: none
 mode: crop
-name: 'Produkt Detail'
+name: 'Bild Inhalt Voll'
 position: center-center
 quality: null
-width: null
+width: 780

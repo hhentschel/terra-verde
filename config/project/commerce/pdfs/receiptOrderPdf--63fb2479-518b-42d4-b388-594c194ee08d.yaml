@@ -1,0 +1,9 @@
+description: ''
+enabled: true
+fileNameFormat: '{myOrderCustomField}{number}'
+handle: receiptOrderPdf
+isDefault: true
+language: orderLanguage
+name: Bestell-PDF
+sortOrder: 9999
+templatePath: shop/customer/receipt/index.twig

@@ -1,0 +1,6 @@
+color: green
+default: false
+description: ''
+handle: orderStatusShipped
+name: Versendet
+sortOrder: 99

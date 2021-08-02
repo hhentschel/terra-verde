@@ -1,0 +1,171 @@
+descriptionFormat: ''
+handle: productTypeWine
+hasDimensions: false
+hasProductTitleField: true
+hasVariantTitleField: false
+hasVariants: false
+name: Weine
+productFieldLayouts:
+  c4fc5bf1-601e-43bc-bb64-f8e8f900495f:
+    tabs:
+      -
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\commerce\fieldlayoutelements\ProductTitleField
+            warning: null
+            width: 50
+          -
+            fieldUid: ea603a9d-ad1a-46a9-8400-4c237d4f779e # Artikelnummer
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: d59a8a70-d5e0-42b4-b4d8-d3602f3bbe03 # Produkt Bild
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: a01e981b-9ab4-498e-9274-b1858943fc1c # Produkt Beschreibung
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: d63d76f8-75e4-40eb-9992-4ea21ba5b437 # Artikel Zusatz Beschreibung
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: a0f9f7a2-3635-47ba-a758-47e6b1bc400e # Zusatzinfo
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: b2b053ff-c5c8-4e2a-83c4-068e2d9ff597 # Zutaten
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: 1c95f87a-2123-4b4b-a9f8-831335adfe84 # Artikel Nährstoffe
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: 676d6484-bb25-4582-abcd-c9f07f618d98 # Artikel Jahrgang
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: a4e3c0b2-c990-461b-b016-eeed4b33412e # Bio-Zertifizierung
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: 9041254e-7c39-4bd9-9590-0a646283a360 # Artikel Einheit (Gl, Fl, Dose, Stk., Kan.)
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: 06c0da13-2423-4cbb-8b58-6dddb456fa8c # Artikel Einheit Gewicht/Volumen
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: 27ee92fc-2ecb-42a3-86cb-ff619931841a # Vegan
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: 4a97706d-db06-4301-b6ea-066bb4fe9b83 # Artikel Lagerung
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: 090ca3e8-52f7-44f4-8eb1-31b1d8706ff5 # Hersteller
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Inhalt
+        sortOrder: 1
+productTitleFormat: ''
+siteSettings:
+  dd0cd05e-0cb9-4a76-b993-3cb70e6fc147: # Terra Verde
+    hasUrls: true
+    template: shop/produkte/_product
+    uriFormat: 'shop/weine/{slug}'
+skuFormat: ''
+titleFormat: '{product.title}'

@@ -1,0 +1,8 @@
+color: orange
+default: true
+description: 'Bestellung wird bearbeitet.'
+emails:
+  ee73ad95-c3b7-4b1a-97d4-77987063c463: ee73ad95-c3b7-4b1a-97d4-77987063c463 # Bestell-Bestätigung
+handle: orderStatusPending
+name: 'In Bearbeitung'
+sortOrder: 99

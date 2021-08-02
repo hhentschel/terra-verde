@@ -1,0 +1,6 @@
+color: purple
+default: false
+description: ''
+handle: orderStatusReady
+name: 'Bearbeitet und fertig zum Versenden'
+sortOrder: 99

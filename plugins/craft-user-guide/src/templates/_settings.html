@@ -1,0 +1,24 @@
+{% import '_includes/forms' as forms %}
+
+{{ forms.lightswitchField({
+  label: 'User Guide Aktiv',
+  name: 'userGuideEnabled',
+  on: settings.userGuideEnabled,
+  first: true,
+}) }}
+
+{{ forms.textField({
+  type: 'email',
+  label: 'Benachrichtigungs E-Mail',
+  instructions: 'Email Adresse an die Feedback gesendet werden soll',
+  name: 'notificationEmail',
+  value: settings.notificationEmail,
+}) }}
+
+{{ forms.textareaField({
+  label: 'Markdown Text',
+  instructions: 'Inhalt für den User Guide',
+  name: 'markdownText',
+  value: settings.markdownText,
+  rows: 15,
+}) }}

@@ -1,6 +1,6 @@
 handle: datratrans
 isFrontendEnabled: true
-name: Datratrans
+name: 'Kreditkarte, Postfinance, Paypal, Twint'
 paymentType: purchase
 settings:
   checkoutMode: redirect
@@ -19,5 +19,5 @@ settings:
   testSignKey: $DATATRANS_SIGN_KEY_TEST
   useOldBasketFormat: false
   vendor: null
-sortOrder: 99
+sortOrder: 2
 type: craft\commerce\datatrans\gateways\PaymentPages

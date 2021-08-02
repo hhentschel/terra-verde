@@ -1,0 +1,8 @@
+handle: gatewayInvoice
+isFrontendEnabled: true
+name: Rechnung
+paymentType: authorize
+settings:
+  onlyAllowForZeroPriceOrders: ''
+sortOrder: 3
+type: craft\commerce\gateways\Manual
