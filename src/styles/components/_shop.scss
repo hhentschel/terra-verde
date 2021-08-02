@@ -134,6 +134,16 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
     }
   }
 
+
+  &__btn--results {
+    padding: px-to-rem($space--s);
+    background-color: $color--blue;
+    float:right;
+    color: $color--white;
+    font-size: px-to-rem($font-size-xs);
+    margin: px-to-rem($space--m) 0;
+  }
+
 }
 
 
