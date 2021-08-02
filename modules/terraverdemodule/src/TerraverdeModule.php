@@ -24,6 +24,7 @@ use yii\base\InvalidConfigException;
 use yii\base\Module;
 
 use craft\commerce\services\OrderAdjustments;
+use craft\events\RegisterComponentTypesEvent;
 use OrderAdjuster;
 
 /**
