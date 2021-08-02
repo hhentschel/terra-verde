@@ -1,0 +1,82 @@
+{% extends '_layouts/cp' %}
+
+{% import '_includes/forms' as forms %}
+
+{% set title = "User Guide" %}
+
+{% set tabs = {
+  intro: {label: 'Intro', url: '#intro'},
+  feedback: {label: 'Feedback', url: '#feedback'}
+} %}
+
+{% block content %}
+
+  <div id="intro">
+  {% set markdownText = craft.app.plugins.getPlugin('user-guide').settings.markdownText %}
+  {{ markdownText|markdown }}
+  </div>
+
+  <div id="feedback" class="hidden">
+    <form method="post" action="">
+    {{ csrfInput() }}
+    {{ forms.hidden({
+      name: 'action',
+      value: 'user-guide/feedback/send',
+    }) }}
+
+    {# {{ forms.textField ({
+      label: 'Text Field',
+      name: 'text',
+      value: '',
+      instructions: 'Hier Text einfüllen',
+    }) }} #}
+
+    {{ forms.textField ({
+      label: 'Subject',
+      name: 'subject',
+      value: '',
+      instructions: 'Hier Text einfüllen',
+      first: true,
+      required: true
+    }) }}
+
+    {# {{ forms.dateField ({
+      label: 'Datums Field',
+      name: 'date',
+      value: '',
+      instructions: 'Hier Datum eingeben',
+    }) }}
+
+    {{ forms.colorField ({
+      label: 'Farb Field',
+      name: 'color',
+      value: '',
+      instructions: 'Hier Farbe einfüllen',
+    }) }} #}
+
+    {{ forms.selectField ({
+      label: 'Topic',
+      name: 'topic',
+      value: 'Frage',
+      instructions: 'Hier Option auswählen',
+      required: true,
+      options: {
+        Frage: 'Frage',
+        Feedback: 'Feedback'
+      },
+    }) }}
+
+    {{ forms.textareaField ({
+      label: 'Nachricht',
+      name: 'message',
+      value: '',
+      instructions: 'Hier Text einfüllen',
+      required: true,
+      rows: 6
+    }) }}
+
+    <input type="submit" class="submit btn" value="senden" />
+  </form>
+  </div>
+
+{% endblock %}
