@@ -113,25 +113,30 @@
                         </td>
                     </tr>
 
-                    <tr class="">
+                    <tr class="form__cart--adjustments">
                         <td class="text-right" colspan="2">
                             {% if not cart.hasErrors() and item.adjustments|length %}
                                 {# <div class="text-left text-2xs uppercase tracking-wider text-gray-600">Anpassungen</div> #}
                                 <div class="border-gray-300 border-dotted mt-1">
                                     {% for adjustment in item.adjustments %}
-                                        <div class="flex w-full mt-2 text-sm">
-                                            <div class="text-left">
-                                                <strong class="">{{ adjustment.type }}</strong>
-                                                {{ adjustment.name }}
-                                                {# {% if adjustment.isEstimated %}<i class="text-grey-dark">{{ 'Estimated' }}</i>{% endif %}
-                                                <span class="text-gray-600 text-xs">{{ adjustment.description }}</span> #}
-                                            </div>
-                                            <div class="ml-auto">
-                                                <span class="text-gray-500" title="{{ adjustment.amount }}"> {{ adjustment.amount|commerceCurrency(cart.currency) }}</span>
-                                            </div>
+                                        <div class="adjustments__data">
+                                        <div class="adjustments__data--type">
+                                            <strong class="">{{ adjustment.type }}</strong>
                                         </div>
+                                        <div class="">
+                                            <span class="adjustments__data--description">{{ adjustment.description }}</span>
+                                            {% if adjustment.isEstimated %}<i class="">{{ 'Estimated' }}</i>{% endif %}<br>
+                                            <span class="adjustments__data--name">{{ adjustment.name }}</span>
+
+                                        </div>
+                                        <div class="adjustments__data--amount">
+                                            <span class="" title="{{ adjustment.amount }}"> {{ adjustment.amount|commerceCurrency(cart.currency) }}</span>
+                                        </div>
+                                    </div>
                                     {% endfor %}
                                 </div>
+
+
                             {% endif %}
 
                             {% if not cart.hasErrors() %}
@@ -166,23 +171,24 @@
                 {% endif %}
 
                 {% if not cart.hasErrors() and cart.orderAdjustments|length %}
-                    <tr class="border-t-2 border-gray-300">
-                        <td class="py-3"></td>
-                        <td colspan="2" class="py-3 pr-3">
-                            <div class="text-left text-2xs uppercase tracking-wider text-gray-600">Bestellung:</div>
-                            <div class="border-t border-gray-300 border-dotted mt-1">
+                    <tr class="form__cart--adjustments">
+                        <td class=""></td>
+                        <td colspan="2" class="">
+                            <div class="adjustments__title">Anpassungen an die Bestellung:</div>
+                            <div class="">
                                 {% for adjustment in cart.orderAdjustments %}
-                                    <div class="flex w-full items-center mt-2 text-sm">
-                                        <div class="pr-2">
-                                            <strong class="text-gray-400 text-xs uppercase">{{ adjustment.type }}</strong>
+                                    <div class="adjustments__data">
+                                        <div class="adjustments__data--type">
+                                            <strong class="">{{ adjustment.type }}</strong>
                                         </div>
                                         <div class="">
-                                            {{ adjustment.name }}
-                                            {% if adjustment.isEstimated %}<i class="text-grey-dark">{{ 'Estimated' }}</i>{% endif %}<br>
-                                            {{ adjustment.description }}
+                                            <span class="adjustments__data--description">{{ adjustment.description }}</span>
+                                            {% if adjustment.isEstimated %}<i class="">{{ 'Estimated' }}</i>{% endif %}<br>
+                                            <span class="adjustments__data--name">{{ adjustment.name }}</span>
+
                                         </div>
-                                        <div class="ml-auto">
-                                            <span class="text-gray-500" title="{{ adjustment.amount }}"> {{ adjustment.amount|commerceCurrency(cart.currency) }}</span>
+                                        <div class="adjustments__data--amount">
+                                            <span class="" title="{{ adjustment.amount }}"> {{ adjustment.amount|commerceCurrency(cart.currency) }}</span>
                                         </div>
                                     </div>
                                 {% endfor %}
