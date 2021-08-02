@@ -14,6 +14,7 @@ use modules\terraverdemodule\assetbundles\terraverdemodule\TerraverdeModuleAsset
 
 use Craft;
 use craft\events\RegisterTemplateRootsEvent;
+use craft\events\RegisterComponentTypesEvent;
 use craft\events\TemplateEvent;
 use craft\i18n\PhpMessageSource;
 use craft\web\View;
