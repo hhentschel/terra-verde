@@ -23,8 +23,7 @@ return [
     'id' => App::env('APP_ID') ?: 'CraftCMS',
     'modules' => [
         'c-q-control-panel' => terraverde\CQControlPanel::class,
-        'order-discount' => modules\terraverde\OrderDiscount::class,
         'terraverde-module' => modules\terraverdemodule\TerraverdeModule::class,
     ],
-    'bootstrap' => ['c-q-control-panel', 'terraverde-module', 'order-discount'],
+    'bootstrap' => ['c-q-control-panel', 'terraverde-module'],
 ];
