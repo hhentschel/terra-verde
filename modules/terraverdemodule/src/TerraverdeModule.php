@@ -15,6 +15,7 @@ use modules\terraverdemodule\assetbundles\terraverdemodule\TerraverdeModuleAsset
 use Craft;
 use craft\events\RegisterTemplateRootsEvent;
 use craft\events\RegisterComponentTypesEvent;
+
 use craft\events\TemplateEvent;
 use craft\i18n\PhpMessageSource;
 use craft\web\View;
@@ -24,7 +25,7 @@ use yii\base\InvalidConfigException;
 use yii\base\Module;
 
 use craft\commerce\services\OrderAdjustments;
-use OrderAdjuster;
+use MyAdjuster;
 
 /**
  * Craft plugins are very much like little applications in and of themselves. We’ve made
