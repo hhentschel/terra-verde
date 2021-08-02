@@ -14,7 +14,6 @@ use modules\terraverdemodule\assetbundles\terraverdemodule\TerraverdeModuleAsset
 
 use Craft;
 use craft\events\RegisterTemplateRootsEvent;
-use craft\events\RegisterComponentTypesEvent;
 
 use craft\events\TemplateEvent;
 use craft\i18n\PhpMessageSource;
@@ -25,7 +24,7 @@ use yii\base\InvalidConfigException;
 use yii\base\Module;
 
 use craft\commerce\services\OrderAdjustments;
-use MyAdjuster;
+use OrderAdjuster;
 
 /**
  * Craft plugins are very much like little applications in and of themselves. We’ve made
@@ -110,7 +109,10 @@ class TerraverdeModule extends Module
         self::$instance = $this;
 
         // Discount
-        Event::on(OrderAdjustments::class, OrderAdjustments::EVENT_REGISTER_ORDER_ADJUSTERS, function(RegisterComponentTypesEvent $event) {
+        Event::on(
+          OrderAdjustments::class,
+          OrderAdjustments::EVENT_REGISTER_ORDER_ADJUSTERS,
+          function(RegisterComponentTypesEvent $event) {
 
           $event->types[] = OrderAdjuster::class;
 
