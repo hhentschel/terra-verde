@@ -109,7 +109,7 @@ class TerraverdeModule extends Module
         parent::init();
         self::$instance = $this;
 
-        Discount
+        // Discount
         Event::on(
           OrderAdjustments::class,
           OrderAdjustments::EVENT_REGISTER_ORDER_ADJUSTERS,
