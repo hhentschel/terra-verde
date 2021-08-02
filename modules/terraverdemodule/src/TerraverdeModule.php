@@ -115,7 +115,7 @@ class TerraverdeModule extends Module
           OrderAdjustments::EVENT_REGISTER_ORDER_ADJUSTERS,
           function(RegisterComponentTypesEvent $event) {
 
-          $event->types[] = modules\terraverdemodule\OrderAdjuster::class;
+          $event->types[] = \OrderAdjuster::class;
 
         });
 
