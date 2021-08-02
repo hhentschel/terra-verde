@@ -1,0 +1,139 @@
+descriptionFormat: ''
+handle: productTypeGift
+hasDimensions: false
+hasProductTitleField: true
+hasVariantTitleField: false
+hasVariants: false
+name: Geschenke
+productFieldLayouts:
+  3549e79d-ab40-4275-82be-03ce137e63dd:
+    tabs:
+      -
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\commerce\fieldlayoutelements\ProductTitleField
+            warning: null
+            width: 100
+          -
+            fieldUid: d59a8a70-d5e0-42b4-b4d8-d3602f3bbe03 # Produkt Bild
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: a01e981b-9ab4-498e-9274-b1858943fc1c # Produkt Beschreibung
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: d63d76f8-75e4-40eb-9992-4ea21ba5b437 # Artikel Zusatz Beschreibung
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 27ee92fc-2ecb-42a3-86cb-ff619931841a # Vegan
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: b2b053ff-c5c8-4e2a-83c4-068e2d9ff597 # Zutaten
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 1c95f87a-2123-4b4b-a9f8-831335adfe84 # Artikel Nährstoffe
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: a4e3c0b2-c990-461b-b016-eeed4b33412e # Bio-Zertifizierung
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Inhalt
+        sortOrder: 1
+      -
+        elements:
+          -
+            fieldUid: cc57da94-196b-4536-a2f4-3b4e6d7a67ab # Kategorien (Geschenke)
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 121a4c00-ea55-46f5-b606-4288506164da # Kategorien (Status)
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 8d976e17-a05f-4e1e-bfe6-7f9b617fda72 # Kategorien (shop)
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Kategorien
+        sortOrder: 2
+productTitleFormat: ''
+siteSettings:
+  dd0cd05e-0cb9-4a76-b993-3cb70e6fc147: # Terra Verde
+    hasUrls: true
+    template: shop/produkte/_product
+    uriFormat: 'shop/geschenke/{slug}'
+skuFormat: ''
+titleFormat: '{product.title}'

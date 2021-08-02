@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "253523650070b1c17496b17763fad407",
+    "content-hash": "9a459c6298b98c42524350df4f28b06a",
     "packages": [
         {
             "name": "cakephp/core",
@@ -1814,6 +1814,46 @@
                 "url"
             ],
             "time": "2021-06-30T20:03:07+00:00"
+        },
+        {
+            "name": "henrik/craft-user-guide",
+            "version": "dev-develop",
+            "dist": {
+                "type": "path",
+                "url": "./plugins/craft-user-guide",
+                "reference": "e21d20be394da3423bf0ed7db1f631ac3e6b6460"
+            },
+            "require": {
+                "craftcms/cms": "^3.1.0"
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "name": "User Guide",
+                "handle": "user-guide"
+            },
+            "autoload": {
+                "psr-4": {
+                    "henrik\\userguide\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Henrik",
+                    "homepage": "https://henrik-hentschel.de"
+                }
+            ],
+            "description": "Craft User Guide",
+            "keywords": [
+                "here",
+                "keywords",
+                "some"
+            ],
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "hoa/compiler",
@@ -8048,9 +8088,11 @@
         }
     ],
     "aliases": [],
-    "minimum-stability": "stable",
-    "stability-flags": [],
-    "prefer-stable": false,
+    "minimum-stability": "dev",
+    "stability-flags": {
+        "henrik/craft-user-guide": 20
+    },
+    "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],

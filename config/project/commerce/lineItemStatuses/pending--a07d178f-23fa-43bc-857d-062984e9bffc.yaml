@@ -1,0 +1,5 @@
+color: orange
+default: false
+handle: pending
+name: 'In Bearbeitung'
+sortOrder: 9999

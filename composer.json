@@ -5,6 +5,7 @@
     "craftcms/feed-me": "4.3.6",
     "craftcms/redactor": "2.8.7",
     "doublesecretagency/craft-googlemaps": "4.0.11",
+    "henrik/craft-user-guide": "dev-develop",
     "kuriousagency/commerce-bundles": "1.2.1",
     "mediabeastnz/craft-commerce-back-in-stock": "1.4.0",
     "nystudio107/craft-retour": "3.1.57",
@@ -36,6 +37,8 @@
       "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
     ]
   },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
   "repositories": {
     "omnipay-datatrans": {
       "type": "vcs",
@@ -44,6 +47,10 @@
     "commerce-datatrans": {
       "type": "vcs",
       "url": "git@bitbucket.org:pom-pom/commerce-datatrans.git"
+    },
+    "craft-user-guide": {
+      "type": "path",
+      "url": "./plugins/*"
     }
   }
 }

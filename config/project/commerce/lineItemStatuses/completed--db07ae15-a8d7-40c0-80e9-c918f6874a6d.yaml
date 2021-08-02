@@ -1,0 +1,5 @@
+color: green
+default: true
+handle: completed
+name: Abgeschlossen
+sortOrder: 9999

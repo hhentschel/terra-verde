@@ -1,5 +1,5 @@
 descriptionFormat: ''
-handle: typeDelicatesses
+handle: productTypeDeli
 hasDimensions: true
 hasProductTitleField: true
 hasVariantTitleField: false
@@ -41,7 +41,7 @@ productFieldLayouts:
             tip: null
             type: craft\fieldlayoutelements\CustomField
             warning: null
-            width: 100
+            width: 50
           -
             fieldUid: d59a8a70-d5e0-42b4-b4d8-d3602f3bbe03 # Produkt Bild
             instructions: null
@@ -124,14 +124,18 @@ productFieldLayouts:
             warning: null
             width: 25
           -
-            fieldUid: 8d976e17-a05f-4e1e-bfe6-7f9b617fda72 # Kategorien (shop)
+            fieldUid: 090ca3e8-52f7-44f4-8eb1-31b1d8706ff5 # Hersteller
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
             warning: null
-            width: 50
+            width: 100
+        name: Produktinformationen
+        sortOrder: 1
+      -
+        elements:
           -
             fieldUid: 05f55dad-fac0-482c-95a1-3b41ffa621c1 # Kategorien (Weine)
             instructions: null
@@ -168,8 +172,17 @@ productFieldLayouts:
             type: craft\fieldlayoutelements\CustomField
             warning: null
             width: 100
-        name: Produktinformationen
-        sortOrder: 1
+          -
+            fieldUid: 8d976e17-a05f-4e1e-bfe6-7f9b617fda72 # Kategorien (shop)
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Kategorien
+        sortOrder: 2
       -
         elements:
           -
@@ -180,7 +193,7 @@ productFieldLayouts:
             type: craft\commerce\fieldlayoutelements\VariantsField
             warning: null
         name: Varianten
-        sortOrder: 2
+        sortOrder: 3
 productTitleFormat: ''
 siteSettings:
   dd0cd05e-0cb9-4a76-b993-3cb70e6fc147: # Terra Verde
