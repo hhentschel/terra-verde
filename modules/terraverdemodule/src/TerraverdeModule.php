@@ -109,15 +109,15 @@ class TerraverdeModule extends Module
         parent::init();
         self::$instance = $this;
 
-        // Discount
-        // Event::on(
-        //   OrderAdjustments::class,
-        //   OrderAdjustments::EVENT_REGISTER_ORDER_ADJUSTERS,
-        //   function(RegisterComponentTypesEvent $event) {
+        Discount
+        Event::on(
+          OrderAdjustments::class,
+          OrderAdjustments::EVENT_REGISTER_ORDER_ADJUSTERS,
+          function(RegisterComponentTypesEvent $event) {
 
-        //   $event->types[] = OrderAdjuster::class;
+          $event->types[] = OrderAdjuster::class;
 
-        // });
+        });
 
         // Load our AssetBundle
         if (Craft::$app->getRequest()->getIsCpRequest()) {
