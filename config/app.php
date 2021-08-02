@@ -22,7 +22,8 @@ use craft\helpers\App;
 return [
     'id' => App::env('APP_ID') ?: 'CraftCMS',
     'modules' => [
-        'my-module' => \modules\Module::class,
+        'c-q-control-panel' => terraverde\CQControlPanel::class,
+        'terraverde-module' => modules\terraverdemodule\TerraverdeModule::class,
     ],
-    //'bootstrap' => ['my-module'],
+    'bootstrap' => ['c-q-control-panel', 'terraverde-module'],
 ];
