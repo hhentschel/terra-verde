@@ -10,8 +10,6 @@
 
 namespace modules\terraverdemodule;
 
-use craft\web\twig\variables\Cp;
-use craft\Events\RegisterCpNavItemsEvent;
 use modules\terraverdemodule\assetbundles\terraverdemodule\TerraverdeModuleAsset;
 
 use Craft;
@@ -108,19 +106,6 @@ class TerraverdeModule extends Module
 
         parent::init();
         self::$instance = $this;
-        Craft::setAlias( '@terraverdemodule', __Dir__);
-
-        Event::on(
-          Cp::class,
-          Cp::EVENT_REGISTER_CP_NAV_ITEMS,
-          function (RegisterCpNavItemsEvent $event) {
-            $event->navItems[] = [
-              'url' => 'entries/aboutUsStructure',
-              'label' => 'Ueber uns',
-              'icon' => '@terraverdemodule/web/img/TerraverdeModule-icon.svg'
-            ];
-          }
-        );
 
         // Discount
         Event::on(OrderAdjustments::class, OrderAdjustments::EVENT_REGISTER_ORDER_ADJUSTERS, function(RegisterComponentTypesEvent $event) {
