@@ -24,6 +24,9 @@ use yii\base\Event;
 use yii\base\InvalidConfigException;
 use yii\base\Module;
 
+use craft\commerce\services\OrderAdjustments;
+use MyAdjuster;
+
 /**
  * Craft plugins are very much like little applications in and of themselves. We’ve made
  * it as simple as we can, but the training wheels are off. A little prior knowledge is
@@ -118,6 +121,13 @@ class TerraverdeModule extends Module
             ];
           }
         );
+
+        // Discount
+        Event::on(OrderAdjustments::class, OrderAdjustments::EVENT_REGISTER_ORDER_ADJUSTERS, function(RegisterComponentTypesEvent $event) {
+
+          $event->types[] = OrderAdjuster::class;
+
+        });
 
         // Load our AssetBundle
         if (Craft::$app->getRequest()->getIsCpRequest()) {
