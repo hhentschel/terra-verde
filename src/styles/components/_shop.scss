@@ -29,7 +29,13 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
 
   &__hint {
     font-size: px-to-rem($font-size-xs);
-    line-height: $line-height--s;
+    display: flex;
+    justify-content: space-between;
+
+    &--text {
+      line-height: $line-height--s;
+      flex: 0 0 50%;
+    }
   }
   
   &__checkbox {
@@ -142,6 +148,14 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
     color: $color--white;
     font-size: px-to-rem($font-size-xs);
     margin: px-to-rem($space--m) 0;
+    display: block;
+    @include breakpoint('tablet-landscape') {
+      display: none;
+
+      .filter__hint & {
+        display: block;
+      }
+    }
   }
 
 }
