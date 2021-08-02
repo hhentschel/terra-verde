@@ -6,7 +6,9 @@ use Craft;
 use craft\web\twig\variables\Cp;
 use craft\Events\RegisterCpNavItemsEvent;
 use Yii\base\Module;
+use craft\commerce\services\OrderAdjustments;
 use Yii\base\Event;
+use MyAdjuster;
 
 class CQControlPanel extends Module
 
@@ -28,6 +30,11 @@ class CQControlPanel extends Module
       }
     );
 
+    Event::on(OrderAdjustments::class, OrderAdjustments::EVENT_REGISTER_ORDER_ADJUSTERS, function(RegisterComponentTypesEvent $event) {
+
+      $event->types[] = OrderAdjuster::class;
+
+    });
   }
 
 }
