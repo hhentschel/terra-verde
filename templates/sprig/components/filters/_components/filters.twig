@@ -178,13 +178,15 @@
             <div class="">
                 <input sprig s-trigger="keyup changed delay:300ms" id="search" name="search" value="{{ search }}" type="text" placeholder="Suchbegriff..." class="form-input input">
             </div>
-            <p class="filter__hint">Suchbegriff eingeben, Resulate werden unterhalb des Filters angezeigt.</p>
+            <div class="filter__hint">
+              <p class="filter__hint--text">Resulate werden unterhalb des Filters angezeigt.</p>
+              <button class="btn filter__btn--results anchor-link" href="#tvboard">Resulate anzeigen</button>
+            </div>
         </div>
 
       </div>
 
       <div class="col col-xs-12 col-md-2 col-lg-2">
-        <button class="btn filter__btn--results anchor-link" href="#tvboard">Resulate anzeigen</button>
         <h2 class="heading heading--2 layout-helper__margin-top--none">
           Aktuell
         </h2>
