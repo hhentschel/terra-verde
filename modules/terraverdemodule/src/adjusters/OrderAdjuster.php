@@ -1,7 +1,6 @@
 <?php
 
-namespace modules\sitemodule\adjusters;
-
+namespace modules\terraverdemodule\adjusters;
 
 use Craft;
 use craft\base\Component;
