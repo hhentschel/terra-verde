@@ -8,6 +8,7 @@ use craft\commerce\base\AdjusterInterface;
 use craft\commerce\elements\Order;
 use craft\commerce\models\OrderAdjustment;
 use craft\commerce\Plugin;
+use craft\commerce\Model;
 // use craft\commerce\elements\Product;
 // use craft\commerce\elements\Variant;
 // use craft\commerce\services\LineItems;
