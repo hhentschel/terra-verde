@@ -23,7 +23,7 @@ use yii\base\InvalidConfigException;
 use yii\base\Module;
 
 use craft\commerce\services\OrderAdjustments;
-use MyAdjuster;
+use OrderAdjuster;
 
 /**
  * Craft plugins are very much like little applications in and of themselves. We’ve made
