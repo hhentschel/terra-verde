@@ -114,7 +114,7 @@ class TerraverdeModule extends Module
             $event->navItems[] = [
               'url' => 'entries/aboutUsStructure',
               'label' => 'Ueber uns',
-              'icon' => '@terraverdemodule/web/img'
+              'icon' => '@terraverdemodule/web/img/TerraverdeModule-icon.svg'
             ];
           }
         );
