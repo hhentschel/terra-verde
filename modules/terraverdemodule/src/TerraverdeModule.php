@@ -19,6 +19,9 @@ use craft\events\TemplateEvent;
 use craft\i18n\PhpMessageSource;
 use craft\web\View;
 
+use craft\commerce\services\LineItems;
+use craft\commerce\events\LineItemEvent;
+
 use yii\base\Event;
 use yii\base\InvalidConfigException;
 use yii\base\Module;
@@ -109,15 +112,35 @@ class TerraverdeModule extends Module
         parent::init();
         self::$instance = $this;
 
-        // Discount
+        // Discount >1000 -> 5%; > 2500 -> 10%
         Event::on(
           OrderAdjustments::class,
           OrderAdjustments::EVENT_REGISTER_ORDER_ADJUSTERS,
           function(RegisterComponentTypesEvent $event) {
 
           $event->types[] = adjusters\OrderAdjuster::class;
+          // $event->types[] = adjusters\GiftWrapAdjuster::class;
 
         });
+
+
+
+
+      //   // Increase Price if item is wrapped as gift ( Einwickeln in Geschenkpapier )
+      //   Event::on(
+      //     LineItems::class,
+      //     LineItems::EVENT_POPULATE_LINE_ITEM,
+      //     function(LineItemEvent $event) {
+      //         // @var LineItem $lineItem
+      //         $lineItem = $event->lineItem;
+      //         // @var bool $isNew
+      //         $isNew = $event->isNew;
+
+      //         if (isset($lineItem->options['giftWrapped']) && $lineItem->options['giftWrapped'] == 'yes') {
+      //             $lineItem->price += 20;
+      //         }
+      //     }
+      // );
 
         // Load our AssetBundle
         if (Craft::$app->getRequest()->getIsCpRequest()) {
