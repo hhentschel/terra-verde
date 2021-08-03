@@ -28,7 +28,10 @@
     &--options {
       position: relative;
       background-color: $color--grey-lightest;
-      margin-top: px-to-rem($space--s);
+      margin: px-to-rem($space--s) 0;
+      display: flex;
+      flex-direction: column;
+      padding: px-to-rem($space--m);
     }
 
     &--note {
@@ -141,6 +144,12 @@
 
   }
 
+
+  &--expection {
+    display: flex;
+    flex-direction: column;
+    
+  }
 
   &--adjustments {
     border-top: 1px solid $color--grey-light;
