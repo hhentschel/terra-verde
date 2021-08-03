@@ -180,6 +180,7 @@ $button-secondary--border-width: 2px;
   &--secondary {
     padding: $button-secondary--horizontal-padding
       $button-secondary--vertical-padding;
+      text-align: center;
 
     @if (has($button-secondary--background-color)) {
       background-color: $button-secondary--background-color;

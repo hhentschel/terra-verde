@@ -32,8 +32,20 @@
                             </div>
                             <span class="">{{ item.sku }}</span>
                             <div class="form__cart-table--options">
-                                <code class="p-3 pt-8 inline-block ">{{ item.options|length ? item.options|json_encode : 'keine Zusatzoptionen.' }}</code>
-                                <span class="absolute top-0 left-0 pt-2 pl-2 text-2xs">Zusatzoptionen</span>
+                                {# <code class="p-3 pt-8 inline-block ">{{ item.options|length ? item.options|json_encode : 'keine Zusatzoptionen.' }}</code> #}
+                                {# {% for key, value in item.options %}
+                                  {{ key }} - {{ value }}
+                                {% endfor %} #}
+                                 {% if item.options.giftWrapped is defined %}
+                                <span class="">Zusatzoptionen</span>
+                                <label>
+                                    <input type="checkbox"
+                                            name="purchasables[{{ loop.index }}][options][giftWrapped]"
+                                            value=""
+                                             {% if item.options.giftWrapped == 'yes' %}checked {% endif %}/>
+                                    Einwickeln in Geschenkpapier
+                                </label>
+                            {% endif %}
                             </div>
                             <div class="">
                                 <label>
@@ -44,19 +56,6 @@
                             </div>
                         </td>
                         <td class="py-3 {{ not loop.first ? 'border-t border-gray-300 border-dashed' : '' }}">
-                            {% if item.options.giftWrapped is defined %}
-                                <select name="lineItems[{{ item.id }}][options][giftWrapped]">
-                                    <option value="no"
-                                            {% if item.options.giftWrapped == 'no' %}selected{% endif %}>
-                                        Nicht als Geschenk verpackt.
-                                    </option>
-                                    <option value="yes"
-                                            {% if item.options.giftWrapped == 'yes' %}selected{% endif %}>
-                                        als Geschenk verpackt.
-                                    </option>
-                                </select>
-                            {% endif %}
-
                             {% if item.options.donationAmount is defined %}
                                 <label for="lineitem-note-{{ item.id }}" class="text-xs uppercase block">Donation Betrag</label>
                                 <input class="input input-small"
@@ -107,7 +106,15 @@
                                 {% endif %}
                                 <div class="form__cart-table--item-price" title="{{ item.subtotal }}">
                                     <div class="form__cart-table--item-price-name">Subtotal:</div>
-                                    <div class="form__cart-table--item-price-number">{{ item.subtotal|commerceCurrency(cart.currency) }}</div>
+                                    <div class="form__cart-table--item-price-number">
+                                    {# {% if item.options.giftWrapped == 'yes' %}
+                                      {% set giftwrapprice = 10 %}
+                                      {% set subgriftwraptotal = (giftwrapprice ) + (item.subtotal) %}
+                                      {{ subgriftwraptotal|commerceCurrency(cart.currency) }}
+                                    {% else %} #}
+                                      {{ item.subtotal|commerceCurrency(cart.currency) }}
+                                    {# {% endif %} #}
+                                    </div>
                                 </div>
                             {% endif %}
                         </td>
@@ -125,7 +132,7 @@
                                         </div>
                                         <div class="">
                                             <span class="adjustments__data--description">{{ adjustment.description }}</span>
-                                            {% if adjustment.isEstimated %}<i class="">{{ 'Estimated' }}</i>{% endif %}<br>
+                                            {# {% if adjustment.isEstimated %}<i class="">{{ 'Estimated' }}</i>{% endif %}<br> #}
                                             <span class="adjustments__data--name">{{ adjustment.name }}</span>
 
                                         </div>
@@ -258,7 +265,14 @@
                                 </div>
                                 <div>
                                     {% if not cart.hasErrors() %}
+                                      {% if cart.totalPrice < 30 %}
+                                      <div class="form__cart--expection">
+                                        <a class="button button--secondary" href="#">Zahlung nicht möglich</a>
+                                        <span>Mindestbestellbetrag: 30,- CHF</span>
+                                      </div>
+                                      {% else %}
                                         <a class="button button--primary" href="{{ url('shop/checkout') }}">Bezahlen</a>
+                                      {% endif %}
                                     {% endif %}
                                 </div>
                             </div>

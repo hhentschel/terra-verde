@@ -40,6 +40,8 @@
               {{ product.articleDescription}}
             </h4>
 
+
+
             <h4 class="">
               Varianten
             </h4>
@@ -55,8 +57,9 @@
               <div class="product-detail__form-addtobasket">
                 {% for variant in product.variants %}
                   {{
-                    hiddenInput('purchasables[' ~ loop.index ~ '][id]', variant.id)
+                    hiddenInput('purchasables[' ~ loop.index ~ '][id], [options]', variant.id)
                   }}
+
                   <div class="form-addtobasket__info">
                     <div class="form-addtobasket__info-variant">
                       <span>{{ variant.title }}</span>
@@ -64,6 +67,18 @@
                           <span> {{variant.articleVolume}}{{ variant.articleUnit }}</span>
                         {% endif %}
                     </div>
+
+                    <div>
+                      <input type="text" name="purchasables[{{ loop.index }}][note]" value="">
+
+                       <label>
+                          <input type="checkbox"
+                                  name="purchasables[{{ loop.index }}][options][giftWrapped]"
+                                  value="yes"/>
+                          Einwickeln in Geschenkpapier
+                      </label>
+                    </div>
+
 
                     <div class="form-addtobasket__info-pricestockadd">
                       <div class="form-addtobasket__info-pricestock">

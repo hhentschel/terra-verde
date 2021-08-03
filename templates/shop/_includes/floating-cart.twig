@@ -50,7 +50,11 @@
                         <a class="button button--secondary" href=" {{ url('shop/warenkorb') }}">Warenkorb ansehen</a>
                       </div>
                       <div>
-                        <a class="button button--primary" href="{{ url('shop/checkout') }}">Bezahlen</a>
+                        {% if cart.totalPrice < 30 %}
+
+                        {% else %}
+                          <a class="button button--primary" href="{{ url('shop/checkout') }}">Bezahlen</a>
+                        {% endif %}
                       </div>
                     </div>
                   </div>

@@ -6,6 +6,10 @@
   
   &__nav {
     display: flex;
+    flex-direction: column;
+    @include breakpoint('tablet-landscape') {
+      flex-direction: row;
+    }
 
     &--link {
       flex: 1 1 0%;
