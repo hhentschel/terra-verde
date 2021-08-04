@@ -5,7 +5,7 @@
 
 <section class="grid">
   <div class="row">
-    <div class="col col-xs-12 col-md-8 col-lg-12">
+    <div class="col col-xs-12 col-md-12 col-lg-12">
       <h2 class="heading heading--2">Warenkorb</h2>
 
     {% if cart.lineItems|length %}
@@ -124,7 +124,7 @@
                         <td class="text-right" colspan="2">
                             {% if not cart.hasErrors() and item.adjustments|length %}
                                 {# <div class="text-left text-2xs uppercase tracking-wider text-gray-600">Anpassungen</div> #}
-                                <div class="border-gray-300 border-dotted mt-1">
+                                <div class="adjustments">
                                     {% for adjustment in item.adjustments %}
                                         <div class="adjustments__data">
                                         <div class="adjustments__data--type">

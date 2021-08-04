@@ -151,6 +151,22 @@
 
       </div>
     </div>
+
+     {% if cart.orderAdjustments|length %}
+        {% for adjustment in cart.orderAdjustments %}
+        <div class="flex w-full justify-end items-center text-xs text-gray-500">
+          <div class="pr-2">
+            <span>Rabatt ({{ adjustment.description }} )</span>
+            <span>{{ adjustment.name }}</span>
+          </div>
+          <div>
+            {{ adjustment.amount|commerceCurrency(cart.currency) }}
+          </div>
+        </div>
+         {% endfor %}
+    {% endif %}
+
+
     <div class="flex w-full justify-end items-center">
       <div class="text-gray-600 pr-2">
         Total:

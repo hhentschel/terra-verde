@@ -95,7 +95,22 @@
                               {% if id == cart.gatewayId %}
                                 Bestellung abschicken
                               {% else %}
-                                {{ cart.totalPrice|commerceCurrency(cart.paymentCurrency,convert=true) }} jetzt bezahlen
+                                 {% if cart.shippingMethodHandle == 'pickUpAtStore' %}
+
+                                    {% set totalcartDiscount = (cart.totalDiscount * - 1) %}
+
+                                    {% set totalPricePlusTax = (cart.totalPrice) +  (totalcartDiscount) %}
+
+                                    {# Abholrabatt 87.50 #}
+                                    {% set pickupDiscount = (totalPricePlusTax * (5/100)) %}
+
+                                    {% set totalPriceMinusPickupDiscount = ((cart.totalPrice) - pickupDiscount) %}
+                                    {{ totalPriceMinusPickupDiscount|commerceCurrency(cart.paymentCurrency,convert=true) }} jetzt bezahlen
+
+                                {% else %}
+
+                                  {{ cart.totalPrice|commerceCurrency(cart.paymentCurrency,convert=true) }} jetzt bezahlen
+                                {% endif %}
                               {% endif %}
                           </button>
                         </div>

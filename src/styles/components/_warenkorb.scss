@@ -3,6 +3,39 @@
   &-table {
     width: 100%;
     margin-top: px-to-rem($space--s);
+    display: flex;
+    flex-direction: column;
+
+    @include breakpoint('tablet-portrait') {
+      display: inline-flex;
+    }
+
+    thead {
+      display: table;
+      flex-direction: column;
+
+      @include breakpoint('tablet-portrait') {
+        display: table;
+      }
+    }
+
+    tbody {
+      display: flex;
+      flex-direction: column;
+
+      @include breakpoint('tablet-portrait') {
+        display: inline-flex;
+      }
+    }
+
+    tbody > tr {
+      display: flex;
+      flex-direction: column;
+
+      @include breakpoint('tablet-portrait') {
+        display: table;
+      }
+    }
 
     &--head {
       background-color: $color--blue-lighter;
@@ -154,32 +187,33 @@
   &--adjustments {
     border-top: 1px solid $color--grey-light;
   }
-  .adjustments {
 
-    &__title {
+}
 
-    }
 
-    &__data--type {
-      font-size: px-to-rem($font-size-m);
-      margin: 0 px-to-rem($space--s) 0 0;
-    }
+.adjustments {
+  &__title {
 
-    &__data--name {
-      font-size: px-to-rem($font-size-s);
-    }
-
-    &__data--description {
-      font-size: px-to-rem($font-size-m);
-    }
-
-    &__data {
-      display: flex;
-    }
-
-    &__data--amount {
-      margin-left: auto;
-    }
   }
 
+  &__data--type {
+    font-size: px-to-rem($font-size-m);
+    margin: 0 px-to-rem($space--s) 0 0;
+  }
+
+  &__data--name {
+    font-size: px-to-rem($font-size-s);
+  }
+
+  &__data--description {
+    font-size: px-to-rem($font-size-m);
+  }
+
+  &__data {
+    display: flex;
+  }
+
+  &__data--amount {
+    margin-left: auto;
+  }
 }
