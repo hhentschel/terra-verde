@@ -7,8 +7,6 @@
 <header class="header">
   <div class="header__background {{ headerBackground }}"></div>
 
-  {# {% include 'shop/_includes/floating-cart' %} #}
-
   {# {% include 'shop/_includes/nav-main' %} #}
 
   <div class="grid">
@@ -26,6 +24,9 @@
               alt="Terra Verde Logo" />
             <span class="header__logo-line">Verde</span>
           </a>
+
+            {% include 'shop/_includes/floating-cart' %}
+
           <div class="header__menu-button-wrapper">
             <button class="header__menu-button-mobile" type="button">
               <span class="header__menu-button-text">
