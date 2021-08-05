@@ -12,10 +12,7 @@
 
       <div class="col col-xs-12 col-md-12 col-lg-12">
           {% include "shop/checkout/_includes/order-summary" with { showShippingAddress: true, showShippingMethod: true } %}
-      {# </div>
 
-      <div class="col col-xs-12 col-md-8 col-lg-4 border-l border-grey-lighter"> #}
-          {# <h3 class="heading heading--h3">Bezahlung</h3> #}
             {# Payment form #}
             {% if cart.gatewayId or cart.paymentSourceId %}
                 {% if paymentForm is defined %}
@@ -85,6 +82,20 @@
                         </div>
                       {% endif %}
 
+                      <div class="checkout__box--requirements">
+                          <label for="termsAgreement" class="requirements__label">
+                              {{ hiddenInput('termsAgreement', false) }}
+                              <span>Ich bin mit <a href="/agb" class="requirements__links">den AGB</a> einverstanden</span>
+                              <input type="checkbox" id="termsAgreement" name="termsAgreement" class="requirements__chekcbox" value="1" required />
+                          </label>
+
+                          <label for="overEighteen" class="requirements__label">
+                              {{ hiddenInput('overEighteen', false) }}
+                              {{ "Hiermit bestätige ich, dass ich mindestens 18 Jahre alt bin" }}
+                              <input type="checkbox" id="overEighteen" name="overEighteen" class="requirements__chekcbox" value="1" required />
+                          </label>
+                        </div>
+
                       {# Only show the payment button for gateways that don't provide their own #}
                       {% if className(cart.gateway) not in [
                         'craft\\commerce\\paypalcheckout\\gateways\\Gateway',
@@ -95,22 +106,7 @@
                               {% if id == cart.gatewayId %}
                                 Bestellung abschicken
                               {% else %}
-                                 {% if cart.shippingMethodHandle == 'pickUpAtStore' %}
-
-                                    {% set totalcartDiscount = (cart.totalDiscount * - 1) %}
-
-                                    {% set totalPricePlusTax = (cart.totalPrice) +  (totalcartDiscount) %}
-
-                                    {# Abholrabatt 87.50 #}
-                                    {% set pickupDiscount = (totalPricePlusTax * (5/100)) %}
-
-                                    {% set totalPriceMinusPickupDiscount = ((cart.totalPrice) - pickupDiscount) %}
-                                    {{ totalPriceMinusPickupDiscount|commerceCurrency(cart.paymentCurrency,convert=true) }} jetzt bezahlen
-
-                                {% else %}
-
                                   {{ cart.totalPrice|commerceCurrency(cart.paymentCurrency,convert=true) }} jetzt bezahlen
-                                {% endif %}
                               {% endif %}
                           </button>
                         </div>

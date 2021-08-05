@@ -3,39 +3,39 @@
   &-table {
     width: 100%;
     margin-top: px-to-rem($space--s);
-    display: flex;
-    flex-direction: column;
+    // display: flex;
+    // flex-direction: column;
 
-    @include breakpoint('tablet-portrait') {
-      display: inline-flex;
-    }
+    // @include breakpoint('tablet-portrait') {
+    //   display: inline-flex;
+    // }
 
-    thead {
-      display: table;
-      flex-direction: column;
+    // thead {
+    //   display: table;
+    //   flex-direction: column;
 
-      @include breakpoint('tablet-portrait') {
-        display: table;
-      }
-    }
+    //   @include breakpoint('tablet-portrait') {
+    //     display: table;
+    //   }
+    // }
 
-    tbody {
-      display: flex;
-      flex-direction: column;
+    // tbody {
+    //   display: flex;
+    //   flex-direction: column;
 
-      @include breakpoint('tablet-portrait') {
-        display: inline-flex;
-      }
-    }
+    //   @include breakpoint('tablet-portrait') {
+    //     display: inline-flex;
+    //   }
+    // }
 
-    tbody > tr {
-      display: flex;
-      flex-direction: column;
+    // tbody > tr {
+    //   display: flex;
+    //   flex-direction: column;
 
-      @include breakpoint('tablet-portrait') {
-        display: table;
-      }
-    }
+    //   @include breakpoint('tablet-portrait') {
+    //     display: table;
+    //   }
+    // }
 
     &--head {
       background-color: $color--blue-lighter;
