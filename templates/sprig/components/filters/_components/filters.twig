@@ -169,7 +169,7 @@
 
 
     <div class="row">
-      <div class="col col-xs-12 col-md-4 col-lg-4">
+      <div class="col col-xs-12 col-md-6 col-lg-4">
 
         <div class="">
             <label for="search" class="heading--2 heading no-border">
@@ -186,7 +186,7 @@
 
       </div>
 
-      <div class="col col-xs-12 col-md-2 col-lg-2">
+      <div class="col col-xs-12 col-md-6 col-lg-2">
         <h2 class="heading heading--2 layout-helper__margin-top--none">
           Aktuell
         </h2>
@@ -200,7 +200,7 @@
         {% endfor %}
       </div>
 
-       <div class="col col-xs-12 col-md-6 col-lg-6">
+       <div class="col col-xs-12 col-md-6 col-lg-6 mobile-hidden">
         <h2 class="heading heading--2 layout-helper__margin-top--none">
           Geschenksets
         </h2>
@@ -216,20 +216,43 @@
         </div>
         <button class="btn filter__btn--results anchor-link" href="#tvboard">Resulate anzeigen</button>
       </div>
-      {# <div class="col col-xs-12 col-md-12 col-lg-6">
-        <div class="">
-          Filter zurücksetzen
-          <a href="" sprig s-val:reset="1" title="Reset">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 inline" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-          </a>
-        </div>
-      </div> #}
     </div>
 
 
     <div class="row">
+
+       <div class="col col-xs-12 col-md-6 col-lg-3">
+        <h2 class="heading heading--2">
+          Weine
+        </h2>
+        {% for catWineOption in catWineOptions %}
+            <div class="filter__checkbox">
+                <input sprig type="checkbox" id="catwine-{{ catWineOption.id }}" name="articleCategoriesWine[]" value="{{ catWineOption.id }}" {{ catWineOption.id in articleCategoriesWine ? 'checked' }}>
+                <label for="catwine-{{ catWineOption.id }}" class="text-sm leading-5 font-medium text-cool-gray-500 truncate ml-1">
+                    {{ catWineOption.title }}
+                </label>
+            </div>
+        {% endfor %}
+      </div>
+
+      <div class="col col-xs-12 col-md-6 col-lg-6 desktop-hidden">
+        <h2 class="heading heading--2 layout-helper__margin-top--none">
+          Geschenksets
+        </h2>
+        <div class="filter__gift">
+         {% for catGiftOption in catGiftOptions %}
+          <div class="filter__checkbox">
+              <input sprig type="checkbox" id="catgift-{{ catGiftOption.id }}" name="articleCategoriesGift[]" value="{{ catGiftOption.id }}" {{ catGiftOption.id in articleCategoriesGift ? 'checked' }}>
+              <label for="catgift-{{ catGiftOption.id }}" class="truncate">
+                  {{ catGiftOption.title }}
+              </label>
+          </div>
+        {% endfor %}
+        </div>
+        <button class="btn filter__btn--results anchor-link" href="#tvboard">Resulate anzeigen</button>
+      </div>
+
+
       <div class="col col-xs-12 col-md-12 col-lg-9">
         <h2 class="heading heading--2">
           Delikatessen
@@ -247,19 +270,6 @@
           <button class="btn filter__btn--results anchor-link" href="#tvboard">Resulate anzeigen</button>
       </div>
 
-      <div class="col col-xs-12 col-md-12 col-lg-3">
-        <h2 class="heading heading--2">
-          Weine
-        </h2>
-        {% for catWineOption in catWineOptions %}
-            <div class="filter__checkbox">
-                <input sprig type="checkbox" id="catwine-{{ catWineOption.id }}" name="articleCategoriesWine[]" value="{{ catWineOption.id }}" {{ catWineOption.id in articleCategoriesWine ? 'checked' }}>
-                <label for="catwine-{{ catWineOption.id }}" class="text-sm leading-5 font-medium text-cool-gray-500 truncate ml-1">
-                    {{ catWineOption.title }}
-                </label>
-            </div>
-        {% endfor %}
-      </div>
 
       {# <div class="col col-xs-12 col-md-12 col-lg-3">
         <h4 class="heading heading--4">

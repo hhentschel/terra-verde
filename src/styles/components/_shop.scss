@@ -32,6 +32,10 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
     display: flex;
     justify-content: space-between;
 
+    @include breakpoint('tablet-portrait') {
+      display: none;
+    }
+
     &--text {
       line-height: $line-height--s;
       flex: 0 0 50%;
@@ -291,11 +295,12 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
 
   &__image {
     background-color: $color--beige-light;
-    height: 250px;
+    height: 320px;
     display: flex;
     position: relative;
-    // align-items: center;
-    // justify-content: center;
+    align-items: center;
+    justify-content: center;
+    padding: px-to-rem($space--m) px-to-rem($space--s);
   }
 
   .onsale {
