@@ -25,5 +25,6 @@ return [
         // 'c-q-control-panel' => terraverde\CQControlPanel::class,
         'terraverde-module' => modules\terraverdemodule\TerraverdeModule::class,
     ],
-    'bootstrap' => ['c-q-control-panel', 'terraverde-module'],
+    // 'bootstrap' => ['c-q-control-panel', 'terraverde-module'],
+    'bootstrap' => ['terraverde-module'],
 ];
