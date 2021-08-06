@@ -1,5 +1,8 @@
 <?php
 
+// "terraverde\\": "modules/cqcontrolpanel/",
+
+
 namespace terraverde;
 
 use Craft;

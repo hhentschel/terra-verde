@@ -23,7 +23,6 @@
   },
   "autoload": {
     "psr-4": {
-      "terraverde\\": "modules/cqcontrolpanel/",
       "modules\\terraverdemodule\\": "modules/terraverdemodule/src/"
     }
   },
