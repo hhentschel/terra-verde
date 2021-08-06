@@ -28,13 +28,29 @@
 {% if imageUrl %}
   <figure class="image">
     <div class="image__wrapper">
-      <img class="image__img"
-        src="{{ imageUrl }}"
-        alt="{{ imageAltText }}"
-        width="{{ imagewidth }}"
-        height="{{ imageheight }}"
-        title="{{- imagetitle -}}"
-          />
+      <picture>
+        <source
+          srcset="{{ imageUrl }}"
+          alt="{{ imageAltText }}"
+          width="{{ imagewidth }}"
+          height="{{ imageheight }}"
+          title="{{- imagetitle -}}"
+          type="image/webp">
+        <source
+          srcset="{{ imageUrl }}"
+          alt="{{ imageAltText }}"
+          width="{{ imagewidth }}"
+          height="{{ imageheight }}"
+          title="{{- imagetitle -}}"
+          type="image/jpg">
+        <img class="image__img"
+          src="{{ imageUrl }}"
+          alt="{{ imageAltText }}"
+          width="{{ imagewidth }}"
+          height="{{ imageheight }}"
+          title="{{- imagetitle -}}"
+            />
+      </picture>
     </div>
     {% if imageCaption %}
       <figcaption class="image__caption">

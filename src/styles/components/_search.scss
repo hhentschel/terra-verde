@@ -23,6 +23,7 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
   &__input {
     @extend .input;
     padding-right: px-to-rem($space--xm + $space--xs);
+    line-height: $line-height--m;
 
     @include breakpoint('tablet') {
       padding-right: px-to-rem($space--l);
