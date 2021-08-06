@@ -17,8 +17,16 @@
 
 {{ forms.textareaField({
   label: 'Markdown Text',
-  instructions: 'Inhalt für den User Guide',
+  instructions: 'Inhalt für den User Guide | Tab Info',
   name: 'markdownText',
   value: settings.markdownText,
+  rows: 15,
+}) }}
+
+{{ forms.textareaField({
+  label: 'Markdown Text',
+  instructions: 'Inhalt für den User Guide | Tab Bild & Kategorien',
+  name: 'markdownTextImage',
+  value: settings.markdownTextImage,
   rows: 15,
 }) }}
