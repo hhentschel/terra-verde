@@ -2,16 +2,22 @@
 
 {% import '_includes/forms' as forms %}
 
-{% set title = "User Guide" %}
+{% set title = "Benutzerhandbuch" %}
 
 {% set tabs = {
   intro: {label: 'Intro', url: '#intro'},
+  imagescat: {label: 'Bilder & Kategorien ändern', url: '#imagescat'},
   feedback: {label: 'Feedback', url: '#feedback'}
 } %}
 
 {% block content %}
 
   <div id="intro">
+  {% set markdownText = craft.app.plugins.getPlugin('user-guide').settings.markdownText %}
+  {{ markdownText|markdown }}
+  </div>
+
+  <div id="imagescat">
   {% set markdownText = craft.app.plugins.getPlugin('user-guide').settings.markdownText %}
   {{ markdownText|markdown }}
   </div>
