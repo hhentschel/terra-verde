@@ -13,5 +13,8 @@ use craft\base\Model;
    public $notificationEmail = '';
 
    public $markdownText = '';
+
+   public $markdownTextImage = '';
+
  }
 

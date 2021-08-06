@@ -18,8 +18,8 @@
   </div>
 
   <div id="imagescat">
-  {% set markdownText = craft.app.plugins.getPlugin('user-guide').settings.markdownText %}
-  {{ markdownText|markdown }}
+  {% set markdownTextImage = craft.app.plugins.getPlugin('user-guide').settings.markdownTextImage %}
+  {{ markdownTextImage|markdown }}
   </div>
 
   <div id="feedback" class="hidden">
