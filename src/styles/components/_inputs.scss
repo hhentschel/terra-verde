@@ -48,6 +48,7 @@ $button-secondary--hover-border-color: $color--secondary;
   width: $input--max-width;
   display: block;
   padding: $input--padding-vertical $input--padding-horizontal;
+  line-height: $line-height--m;
 
   @if (has($input--height)) {
     height: $input--height;
@@ -85,6 +86,7 @@ $button-secondary--hover-border-color: $color--secondary;
 input[type='submit'].input {
   width: auto;
   display: block;
+  line-height: $line-height--m;
   &.input__primary {
     padding: $button-primary--horizontal-padding
     $button-primary--vertical-padding;

@@ -68,9 +68,9 @@
                       {% if variant.title %}
                       <span>{{ variant.title }}</span>
                       {% endif %}
-                       {% if variant.articleVolume %}
-                          <span> {{variant.articleVolume}}{{ variant.articleUnit }}</span>
-                        {% endif %}
+                        {% if variant.articleVolume %}
+                        <span> {{variant.articleVolume}}{{ variant.articleVolumeUnit }}</span>
+                      {% endif %}
                     </div>
 
                     <div>
@@ -98,7 +98,7 @@
                         </div>
 
                         <div class="form-addtobasket__info-stock">
-                            {% if variant.stock > 0 %}
+                            {% if variant.stock > 0 or variant.hasUnlimitedStock %}
                               <span class="form-addtobasket__info-stock-in">verfügbar</span>
                             {% else %}
                               <span class="form-addtobasket__info-stock-out">momentan nicht verfügbar</span>

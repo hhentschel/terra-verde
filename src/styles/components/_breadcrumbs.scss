@@ -21,6 +21,10 @@
       &.is-active {
         color: $color--text;
         position: relative;
+        line-height: $line-height--s;
+        @include breakpoint('tablet-portrait') {
+          line-height: $line-height--m;
+        }
       }
 
       &:not(:first-child ){
@@ -39,7 +43,7 @@
         
         &:before {
             transform: rotate(50deg);
-            top: 44%;
+            top: 34%;
           }
         }
       }

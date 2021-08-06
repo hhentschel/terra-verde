@@ -252,6 +252,7 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    flex: 1 1 auto;
 
     padding: 0 ($shop-list__grid-gutter--phone / 2) ($shop-list__grid-gutter--phone / 3) ($shop-list__grid-gutter--phone / 2);
 
@@ -268,9 +269,15 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
       padding: px-to-rem($space--s);
       font-size: px-to-em($space--m);
     }
-    > span {
-      font-weight: $font-weight--bold;
-    }
+  }
+
+  &__text--pricevolume {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  &__text--price {
+    font-weight: $font-weight--bold;
   }
 
   &__item-cart {
@@ -327,8 +334,9 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
   }
 
   &__link {
-    display: block;
-    height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
     padding-bottom: px-to-rem($space--m);
   }
 

@@ -321,17 +321,24 @@
                 </div>
 
                 <div class="shop-list__text">
-                  <h3 class="layout-helper__margin-bottom--none">
+                  <h3 class="layout-helper__margin-vertical--none">
                     {{ product.title }}
                   </h3>
-                  <span>
-                    {% if variant.onSale %}
-                      <strike>{{variant.price|currency('CHF')}}</strike>
-                      {{ variant.salePrice|currency('CHF')}}
-                    {% else %}
-                      {{ product.defaultPrice|currency('CHF') }}
+                  <div class="shop-list__text--pricevolume">
+                    {% if variant.articleVolume %}
+                      <span class="shop-list__volume">
+                        - {{variant.articleVolume}}{{ variant.articleVolumeUnit }} -
+                      </span>
                     {% endif %}
-                  </span>
+                     <span class="shop-list__text--price">
+                      {% if variant.onSale %}
+                        <strike>{{variant.price|currency('CHF')}}</strike>
+                        {{ variant.salePrice|currency('CHF')}}
+                      {% else %}
+                        {{ product.defaultPrice|currency('CHF') }}
+                      {% endif %}
+                    </span>
+                  </div>
                 </div>
 
               </a>
@@ -368,7 +375,7 @@
                                   name="qty" type="number" step="1" min="1" placeholder="Menge" value="1">
 
                           {# product.availableForPurchase #}
-                          {% if variant.stock > 0 %}
+                          {% if variant.stock > 0 or variant.hasUnlimitedStock %}
                             <button type="submit"
                                     class="m-0 button button--primary text-center">In den Warenkorb
                             </button>
