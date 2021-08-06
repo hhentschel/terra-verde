@@ -17,7 +17,7 @@
   {{ markdownText|markdown }}
   </div>
 
-  <div id="imagescat">
+  <div id="imagescat" class="hidden">
   {% set markdownTextImage = craft.app.plugins.getPlugin('user-guide').settings.markdownTextImage %}
   {{ markdownTextImage|markdown }}
   </div>
