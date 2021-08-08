@@ -7,6 +7,17 @@
                 <div class="row">
                   <div class="col col-xs-12 col-md-12 col-lg-12">
                     {{ flashNotice ?? 'Test flash notice' }}
+
+                    <form method="post">
+                        {{ actionInput('commerce/cart/update-cart') }}
+                        {{ successMessageInput('Hinweiss geschlossen') }}
+                        {{ hiddenInput('clearNotices') }}
+                        {{ csrfInput() }}
+                        <button type="submit"
+                                class="cursor-pointer rounded px-2 py-1 text-sm inline-block [[classes.btn.blue]] absolute mt-4 mr-4 top-0 right-0">
+                            schliessen
+                        </button>
+                    </form>
                   </div>
                 </div>
               </section>
@@ -20,6 +31,17 @@
               <div class="row">
                 <div class="col col-xs-12 col-md-12 col-lg-12">
                 {{ flashError ?? 'Test flash error' }}
+
+                <form method="post">
+                    {{ actionInput('commerce/cart/update-cart') }}
+                    {{ successMessageInput('Hinweiss geschlossen') }}
+                    {{ hiddenInput('clearNotices') }}
+                    {{ csrfInput() }}
+                    <button type="submit"
+                            class="cursor-pointer rounded px-2 py-1 text-sm inline-block [[classes.btn.blue]] absolute mt-4 mr-4 top-0 right-0">
+                        schliessen
+                    </button>
+                </form>
                 </div>
               </div>
             </section>
@@ -38,6 +60,17 @@
                       {% endfor %}
                       {% if loop.last %}</ul>{% endif %}
                   {% endfor %}
+
+                  <form method="post">
+                    {{ actionInput('commerce/cart/update-cart') }}
+                    {{ successMessageInput('Hinweiss geschlossen') }}
+                    {{ hiddenInput('clearNotices') }}
+                    {{ csrfInput() }}
+                    <button type="submit"
+                            class="cursor-pointer rounded px-2 py-1 text-sm inline-block [[classes.btn.blue]] absolute mt-4 mr-4 top-0 right-0">
+                        schliessen
+                    </button>
+                </form>
                 </div>
               </div>
             </section>

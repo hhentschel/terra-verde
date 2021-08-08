@@ -115,6 +115,13 @@
                     {% if currentUser.isInGroup('userGroupPrivate') %}
                       <p class="section-home__product--price">
                           {{ product.defaultPrice|currency('CHF') }}
+                          {% if variant.onSale %}
+                            <del>
+                              {{ variant.priceAsCurrency }}
+                            </del><br />{{ variant.salePriceAsCurrency }}
+                          {% else %}
+                            {{ variant.priceAsCurrency }}
+                          {% endif %}
                         {# {{ product.pricePrivateCustomer|currency('CHF') }} #}
                       </p>
                     {% else %}
@@ -184,7 +191,14 @@
                   {% if currentUser %}
                     {% if currentUser.isInGroup('userGroupPrivate') %}
                       <p class="section-home__product--price">
-                          {{ product.defaultPrice|currency('CHF') }}
+                          {# {{ product.defaultPrice|currency('CHF') }} #}
+                          {% if variant.onSale %}
+                            <del>
+                              {{ variant.priceAsCurrency }}
+                            </del><br />{{ variant.salePriceAsCurrency }}
+                          {% else %}
+                            {{ variant.priceAsCurrency }}
+                          {% endif %}
                         {# {{ product.pricePrivateCustomer|currency('CHF') }} #}
                       </p>
                     {% else %}
