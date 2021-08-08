@@ -114,24 +114,16 @@
                   {% if currentUser %}
                     {% if currentUser.isInGroup('userGroupPrivate') %}
                       <p class="section-home__product--price">
-                          {{ product.defaultPrice|currency('CHF') }}
-                          {% if variant.onSale %}
-                            <del>
-                              {{ variant.priceAsCurrency }}
-                            </del><br />{{ variant.salePriceAsCurrency }}
-                          {% else %}
-                            {{ variant.priceAsCurrency }}
-                          {% endif %}
-                        {# {{ product.pricePrivateCustomer|currency('CHF') }} #}
+                          {{ product.articleBasePriceUnit|currency('CHF') }}
                       </p>
-                    {% else %}
+                    {% elseif currentUser.isInGroup('userGroupRetail')  %}
                       <p class="section-home__product--price">
                           {{ product.priceRetailTrader|currency('CHF') }}
                       </p>
                     {% endif %}
                   {% else %}
                   <p class="section-home__product--price">
-                      {{ product.defaultPrice|currency('CHF') }}
+                      {{ product.articleBasePriceUnit|currency('CHF') }}
                     </p>
                   {% endif %}
                 </div>
@@ -191,24 +183,16 @@
                   {% if currentUser %}
                     {% if currentUser.isInGroup('userGroupPrivate') %}
                       <p class="section-home__product--price">
-                          {# {{ product.defaultPrice|currency('CHF') }} #}
-                          {% if variant.onSale %}
-                            <del>
-                              {{ variant.priceAsCurrency }}
-                            </del><br />{{ variant.salePriceAsCurrency }}
-                          {% else %}
-                            {{ variant.priceAsCurrency }}
-                          {% endif %}
-                        {# {{ product.pricePrivateCustomer|currency('CHF') }} #}
+                          {{ product.articleBasePriceUnit|currency('CHF') }}
                       </p>
-                    {% else %}
+                    {% elseif currentUser.isInGroup('userGroupRetail')  %}
                       <p class="section-home__product--price">
                           {{ product.priceRetailTrader|currency('CHF') }}
                       </p>
                     {% endif %}
                   {% else %}
                   <p class="section-home__product--price">
-                      {{ product.defaultPrice|currency('CHF') }}
+                      {{ product.articleBasePriceUnit|currency('CHF') }}
                     </p>
                   {% endif %}
                 </div>
