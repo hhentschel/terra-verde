@@ -73,6 +73,19 @@
                       {% endif %}
                     </div>
 
+                    <div>
+                    {# <input type="text" name="purchasables[{{ loop.index }}][note]" value=""> #}
+
+                      <label>
+                        <input type="checkbox"
+                                name="purchasables[{{ loop.index }}][options][giftWrapped]"
+                                value="yes"/>
+                        In Geschenkpapier einwickeln
+                      </label>
+
+                    </div>
+
+
                     <div class="form-addtobasket__info-pricestockadd">
                       <div class="form-addtobasket__info-pricestock">
                         <div class="form-addtobasket__info-price">

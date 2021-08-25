@@ -10,9 +10,12 @@
 
     {% if cart.lineItems|length %}
       <form method="post" class="form__cart" action="">
+        {{ hiddenInput('fields[giftWrapped]', '') }}
+
         {{ actionInput('commerce/cart/update-cart') }}
         {{ hiddenInput('successMessage', 'Der Warenkorb wurde aktualisiert.'|hash) }}
         {{ csrfInput() }}
+
         <table class="form__cart-table table">
             <thead>
             <tr class="form__cart-table--head">
@@ -36,16 +39,22 @@
                                 {# {% for key, value in item.options %}
                                   {{ key }} - {{ value }}
                                 {% endfor %} #}
-                                 {% if item.options.giftWrapped is defined %}
+                              {% if item.options.giftWrapped is defined %}
+
+
+
                                 <span class="">Zusatzoptionen</span>
                                 <label>
                                     <input type="checkbox"
                                             name="purchasables[{{ loop.index }}][options][giftWrapped]"
                                             value=""
                                              {% if item.options.giftWrapped == 'yes' %}checked {% endif %}/>
-                                    Einwickeln in Geschenkpapier
+
+                                    In Geschenkpapier einwickeln
                                 </label>
-                            {% endif %}
+                              {% endif %}
+
+
                             </div>
                             <div class="">
                                 <label>

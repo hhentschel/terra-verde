@@ -23,7 +23,8 @@
   },
   "autoload": {
     "psr-4": {
-      "modules\\terraverdemodule\\": "modules/terraverdemodule/src/"
+      "modules\\terraverdemodule\\": "modules/terraverdemodule/src/",
+      "modules\\exampleadjuster\\": "modules/exampleadjuster/src/"
     }
   },
   "config": {

@@ -39,7 +39,7 @@
   </div> #}
 
   <div class="form-registration__item">
-    <label for="firstName">Vorname</label>
+    <label for="firstName">Vorname *</label>
     {{
       input(
         'text',
@@ -47,7 +47,8 @@
         user.firstName ?? null,
         {
           id: 'firstName',
-          class: 'input layout-helper__margin-bottom--xxs'
+          class: 'input layout-helper__margin-bottom--xxs',
+          required: 'required'
         }
       )
     }}
@@ -58,7 +59,7 @@
   </div>
 
   <div class="form-registration__item">
-    <label for="lastName">Nachname</label>
+    <label for="lastName">Nachname *</label>
     {{
       input(
         'text',
@@ -66,7 +67,8 @@
         user.lastName ?? null,
         {
           id: 'lastName',
-          class: 'input layout-helper__margin-bottom--xxs'
+          class: 'input layout-helper__margin-bottom--xxs',
+          required: 'required'
         }
       )
     }}
@@ -85,7 +87,8 @@
         user.email ?? null,
         {
           id: 'email',
-          class: 'input layout-helper__margin-bottom--xxs'
+          class: 'input layout-helper__margin-bottom--xxs',
+          required: 'required'
         }
       )
     }}
@@ -104,7 +107,8 @@
         null,
         {
           id: 'password',
-          class: 'input layout-helper__margin-bottom--xxs'
+          class: 'input layout-helper__margin-bottom--xxs',
+          required: 'required'
         }
       )
     }}
@@ -122,9 +126,9 @@
   </div>
 
   <div class="form-registration__item">
-    <label for="fields[userAdress]">Strasse</label>
+    <label for="fields[userAdress]">Strasse *</label>
     <input id="Address" type="text" class="input layout-helper__margin-bottom--xxs" name="fields[userAdress]"
-    {%- if account is defined %} value="{{ account.userAdress}}"{% endif -%}>
+    {%- if account is defined %} value="{{ account.userAdress}}"{% endif -%} required >
   </div>
 
 
@@ -137,25 +141,25 @@
   <div class="form-registration__item">
     <label for="fields[userTelephone]">Telefon</label>
     <input id="Telephone" type="text" class="input layout-helper__margin-bottom--xxs" name="fields[userTelephone]"
-    {%- if account is defined %} value="{{ account.userTelephone}}"{% endif -%}>
+    {%- if account is defined %} value="{{ account.userTelephone}}"{% endif -%} >
   </div>
 
   <div class="form-registration__item">
-    <label for="fields[userTelephoneMobile]">Telefon Mobile</label>
+    <label for="fields[userTelephoneMobile]">Telefon Mobile *</label>
     <input id="TelephoneMobile" type="text" class="input layout-helper__margin-bottom--xxs" name="fields[userTelephoneMobile]"
-    {%- if account is defined %} value="{{ account.userTelephoneMobile}}"{% endif -%}>
+    {%- if account is defined %} value="{{ account.userTelephoneMobile}}"{% endif -%} required >
   </div>
 
   <div class="form-registration__item">
-    <label for="fields[userCity]">Stadt</label>
+    <label for="fields[userCity]">Stadt *</label>
     <input id="City" type="text" class="input layout-helper__margin-bottom--xxs" name="fields[userCity]"
-    {%- if account is defined %} value="{{ account.userCity}}"{% endif -%}>
+    {%- if account is defined %} value="{{ account.userCity}}"{% endif -%} required>
   </div>
 
   <div class="form-registration__item">
-    <label for="fields[userZip]">Postleitzahl</label>
+    <label for="fields[userZip]">Postleitzahl *</label>
     <input id="City" type="text" class="input layout-helper__margin-bottom--xxs" name="fields[userZip]"
-    {%- if account is defined %} value="{{ account.userZip}}"{% endif -%}>
+    {%- if account is defined %} value="{{ account.userZip}}"{% endif -%} required>
   </div>
 
   <div class="form-registration__item">
