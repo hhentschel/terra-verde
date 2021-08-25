@@ -90,7 +90,8 @@
                 <li class="list-disc" data-type="{{ notice.type }}" data-attribute="{{ notice.attribute }}" data-message="{{ notice.message }}">{{ notice }}</li>
                 {% endfor %}
             {% endfor %}
-            <form method="post">
+            </div>
+             <form class="form" method="post">
                 {{ actionInput('commerce/cart/update-cart') }}
                 {{ successMessageInput('Hinweiss geschlossen') }}
                 {{ hiddenInput('clearNotices') }}
@@ -100,7 +101,6 @@
                     schliessen
                 </button>
             </form>
-            </div>
         </div>
       </section>
     </div>
