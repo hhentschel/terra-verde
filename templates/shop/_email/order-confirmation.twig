@@ -1,263 +1,752 @@
-{% extends '/_layouts/main' %}
+{#
+$variables = ($message->variables ?: []) + [
+    'emailKey' => $message->key,
+    'fromEmail' => Craft::parseEnv($settings->fromEmail),
+    'replyToEmail' => Craft::parseEnv($settings->replyToEmail),
+    'fromName' => Craft::parseEnv($settings->fromName),
+]; #}
 
-{% set extraHead %}
-    {# We don't want the order info indexed by search engines #}
-    <meta name="robots" content="noindex">
-{% endset %}
+        {# {{ order.email }} #}
 
-{% set number = craft.app.request.getRequiredParam('number') %}
+{# based on Postmark Transactional Email Templates
+https://postmarkapp.com/transactional-email-templates #}
 
-{% set order = craft.orders.number(number).one() %}
+{# If you change button color, remember to pass it to macro AND define "buttonColor" before "extends" tag. #}
 
-{% if not order or order.isCompleted == false %}
-    {% redirect 'shop/customer' %}
+{# macro title #}
+{% macro title(titleText) %}
+{% if titleText is defined %}
+<h1 style="margin-top: 0; color: #333333; font-size: 22px; font-weight: bold; text-align: center;" align="left">{{titleText}}</h1>
+{% endif %}
+{% endmacro %}
+
+{# macro call to action button #}
+{% macro button(buttonText, buttonUrl, buttonColor) %}
+{% if buttonColor is not defined %}
+    {% set buttonColor = '#ed1b24' %}
+{% endif %}
+{% if buttonText is defined and buttonUrl is defined %}
+<table class="body-action" align="center" width="100%" cellpadding="0" cellspacing="0" role="presentation" style="width: 100%; -premailer-width: 100%; -premailer-cellpadding: 0; -premailer-cellspacing: 0; text-align: center; margin: 30px auto; padding: 0;">
+  <tr>
+    <td align="center" style="word-break: break-word; font-family: &quot;Nunito Sans&quot;, Helvetica, Arial, sans-serif; font-size: 16px;">
+      <!-- Border based button https://litmus.com/blog/a-guide-to-bulletproof-buttons-in-email-design -->
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" role="presentation">
+        <tr>
+          <td align="center" style="word-break: break-word; font-family: &quot;Nunito Sans&quot;, Helvetica, Arial, sans-serif; font-size: 16px;">
+            <a href="{{buttonUrl}}" class="f-fallback button" target="_blank" style="color: #FFF; border-color: {{buttonColor}}; border-style: solid; border-width: 10px 18px; background-color: {{buttonColor}}; display: inline-block; text-decoration: none; border-radius: 3px; box-shadow: 0 2px 3px rgba(0, 0, 0, 0.16); -webkit-text-size-adjust: none; box-sizing: border-box;">{{buttonText}}</a>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{% endif %}
+{% endmacro %}
+
+{% if buttonColor is not defined %}
+    {% set buttonColor = '#ed1b24' %}
 {% endif %}
 
-{% block content %}
-    <!-- Template: {{ _self }}.twig -->
 
-  <section class="grid">
-    <div class="row">
-      <div class="col col-xs-12 col-md-12 col-lg-12">
-        {% if currentUser %}
-            <div class="mt-3">
-                <p><a href="{{ url('shop/customer') }}">Meine Bestellungen</a></p>
-            </div>
-        {% endif %}
-                <h2 class="heading heading--2">Bestellung {{ order.reference }}</h2>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="x-apple-disable-message-reformatting" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title></title>
+        <style type="text/css" rel="stylesheet" media="all">
+    /* Base ------------------------------ */
 
-                <h3 class="heading heading--3">Details</h3>
+    @import url("https://fonts.googleapis.com/css?family=Nunito+Sans:400,700&amp;display=swap");
+    body {
+      width: 100% !important;
+      height: 100%;
+      margin: 0;
+      -webkit-text-size-adjust: none;
+    }
 
-                <div class="ordersummary__info">
-                    <div class="ordersummary__info-term">Kunde:</div>
-                    <div class="ordersummary__info-data">{{ order.email }}</div>
-                </div>
-                <div class="ordersummary__info">
-                    <div class="ordersummary__info-term">Total:</div>
-                    <div class="ordersummary__info-data">{{ order.totalPrice|commerceCurrency(order.currency) }}</div>
-                </div>
-                <div class="ordersummary__info">
-                    <div class="ordersummary__info-term">Betrag bezahlt:</div>
-                    <div class="ordersummary__info-data">{{ order.totalPaid|commerceCurrency(order.currency) }}</div>
-                </div>
-                <div class="ordersummary__info">
-                    <div class="ordersummary__info-term">Datum:</div>
-                    <div class="ordersummary__info-data">{{ order.dateOrdered|date('d. M Y') }}</div>
-                </div>
-                {% if order.shippingMethodName %}
-                    <div class="ordersummary__info">
-                        <div class="ordersummary__info-term">Versand:</div>
-                        <div class="ordersummary__info-data">{{ order.shippingMethodName }}</div>
-                    </div>
-                {% endif %}
-                {% if order.pdfUrl %}
-                    <div class="ordersummary__info">
-                        <div class="ordersummary__info-term">PDF:</div>
-                        <div class="ordersummary__info-data">
-                          <a href="{{ order.getPdfUrl('receiptOrderPdf') }}">Download</a>
-                        </div>
-                    </div>
-                {% endif %}
-        </div>
-      </div>
+    a {
+      color: #3869D4;
+    }
 
-      <div class="row">
-        <div class="col col-xs-12 col-md-6 col-lg-6">
-            <div class="{{ classes.box.base }}">
-                <h3 class="">Versandadresse</h3>
-                {% if order.shippingAddress %}
-                    {% include 'shop/_includes/addresses/address' with { address: order.shippingAddress } %}
-                    {% if order.shippingAddress.sameAs(order.billingAddress) %}
-                        <p>Adressen sind identisch</p>
-                    {% endif %}
-                {% else %}
-                    <p>Nicht eingegeben.</p>
-                {% endif %}
-            </div>
-        </div>
+    a img {
+      border: none;
+    }
 
-        <div class="col col-xs-12 col-md-6 col-lg-6">
-            <div class="{{ classes.box.base }}">
-                <h3 class="f">Rechnungsadresse</h3>
-                {% if order.billingAddress %}
-                    {% include 'shop/_includes/addresses/address' with { address: order.billingAddress } %}
-                    {% if order.billingAddress.sameAs(order.shippingAddress) %}
-                        <p>Adressen sind identisch</p>
-                    {% endif %}
-                {% else %}
-                    <p>Nicht eingegeben</p>
-                {% endif %}
-            </div>
-        </div>
-      </div>
+    td {
+      word-break: break-word;
+    }
+
+    .preheader {
+      display: none !important;
+      visibility: hidden;
+      mso-hide: all;
+      font-size: 1px;
+      line-height: 1px;
+      max-height: 0;
+      max-width: 0;
+      opacity: 0;
+      overflow: hidden;
+    }
+    /* Type ------------------------------ */
+
+    body,
+    td,
+    th {
+      font-family: "Nunito Sans", Helvetica, Arial, sans-serif;
+    }
+
+    h1 {
+      margin-top: 0;
+      color: #333333;
+      font-size: 22px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    h2 {
+      margin-top: 0;
+      color: #333333;
+      font-size: 16px;
+      font-weight: bold;
+      text-align: left;
+    }
+
+    h3 {
+      margin-top: 0;
+      color: #333333;
+      font-size: 14px;
+      font-weight: bold;
+      text-align: left;
+    }
+
+    td,
+    th {
+      font-size: 16px;
+    }
+
+    p,
+    ul,
+    ol,
+    blockquote {
+      margin: .4em 0 1.1875em;
+      font-size: 16px;
+      line-height: 1.625;
+    }
+
+    p.sub {
+      font-size: 13px;
+    }
+    /* Utilities ------------------------------ */
+
+    .align-right {
+      text-align: right;
+    }
+
+    .align-left {
+      text-align: left;
+    }
+
+    .align-center {
+      text-align: center;
+    }
+    /* Buttons ------------------------------ */
+
+    .button {
+      background-color: red;
+      display: inline-block;
+      color: #FFF;
+      text-decoration: none;
+      border-radius: 3px;
+      box-shadow: 0 2px 3px rgba(0, 0, 0, 0.16);
+      -webkit-text-size-adjust: none;
+      box-sizing: border-box;
+    }
+
+    .button--green {
+      background-color: #22BC66;
+      border-top: 10px solid #22BC66;
+      border-right: 18px solid #22BC66;
+      border-bottom: 10px solid #22BC66;
+      border-left: 18px solid #22BC66;
+    }
+
+    .button--red {
+      background-color: #FF6136;
+      border-top: 10px solid #FF6136;
+      border-right: 18px solid #FF6136;
+      border-bottom: 10px solid #FF6136;
+      border-left: 18px solid #FF6136;
+    }
+
+    @media only screen and (max-width: 500px) {
+      .button {
+        width: 100% !important;
+        text-align: center !important;
+      }
+    }
+    /* Attribute list ------------------------------ */
+
+    .attributes {
+      margin: 0 0 21px;
+    }
+
+    .attributes_content {
+      background-color: #F4F4F7;
+      padding: 16px;
+    }
+
+    .attributes_item {
+      padding: 0;
+    }
+    /* Related Items ------------------------------ */
+
+    .related {
+      width: 100%;
+      margin: 0;
+      padding: 25px 0 0 0;
+      -premailer-width: 100%;
+      -premailer-cellpadding: 0;
+      -premailer-cellspacing: 0;
+    }
+
+    .related_item {
+      padding: 10px 0;
+      color: #CBCCCF;
+      font-size: 15px;
+      line-height: 18px;
+    }
+
+    .related_item-title {
+      display: block;
+      margin: .5em 0 0;
+    }
+
+    .related_item-thumb {
+      display: block;
+      padding-bottom: 10px;
+    }
+
+    .related_heading {
+      border-top: 1px solid #CBCCCF;
+      text-align: center;
+      padding: 25px 0 10px;
+    }
+    /* Discount Code ------------------------------ */
+
+    .discount {
+      width: 100%;
+      margin: 0;
+      padding: 24px;
+      -premailer-width: 100%;
+      -premailer-cellpadding: 0;
+      -premailer-cellspacing: 0;
+      background-color: #F4F4F7;
+      border: 2px dashed #CBCCCF;
+    }
+
+    .discount_heading {
+      text-align: center;
+    }
+
+    .discount_body {
+      text-align: center;
+      font-size: 15px;
+    }
+    /* Social Icons ------------------------------ */
+
+    .social {
+      width: auto;
+    }
+
+    .social td {
+      padding: 0;
+      width: auto;
+    }
+
+    .social_icon {
+      height: 20px;
+      margin: 0 8px 10px 8px;
+      padding: 0;
+    }
+    /* Data table ------------------------------ */
+
+    .purchase {
+      width: 100%;
+      margin: 0;
+      padding: 35px 0;
+      -premailer-width: 100%;
+      -premailer-cellpadding: 0;
+      -premailer-cellspacing: 0;
+    }
+
+    .purchase_content {
+      width: 100%;
+      margin: 0;
+      padding: 25px 0 0 0;
+      -premailer-width: 100%;
+      -premailer-cellpadding: 0;
+      -premailer-cellspacing: 0;
+    }
+
+    .purchase_item {
+      padding: 10px 0;
+      color: #51545E;
+      font-size: 15px;
+      line-height: 18px;
+    }
+
+    .purchase_heading {
+      padding-bottom: 8px;
+      border-bottom: 1px solid #EAEAEC;
+    }
+
+    .purchase_heading p {
+      margin: 0;
+      color: #85878E;
+      font-size: 12px;
+    }
+
+    .purchase_footer {
+      padding-top: 15px;
+      border-top: 1px solid #EAEAEC;
+    }
+
+    .purchase_total {
+      margin: 0;
+      text-align: right;
+      font-weight: bold;
+      color: #333333;
+    }
+
+    .purchase_total--label {
+      padding: 0 15px 0 0;
+    }
+
+    body {
+      background-color: #F2F4F6;
+      color: #51545E;
+    }
+
+    p {
+      color: #51545E;
+    }
+
+    .email-wrapper {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      -premailer-width: 100%;
+      -premailer-cellpadding: 0;
+      -premailer-cellspacing: 0;
+      background-color: #F2F4F6;
+    }
+
+    .email-content {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      -premailer-width: 100%;
+      -premailer-cellpadding: 0;
+      -premailer-cellspacing: 0;
+    }
+    /* Masthead ----------------------- */
+
+    .email-masthead {
+      padding: 25px 0;
+      text-align: center;
+    }
+
+    .email-masthead_logo {
+      width: 94px;
+    }
+
+    .email-masthead_name {
+      font-size: 16px;
+      font-weight: bold;
+      color: #A8AAAF;
+      text-decoration: none;
+      text-shadow: 0 1px 0 white;
+    }
+    /* Body ------------------------------ */
+
+    .email-body {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      -premailer-width: 100%;
+      -premailer-cellpadding: 0;
+      -premailer-cellspacing: 0;
+    }
+
+    .email-body_inner {
+      width: 600px;
+      margin: 0 auto;
+      padding: 0;
+      -premailer-width: 600px;
+      -premailer-cellpadding: 0;
+      -premailer-cellspacing: 0;
+      background-color: #FFFFFF;
+    }
+
+    .email-footer {
+      width: 600px;
+      margin: 0 auto;
+      padding: 0;
+      -premailer-width: 600px;
+      -premailer-cellpadding: 0;
+      -premailer-cellspacing: 0;
+      text-align: center;
+    }
+
+    .email-footer p {
+      color: #A8AAAF;
+    }
+
+    .body-action {
+      width: 100%;
+      margin: 30px auto;
+      padding: 0;
+      -premailer-width: 100%;
+      -premailer-cellpadding: 0;
+      -premailer-cellspacing: 0;
+      text-align: center;
+    }
+
+    .body-sub {
+      margin-top: 25px;
+      padding-top: 25px;
+      border-top: 1px solid #EAEAEC;
+    }
+
+    .content-cell {
+      padding: 45px;
+    }
+    /*Media Queries ------------------------------ */
+
+    @media only screen and (max-width: 600px) {
+      .email-body_inner,
+      .email-footer {
+        width: 100% !important;
+      }
+    }
 
 
+    </style>
+    <!--[if mso]>
+    <style type="text/css">
+      .f-fallback  {
+        font-family: Arial, sans-serif;
+      }
+    </style>
+  <![endif]-->
+    <style type="text/css" rel="stylesheet" media="all">
+    body {
+      width: 100% !important;
+      height: 100%;
+      margin: 0;
+      -webkit-text-size-adjust: none;
+    }
 
-      <table class="ordersummary__table">
-          <thead class="ordersummary__table-head">
-          <tr class="">
-              <th class="table-head__product">Produkt</th>
-              <th class="table-head__qyt">Menge</th>
-              <th class="table-head__price">Preis</th>
-          </tr>
-          </thead>
-          <tbody>
-          {% for item in order.lineItems %}
-              <tr class="align-top">
-                  <td class="py-3 pl-3 {{ not loop.first ? 'border-t border-gray-300 border-dashed' : '' }}" rowspan="2">
-                      <strong class="text-lg">{{ item.description }}</strong><br>
-                      <span class="text-gray-500 tracking-widest font-mono text-xs">{{ item.sku }}</span>
-                      <div class="mt-2 relative">
-                          <code class="text-xs p-3 pt-8 bg-gray-100 inline-block tracking-wider font-mono text-gray-600">{{ item.options|length ? item.options|json_encode : 'keine Zusatzoptionen.' }}</code>
-                          <span class="absolute top-0 left-0 pt-2 pl-2 text-2xs text-gray-500 uppercase tracking-wider">Optionen</span>
-                      </div>
-                  </td>
-                  <td class="py-3 {{ not loop.first ? 'border-t border-gray-300 border-dashed' : '' }}">
-                      {% if item.options.donationAmount is not defined %}
-                          <div>{{ item.qty }}</div>
-                      {% endif %}
+    body {
+      font-family: "Nunito Sans", Helvetica, Arial, sans-serif;
+    }
 
-                      {% if item.note %}
-                          <div class="mt-1 flex">
-                              <div class="pr-2 uppercase">Notiz</div>
-                              <div>{{ item.note }}</div>
-                          </div>
-                      {% endif %}
+    body {
+      background-color: #F2F4F6;
+      color: #51545E;
+    }
+    </style>
+  </head>
+  <body style="width: 100% !important; height: 100%; -webkit-text-size-adjust: none; font-family: &quot;Nunito Sans&quot;, Helvetica, Arial, sans-serif; background-color: #F2F4F6; color: #51545E; margin: 0;" bgcolor="#F2F4F6">
+    <span class="preheader" style="display: none !important; visibility: hidden; mso-hide: all; font-size: 1px; line-height: 1px; max-height: 0; max-width: 0; opacity: 0; overflow: hidden;">{% block preview %}{% endblock %}</span>
+    <table class="email-wrapper" width="100%" cellpadding="0" cellspacing="0" role="presentation" style="width: 100%; -premailer-width: 100%; -premailer-cellpadding: 0; -premailer-cellspacing: 0; background-color: #F2F4F6; margin: 0; padding: 0;" bgcolor="#F2F4F6">
+      <tr>
+        <td align="center" style="word-break: break-word; font-family: &quot;Nunito Sans&quot;, Helvetica, Arial, sans-serif; font-size: 16px;">
+          <table class="email-content" width="100%" cellpadding="0" cellspacing="0" role="presentation" style="width: 100%; -premailer-width: 100%; -premailer-cellpadding: 0; -premailer-cellspacing: 0; margin: 0; padding: 0;">
 
-                      {% if item.options.giftWrapped is defined %}
-                          <div class="mt-1">
-                              <div class="pr-2 uppercase">Als Geschenk verpackt?</div>
-                              <div>{{ item.options.giftWrapped|title }}</div>
-                          </div>
-                      {% endif %}
-                  </td>
+            {# header #}
+            <tr>
+              <td class="email-masthead" style="word-break: break-word; font-family: &quot;Nunito Sans&quot;, Helvetica, Arial, sans-serif; font-size: 16px; text-align: center; padding: 25px 0;" align="center">
+                <span class="f-fallback email-masthead_name" style="color: #A8AAAF; font-size: 16px; font-weight: bold; text-decoration: none; text-shadow: 0 1px 0 white;">
 
-                  <td class="py-3 pr-3 text-gray-500 {{ not loop.first ? 'border-t border-gray-300 border-dashed' : '' }} text-right">
-                      <div class="flex items-center w-full justify-end" title="{{ item.price }}">
-                          <div class="text-xs pr-2">Preis:</div>
-                          <div class="text-sm">{% if item.onSale %}
-                              <del>{% endif %}{{ item.price|commerceCurrency(order.currency) }}{% if item.onSale %}</del>{% endif %}
-                          </div>
-                      </div>
-                      {% if item.onSale %}
-                          <div class="flex items-center w-full justify-end" title="{{ item.salePrice }}">
-                              <div class="text-xs pr-2">Sale Preis:</div>
-                              <div class="text-sm">{{ item.salePrice|commerceCurrency(order.currency) }}</div>
-                          </div>
-                          <div class="flex items-center w-full justify-end" title="{{ item.saleAmount }}">
-                              <div class="text-xs pr-2">Sale Anzahl:</div>
-                              <div class="text-sm">{{ item.saleAmount|commerceCurrency(order.currency) }}</div>
-                          </div>
-                      {% endif %}
-                      <div class="flex items-center w-full justify-end" title="{{ item.subtotal }}">
-                          <div class="text-xs pr-2">Subtotal:</div>
-                          <div class="text-sm">{{ item.subtotal|commerceCurrency(order.currency) }}</div>
-                      </div>
-                  </td>
-              </tr>
-              <tr class="">
-                  <td class="pb-3 pr-3 text-right" colspan="2">
-                      {% if item.adjustments|length %}
-                          <div class="text-left text-2xs uppercase tracking-wider text-gray-600">Anpassungen</div>
-                          <div class="border-t border-gray-300 border-dotted mt-1">
-                              {% for adjustment in item.adjustments %}
-                                  <div class="flex w-full items-center mt-2 text-sm">
-                                      <div class="pr-2">
-                                          <strong class="text-gray-400 text-xs uppercase">{{ adjustment.type }}</strong>
-                                      </div>
-                                      <div class="">
-                                          {{ adjustment.name }}
-                                          {% if adjustment.isEstimated %}<i
-                                                  class="text-grey-dark">{{ 'Estimated' }}</i>{% endif %}<br>
-                                          {{ adjustment.description }}
-                                      </div>
-                                      <div class="ml-auto">
-                                          <span class="text-gray-500"
-                                                title="{{ adjustment.amount }}"> {{ adjustment.amount|commerceCurrency(order.currency) }}</span>
-                                      </div>
-                                  </div>
-                              {% endfor %}
-                          </div>
-                      {% endif %}
+                {% block header %}
 
-                      <div class="flex items-center w-full justify-end mt-3" title="{{ item.total }}">
-                          <div class="text-sm text-gray-600 pr-2">Total:</div>
-                          <div class="font-bold">{{ item.total|commerceCurrency(order.currency) }}</div>
-                      </div>
-                  </td>
-              </tr>
-          {% endfor %}
+                    <img src="{{ alias('@web') }}/assets/images/logo/TerraVerde_jpg_email.jpg" height="150" width="146" alt="Terra-Verde Logo" />
 
-          <tr>
-              <td></td>
-              <td colspan="2" class="text-right pr-3 pb-3">
-                  <div class="flex items-center w-full justify-end border-t border-gray-300 border-dotted pt-3"
-                      title="{{ order.itemSubTotal }}">
-                      <div class="text-sm text-gray-600 pr-2">Artikel Subtotal:</div>
-                      <div class="font-bold">{{ order.itemSubTotal|commerceCurrency(order.currency) }}</div>
-                  </div>
+                {% endblock %}
+
+              </span>
               </td>
-          </tr>
+            </tr>
 
-          {% if order.orderAdjustments|length %}
-              <tr class="border-t-2 border-gray-300">
-                  <td class="py-3"></td>
-                  <td colspan="2" class="py-3 pr-3">
-                      {# <div class="text-left text-2xs uppercase tracking-wider text-gray-600">Anpassungen Bestellungen</div> #}
-                      <div class="border-t border-gray-300 border-dotted mt-1">
-                          {% for adjustment in order.orderAdjustments %}
-                              <div class="flex w-full items-center mt-2 text-sm">
-                                  <div class="pr-2">
-                                      <strong class="text-gray-400 text-xs uppercase">{{ adjustment.type }}</strong>
-                                  </div>
-                                  <div class="">
-                                      {{ adjustment.name }}
-                                      {% if adjustment.isEstimated %}<i
-                                              class="text-grey-dark">{{ 'Estimated' }}</i>{% endif %}<br>
-                                      {{ adjustment.description }}
-                                  </div>
-                                  <div class="ml-auto">
-                                      <span class="text-gray-500"
-                                            title="{{ adjustment.amount }}"> {{ adjustment.amount|commerceCurrency(order.currency) }}</span>
-                                  </div>
-                              </div>
-                          {% endfor %}
+            {# Email Body #}
+            <tr>
+              <td class="email-body" width="600" cellpadding="0" cellspacing="0" style="word-break: break-word; margin: 0; padding: 0; font-family: &quot;Nunito Sans&quot;, Helvetica, Arial, sans-serif; font-size: 16px; width: 100%; -premailer-width: 100%; -premailer-cellpadding: 0; -premailer-cellspacing: 0;">
+                <table class="email-body_inner" align="center" width="600" cellpadding="0" cellspacing="0" role="presentation" style="width: 600px; -premailer-width: 600px; -premailer-cellpadding: 0; -premailer-cellspacing: 0; background-color: #FFFFFF; margin: 0 auto; padding: 0;" bgcolor="#FFFFFF">
+                  <tr>
+                    <td class="content-cell" style="word-break: break-word; font-family: &quot;Nunito Sans&quot;, Helvetica, Arial, sans-serif; font-size: 16px; padding: 45px;">
+                      <div class="f-fallback">
+
+                        {# email content #}
+                        {% block content %}
+
+
+                            <h2 class="heading heading--2">Bestellung {{ order.reference }}</h2>
+                            <p>ID-Nummer: {{ order.id }}</p>
+
+                            <div class="ordersummary__info">
+                                <div class="ordersummary__info-term">Kunde:</div>
+                                <div class="ordersummary__info-data">{{ order.email }}</div>
+                            </div>
+                            <div class="ordersummary__info">
+                                <div class="ordersummary__info-term">Total:</div>
+                                <div class="ordersummary__info-data">{{ order.totalPrice|commerceCurrency(order.currency) }}</div>
+                            </div>
+                            <div class="ordersummary__info">
+                                <div class="ordersummary__info-term">Betrag bezahlt:</div>
+                                <div class="ordersummary__info-data">{{ order.totalPaid|commerceCurrency(order.currency) }}</div>
+                            </div>
+                            <div class="ordersummary__info">
+                                <div class="ordersummary__info-term">Datum:</div>
+                                <div class="ordersummary__info-data">{{ order.dateOrdered|date('d. M Y') }}</div>
+                            </div>
+                            {% if order.shippingMethodName %}
+                                <div class="ordersummary__info">
+                                    <div class="ordersummary__info-term">Versand:</div>
+                                    <div class="ordersummary__info-data">{{ order.shippingMethodName }}</div>
+                                </div>
+                            {% endif %}
+
+                            {% if cart.shippingMethodHandle != 'pickUpAtStore' %}
+                            <div class="">
+                                <h3 class="">Versandadresse</h3>
+                                {% if order.shippingAddress %}
+                                    {% include 'shop/_includes/addresses/address' with { address: order.shippingAddress } %}
+                                {% else %}
+                                    <p>Nicht eingegeben.</p>
+                                {% endif %}
+                            </div>
+                            {% endif %}
+
+                            <div class="">
+                                <h3 class="">Rechnungsadresse</h3>
+                                {% if order.billingAddress %}
+                                    {% include 'shop/_includes/addresses/address' with { address: order.billingAddress } %}
+                                {% else %}
+                                    <p>Nicht eingegeben</p>
+                                {% endif %}
+                            </div>
+
+
+
+                            <table class="ordersummary__table">
+                                <thead class="ordersummary__table-head">
+                                <tr class="">
+                                    <th class="table-head__product">Produkt</th>
+                                    <th class="table-head__qyt">Menge</th>
+                                    <th class="table-head__price">Preis</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for item in order.lineItems %}
+                                    <tr class="align-top">
+                                        <td class="py-3 pl-3 {{ not loop.first ? 'border-t border-gray-300 border-dashed' : '' }}" rowspan="2">
+                                            <strong class="text-lg">{{ item.description }}</strong><br>
+                                            <span class="text-gray-500 tracking-widest font-mono text-xs">{{ item.sku }}</span>
+                                            <div class="mt-2 relative">
+                                                <code class="text-xs p-3 pt-8 bg-gray-100 inline-block tracking-wider font-mono text-gray-600">{{ item.options|length ? item.options|json_encode : 'keine Zusatzoptionen.' }}</code>
+                                                <span class="absolute top-0 left-0 pt-2 pl-2 text-2xs text-gray-500 uppercase tracking-wider">Optionen</span>
+                                            </div>
+                                        </td>
+                                        <td class="py-3 {{ not loop.first ? 'border-t border-gray-300 border-dashed' : '' }}">
+                                            {% if item.options.donationAmount is not defined %}
+                                                <div>{{ item.qty }}</div>
+                                            {% endif %}
+
+                                            {% if item.note %}
+                                                <div class="mt-1 flex">
+                                                    <div class="pr-2 uppercase">Notiz</div>
+                                                    <div>{{ item.note }}</div>
+                                                </div>
+                                            {% endif %}
+
+                                            {% if item.options.giftWrapped is defined %}
+                                                <div class="mt-1">
+                                                    <div class="pr-2 uppercase">Als Geschenk verpackt?</div>
+                                                    <div>{{ item.options.giftWrapped|title }}</div>
+                                                </div>
+                                            {% endif %}
+                                        </td>
+
+                                        <td class="py-3 pr-3 text-gray-500 {{ not loop.first ? 'border-t border-gray-300 border-dashed' : '' }} text-right">
+                                            <div class="flex items-center w-full justify-end" title="{{ item.price }}">
+                                                <div class="text-xs pr-2">Preis:</div>
+                                                <div class="text-sm">{% if item.onSale %}
+                                                    <del>{% endif %}{{ item.price|commerceCurrency(order.currency) }}{% if item.onSale %}</del>{% endif %}
+                                                </div>
+                                            </div>
+                                            {% if item.onSale %}
+                                                <div class="flex items-center w-full justify-end" title="{{ item.salePrice }}">
+                                                    <div class="text-xs pr-2">Sale Preis:</div>
+                                                    <div class="text-sm">{{ item.salePrice|commerceCurrency(order.currency) }}</div>
+                                                </div>
+                                                <div class="flex items-center w-full justify-end" title="{{ item.saleAmount }}">
+                                                    <div class="text-xs pr-2">Sale Anzahl:</div>
+                                                    <div class="text-sm">{{ item.saleAmount|commerceCurrency(order.currency) }}</div>
+                                                </div>
+                                            {% endif %}
+                                            <div class="flex items-center w-full justify-end" title="{{ item.subtotal }}">
+                                                <div class="text-xs pr-2">Subtotal:</div>
+                                                <div class="text-sm">{{ item.subtotal|commerceCurrency(order.currency) }}</div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="">
+                                        <td class="pb-3 pr-3 text-right" colspan="2">
+                                            {% if item.adjustments|length %}
+                                                <div class="text-left text-2xs uppercase tracking-wider text-gray-600">Anpassungen</div>
+                                                <div class="border-t border-gray-300 border-dotted mt-1">
+                                                    {% for adjustment in item.adjustments %}
+                                                        <div class="flex w-full items-center mt-2 text-sm">
+                                                            <div class="pr-2">
+                                                                <strong class="text-gray-400 text-xs uppercase">{{ adjustment.type }}</strong>
+                                                            </div>
+                                                            <div class="">
+                                                                {{ adjustment.name }}
+                                                                {% if adjustment.isEstimated %}<i
+                                                                        class="text-grey-dark">{{ 'Estimated' }}</i>{% endif %}<br>
+                                                                {{ adjustment.description }}
+                                                            </div>
+                                                            <div class="ml-auto">
+                                                                <span class="text-gray-500"
+                                                                        title="{{ adjustment.amount }}"> {{ adjustment.amount|commerceCurrency(order.currency) }}</span>
+                                                            </div>
+                                                        </div>
+                                                    {% endfor %}
+                                                </div>
+                                            {% endif %}
+
+                                            <div class="flex items-center w-full justify-end mt-3" title="{{ item.total }}">
+                                                <div class="text-sm text-gray-600 pr-2">Total:</div>
+                                                <div class="font-bold">{{ item.total|commerceCurrency(order.currency) }}</div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+
+                                <tr>
+                                    <td></td>
+                                    <td colspan="2" class="text-right pr-3 pb-3">
+                                        <div class="flex items-center w-full justify-end border-t border-gray-300 border-dotted pt-3"
+                                            title="{{ order.itemSubTotal }}">
+                                            <div class="text-sm text-gray-600 pr-2">Artikel Subtotal:</div>
+                                            <div class="font-bold">{{ order.itemSubTotal|commerceCurrency(order.currency) }}</div>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                {% if order.orderAdjustments|length %}
+                                    <tr class="border-t-2 border-gray-300">
+                                        <td class="py-3"></td>
+                                        <td colspan="2" class="py-3 pr-3">
+                                            {# <div class="text-left text-2xs uppercase tracking-wider text-gray-600">Anpassungen Bestellungen</div> #}
+                                            <div class="border-t border-gray-300 border-dotted mt-1">
+                                                {% for adjustment in order.orderAdjustments %}
+                                                    <div class="flex w-full items-center mt-2 text-sm">
+                                                        <div class="pr-2">
+                                                            <strong class="text-gray-400 text-xs uppercase">{{ adjustment.type }}</strong>
+                                                        </div>
+                                                        <div class="">
+                                                            {{ adjustment.name }}
+                                                            {% if adjustment.isEstimated %}<i
+                                                                    class="text-grey-dark">{{ 'Estimated' }}</i>{% endif %}<br>
+                                                            {{ adjustment.description }}
+                                                        </div>
+                                                        <div class="ml-auto">
+                                                            <span class="text-gray-500"
+                                                                    title="{{ adjustment.amount }}"> {{ adjustment.amount|commerceCurrency(order.currency) }}</span>
+                                                        </div>
+                                                    </div>
+                                                {% endfor %}
+                                            </div>
+                                        </td>
+                                    </tr>
+                                {% endif %}
+                                <tr>
+                                    <td colspan="2" class="border-t-2 border-gray-300"></td>
+                                    <td class="text-right align-text-top border-t-2 border-gray-300 pt-3 pr-3">
+                                        <div class="mt-3">
+                                            <strong class="text-sm text-gray-600">Zusammenfassung</strong>
+                                        </div>
+
+                                        <div class="flex items-center w-full justify-end" title="{{ order.getTotalShippingCost() }}">
+                                            <div class="text-xs text-gray-500 pr-2">Versand:</div>
+                                            <div class="text-sm text-gray-500">{{ order.getTotalShippingCost()|commerceCurrency(order.currency) }}</div>
+                                        </div>
+                                        <div class="flex items-center w-full justify-end" title="{{ order.getTotalTax() }}">
+                                            <div class="text-xs text-gray-500 pr-2">Steuer:</div>
+                                            <div class="text-sm text-gray-500">{{ order.getTotalTax()|commerceCurrency(order.currency) }}</div>
+                                        </div>
+                                        <div class="flex items-center w-full justify-end" title="{{ order.getTotalTaxIncluded() }}">
+                                            <div class="text-xs text-gray-500 pr-2">Steuer (inkl):</div>
+                                            <div class="text-sm text-gray-500">{{ order.getTotalTaxIncluded()|commerceCurrency(order.currency) }}</div>
+                                        </div>
+                                        <div class="flex items-center w-full justify-end" title="{{ order.getTotalDiscount() }}">
+                                            <div class="text-xs text-gray-500 pr-2">Rabbatt:</div>
+                                            <div class="text-sm text-gray-500">{{ order.getTotalDiscount()|commerceCurrency(order.currency) }}</div>
+                                        </div>
+
+                                        <div class="flex items-center w-full justify-end mt-3" title="{{ order.totalPrice }}">
+                                            <div class="text-gray-600 pr-2">Preis:</div>
+                                            <div class="text-xl font-bold">{{ order.totalPrice|commerceCurrency(order.currency) }}</div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+
+
+
+                        {% endblock %}
+
                       </div>
-                  </td>
-              </tr>
-          {% endif %}
-          <tr>
-              <td colspan="2" class="border-t-2 border-gray-300"></td>
-              <td class="text-right align-text-top border-t-2 border-gray-300 pt-3 pr-3">
-                  <div class="mt-3">
-                      <strong class="text-sm text-gray-600">Zusammenfassung</strong>
-                  </div>
-
-                  <div class="flex items-center w-full justify-end" title="{{ order.getTotalShippingCost() }}">
-                      <div class="text-xs text-gray-500 pr-2">Versand:</div>
-                      <div class="text-sm text-gray-500">{{ order.getTotalShippingCost()|commerceCurrency(order.currency) }}</div>
-                  </div>
-                  <div class="flex items-center w-full justify-end" title="{{ order.getTotalTax() }}">
-                      <div class="text-xs text-gray-500 pr-2">Steuer:</div>
-                      <div class="text-sm text-gray-500">{{ order.getTotalTax()|commerceCurrency(order.currency) }}</div>
-                  </div>
-                  <div class="flex items-center w-full justify-end" title="{{ order.getTotalTaxIncluded() }}">
-                      <div class="text-xs text-gray-500 pr-2">Steuer (inkl):</div>
-                      <div class="text-sm text-gray-500">{{ order.getTotalTaxIncluded()|commerceCurrency(order.currency) }}</div>
-                  </div>
-                  <div class="flex items-center w-full justify-end" title="{{ order.getTotalDiscount() }}">
-                      <div class="text-xs text-gray-500 pr-2">Rabbatt:</div>
-                      <div class="text-sm text-gray-500">{{ order.getTotalDiscount()|commerceCurrency(order.currency) }}</div>
-                  </div>
-
-                  <div class="flex items-center w-full justify-end mt-3" title="{{ order.totalPrice }}">
-                      <div class="text-gray-600 pr-2">Preis:</div>
-                      <div class="text-xl font-bold">{{ order.totalPrice|commerceCurrency(order.currency) }}</div>
-                  </div>
+                    </td>
+                  </tr>
+                </table>
               </td>
-          </tr>
-          </tbody>
-      </table>
+            </tr>
 
-    </section>
-    {% endblock %}
+            {# footer #}
+            <tr>
+              <td style="word-break: break-word; font-family: &quot;Nunito Sans&quot;, Helvetica, Arial, sans-serif; font-size: 16px;">
+                <table class="email-footer" align="center" width="600" cellpadding="0" cellspacing="0" role="presentation" style="width: 600px; -premailer-width: 600px; -premailer-cellpadding: 0; -premailer-cellspacing: 0; text-align: center; margin: 0 auto; padding: 0;">
+                  <tr>
+                    <td class="content-cell" align="center" style="word-break: break-word; font-family: &quot;Nunito Sans&quot;, Helvetica, Arial, sans-serif; font-size: 16px; padding: 45px;">
+                      <p class="f-fallback sub align-center" style="font-size: 13px; line-height: 1.625; text-align: center; color: #A8AAAF; margin: .4em 0 1.1875em;" align="center">
+                        {% block footer %}
+
+                            <p>Terra Verde, Am Wasser 55, 8049 Zürich</p>
+
+                            <p>Telefon  044 342 10 00</p>
+
+                            <p>Email bestellung(at)terra-verde.ch</p>
+                        {% endblock %}
+                      </p>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
+
+
+
+

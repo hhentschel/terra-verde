@@ -19,8 +19,13 @@ use craft\events\TemplateEvent;
 use craft\i18n\PhpMessageSource;
 use craft\web\View;
 
-use craft\commerce\services\LineItems;
 use craft\commerce\events\LineItemEvent;
+use craft\commerce\services\LineItems;
+use craft\commerce\models\LineItem;
+
+use craft\commerce\elements\Order;
+use craft\commerce\elements\Discount;
+use craft\commerce\events\AddLineItemEvent;
 
 use yii\base\Event;
 use yii\base\InvalidConfigException;
@@ -29,6 +34,8 @@ use yii\base\Module;
 use craft\commerce\services\OrderAdjustments;
 use craft\events\RegisterComponentTypesEvent;
 use OrderAdjuster;
+use GiftWrapAdjuster;
+use PickUpDiscount;
 
 /**
  * Craft plugins are very much like little applications in and of themselves. We’ve made
@@ -113,34 +120,44 @@ class TerraverdeModule extends Module
         self::$instance = $this;
 
         // Discount >1000 -> 5%; > 2500 -> 10%
+        // Discount Pick-Up -> 5%
         Event::on(
           OrderAdjustments::class,
           OrderAdjustments::EVENT_REGISTER_ORDER_ADJUSTERS,
           function(RegisterComponentTypesEvent $event) {
 
           $event->types[] = adjusters\OrderAdjuster::class;
-          // $event->types[] = adjusters\GiftWrapAdjuster::class;
-
+          $event->types[] = adjusters\PickUpDiscount::class;
+          $event->types[] = adjusters\GiftWrapAdjuster::class;
         });
 
+        // Event::on(
+        //   OrderAdjustments::class,
+        //   OrderAdjustments::EVENT_REGISTER_DISCOUNT_ADJUSTERS,
+        //   function(RegisterComponentTypesEvent $event) {
+
+
+        // });
 
 
 
-      //   // Increase Price if item is wrapped as gift ( Einwickeln in Geschenkpapier )
+
+        // Increase Price if item is wrapped as gift ( Einwickeln in Geschenkpapier )
       //   Event::on(
       //     LineItems::class,
       //     LineItems::EVENT_POPULATE_LINE_ITEM,
       //     function(LineItemEvent $event) {
       //         // @var LineItem $lineItem
-      //         $lineItem = $event->lineItem;
-      //         // @var bool $isNew
-      //         $isNew = $event->isNew;
+      //          $lineItem = $event->lineItem;
 
-      //         if (isset($lineItem->options['giftWrapped']) && $lineItem->options['giftWrapped'] == 'yes') {
-      //             $lineItem->price += 20;
+      //         if(isset($lineItem->options['giftWrapped']) && $lineItem->options['giftWrapped'] == 'yes'){
+      //           $lineItem->price = $lineItem->price + 10;
       //         }
       //     }
       // );
+
+
+
 
         // Load our AssetBundle
         if (Craft::$app->getRequest()->getIsCpRequest()) {
