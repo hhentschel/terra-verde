@@ -73,16 +73,23 @@
                       {% endif %}
                     </div>
 
-                    <div>
+                    <div class="form-options">
                     {# <input type="text" name="purchasables[{{ loop.index }}][note]" value=""> #}
-
                       <label>
                         <input type="checkbox"
                                 name="purchasables[{{ loop.index }}][options][giftWrapped]"
                                 value="yes"/>
-                        In Geschenkpapier einwickeln
+                        In Geschenkpapier einwickeln (+ 6.50,- CHF)
                       </label>
+                    </div>
 
+                    <div class="form-options">
+                      <label>
+                        <input type="checkbox"
+                                name="purchasables[{{ loop.index }}][options][giftNote]"
+                                value="yes"/>
+                        Grusskarte beilegen (+ 2.50,- CHF)
+                      </label>
                     </div>
 
 
