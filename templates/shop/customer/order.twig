@@ -114,8 +114,14 @@
                       <strong class="text-lg">{{ item.description }}</strong><br>
                       <span class="text-gray-500 tracking-widest font-mono text-xs">{{ item.sku }}</span>
                       <div class="mt-2 relative">
-                          <code class="text-xs p-3 pt-8 bg-gray-100 inline-block tracking-wider font-mono text-gray-600">{{ item.options|length ? item.options|json_encode : 'keine Zusatzoptionen.' }}</code>
-                          <span class="absolute top-0 left-0 pt-2 pl-2 text-2xs text-gray-500 uppercase tracking-wider">Optionen</span>
+                          {% if item.note %}
+                            <div class="mt-1 flex">
+                                <div class="pr-2 uppercase">Notiz</div>
+                                <div>{{ item.note }}</div>
+                            </div>
+                          {% endif %}
+                          {# <code class="text-xs p-3 pt-8 bg-gray-100 inline-block tracking-wider font-mono text-gray-600">{{ item.options|length ? item.options|json_encode : 'keine Zusatzoptionen.' }}</code>
+                          <span class="absolute top-0 left-0 pt-2 pl-2 text-2xs text-gray-500 uppercase tracking-wider">Optionen</span> #}
                       </div>
                   </td>
                   <td class="py-3 {{ not loop.first ? 'border-t border-gray-300 border-dashed' : '' }}">
@@ -123,19 +129,13 @@
                           <div>{{ item.qty }}</div>
                       {% endif %}
 
-                      {% if item.note %}
-                          <div class="mt-1 flex">
-                              <div class="pr-2 uppercase">Notiz</div>
-                              <div>{{ item.note }}</div>
-                          </div>
-                      {% endif %}
 
-                      {% if item.options.giftWrapped is defined %}
+                      {# {% if item.options.giftWrapped is defined %}
                           <div class="mt-1">
                               <div class="pr-2 uppercase">Als Geschenk verpackt?</div>
                               <div>{{ item.options.giftWrapped|title }}</div>
                           </div>
-                      {% endif %}
+                      {% endif %} #}
                   </td>
 
                   <td class="py-3 pr-3 text-gray-500 {{ not loop.first ? 'border-t border-gray-300 border-dashed' : '' }} text-right">
@@ -162,7 +162,7 @@
                   </td>
               </tr>
               <tr class="cart--adjustments">
-                        <td colspan="2" class="">
+                        <td colspan="2" class=" pr-3">
                             <div class="adjustments__title">Anpassungen an die Bestellung:</div>
                             <div class="adjustments">
                                 {% for adjustment in item.adjustments %}
@@ -224,24 +224,23 @@
           </tr> #}
 
           {% if order.orderAdjustments|length %}
-              <tr class="border-t-2 border-gray-300">
-                  <td class="py-3"></td>
+              <tr class="cart--adjustments">
+                    <td class="py-3"></td>
                   <td colspan="2" class="py-3 pr-3">
                       {# <div class="text-left text-2xs uppercase tracking-wider text-gray-600">Anpassungen Bestellungen</div> #}
-                      <div class="border-t border-gray-300 border-dotted mt-1">
+                      <div class="adjustments">
                           {% for adjustment in order.orderAdjustments %}
-                              <div class="flex w-full items-center mt-2 text-sm">
-                                  <div class="pr-2">
+                              <div class="adjustments__data">
+                                  <div class="adjustments__data--type">
                                       <strong class="text-gray-400 text-xs uppercase">{{ adjustment.type }}</strong>
                                   </div>
-                                  <div class="">
-                                      {{ adjustment.name }}
-                                      {% if adjustment.isEstimated %}<i
-                                              class="text-grey-dark">{{ 'Estimated' }}</i>{% endif %}<br>
-                                      {{ adjustment.description }}
+                                  <div class="adjustments__data--description">
+
+                                      {# {{ adjustment.description }} #}
+                                      <span class="adjustments__data--name">{{ adjustment.name }}</span>
                                   </div>
-                                  <div class="ml-auto">
-                                      <span class="text-gray-500"
+                                  <div class="adjustments__data--amount">
+                                      <span class=""
                                             title="{{ adjustment.amount }}"> {{ adjustment.amount|commerceCurrency(order.currency) }}</span>
                                   </div>
                               </div>
@@ -269,13 +268,16 @@
                       <div class="text-xs text-gray-500 pr-2">Steuer (inkl):</div>
                       <div class="text-sm text-gray-500">{{ order.getTotalTaxIncluded()|commerceCurrency(order.currency) }}</div>
                   </div>
-                  <div class="flex items-center w-full justify-end" title="{{ order.getTotalDiscount() }}">
+                  <div class="flex items-center w-full justify-end" title="{{ order.totalDiscount }}">
+                    <div class="text-xs text-gray-500 pr-2">Total Discount:</div>
+                    <div class="text-sm text-gray-500">{{ order.totalDiscountAsCurrency }}</div>
+                </div>
+                  {# <div class="flex items-center w-full justify-end" title="{{ order.getTotalDiscount() }}">
                       <div class="text-xs text-gray-500 pr-2">Rabbatt:</div>
                       <div class="text-sm text-gray-500">
                       {% if order.shippingMethodHandle == 'pickUpAtStore' %}
                             {% set totalcartDiscount = (order.getTotalDiscount * - 1) %}
                             {% set totalPricePlusTax = (order.totalPrice) +  (totalcartDiscount) %}
-                            {# Abholrabatt 87.50 #}
                             {% set pickupDiscount = (totalPricePlusTax * (5/100)) %}
 
                             {% set totalcartDiscountPlusPickupDiscount = ((totalcartDiscount) + (pickupDiscount) * - 1) %}
@@ -284,25 +286,12 @@
                         {% else %}
                             {{ order.getTotalDiscount()|commerceCurrency(order.currency) }}
                         {% endif %}
-
-
                       </div>
-                  </div>
+                  </div> #}
 
                   <div class="flex items-center w-full justify-end mt-3" title="{{ order.totalPrice }}">
                       <div class="text-gray-600 pr-2">Preis:</div>
-                      {# <div class="text-xl font-bold">{{ order.totalPrice|commerceCurrency(order.currency) }}</div> #}
-                        {% if order.shippingMethodHandle == 'pickUpAtStore' %}
-                            {% set totalcartDiscount = (order.totalDiscount * - 1) %}
-                            {% set totalPricePlusTax = (order.totalPrice) +  (totalcartDiscount) %}
-                            {# Abholrabatt 87.50 #}
-                            {% set pickupDiscount = (totalPricePlusTax * (5/100)) %}
-
-                            {% set totalPriceMinusPickupDiscount = ((order.totalPrice) - pickupDiscount) %}
-                            <strong>{{ totalPriceMinusPickupDiscount|commerceCurrency(order.currency) }}</strong>
-                        {% else %}
-                            <strong>{{ order.totalPrice|commerceCurrency(order.currency) }}</strong>
-                        {% endif %}
+                        <strong>{{ order.totalPrice|commerceCurrency(order.currency) }}</strong>
                   </div>
               </td>
           </tr>

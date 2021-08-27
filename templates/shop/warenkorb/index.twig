@@ -10,11 +10,14 @@
 
     {% if cart.lineItems|length %}
       <form method="post" class="form__cart" action="">
-        {{ hiddenInput('fields[giftWrapped]', '') }}
+        {# {{ hiddenInput('fields[giftWrapped]', '') }}
+        {{ hiddenInput('fields[giftNote]', '') }} #}
 
         {{ actionInput('commerce/cart/update-cart') }}
         {{ hiddenInput('successMessage', 'Der Warenkorb wurde aktualisiert.'|hash) }}
         {{ csrfInput() }}
+
+        {# <input type="text" name="fields[note]" value=""> #}
 
         <table class="form__cart-table table">
             <thead>
@@ -39,10 +42,9 @@
                                 {# {% for key, value in item.options %}
                                   {{ key }} - {{ value }}
                                 {% endfor %} #}
+
+
                               {% if item.options.giftWrapped is defined %}
-
-
-
                                 <span class="">Zusatzoptionen</span>
                                 <label>
                                     <input type="checkbox"
@@ -51,6 +53,30 @@
                                              {% if item.options.giftWrapped == 'yes' %}checked {% endif %}/>
 
                                     In Geschenkpapier einwickeln
+                                </label>
+                              {% endif %}
+
+                               {# {% if item.options.giftWrapped is defined %}
+                                <select name="lineItems[{{ item.id }}][options][giftWrapped]">
+                                    <option value="no"
+                                            {% if item.options.giftWrapped == 'no' %}selected{% endif %}>
+                                        No gift wrap
+                                    </option>
+                                    <option value="yes"
+                                            {% if item.options.giftWrapped == 'yes' %}selected{% endif %}>
+                                        Gift wrapped.
+                                    </option>
+                                </select>
+                            {% endif %} #}
+
+                              {% if item.options.giftNote is defined %}
+                                <label>
+                                    <input type="checkbox"
+                                            name="purchasables[{{ loop.index }}][options][giftNote]"
+                                            value=""
+                                             {% if item.options.giftNote == 'yes' %}checked {% endif %}/>
+
+                                    Grusskarte beilegen
                                 </label>
                               {% endif %}
 
@@ -78,10 +104,15 @@
 
                             <div class="form__cart-table--note">
                                 <label for="lineitem-note-{{ item.id }}" class="text-gray-500 text-xs uppercase block">Notiz Artikel</label>
-                                <input id="lineitem-note-{{ item.id }}" class="input" type="text" placeholder="Notiz"
-                                       size="20"
-                                       name="lineItems[{{ item.id }}][note]"
-                                       value="{{ item.note }}">
+                                <textarea
+                                  id="lineitem-note-{{ item.id }}"
+                                  class="input"
+                                  {# type="text" #}
+                                  placeholder="Notiz"
+                                  name="lineItems[{{ item.id }}][note]"
+                                  value="{{ item.note }}"
+                                  rows="2">{{ item.note }}
+                                </textarea>
                             </div>
                         </td>
 
@@ -125,6 +156,8 @@
                                     {# {% endif %} #}
                                     </div>
                                 </div>
+
+
                             {% endif %}
                         </td>
                     </tr>

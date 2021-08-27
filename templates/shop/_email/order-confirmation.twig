@@ -135,6 +135,11 @@ https://postmarkapp.com/transactional-email-templates #}
       line-height: 1.625;
     }
 
+    ul, ol {
+      list-style: none;
+      list-style-type: none;
+    }
+
     p.sub {
       font-size: 13px;
     }
@@ -491,115 +496,100 @@ https://postmarkapp.com/transactional-email-templates #}
 
                         {# email content #}
                         {% block content %}
+                            <h2>Sehr geehrte Kund:innen</h2>
+                            <p>Vielen Dank für Ihre Bestellung bei Terra-Verde!</p>
 
-
-                            <h2 class="heading heading--2">Bestellung {{ order.reference }}</h2>
+                            <h2 class="heading heading--2">Bestellung {{ order.reference }}, am {{ order.dateOrdered|date('d. M Y') }}</h2>
                             <p>ID-Nummer: {{ order.id }}</p>
 
                             <div class="ordersummary__info">
-                                <div class="ordersummary__info-term">Kunde:</div>
-                                <div class="ordersummary__info-data">{{ order.email }}</div>
+                                <div class="ordersummary__info-term">Kunde: {{ order.email }}</div>
                             </div>
                             <div class="ordersummary__info">
-                                <div class="ordersummary__info-term">Total:</div>
-                                <div class="ordersummary__info-data">{{ order.totalPrice|commerceCurrency(order.currency) }}</div>
+                                <div class="ordersummary__info-term">Total: {{ order.totalPrice|commerceCurrency(order.currency) }}</div>
                             </div>
                             <div class="ordersummary__info">
-                                <div class="ordersummary__info-term">Betrag bezahlt:</div>
-                                <div class="ordersummary__info-data">{{ order.totalPaid|commerceCurrency(order.currency) }}</div>
+                                <div class="ordersummary__info-term">Betrag bezahlt: {{ order.totalPaid|commerceCurrency(order.currency) }}</div>
                             </div>
-                            <div class="ordersummary__info">
-                                <div class="ordersummary__info-term">Datum:</div>
-                                <div class="ordersummary__info-data">{{ order.dateOrdered|date('d. M Y') }}</div>
-                            </div>
+
                             {% if order.shippingMethodName %}
                                 <div class="ordersummary__info">
-                                    <div class="ordersummary__info-term">Versand:</div>
-                                    <div class="ordersummary__info-data">{{ order.shippingMethodName }}</div>
+                                    <div class="ordersummary__info-term">Versand: {{ order.shippingMethodName }}</div>
                                 </div>
                             {% endif %}
 
-                            {% if cart.shippingMethodHandle != 'pickUpAtStore' %}
+                            <p></p>
+
                             <div class="">
                                 <h3 class="">Versandadresse</h3>
                                 {% if order.shippingAddress %}
-                                    {% include 'shop/_includes/addresses/address' with { address: order.shippingAddress } %}
+                                    {% include 'shop/_includes/addresses/address-email' with { address: order.shippingAddress } %}
+                                    {% if order.shippingAddress.sameAs(order.billingAddress) %}
+                                    {% endif %}
                                 {% else %}
                                     <p>Nicht eingegeben.</p>
                                 {% endif %}
                             </div>
-                            {% endif %}
+
 
                             <div class="">
                                 <h3 class="">Rechnungsadresse</h3>
                                 {% if order.billingAddress %}
-                                    {% include 'shop/_includes/addresses/address' with { address: order.billingAddress } %}
+                                    {% include 'shop/_includes/addresses/address-email' with { address: order.billingAddress } %}
+                                    {% if order.billingAddress.sameAs(order.shippingAddress) %}
+                                    {% endif %}
                                 {% else %}
                                     <p>Nicht eingegeben</p>
                                 {% endif %}
                             </div>
 
 
-
+                          <h2>Bestellte Artikel</h2>
                             <table class="ordersummary__table">
-                                <thead class="ordersummary__table-head">
-                                <tr class="">
-                                    <th class="table-head__product">Produkt</th>
-                                    <th class="table-head__qyt">Menge</th>
-                                    <th class="table-head__price">Preis</th>
-                                </tr>
-                                </thead>
+
                                 <tbody>
                                 {% for item in order.lineItems %}
                                     <tr class="align-top">
-                                        <td class="py-3 pl-3 {{ not loop.first ? 'border-t border-gray-300 border-dashed' : '' }}" rowspan="2">
-                                            <strong class="text-lg">{{ item.description }}</strong><br>
-                                            <span class="text-gray-500 tracking-widest font-mono text-xs">{{ item.sku }}</span>
-                                            <div class="mt-2 relative">
-                                                <code class="text-xs p-3 pt-8 bg-gray-100 inline-block tracking-wider font-mono text-gray-600">{{ item.options|length ? item.options|json_encode : 'keine Zusatzoptionen.' }}</code>
-                                                <span class="absolute top-0 left-0 pt-2 pl-2 text-2xs text-gray-500 uppercase tracking-wider">Optionen</span>
-                                            </div>
-                                        </td>
-                                        <td class="py-3 {{ not loop.first ? 'border-t border-gray-300 border-dashed' : '' }}">
-                                            {% if item.options.donationAmount is not defined %}
+                                        <td class="">
+                                             {% if item.options.donationAmount is not defined %}
                                                 <div>{{ item.qty }}</div>
                                             {% endif %}
+                                            <strong class="">{{ item.description }}</strong>
+                                            <span class="">SKU: {{ item.sku }}</span>
 
                                             {% if item.note %}
-                                                <div class="mt-1 flex">
-                                                    <div class="pr-2 uppercase">Notiz</div>
+                                                <div class="">
+                                                    <div class="">Notiz</div>
                                                     <div>{{ item.note }}</div>
                                                 </div>
                                             {% endif %}
 
                                             {% if item.options.giftWrapped is defined %}
-                                                <div class="mt-1">
-                                                    <div class="pr-2 uppercase">Als Geschenk verpackt?</div>
+                                                <div class="">
+                                                    <div class="">Als Geschenk verpackt?</div>
                                                     <div>{{ item.options.giftWrapped|title }}</div>
                                                 </div>
                                             {% endif %}
                                         </td>
+                                      </tr>
 
-                                        <td class="py-3 pr-3 text-gray-500 {{ not loop.first ? 'border-t border-gray-300 border-dashed' : '' }} text-right">
+                                      <tr>
+                                        <td class="">
                                             <div class="flex items-center w-full justify-end" title="{{ item.price }}">
-                                                <div class="text-xs pr-2">Preis:</div>
-                                                <div class="text-sm">{% if item.onSale %}
+                                                <div class="text-xs pr-2">Preis: {% if item.onSale %}
                                                     <del>{% endif %}{{ item.price|commerceCurrency(order.currency) }}{% if item.onSale %}</del>{% endif %}
                                                 </div>
                                             </div>
                                             {% if item.onSale %}
                                                 <div class="flex items-center w-full justify-end" title="{{ item.salePrice }}">
-                                                    <div class="text-xs pr-2">Sale Preis:</div>
-                                                    <div class="text-sm">{{ item.salePrice|commerceCurrency(order.currency) }}</div>
+                                                    <div class="text-xs pr-2">Sale Preis: {{ item.salePrice|commerceCurrency(order.currency) }}</div>
                                                 </div>
                                                 <div class="flex items-center w-full justify-end" title="{{ item.saleAmount }}">
-                                                    <div class="text-xs pr-2">Sale Anzahl:</div>
-                                                    <div class="text-sm">{{ item.saleAmount|commerceCurrency(order.currency) }}</div>
+                                                    <div class="text-xs pr-2">Sale Anzahl: {{ item.saleAmount|commerceCurrency(order.currency) }}</div>
                                                 </div>
                                             {% endif %}
                                             <div class="flex items-center w-full justify-end" title="{{ item.subtotal }}">
-                                                <div class="text-xs pr-2">Subtotal:</div>
-                                                <div class="text-sm">{{ item.subtotal|commerceCurrency(order.currency) }}</div>
+                                                <div class="text-xs pr-2">Subtotal: {{ item.subtotal|commerceCurrency(order.currency) }}</div>
                                             </div>
                                         </td>
                                     </tr>
@@ -612,61 +602,41 @@ https://postmarkapp.com/transactional-email-templates #}
                                                         <div class="flex w-full items-center mt-2 text-sm">
                                                             <div class="pr-2">
                                                                 <strong class="text-gray-400 text-xs uppercase">{{ adjustment.type }}</strong>
-                                                            </div>
-                                                            <div class="">
-                                                                {{ adjustment.name }}
-                                                                {% if adjustment.isEstimated %}<i
-                                                                        class="text-grey-dark">{{ 'Estimated' }}</i>{% endif %}<br>
-                                                                {{ adjustment.description }}
-                                                            </div>
-                                                            <div class="ml-auto">
-                                                                <span class="text-gray-500"
-                                                                        title="{{ adjustment.amount }}"> {{ adjustment.amount|commerceCurrency(order.currency) }}</span>
+                                                                {{ adjustment.name }},
+                                                                {{ adjustment.description }},
+                                                                {{ adjustment.amount|commerceCurrency(order.currency) }}
                                                             </div>
                                                         </div>
                                                     {% endfor %}
                                                 </div>
                                             {% endif %}
 
-                                            <div class="flex items-center w-full justify-end mt-3" title="{{ item.total }}">
-                                                <div class="text-sm text-gray-600 pr-2">Total:</div>
-                                                <div class="font-bold">{{ item.total|commerceCurrency(order.currency) }}</div>
+                                            <div class="" title="{{ item.total }}">
+                                                <div class=""> <strong>Total: {{ item.total|commerceCurrency(order.currency) }}</strong></div>
                                             </div>
                                         </td>
                                     </tr>
                                 {% endfor %}
 
                                 <tr>
-                                    <td></td>
-                                    <td colspan="2" class="text-right pr-3 pb-3">
+                                    <td class="">
                                         <div class="flex items-center w-full justify-end border-t border-gray-300 border-dotted pt-3"
                                             title="{{ order.itemSubTotal }}">
-                                            <div class="text-sm text-gray-600 pr-2">Artikel Subtotal:</div>
-                                            <div class="font-bold">{{ order.itemSubTotal|commerceCurrency(order.currency) }}</div>
+                                            <div class="">Artikel Subtotal: {{ order.itemSubTotal|commerceCurrency(order.currency) }}</div>
                                         </div>
                                     </td>
                                 </tr>
 
                                 {% if order.orderAdjustments|length %}
-                                    <tr class="border-t-2 border-gray-300">
-                                        <td class="py-3"></td>
-                                        <td colspan="2" class="py-3 pr-3">
-                                            {# <div class="text-left text-2xs uppercase tracking-wider text-gray-600">Anpassungen Bestellungen</div> #}
-                                            <div class="border-t border-gray-300 border-dotted mt-1">
+                                    <tr class="">
+                                        <td class="">
+                                            <div class="">
                                                 {% for adjustment in order.orderAdjustments %}
                                                     <div class="flex w-full items-center mt-2 text-sm">
                                                         <div class="pr-2">
                                                             <strong class="text-gray-400 text-xs uppercase">{{ adjustment.type }}</strong>
-                                                        </div>
-                                                        <div class="">
-                                                            {{ adjustment.name }}
-                                                            {% if adjustment.isEstimated %}<i
-                                                                    class="text-grey-dark">{{ 'Estimated' }}</i>{% endif %}<br>
-                                                            {{ adjustment.description }}
-                                                        </div>
-                                                        <div class="ml-auto">
-                                                            <span class="text-gray-500"
-                                                                    title="{{ adjustment.amount }}"> {{ adjustment.amount|commerceCurrency(order.currency) }}</span>
+                                                            {{ adjustment.name }},
+                                                            {{ adjustment.amount|commerceCurrency(order.currency) }}
                                                         </div>
                                                     </div>
                                                 {% endfor %}
@@ -675,39 +645,31 @@ https://postmarkapp.com/transactional-email-templates #}
                                     </tr>
                                 {% endif %}
                                 <tr>
-                                    <td colspan="2" class="border-t-2 border-gray-300"></td>
-                                    <td class="text-right align-text-top border-t-2 border-gray-300 pt-3 pr-3">
-                                        <div class="mt-3">
-                                            <strong class="text-sm text-gray-600">Zusammenfassung</strong>
+                                    <td class="">
+                                        <div class="">
+                                            <strong class="">Zusammenfassung</strong>
                                         </div>
 
-                                        <div class="flex items-center w-full justify-end" title="{{ order.getTotalShippingCost() }}">
-                                            <div class="text-xs text-gray-500 pr-2">Versand:</div>
-                                            <div class="text-sm text-gray-500">{{ order.getTotalShippingCost()|commerceCurrency(order.currency) }}</div>
+                                        <div class="" title="{{ order.getTotalShippingCost() }}">
+                                            <div class="">Versand: {{ order.getTotalShippingCost()|commerceCurrency(order.currency) }}</div>
                                         </div>
-                                        <div class="flex items-center w-full justify-end" title="{{ order.getTotalTax() }}">
-                                            <div class="text-xs text-gray-500 pr-2">Steuer:</div>
-                                            <div class="text-sm text-gray-500">{{ order.getTotalTax()|commerceCurrency(order.currency) }}</div>
+                                        <div class="" title="{{ order.getTotalTax() }}">
+                                            <div class="">Mwst: {{ order.getTotalTax()|commerceCurrency(order.currency) }}</div>
                                         </div>
-                                        <div class="flex items-center w-full justify-end" title="{{ order.getTotalTaxIncluded() }}">
-                                            <div class="text-xs text-gray-500 pr-2">Steuer (inkl):</div>
-                                            <div class="text-sm text-gray-500">{{ order.getTotalTaxIncluded()|commerceCurrency(order.currency) }}</div>
+                                        <div class="" title="{{ order.getTotalTaxIncluded() }}">
+                                            <div class="">Mwst (inkl): {{ order.getTotalTaxIncluded()|commerceCurrency(order.currency) }}</div>
                                         </div>
-                                        <div class="flex items-center w-full justify-end" title="{{ order.getTotalDiscount() }}">
-                                            <div class="text-xs text-gray-500 pr-2">Rabbatt:</div>
-                                            <div class="text-sm text-gray-500">{{ order.getTotalDiscount()|commerceCurrency(order.currency) }}</div>
+                                        <div class="" title="{{ order.getTotalDiscount() }}">
+                                            <div class="">Rabatt: {{ order.getTotalDiscount()|commerceCurrency(order.currency) }}</div>
                                         </div>
 
-                                        <div class="flex items-center w-full justify-end mt-3" title="{{ order.totalPrice }}">
-                                            <div class="text-gray-600 pr-2">Preis:</div>
-                                            <div class="text-xl font-bold">{{ order.totalPrice|commerceCurrency(order.currency) }}</div>
+                                        <div class="" title="{{ order.totalPrice }}">
+                                            <div class=""><strong>Preis: {{ order.totalPrice|commerceCurrency(order.currency) }}</strong></div>
                                         </div>
                                     </td>
                                 </tr>
                                 </tbody>
                             </table>
-
-
 
                         {% endblock %}
 
