@@ -35,6 +35,7 @@ use craft\commerce\services\OrderAdjustments;
 use craft\events\RegisterComponentTypesEvent;
 use OrderAdjuster;
 use GiftWrapAdjuster;
+use GiftNoteAdjuster;
 use PickUpDiscount;
 
 /**
@@ -129,35 +130,8 @@ class TerraverdeModule extends Module
           $event->types[] = adjusters\OrderAdjuster::class;
           $event->types[] = adjusters\PickUpDiscount::class;
           $event->types[] = adjusters\GiftWrapAdjuster::class;
+          $event->types[] = adjusters\GiftNoteAdjuster::class;
         });
-
-        // Event::on(
-        //   OrderAdjustments::class,
-        //   OrderAdjustments::EVENT_REGISTER_DISCOUNT_ADJUSTERS,
-        //   function(RegisterComponentTypesEvent $event) {
-
-
-        // });
-
-
-
-
-        // Increase Price if item is wrapped as gift ( Einwickeln in Geschenkpapier )
-      //   Event::on(
-      //     LineItems::class,
-      //     LineItems::EVENT_POPULATE_LINE_ITEM,
-      //     function(LineItemEvent $event) {
-      //         // @var LineItem $lineItem
-      //          $lineItem = $event->lineItem;
-
-      //         if(isset($lineItem->options['giftWrapped']) && $lineItem->options['giftWrapped'] == 'yes'){
-      //           $lineItem->price = $lineItem->price + 10;
-      //         }
-      //     }
-      // );
-
-
-
 
         // Load our AssetBundle
         if (Craft::$app->getRequest()->getIsCpRequest()) {
