@@ -8,6 +8,7 @@ $form-input--label-pos-y: px-to-rem($space--xs * 2);
 $form-input--spacing: px-to-rem($space--m + $space--xs);
 
 .form {
+  position: relative;
   @include typo(formInput);
   $this: &;
 
