@@ -24,10 +24,11 @@ return [
     'modules' => [
         // 'c-q-control-panel' => terraverde\CQControlPanel::class,
         'terraverde-module' => modules\terraverdemodule\TerraverdeModule::class,
-        'exampleadjuster' => [
-          'class' => \modules\exampleadjuster\Example::class,
-      ],
+      //   'exampleadjuster' => [
+      //     'class' => \modules\exampleadjuster\Example::class,
+      // ],
     ],
     // 'bootstrap' => ['c-q-control-panel', 'terraverde-module'],
-    'bootstrap' => ['terraverde-module', 'exampleadjuster'],
+    // 'bootstrap' => ['terraverde-module', 'exampleadjuster'],
+    'bootstrap' => ['terraverde-module'],
 ];
