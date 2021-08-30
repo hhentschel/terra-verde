@@ -126,6 +126,20 @@ https://postmarkapp.com/transactional-email-templates #}
       font-size: 16px;
     }
 
+    hr {
+      border: 0;
+      height: 1px;
+      margin: 20px 0;
+      background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+    }
+
+    hr.light {
+    border: 0;
+    height: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
     p,
     ul,
     ol,
@@ -138,6 +152,8 @@ https://postmarkapp.com/transactional-email-templates #}
     ul, ol {
       list-style: none;
       list-style-type: none;
+      margin: 0;
+      padding: 0;
     }
 
     p.sub {
@@ -169,21 +185,6 @@ https://postmarkapp.com/transactional-email-templates #}
       box-sizing: border-box;
     }
 
-    .button--green {
-      background-color: #22BC66;
-      border-top: 10px solid #22BC66;
-      border-right: 18px solid #22BC66;
-      border-bottom: 10px solid #22BC66;
-      border-left: 18px solid #22BC66;
-    }
-
-    .button--red {
-      background-color: #FF6136;
-      border-top: 10px solid #FF6136;
-      border-right: 18px solid #FF6136;
-      border-bottom: 10px solid #FF6136;
-      border-left: 18px solid #FF6136;
-    }
 
     @media only screen and (max-width: 500px) {
       .button {
@@ -205,39 +206,18 @@ https://postmarkapp.com/transactional-email-templates #}
     .attributes_item {
       padding: 0;
     }
-    /* Related Items ------------------------------ */
 
-    .related {
-      width: 100%;
+     /* custom classes ------------------------------ */
+    .addresses {
+      margin: 0 0 20px 0;
+    }
+
+    .addresses__title {
       margin: 0;
-      padding: 25px 0 0 0;
-      -premailer-width: 100%;
-      -premailer-cellpadding: 0;
-      -premailer-cellspacing: 0;
+      text-decoration: underline;
     }
 
-    .related_item {
-      padding: 10px 0;
-      color: #CBCCCF;
-      font-size: 15px;
-      line-height: 18px;
-    }
 
-    .related_item-title {
-      display: block;
-      margin: .5em 0 0;
-    }
-
-    .related_item-thumb {
-      display: block;
-      padding-bottom: 10px;
-    }
-
-    .related_heading {
-      border-top: 1px solid #CBCCCF;
-      text-align: center;
-      padding: 25px 0 10px;
-    }
     /* Discount Code ------------------------------ */
 
     .discount {
@@ -496,7 +476,7 @@ https://postmarkapp.com/transactional-email-templates #}
 
                         {# email content #}
                         {% block content %}
-                            <h2>Sehr geehrte Kund:innen</h2>
+                            <h2>Sehr geehrte Kundin, sehr geehrter Kunde </h2>
                             <p>Vielen Dank für Ihre Bestellung bei Terra-Verde!</p>
 
                             <h2 class="heading heading--2">Bestellung {{ order.reference }}, am {{ order.dateOrdered|date('d. M Y') }}</h2>
@@ -518,10 +498,10 @@ https://postmarkapp.com/transactional-email-templates #}
                                 </div>
                             {% endif %}
 
-                            <p></p>
+                            <hr>
 
-                            <div class="">
-                                <h3 class="">Versandadresse</h3>
+                            <div class="addresses">
+                                <h3 class="addresses__title">Versandadresse</h3>
                                 {% if order.shippingAddress %}
                                     {% include 'shop/_includes/addresses/address-email' with { address: order.shippingAddress } %}
                                     {% if order.shippingAddress.sameAs(order.billingAddress) %}
@@ -532,8 +512,8 @@ https://postmarkapp.com/transactional-email-templates #}
                             </div>
 
 
-                            <div class="">
-                                <h3 class="">Rechnungsadresse</h3>
+                            <div class="addresses">
+                                <h3 class="addresses__title">Rechnungsadresse</h3>
                                 {% if order.billingAddress %}
                                     {% include 'shop/_includes/addresses/address-email' with { address: order.billingAddress } %}
                                     {% if order.billingAddress.sameAs(order.shippingAddress) %}
@@ -543,6 +523,7 @@ https://postmarkapp.com/transactional-email-templates #}
                                 {% endif %}
                             </div>
 
+                          <hr>
 
                           <h2>Bestellte Artikel</h2>
                             <table class="ordersummary__table">
@@ -552,10 +533,10 @@ https://postmarkapp.com/transactional-email-templates #}
                                     <tr class="align-top">
                                         <td class="">
                                              {% if item.options.donationAmount is not defined %}
-                                                <div>{{ item.qty }}</div>
+                                                {{ item.qty }} x
                                             {% endif %}
                                             <strong class="">{{ item.description }}</strong>
-                                            <span class="">SKU: {{ item.sku }}</span>
+                                            <span class=""><small>(SKU: {{ item.sku }})</small></span>
 
                                             {% if item.note %}
                                                 <div class="">
@@ -576,7 +557,7 @@ https://postmarkapp.com/transactional-email-templates #}
                                       <tr>
                                         <td class="">
                                             <div class="flex items-center w-full justify-end" title="{{ item.price }}">
-                                                <div class="text-xs pr-2">Preis: {% if item.onSale %}
+                                                <div class="text-xs pr-2">Preis/Artikel: {% if item.onSale %}
                                                     <del>{% endif %}{{ item.price|commerceCurrency(order.currency) }}{% if item.onSale %}</del>{% endif %}
                                                 </div>
                                             </div>
@@ -588,20 +569,19 @@ https://postmarkapp.com/transactional-email-templates #}
                                                     <div class="text-xs pr-2">Sale Anzahl: {{ item.saleAmount|commerceCurrency(order.currency) }}</div>
                                                 </div>
                                             {% endif %}
-                                            <div class="flex items-center w-full justify-end" title="{{ item.subtotal }}">
+                                            {# <div class="flex items-center w-full justify-end" title="{{ item.subtotal }}">
                                                 <div class="text-xs pr-2">Subtotal: {{ item.subtotal|commerceCurrency(order.currency) }}</div>
-                                            </div>
+                                            </div> #}
                                         </td>
                                     </tr>
                                     <tr class="">
                                         <td class="pb-3 pr-3 text-right" colspan="2">
-                                            {% if item.adjustments|length %}
-                                                <div class="text-left text-2xs uppercase tracking-wider text-gray-600">Anpassungen</div>
+                                            {# {% if item.adjustments|length %}
                                                 <div class="border-t border-gray-300 border-dotted mt-1">
                                                     {% for adjustment in item.adjustments %}
                                                         <div class="flex w-full items-center mt-2 text-sm">
                                                             <div class="pr-2">
-                                                                <strong class="text-gray-400 text-xs uppercase">{{ adjustment.type }}</strong>
+                                                                <strong class="text-gray-400 text-xs uppercase">Mwst:</strong>
                                                                 {{ adjustment.name }},
                                                                 {{ adjustment.description }},
                                                                 {{ adjustment.amount|commerceCurrency(order.currency) }}
@@ -609,7 +589,7 @@ https://postmarkapp.com/transactional-email-templates #}
                                                         </div>
                                                     {% endfor %}
                                                 </div>
-                                            {% endif %}
+                                            {% endif %} #}
 
                                             <div class="" title="{{ item.total }}">
                                                 <div class=""> <strong>Total: {{ item.total|commerceCurrency(order.currency) }}</strong></div>
@@ -626,15 +606,15 @@ https://postmarkapp.com/transactional-email-templates #}
                                         </div>
                                     </td>
                                 </tr>
-
-                                {% if order.orderAdjustments|length %}
+                                <br>
+                                {# {% if order.orderAdjustments|length %}
                                     <tr class="">
                                         <td class="">
                                             <div class="">
                                                 {% for adjustment in order.orderAdjustments %}
                                                     <div class="flex w-full items-center mt-2 text-sm">
                                                         <div class="pr-2">
-                                                            <strong class="text-gray-400 text-xs uppercase">{{ adjustment.type }}</strong>
+                                                            <strong class="text-gray-400 text-xs uppercase">Versand</strong>
                                                             {{ adjustment.name }},
                                                             {{ adjustment.amount|commerceCurrency(order.currency) }}
                                                         </div>
@@ -643,8 +623,11 @@ https://postmarkapp.com/transactional-email-templates #}
                                             </div>
                                         </td>
                                     </tr>
-                                {% endif %}
+                                {% endif %} #}
+                              <hr class="light">
+
                                 <tr>
+
                                     <td class="">
                                         <div class="">
                                             <strong class="">Zusammenfassung</strong>
@@ -662,9 +645,9 @@ https://postmarkapp.com/transactional-email-templates #}
                                         <div class="" title="{{ order.getTotalDiscount() }}">
                                             <div class="">Rabatt: {{ order.getTotalDiscount()|commerceCurrency(order.currency) }}</div>
                                         </div>
-
+                                        <br />
                                         <div class="" title="{{ order.totalPrice }}">
-                                            <div class=""><strong>Preis: {{ order.totalPrice|commerceCurrency(order.currency) }}</strong></div>
+                                            <div class=""><strong>Preis gesamt: {{ order.totalPrice|commerceCurrency(order.currency) }}</strong></div>
                                         </div>
                                     </td>
                                 </tr>
