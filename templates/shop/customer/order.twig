@@ -232,7 +232,7 @@
                           {% for adjustment in order.orderAdjustments %}
                               <div class="adjustments__data">
                                   <div class="adjustments__data--type">
-                                      <strong class="text-gray-400 text-xs uppercase">{{ adjustment.type }}</strong>
+                                      <strong class="text-gray-400 text-xs uppercase">Versand</strong>
                                   </div>
                                   <div class="adjustments__data--description">
 
@@ -261,11 +261,11 @@
                       <div class="text-sm text-gray-500">{{ order.getTotalShippingCost()|commerceCurrency(order.currency) }}</div>
                   </div>
                   <div class="flex items-center w-full justify-end" title="{{ order.getTotalTax() }}">
-                      <div class="text-xs text-gray-500 pr-2">Steuer:</div>
+                      <div class="text-xs text-gray-500 pr-2">Mwst.:</div>
                       <div class="text-sm text-gray-500">{{ order.getTotalTax()|commerceCurrency(order.currency) }}</div>
                   </div>
                   <div class="flex items-center w-full justify-end" title="{{ order.getTotalTaxIncluded() }}">
-                      <div class="text-xs text-gray-500 pr-2">Steuer (inkl):</div>
+                      <div class="text-xs text-gray-500 pr-2">Mwst. (inkl):</div>
                       <div class="text-sm text-gray-500">{{ order.getTotalTaxIncluded()|commerceCurrency(order.currency) }}</div>
                   </div>
                   <div class="flex items-center w-full justify-end" title="{{ order.totalDiscount }}">

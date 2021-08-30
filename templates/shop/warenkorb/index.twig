@@ -103,7 +103,7 @@
                             </span>
 
                             <div class="form__cart-table--note">
-                                <label for="lineitem-note-{{ item.id }}" class="text-gray-500 text-xs uppercase block">Notiz Artikel</label>
+                                <label for="lineitem-note-{{ item.id }}" class="text-gray-500 text-xs uppercase block">Notiz Artikel (z.B. für Grusskarte)</label>
                                 <textarea
                                   id="lineitem-note-{{ item.id }}"
                                   class="input"
@@ -113,6 +113,11 @@
                                   value="{{ item.note }}"
                                   rows="2">{{ item.note }}
                                 </textarea>
+                                <p class="form__cart-table--hint"> Nach dem sie den Text hinzugefügt haben, bitte<br />
+                                  <span>
+                                    {{ redirectInput('shop/warenkorb') }}
+                                    <input class="button button--secondary" type="submit" value="Warenkorb aktualisieren"/>,
+                                </span> ansonsten wird der Text nicht gespeichert.</p>
                             </div>
                         </td>
 
@@ -258,11 +263,11 @@
                                 <div class="form__cart-table--item-price-number">{{ cart.getTotalShippingCost()|commerceCurrency(cart.currency) }}</div>
                             </div>
                             <div class="form__cart-table--item-addprice" title="{{ cart.getTotalTax() }}">
-                                <div class="form__cart-table--item-price-name">Steuer:</div>
+                                <div class="form__cart-table--item-price-name">Mwst.:</div>
                                 <div class="form__cart-table--item-price-number">{{ cart.getTotalTax()|commerceCurrency(cart.currency) }}</div>
                             </div>
                             <div class="form__cart-table--item-addprice" title="{{ cart.getTotalTaxIncluded() }}">
-                                <div class="form__cart-table--item-price-name">Steuer (inkl):</div>
+                                <div class="form__cart-table--item-price-name">Mwst. (inkl):</div>
                                 <div class="form__cart-table--item-price-number">{{ cart.getTotalTaxIncluded()|commerceCurrency(cart.currency) }}</div>
                             </div>
                             <div class="form__cart-table--item-addprice" title="{{ cart.getTotalDiscount() }}">

@@ -77,6 +77,12 @@
         color: $color--grey-light;
       }
     }
+
+    &--hint {
+      font-size: px-to-rem($font-size-s);
+      line-height: $line-height--xm;
+    }
+
     &--item-prices {
       padding: px-to-rem($space--s);
       text-align: right;
