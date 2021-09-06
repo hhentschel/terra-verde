@@ -62,7 +62,7 @@ return [
     ],
 
     // Dev LOCAL environment settings
-    'dev' => [
+    'local' => [
         // Dev Mode (see https://craftcms.com/guides/what-dev-mode-does)
         'devMode' => true,
 
@@ -81,7 +81,7 @@ return [
 
         // Don’t allow updates on Staging
         'allowUpdates' => true,
-        'allowAutoUpdates' => false,
+        'allowAutoUpdates' => true,
 
         // Prevent crawlers from indexing pages and following links
         'disallowRobots' => true,
@@ -93,7 +93,7 @@ return [
     ],
 
     // Production LIVE environment settings
-    'production' => [
+    'live' => [
         // Set this to `false` to prevent administrative changes from being made on Production
         'allowAdminChanges' => false,
 

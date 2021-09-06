@@ -101,7 +101,8 @@
                               {{ variant.priceAsCurrency }}
                             </del><br />{{ variant.salePriceAsCurrency }}
                           {% else %}
-                            {{ variant.priceAsCurrency }}
+                            {# {{ variant.priceAsCurrency }} #}
+                            {% include '/shop/produkte/_includes/prices.twig' %}
                           {% endif %}
                         </div>
 

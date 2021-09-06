@@ -17,6 +17,7 @@
         {{ hiddenInput('successMessage', 'Der Warenkorb wurde aktualisiert.'|hash) }}
         {{ csrfInput() }}
 
+
         {# <input type="text" name="fields[note]" value=""> #}
 
         <table class="form__cart-table table">
@@ -115,26 +116,32 @@
 
                             <span class=" {{ item.options.donationAmount is defined ? 'hidden' : '' }}">
                                 <input class="input  input-small {% if item.getFirstError('qty') %}border-red-500 border{% endif %}"
-                                       type="{% if item.options.donationAmount is defined %}hidden{%else%}number{%endif%}" name="lineItems[{{ item.id }}][qty]" min="0" value="{{ item.qty }}">
+                                       type="{% if item.options.donationAmount is defined %}hidden{%else%}number{%endif%}"
+                                       name="lineItems[{{ item.id }}][qty]"
+                                       {# ANPASSUNGEN DETAILHANDEL #}
+                                       {% if currentUser %}
+                                          {% if currentUser.isInGroup('userGroupRetail') %}
+                                            min="{{ item.purchasable.product.artikelMinOrderSize }}"
+                                          {% else %}
+                                          min="1"
+                                          {% endif %}
+                                        {% else %}
+                                          min="1"
+                                        {% endif %}
+                                       value="{{ item.qty }}">
                             </span>
 
+                          {% if item.purchasable.product.getType().name == 'Geschenke' %}
                             <div class="form__cart-table--note">
-                                <label for="lineitem-note-{{ item.id }}" class="text-gray-500 text-xs uppercase block">Notiz Artikel (z.B. für Grusskarte)</label>
-                                <textarea
-                                  id="lineitem-note-{{ item.id }}"
-                                  class="input"
-                                  {# type="text" #}
-                                  placeholder="Notiz"
-                                  name="lineItems[{{ item.id }}][note]"
-                                  value="{{ item.note }}"
-                                  rows="2">{{ item.note }}
-                                </textarea>
+                                <label for="lineitem-note-{{ item.id }}" class="text-gray-500 text-xs uppercase block">Textfeld für Grusskarte</label>
+                                <textarea id="lineitem-note-{{ item.id }}" class="input" type="text" name="lineItems[{{ item.id }}][note]" value="{{ item.note }}" placeholder="Text für Grusskarte" rows="2">{{ item.note }}</textarea>
                                 <p class="form__cart-table--hint"> Nach dem sie den Text hinzugefügt haben, bitte<br />
                                   <span>
                                     {{ redirectInput('shop/warenkorb') }}
                                     <input class="button button--secondary" type="submit" value="Warenkorb aktualisieren"/>,
                                 </span> ansonsten wird der Text nicht gespeichert.</p>
                             </div>
+                            {% endif %}
                         </td>
 
                         <td class="form__cart-table--item-prices {{ not loop.first ? 'border-t border-gray-300 border-dashed' : '' }} text-right">
