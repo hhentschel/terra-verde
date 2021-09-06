@@ -2,6 +2,9 @@
 {% set pageTitle = entry.pageTitle is not empty ? entry.pageTitle : entry.title
 %}
 
+{% set regLink = craft.entries.section('registrateSingle').one() %}
+
+
 {% block content %}
   {# {% if craft.session.isLoggedIn %}
     {% set message = craft.app.session.getFlash('notice', null, true) %}
@@ -28,22 +31,34 @@
     <div class="row">
       <div class="col col-xs-12 col-md-12 col-lg-12">
         <div class="notice">
-          <h4 class="heading heading--h4 heading--no-margin-top">Hinweis: </h4>
           <p>Die Seite und der Shop sind überarbeitet worden. Die Benutzerkonten sind erhalten geblieben,
-          allerdings müssen Sie sich beim ersten Anmelden ein <strong>neues Passwort erstellen</strong> lassen. <p>
-          <p>Dazu klicken Sie bitten auf "Passwort vergessen" und folgen den weiteren Anweisungen</p>
-          <p>Bei Fragen wenden Sie sich bitte an <a href="mailto:support@terra-verde.ch">support@terra-verde.ch</a>
+          allerdings müssen Sie sich beim ersten Anmelden ein <a href="{{ url('/customer/account/reset-password') }}" class="link">neues Passwort erstellen</a> lassen.
+          Dazu klicken Sie bitten auf <a href="{{ url('/customer/account/reset-password') }}" class="link">"Neues Passwort erstellen"</a> und folgen den weiteren Anweisungen.
+          Bei Fragen wenden Sie sich bitte an <a href="mailto:support@terra-verde.ch" class="mail">support@terra-verde.ch</a>
         </div>
       </div>
+
+      <div class="col col-xs-12 col-md-12 col-lg-12">
+        <a href="{{ url('/customer/account/reset-password') }}" class="link link--button link--internal link--color-blue   link--icon-after">
+          <span class="link__text">{{ 'neues Passwort erstellen'|t }}</span>
+          <div class="link__icon-wrapper link__icon-wrapper--internal">
+              <svg class="link__icon link__icon--internal icon icon--42">
+                <path d="M36.907 21.411a.999.999 0 01-.089.133.95.95 0 01-.066.115l-7 8a1 1 0 11-1.504-1.318L33.796 22H6a1 1 0 010-2h27.796l-5.548-6.341a1 1 0 111.504-1.318l7 8a.95.95 0 01.066.115.999.999 0 01.089.133c.009.02.015.04.022.062a.96.96 0 01.037.16.991.991 0 01.027.157c0 .011.007.02.007.032s-.006.02-.007.032a.991.991 0 01-.027.156.96.96 0 01-.037.161c-.007.021-.013.042-.022.062z"></path>
+              </svg>
+          </div>
+        </a>
+      </div>
+
     </div>
   </div>
 
   <section class="grid">
     <div class="row">
-      <div class="col col-xs-12 col-md-12 col-lg-4">
+      <div class="col col-xs-12 col-md-12 col-lg-6">
         <h3 class="heading heading--h3 heading--site heading--no-margin-top">
           Bereits registiert?
         </h3>
+
         {% include '_pages/login/login.twig' %}
       </div>
 
@@ -51,11 +66,19 @@
         {% include '_pages/login/login-detailhandel.twig' %}
       </div> #}
 
-      <div class="col col-xs-12 col-md-12 col-lg-8">
+      <div class="col col-xs-12 col-md-12 col-lg-6">
         <h3 class="heading heading--h3 heading--site heading--no-margin-top">
           Neu registrieren
         </h3>
-        {% include '_pages/login/register.twig' %}
+        <p>Hier können sie sich neu registrieren</p>
+        <a href="{{ regLink.url }}" class="link link--button link--internal link--color-blue   link--icon-after">
+          <span class="link__text">{{ 'Registrieren'|t }}</span>
+          <div class="link__icon-wrapper link__icon-wrapper--internal">
+              <svg class="link__icon link__icon--internal icon icon--42">
+                <path d="M36.907 21.411a.999.999 0 01-.089.133.95.95 0 01-.066.115l-7 8a1 1 0 11-1.504-1.318L33.796 22H6a1 1 0 010-2h27.796l-5.548-6.341a1 1 0 111.504-1.318l7 8a.95.95 0 01.066.115.999.999 0 01.089.133c.009.02.015.04.022.062a.96.96 0 01.037.16.991.991 0 01.027.157c0 .011.007.02.007.032s-.006.02-.007.032a.991.991 0 01-.027.156.96.96 0 01-.037.161c-.007.021-.013.042-.022.062z"></path>
+              </svg>
+          </div>
+        </a>
       </div>
     </div>
   </section>

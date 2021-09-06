@@ -538,17 +538,14 @@ https://postmarkapp.com/transactional-email-templates #}
                                             <strong class="">{{ item.description }}</strong>
                                             <span class=""><small>(SKU: {{ item.sku }})</small></span>
 
+                                             {% if item.options.giftWrapped is defined %}
+                                                  <div>{% if item.options.giftWrapped == 'yes' %}Als Geschenk verpackt{% endif %}</div>
+                                            {% endif %}
+
                                             {% if item.note %}
                                                 <div class="">
                                                     <div class="">Notiz</div>
                                                     <div>{{ item.note }}</div>
-                                                </div>
-                                            {% endif %}
-
-                                            {% if item.options.giftWrapped is defined %}
-                                                <div class="">
-                                                    <div class="">Als Geschenk verpackt?</div>
-                                                    <div>{{ item.options.giftWrapped|title }}</div>
                                                 </div>
                                             {% endif %}
                                         </td>
@@ -597,7 +594,8 @@ https://postmarkapp.com/transactional-email-templates #}
                                         </td>
                                     </tr>
                                 {% endfor %}
-
+                                <hr class="light">
+                                <br />
                                 <tr>
                                     <td class="">
                                         <div class="flex items-center w-full justify-end border-t border-gray-300 border-dotted pt-3"
@@ -625,7 +623,7 @@ https://postmarkapp.com/transactional-email-templates #}
                                     </tr>
                                 {% endif %} #}
                               <hr class="light">
-
+                              <br />
                                 <tr>
 
                                     <td class="">

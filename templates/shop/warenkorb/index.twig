@@ -68,6 +68,22 @@
                                     </option>
                                 </select>
                             {% endif %} #}
+                            {# {% for productType in craft.commerce.allProductTypes %}
+                              {% if productType == 'productTypeGift' %}
+                                Geschenksets
+                              {% endif %}
+                            {% endfor %} #}
+                            {# {% if craft.commerce.products.type('productTypeGift') %}
+                              Geschenksets
+                            {% endif %} #}
+
+
+{# {% for type in craft.commerce.productTypes.allProductTypes %}
+    {% if type.handle == 'productTypeGift' %}
+                                Geschenksets
+                              {% endif %}
+{% endfor %} #}
+
 
                               {% if item.options.giftNote is defined %}
                                 <label>
