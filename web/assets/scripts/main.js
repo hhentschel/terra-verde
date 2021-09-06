@@ -9,8 +9,6 @@ require("./modules/focus");
 
 require("./modules/header");
 
-require("./modules/responsive-view-handler");
-
 var _accordion = _interopRequireDefault(require("./modules/accordion"));
 
 var _anchorLink = _interopRequireDefault(require("./modules/anchor-link"));
@@ -21,6 +19,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "d
  * Use this file for main application handling and initializing of modules
  */
 // imports
+// import './modules/responsive-view-handler';
 
 /* Accordions */
 var accordions = document.querySelectorAll('.accordion');
@@ -34,7 +33,7 @@ anchorLinks.forEach(function (anchorLink) {
   new _anchorLink["default"](anchorLink);
 });
 
-},{"./modules/accordion":2,"./modules/anchor-link":3,"./modules/focus":4,"./modules/header":5,"./modules/mobile-nav":6,"./modules/nav-main":7,"./modules/responsive-view-handler":8}],2:[function(require,module,exports){
+},{"./modules/accordion":2,"./modules/anchor-link":3,"./modules/focus":4,"./modules/header":5,"./modules/mobile-nav":6,"./modules/nav-main":7}],2:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -622,120 +621,6 @@ var NavMain = /*#__PURE__*/function () {
 
 
 var _default = new NavMain();
-
-exports["default"] = _default;
-
-},{}],8:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports["default"] = void 0;
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-/**
- * Responsive View Handler
- * Emits a viewChangeEvent on window when view changes.
- * Views are defined in css (e.g. styles/layout/responsive-view-handler.scss).
- * Usage:
- * window.addEventListener('viewchange', (event) => {
- *   console.log(event.detail); // outputs { currentView: "sm", lastView: "xs" }
- * });
- * */
-var ResponsiveViewHandler = /*#__PURE__*/function () {
-  /**
-   * Constructor
-   */
-  function ResponsiveViewHandler() {
-    _classCallCheck(this, ResponsiveViewHandler);
-
-    _defineProperty(this, "debounceDelay", 250);
-
-    _defineProperty(this, "debounceTimer", null);
-
-    _defineProperty(this, "lastView", null);
-
-    this.lastView = this.getView();
-    this.events();
-  }
-  /**
-   * Events
-   */
-
-
-  _createClass(ResponsiveViewHandler, [{
-    key: "events",
-    value: function events() {
-      window.addEventListener('resize', this.resizeHandler.bind(this));
-    }
-    /**
-     * Resize Handler
-     * Trigger a debounced view change event when view changes
-     */
-
-  }, {
-    key: "resizeHandler",
-    value: function resizeHandler() {
-      var _this = this;
-
-      // clear timeout on resize
-      clearTimeout(this.debounceTimer); // start timer
-
-      this.debounceTimer = setTimeout(function () {
-        // get current view out of body:after pseudo element (see responsive-view-handler.scss)
-        var currentView = _this.getView(); // trigger view change event if view has changed
-
-
-        if (currentView !== _this.lastView) {
-          _this.triggerViewChangeEvent(currentView, _this.lastView);
-        } // update lastView
-
-
-        _this.lastView = currentView;
-      }, this.debounceDelay);
-    }
-    /**
-     * Get View
-     * Read the content :after pseudoelement of body (responsive-view-handler.scss)
-     */
-
-  }, {
-    key: "getView",
-    value: function getView() {
-      return window.getComputedStyle(document.querySelector('body'), ':after').getPropertyValue('content').replace(/["']/g, '');
-    }
-    /**
-     * Trigger View Change Event
-     * @param {string} currentView
-     * @param {string} lastView
-     */
-
-  }, {
-    key: "triggerViewChangeEvent",
-    value: function triggerViewChangeEvent(currentView, lastView) {
-      var viewChangeEvent = new CustomEvent('viewchange', {
-        detail: {
-          currentView: currentView,
-          lastView: lastView
-        }
-      });
-      window.dispatchEvent(viewChangeEvent);
-    }
-  }]);
-
-  return ResponsiveViewHandler;
-}(); // export as singleton
-
-
-var _default = new ResponsiveViewHandler();
 
 exports["default"] = _default;
 
