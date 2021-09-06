@@ -45,6 +45,29 @@
 
       </div>
 
+      {# //Tags #}
+
+      {# {% set myTagQuery = craft.tags().group('aehnlicheProduzenten') %}
+
+      {% set tags = myTagQuery.all() %}
+      <ul>
+          {% for tag in tags %}
+              <li><a href="{{ url('blog/tags/'~tag.id) }}">{{ tag.title }}</a></li>
+          {% endfor %}
+      </ul>
+
+
+      {% set similarEntriesByTags = craft.similar.find({ element: entry, context: entry.manufactorTags }) %}
+      <ul>
+      {% for similarEntry in similarEntriesByTags %}
+          <li>{{ similarEntry.title }} ({{ similarEntry.count }} tags in common)</li>
+      {% endfor %}
+      </ul> #}
+
+
+
+
+
       </div>
     </div>
   </section>
