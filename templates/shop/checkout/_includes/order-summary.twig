@@ -66,14 +66,12 @@
     <div class="flex w-full justify-between">
       <div class="flex justify-between mr-3 overflow-hidden items-center">
         <div class="truncate">
+           {% if item.qty %}
+            {{ item.qty }}&times;
+          {% endif %}
           {{ item.description }}
         </div>
 
-        <div class="text-gray-500 text-xs uppercase">
-          {% if item.qty %}
-            &times;{{ item.qty }}
-          {% endif %}
-        </div>
       </div>
 
       {% if item.options.giftWrapped is defined or item.options.giftNote is defined %}
@@ -125,14 +123,15 @@
         {{ cart.totalShippingCost|commerceCurrency(cart.currency) }}
       </div>
     </div>
-    <div class="flex w-full justify-end items-center text-xs text-gray-500">
+    {# <div class="flex w-full justify-end items-center text-xs text-gray-500">
       <div class="pr-2">
         Mwst:
       </div>
       <div>
         {{ cart.totalTax|commerceCurrency(cart.currency) }}
       </div>
-    </div>
+    </div> #}
+    {% if cart.totalDiscount|length  %}
     <div class="flex w-full justify-end items-center text-xs text-gray-500">
       <div class="pr-2">
         Rabatt:
@@ -141,6 +140,7 @@
          {{ (cart.totalDiscount * -1)|commerceCurrency(cart.currency) }}
       </div>
     </div>
+    {% endif %}
 
     <div class="flex w-full justify-end items-center text-xs text-gray-500">
       <div class="pr-2">
@@ -151,7 +151,7 @@
       </div>
     </div>
 
-     {# {% if cart.orderAdjustments|length %}
+     {% if cart.orderAdjustments|length %}
         {% for adjustment in cart.orderAdjustments %}
         <div class="flex w-full justify-end items-center text-xs text-gray-500">
           <div class="pr-2">
@@ -163,7 +163,7 @@
           </div>
         </div>
          {% endfor %}
-    {% endif %} #}
+    {% endif %}
 
 
 

@@ -70,8 +70,11 @@
                   </div>
                 </form>
               {% else %}
-                <h4 class="heading heading--4 heading--no-margin">Registrieren</h4>
+                <h3 class="heading heading--3 heading--no-margin">Registrieren</h3>
 
+                <p> Nachdem sie ein Passwort erstellt haben, können Sie mit der Bestellung fortfahren und sie abschliessen.</p>
+                <p> Kurz vor der Bezahlung haben sie die Möglichkeit sich mit ihren eingegeben Daten als Kunde zu registrieren. <br />
+                Dazu müssen sie noch über einen Aktivierungslink, den wir ihnen per E-Mail zugeschickt haben, ihr Konto aktivieren.</p>
                 <form method="post" action="" accept-charset="UTF-8">
                     {{ csrfInput() }}
                     {{ actionInput('users/save-user') }}
@@ -111,8 +114,8 @@
                     </div>
 
                     <div class="field mt-3">
-                      <label for="savePassword">Passwort</label>
-                      <input id="savePassword" class="input" type="password" name="password">
+                      <label for="savePassword">Passwort festlegen</label>
+                      <input id="savePassword" class="input" type="password" name="password" placeholder="neues Passwort">
 
                       {% if user is defined %}
                         {{ errorList(user.getErrors('password')) }}

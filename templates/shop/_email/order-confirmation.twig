@@ -476,15 +476,20 @@ https://postmarkapp.com/transactional-email-templates #}
 
                         {# email content #}
                         {% block content %}
-                            <h2>Sehr geehrte Kundin, sehr geehrter Kunde </h2>
+                            <h2>Sehr geehrte(r) {{ order.user.fullName }} </h2>
                             <p>Vielen Dank für Ihre Bestellung bei Terra-Verde!</p>
 
                             <h2 class="heading heading--2">Bestellung {{ order.reference }}, am {{ order.dateOrdered|date('d. M Y') }}</h2>
                             <p>ID-Nummer: {{ order.id }}</p>
 
                             <div class="ordersummary__info">
-                                <div class="ordersummary__info-term">Kunde: {{ order.email }}</div>
+                                <div class="ordersummary__info-term">Kund:in: {{ order.user.fullName }}</div>
                             </div>
+
+                            <div class="ordersummary__info">
+                                <div class="ordersummary__info-term">Email: {{ order.email }}</div>
+                            </div>
+
                             <div class="ordersummary__info">
                                 <div class="ordersummary__info-term">Total: {{ order.totalPrice|commerceCurrency(order.currency) }}</div>
                             </div>
@@ -633,9 +638,6 @@ https://postmarkapp.com/transactional-email-templates #}
 
                                         <div class="" title="{{ order.getTotalShippingCost() }}">
                                             <div class="">Versand: {{ order.getTotalShippingCost()|commerceCurrency(order.currency) }}</div>
-                                        </div>
-                                        <div class="" title="{{ order.getTotalTax() }}">
-                                            <div class="">Mwst: {{ order.getTotalTax()|commerceCurrency(order.currency) }}</div>
                                         </div>
                                         <div class="" title="{{ order.getTotalTaxIncluded() }}">
                                             <div class="">Mwst (inkl): {{ order.getTotalTaxIncluded()|commerceCurrency(order.currency) }}</div>

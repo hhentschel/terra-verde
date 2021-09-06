@@ -1,0 +1,15 @@
+{% if currentUser %}
+  {% if currentUser.isInGroup('userGroupPrivate') or currentUser.isInGroup('userGroupRedactors') %}
+    <p class="section-home__product--price">
+        {{ product.pricePrivateCustomer|currency('CHF') }}
+    </p>
+  {% elseif currentUser.isInGroup('userGroupRetail')  or currentUser.isInGroup('userGroupRedactors') %}
+    <p class="section-home__product--price">
+        {{ product.priceRetailTrader|currency('CHF') }}
+    </p>
+  {% endif %}
+{% else %}
+  <p class="section-home__product--price">
+    {{ product.pricePrivateCustomer|currency('CHF') }}
+  </p>
+{% endif %}
