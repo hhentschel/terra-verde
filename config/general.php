@@ -25,12 +25,19 @@ return [
 
         'useEmailAsUsername' => true,
 
+        'errorTemplatePrefix' => "404.twig",
+
         'autoLoginAfterAccountActivation' => true,
         'setPasswordSuccessPath' => '/customer/account/login',
         'activateAccountSuccessPath' => '/customer/account/activation-success/',
 
         'postLogoutRedirect' => '/customer/account/logout/',
         'postLoginRedirect' => '/',
+
+        'generateTransformsBeforePageLoad' => true,
+        'userSessionDuration' => 'P1W',
+        'rememberedUserSessionDuration' => 'P4W',
+
 
         // setPasswordPath
 
@@ -46,40 +53,59 @@ return [
       ),
 
       // https://craftcms.com/knowledge-base/enabling-fuzzy-search
-      'defaultSearchTermOptions' => [
+      'defaultSearchTermOptions' => array(
         'subLeft' => true,
-      ],
+        'subRight' => true,
+      ),
 
       'limitAutoSlugsToAscii' => true,
     ],
 
-    // Dev environment settings
+    // Dev LOCAL environment settings
     'dev' => [
         // Dev Mode (see https://craftcms.com/guides/what-dev-mode-does)
         'devMode' => true,
 
         // Prevent crawlers from indexing pages and following links
         'disallowRobots' => true,
+
+        'enableTemplateCaching' => false,
+        'allowAutoUpdates' => true,
+        'isSystemLive' => true,
     ],
 
-    // Staging environment settings
+    // Staging (pre-production) environment
     'staging' => [
         // Set this to `false` to prevent administrative changes from being made on Staging
         'allowAdminChanges' => true,
 
         // Don’t allow updates on Staging
         'allowUpdates' => true,
+        'allowAutoUpdates' => false,
 
         // Prevent crawlers from indexing pages and following links
         'disallowRobots' => true,
+
+        'isSystemLive' => false,
+
+        'enableTemplateCaching' => true,
+
     ],
 
-    // Production environment settings
+    // Production LIVE environment settings
     'production' => [
         // Set this to `false` to prevent administrative changes from being made on Production
         'allowAdminChanges' => false,
 
         // Don’t allow updates on Production
         'allowUpdates' => false,
+        'allowAutoUpdates' => false,
+
+        'devMode' => false,
+
+        'enableTemplateCaching' => true,
+
+        'isSystemLive' => true,
+
     ],
 ];
