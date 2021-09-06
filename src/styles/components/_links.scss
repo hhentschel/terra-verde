@@ -57,6 +57,10 @@ $link__button-secondary-color-hover: $color--primary-hover;
     flex: 1 0 0;
   }
 
+  &__block {
+    display: block;
+  }
+
   &__icon-wrapper {
     flex: 0 1 auto;
 
