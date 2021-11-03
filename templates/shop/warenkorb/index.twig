@@ -37,7 +37,9 @@
                                 <strong class="{% if item.hasErrors() %}text-red-500{% endif %}">{{ item.description }}</strong>
                               </div>
                             </div>
-                            <span class="">{{ item.sku }}</span>
+                            <span class="">Artikelnummer: {{ item.purchasable.product.articleNumber }}</span><br />
+                            {# <span class="">SKU: {{ item.sku }}</span> #}
+                            {% if item.options.giftWrapped is defined or item.options.giftNote is defined %}
                             <div class="form__cart-table--options">
                                 {# <code class="p-3 pt-8 inline-block ">{{ item.options|length ? item.options|json_encode : 'keine Zusatzoptionen.' }}</code> #}
                                 {# {% for key, value in item.options %}
@@ -45,7 +47,7 @@
                                 {% endfor %} #}
 
 
-                              {% if item.options.giftWrapped is defined %}
+
                                 <span class="">Zusatzoptionen</span>
                                 <label>
                                     <input type="checkbox"
@@ -55,7 +57,7 @@
 
                                     In Geschenkpapier einwickeln
                                 </label>
-                              {% endif %}
+
 
                                {# {% if item.options.giftWrapped is defined %}
                                 <select name="lineItems[{{ item.id }}][options][giftWrapped]">
@@ -95,16 +97,20 @@
 
                                     Grusskarte beilegen
                                 </label>
-                              {% endif %}
+                          {% endif %}
+                          </div>
+                          {% endif %}
 
-
-                            </div>
                             <div class="">
                                 <label>
                                     <input type="checkbox"
                                            name="lineItems[{{ item.id }}][remove]"
                                            value="1"> Entfernen
                                 </label>
+                            </div>
+                            <div class="pr-2">
+                                {{ redirectInput('shop/warenkorb') }}
+                                <input class="button button--secondary" type="submit" value="Warenkorb aktualisieren"/>
                             </div>
                         </td>
                         <td class="py-3 {{ not loop.first ? 'border-t border-gray-300 border-dashed' : '' }}">
@@ -130,8 +136,12 @@
                                         {% endif %}
                                        value="{{ item.qty }}">
                             </span>
+                            <div class="pr-2">
+                                {{ redirectInput('shop/warenkorb') }}
+                                <input class="button button--secondary" type="submit" value="Warenkorb aktualisieren"/>
+                            </div>
 
-                          {% if item.purchasable.product.getType().name == 'Geschenke' %}
+                          {% if (item.purchasable.product.getType().name == 'Geschenke') or  ((item.purchasable.product.getType().name == 'Geschenke' and item.purchasable.product.getType().name == 'Delikatessen')) %}
                             <div class="form__cart-table--note">
                                 <label for="lineitem-note-{{ item.id }}" class="text-gray-500 text-xs uppercase block">Textfeld für Grusskarte</label>
                                 <textarea id="lineitem-note-{{ item.id }}" class="input" type="text" name="lineItems[{{ item.id }}][note]" value="{{ item.note }}" placeholder="Text für Grusskarte" rows="2">{{ item.note }}</textarea>
@@ -225,14 +235,14 @@
                         </td>
                     </tr>
 
-                    <tr>
+                    {# <tr>
                       <td class="text-left" colspan="4">
                         <div class="pr-2">
                             {{ redirectInput('shop/warenkorb') }}
                             <input class="button button--secondary" type="submit" value="Warenkorb aktualisieren"/>
                         </div>
                       </td>
-                    </tr>
+                    </tr> #}
                 {% endfor %}
 
                 {% if not cart.hasErrors() %}
@@ -285,10 +295,10 @@
                                 <div class="form__cart-table--item-price-name">Versand:</div>
                                 <div class="form__cart-table--item-price-number">{{ cart.getTotalShippingCost()|commerceCurrency(cart.currency) }}</div>
                             </div>
-                            <div class="form__cart-table--item-addprice" title="{{ cart.getTotalTax() }}">
+                            {# <div class="form__cart-table--item-addprice" title="{{ cart.getTotalTax() }}">
                                 <div class="form__cart-table--item-price-name">Mwst.:</div>
                                 <div class="form__cart-table--item-price-number">{{ cart.getTotalTax()|commerceCurrency(cart.currency) }}</div>
-                            </div>
+                            </div> #}
                             <div class="form__cart-table--item-addprice" title="{{ cart.getTotalTaxIncluded() }}">
                                 <div class="form__cart-table--item-price-name">Mwst. (inkl):</div>
                                 <div class="form__cart-table--item-price-number">{{ cart.getTotalTaxIncluded()|commerceCurrency(cart.currency) }}</div>
@@ -329,10 +339,6 @@
                         </div>
                         <div class="form__cart-table--buttons">
                             <div class="form__cart-table--buttons-container">
-                                <div class="pr-2">
-                                    {{ redirectInput('shop/warenkorb') }}
-                                    <input class="button button--secondary" type="submit" value="Warenkorb aktualisieren"/>
-                                </div>
                                 <div>
                                     {% if not cart.hasErrors() %}
                                       {% if cart.totalPrice < 30 %}

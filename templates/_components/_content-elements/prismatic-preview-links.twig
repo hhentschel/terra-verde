@@ -1,0 +1,16 @@
+<a class="prismaticlinks-container" href="{{ block.externerLinkPreview.url }}" target="_blank">
+    <div class="prismaticlinks-image">
+        <img src="{{ block.externerLinkPreview.image_cached ?? block.externerLinkPreview.image ?? "" }}" alt="">
+    </div>
+    <div class="prismaticlinks-meta">
+        <div class="prismaticlinks-title">
+            {{ block.externerLinkPreview.title ?? "" }}
+        </div>
+        <div class="prismaticlinks-description">
+            {{ block.externerLinkPreview.description ?? "" }}
+        </div>
+        <div class="prismaticlinks-domain">
+            {{ block.externerLinkPreview.domain ?? "" }}
+        </div>
+    </div>
+</a>

@@ -37,7 +37,7 @@
           <div class="col col-xs-12 col-md-6 col-lg-6">
 
             <h4 class="">
-              {{ product.articleDescription}}{{ product.articleDescriptionAdditional }}
+              {{ product.articleDescription}}<br />{{ product.articleDescriptionAdditional }}
             </h4>
             {% if product.articleAdditionalInfo %}
               <p> {{ product.articleAdditionalInfo }}</p>
@@ -65,9 +65,9 @@
 
                   <div class="form-addtobasket__info">
                     <div class="form-addtobasket__info-variant">
-                      {% if variant.title %}
+                      {# {% if variant.title %}
                       <span>{{ variant.title }}</span>
-                      {% endif %}
+                      {% endif %} #}
                         {% if variant.articleVolume %}
                         <span> {{variant.articleVolume}}{{ variant.articleVolumeUnit }}</span>
                       {% endif %}
