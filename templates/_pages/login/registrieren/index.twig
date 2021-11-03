@@ -26,6 +26,7 @@
       <form method="post" accept-charset="UTF-8" class="form form-registration">
         {{ csrfInput() }}
         {{ actionInput('users/save-user') }}
+        {{ actionInput('commerce/customer-addresses/save') }}
         {{ redirectInput('/customer/account/activation-email/?user={email}') }}
         {# {{ redirectInput('/register-success/') }} #}
         {# {{ redirectInput(craft.app.user.returnUrl) }} #}
@@ -150,35 +151,33 @@
           {%- if account is defined %} value="{{ account.userAdditionalAdress}}"{% endif -%}>
         </div>
 
-        <div class="form-registration__item">
+        {# <div class="form-registration__item">
           <label for="fields[userTelephone]">Telefon</label>
           <input id="Telephone" type="text" class="input layout-helper__margin-bottom--xxs" name="fields[userTelephone]"
           {%- if account is defined %} value="{{ account.userTelephone}}"{% endif -%} >
-        </div>
+        </div> #}
 
         <div class="form-registration__item">
-          <label for="fields[userTelephoneMobile]">Telefon Mobile *</label>
+          <label for="fields[userTelephoneMobile]">Telefon *</label>
           <input id="TelephoneMobile" type="text" class="input layout-helper__margin-bottom--xxs" name="fields[userTelephoneMobile]"
           {%- if account is defined %} value="{{ account.userTelephoneMobile}}"{% endif -%} required >
         </div>
 
-        <div class="form-registration__item">
-          <label for="fields[userCity]">Stadt *</label>
-          <input id="City" type="text" class="input layout-helper__margin-bottom--xxs" name="fields[userCity]"
-          {%- if account is defined %} value="{{ account.userCity}}"{% endif -%} required>
-        </div>
-
-        <div class="form-registration__item">
+         <div class="form-registration__item">
           <label for="fields[userZip]">Postleitzahl *</label>
           <input id="City" type="text" class="input layout-helper__margin-bottom--xxs" name="fields[userZip]"
           {%- if account is defined %} value="{{ account.userZip}}"{% endif -%} required>
         </div>
 
         <div class="form-registration__item">
+          <label for="fields[userCity]">Ort *</label>
+          <input id="City" type="text" class="input layout-helper__margin-bottom--xxs" name="fields[userCity]"
+          {%- if account is defined %} value="{{ account.userCity}}"{% endif -%} required>
+        </div>
+
+        <div class="form-registration__item">
           <label for="fields[userNotice]">Mitteilung</label>
-          <textarea id="Notice" type="number" class="textarea layout-helper__margin-bottom--xxs" name="fields[userNotice]"
-          {%- if account is defined %} value="{{ account.userNotice}}"{% endif -%}>
-          </textarea>
+          <textarea id="Notice" type="number" class="textarea layout-helper__margin-bottom--xxs" name="fields[userNotice]" {%- if account is defined %} value="{{ account.userNotice}}"{% endif -%}></textarea>
         </div>
 
 

@@ -56,7 +56,8 @@
                   {% for attribute, errors in cart.errors %}
                       {% if loop.first %}<ul>{% endif %}
                       {% for key, error in errors %}
-                          <li>{{ attribute }}: {{ error }}</li>
+                          {# <li>{{ attribute }}: {{ error }}</li> #}
+                           <li>{{ error }}</li>
                       {% endfor %}
                       {% if loop.last %}</ul>{% endif %}
                   {% endfor %}

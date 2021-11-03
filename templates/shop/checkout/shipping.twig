@@ -11,15 +11,15 @@
 
       <div class="col col-xs-12 col-md-6 col-lg-6">
 
-                <h2 class="heading heading--3 heading--no-margin-top">Bitte wählen Sie eine Versandart aus:</h2>
+                <h3 class="heading heading--3 heading--no-margin-top">Bitte wählen Sie eine Versandart aus:</h3>
 
-                <p>Klicken Sie bitte auf eine Versandart und drücken dann den Button "Versand wählen und weiter"</p>
+                <p>Ab 100,- CHF ist der Economy Versand kostenlos, dafür einfach weiter klicken, der eine andere Versandart auswählen.</p>
 
                 {# `cart.shippingMethods` only returns methods available to the order, per the shipping methods'
                   rules. You can create a catchall rule that matches all addresses if necessary. #}
-                {% if cart.availableShippingMethodOptions|length < 2 and cart.shippingMethod %}
+                {# {% if cart.availableShippingMethodOptions|length < 2 and cart.shippingMethod %}
                     {% redirect 'shop/checkout/payment-method' %}
-                {% endif %}
+                {% endif %} #}
 
                 {% if not cart.availableShippingMethodOptions|length %}
                   <p class="my-3 ">Keine Versandmöglichkeiten verfügbar.</p>
@@ -33,13 +33,19 @@
                     <form method="post" class="forms__checkout">
                       {{ actionInput('commerce/cart/update-cart') }}
 
-                       {% if cart.shippingMethodHandle == 'pickUpAtStore' %}
+                       {% if cart.shippingMethodHandle == 'B2C_pickUpAtStore' %}
                           {{ hiddenInput('shippingSameAsBilling', 1) }}
                           {{ redirectInput('shop/checkout/payment') }}
                       {% else %}
                           {{ redirectInput('shop/checkout/payment-method') }}
                       {% endif %}
                       {{ csrfInput() }}
+
+                       {% if currentUser %}
+                          {% if currentUser.isInGroup('userGroupRetail') %}
+
+                          {% endif %}
+                        {% endif %}
 
                       {% for handle, method in cart.availableShippingMethodOptions %}
                         <div class="js-shipping-select mt-2">
@@ -55,6 +61,26 @@
                             </div>
                           </label>
                         </div>
+
+                       {# {% set shippinghandles = cart.shippingMethodHandle %}
+                          {% for handlenames in shippinghandles %}
+                            {{ handlenames}}
+                          {% endfor %} #}
+
+                        {% set handles = ['B2C_BPost5Kg', 'B2C_APost5Kgb', 'B2C_Express5kg', 'B2C_pickUpAtStore', 'B2C_APost5-10Kg', 'B2C_BPost5-10kg', 'B2C_Express5-10kg', 'B2C_BPost-0CHF', 'B2C_APost5CHF', 'B2C_Express16CHF', 'B2B_FIX-50CHF', 'B2B_pickup5%'	 ] %}
+                        {# {% set handles = [34, 36, 38, 40, 42] %} #}
+
+                        {# {% if B2B in handles %}
+                          B2B
+                        {% endif %}
+                          {% for v in handles|filter(v => v == 'B2B_') -%}
+                              {{ v }}
+                          {% endfor %} #}
+
+                        {# {% if handle == 'B2B_FIX-50CHF' %}
+
+                        {% endif %} #}
+
                       {% endfor %}
 
 

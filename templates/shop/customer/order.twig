@@ -67,7 +67,7 @@
       </div>
 
       <div class="row">
-      {% if order.shippingMethodHandle != 'pickUpAtStore' %}
+      {% if order.shippingMethodHandle != 'B2C_pickUpAtStore' %}
         <div class="col col-xs-12 col-md-6 col-lg-6">
             <div class="{{ classes.box.base }}">
                 <h4 class="layout-helper__margin-top--none">Versandadresse</h4>
@@ -182,7 +182,7 @@
                                     </div>
                                 {% endfor %}
                             </div>
-                            {# {% if order.shippingMethodHandle == 'pickUpAtStore' %}
+                            {# {% if order.shippingMethodHandle == 'B2C_pickUpAtStore' %}
                             {% set totalcartDiscount = (order.getTotalDiscount * - 1) %}
                             {% set totalPricePlusTax = (order.totalPrice) +  (totalcartDiscount) %}
                             {% set pickupDiscount = (totalPricePlusTax * (5/100) * - 1) %}
@@ -275,7 +275,7 @@
                   {# <div class="flex items-center w-full justify-end" title="{{ order.getTotalDiscount() }}">
                       <div class="text-xs text-gray-500 pr-2">Rabbatt:</div>
                       <div class="text-sm text-gray-500">
-                      {% if order.shippingMethodHandle == 'pickUpAtStore' %}
+                      {% if order.shippingMethodHandle == 'B2C_pickUpAtStore' %}
                             {% set totalcartDiscount = (order.getTotalDiscount * - 1) %}
                             {% set totalPricePlusTax = (order.totalPrice) +  (totalcartDiscount) %}
                             {% set pickupDiscount = (totalPricePlusTax * (5/100)) %}

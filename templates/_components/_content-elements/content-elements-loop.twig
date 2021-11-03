@@ -150,6 +150,21 @@
       } %}
     {% endset %}
 
+    {# externerLinkPreview Block #}
+    {% case 'externerLinkPreview' %}
+    {% set cmt = cmt ? cmt : 'layout-helper__margin-top--m' %}
+    {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--xxs' %}
+    {% set colClasses =
+      'col col-xs-12 col-md-10 col-md-shift-1 col-lg-8 col-lg-shift-2'
+    %}
+    {% set contentBlock %}
+      {% if block.externerLinkPreview.valid %}
+
+        {% include 'prismatic-preview-links.twig' with block.externerLinkPreview %}
+
+      {% endif %}
+    {% endset %}
+
     {# linkDownload Block #}
     {% case 'linkDownload' %}
     {% set cmt = cmt ? cmt : 'layout-helper__margin-top--xxs' %}
