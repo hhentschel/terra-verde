@@ -240,9 +240,9 @@ gulp.task('prod', gulp.series(
   browserSyncTask,
 ));
 
-gulp.task('exportWebP', () => {
-  const src = 'web/assets/images/content/products/wine/*/*.'; // Where your PNGs are coming from.
-  const dest = 'web/assets/images/content/products/winepng/'; // Where your WebPs are going.
+gulp.task('exportPng', () => {
+  const src = 'web/assets/images/content/products/nachtrag/*.*'; // Where your PNGs are coming from.
+  const dest = 'web/assets/images/content/products/nachtragpng/'; // Where your WebPs are going.
 
   return gulp.src(src)
     .pipe(imagemin([
@@ -258,6 +258,27 @@ gulp.task('exportWebP', () => {
       }),
     ]))
     .pipe(extReplace('.png'))
+    .pipe(gulp.dest(dest));
+});
+
+gulp.task('exportWebP', () => {
+  const src = 'web/assets/images/content/products/nachtrag/*.*'; // Where your PNGs are coming from.
+  const dest = 'web/assets/images/content/products/nachtragwebp/'; // Where your WebPs are going.
+
+  return gulp.src(src)
+    .pipe(imagemin([
+      webp({
+        quality: 75,
+      }),
+      mozjpeg({
+        quality: 75,
+        progressive: true,
+      }),
+      optipng({
+        optimizationLevel: 5,
+      }),
+    ]))
+    .pipe(extReplace('.webp'))
     .pipe(gulp.dest(dest));
 });
 
