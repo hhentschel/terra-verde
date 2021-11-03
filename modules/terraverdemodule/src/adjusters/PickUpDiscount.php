@@ -24,7 +24,7 @@ class PickUpDiscount extends Component implements AdjusterInterface
 
         $adjustments = [];
 
-        if ($order->shippingMethodHandle == 'pickUpAtStore' ) {
+        if ($order->shippingMethodHandle == 'B2C_pickUpAtStore' ) {
 
           $adjustment = new OrderAdjustment;
           $adjustment->type = 'Rabat';

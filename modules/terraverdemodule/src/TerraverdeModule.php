@@ -38,6 +38,11 @@ use GiftWrapAdjuster;
 use GiftNoteAdjuster;
 use PickUpDiscount;
 
+// for adresse validation
+use craft\commerce\models\Address;
+use craft\base\Model;
+use craft\events\DefineRulesEvent;
+
 /**
  * Craft plugins are very much like little applications in and of themselves. We’ve made
  * it as simple as we can, but the training wheels are off. A little prior knowledge is
@@ -132,6 +137,22 @@ class TerraverdeModule extends Module
           $event->types[] = adjusters\GiftWrapAdjuster::class;
           $event->types[] = adjusters\GiftNoteAdjuster::class;
         });
+
+        // run queue automatically
+        Event::on(Order::class, Order::EVENT_AFTER_COMPLETE_ORDER, function(Event $e) {
+          Craft::$app->getQueue()->run();
+        });
+
+        // Adress Validation
+        Event::on(
+          Address::class,
+          Model::EVENT_DEFINE_RULES,
+          function(DefineRulesEvent $event) {
+              $rules = $event->rules;
+              $rules[] = [['firstName', 'lastName', 'address1', 'city', 'zipCode', 'countryId'], 'required'];
+              $event->rules = $rules;
+          }
+      );
 
         // Load our AssetBundle
         if (Craft::$app->getRequest()->getIsCpRequest()) {
