@@ -71,7 +71,7 @@ return [
 
         'enableTemplateCaching' => false,
         'allowAutoUpdates' => true,
-        'isSystemLive' => true,
+        // 'isSystemLive' => true,
     ],
 
     // Staging (pre-production) environment
@@ -86,9 +86,9 @@ return [
         // Prevent crawlers from indexing pages and following links
         'disallowRobots' => true,
 
-        'isSystemLive' => false,
+        // 'isSystemLive' => false,
 
-        'enableTemplateCaching' => true,
+        'enableTemplateCaching' => false,
 
     ],
 
