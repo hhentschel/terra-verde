@@ -132,7 +132,7 @@
         </div>
 
 
-        <div class="form-registration__item">
+        {# <div class="form-registration__item">
           <label for="fields[userCompany]">Firma</label>
           <input id="Company" type="text" class="input layout-helper__margin-bottom--xxs" name="fields[userCompany]"
           {%- if account is defined %} value="{{ account.userCompany}}"{% endif -%}>
@@ -149,7 +149,7 @@
           <label for="fields[userAdditionalAdress]">Zusatz Adresse</label>
           <input id="AddressAdditional" type="text" class="input layout-helper__margin-bottom--xxs" name="fields[userAdditionalAdress]"
           {%- if account is defined %} value="{{ account.userAdditionalAdress}}"{% endif -%}>
-        </div>
+        </div> #}
 
         {# <div class="form-registration__item">
           <label for="fields[userTelephone]">Telefon</label>
@@ -157,7 +157,7 @@
           {%- if account is defined %} value="{{ account.userTelephone}}"{% endif -%} >
         </div> #}
 
-        <div class="form-registration__item">
+        {# <div class="form-registration__item">
           <label for="fields[userTelephoneMobile]">Telefon *</label>
           <input id="TelephoneMobile" type="text" class="input layout-helper__margin-bottom--xxs" name="fields[userTelephoneMobile]"
           {%- if account is defined %} value="{{ account.userTelephoneMobile}}"{% endif -%} required >
@@ -178,7 +178,7 @@
         <div class="form-registration__item">
           <label for="fields[userNotice]">Mitteilung</label>
           <textarea id="Notice" type="number" class="textarea layout-helper__margin-bottom--xxs" name="fields[userNotice]" {%- if account is defined %} value="{{ account.userNotice}}"{% endif -%}></textarea>
-        </div>
+        </div> #}
 
 
         <button type="submit" class="button button--primary">Registrieren</button>
