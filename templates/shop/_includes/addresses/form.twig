@@ -8,7 +8,7 @@
 <div class="js-addressBox {{ modelName }}">
 
     <div class="flex -mx-4">
-        <div class="flex-1 mx-4">
+        <div class="form-adress">
 
             {# <div class="mt-3">
               <label for="{{ modelName }}-attention">Attention</label>
@@ -18,16 +18,16 @@
               {% endif %}
             </div> #}
 
-            <div class="mt-3">
+            {# <div class="mt-3">
               <label for="{{ modelName }}-title">Anrede</label>
               <input type="text" id="{{ modelName }}-title" class="input"
                      name="{{ modelName }}[title]" value="{{ model ? model.title : '' }}">
               {% if model and model.getErrors('title') %}
                 <span class="errors">{{ model.getErrors('title')|join }}</span>
               {% endif %}
-            </div>
+            </div> #}
 
-            <div class="mt-3">
+            <div class="form-adress__item">
               <label for="{{ modelName }}-firstName">Vorname *</label>
               <input type="text" id="{{ modelName }}-firstName" class="input" name="{{ modelName }}[firstName]" value="{{ model ? model.firstName : '' }}">
               {% if model and model.getErrors('firstName') %}
@@ -35,7 +35,7 @@
               {% endif %}
             </div>
 
-            <div class="mt-3">
+            <div class="form-adress__item">
               <label for="{{ modelName }}-lastName">Nachname *</label>
               <input type="text" id="{{ modelName }}-lastName" class="input" name="{{ modelName }}[lastName]" value="{{ model ? model.lastName : '' }}">
               {% if model and model.getErrors('lastName') %}
@@ -59,7 +59,7 @@
               {% endif %}
             </div> #}
 
-            <div class="mt-3">
+            <div class="form-adress__item">
               <label for="{{ modelName }}-businessName">Firma</label>
               <input type="text" id="{{ modelName }}-businessName" class="input" name="{{ modelName }}[businessName]" value="{{ model ? model.businessName : '' }}">
               {% if model and model.getErrors('businessName') %}
@@ -67,7 +67,7 @@
               {% endif %}
             </div>
 
-             <div class="mt-3">
+             <div class="form-adress__item">
               <label for="{{ modelName }}-phone">Telefon *</label>
               <input type="text" id="{{ modelName }}-phone" class="input" name="{{ modelName }}[phone]" value="{{ model ? model.phone : '' }}">
               {% if model and model.getErrors('phone') %}
@@ -133,20 +133,18 @@
                     {% endif %}
                 </div>
             </div> #}
-        </div>
 
-        <div class="flex-1 mx-4">
 
-            <div class="mt-3">
-              <label for="{{ modelName }}-address1">Addresse *</label>
+            <div class="form-adress__item">
+              <label for="{{ modelName }}-address1">Adresse *</label>
               <input type="text" id="{{ modelName }}-address1" class="input" name="{{ modelName }}[address1]" value="{{ model ? model.address1 : '' }}">
               {% if model and model.getErrors('address1') %}
                   <div class="errors">{{ model.getErrors('address1')|join }}</div>
               {% endif %}
             </div>
 
-            <div class="mt-3">
-              <label for="{{ modelName }}-address2">Zusatz Addresse</label>
+            <div class="form-adress__item">
+              <label for="{{ modelName }}-address2">Zusatz Adresse</label>
               <input type="text" id="{{ modelName }}-address2" class="input" name="{{ modelName }}[address2]" value="{{ model ? model.address2 : '' }}">
               {% if model and model.getErrors('address2') %}
                   <div class="errors">{{ model.getErrors('address2')|join }}</div>
@@ -161,7 +159,7 @@
               {% endif %}
             </div> #}
 
-             <div class="flex -mx-4 mt-3">
+             <div class="form-adress__item">
                 <div class="">
                     <label for="{{ modelName }}-zipCode">Postleitzahl *</label>
                     <input type="text"  id="{{ modelName }}-zipCode" class="input" name="{{ modelName }}[zipCode]" value="{{ model ? model.zipCode : '' }}">
@@ -171,7 +169,7 @@
                 </div>
             </div>
 
-            <div class="flex -mx-4 mt-3">
+            <div class="form-adress__item">
                 <div class="layout-helper__width-100">
                     <label for="{{ modelName }}-city">Ort *</label>
                     <input type="text" id="{{ modelName }}-city" class="input" name="{{ modelName }}[city]" value="{{ model ? model.city : '' }}">
@@ -184,7 +182,7 @@
 
 
 
-            <div class="flex -mx-4 mt-3">
+            <div class="form-adress__item">
               <div class="layout-helper__width-100" >
                 <label for="{{ modelName }}-countryId">Land *</label>
                 <select class="js-address-country input" name="{{ modelName }}[countryId]">
@@ -213,7 +211,7 @@
                 </div> #}
             </div>
 
-            <div class="mt-3">
+            <div class="form-adress__item">
               <label for="{{ modelName }}-notes">Hinweise</label>
               <textarea class="input" name="{{ modelName }}[notes]" id="{{ modelName }}-notes" cols="30" rows="5">{{ model ? model.notes : '' }}</textarea>
               {% if model and model.getErrors('notes') %}

@@ -22,7 +22,7 @@
 {% set catGroupWine = catGroupWine ?? [] %}
 {% set catGroupStatus = catGroupStatus ?? [] %} #}
 
-{% set limit = limit ?? 8 %}
+{% set limit = limit ?? 12 %}
 {% set page = page ?? 1 %}
 {# Defines maximum number of pages to show. #}
 {% set maxPages = 8 %}
@@ -59,7 +59,8 @@
     orderBy: orderBy,
 } %}
 
-{% set productQuery = craft.products(filters|merge({
+
+  {% set productQuery = craft.products(filters|merge({
     limit: limit,
     with: [
         ['image', {
@@ -98,6 +99,10 @@
 {% do sprig.pushUrl('?' ~ filters|merge({
     page: page,
 })|url_encode) %}
+
+
+
+{{ hiddenInput('page', page) }}
 
 
 
@@ -216,7 +221,15 @@
         {% for product in products %}
 
             {% for variant in product.getVariants() %}
-            <div class="shop-list__item">
+
+
+            {# {% for i in 1..4 %} #}
+
+             {# {{ sprig('sprig/components/cart/_components/product') }} #}
+               {% include 'sprig/components/cart/_components/product' %}
+
+
+            {# <div class="shop-list__item">
               <a class="shop-list__link" href="{{ product.url }}" >
                 <div class="shop-list__image">
                   {% if variant.onSale %}
@@ -264,7 +277,6 @@
 
                 <form method="post" class="js-form">
                     {{ actionInput('commerce/cart/update-cart') }}
-                    {# <form s-method="post" s-action="commerce/cart/update-cart" class="js-form"> #}
                       {{
                       hiddenInput(
                         'successMessage',
@@ -326,9 +338,10 @@
                     </div>
                 </form>
 
-            </div>
-        {% endfor %}
+            </div> #}
+        {# {% endfor %} #}
 
+     {% endfor %}
      {% endfor %}
 
     </div>
@@ -400,6 +413,7 @@
             </div>
         </div>
     </div>
+    {# {{ sprig('sprig/components/filters/_components/pagination', {pageInfo, maxPages}) }} #}
   {#  pagination ende #}
   </div>
 </div>
