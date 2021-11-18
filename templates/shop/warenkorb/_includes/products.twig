@@ -25,6 +25,7 @@
                 <th class="form__cart-table--item form__cart-table--item-left">Artikel</th>
                 <th class="form__cart-table--item form__cart-table--item-middle">Anzahl</th>
                 <th class="form__cart-table--item form__cart-table--item-right">Preis</th>
+                <th class="form__cart-table--item"></th>
             </tr>
             </thead>
                 <tbody>
@@ -106,11 +107,9 @@
                                            name="lineItems[{{ item.id }}][remove]"
                                            value="1"> Entfernen
                                 </label> #}
-                                 {% set vals = {('lineItems[' ~ item.id ~ '][remove]'): 1}|json_encode %}
-                                    <a sprig s-action="commerce/cart/update-cart" s-method="post" s-vals="{{ vals }}" s-confirm="Are you sure you want to remove this product from your cart?" href="#" class="text-red-600 hover:text-red-800">
-                                        Entfernen
-                                    </a>
+
                             </div>
+                            <div class="form__cart-table--item-price-number">{% if item.onSale %}<del>{% endif %}{{ item.price|commerceCurrency(cart.currency) }}{% if item.onSale %}</del>{% endif %}</div>
                             {# <div class="pr-2">
                                 {{ redirectInput('shop/warenkorb') }}
                                 <input class="button button--secondary" type="submit" value="Warenkorb aktualisieren"/>
@@ -165,8 +164,9 @@
                         <td class="form__cart-table--item-prices {{ not loop.first ? 'border-t border-gray-300 border-dashed' : '' }} text-right">
                             {% if not cart.hasErrors() %}
                                 <div class="form__cart-table--item-price" title="{{ item.price }}">
-                                    <div class="form__cart-table--item-price-name">Preis:</div>
-                                    <div class="form__cart-table--item-price-number">{% if item.onSale %}<del>{% endif %}{{ item.price|commerceCurrency(cart.currency) }}{% if item.onSale %}</del>{% endif %}</div>
+                                    {# <div class="form__cart-table--item-price-name">Preis:</div> #}
+                                    {# <div class="form__cart-table--item-price-number">{% if item.onSale %}<del>{% endif %}{{ item.price|commerceCurrency(cart.currency) }}{% if item.onSale %}</del>{% endif %}</div> #}
+                                    <div class="form__cart-table--item-price-number form__cart-table--item-price-number-bold">{{ item.total|commerceCurrency(cart.currency) }}</div>
                                 </div>
                                 {% if item.onSale %}
                                     <div class="form__cart-table--item-price" title="{{ item.salePrice }}">
@@ -190,21 +190,17 @@
                                         </div>
                                     {% endif %}
                                 {% endif %}
-                                <div class="form__cart-table--item-price" title="{{ item.subtotal }}">
-                                    <div class="form__cart-table--item-price-name">Subtotal:</div>
-                                    <div class="form__cart-table--item-price-number">
-                                    {# {% if item.options.giftWrapped == 'yes' %}
-                                      {% set giftwrapprice = 10 %}
-                                      {% set subgriftwraptotal = (giftwrapprice ) + (item.subtotal) %}
-                                      {{ subgriftwraptotal|commerceCurrency(cart.currency) }}
-                                    {% else %} #}
-                                      {{ item.subtotal|commerceCurrency(cart.currency) }}
-                                    {# {% endif %} #}
-                                    </div>
-                                </div>
+
 
 
                             {% endif %}
+                        </td>
+
+                        <td class="form__cart-table--item-remove">
+                           {% set vals = {('lineItems[' ~ item.id ~ '][remove]'): 1}|json_encode %}
+                            <a sprig s-action="commerce/cart/update-cart" s-method="post" s-vals="{{ vals }}" s-confirm="Are you sure you want to remove this product from your cart?" href="#" class="text-red-600 hover:text-red-800">
+                                Entfernen
+                            </a>
                         </td>
                     </tr>
 
@@ -234,13 +230,14 @@
 
                             {% endif %}
 
-                            {% if not cart.hasErrors() %}
+                            {# {% if not cart.hasErrors() %}
                             <div class="form__cart-table--item-price" title="{{ item.total }}">
                                 <div class="form__cart-table--item-price-name">Total:</div>
                                 <div class="form__cart-table--item-price-number form__cart-table--item-price-number-bold">{{ item.total|commerceCurrency(cart.currency) }}</div>
                             </div>
-                            {% endif %}
+                            {% endif %} #}
                         </td>
+
                     </tr>
 
                     {# <tr>
@@ -258,7 +255,7 @@
                     <td></td>
                     <td colspan="2" class="">
                         <div class="form__cart-table--item-pricesubtotal" title="{{ cart.itemSubTotal }}">
-                            <div class="form__cart-table--item-price-name">Artikel Total:</div>
+                            <div class="form__cart-table--item-price-name">Gesamtpreis:</div>
                             <div class="form__cart-table--item-pricesubtotal-number">{{ cart.itemTotalAsCurrency }}</div>
                         </div>
                     </td>
@@ -293,12 +290,8 @@
                 {% endif %}
                 <tr class="cart__box cart__box--flex">
 
-                    <td colspan="4" class="form__cart-table--adjustments-order">
+                    <td colspan="3" class="form__cart-table--adjustments-order">
                         {% if not cart.hasErrors() %}
-                            <div class="mt-3">
-                                <strong class="text-sm text-gray-600">Bestellung</strong>
-                            </div>
-
                             <div class="form__cart-table--item-addprice" title="{{ cart.getTotalShippingCost() }}">
                                 <div class="form__cart-table--item-price-name">Versand:</div>
                                 <div class="form__cart-table--item-price-number">{{ cart.getTotalShippingCost()|commerceCurrency(cart.currency) }}</div>
@@ -324,7 +317,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="" colspan="3">
+                    <td class="" colspan="4">
                         <div class="form__cart-table--coupon">
                             {# <div class="{{ cart.getFirstError('couponCode') ? classes.box.error : classes.box.base }} form__cart-table--coupon-box"> #}
                             <div class="{{ cart.getFirstError('couponCode') }} form__cart-table--coupon-box">

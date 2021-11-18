@@ -18,7 +18,11 @@ table {
 
   td {
     &:not(:last-child) {
-      padding: px-to-rem($space--m) px-to-rem($space--xxm) px-to-rem($space--m) 0;
+      padding: px-to-rem($space--m) 0;
+    }
+
+    &:last-child {
+      padding: px-to-rem($space--m) 0 px-to-rem($space--m) 0;
     }
 
     > p {
