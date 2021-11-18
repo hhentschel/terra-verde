@@ -52,16 +52,17 @@ trait Events
                     AddressImporter::log(sprintf('Customer %s(%s) has already %s addresses.', $customer->id, $customer->email, count($addresses)));
                     return;
                 }
+                $feedData = $event->feedData;
 
                 $address = new Address();
-                $address->title = $fieldValues['userTitle'] ?? '';
-                $address->firstName = $element->firstName ?? '-';
-                $address->lastName = $element->lastName ?? '-';
-                $address->address1 = $fieldValues['userAdress'] ?? '-';
-                $address->address2 = $fieldValues['userAdditionalAdress'] ?? '';
-                $address->city = $fieldValues['userCity'] ?? '-';
-                $address->zipCode = $fieldValues['userZip'] ?? '0000';
-                $address->businessName = $fieldValues['userCompany'] ?? '';
+                $address->title = $fieldValues['userTitle'] ?? $feedData['title'] ?? '';
+                $address->firstName = $element->firstName ?? $feedData['first_name'] ?? '-';
+                $address->lastName = $element->lastName ?? $feedData['last_name'] ?? '-';
+                $address->address1 = !empty($fieldValues['userAdress']) ? $fieldValues['userAdress'] : (!empty($feedData['address_1']) ? $feedData['address_1'] : '-');
+                $address->address2 = $fieldValues['userAdditionalAdress'] ?? $feedData['address_2'] ?? '';
+                $address->city = !empty($fieldValues['userCity']) ? $fieldValues['userCity'] : (!empty($feedData['city']) ? $feedData['city'] : '-');
+                $address->zipCode = !empty($fieldValues['userZip']) ? $fieldValues['userZip'] : (!empty($feedData['Postleitzahl']) ? $feedData['Postleitzahl'] : '0000');
+                $address->businessName = $fieldValues['userCompany'] ?? $feedData['company'] ?? '';
                 $address->countryId = 215; // 215 Switzerland
 
                 try {
