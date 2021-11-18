@@ -48,6 +48,10 @@ $button-primary--disabled-border-color: $color--disabled-border;
 $button-primary--border-radius: 0;
 $button-primary--border-width: 2px;
 
+//success
+$button-success--background-color: $color--green;
+$button-success--border-color: $color--green;
+
 /**
  * Secondary
  */
@@ -257,6 +261,15 @@ $button-secondary--border-width: 2px;
     }
     @if (has($button-secondary--active-border-color)) {
       border-color: $button-secondary--active-border-color;
+    }
+  }
+
+  &--success {
+    @if (has($button-success--background-color)) {
+      background-color: $button-success--background-color;
+    }
+    @if (has($button-success--border-color)) {
+      border-color: $button-success--border-color;
     }
   }
 }
