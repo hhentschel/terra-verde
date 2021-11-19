@@ -52,6 +52,11 @@ $button-primary--border-width: 2px;
 $button-success--background-color: $color--green;
 $button-success--border-color: $color--green;
 
+// success hover
+$button-success--hover-color: $color--white;
+$button-success--hover-background-color: rgba($color--green, 0.8);
+$button-success--hover-border-color: $color--green;
+
 /**
  * Secondary
  */
@@ -106,6 +111,7 @@ $button-secondary--border-width: 2px;
   &--primary {
     padding: $button-primary--horizontal-padding
       $button-primary--vertical-padding;
+      text-align: center;
 
     @if (has($button-primary--background-color)) {
       background-color: $button-primary--background-color;
@@ -270,6 +276,20 @@ $button-secondary--border-width: 2px;
     }
     @if (has($button-success--border-color)) {
       border-color: $button-success--border-color;
+    }
+
+    &:hover {
+      @if (has($button-success--hover-background-color)) {
+        background-color: $button-success--hover-background-color;
+      }
+
+      @if (has($button-success--hover-color)) {
+        color: $button-success--hover-color;
+      }
+
+      @if (has($button-success--hover-border-color)) {
+        border-color: $button-success--hover-border-color;
+      }
     }
   }
 }

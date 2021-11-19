@@ -247,6 +247,10 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
     }
   }
 
+  &__item--price {
+    font-weight: $font-weight--bold;
+  }
+
   &__text {
     display: flex;
     flex-direction: column;
@@ -290,6 +294,10 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
 
     .item-cart__qty-btn {
       display: flex;
+    }
+
+    .item-cart__icon-check {
+      height:20px;
     }
 
     .button--primary {
@@ -337,7 +345,6 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
     display: flex;
     flex-direction: column;
     flex: 1 1 auto;
-    padding-bottom: px-to-rem($space--m);
   }
 
   &__no-result {

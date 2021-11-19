@@ -252,12 +252,21 @@
 
                 {% if not cart.hasErrors() %}
                 <tr>
-                    <td></td>
-                    <td colspan="2" class="">
+                    <td>
+                    </td>
+                    <td colspan="1">
+                      <div>
+                        <span class="">{{ cart.totalQty }} </span>
+                        Artikel
+                      </div>
+                    </td>
+                    <td colspan="1" class="">
                         <div class="form__cart-table--item-pricesubtotal" title="{{ cart.itemSubTotal }}">
-                            <div class="form__cart-table--item-price-name">Artikel Gesamtpreis:</div>
+                            <div class="form__cart-table--item-price-name">Gesamtpreis:</div>
                             <div class="form__cart-table--item-pricesubtotal-number">{{ cart.itemTotalAsCurrency }}</div>
                         </div>
+                    </td>
+                    <td>
                     </td>
                 </tr>
                 {% endif %}
