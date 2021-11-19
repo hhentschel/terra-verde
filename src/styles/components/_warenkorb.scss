@@ -131,13 +131,11 @@
       display: flex;
       align-items: center;
       justify-content: flex-end;
-      padding: px-to-rem($space--s) 0 px-to-rem($space--s) px-to-rem($space--s);
     }
 
     &--item-pricesubtotal-number {
       font-family: $font-family--bold;
       font-weight: 700;
-      font-size: px-to-rem($font-size-xm);
     }
 
     &--item-pricetotal {
@@ -158,7 +156,7 @@
       width: 100%;
       display: flex;
       align-items: center;
-      justify-content: flex-end;
+      justify-content: flex-start;
     }
 
     &--coupon-box {
@@ -168,6 +166,9 @@
       max-width: 24rem;
       background-color: $color--grey-lightest;
       border: 0;
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
     }
 
     &--buttons {
@@ -175,7 +176,6 @@
       display: flex;
       justify-content: flex-end;
       height: 100%;
-      padding: px-to-rem($space--m) 0 0 0; 
     }
 
     &--buttons-container {
@@ -187,7 +187,6 @@
     &--adjustments-order {
       text-align: right;
       padding: px-to-rem($space--s) 0;
-      border-top: 2px solid $color--grey-lighter;
     }
 
   }
@@ -201,6 +200,16 @@
 
   &--adjustments {
     border-top: 1px solid $color--grey-light;
+    font-size: px-to-rem($font-size-xs);
+    display: none;
+
+    @include breakpoint('tablet-portrait') {
+      display: table-row;
+    }
+
+    td:last-child {
+      padding: px-to-rem($space--s) 0;
+    }
   }
 
 }
@@ -212,22 +221,20 @@
   }
 
   &__data--type {
-    font-size: px-to-rem($font-size-m);
+    // font-size: px-to-rem($font-size-s);
     margin: 0 px-to-rem($space--s) 0 0;
   }
 
   &__data--name {
-    font-size: px-to-rem($font-size-s);
   }
 
   &__data--description {
-    font-size: px-to-rem($font-size-m);
   }
-
+  
   &__data {
     display: flex;
   }
-
+  
   &__data--amount {
     margin-left: auto;
   }

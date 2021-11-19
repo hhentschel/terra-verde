@@ -12,8 +12,17 @@ table {
   width: 100%;
 
   tr {
-    border-bottom: 1px solid $color--grey-lighter;
-    vertical-align: top;
+    &:not(:last-child) {
+      border-bottom: 1px solid $color--grey-lighter;
+      vertical-align: top;
+      display: flex;
+      flex-direction: column;
+
+      @include breakpoint('tablet-portrait') {
+        display: table-row;
+  
+      }
+    }
   }
 
   td {
@@ -33,6 +42,12 @@ table {
 
   thead {
     @include typo(tableHeading);
+    display: none;
+    
+    @include breakpoint('tablet-portrait') {
+      display: table-header-group;
+
+    }
 
     tr {
       border-bottom: 2px solid $color--grey-lighter;

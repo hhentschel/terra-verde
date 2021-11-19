@@ -31,8 +31,8 @@
                 <tbody>
                 {% for item in cart.lineItems %}
                     <tr>
-                        <td class="py-3 pl-3 {{ not loop.first ? 'border-t border-gray-300 border-dashed' : '' }} overflow-hidden" rowspan="2">
-                            <div class="w-full overflow-hidden max-w-md">
+                        <td class="" rowspan="2">
+                            <div class="">
                               <div class="truncate">
                                 <strong class="{% if item.hasErrors() %}text-red-500{% endif %}">{{ item.description }}</strong>
                               </div>
@@ -255,7 +255,7 @@
                     <td></td>
                     <td colspan="2" class="">
                         <div class="form__cart-table--item-pricesubtotal" title="{{ cart.itemSubTotal }}">
-                            <div class="form__cart-table--item-price-name">Gesamtpreis:</div>
+                            <div class="form__cart-table--item-price-name">Artikel Gesamtpreis:</div>
                             <div class="form__cart-table--item-pricesubtotal-number">{{ cart.itemTotalAsCurrency }}</div>
                         </div>
                     </td>
@@ -289,8 +289,32 @@
                     </tr>
                 {% endif %}
                 <tr class="cart__box cart__box--flex">
+                    <td class="" colspan="2">
+                        <div class="form__cart-table--coupon">
+                            {# <div class="{{ cart.getFirstError('couponCode') ? classes.box.error : classes.box.base }} form__cart-table--coupon-box"> #}
+                            <div class="{{ cart.getFirstError('couponCode') }} form__cart-table--coupon-box">
+                                {# The Update Coupon form uses the single update controller action #}
+                                <h4 class="heading heading--4 heading--no-margin-top">Gutschein Code</h4>
+                                {% if cart.getFirstError('couponCode') %}
+                                    <div class="text-red-500">{{ cart.getFirstError('couponCode') }}</div>
+                                {% endif %}
 
-                    <td colspan="3" class="form__cart-table--adjustments-order">
+                                <div>
+                                    <input type="text" name="couponCode" width="11"
+                                           class="input {% if cart.getFirstError('couponCode') %}text-red-500{% endif %}"
+                                           value="{{ cart.couponCode }}"
+                                           >
+
+                                </div>
+                                <div class="form__cart-table--coupon-box-button">
+                                    {{ redirectInput('shop/warenkorb') }}
+                                    <input class="button button--secondary" type="submit" value="Coupon anwenden"/>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+
+                    <td colspan="2" class="form__cart-table--adjustments-order">
                         {% if not cart.hasErrors() %}
                             <div class="form__cart-table--item-addprice" title="{{ cart.getTotalShippingCost() }}">
                                 <div class="form__cart-table--item-price-name">Versand:</div>
@@ -310,7 +334,7 @@
                             </div>
 
                             <div class="form__cart-table--item-pricetotal" title="{{ cart.totalPrice }}">
-                                <div class="form__cart-table--item-price-name">Total Preis:</div>
+                                <div class="form__cart-table--item-price-name">Warenkorb Gesamtpreis:</div>
                                 <div class="form__cart-table--item-pricetotal-number">{{ cart.totalPrice|commerceCurrency(cart.currency) }}</div>
                             </div>
                         {% endif %}
@@ -318,29 +342,7 @@
                 </tr>
                 <tr>
                     <td class="" colspan="4">
-                        <div class="form__cart-table--coupon">
-                            {# <div class="{{ cart.getFirstError('couponCode') ? classes.box.error : classes.box.base }} form__cart-table--coupon-box"> #}
-                            <div class="{{ cart.getFirstError('couponCode') }} form__cart-table--coupon-box">
-                                {# The Update Coupon form uses the single update controller action #}
-                                <h4 class="heading heading--4 heading--no-margin-top">Gutschein Code</h4>
-                                {% if cart.getFirstError('couponCode') %}
-                                    <div class="text-red-500">{{ cart.getFirstError('couponCode') }}</div>
-                                {% endif %}
 
-                                <div class="pt-3">
-                                    <input type="text" name="couponCode" width="11"
-                                           class="input {% if cart.getFirstError('couponCode') %}text-red-500{% endif %}"
-                                           value="{{ cart.couponCode }}"
-                                           placeholder="{{ "Gutschein Code" }}">
-
-
-                                </div>
-                                {# <div class="">
-                                    {{ redirectInput('shop/warenkorb') }}
-                                    <input class="button button--secondary" type="submit" value="Warenkorb aktualisieren"/>
-                                </div> #}
-                            </div>
-                        </div>
                         <div class="form__cart-table--buttons">
                             <div class="form__cart-table--buttons-container">
                                 <div>
@@ -357,6 +359,7 @@
                                 </div>
                             </div>
                         </div>
+
                     </td>
                 </tr>
               </tbody>
