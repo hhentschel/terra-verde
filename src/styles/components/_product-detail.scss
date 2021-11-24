@@ -17,6 +17,45 @@
     margin: px-to-rem($space--xxm) 0 0 0;
   }
 
+  &__button-back {
+    padding: 1rem 0 0 0;
+    display: block; 
+  }
+  &__button-back-arrow {
+  //   border: solid black;
+  //   border-width: 0 1px 1px 0;
+  //   display: inline-block;
+  //   padding: 5px;
+  //   transform: rotate(135deg);
+  // -webkit-transform: rotate(135deg);
+
+  // color: #0c5449;
+  // background-color: #f6f3ed;
+  // margin: 1em 0;
+
+  &::before {
+      display: inline-block;
+      padding-right: px-to-rem($space--xs);
+      content: "\27F5"; // arrow right unicode
+      -webkit-transition: transform 0.3s ease-out;
+      -moz-transition: transform 0.3s ease-out;
+      -ms-transition: transform 0.3s ease-out;
+      -o-transition: transform 0.3s ease-out;
+      transition: transform 0.3s ease-out;
+  }
+
+  &:hover {
+
+      &::before {
+          -webkit-transform: translateX(-4px);
+          -moz-transform: translateX(-4px);
+          -ms-transform: translateX(-4px);
+          -o-transform: translateX(-4px);
+          transform: translateX(-4px);
+      }
+  }
+  }
+
 }
 
 .form-addtobasket {

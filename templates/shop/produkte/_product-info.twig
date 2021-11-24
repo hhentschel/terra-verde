@@ -25,6 +25,8 @@
 {# {% set product = productQuery.one() %} #}
 {% set product = craft.products.id(productId).one() %}
 
+<a href="javascript: history.back()" class="product-detail__button-back product-detail__button-back-arrow">Zurück zur Übersicht</a>
+
 <h2 class="heading layout-helper__margin-top--s">
           {{ product.defaultVariant.title }}
         </h2>
