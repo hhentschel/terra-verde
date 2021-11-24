@@ -278,6 +278,10 @@ $button-secondary--border-width: 2px;
       border-color: $button-success--border-color;
     }
 
+    display: flex;
+    align-items: center;
+    text-align: center;
+
     &:hover {
       @if (has($button-success--hover-background-color)) {
         background-color: $button-success--hover-background-color;

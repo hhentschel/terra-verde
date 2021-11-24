@@ -1,0 +1,273 @@
+
+{% set lastProductId = lastProductId ?? 0 %}
+{% set purchasableId = purchasableId ?? 0 %}
+
+{% set addedToCart = success is defined %}
+
+{% set addedToCart = success is defined %}
+  {% if addedToCart %}
+    <script>
+        htmx.trigger(htmx.find('#cart'), 'refresh');
+    </script>
+{% endif %}
+
+{% if sprig.isRequest %}
+    <script>
+        htmx.trigger('#cartsize', 'refresh');
+    </script>
+{% endif %}
+
+
+
+{% set productQuery = craft.products() %}
+
+
+{# {% set product = productQuery.one() %} #}
+{% set product = craft.products.id(productId).one() %}
+
+<h2 class="heading layout-helper__margin-top--s">
+          {{ product.defaultVariant.title }}
+        </h2>
+
+        <div class="row">
+          <div class="col col-xs-12 col-md-6 col-lg-6">
+            <div class="product-detail__image">
+
+              {% set transform = transformation|default('productDetail') %}
+              {% set img = product.articleImage.one() ?? null %}
+
+              {% if img is defined %}
+                {% include '_components/_content-elements/image'
+                  with {
+                    img: img,
+                    transform: transform
+                    } %}
+              {% endif %}
+
+            </div>
+          </div>
+          <div class="col col-xs-12 col-md-6 col-lg-6">
+
+            <h4 class="">
+              {{ product.articleDescription}}<br />{{ product.articleDescriptionAdditional }}
+            </h4>
+            {% if product.articleAdditionalInfo %}
+              <p> {{ product.articleAdditionalInfo }}</p>
+            {% endif %}
+
+
+            <form method="post" class="js-form product-detail__form">
+              {{ actionInput('commerce/cart/update-cart') }}
+              {{
+                hiddenInput(
+                  'successMessage',
+                  ('Artikel ' ~ product.title ~ ' wurde zum Warenkorb hinzugefügt.')|hash
+                )
+              }}
+              {{ csrfInput() }}
+              <div class="product-detail__form-addtobasket">
+                {% for variant in product.variants %}
+                  {{
+                    hiddenInput('purchasables[' ~ loop.index ~ '][id], [options]', variant.id)
+                  }}
+
+                  <div class="form-addtobasket__info">
+                    <div class="form-addtobasket__info-variant">
+                      {% for variant in product.variants %}
+                        {% if variant.articleVolume %}
+                          {{ variant.articleVolume }}{{ variant.articleVolumeUnit }}
+                        {% endif %}
+                      {% endfor %}
+                    </div>
+
+
+
+                    <div class="form-addtobasket__info-pricestockadd">
+                      <div class="form-addtobasket__info-pricestock">
+                        <div class="form-addtobasket__info-price">
+                          {% if variant.onSale %}
+                            <del>
+                              {{ variant.priceAsCurrency }}
+                            </del><br />{{ variant.salePriceAsCurrency }}
+                          {% else %}
+                            {% include '/shop/produkte/_includes/prices.twig' %}
+                          {% endif %}
+                        </div>
+
+                        <div class="form-addtobasket__info-stock">
+                            {% if variant.stock > 0 or variant.hasUnlimitedStock %}
+                              <span class="form-addtobasket__info-stock-in">verfügbar</span>
+                            {% else %}
+                              <span class="form-addtobasket__info-stock-out">momentan nicht verfügbar</span>
+                            {% endif %}
+                        </div>
+                      </div>
+
+
+                      <div class="form-addtobasket__info-add">
+                        <div class="form-addtobasket__info-quantity">
+                          <input class="input form-addtobasket__info-quantity--input"
+                            type="number"
+                            name="purchasables[{{ loop.index }}][qty]"
+                            step="1"
+                            {% if currentUser %}
+                              {% if currentUser.isInGroup('userGroupRetail') %}
+                                value="{{ product.artikelMinOrderSize }}"
+                                min="{{ product.artikelMinOrderSize }}"
+                                placeholder="{{ product.artikelMinOrderSize }}"
+                              {% else %}
+                                value="1"
+                                min="1"
+                                placeholder="0"
+                              {% endif %}
+                            {% else %}
+                                value="1"
+                                min="1"
+                                placeholder="0"
+                            {% endif %}
+                            {% if variant.stock < 0 %}
+                              disabled
+                            {% endif %}
+                            />
+
+                           {# <input sprig s-action="commerce/cart/update-cart" s-method="post"
+                                      class="input input form-addtobasket__info-quantity--input"
+                                       type="number"
+                                       name="purchasables[{{ loop.index }}][qty]"
+                                       step="1"
+                                       {% if currentUser %}
+                                        {% if currentUser.isInGroup('userGroupRetail') %}
+                                          value="{{ product.artikelMinOrderSize }}"
+                                          min="{{ product.artikelMinOrderSize }}"
+                                          placeholder="{{ product.artikelMinOrderSize }}"
+                                        {% else %}
+                                          value="1"
+                                          min="1"
+                                          placeholder="0"
+                                        {% endif %}
+                                      {% else %}
+                                          value="1"
+                                          min="1"
+                                          placeholder="0"
+                                      {% endif %}
+                                      {% if variant.stock < 0 %}
+                                        disabled
+                                      {% endif %}> #}
+
+                        </div>
+
+                        <div class="form-addtobasket__info-button">
+                           {% if variant.stock > 0 or variant.hasUnlimitedStock %}
+                            <a sprig s-action="commerce/cart/update-cart" s-method="post" s-val:purchasable-id="{{ variant.id }}" href="#" class="button--primary {% if addedToCart and purchasableId == variant.id %}button--success {% endif %} text-center">
+                                {% if addedToCart and purchasableId == variant.id %}
+                                    <svg class="icon--svg icon--check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                    </svg>
+                                    <span>Produkt hinzugefügt</span>
+                                {% else %}
+                                In den Warenkorb
+                                {% endif %}
+                            </a>
+                            {# <button type="submit"
+                            class="button button--primary">
+                            In den Warenkorb
+                          </button> #}
+                          {% else %}
+                          <button disabled type="submit"
+                                    class="disabled button button--primary text-center">nicht verfügbar
+                            </button>
+                          {% endif %}
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                {% endfor %}
+
+              </div>
+            </form>
+
+            <details class="product-detail__summary">
+            <summary class="product-detail__summary-heading">
+              Beschreibung
+            </summary>
+            <div class="product-detail__summary-content">
+            {% if product.articleNumber %}
+              <p> Artikelnummer: {{ product.articleNumber }}</p>
+            {% endif %}
+
+            {% if product.articleVolume %}
+              <span> {{product.articleVolume}}{{ product.articleUnit }}</span>
+            {% endif %}
+
+            {% if product.articleStorage %}
+              <p> Lagerung: {{ product.articleStorage }}</p>
+            {% endif %}
+
+            {% if product.articleFitsTo %}
+              <p> Passt zu: {{ product.articleFitsTo }}</p>
+            {% endif %}
+
+            {% if product.articleDeguNotice %}
+              <p> Degustationnotiz: {{ product.articleDeguNotice }}</p>
+            {% endif %}
+
+            {% if product.articleTemperature %}
+              <p> Trinktemperatur: {{ product.articleTemperature }}</p>
+            {% endif %}
+
+            {% if product.arcticleVintage %}
+              <p> Jahrgang: {{ product.arcticleVintage }}</p>
+            {% endif %}
+
+            {% if product.articleManufacturer %}
+              <p> Hersteller: {{ product.articleManufacturer }}</p>
+            {% endif %}
+
+            {% if product.articleVinification %}
+              <p> Vinifikation: {{ product.articleVinification }}</p>
+            {% endif %}
+
+            {% if product.articleBioZertifisation %}
+              <p> Bio-Zertifizierung: {{ product.articleBioZertifisation }}</p>
+            {% endif %}
+
+            {% if product.articleAllergenic %}
+              <p> Allergene: {{ product.articleAllergenic }}</p>
+            {% endif %}
+
+            {% if product.articleNutritionalValue %}
+              <p> Nährstoffe: {{ product.articleNutritionalValue }}</p>
+            {% endif %}
+
+             {% if product.articleAlcohol %}
+              <p> Alkoholgehalt: {{ product.articleAlcohol }}</p>
+            {% endif %}
+
+            {% if product.articleIngredients %}
+              <p> Inhaltsstoffe: {{ product.articleIngredients }}</p>
+            {% endif %}
+
+            {% if product.articleAdditionalInfo %}
+              <p> Zusatzinfo: {{ product.articleAdditionalInfo }}</p>
+            {% endif %}
+
+            {% if product.articleVegan %}
+              <p> Vegan: {{ product.articleVegan }}</p>
+            {% endif %}
+
+            {% if product.articleEanNumber %}
+              <p> EAN-Nummer: {{ product.articleEanNumber }}</p>
+            {% endif %}
+
+            {% for variant in product.variants %}
+               {% if variant.articleVolume %}
+                <p> Gewicht: {{ variant.articleVolume }}{{ variant.articleVolumeUnit }}</p>
+              {% endif %}
+            {% endfor %}
+          </div>
+          </details>
+
+          </div>
+
+        </div>

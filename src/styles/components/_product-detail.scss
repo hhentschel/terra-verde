@@ -5,6 +5,18 @@
     background-color: $color--brown-lightest;
   }
 
+  &__summary {
+
+  }
+
+  &__summary-heading {
+    @include typo(h4);
+  }
+
+  &__form-addtobasket {
+    margin: px-to-rem($space--xxm) 0 0 0;
+  }
+
 }
 
 .form-addtobasket {
@@ -15,12 +27,10 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    margin: px-to-rem($space--m) 0;
   }
   
   &__info-variant {
     flex: 1 1 100%;
-    margin-bottom: px-to-rem($space--m);
   }
 
   &__info-quantity {
@@ -37,7 +47,7 @@
   &__info-pricestockadd{
     display: flex;
     justify-content: space-between;
-    margin: px-to-rem($space--m) 0;
+    margin: 0 0 px-to-rem($space--m) 0;
     flex-wrap: wrap;
     
     @include breakpoint('tablet-landscape') {
@@ -80,7 +90,3 @@
   }
 }
 
-
-.form-addtobasket__info {
-  
-}

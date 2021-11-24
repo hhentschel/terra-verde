@@ -22,7 +22,7 @@
 {% set catGroupWine = catGroupWine ?? [] %}
 {% set catGroupStatus = catGroupStatus ?? [] %} #}
 
-{% set limit = limit ?? 4 %}
+{% set limit = limit ?? 8 %}
 {% set page = page ?? 1 %}
 {# Defines maximum number of pages to show. #}
 {% set maxPages = 7 %}
@@ -114,7 +114,18 @@
 
   <div id="tvboard">
     {#  shop-list anfang #}
+
+     <p class="">
+        <span class="">{{ pageInfo.first }}</span>
+        -
+        <span class="">{{ pageInfo.last }}</span>
+        von
+        <span class="">{{ pageInfo.total }}</span>
+        Produkten
+    </p>
+
     <div class="shop-list">
+
         {% for product in products %}
 
             {% for variant in product.getVariants() %}
