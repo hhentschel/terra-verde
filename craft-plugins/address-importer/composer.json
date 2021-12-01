@@ -1,0 +1,44 @@
+{
+    "name": "pompom/address-importer",
+    "description": "Customer Address Imported for FeedMe",
+    "type": "craft-plugin",
+    "version": "1.0.0",
+    "keywords": [
+        "craft",
+        "cms",
+        "craftcms",
+        "craft-plugin"
+    ],
+    "support": {
+        "docs": "https://github.com/noname/address-importer/blob/master/README.md",
+        "issues": "https://github.com/noname/address-importer/issues"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Pom Pom",
+            "homepage": "https://pom-pom.ch"
+        }
+    ],
+    "require": {
+        "craftcms/cms": "^3.0",
+        "craftcms/commerce": "^3.0",
+        "craftcms/feed-me": "^4.3.0",
+        "phpoffice/phpspreadsheet": "^1.6.0",
+        "php": ">=7.0.22"
+    },
+    "autoload": {
+        "psr-4": {
+          "pompom\\addressimporter\\": "src/"
+        }
+    },
+    "extra": {
+        "name": "AddressImporter",
+        "handle": "address-importer",
+        "hasCpSettings": false,
+        "hasCpSection": false,
+        "changelogUrl": "https://raw.githubusercontent.com/noname/address-importer/master/CHANGELOG.md",
+        "basePath": "pompom/address-importer",
+        "class": "pompom\\addressimporter\\AddressImporter"
+    }
+}
