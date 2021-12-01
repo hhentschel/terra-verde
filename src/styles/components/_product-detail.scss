@@ -68,8 +68,13 @@
     flex-wrap: wrap;
   }
   
-  &__info-variant {
+  &__info-unit {
     flex: 1 1 100%;
+  }
+
+  &__info-unit-base {
+    font-size: px-to-rem($font-size-s);
+    margin-left: px-to-rem($space--s);
   }
 
   &__info-quantity {
