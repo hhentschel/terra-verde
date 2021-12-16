@@ -48,7 +48,7 @@ $button-secondary--hover-border-color: $color--secondary;
   width: $input--max-width;
   display: block;
   padding: $input--padding-vertical $input--padding-horizontal;
-  // line-height: $line-height--m;
+  line-height: $line-height--m;
 
   @if (has($input--height)) {
     height: $input--height;

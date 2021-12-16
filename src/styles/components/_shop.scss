@@ -8,11 +8,8 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
   --grid-row-gap: 2.75rem;
 }
 
-
-
 .filter {
   margin: 0 0 px-to-rem($space--m) 0;
-
 
   .heading--2 {
     font-size: px-to-rem($font-size-m);
@@ -41,7 +38,7 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
       flex: 0 0 50%;
     }
   }
-  
+
   &__checkbox {
     display: flex;
     align-items: center;
@@ -54,25 +51,24 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
 
     &-desktop {
       display: none;
-      
+
       @include breakpoint('tablet-portrait') {
         display: flex;
         justify-content: space-between;
         align-items: center;
       }
     }
-    
+
     &-mobile {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      
+
       @include breakpoint('tablet-portrait') {
         display: none;
       }
     }
-    
-    
+
     &-pagesbox {
       display: flex;
       align-items: center;
@@ -81,17 +77,13 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
 
     &-pagesindex {
       margin: 0 px-to-rem($space--s) 0 0;
-
     }
     &-pagessingles {
       display: inline-flex;
       align-items: center;
       margin: 0 px-to-rem($space--s) 0 0;
     }
-
   }
-
-
 
   //DELIKATESSEN CHECKBOXES
 
@@ -122,7 +114,6 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
     }
   }
 
-
   //GESCHENKSETS CHECKBOXES
   &__gift {
     display: flex;
@@ -140,15 +131,13 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
       @include breakpoint('tablet-landscape') {
         width: 50%;
       }
-
     }
   }
-
 
   &__btn--results {
     padding: px-to-rem($space--s);
     background-color: $color--blue;
-    float:right;
+    float: right;
     color: $color--white;
     font-size: px-to-rem($font-size-xs);
     margin: px-to-rem($space--m) 0;
@@ -161,16 +150,13 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
       }
     }
   }
-
 }
-
-
 
 .pagination {
   &-svg {
     fill: currentColor;
-    height:  (px-to-rem($space--s) + px-to-rem($space--m));
-    width:  (px-to-rem($space--s) + px-to-rem($space--m));
+    height: (px-to-rem($space--s) + px-to-rem($space--m));
+    width: (px-to-rem($space--s) + px-to-rem($space--m));
   }
   &-pagesarrow {
     padding: px-to-rem($space--s);
@@ -191,13 +177,13 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
   }
 }
 
-
-
 .shop-list {
-
   @supports (display: grid) {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(var(--grid-col-breakpoint), 1fr));
+    grid-template-columns: repeat(
+      auto-fill,
+      minmax(var(--grid-col-breakpoint), 1fr)
+    );
     grid-column-gap: var(--grid-col-gap);
     grid-row-gap: var(--grid-row-gap);
     grid-auto-rows: 1fr;
@@ -211,12 +197,11 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
   //   grid-row: 1 / 1;
   //   grid-column: 1 / 1;
   // }
-  
+
   // & > *:first-child {
   //   grid-row: 1 / 1;
   //   grid-column: 1 / 1;
   // }
-
 
   @supports not (display: grid) {
     display: flex;
@@ -247,8 +232,13 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
     }
   }
 
-  &__item--price {
+  &__item--price,
+  &__item--price-sale {
     font-weight: $font-weight--bold;
+  }
+
+  &__item--price-old {
+    font-size: px-to-em($space--s);
   }
 
   &__text {
@@ -258,13 +248,18 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
     justify-content: space-between;
     flex: 1 1 auto;
 
-    padding: 0 ($shop-list__grid-gutter--phone / 2) ($shop-list__grid-gutter--phone / 3) ($shop-list__grid-gutter--phone / 2);
+    padding: 0 ($shop-list__grid-gutter--phone / 2)
+      ($shop-list__grid-gutter--phone / 3) ($shop-list__grid-gutter--phone / 2);
 
     @include breakpoint('tablet-landscape') {
-      padding: 0 $shop-list__grid-gutter--tablet / 2 $shop-list__grid-gutter--tablet / 2 $shop-list__grid-gutter--tablet / 2;
+      padding: 0 $shop-list__grid-gutter--tablet / 2
+        $shop-list__grid-gutter--tablet / 2 $shop-list__grid-gutter--tablet / 2;
     }
     @include breakpoint('desktop') {
-      padding: ($shop-list__grid-gutter--desktop / 4) ($shop-list__grid-gutter--desktop / 2) ($shop-list__grid-gutter--desktop / 3) ($shop-list__grid-gutter--desktop / 2);
+      padding: ($shop-list__grid-gutter--desktop / 4)
+        ($shop-list__grid-gutter--desktop / 2)
+        ($shop-list__grid-gutter--desktop / 3)
+        ($shop-list__grid-gutter--desktop / 2);
     }
 
     > h3 {
@@ -280,9 +275,6 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
     flex-direction: column;
     align-items: center;
   }
-  &__text--price {
-    font-weight: $font-weight--bold;
-  }
 
   &__item-cart {
     display: flex;
@@ -296,8 +288,8 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
       display: flex;
     }
 
-    .item-cart__icon-check {
-      height:20px;
+    .input {
+      line-height: $line-height--s;
     }
 
     .button--primary {
@@ -326,17 +318,21 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
     border-width: 70px 70px 0 0;
     border-color: $color--green transparent transparent transparent;
     align-self: flex-start;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
 
     &::after {
       content: 'Aktion';
-      position:absolute;
-      top: 12px;
+      position: absolute;
+      top: -58px;
       width: 50px;
       left: 0;
       text-align: center;
       font-size: 16px;
       transform: rotate(-45deg);
-      display:block;
+      display: block;
       color: $color--white;
     }
   }
@@ -345,6 +341,7 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
     display: flex;
     flex-direction: column;
     flex: 1 1 auto;
+    position: relative;
   }
 
   &__no-result {

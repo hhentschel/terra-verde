@@ -111,7 +111,7 @@ $button-secondary--border-width: 2px;
   &--primary {
     padding: $button-primary--horizontal-padding
       $button-primary--vertical-padding;
-      text-align: center;
+    text-align: center;
 
     @if (has($button-primary--background-color)) {
       background-color: $button-primary--background-color;
@@ -190,7 +190,7 @@ $button-secondary--border-width: 2px;
   &--secondary {
     padding: $button-secondary--horizontal-padding
       $button-secondary--vertical-padding;
-      text-align: center;
+    text-align: center;
 
     @if (has($button-secondary--background-color)) {
       background-color: $button-secondary--background-color;
@@ -281,6 +281,7 @@ $button-secondary--border-width: 2px;
     display: flex;
     align-items: center;
     text-align: center;
+    justify-content: center;
 
     &:hover {
       @if (has($button-success--hover-background-color)) {
