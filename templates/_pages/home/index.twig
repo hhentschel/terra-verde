@@ -95,7 +95,7 @@
           {% for product in products %}
             {% for variant in product.getVariants() %}
               <div class="col col-xs-12 col-md-4 col-lg-4">
-                <a href="{{ product.url }}" class="section-home__product">
+                <a href="{{ product.url }}" class="section-home__product onsale">
                   {% set transform = transformation|default('productListing') %}
                     {% set img = product.articleImage.one() ?? null %}
 
