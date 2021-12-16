@@ -26,8 +26,7 @@
 {% set page = page ?? 1 %}
 {# Defines maximum number of pages to show. #}
 {% set maxPages = 7 %}
-{% set orderBy = orderBy ?? 'articleNumber desc' %}
-
+{% set orderBy = orderBy ?? 'postDate desc' %}
 
 {% if cart is not defined %}
   {% set cart = craft.commerce.carts.cart %}
@@ -51,43 +50,45 @@
 
 {# Create an array of filters. #}
 {% set filters = {
-    search: search,
-    articleCategoriesDeli: articleCategoriesDeli,
-    articleCategoriesGift: articleCategoriesGift,
-    articleCategoriesWine: articleCategoriesWine,
-    articleCategoriesStatus: articleCategoriesStatus,
-    orderBy: orderBy,
+  search: search,
+  articleCategoriesDeli: articleCategoriesDeli,
+  articleCategoriesGift: articleCategoriesGift,
+  articleCategoriesWine: articleCategoriesWine,
+  articleCategoriesStatus: articleCategoriesStatus,
+  orderBy: orderBy
 } %}
 
-
-  {% set productQuery = craft.products(filters|merge({
-    limit: limit,
-    with: [
-        ['image', {
+{% set productQuery =
+  craft.products(
+    filters|merge({
+      limit: limit,
+      with: [
+        [
+          'image',
+          {
             withTransforms: ['productListing']
-        }]
-    ],
-}))
- %}
-
+          }
+        ]
+      ]
+    })
+  )
+%}
 
 {% if articleCategoriesDeli is not empty %}
-    {% do productQuery.andRelatedTo(articleCategoriesDeli) %}
+  {% do productQuery.andRelatedTo(articleCategoriesDeli) %}
 {% endif %}
 
 {% if articleCategoriesWine is not empty %}
-    {% do productQuery.andRelatedTo(articleCategoriesWine) %}
+  {% do productQuery.andRelatedTo(articleCategoriesWine) %}
 {% endif %}
 
 {% if articleCategoriesStatus is not empty %}
-    {% do productQuery.andRelatedTo(articleCategoriesStatus) %}
+  {% do productQuery.andRelatedTo(articleCategoriesStatus) %}
 {% endif %}
 
 {% if articleCategoriesGift is not empty %}
-    {% do productQuery.andRelatedTo(articleCategoriesGift) %}
+  {% do productQuery.andRelatedTo(articleCategoriesGift) %}
 {% endif %}
-
-
 
 {# Paginate entry query to get page info. #}
 {% set pageInfo = sprig.paginate(productQuery, page) %}
@@ -96,124 +97,151 @@
 {# {% set products = storeCustomization.orderedProducts.all() %} #}
 
 {# Push the URL into the history stack with the filters, adding extra values. #}
-{% do sprig.pushUrl('?' ~ filters|merge({
-    page: page,
-})|url_encode) %}
-
+{% do sprig.pushUrl(
+  '?'
+    ~ (filters
+      |merge({
+        page: page
+      })
+      |url_encode)
+) %}
 
 {% if sprig.isRequest %}
-    <script>
-        htmx.trigger('#cartsize', 'refresh');
-    </script>
+  <script>
+    htmx.trigger('#cartsize', 'refresh');
+  </script>
 {% endif %}
 
-
 <div s-replace="#tvboard">
-   {% include 'sprig/components/filters/_components/filters/filter' %}
-
+  {% include 'sprig/components/filters/_components/filters/catfilter' %}
 
   <div id="tvboard">
-    {#  shop-list anfang #}
+    {# shop-list anfang #}
 
-     <p class="">
-        <span class="">{{ pageInfo.first }}</span>
-        -
-        <span class="">{{ pageInfo.last }}</span>
-        von
-        <span class="">{{ pageInfo.total }}</span>
-        Produkten
+    <p class="">
+      <span class="">{{ pageInfo.first }}</span>
+      -
+      <span class="">{{ pageInfo.last }}</span>
+      von
+      <span class="">{{ pageInfo.total }}</span>
+      Produkten
     </p>
 
     <div class="shop-list">
+      {% for product in products %}
+        {% for variant in product.getVariants() %}
+          {# {% for i in 1..2 %} #}
 
-        {% for product in products %}
+          {# {{ sprig('sprig/components/cart/_components/product') }} #}
+          {% include 'sprig/components/cart/_components/product' %}
 
-            {% for variant in product.getVariants() %}
-
-
-            {# {% for i in 1..2 %} #}
-
-             {# {{ sprig('sprig/components/cart/_components/product') }} #}
-               {% include 'sprig/components/cart/_components/product' %}
-
-
-
-        {# {% endfor %} #}
-
-     {% endfor %}
-     {% endfor %}
-
+          {# {% endfor %} #}
+        {% endfor %}
+      {% endfor %}
     </div>
-  {#  shop-list ende #}
+    {# shop-list ende #}
 
-   {% if products|length == 0 %}
-   <div class="row">
-      <div class="col col-xs-12 col-md-12 col-lg-12">
-        <div class="shop-list__no-result">
-          Keine Produkte gefunden
+    {% if (products|length) == 0 %}
+      <div class="row">
+        <div class="col col-xs-12 col-md-12 col-lg-12">
+          <div class="shop-list__no-result">
+            Keine Produkte gefunden
+          </div>
+        </div>
+      </div>
+    {% endif %}
+
+    {# pagination #}
+    <div class="filter__pagination">
+      <div class="filter__pagination-mobile">
+        <div>
+          {% if page > 1 %}
+            <a sprig
+              s-val:page="{{ page - 1 }}"
+              href="#"
+              class="relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm leading-5 font-medium rounded-md text-gray-700 bg-white hover:text-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150">
+              vorherige Seite
+            </a>
+          {% endif %}
+        </div>
+        <div>
+          {% if page < pageInfo.totalPages %}
+            <a sprig
+              s-val:page="{{ page + 1 }}"
+              href="#"
+              class="ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm leading-5 font-medium rounded-md text-gray-700 bg-white hover:text-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150">
+              nächste Seite
+            </a>
+          {% endif %}
+        </div>
+      </div>
+      <div class="filter__pagination-desktop">
+        <p class="">
+          <span class="">{{ pageInfo.first }}</span>
+          -
+          <span class="">{{ pageInfo.last }}</span>
+          von
+          <span class="">{{ pageInfo.total }}</span>
+          Produkten
+        </p>
+        <div class="filter__pagination-pagesbox">
+          <p class="filter__pagination-pagesindex">
+            Seite
+            <span class="">{{ pageInfo.currentPage }}</span>
+            von
+            <span class="">{{ pageInfo.totalPages }}</span>
+            Seiten
+          </p>
+          <nav class="relative z-0 filter__pagination-pagessingles">
+            <a sprig
+              s-val:page="{{ page > 1 ? page - 1 : 1 }}"
+              href="#"
+              class="pagination-pagesarrow"
+              aria-label="vorherige">
+              <svg class="pagination-svg"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor">
+                <path fill-rule="evenodd"
+                  d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+                  clip-rule="evenodd" />
+              </svg>
+            </a>
+            {{ hiddenInput('page', page) }}
+            {% for pageNumber in pageInfo.dynamicRange(maxPages) %}
+              <a sprig
+                s-val:page="{{ pageNumber }}"
+                href="#"
+                class="pagination-pagesnumber {{
+                pageNumber == page
+                  ? 'pagination-pagesnumber-active'
+                  : ''
+                }}">
+                {{ pageNumber }}
+              </a>
+            {% endfor %}
+            <a sprig
+              s-val:page="{{
+              page < pageInfo.totalPages
+                ? page + 1
+                : pageInfo.totalPages
+              }}"
+              href="#"
+              class="pagination-pagesarrow"
+              aria-label="nächste">
+              <svg class="pagination-svg"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor">
+                <path fill-rule="evenodd"
+                  d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                  clip-rule="evenodd" />
+              </svg>
+            </a>
+          </nav>
         </div>
       </div>
     </div>
-    {% endif %}
-
-  {#  pagination #}
-    <div class="filter__pagination">
-        <div class="filter__pagination-mobile">
-            <div>
-                {% if page > 1 %}
-                    <a sprig s-val:page="{{ page - 1 }}" href="#" class="relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm leading-5 font-medium rounded-md text-gray-700 bg-white hover:text-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150">
-                        vorherige Seite
-                    </a>
-                {% endif %}
-            </div>
-            <div>
-                {% if page < pageInfo.totalPages %}
-                    <a sprig s-val:page="{{ page + 1 }}" href="#" class="ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm leading-5 font-medium rounded-md text-gray-700 bg-white hover:text-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150">
-                        nächste Seite
-                    </a>
-                {% endif %}
-            </div>
-        </div>
-        <div class="filter__pagination-desktop">
-            <p class="">
-
-                <span class="">{{ pageInfo.first }}</span>
-                -
-                <span class="">{{ pageInfo.last }}</span>
-                von
-                <span class="">{{ pageInfo.total }}</span>
-                Produkten
-            </p>
-            <div class="filter__pagination-pagesbox">
-                <p class="filter__pagination-pagesindex">
-                    Seite
-                    <span class="">{{ pageInfo.currentPage }}</span>
-                    von
-                    <span class="">{{ pageInfo.totalPages }}</span>
-                    Seiten
-                </p>
-                <nav class="relative z-0 filter__pagination-pagessingles">
-                    <a sprig s-val:page="{{ page > 1 ? page - 1 : 1 }}" href="#" class="pagination-pagesarrow" aria-label="vorherige">
-                        <svg class="pagination-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
-                        </svg>
-                    </a>
-                    {{ hiddenInput('page', page) }}
-                    {% for pageNumber in pageInfo.dynamicRange(maxPages) %}
-                        <a sprig s-val:page="{{ pageNumber }}" href="#" class="pagination-pagesnumber {{ pageNumber == page ? 'pagination-pagesnumber-active' : '' }}">
-                            {{ pageNumber }}
-                        </a>
-                    {% endfor %}
-                    <a sprig s-val:page="{{ page < pageInfo.totalPages ? page + 1 : pageInfo.totalPages }}" href="#" class="pagination-pagesarrow" aria-label="nächste">
-                        <svg class="pagination-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
-                        </svg>
-                    </a>
-                </nav>
-            </div>
-        </div>
-    </div>
-  {#  pagination ende #}
+    {# pagination ende #}
   </div>
 </div>
-

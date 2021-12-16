@@ -35,11 +35,11 @@
 
  <div class="shop-list__item">
               <a class="shop-list__link" href="{{ product.url }}" >
-                <div class="shop-list__image">
-                  {% if variant.onSale %}
+                {% if variant.onSale %}
                   <div class="onsale">
                   </div>
-                   {% endif %}
+                {% endif %}
+                <div class="shop-list__image">
 
                   {% set transform = transformation|default('productListing') %}
                   {% set img = product.articleImage.one() ?? null %}
@@ -124,10 +124,10 @@
                           {% if variant.stock > 0 or variant.hasUnlimitedStock %}
                             <a sprig s-action="commerce/cart/update-cart" s-method="post" s-val:purchasable-id="{{ variant.id }}" href="#" class="button--primary {% if addedToCart and purchasableId == variant.id %}button--success {% endif %} text-center">
                                 {% if addedToCart and purchasableId == variant.id %}
-                                    <svg class="item-cart__icon-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <svg class="icon--check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                                         <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
                                     </svg>
-                                    Produkt wurde hinzugefügt
+                                    Im Warenkorb
                                 {% else %}
                                 In den Warenkorb
                                 {% endif %}

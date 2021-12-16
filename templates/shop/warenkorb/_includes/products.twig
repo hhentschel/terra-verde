@@ -1,10 +1,13 @@
 {% set cart = craft.commerce.carts.cart %}
+{% set discount = craft.commerce.discounts.getDiscountByCode(cart.couponCode) %}
 
 {% if sprig.isRequest %}
     <script>
         htmx.trigger('#cartsize', 'refresh');
     </script>
 {% endif %}
+
+{% set couponAddedToCart = success is defined %}
 
  {% if cart.lineItems|length %}
       {# <form method="post" class="form__cart" action=""> #}
@@ -240,14 +243,7 @@
 
                     </tr>
 
-                    {# <tr>
-                      <td class="text-left" colspan="4">
-                        <div class="pr-2">
-                            {{ redirectInput('shop/warenkorb') }}
-                            <input class="button button--secondary" type="submit" value="Warenkorb aktualisieren"/>
-                        </div>
-                      </td>
-                    </tr> #}
+
                 {% endfor %}
 
                 {% if not cart.hasErrors() %}
@@ -304,20 +300,37 @@
                             <div class="{{ cart.getFirstError('couponCode') }} form__cart-table--coupon-box">
                                 {# The Update Coupon form uses the single update controller action #}
                                 <h4 class="heading heading--4 heading--no-margin-top">Gutschein Code</h4>
+
                                 {% if cart.getFirstError('couponCode') %}
                                     <div class="text-red-500">{{ cart.getFirstError('couponCode') }}</div>
                                 {% endif %}
 
-                                <div>
+
+                                <div class="form__cart-table--coupon-box-button">
+                                    {# {{ redirectInput('shop/warenkorb') }}
+                                    <input class="button button--secondary" type="submit" value="Coupon anwenden"/> #}
+                                    {% if cart.couponCode %}
+                                    <span>
+                                        <svg class="icon--check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                        </svg>
+                                        Code «{{ discount.description }}» angewendet
+                                    </span>
+
+                                    {{ hiddenInput('couponCode', 'Coupon code hinzugefügt.'|hash) }}
+                                     <a sprig s-action="commerce/cart/update-cart" s-method="post" value="null" href="#" class="button button--secondary">
+                                            Code löschen
+                                    </a>
+                                    {% else %}
                                     <input type="text" name="couponCode" width="11"
                                            class="input {% if cart.getFirstError('couponCode') %}text-red-500{% endif %}"
-                                           value="{{ cart.couponCode }}"
-                                           >
+                                            {# value="{{ cart.couponCode }}" #}>
+                                        <a sprig s-action="commerce/cart/update-cart" s-method="post" value="{{ cart.couponCode }}" href="#" class="button button--primary">
+                                        Code anwenden
+                                    </a>
+                                    {% endif %}
 
-                                </div>
-                                <div class="form__cart-table--coupon-box-button">
-                                    {{ redirectInput('shop/warenkorb') }}
-                                    <input class="button button--secondary" type="submit" value="Coupon anwenden"/>
+
                                 </div>
                             </div>
                         </div>
@@ -338,9 +351,22 @@
                                 <div class="form__cart-table--item-price-number">{{ cart.getTotalTaxIncluded()|commerceCurrency(cart.currency) }}</div>
                             </div>
                             <div class="form__cart-table--item-addprice" title="{{ cart.getTotalDiscount() }}">
-                                <div class="form__cart-table--item-price-name">Rabatt:</div>
+                                <div class="form__cart-table--item-price-name">
+                                {% if cart.couponCode %}
+                                Coupon:
+                                {% else %}
+                                Rabatt:
+                                {% endif %}
+                                </div>
                                 <div class="form__cart-table--item-price-number">{{ cart.getTotalDiscount()|commerceCurrency(cart.currency) }}</div>
                             </div>
+
+
+
+                            {# {% set discount = craft.commerce.discounts.getDiscountByCode(cart.couponCode) %}
+                            {% if discount %}
+                            Coupon - {{ discount.description }}{{ cart.getTotalDiscount|commerceCurrency( cart.currency ) }}
+                            {% endif %} #}
 
                             <div class="form__cart-table--item-pricetotal" title="{{ cart.totalPrice }}">
                                 <div class="form__cart-table--item-price-name">Warenkorb Gesamtpreis:</div>
