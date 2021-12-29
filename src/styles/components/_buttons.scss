@@ -100,6 +100,12 @@ $button-secondary--disabled-border-color: $color--disabled-border;
 $button-secondary--border-radius: 0;
 $button-secondary--border-width: 2px;
 
+// SMALL
+$button-small--font-size: px-to-rem($font-size-s);
+// padding
+$button-small--horizontal-padding: px-to-em(6);
+$button-small--vertical-padding: px-to-em(8);
+
 .button {
   transition-property: $button--transition-properties;
   transition-duration: $button--transition-duration;
@@ -256,6 +262,14 @@ $button-secondary--border-width: 2px;
     display: inline-block;
   }
 
+  &--tertiary {
+    color: $button-secondary--color;
+    font-size: px-to-rem($font-size-xs);
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
   // secondary active
   &--secondary.button--active,
   &--secondary.button--active:hover {
@@ -296,5 +310,12 @@ $button-secondary--border-width: 2px;
         border-color: $button-success--hover-border-color;
       }
     }
+  }
+
+  &--small {
+    padding: $button-small--horizontal-padding $button-small--vertical-padding;
+    background: none;
+    color: rgba($color--primary, 0.8);
+    font-size: $button-small--font-size;
   }
 }
