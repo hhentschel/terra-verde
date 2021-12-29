@@ -8,6 +8,8 @@
 {% endif %}
 
 {% set couponAddedToCart = success is defined %}
+{% set changedGiftNote = success is defined %}
+{% set erasedGiftNote = success is defined %}
 
 {% set product = craft.products.one() %}
 
@@ -57,18 +59,57 @@
                                         <span class="form__cart-table--options-item">
                                             - Grusskarte
                                         </span>
-
-                                         <label for="lineitem-note-{{ item.id }}" class="form__cart-table--note-label">Textfeld für Grusskarte</label>
-                                        <textarea sprig s-action="commerce/cart/update-cart" s-method="post" s-trigger="keyup changed delay:3s" s-replace="#results" id="lineitem-note-{{ item.id }}" class="input" type="text" name="lineItems[{{ item.id }}][note]" value="{{ item.note }}" placeholder="Text für Grusskarte" rows="2">{{ item.note }}</textarea>
-                                            <span>Text wird automatisch gespeichert<span>
-                                            <div id="results">
-                                            </div>
                                     {% endif %}
 
+
+
+
+                                    {# {% if (item.options.giftNote is defined) and (item.options.giftNote is not empty) %}
+                                        <div class="form__cart-table--options-item">
+                                            {% if erasedGiftNote %}
+                                                <span class="form__cart-table--options-notice">Zusatzoption Grusskarte entfernt</span>
+                                            {% else %}
+                                                Grusskarte
+                                                {% set vals = {('lineItems[' ~ item.id ~ '][options][giftNote][remove]'): 1}|json_encode %}
+                                                <a sprig s-action="commerce/cart/update-cart" s-method="post" s-vals="{{ vals }}"  href="#" class="button button--tertiary">
+                                                    entfernen
+                                                </a>
+
+                                                <div class="form__cart-table--note">
+                                                 <label for="lineitem-note-{{ item.id }}" class="form__cart-table--note-label">Textfeld für Grusskarte</label>
+                                                <textarea sprig s-action="commerce/cart/update-cart" s-method="post" s-trigger="keyup changed delay:3s" s-replace="#results" id="lineitem-note-{{ item.id }}" class="input" type="text" name="lineItems[{{ item.id }}][note]" value="{{ item.note }}" placeholder="Text für Grusskarte" rows="2">{{ item.note }}</textarea>
+                                                <span>Text wird automatisch gespeichert<span>
+                                                    <div id="results">
+
+                                                        </div>
+
+                                                </div>
+
+
+                                            {% endif %}
+
+                                            {% if (item.options.giftNote is defined) and (item.options.giftNote is not empty) %}
+                                                <div class="form__cart-table--note">
+                                                    <label for="lineitem-note-{{ item.id }}" class="form__cart-table--note-label">Textfeld für Grusskarte </label>
+                                                    <textarea  id="lineitem-note-{{ item.id }}" class="input" type="text" name="lineItems[{{ item.id }}][note]" value="{{ item.note }}" placeholder="Text für Grusskarte" rows="2">{{ item.note }}</textarea>
+
+                                                        <a sprig s-action="commerce/cart/update-cart" s-method="post" href="#" value="{{ item.note }}">neuen Text speichern</a>
+                                                </div>
+                                            {% endif %}
+
+
+                                        </div>
+                                    {% endif %} #}
                                 </div>
 
                             {% endif %}
 
+
+
+                            {# <div class="pr-2">
+                                {{ redirectInput('shop/warenkorb') }}
+                                <input class="button button--secondary" type="submit" value="Warenkorb aktualisieren"/>
+                            </div> #}
                         </td>
                         <td class="py-3 {{ not loop.first ? 'border-t border-gray-300 border-dashed' : '' }}">
                             {% if item.options.donationAmount is defined %}
@@ -94,6 +135,36 @@
                                         {% endif %}
                                        value="{{ item.qty }}">
                             </span>
+
+                            {% if (item.purchasable.product.getType().name == 'Geschenke') or  ((item.purchasable.product.getType().name == 'Geschenke' and item.purchasable.product.getType().name == 'Delikatessen')) %}
+                                {% if (item.options.giftNote is defined) and (item.options.giftNote is not empty) %}
+                                    <div class="form__cart-table--note">
+
+
+                                        {# <label for="lineitem-note-{{ item.id }}" class="text-gray-500 text-xs uppercase block">Textfeld für Grusskarte</label>
+                                        <textarea sprig s-action="commerce/cart/update-cart" s-method="post" s-trigger="keyup changed delay:3s" s-replace="#results" id="lineitem-note-{{ item.id }}" class="input" type="text" name="lineItems[{{ item.id }}][note]" value="{{ item.note }}" placeholder="Text für Grusskarte" rows="2">{{ item.note }}</textarea>
+
+                                        <div id="results">
+                                            {% if changedGiftNote %}
+                                            <span>Text wird automatisch gespeichert<span>
+                                            {% endif %}
+                                            </div> #}
+
+
+                                        {# {% if item.note %}
+                                            <a sprig s-action="commerce/cart/update-cart" s-method="post" href="#" value="{{ item.note }}">neuen Text speichern</a>
+                                        {% else %}
+                                            <span>
+                                                <svg class="icon--check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                                </svg>
+                                                neuer Text gespeichert
+                                            </span>
+                                        {% endif %} #}
+
+                                    </div>
+                                {% endif %}
+                            {% endif %}
                         </td>
 
                         <td class="form__cart-table--item-prices {{ not loop.first ? 'border-t border-gray-300 border-dashed' : '' }} text-right">

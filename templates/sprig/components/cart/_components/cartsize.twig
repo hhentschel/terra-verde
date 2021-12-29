@@ -1,5 +1,6 @@
-
-
-
 {% set cart = craft.commerce.carts.cart %}
-<span>{{ cart.totalQty }}</span>
+{% if cart.lineItems|length %}
+  <span>{{ cart.totalQty }}</span>
+{% else %}
+  <span>0</span>
+{% endif %}

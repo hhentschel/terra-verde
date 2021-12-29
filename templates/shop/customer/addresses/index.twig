@@ -21,15 +21,34 @@
           </a>
         </div>
 
-        <div class="grid-addresses mt-6">
+        <div class="profile__adresses-list">
           {% for address in customer.addresses %}
-            <div class="address-card">
+            <div>
+              <h3>
+                {% if
+                  primaryBillingAddress
+                    and primaryBillingAddress.id == address.id %}
+                  Rechnungsadresse
+                {% endif %}
+              </h3>
+            </div>
+            <div>
+              <h3>
+                {% if
+                  primaryShippingAddress
+                    and primaryShippingAddress.id == address.id %}
+                  Versandadresse
+                {% endif %}
+              </h3>
+            </div>
+
+            <div class="adresses-list__item">
               {% include 'shop/_includes/addresses/address' with {
                 address: address
               } %}
 
-              <div class="buttons mt-4">
-                <a class="button button--primary layout-helper__margin-vertical--xs"
+              <div class="">
+                <a class="button button--primary layout-helper__margin-bottom--xs layout-helper__margin-top--xxs"
                   href="{{ url('shop/customer/addresses/edit') }}?addressId={{
                   address.id
                   }}">
@@ -42,25 +61,6 @@
                   <input type="submit" class="input input__secondary layout-helper__margin-bottom--xs" value="löschen" />
                 </form>
               </div>
-
-              {# <div>
-                <strong>
-                  {% if
-                    primaryBillingAddress
-                      and primaryBillingAddress.id == address.id %}
-                    <i class="fa fa-check text-green"></i> Haupt-Rechnungsadresse
-                  {% endif %}
-                </strong>
-              </div>
-              <div>
-                <strong>
-                  {% if
-                    primaryShippingAddress
-                      and primaryShippingAddress.id == address.id %}
-                    <i class="fa fa-check text-green"></i> Haupt-Versandadresse
-                  {% endif %}
-                </strong>
-              </div> #}
 
             </div>
           {% endfor %}

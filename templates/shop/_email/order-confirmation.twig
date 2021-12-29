@@ -458,7 +458,8 @@ https://postmarkapp.com/transactional-email-templates #}
 
                 {% block header %}
 
-                    <img src="{{ alias('@web') }}/assets/images/logo/TerraVerde_jpg_email.jpg" height="150" width="146" alt="Terra-Verde Logo" />
+                    {# <img src="{{ alias('@web') }}/assets/images/logo/TerraVerde_jpg_email.jpg" height="150" width="146" alt="Terra-Verde Logo" /> #}
+                    <img src="https://dev.henrik-hentschel.de/assets/images/logo/TerraVerde_jpg_email.jpg" height="150" width="146" alt="Terra-Verde Logo" />
 
                 {% endblock %}
 
@@ -501,8 +502,8 @@ https://postmarkapp.com/transactional-email-templates #}
                                 <div class="ordersummary__info">
                                     <div class="ordersummary__info-term">Versand: {{ order.shippingMethodName }}</div>
                                 </div>
-                            {% endif %}
 
+                            {% endif %}
                             <hr>
 
                             <div class="addresses">
@@ -515,6 +516,12 @@ https://postmarkapp.com/transactional-email-templates #}
                                     <p>Nicht eingegeben.</p>
                                 {% endif %}
                             </div>
+
+
+
+                             {% if cart.shippingMethodHandle == 'B2C_pickUpAtStore' %}
+                             test shipping method handele = B2C_pickUpAtStore
+                             {% endif %}
 
 
                             <div class="addresses">

@@ -76,7 +76,8 @@
 
         <div class="col col-xs-12 col-md-9 col-lg-9">
           <div class="form__wrapper">
-            {% include '_pages/newsletter/index.twig' %}
+            {# {% include '_pages/newsletter/index.twig' %} #}
+            {{ craft.formie.renderForm('newsletterForm') }}
             </div>
           </div>
 
