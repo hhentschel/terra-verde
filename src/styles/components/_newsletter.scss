@@ -2,6 +2,7 @@
   &__form {
     display: flex;
     flex-wrap: wrap;
+    width: 100%;
 
     @include breakpoint('tablet-portrait') {
       flex-wrap: nowrap;
@@ -16,15 +17,37 @@
       }
     }
 
+    .fui-i {
+      width: 100%;
+    }
+
     .fui-page {
       display: flex;
-      align-items: center;
+      align-items: stretch;
+      flex-direction: column;
+
+      @include breakpoint('tablet') {
+        align-items: center;
+        flex-direction: row;
+      }
     }
     .fui-row {
       margin: 0;
+      display: flex;
+      flex-direction: column;
+
+      @include breakpoint('tablet') {
+        flex-direction: row;
+      }
     }
     .fui-field:not(.fui-type-hidden-field) {
-      margin: 0;
+      margin: px-to-rem($space--m) 0;
+      padding: 0;
+
+      @include breakpoint('tablet') {
+        margin: 0;
+        padding: 0 px-to-rem($space--s);
+      }
     }
 
     input[type='text'],

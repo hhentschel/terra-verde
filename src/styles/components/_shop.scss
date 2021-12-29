@@ -94,7 +94,7 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
     height: auto;
 
     @include breakpoint('tablet-portrait') {
-      height: 200px;
+      height: 240px;
     }
 
     @include breakpoint('tablet-landscape') {
@@ -118,11 +118,15 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
   &__gift {
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     height: auto;
 
     @include breakpoint('tablet-portrait') {
-      height: 100px;
+      height: 140px;
+    }
+
+    @include breakpoint('desktop') {
+      flex-wrap: wrap;
     }
 
     &--checkbox {
@@ -238,7 +242,7 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
   }
 
   &__item--price-old {
-    font-size: px-to-em($space--s);
+    font-size: px-to-em($font-size-s);
   }
 
   &__text {
@@ -352,5 +356,3 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
     font-size: px-to-rem($font-size-xm);
   }
 }
-
-
