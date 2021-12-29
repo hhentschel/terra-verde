@@ -25,7 +25,9 @@
             <span class="header__logo-line">Verde</span>
           </a>
 
-            {% include 'shop/_includes/floating-cart' %}
+          {% if currentUser %}
+            {% include '_components/_nav/_nav-shop/nav-shop-mobile' %}
+          {% endif %}
 
           <div class="header__menu-button-wrapper">
             <button class="header__menu-button-mobile" type="button">
