@@ -8,6 +8,8 @@
 {% endif %}
 
 {% set couponAddedToCart = success is defined %}
+{% set changedGiftNote = success is defined %}
+{% set erasedGiftNote = success is defined %}
 
 {% set product = craft.products.one() %}
 
@@ -28,21 +30,20 @@
             </thead>
                 <tbody>
                 {% for item in cart.lineItems %}
+
                     <tr>
                         <td class="" rowspan="2">
-                            <div class="">
                               <div class="truncate">
                                 <strong class="{% if item.hasErrors() %}error{% endif %}">
-                                <a href="{{ item.purchasable.url }}">
-                                  {{ item.description }}
-                                </a>
+                                    <a href="{{item.purchasable.url}}" class="form__cart-table--itemtitle">
+                                    {{ item.description }}
+                                    </a>
                                 </strong>
-                              </div>
                             </div>
                             <span class="">Artikelnummer: {{ item.purchasable.product.articleNumber }}</span><br />
 
                             {% if (item.purchasable.product.getType().name == 'Geschenke') or  ((item.purchasable.product.getType().name == 'Geschenke' and item.purchasable.product.getType().name == 'Delikatessen')) %}
-                              {% if (item.options.giftWrapped is defined) or (item.options.giftNote is defined) %}
+
                                 <div class="form__cart-table--options">
                                     <div class="form__cart-table--options-header">
                                         <h4 class="layout-helper__margin-vertical--none form__cart-table--options-heading">Zusatzoptionen</h4>
@@ -62,8 +63,8 @@
                                             - Grusskarte
                                         </span>
 
-                                         <label for="lineitem-note-{{ item.id }}" class="form__cart-table--note-label">Textfeld für Grusskarte</label>
-                                        <textarea sprig s-action="commerce/cart/update-cart" s-method="post" s-trigger="keyup changed delay:3s" s-replace="#results" id="lineitem-note-{{ item.id }}" class="input" type="text" name="lineItems[{{ item.id }}][note]" value="{{ item.note }}" placeholder="Text für Grusskarte" rows="2">{{ item.note }}</textarea>
+                                        <label for="lineitem-note-{{ item.id }}" class="form__cart-table--note-label">Textfeld für Grusskarte</label>
+                                        <textarea sprig s-action="commerce/cart/update-cart" s-method="post" s-trigger="keyup changed delay:3s" s-replace="#results" id="lineitem-note-{{ item.id }}" class="input" type="text" name="lineItems[{{ item.id }}][note]" value="{{ item.note }}" rows="2">{{ item.note }}</textarea>
                                             <span>Text wird automatisch gespeichert<span>
                                             <div id="results">
                                             </div>
@@ -72,15 +73,10 @@
                                 </div>
 
                             {% endif %}
-                            {% endif %}
 
                         </td>
                         <td class="py-3 {{ not loop.first ? 'border-t border-gray-300 border-dashed' : '' }}">
-                            {% if item.options.donationAmount is defined %}
-                                <label for="lineitem-note-{{ item.id }}" class="text-xs uppercase block">Donation Betrag</label>
-                                <input class="input input-small"
-                                       type="text" name="lineItems[{{ item.id }}][options][donationAmount]" placeholder="Donation" value="{{item.options.donationAmount}}">
-                            {% endif %}
+
 
                             <span class=" {{ item.options.donationAmount is defined ? 'hidden' : '' }}">
                                 <input sprig s-action="commerce/cart/update-cart" s-method="post"
@@ -99,6 +95,7 @@
                                         {% endif %}
                                        value="{{ item.qty }}">
                             </span>
+
                         </td>
 
                         <td class="form__cart-table--item-prices {{ not loop.first ? 'border-t border-gray-300 border-dashed' : '' }} text-right">
@@ -135,7 +132,7 @@
 
                         <td class="form__cart-table--item-remove">
                            {% set vals = {('lineItems[' ~ item.id ~ '][remove]'): 1}|json_encode %}
-                            <a sprig s-action="commerce/cart/update-cart" s-method="post" s-vals="{{ vals }}" s-confirm="Wollen Sie den Artikel aus dem Warenkorb löschen?" href="#" class="button button--tertiary">
+                            <a sprig s-action="commerce/cart/update-cart" s-method="post" s-vals="{{ vals }}" s-confirm="Are you sure you want to remove this product from your cart?" href="#" class="button button--tertiary">
                                 Entfernen
                             </a>
                         </td>
@@ -143,6 +140,7 @@
 
                     <tr class="form__cart--adjustments">
                         <td class="text-right" colspan="2">
+                            {% if (item.options.giftWrapped is defined) or (item.options.giftNote is defined) %}
                                 {% if not cart.hasErrors() and item.adjustments|length %}
                                     <div class="adjustments">
                                         {% for adjustment in item.adjustments %}
@@ -160,6 +158,7 @@
                                         {% endfor %}
                                     </div>
                                 {% endif %}
+                            {% endif %}
 
                             {% if not cart.hasErrors() %}
                                 <div class="form__cart-table--item-price" title="{{ item.total }}">
