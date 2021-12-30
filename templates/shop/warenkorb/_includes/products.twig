@@ -139,7 +139,6 @@
 
                     <tr class="form__cart--adjustments">
                         <td class="text-right" colspan="2">
-                            {% if (item.options.giftWrapped is defined) or (item.options.giftNote is defined) %}
                                 {% if not cart.hasErrors() and item.adjustments|length %}
                                     <div class="adjustments">
                                         {% for adjustment in item.adjustments %}
@@ -157,7 +156,6 @@
                                         {% endfor %}
                                     </div>
                                 {% endif %}
-                            {% endif %}
 
                             {% if not cart.hasErrors() %}
                                 <div class="form__cart-table--item-price" title="{{ item.total }}">
@@ -247,7 +245,7 @@
                                     <input type="text" name="couponCode" width="11"
                                            class="input {% if cart.getFirstError('couponCode') %}text-red-500{% endif %}"
                                             {# value="{{ cart.couponCode }}" #}>
-                                        <a sprig s-action="commerce/cart/update-cart" s-method="post" value="{{ cart.couponCode }}" href="#" class="button button--primary">
+                                        <a sprig s-action="commerce/cart/update-cart" s-method="post" value="{{ cart.couponCode }}" href="#" class="button button--primary button--small">
                                         Code anwenden
                                     </a>
                                     {% endif %}
