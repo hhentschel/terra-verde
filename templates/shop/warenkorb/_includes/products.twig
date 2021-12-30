@@ -7,6 +7,12 @@
     </script>
 {% endif %}
 
+{% if addedToCart %}
+    <script>
+        htmx.trigger(htmx.find('#cart'), 'refresh');
+    </script>
+{% endif %}
+
 
 {% set couponAddedToCart = success is defined %}
 
