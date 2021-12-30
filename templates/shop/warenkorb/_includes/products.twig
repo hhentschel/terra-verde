@@ -38,7 +38,7 @@
                             <span class="">Artikelnummer: {{ item.purchasable.product.articleNumber }}</span><br />
 
                             {% if (item.purchasable.product.getType().name == 'Geschenke') or  ((item.purchasable.product.getType().name == 'Geschenke' and item.purchasable.product.getType().name == 'Delikatessen')) %}
-
+                              {% if (item.options.giftWrapped is defined) or (item.options.giftNote is defined) %}
                                 <div class="form__cart-table--options">
                                     <div class="form__cart-table--options-header">
                                         <h4 class="layout-helper__margin-vertical--none form__cart-table--options-heading">Zusatzoptionen</h4>
@@ -67,6 +67,7 @@
 
                                 </div>
 
+                            {% endif %}
                             {% endif %}
 
                         </td>
@@ -130,7 +131,7 @@
 
                         <td class="form__cart-table--item-remove">
                            {% set vals = {('lineItems[' ~ item.id ~ '][remove]'): 1}|json_encode %}
-                            <a sprig s-action="commerce/cart/update-cart" s-method="post" s-vals="{{ vals }}" s-confirm="Are you sure you want to remove this product from your cart?" href="#" class="text-red-600 hover:text-red-800">
+                            <a sprig s-action="commerce/cart/update-cart" s-method="post" s-vals="{{ vals }}" s-confirm="Wollen Sie den Artikel aus dem Warenkorb löschen?" href="#" class="button button--tertiary">
                                 Entfernen
                             </a>
                         </td>
