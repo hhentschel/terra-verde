@@ -1,10 +1,5 @@
 {% set cart = craft.commerce.carts.cart %}
-{% if cart.lineItems|length %}
-  <span>{{ cart.totalQty }}</span>
-{% else %}
-  <span>0</span>
-{% endif %}
 
-<span id="miniCartTotal" s-swap-oob="true">
+<span s-swap-oob="true">
   {{ craft.orders.number(cart.number).one().totalQty ?? 0 }}
 </span>
