@@ -1,27 +1,44 @@
-{% extends "/_layouts/main" %}
+{% extends '/_layouts/main' %}
 
 {% block content %}
-    <!-- Template: {{ _self }}.twig -->
+  <!-- Template: {{ _self }}.twig -->
 
-{% if sprig.isRequest %}
-<script>
-    htmx.trigger('#cartsize', 'refresh');
-</script>
-{% endif %}
+  {# {% if sprig.isRequest %}
+    <script>
+      htmx.trigger('#cartsize', 'refresh'); htmx.trigger('#cartsizemobile',
+      'refresh');
+    </script>
+  {% endif %} #}
 
-<section class="grid">
-  <div class="row">
-    <div class="col col-xs-12 col-md-12 col-lg-12">
-      <h2 class="heading heading--2">Warenkorb</h2>
+  <section class="grid">
+    <div class="row">
+      <div class="col col-xs-12 col-md-12 col-lg-12">
+        <h2 class="heading heading--2">
+          Warenkorb
+        </h2>
 
+        {{
+          sprig(
+            'shop/warenkorb/_includes/products.twig',
+            {},
+            {
+              id: 'cartproducts'
+            }
+          )
+        }}
 
-    {{ sprig('shop/warenkorb/_includes/products.twig', {}, {id: 'cartproducts'}) }}
-
-    {% if not cart.lineItems|length %}
-        <p>Keine Artikel im Warenkorb. Zur <a href="{{ url('shop/produkte') }}">Shop Seite</a>.</p>
-    {% endif %}
-
+        {% if not cart.lineItems|length %}
+          <p>
+            Keine Artikel im Warenkorb. Zur <a href="{{
+              url(
+                'shop/produkte'
+              )
+              }}">
+              Shop Seite
+            </a>.
+          </p>
+        {% endif %}
+      </div>
     </div>
-    </div>
-    </section>
+  </section>
 {% endblock %}
