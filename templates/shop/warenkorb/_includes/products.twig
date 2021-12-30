@@ -32,7 +32,11 @@
                         <td class="" rowspan="2">
                             <div class="">
                               <div class="truncate">
-                                <strong class="{% if item.hasErrors() %}text-red-500{% endif %}">{{ item.description }}</strong>
+                                <strong class="{% if item.hasErrors() %}error{% endif %}">
+                                <a href="{{ item.purchasable.url }}">
+                                  {{ item.description }}
+                                </a>
+                                </strong>
                               </div>
                             </div>
                             <span class="">Artikelnummer: {{ item.purchasable.product.articleNumber }}</span><br />
