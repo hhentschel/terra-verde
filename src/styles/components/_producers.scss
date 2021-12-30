@@ -1,21 +1,22 @@
 .producers {
-
   &-overview {
     display: flex;
     flex-direction: column;
+    border-bottom: 1px solid $color--grey-light;
+    padding-bottom: px-to-rem($space--xm);
+
     &__title {
       flex: 1;
-      font-size: px-to-rem($font-size-xl-p); 
+      font-size: px-to-rem($font-size-xl-p);
     }
-    
+
     &__preview {
       display: flex;
       margin: px-to-rem($space--m) 0;
       flex-wrap: wrap;
-      
+
       @include breakpoint('tablet-landscape') {
         flex-wrap: nowrap;
-
       }
 
       &-image {
@@ -37,8 +38,8 @@
       }
     }
 
-  &__linkdetail {
-    align-self: flex-end;
-  }
+    &__linkdetail {
+      align-self: flex-end;
+    }
   }
 }

@@ -5,11 +5,11 @@
 {% set addedToCart = success is defined %}
 {# {% set addedGiftWrap = '' %} #}
 
-{# {% if addedToCart %}
+{% if addedToCart %}
     <script>
         htmx.trigger(htmx.find('#cart'), 'refresh');
     </script>
-{% endif %} #}
+{% endif %}
 
 {# {% if addedGiftWrap %}
     <script>

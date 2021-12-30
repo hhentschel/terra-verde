@@ -1,11 +1,14 @@
-
 .nav-sidebar {
+  margin: px-to-rem($space--m) 0 px-to-rem($space--xm) 0;
+
+  @include breakpoint('desktop') {
+    margin: 0;
+  }
 
   &__item {
     display: block;
-    
   }
-  
+
   &__link {
     display: block;
     padding: px-to-rem($space--xs) 0;
@@ -15,7 +18,6 @@
     &:hover {
       border-bottom: 1px solid $color--text;
     }
-    
   }
 
   &__link--active {

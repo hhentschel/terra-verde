@@ -219,12 +219,14 @@
   }
 
   &--adjustments {
-    border-top: 1px solid $color--grey-light;
+    border-top: 0;
     font-size: px-to-rem($font-size-xs);
     display: none;
 
     @include breakpoint('tablet-portrait') {
+      border-top: 1px solid $color--grey-light;
       display: table-row;
+      margin-bottom: px-to-rem($space--xxm);
     }
 
     td:last-child {

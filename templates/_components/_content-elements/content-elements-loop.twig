@@ -159,9 +159,7 @@
     %}
     {% set contentBlock %}
       {% if block.externerLinkPreview.valid %}
-
         {% include 'prismatic-preview-links.twig' with block.externerLinkPreview %}
-
       {% endif %}
     {% endset %}
 
@@ -193,7 +191,7 @@
       {% include '_components/_content-elements/imagecontent' with {
         img: block.image,
         imageAltText: block.imageAltText,
-        imageCaption: block.imageCaption,
+        imageCaption: block.imageCaption
       } %}
     {% endset %}
 
@@ -208,6 +206,7 @@
     {% set contentBlock %}
       {% include '_components/_content-elements/image-text' with {
         img: block.image,
+        title: block.titleH3,
         imageAltText: block.imageAltText,
         imageCaption: block.imageCaption,
         formattedText: block.textStandardWithoutH1,
