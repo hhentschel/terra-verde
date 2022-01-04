@@ -13,3 +13,4 @@ web/content/*
 _backup/*
 --templates/*
 web/assets/files/
+config/project/project.yaml
