@@ -33,7 +33,7 @@ class Discount10 extends Component implements AdjusterInterface
         foreach ($order->lineItems as $lineItem)
         {
 
-          if($lineItem->totalQty >= 6) {
+          if($lineItem->qty >= 6) {
               // Ok, so we've identified that the option exists and needs an Adjustment applied to it. Let's stub the model:
               $adjustment = new OrderAdjustment([
                   // Don't worry, you can have "positive" discounts, and this handle doesn't show up anywhere in the front-end.
