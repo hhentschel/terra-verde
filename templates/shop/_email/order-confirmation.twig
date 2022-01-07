@@ -1,704 +1,509 @@
-{#
-$variables = ($message->variables ?: []) + [
-    'emailKey' => $message->key,
-    'fromEmail' => Craft::parseEnv($settings->fromEmail),
-    'replyToEmail' => Craft::parseEnv($settings->replyToEmail),
-    'fromName' => Craft::parseEnv($settings->fromName),
-]; #}
-
-        {# {{ order.email }} #}
-
-{# based on Postmark Transactional Email Templates
-https://postmarkapp.com/transactional-email-templates #}
-
-{# If you change button color, remember to pass it to macro AND define "buttonColor" before "extends" tag. #}
-
-{# macro title #}
-{% macro title(titleText) %}
-{% if titleText is defined %}
-<h1 style="margin-top: 0; color: #333333; font-size: 22px; font-weight: bold; text-align: center;" align="left">{{titleText}}</h1>
-{% endif %}
-{% endmacro %}
-
-{# macro call to action button #}
-{% macro button(buttonText, buttonUrl, buttonColor) %}
-{% if buttonColor is not defined %}
-    {% set buttonColor = '#ed1b24' %}
-{% endif %}
-{% if buttonText is defined and buttonUrl is defined %}
-<table class="body-action" align="center" width="100%" cellpadding="0" cellspacing="0" role="presentation" style="width: 100%; -premailer-width: 100%; -premailer-cellpadding: 0; -premailer-cellspacing: 0; text-align: center; margin: 30px auto; padding: 0;">
-  <tr>
-    <td align="center" style="word-break: break-word; font-family: &quot;Nunito Sans&quot;, Helvetica, Arial, sans-serif; font-size: 16px;">
-      <!-- Border based button https://litmus.com/blog/a-guide-to-bulletproof-buttons-in-email-design -->
-      <table width="100%" border="0" cellspacing="0" cellpadding="0" role="presentation">
-        <tr>
-          <td align="center" style="word-break: break-word; font-family: &quot;Nunito Sans&quot;, Helvetica, Arial, sans-serif; font-size: 16px;">
-            <a href="{{buttonUrl}}" class="f-fallback button" target="_blank" style="color: #FFF; border-color: {{buttonColor}}; border-style: solid; border-width: 10px 18px; background-color: {{buttonColor}}; display: inline-block; text-decoration: none; border-radius: 3px; box-shadow: 0 2px 3px rgba(0, 0, 0, 0.16); -webkit-text-size-adjust: none; box-sizing: border-box;">{{buttonText}}</a>
-          </td>
-        </tr>
-      </table>
-    </td>
-  </tr>
-</table>
-{% endif %}
-{% endmacro %}
-
-{% if buttonColor is not defined %}
-    {% set buttonColor = '#ed1b24' %}
-{% endif %}
-
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:v="urn:schemas-microsoft-com:vml"
+  xmlns:o="urn:schemas-microsoft-com:office:office">
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="x-apple-disable-message-reformatting" />
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title></title>
-        <style type="text/css" rel="stylesheet" media="all">
-    /* Base ------------------------------ */
-
-    @import url("https://fonts.googleapis.com/css?family=Nunito+Sans:400,700&amp;display=swap");
-    body {
-      width: 100% !important;
-      height: 100%;
-      margin: 0;
-      -webkit-text-size-adjust: none;
-    }
-
-    a {
-      color: #3869D4;
-    }
-
-    a img {
-      border: none;
-    }
-
-    td {
-      word-break: break-word;
-    }
-
-    .preheader {
-      display: none !important;
-      visibility: hidden;
-      mso-hide: all;
-      font-size: 1px;
-      line-height: 1px;
-      max-height: 0;
-      max-width: 0;
-      opacity: 0;
-      overflow: hidden;
-    }
-    /* Type ------------------------------ */
-
-    body,
-    td,
-    th {
-      font-family: "Nunito Sans", Helvetica, Arial, sans-serif;
-    }
-
-    h1 {
-      margin-top: 0;
-      color: #333333;
-      font-size: 22px;
-      font-weight: bold;
-      text-align: center;
-    }
-
-    h2 {
-      margin-top: 0;
-      color: #333333;
-      font-size: 16px;
-      font-weight: bold;
-      text-align: left;
-    }
-
-    h3 {
-      margin-top: 0;
-      color: #333333;
-      font-size: 14px;
-      font-weight: bold;
-      text-align: left;
-    }
-
-    td,
-    th {
-      font-size: 16px;
-    }
-
-    hr {
-      border: 0;
-      height: 1px;
-      margin: 20px 0;
-      background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
-    }
-
-    hr.light {
-    border: 0;
-    height: 0;
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-}
-
-    p,
-    ul,
-    ol,
-    blockquote {
-      margin: .4em 0 1.1875em;
-      font-size: 16px;
-      line-height: 1.625;
-    }
-
-    ul, ol {
-      list-style: none;
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-    }
-
-    p.sub {
-      font-size: 13px;
-    }
-    /* Utilities ------------------------------ */
-
-    .align-right {
-      text-align: right;
-    }
-
-    .align-left {
-      text-align: left;
-    }
-
-    .align-center {
-      text-align: center;
-    }
-    /* Buttons ------------------------------ */
-
-    .button {
-      background-color: red;
-      display: inline-block;
-      color: #FFF;
-      text-decoration: none;
-      border-radius: 3px;
-      box-shadow: 0 2px 3px rgba(0, 0, 0, 0.16);
-      -webkit-text-size-adjust: none;
-      box-sizing: border-box;
-    }
-
-
-    @media only screen and (max-width: 500px) {
-      .button {
-        width: 100% !important;
-        text-align: center !important;
-      }
-    }
-    /* Attribute list ------------------------------ */
-
-    .attributes {
-      margin: 0 0 21px;
-    }
-
-    .attributes_content {
-      background-color: #F4F4F7;
-      padding: 16px;
-    }
-
-    .attributes_item {
-      padding: 0;
-    }
-
-     /* custom classes ------------------------------ */
-    .addresses {
-      margin: 0 0 20px 0;
-    }
-
-    .addresses__title {
-      margin: 0;
-      text-decoration: underline;
-    }
-
-
-    /* Discount Code ------------------------------ */
-
-    .discount {
-      width: 100%;
-      margin: 0;
-      padding: 24px;
-      -premailer-width: 100%;
-      -premailer-cellpadding: 0;
-      -premailer-cellspacing: 0;
-      background-color: #F4F4F7;
-      border: 2px dashed #CBCCCF;
-    }
-
-    .discount_heading {
-      text-align: center;
-    }
-
-    .discount_body {
-      text-align: center;
-      font-size: 15px;
-    }
-    /* Social Icons ------------------------------ */
-
-    .social {
-      width: auto;
-    }
-
-    .social td {
-      padding: 0;
-      width: auto;
-    }
-
-    .social_icon {
-      height: 20px;
-      margin: 0 8px 10px 8px;
-      padding: 0;
-    }
-    /* Data table ------------------------------ */
-
-    .purchase {
-      width: 100%;
-      margin: 0;
-      padding: 35px 0;
-      -premailer-width: 100%;
-      -premailer-cellpadding: 0;
-      -premailer-cellspacing: 0;
-    }
-
-    .purchase_content {
-      width: 100%;
-      margin: 0;
-      padding: 25px 0 0 0;
-      -premailer-width: 100%;
-      -premailer-cellpadding: 0;
-      -premailer-cellspacing: 0;
-    }
-
-    .purchase_item {
-      padding: 10px 0;
-      color: #51545E;
-      font-size: 15px;
-      line-height: 18px;
-    }
-
-    .purchase_heading {
-      padding-bottom: 8px;
-      border-bottom: 1px solid #EAEAEC;
-    }
-
-    .purchase_heading p {
-      margin: 0;
-      color: #85878E;
-      font-size: 12px;
-    }
-
-    .purchase_footer {
-      padding-top: 15px;
-      border-top: 1px solid #EAEAEC;
-    }
-
-    .purchase_total {
-      margin: 0;
-      text-align: right;
-      font-weight: bold;
-      color: #333333;
-    }
-
-    .purchase_total--label {
-      padding: 0 15px 0 0;
-    }
-
-    body {
-      background-color: #F2F4F6;
-      color: #51545E;
-    }
-
-    p {
-      color: #51545E;
-    }
-
-    .email-wrapper {
-      width: 100%;
-      margin: 0;
-      padding: 0;
-      -premailer-width: 100%;
-      -premailer-cellpadding: 0;
-      -premailer-cellspacing: 0;
-      background-color: #F2F4F6;
-    }
-
-    .email-content {
-      width: 100%;
-      margin: 0;
-      padding: 0;
-      -premailer-width: 100%;
-      -premailer-cellpadding: 0;
-      -premailer-cellspacing: 0;
-    }
-    /* Masthead ----------------------- */
-
-    .email-masthead {
-      padding: 25px 0;
-      text-align: center;
-    }
-
-    .email-masthead_logo {
-      width: 94px;
-    }
-
-    .email-masthead_name {
-      font-size: 16px;
-      font-weight: bold;
-      color: #A8AAAF;
-      text-decoration: none;
-      text-shadow: 0 1px 0 white;
-    }
-    /* Body ------------------------------ */
-
-    .email-body {
-      width: 100%;
-      margin: 0;
-      padding: 0;
-      -premailer-width: 100%;
-      -premailer-cellpadding: 0;
-      -premailer-cellspacing: 0;
-    }
-
-    .email-body_inner {
-      width: 600px;
-      margin: 0 auto;
-      padding: 0;
-      -premailer-width: 600px;
-      -premailer-cellpadding: 0;
-      -premailer-cellspacing: 0;
-      background-color: #FFFFFF;
-    }
-
-    .email-footer {
-      width: 600px;
-      margin: 0 auto;
-      padding: 0;
-      -premailer-width: 600px;
-      -premailer-cellpadding: 0;
-      -premailer-cellspacing: 0;
-      text-align: center;
-    }
-
-    .email-footer p {
-      color: #A8AAAF;
-    }
-
-    .body-action {
-      width: 100%;
-      margin: 30px auto;
-      padding: 0;
-      -premailer-width: 100%;
-      -premailer-cellpadding: 0;
-      -premailer-cellspacing: 0;
-      text-align: center;
-    }
-
-    .body-sub {
-      margin-top: 25px;
-      padding-top: 25px;
-      border-top: 1px solid #EAEAEC;
-    }
-
-    .content-cell {
-      padding: 45px;
-    }
-    /*Media Queries ------------------------------ */
-
-    @media only screen and (max-width: 600px) {
-      .email-body_inner,
-      .email-footer {
-        width: 100% !important;
-      }
-    }
-
-
-    </style>
-    <!--[if mso]>
+    <!-- [if !mso]><! -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- <![endif] -->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style type="text/css">
-      .f-fallback  {
-        font-family: Arial, sans-serif;
-      }
+      #outlook a { padding:0; } body {
+      margin:0;padding:0;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;
+      } table, td {
+      border-collapse:collapse;mso-table-lspace:0pt;mso-table-rspace:0pt; } img
+      { border:0;height:auto;line-height:100%;
+      outline:none;text-decoration:none;-ms-interpolation-mode:bicubic; } p {
+      display:block;margin:13px 0; }
     </style>
-  <![endif]-->
-    <style type="text/css" rel="stylesheet" media="all">
-    body {
-      width: 100% !important;
-      height: 100%;
-      margin: 0;
-      -webkit-text-size-adjust: none;
-    }
+    <!-- [if mso]>
+        <xml>
+        <o:OfficeDocumentSettings>
+          <o:AllowPNG/>
+          <o:PixelsPerInch>96</o:PixelsPerInch>
+        </o:OfficeDocumentSettings>
+        </xml>
+        <![endif] -->
+    <!-- [if lte mso 11]>
+        <style type="text/css">
+          .mj-outlook-group-fix { width:100% !important; }
+        </style>
+        <![endif] -->
 
-    body {
-      font-family: "Nunito Sans", Helvetica, Arial, sans-serif;
-    }
+    <!-- [if !mso]><! -->
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700"
+      rel="stylesheet"
+      type="text/css" />
+    <style type="text/css">
+      @import
+      url(https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700);
+    </style>
+    <!-- <![endif] -->
 
-    body {
-      background-color: #F2F4F6;
-      color: #51545E;
-    }
+    <style type="text/css">
+      @media only screen and (min-width:480px) { .mj-column-per-100 { width:100%
+      !important; max-width: 100%; } .mj-column-per-33-333333333333336 {
+      width:33.333333333333336% !important; max-width: 33.333333333333336%; }
+      .mj-column-per-50 { width:50% !important; max-width: 50%; } }
+    </style>
+
+    <style type="text/css">
+      @media only screen and (max-width:480px) { table.mj-full-width-mobile {
+      width: 100% !important; } td.mj-full-width-mobile { width: auto
+      !important; } }
     </style>
   </head>
-  <body style="width: 100% !important; height: 100%; -webkit-text-size-adjust: none; font-family: &quot;Nunito Sans&quot;, Helvetica, Arial, sans-serif; background-color: #F2F4F6; color: #51545E; margin: 0;" bgcolor="#F2F4F6">
-    <span class="preheader" style="display: none !important; visibility: hidden; mso-hide: all; font-size: 1px; line-height: 1px; max-height: 0; max-width: 0; opacity: 0; overflow: hidden;">{% block preview %}{% endblock %}</span>
-    <table class="email-wrapper" width="100%" cellpadding="0" cellspacing="0" role="presentation" style="width: 100%; -premailer-width: 100%; -premailer-cellpadding: 0; -premailer-cellspacing: 0; background-color: #F2F4F6; margin: 0; padding: 0;" bgcolor="#F2F4F6">
-      <tr>
-        <td align="center" style="word-break: break-word; font-family: &quot;Nunito Sans&quot;, Helvetica, Arial, sans-serif; font-size: 16px;">
-          <table class="email-content" width="100%" cellpadding="0" cellspacing="0" role="presentation" style="width: 100%; -premailer-width: 100%; -premailer-cellpadding: 0; -premailer-cellspacing: 0; margin: 0; padding: 0;">
+  <body style="word-spacing:normal;background-color:#fce7b4;">
+    <div style="background-color:#fce7b4;">
+      <!-- [if mso | IE]><table align="center" border="0" cellpadding="0" cellspacing="0" class="" style="width:600px;" width="600" ><tr><td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif] -->
 
-            {# header #}
+      <div style="background:#ffffff;background-color:#ffffff;margin:0px auto;max-width:600px;">
+        <table align="center"
+          border="0"
+          cellpadding="0"
+          cellspacing="0"
+          role="presentation"
+          style="background:#ffffff;background-color:#ffffff;width:100%;">
+          <tbody>
             <tr>
-              <td class="email-masthead" style="word-break: break-word; font-family: &quot;Nunito Sans&quot;, Helvetica, Arial, sans-serif; font-size: 16px; text-align: center; padding: 25px 0;" align="center">
-                <span class="f-fallback email-masthead_name" style="color: #A8AAAF; font-size: 16px; font-weight: bold; text-decoration: none; text-shadow: 0 1px 0 white;">
+              <td style="direction:ltr;font-size:0px;padding:20px 0;padding-bottom:20px;padding-top:20;text-align:center;">
+                <!-- [if mso | IE]><table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><td class="" style="vertical-align:top;width:600px;" ><![endif] -->
 
-                {% block header %}
+                <div class="mj-column-per-100 mj-outlook-group-fix"
+                  style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
+                  <table border="0"
+                    cellpadding="0"
+                    cellspacing="0"
+                    role="presentation"
+                    style="vertical-align:top;"
+                    width="100%">
+                    <tbody>
+                      <tr>
+                        <td align="center"
+                          style="font-size:0px;padding:10px 25px;padding-top:10;padding-right:0px;padding-bottom:10px;padding-left:0px;word-break:break-word;">
+                          <table border="0"
+                            cellpadding="0"
+                            cellspacing="0"
+                            role="presentation"
+                            style="border-collapse:collapse;border-spacing:0px;">
+                            <tbody>
+                              <tr>
+                                <td style="width:150px;">
+                                  <img alt="Terra-Verde Logo"
+                                    height="auto"
+                                    src="https://dev.henrik-hentschel.de/assets/images/logo/TerraVerde_jpg_email.jpg"
+                                    style="border:none;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;"
+                                    width="150" />
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
 
-                    {# <img src="{{ alias('@web') }}/assets/images/logo/TerraVerde_jpg_email.jpg" height="150" width="146" alt="Terra-Verde Logo" /> #}
-                    <img src="https://dev.henrik-hentschel.de/assets/images/logo/TerraVerde_jpg_email.jpg" height="150" width="146" alt="Terra-Verde Logo" />
-
-                {% endblock %}
-
-              </span>
+                <!-- [if mso | IE]></td></tr></table><![endif] -->
               </td>
             </tr>
+          </tbody>
+        </table>
+      </div>
 
-            {# Email Body #}
+      <!-- [if mso | IE]></td></tr></table><table align="center" border="0" cellpadding="0" cellspacing="0" class="" style="width:600px;" width="600" ><tr><td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif] -->
+
+      <div style="background:#ffffff;background-color:#ffffff;margin:0px auto;max-width:600px;">
+        <table align="center"
+          border="0"
+          cellpadding="0"
+          cellspacing="0"
+          role="presentation"
+          style="background:#ffffff;background-color:#ffffff;width:100%;">
+          <tbody>
             <tr>
-              <td class="email-body" width="600" cellpadding="0" cellspacing="0" style="word-break: break-word; margin: 0; padding: 0; font-family: &quot;Nunito Sans&quot;, Helvetica, Arial, sans-serif; font-size: 16px; width: 100%; -premailer-width: 100%; -premailer-cellpadding: 0; -premailer-cellspacing: 0;">
-                <table class="email-body_inner" align="center" width="600" cellpadding="0" cellspacing="0" role="presentation" style="width: 600px; -premailer-width: 600px; -premailer-cellpadding: 0; -premailer-cellspacing: 0; background-color: #FFFFFF; margin: 0 auto; padding: 0;" bgcolor="#FFFFFF">
-                  <tr>
-                    <td class="content-cell" style="word-break: break-word; font-family: &quot;Nunito Sans&quot;, Helvetica, Arial, sans-serif; font-size: 16px; padding: 45px;">
-                      <div class="f-fallback">
+              <td style="direction:ltr;font-size:0px;padding:20px 0;padding-bottom:0px;padding-top:0;text-align:center;">
+                <!-- [if mso | IE]><table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><td class="" style="vertical-align:top;width:600px;" ><![endif] -->
 
-                        {# email content #}
-                        {% block content %}
-                            <h2>Sehr geehrte(r) {{ order.user.fullName }} </h2>
-                            <p>Vielen Dank für Ihre Bestellung bei Terra-Verde!</p>
+                <div class="mj-column-per-100 mj-outlook-group-fix"
+                  style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
+                  <table border="0"
+                    cellpadding="0"
+                    cellspacing="0"
+                    role="presentation"
+                    style="vertical-align:top;"
+                    width="100%">
+                    <tbody>
+                      <tr>
+                        <td align="center"
+                          style="font-size:0px;padding:10px 25px;padding-top:0;padding-right:0px;padding-bottom:0px;padding-left:0px;word-break:break-word;">
+                          <table border="0"
+                            cellpadding="0"
+                            cellspacing="0"
+                            role="presentation"
+                            style="border-collapse:collapse;border-spacing:0px;">
+                            <tbody>
+                              <tr>
+                                <td style="width:600px;">
+                                  <img alt=""
+                                    height="auto"
+                                    src=""
+                                    style="border:none;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;"
+                                    width="600" />
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
 
-                            <h2 class="heading heading--2">Bestellung {{ order.reference }}, am {{ order.dateOrdered|date('d. M Y') }}</h2>
-                            <p>ID-Nummer: {{ order.id }}</p>
-
-                            <div class="ordersummary__info">
-                                <div class="ordersummary__info-term">Kund:in: {{ order.user.fullName }}</div>
-                            </div>
-
-                            <div class="ordersummary__info">
-                                <div class="ordersummary__info-term">Email: {{ order.email }}</div>
-                            </div>
-
-                            <div class="ordersummary__info">
-                                <div class="ordersummary__info-term">Total: {{ order.totalPrice|commerceCurrency(order.currency) }}</div>
-                            </div>
-                            <div class="ordersummary__info">
-                                <div class="ordersummary__info-term">Betrag bezahlt: {{ order.totalPaid|commerceCurrency(order.currency) }}</div>
-                            </div>
-
-                            {% if order.shippingMethodName %}
-                                <div class="ordersummary__info">
-                                    <div class="ordersummary__info-term">Versand: {{ order.shippingMethodName }}</div>
-                                </div>
-
-                            {% endif %}
-                            <hr>
-
-                            <div class="addresses">
-                                <h3 class="addresses__title">Versandadresse</h3>
-                                {% if order.shippingAddress %}
-                                    {% include 'shop/_includes/addresses/address-email' with { address: order.shippingAddress } %}
-                                    {% if order.shippingAddress.sameAs(order.billingAddress) %}
-                                    {% endif %}
-                                {% else %}
-                                    <p>Nicht eingegeben.</p>
-                                {% endif %}
-                            </div>
-
-
-
-                             {% if cart.shippingMethodHandle == 'B2C_pickUpAtStore' %}
-                             test shipping method handele = B2C_pickUpAtStore
-                             {% endif %}
-
-
-                            <div class="addresses">
-                                <h3 class="addresses__title">Rechnungsadresse</h3>
-                                {% if order.billingAddress %}
-                                    {% include 'shop/_includes/addresses/address-email' with { address: order.billingAddress } %}
-                                    {% if order.billingAddress.sameAs(order.shippingAddress) %}
-                                    {% endif %}
-                                {% else %}
-                                    <p>Nicht eingegeben</p>
-                                {% endif %}
-                            </div>
-
-                          <hr>
-
-                          <h2>Bestellte Artikel</h2>
-                            <table class="ordersummary__table">
-
-                                <tbody>
-                                {% for item in order.lineItems %}
-                                    <tr class="align-top">
-                                        <td class="">
-                                             {% if item.options.donationAmount is not defined %}
-                                                {{ item.qty }} x
-                                            {% endif %}
-                                            <strong class="">{{ item.description }}</strong>
-                                            <span class=""><small>(SKU: {{ item.sku }})</small></span>
-
-                                             {% if item.options.giftWrapped is defined %}
-                                                  <div>{% if item.options.giftWrapped == 'yes' %}Als Geschenk verpackt{% endif %}</div>
-                                            {% endif %}
-
-                                            {% if item.note %}
-                                                <div class="">
-                                                    <div class="">Notiz</div>
-                                                    <div>{{ item.note }}</div>
-                                                </div>
-                                            {% endif %}
-                                        </td>
-                                      </tr>
-
-                                      <tr>
-                                        <td class="">
-                                            <div class="flex items-center w-full justify-end" title="{{ item.price }}">
-                                                <div class="text-xs pr-2">Preis/Artikel: {% if item.onSale %}
-                                                    <del>{% endif %}{{ item.price|commerceCurrency(order.currency) }}{% if item.onSale %}</del>{% endif %}
-                                                </div>
-                                            </div>
-                                            {% if item.onSale %}
-                                                <div class="flex items-center w-full justify-end" title="{{ item.salePrice }}">
-                                                    <div class="text-xs pr-2">Sale Preis: {{ item.salePrice|commerceCurrency(order.currency) }}</div>
-                                                </div>
-                                                <div class="flex items-center w-full justify-end" title="{{ item.saleAmount }}">
-                                                    <div class="text-xs pr-2">Sale Anzahl: {{ item.saleAmount|commerceCurrency(order.currency) }}</div>
-                                                </div>
-                                            {% endif %}
-                                            {# <div class="flex items-center w-full justify-end" title="{{ item.subtotal }}">
-                                                <div class="text-xs pr-2">Subtotal: {{ item.subtotal|commerceCurrency(order.currency) }}</div>
-                                            </div> #}
-                                        </td>
-                                    </tr>
-                                    <tr class="">
-                                        <td class="pb-3 pr-3 text-right" colspan="2">
-                                            {# {% if item.adjustments|length %}
-                                                <div class="border-t border-gray-300 border-dotted mt-1">
-                                                    {% for adjustment in item.adjustments %}
-                                                        <div class="flex w-full items-center mt-2 text-sm">
-                                                            <div class="pr-2">
-                                                                <strong class="text-gray-400 text-xs uppercase">Mwst:</strong>
-                                                                {{ adjustment.name }},
-                                                                {{ adjustment.description }},
-                                                                {{ adjustment.amount|commerceCurrency(order.currency) }}
-                                                            </div>
-                                                        </div>
-                                                    {% endfor %}
-                                                </div>
-                                            {% endif %} #}
-
-                                            <div class="" title="{{ item.total }}">
-                                                <div class=""> <strong>Total: {{ item.total|commerceCurrency(order.currency) }}</strong></div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                {% endfor %}
-                                <hr class="light">
-                                <br />
-                                <tr>
-                                    <td class="">
-                                        <div class="flex items-center w-full justify-end border-t border-gray-300 border-dotted pt-3"
-                                            title="{{ order.itemSubTotal }}">
-                                            <div class="">Artikel Subtotal: {{ order.itemSubTotal|commerceCurrency(order.currency) }}</div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <br>
-                                {# {% if order.orderAdjustments|length %}
-                                    <tr class="">
-                                        <td class="">
-                                            <div class="">
-                                                {% for adjustment in order.orderAdjustments %}
-                                                    <div class="flex w-full items-center mt-2 text-sm">
-                                                        <div class="pr-2">
-                                                            <strong class="text-gray-400 text-xs uppercase">Versand</strong>
-                                                            {{ adjustment.name }},
-                                                            {{ adjustment.amount|commerceCurrency(order.currency) }}
-                                                        </div>
-                                                    </div>
-                                                {% endfor %}
-                                            </div>
-                                        </td>
-                                    </tr>
-                                {% endif %} #}
-                              <hr class="light">
-                              <br />
-                                <tr>
-
-                                    <td class="">
-                                        <div class="">
-                                            <strong class="">Zusammenfassung</strong>
-                                        </div>
-
-                                        <div class="" title="{{ order.getTotalShippingCost() }}">
-                                            <div class="">Versand: {{ order.getTotalShippingCost()|commerceCurrency(order.currency) }}</div>
-                                        </div>
-                                        <div class="" title="{{ order.getTotalTaxIncluded() }}">
-                                            <div class="">Mwst (inkl): {{ order.getTotalTaxIncluded()|commerceCurrency(order.currency) }}</div>
-                                        </div>
-                                        <div class="" title="{{ order.getTotalDiscount() }}">
-                                            <div class="">Rabatt: {{ order.getTotalDiscount()|commerceCurrency(order.currency) }}</div>
-                                        </div>
-                                        <br />
-                                        <div class="" title="{{ order.totalPrice }}">
-                                            <div class=""><strong>Preis gesamt: {{ order.totalPrice|commerceCurrency(order.currency) }}</strong></div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                </tbody>
-                            </table>
-
-                        {% endblock %}
-
-                      </div>
-                    </td>
-                  </tr>
-                </table>
+                <!-- [if mso | IE]></td></tr></table><![endif] -->
               </td>
             </tr>
+          </tbody>
+        </table>
+      </div>
 
-            {# footer #}
+      <!-- [if mso | IE]></td></tr></table><table align="center" border="0" cellpadding="0" cellspacing="0" class="" style="width:600px;" width="600" ><tr><td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif] -->
+
+      <div style="background:#356cc7;background-color:#356cc7;margin:0px auto;max-width:600px;">
+        <table align="center"
+          border="0"
+          cellpadding="0"
+          cellspacing="0"
+          role="presentation"
+          style="background:#356cc7;background-color:#356cc7;width:100%;">
+          <tbody>
             <tr>
-              <td style="word-break: break-word; font-family: &quot;Nunito Sans&quot;, Helvetica, Arial, sans-serif; font-size: 16px;">
-                <table class="email-footer" align="center" width="600" cellpadding="0" cellspacing="0" role="presentation" style="width: 600px; -premailer-width: 600px; -premailer-cellpadding: 0; -premailer-cellspacing: 0; text-align: center; margin: 0 auto; padding: 0;">
-                  <tr>
-                    <td class="content-cell" align="center" style="word-break: break-word; font-family: &quot;Nunito Sans&quot;, Helvetica, Arial, sans-serif; font-size: 16px; padding: 45px;">
-                      <p class="f-fallback sub align-center" style="font-size: 13px; line-height: 1.625; text-align: center; color: #A8AAAF; margin: .4em 0 1.1875em;" align="center">
-                        {% block footer %}
+              <td style="direction:ltr;font-size:0px;padding:20px 0;padding-bottom:0px;padding-top:0;text-align:center;">
+                <!-- [if mso | IE]><table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><td class="" style="vertical-align:top;width:600px;" ><![endif] -->
 
-                            <p>Terra Verde, Am Wasser 55, 8049 Zürich</p>
+                <div class="mj-column-per-100 mj-outlook-group-fix"
+                  style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
+                  <table border="0"
+                    cellpadding="0"
+                    cellspacing="0"
+                    role="presentation"
+                    style="vertical-align:top;"
+                    width="100%">
+                    <tbody>
+                      <tr>
+                        <td align="center"
+                          style="font-size:0px;padding:10px 25px;padding-top:10;padding-right:25px;padding-bottom:10px;padding-left:25px;word-break:break-word;">
+                          <div style="font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:13px;line-height:1;text-align:center;color:#ABCDEA;">
+                            Sehr geehrte(r)<p style="font-size:16px; color:white">
+                              {{ order.user.fullName }}
+                            </p>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
 
-                            <p>Telefon  044 342 10 00</p>
-
-                            <p>Email bestellung(at)terra-verde.ch</p>
-                        {% endblock %}
-                      </p>
-                    </td>
-                  </tr>
-                </table>
+                <!-- [if mso | IE]></td></tr></table><![endif] -->
               </td>
             </tr>
+          </tbody>
+        </table>
+      </div>
 
-          </table>
-        </td>
-      </tr>
-    </table>
+      <!-- [if mso | IE]></td></tr></table><table align="center" border="0" cellpadding="0" cellspacing="0" class="" style="width:600px;" width="600" ><tr><td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif] -->
+
+      <div style="background:#356cc7;background-color:#356cc7;margin:0px auto;max-width:600px;">
+        <table align="center"
+          border="0"
+          cellpadding="0"
+          cellspacing="0"
+          role="presentation"
+          style="background:#356cc7;background-color:#356cc7;width:100%;">
+          <tbody>
+            <tr>
+              <td style="direction:ltr;font-size:0px;padding:20px 0;padding-bottom:5px;padding-top:0;text-align:center;">
+                <!-- [if mso | IE]><table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><td class="" style="vertical-align:top;width:600px;" ><![endif] -->
+
+                <div class="mj-column-per-100 mj-outlook-group-fix"
+                  style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
+                  <table border="0"
+                    cellpadding="0"
+                    cellspacing="0"
+                    role="presentation"
+                    style="vertical-align:top;"
+                    width="100%">
+                    <tbody>
+                      <tr>
+                        <td align="center"
+                          style="font-size:0px;padding:10px 25px;padding-top:0;padding-right:20px;padding-bottom:0px;padding-left:20px;word-break:break-word;">
+                          <p style="border-top:solid 2px #ffffff;font-size:1px;margin:0px auto;width:100%;"></p>
+
+                          <!-- [if mso | IE]><table align="center" border="0" cellpadding="0" cellspacing="0" style="border-top:solid 2px #ffffff;font-size:1px;margin:0px auto;width:560px;" role="presentation" width="560px" ><tr><td style="height:0;line-height:0;"> &nbsp;
+</td></tr></table><![endif] -->
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td align="center"
+                          style="font-size:0px;padding:10px 25px;padding-top:10;padding-right:25px;padding-bottom:10px;padding-left:25px;word-break:break-word;">
+                          <div style="font-family:Helvetica;font-size:13px;line-height:1;text-align:center;color:#FFFFFF;">
+                            <span style="font-size:20px; font-weight:bold">
+                              Vielen Dank für Ihre Bestellung bei Terra-Verde!
+                            </span>
+                            <br />
+                            <span style="font-size:15px">
+                              Please find the receipt below.
+                            </span>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <!-- [if mso | IE]></td></tr></table><![endif] -->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- [if mso | IE]></td></tr></table><table align="center" border="0" cellpadding="0" cellspacing="0" class="" style="width:600px;" width="600" ><tr><td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif] -->
+
+      <div style="background:#568feb;background-color:#568feb;margin:0px auto;max-width:600px;">
+        <table align="center"
+          border="0"
+          cellpadding="0"
+          cellspacing="0"
+          role="presentation"
+          style="background:#568feb;background-color:#568feb;width:100%;">
+          <tbody>
+            <tr>
+              <td style="direction:ltr;font-size:0px;padding:20px 0;padding-bottom:15px;padding-top:15;text-align:center;">
+                <!-- [if mso | IE]><table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><td class="" style="vertical-align:top;width:200px;" ><![endif] -->
+
+                <div class="mj-column-per-33-333333333333336 mj-outlook-group-fix"
+                  style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
+                  <table border="0"
+                    cellpadding="0"
+                    cellspacing="0"
+                    role="presentation"
+                    style="vertical-align:top;"
+                    width="100%">
+                    <tbody>
+                      <tr>
+                        <td align="center"
+                          style="font-size:0px;padding:10px 25px;padding-top:20;padding-right:25px;padding-bottom:0px;padding-left:25px;word-break:break-word;">
+                          <div style="font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:15px;line-height:1;text-align:center;color:#FFFFFF;">
+                            <strong>Bestellnummer</strong>
+                          </div>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td align="center"
+                          style="font-size:0px;padding:10px 25px;padding-top:10;padding-right:25px;padding-bottom:20px;padding-left:25px;word-break:break-word;">
+                          <div style="font-family:Helvetica;font-size:13px;line-height:1;text-align:center;color:#FFFFFF;">
+                            {{ order.reference }}
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <!-- [if mso | IE]></td><td class="" style="vertical-align:top;width:200px;" ><![endif] -->
+
+                <div class="mj-column-per-33-333333333333336 mj-outlook-group-fix"
+                  style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
+                  <table border="0"
+                    cellpadding="0"
+                    cellspacing="0"
+                    role="presentation"
+                    style="vertical-align:top;"
+                    width="100%">
+                    <tbody>
+                      <tr>
+                        <td align="center"
+                          style="font-size:0px;padding:10px 25px;padding-top:20;padding-right:25px;padding-bottom:0px;padding-left:25px;word-break:break-word;">
+                          <div style="font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:15px;line-height:1;text-align:center;color:#FFFFFF;">
+                            <strong>Bestelldatum</strong>
+                          </div>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td align="center"
+                          style="font-size:0px;padding:10px 25px;padding-top:10;padding-right:25px;padding-bottom:20px;padding-left:25px;word-break:break-word;">
+                          <div style="font-family:Helvetica;font-size:13px;line-height:1;text-align:center;color:#FFFFFF;">
+                            {{ order.dateOrdered|date('d. M Y') }}
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <!-- [if mso | IE]></td><td class="" style="vertical-align:top;width:200px;" ><![endif] -->
+
+                <div class="mj-column-per-33-333333333333336 mj-outlook-group-fix"
+                  style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
+                  <table border="0"
+                    cellpadding="0"
+                    cellspacing="0"
+                    role="presentation"
+                    style="vertical-align:top;"
+                    width="100%">
+                    <tbody>
+                      <tr>
+                        <td align="center"
+                          style="font-size:0px;padding:10px 25px;padding-top:20;padding-right:25px;padding-bottom:0px;padding-left:25px;word-break:break-word;">
+                          <div style="font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:15px;line-height:1;text-align:center;color:#FFFFFF;">
+                            <strong>Gesamtpreis</strong>
+                          </div>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td align="center"
+                          style="font-size:0px;padding:10px 25px;padding-top:10;padding-right:25px;padding-bottom:20px;padding-left:25px;word-break:break-word;">
+                          <div style="font-family:Helvetica;font-size:13px;line-height:1;text-align:center;color:#FFFFFF;">
+                            {{
+                              order.totalPrice|commerceCurrency(order.currency)
+                            }}
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <!-- [if mso | IE]></td></tr></table><![endif] -->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- [if mso | IE]></td></tr></table><table align="center" border="0" cellpadding="0" cellspacing="0" class="" style="width:600px;" width="600" ><tr><td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif] -->
+
+      <div style="background:#356CC7;background-color:#356CC7;margin:0px auto;max-width:600px;">
+        <table align="center"
+          border="0"
+          cellpadding="0"
+          cellspacing="0"
+          role="presentation"
+          style="background:#356CC7;background-color:#356CC7;width:100%;">
+          <tbody>
+            <tr>
+              <td style="direction:ltr;font-size:0px;padding:20px 0;padding-bottom:20px;padding-top:20;text-align:center;">
+                <!-- [if mso | IE]><table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><td class="" style="vertical-align:top;width:300px;" ><![endif] -->
+
+                <div class="mj-column-per-50 mj-outlook-group-fix"
+                  style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
+                  <table border="0"
+                    cellpadding="0"
+                    cellspacing="0"
+                    role="presentation"
+                    style="vertical-align:top;"
+                    width="100%">
+                    <tbody>
+                      <tr>
+                        <td align="center"
+                          vertical-align="middle"
+                          style="font-size:0px;padding:15px 30px;padding-top:10;padding-right:25px;padding-bottom:10px;padding-left:25px;word-break:break-word;">
+                          <table border="0"
+                            cellpadding="0"
+                            cellspacing="0"
+                            role="presentation"
+                            style="border-collapse:separate;line-height:100%;">
+                            <tr>
+                              <td align="center"
+                                bgcolor="#ffae00"
+                                role="presentation"
+                                style="border:none;border-radius:10px;cursor:auto;mso-padding-alt:10px 25px;background:#ffae00;"
+                                valign="middle">
+                                <a href="https://mjml.io"
+                                  style="display:inline-block;background:#ffae00;color:#FFFFFF;font-family:Helvetica;font-size:14px;font-weight:bold;line-height:120%;margin:0;text-decoration:none;text-transform:none;padding:10px 25px;mso-padding-alt:0px;border-radius:10px;"
+                                  target="_blank">
+                                  Download Receipt
+                                </a>
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <!-- [if mso | IE]></td></tr></table><![endif] -->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- [if mso | IE]></td></tr></table><table align="center" border="0" cellpadding="0" cellspacing="0" class="" style="width:600px;" width="600" ><tr><td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif] -->
+
+      <div style="background:#356cc7;background-color:#356cc7;margin:0px auto;max-width:600px;">
+        <table align="center"
+          border="0"
+          cellpadding="0"
+          cellspacing="0"
+          role="presentation"
+          style="background:#356cc7;background-color:#356cc7;width:100%;">
+          <tbody>
+            <tr>
+              <td style="direction:ltr;font-size:0px;padding:20px 0;padding-bottom:5px;padding-top:0;text-align:center;">
+                <!-- [if mso | IE]><table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><td class="" style="vertical-align:top;width:600px;" ><![endif] -->
+
+                <div class="mj-column-per-100 mj-outlook-group-fix"
+                  style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
+                  <table border="0"
+                    cellpadding="0"
+                    cellspacing="0"
+                    role="presentation"
+                    style="vertical-align:top;"
+                    width="100%">
+                    <tbody>
+                      <tr>
+                        <td align="center"
+                          style="font-size:0px;padding:10px 25px;padding-top:0;padding-right:20px;padding-bottom:0px;padding-left:20px;word-break:break-word;">
+                          <p style="border-top:solid 2px #ffffff;font-size:1px;margin:0px auto;width:100%;"></p>
+
+                          <!-- [if mso | IE]><table align="center" border="0" cellpadding="0" cellspacing="0" style="border-top:solid 2px #ffffff;font-size:1px;margin:0px auto;width:560px;" role="presentation" width="560px" ><tr><td style="height:0;line-height:0;"> &nbsp;
+</td></tr></table><![endif] -->
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td align="center"
+                          style="font-size:0px;padding:10px 25px;padding-top:10;padding-right:25px;padding-bottom:10px;padding-left:25px;word-break:break-word;">
+                          <div style="font-family:Helvetica;font-size:15px;line-height:1;text-align:center;color:#FFFFFF;">
+                            Best,
+                            <br />
+                            <span style="font-size:15px">
+                              The [[CompanyName]] Team
+                            </span>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <!-- [if mso | IE]></td></tr></table><![endif] -->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- [if mso | IE]></td></tr></table><![endif] -->
+    </div>
   </body>
 </html>
-
-
-
-
