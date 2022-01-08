@@ -45,6 +45,7 @@
     "vinyl-source-stream": "^2.0.0"
   },
   "dependencies": {
+    "git-filter-repo": "0.0.30",
     "gulp-ext-replace": "^0.3.0",
     "imagemin-webp": "^6.0.0",
     "postcss": "^8.3.11"
