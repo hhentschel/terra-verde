@@ -4,19 +4,22 @@
   <!-- Template: {{ _self }}.twig -->
 
   <section class="grid">
-
     <div class="row">
       <div class="col col-xs-12 col-md-12 col-lg-12">
         {% include '_components/breadcrumb.twig' %}
       </div>
     </div>
     <div class="row product-detail">
-      <div class="col col-xs-12 col-md-12 col-lg-12 ">
-
-         {# {% include 'shop/produkte/_product-info.twig' %} #}
-        {{ sprig('shop/produkte/_product-info.twig', { 'productId': product.id }) }}
-        
-
+      <div class="col col-xs-12 col-md-12 col-lg-12">
+        {# {% include 'shop/produkte/_product-info.twig' %} #}
+        {{
+          sprig(
+            'shop/produkte/_product-info.twig',
+            {
+              productId: product.id
+            }
+          )
+        }}
       </div>
     </div>
   </section>
