@@ -15,7 +15,7 @@
     Bestellübersicht
   </h3>
 
-   {% if cart.shippingMethodHandle != 'pickUpAtStore' %}
+   {% if cart.shippingMethodHandle != 'B2C_pickUpAtStore' %}
     {% if showShippingAddress %}
       <div class="">
         <h4 class="heading heading--4 heading--no-margin-top">
@@ -115,14 +115,15 @@
   {% endif %}
 
   <div class="checkout__box checkout__box--section">
-    <div class="flex w-full justify-end items-center text-xs text-gray-500">
+    {# <div class="flex w-full justify-end items-center text-xs text-gray-500">
       <div class="pr-2">
         Versand:
       </div>
       <div>
         {{ cart.totalShippingCost|commerceCurrency(cart.currency) }}
       </div>
-    </div>
+    </div> #}
+
     {# <div class="flex w-full justify-end items-center text-xs text-gray-500">
       <div class="pr-2">
         Mwst:
@@ -131,7 +132,8 @@
         {{ cart.totalTax|commerceCurrency(cart.currency) }}
       </div>
     </div> #}
-    {% if cart.totalDiscount|length  %}
+
+    {# {% if cart.totalDiscount|length  %}
     <div class="flex w-full justify-end items-center text-xs text-gray-500">
       <div class="pr-2">
         Rabatt:
@@ -140,7 +142,28 @@
          {{ (cart.totalDiscount * -1)|commerceCurrency(cart.currency) }}
       </div>
     </div>
-    {% endif %}
+    {% endif %} #}
+
+    {# {% if cart.orderAdjustments|length %} #}
+      {% for adjustment in cart.orderAdjustments %}
+        <div class="flex w-full justify-end items-center text-xs text-gray-500">
+          <div class="pr-2">
+            {# <span>Versand ({{ adjustment.description }} ) - {{ adjustment.name }}:</span> #}
+            {# <span>Versand ({{ adjustment.name }} ):</span> #}
+            {% if cart.shippingMethodHandle == 'B2C_pickUpAtStore' %}
+              <span>Rabatt ({{ adjustment.name }} ):</span>
+
+            {% else %}
+            <span>Versand:</span>
+
+            {% endif %}
+          </div>
+          <div>
+            {{ adjustment.amount|commerceCurrency(cart.currency) }}
+          </div>
+        </div>
+      {% endfor %}
+    {# {% endif %} #}
 
     <div class="flex w-full justify-end items-center text-xs text-gray-500">
       <div class="pr-2">
@@ -150,20 +173,6 @@
         {{ cart.totalTaxIncluded|commerceCurrency(cart.currency) }}
       </div>
     </div>
-
-     {% if cart.orderAdjustments|length %}
-        {% for adjustment in cart.orderAdjustments %}
-        <div class="flex w-full justify-end items-center text-xs text-gray-500">
-          <div class="pr-2">
-            <span>Rabatt ({{ adjustment.description }} )</span>
-            <span>{{ adjustment.name }}</span>
-          </div>
-          <div>
-            {{ adjustment.amount|commerceCurrency(cart.currency) }}
-          </div>
-        </div>
-         {% endfor %}
-    {% endif %}
 
 
 

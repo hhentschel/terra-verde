@@ -22,11 +22,10 @@
 {% set catGroupWine = catGroupWine ?? [] %}
 {% set catGroupStatus = catGroupStatus ?? [] %} #}
 
-{% set limit = limit ?? 8 %}
+{% set limit = limit ?? 16 %}
 {% set page = page ?? 1 %}
 {# Defines maximum number of pages to show. #}
 {% set maxPages = 8 %}
-{% set orderBy = orderBy ?? 'articleNumber desc' %}
 
 
 {% if cart is not defined %}
@@ -52,14 +51,15 @@
 {# Create an array of filters. #}
 {% set filters = {
     search: search,
-    articleCategoriesDeli: articleCategoriesDeli,
-    articleCategoriesGift: articleCategoriesGift,
-    articleCategoriesWine: articleCategoriesWine,
-    articleCategoriesStatus: articleCategoriesStatus,
-    orderBy: orderBy,
+    limit: limit,
+    articleCategoriesDeli: catDeliID,
+    articleCategoriesGift: catGiftID,
+    articleCategoriesWine: catWineID,
+    articleCategoriesStatus: catStatusID,
 } %}
 
 {% set productQuery = craft.products(filters|merge({
+    search: search,
     limit: limit,
     with: [
         ['image', {
@@ -92,7 +92,7 @@
 {% set pageInfo = sprig.paginate(productQuery, page) %}
 
 {% set products = pageInfo.pageResults %}
-{# {% set products = storeCustomization.orderedProducts.all() %} #}
+
 
 {# Push the URL into the history stack with the filters, adding extra values. #}
 {% do sprig.pushUrl('?' ~ filters|merge({
@@ -252,9 +252,7 @@
                         <strike>{{variant.price|currency('CHF')}}</strike>
                         {{ variant.salePrice|currency('CHF')}}
                       {% else %}
-
-                        {% include '/shop/produkte/_includes/prices.twig' %}
-
+                        {{ product.defaultPrice|currency('CHF') }}
                       {% endif %}
                     </span>
                   </div>
@@ -264,7 +262,6 @@
 
                 <form method="post" class="js-form">
                     {{ actionInput('commerce/cart/update-cart') }}
-                    {# <form s-method="post" s-action="commerce/cart/update-cart" class="js-form"> #}
                       {{
                       hiddenInput(
                         'successMessage',
@@ -291,27 +288,9 @@
 
                         <div class="item-cart__qty-btn">
                           <input class="input input-xsmall"
-                                  name="qty"
-                                  type="number"
-                                  step="1"
+                                  name="qty" type="number" step="1" min="1" placeholder="Menge" value="1">
 
-                                  {% if currentUser %}
-                                    {% if currentUser.isInGroup('userGroupRetail') %}
-                                    value="{{ product.artikelMinOrderSize }}"
-                                    min="{{ product.artikelMinOrderSize }}"
-                                    placeholder="{{ product.artikelMinOrderSize }}"
-                                    {% else %}
-                                    value="1"
-                                    min="1"
-                                    placeholder="0"
-                                    {% endif %}
-                                  {% else %}
-                                    value="1"
-                                    min="1"
-                                    placeholder="0"
-                                  {% endif %}
-                                  >
-
+                          {# product.availableForPurchase #}
                           {% if variant.stock > 0 or variant.hasUnlimitedStock %}
                             <button type="submit"
                                     class="m-0 button button--primary text-center">In den Warenkorb
@@ -320,9 +299,9 @@
                           <button disabled type="submit"
                                     class="disabled button button--primary text-center">nicht verfügbar
                             </button>
+
                           {% endif %}
                         </div>
-
                     </div>
                 </form>
 

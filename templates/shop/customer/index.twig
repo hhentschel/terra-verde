@@ -37,7 +37,7 @@
           <div class="account">
             <div>
               <span>Eingeloggt als:</span>
-              <strong>{{ currentUser.friendlyName }}</strong>
+              <strong>{{ currentUser.fullName }}</strong>
             </div>
             <div>
               <span>E-Mail:</span> <strong>{{ currentUser.username }}</strong>
@@ -57,12 +57,12 @@
                 </a>
               </li>
 
-              <li class="account__list-item">
+              {# <li class="account__list-item">
                 <a class="account__list-link link"
                   href="{{ url('shop/customer/cards') }}">
                   Bezahlmöglichkeiten bearbeiten
                 </a>
-              </li>
+              </li> #}
 
               <li class="account__list-item">
                 <a class="account__list-link link"
