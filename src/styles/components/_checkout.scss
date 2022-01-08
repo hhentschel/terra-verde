@@ -2,16 +2,14 @@
   width: 100%;
 
   margin: px-to-rem($space--xm) 0 0 0;
-  
+
   &--button {
     display: flex;
     justify-content: flex-end;
   }
 }
 
-
 .checkout {
-
   &__box {
     padding: px-to-rem($space--xm);
     background-color: $color--grey-lightest;
@@ -52,5 +50,18 @@
     .requirements__chekcbox {
       margin: 0 0 0 px-to-rem($space--m);
     }
+  }
+}
+
+// Setting shippingadress
+
+.shippingadress-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 0 px-to-rem($space--m) 0;
+
+  .radio-container {
+    flex: 1;
+    margin: 0 px-to-rem($space--m) 0 0;
   }
 }

@@ -1,5 +1,5 @@
 
-{% set imageUrl = img.getUrl(transform)|default('') %}
+{% set imageUrl = img.getUrl|default('') %}
 {% set imageheight = img.getHeight(transform)|default('') %}
 {% set imagewidth = img.getWidth(transform)|default('') %}
 {% set imagetitle = img.title|default('') %}
@@ -8,11 +8,11 @@
   and img.imageAltText is defined
   and img.imageAltText is not empty
   ? img.imageAltText
-  : ''
+  : 'Terra Verde'
 %}
-{% set imageAltText = imageAltText is defined and imageAltText is not empty
-  ? imageAltText
-  : imageStandardAltText
+{% set imageAltText = img.imageAltText is defined and img.imageAltText is not empty
+  ? img.imageAltText
+  : 'Terra Verde: ' ~ imagetitle
 %}
 {% set imageStandardCaption = img
   and img.imageCaption is defined

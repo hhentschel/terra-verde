@@ -22,10 +22,10 @@
                 {% for item in cart.lineItems %}
                     <div class="floating-cart__content-item">
                       <div class="floating-cart__content-itemname">
+                        <div class="">{% if item.qty %}{{ item.qty }}&times;{% endif %}</div>
                         <div class="truncate">
                           {{ item.description }}
                         </div>
-                        <div class="">{% if item.qty %}&times;{{ item.qty }}{% endif %}</div>
                       </div>
                       <div>
                         {{ item.subtotal|currency(cart.currency) }}

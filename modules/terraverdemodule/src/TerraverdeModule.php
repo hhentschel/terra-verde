@@ -136,6 +136,7 @@ class TerraverdeModule extends Module
           $event->types[] = adjusters\PickUpDiscount::class;
           $event->types[] = adjusters\GiftWrapAdjuster::class;
           $event->types[] = adjusters\GiftNoteAdjuster::class;
+          $event->types[] = adjusters\Discount10::class;
         });
 
         // run queue automatically

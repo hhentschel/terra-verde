@@ -7,7 +7,8 @@
   min-height: calc(100vh - 440px);
 
   @include breakpoint('tablet-landscape') {
-    padding: px-to-rem($content-spacing--tablet-landscape) 0 px-to-rem($space--xxm);
+    padding: px-to-rem($content-spacing--tablet-landscape) 0
+      px-to-rem($space--xxm);
   }
   @include breakpoint('desktop') {
     padding: px-to-rem($content-spacing--desktop) 0 px-to-rem($space--xxm);
@@ -18,19 +19,19 @@
   }
 
   &__detail {
-    
     &-header {
       display: flex;
-      margin: px-to-rem($space--xm) 0;
+      // margin: px-to-rem($space--xm) 0;
     }
 
     &-image {
       flex: 1 0 30%;
+      align-self: flex-start;
     }
 
     &-lead {
       p {
-        margin: 0 0 px-to-rem($space--xm) 0;
+        margin: px-to-rem($space--xm) 0;
       }
     }
   }

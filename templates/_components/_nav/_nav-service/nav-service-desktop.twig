@@ -7,49 +7,44 @@
 
 {% set url = craft.app.request.pathInfo %}
 
-
 {# <div class="header__nav-service"> #}
-  <nav class="nav-service" role="navigation">
-    <h2 class="visually-hidden">
-      {{ 'nav.serviceNavigation'|t }}
-    </h2>
+<nav class="nav-service" role="navigation">
+  <h2 class="visually-hidden">
+    {{ 'nav.serviceNavigation'|t }}
+  </h2>
 
+  <ul class="nav-service__list nav-service__list-top">
+    <li class="nav-service__list-item">
+      {% if currentUser %}
+        <span class="currentuser">
+          <a href="/shop/customer">
+            Profil
+            {# | <strong>{{ currentUser.friendlyName }}</strong> #}
+          </a>
+        </span>
+      {% else %}
+        <a href="{{ loginLink.url }}" class="nav__link">{{ 'Login'|t }}</a>
+      {% endif %}
+    </li>
 
-    <ul class="nav-service__list nav-service__list-top">
-      <li class="nav-service__list-item">
-        {% if currentUser %}
-          <span class="currentuser">
-            <a href="/shop/customer">
-              Kundenkonto
-              {# | <strong>{{ currentUser.friendlyName }}</strong> #}
-            </a>
-          </span>
-        {% else %}
-          <a href="{{ loginLink.url }}" class="nav__link">{{ 'Login'|t }}</a>
-        {% endif %}
-      </li>
+    {% include '_components/_nav/_nav-shop/nav-shop-desktop' %}
 
+    <li class="nav-service__list-item">
+      <a href="{{ sucheLink.url }}"
+        class="nav__link {{ macros.isActive('suche', 1, 'nav__link--') }}">
+        {{ 'Suche'|t }}
+      </a>
+    </li>
+  </ul>
 
-
-       {% include '_components/_nav/_nav-shop/nav-shop-desktop' %}
-
-
-      <li class="nav-service__list-item">
-        <a href="{{ sucheLink.url }}"
-          class="nav__link {{ macros.isActive('suche', 1, 'nav__link--') }}">
-          {{ 'Suche'|t }}
-        </a>
-      </li>
-    </ul>
-
-    {# <ul class="nav-service__list nav-service__list-bottom"> #}
-    {# <li class="nav-service__list-item">
+  {# <ul class="nav-service__list nav-service__list-bottom"> #}
+  {# <li class="nav-service__list-item">
         <a href="{{ instashop.url }}"
           class="nav__link {{ macros.isActive('instashop', 1, 'nav__link--') }}">
           {{ 'InstaShop'|t }}
         </a>
       </li> #}
 
-    {# </ul> #}
-  </nav>
+  {# </ul> #}
+</nav>
 {# </div> #}

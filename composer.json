@@ -1,23 +1,24 @@
 {
   "require": {
-    "craftcms/cms": "3.7.4",
-    "craftcms/commerce": "3.4.0.2",
-    "craftcms/feed-me": "4.3.6",
-    "craftcms/redactor": "2.8.7",
+    "craftcms/cms": "3.7.19",
+    "craftcms/commerce": "3.4.7",
+    "craftcms/feed-me": "4.4.0",
+    "craftcms/redactor": "2.8.8",
     "doublesecretagency/craft-googlemaps": "4.0.11",
     "henrik/craft-user-guide": "dev-develop",
     "kuriousagency/commerce-bundles": "1.2.1",
     "mediabeastnz/craft-commerce-back-in-stock": "1.4.0",
     "nystudio107/craft-imageoptimize": "^1.6",
-    "nystudio107/craft-retour": "3.1.57",
+    "nystudio107/craft-retour": "3.1.65",
     "pompom/commerce-datatrans": "^1.0",
     "pompom/omnipay-datatrans": "^3.0",
     "putyourlightson/craft-sendgrid": "1.2.2",
-    "putyourlightson/craft-sprig": "1.7.0",
-    "spicyweb/craft-neo": "2.11.1",
+    "putyourlightson/craft-sprig": "1.10.4",
+    "spicyweb/craft-neo": "2.11.15",
     "verbb/expanded-singles": "1.1.4",
-    "verbb/formie": "1.4.10",
-    "vlucas/phpdotenv": "^3.4.0"
+    "verbb/formie": "1.4.23",
+    "vlucas/phpdotenv": "^3.4.0",
+    "pompom/address-importer": "@dev"
   },
   "require-dev": {
     "yiisoft/yii2-shell": "^2.0.3"
@@ -54,6 +55,13 @@
     "craft-user-guide": {
       "type": "path",
       "url": "./plugins/*"
+    },
+    "address-importer": {
+      "type": "path",
+      "url": "./craft-plugins/address-importer/",
+      "options": {
+        "symlink": true
+      }
     }
   }
 }

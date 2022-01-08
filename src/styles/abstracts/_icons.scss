@@ -12,7 +12,7 @@
     fill: currentColor;
   }
 
-  ​> use {
+  ​ > use {
     fill: inherit;
     stroke: inherit;
   }
@@ -22,7 +22,13 @@
   height: 1.5em;
   width: 1.5em;
   fill: inherit;
-    stroke: inherit;
+  stroke: inherit;
+}
+
+.icon--check {
+  fill: currentColor;
+  height: 20px;
+  margin: 0 px-to-rem(12) 0 0;
 }
 
 .icon--24 {

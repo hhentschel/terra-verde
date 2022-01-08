@@ -39,10 +39,10 @@
     {% endfor %}
   {% endif %}
 
-  {# {% include '_components/_content-elements/content-elements-startpage-loop' with {
+  {% include '_components/_content-elements/content-elements-startpage-loop' with {
     contentElementsStartpage: entry.contentElementsStartpage.level(1),
     usesGrid: false
-  } %} #}
+  } %}
 
   {# Auswahl aus dem Shop #}
   <section class="grid">
@@ -93,42 +93,31 @@
       <div class="row section-home__row-products">
         {% if products|length %}
           {% for product in products %}
-            <div class="col col-xs-12 col-md-4 col-lg-4">
-              <a href="{{ product.url }}" class="section-home__product">
-                {% set transform = transformation|default('productListing') %}
-                  {% set img = product.articleImage.one() ?? null %}
+            {% for variant in product.getVariants() %}
+              <div class="col col-xs-12 col-md-4 col-lg-4">
+                <a href="{{ product.url }}" class="section-home__product onsale">
+                  {% set transform = transformation|default('productListing') %}
+                    {% set img = product.articleImage.one() ?? null %}
 
-                  {% if img is defined %}
-                    {% include '_components/_content-elements/image'
-                      with {
-                        image: img,
-                        transform: transform
-                        } %}
-                  {% endif %}
-
-                <div class="section-home__product--info">
-                  <h4 class="section-home__product--heading">
-                    {{ product.title }}
-                  </h4>
-
-                  {% if currentUser %}
-                    {% if currentUser.isInGroup('userGroupPrivate') or currentUser.isInGroup('userGroupRedactors') %}
-                      <p class="section-home__product--price">
-                          {{ product.pricePrivateCustomer|currency('CHF') }}
-                      </p>
-                    {% elseif currentUser.isInGroup('userGroupRetail')  or currentUser.isInGroup('userGroupRedactors') %}
-                      <p class="section-home__product--price">
-                          {{ product.priceRetailTrader|currency('CHF') }}
-                      </p>
+                    {% if img is defined %}
+                      {% include '_components/_content-elements/image'
+                        with {
+                          image: img,
+                          transform: transform
+                          } %}
                     {% endif %}
-                  {% else %}
-                  <p class="section-home__product--price">
-                      {{ product.pricePrivateCustomer|currency('CHF') }}
-                    </p>
-                  {% endif %}
-                </div>
-              </a>
-            </div>
+
+                  <div class="section-home__product--info">
+                    <h4 class="section-home__product--heading">
+                      {{ product.title }}
+                    </h4>
+
+                    {% include '/shop/produkte/_includes/prices.twig' %}
+
+                  </div>
+                </a>
+              </div>
+            {% endfor %}
           {% endfor %}
         {% endif %}
       </div>
@@ -162,29 +151,31 @@
       <div class="row section-home__row-products">
         {% if products|length %}
           {% for product in products %}
-            <div class="col col-xs-12 col-md-4 col-lg-4">
-              <a href="{{ product.url }}" class="section-home__product">
-                {% set transform = transformation|default('productListing') %}
-                  {% set img = product.articleImage.one() ?? null %}
+            {% for variant in product.getVariants() %}
+              <div class="col col-xs-12 col-md-4 col-lg-4">
+                <a href="{{ product.url }}" class="section-home__product">
+                  {% set transform = transformation|default('productListing') %}
+                    {% set img = product.articleImage.one() ?? null %}
 
-                  {% if img is defined %}
-                    {% include '_components/_content-elements/image'
-                      with {
-                        image: img,
-                        transform: transform
-                        } %}
-                  {% endif %}
+                    {% if img is defined %}
+                      {% include '_components/_content-elements/image'
+                        with {
+                          image: img,
+                          transform: transform
+                          } %}
+                    {% endif %}
 
-                <div class="section-home__product--info">
-                  <h4 class="section-home__product--heading">
-                    {{ product.title }}
-                  </h4>
+                  <div class="section-home__product--info">
+                    <h4 class="section-home__product--heading">
+                      {{ product.title }}
+                    </h4>
 
-                   {% include '/shop/produkte/_includes/prices.twig' %}
+                    {% include '/shop/produkte/_includes/prices.twig' %}
 
-                </div>
-              </a>
-            </div>
+                  </div>
+                </a>
+              </div>
+            {% endfor %}
           {% endfor %}
         {% endif %}
       </div>

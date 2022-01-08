@@ -1,4 +1,3 @@
-
 .table-container {
   display: block;
   overflow-x: auto;
@@ -12,13 +11,29 @@ table {
   width: 100%;
 
   tr {
-    border-bottom: 1px solid $color--grey-lighter;
-    vertical-align: top;
+    &:not(:last-child) {
+      border-bottom: 1px solid $color--grey-lighter;
+      vertical-align: top;
+      display: flex;
+      flex-direction: column;
+
+      @include breakpoint('tablet-portrait') {
+        display: table-row;
+      }
+    }
   }
 
   td {
     &:not(:last-child) {
-      padding: px-to-rem($space--m) px-to-rem($space--xxm) px-to-rem($space--m) 0;
+      padding: 0;
+
+      @include breakpoint('tablet-portrait') {
+        padding: px-to-rem($space--m) 0;
+      }
+    }
+
+    &:last-child {
+      padding: px-to-rem($space--m) 0 px-to-rem($space--m) 0;
     }
 
     > p {
@@ -29,6 +44,11 @@ table {
 
   thead {
     @include typo(tableHeading);
+    display: none;
+
+    @include breakpoint('tablet-portrait') {
+      display: table-header-group;
+    }
 
     tr {
       border-bottom: 2px solid $color--grey-lighter;
@@ -36,7 +56,8 @@ table {
       th {
         &:not(:last-child) {
           // padding: px-to-rem($space--m) px-to-rem($space--xm) px-to-rem($space--m) 0;
-          padding: px-to-rem($space--s) px-to-rem($space--m) px-to-rem($space--s) px-to-rem($space--s) ;
+          padding: px-to-rem($space--s) px-to-rem($space--m)
+            px-to-rem($space--s) px-to-rem($space--s);
         }
         text-align: left;
       }

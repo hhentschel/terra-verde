@@ -1,15 +1,34 @@
+
+<div class="shop-list__item--prices">
 {% if currentUser %}
   {% if currentUser.isInGroup('userGroupPrivate') or currentUser.isInGroup('userGroupRedactors') %}
-    <p class="section-home__product--price">
-        {{ product.pricePrivateCustomer|currency('CHF') }}
-    </p>
+    {% if variant.onSale %}
+      <strike class="shop-list__item--price-old">{{variant.price|currency('CHF')}}</strike>
+      <span class="shop-list__item--price-sale">{{ variant.salePrice|currency('CHF')}}</span>
+    {% else %}
+      <span class="shop-list__item--price">
+          {{ product.pricePrivateCustomer|currency('CHF') }}
+      </span>
+    {% endif %}
+
   {% elseif currentUser.isInGroup('userGroupRetail')  or currentUser.isInGroup('userGroupRedactors') %}
-    <p class="section-home__product--price">
-        {{ product.priceRetailTrader|currency('CHF') }}
-    </p>
+    {% if variant.onSale %}
+      <strike class="shop-list__item--price-old">{{variant.price|currency('CHF')}}</strike>
+      <span class="shop-list__item--price-sale">{{ variant.salePrice|currency('CHF')}}</span>
+    {% else %}
+      <span class="shop-list__item--price">
+          {{ product.priceRetailTrader|currency('CHF') }}
+      </span>
+    {% endif %}
   {% endif %}
 {% else %}
-  <p class="section-home__product--price">
-    {{ product.pricePrivateCustomer|currency('CHF') }}
-  </p>
+  {% if variant.onSale %}
+    <strike class="shop-list__item--price-old">{{variant.price|currency('CHF')}}</strike>
+    <span class="shop-list__item--price-sale">{{ variant.salePrice|currency('CHF')}}</span>
+  {% else %}
+    <span class="shop-list__item--price">
+      {{ product.pricePrivateCustomer|currency('CHF') }}
+    </span>
+  {% endif %}
 {% endif %}
+</div>

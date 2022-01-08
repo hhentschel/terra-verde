@@ -1,20 +1,20 @@
-
 .breadcrumb {
-
-
   ul {
     display: flex;
     margin-bottom: px-to-rem($space--m);
 
     li {
       color: rgba($color--text, 0.6);
-      
+
       a {
         position: relative;
         font-size: px-to-rem($font-size-s);
+        height: 30px;
+        display: flex;
+        align-items: center;
       }
 
-      &:not(:last-child ){
+      &:not(:last-child) {
         margin-right: px-to-rem($space--xm);
       }
 
@@ -27,23 +27,23 @@
         }
       }
 
-      &:not(:first-child ){
+      &:not(:first-child) {
         a {
           &:after,
-          &:before { 
-          position: absolute;
-          left: -22px;
-          top: 60%;
-          background: rgba($color--text, 0.6);
-          content: '';
-          height: 1px;
-          width: 7px;
-          transform: rotate(-50deg);
-        }
-        
-        &:before {
+          &:before {
+            position: absolute;
+            left: -22px;
+            top: 60%;
+            background: rgba($color--text, 0.6);
+            content: '';
+            height: 1px;
+            width: 7px;
+            transform: rotate(-50deg);
+          }
+
+          &:before {
             transform: rotate(50deg);
-            top: 34%;
+            top: 40%;
           }
         }
       }

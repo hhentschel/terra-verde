@@ -1,5 +1,5 @@
 {% import '_helpers/macros.twig' as macros %}
-{# {% cache globally using key "footer" %} #}
+
 <!-- Template: {{ _self }}.twig -->
 <footer class="footer">
 
@@ -9,65 +9,6 @@
   <div class="footer__top">
     <div class="grid">
       <div class="row">
-        {# <div class="col col-xs-12 col-md-4 col-lg-3">
-          <h3 class="heading--3 heading--no-margin">Newsletter</h3>
-        </div> #}
-
-        {# <div class="col col-xs-12 col-md-8 col-lg-9">
-          <form class="newsletter__form" action="" method="post">
-            {{ csrfInput() }}
-            {{ redirectInput('thankyou') }}
-            <input type="hidden" name="action" value="mailchimp-subscribe/audience/subscribe">
-            <input type="hidden" name="audienceId" value="1fr4ew09qv">
-
-            {% set subscribeResponse = mailchimpSubscribe is defined and mailchimpSubscribe.action == 'subscribe' ? mailchimpSubscribe : null %}
-
-            {% if subscribeResponse %}
-                {% if not subscribeResponse.success %}
-                    <p>An error occured: {{ subscribeResponse.message }}</p>
-                {% endif %}
-            {% endif %}
-
-            <div>
-                <label class="visually-hidden" for="emailInput"{% if subscribeResponse and subscribeResponse.errorCode=='1000' %} class="error"{% endif %}>
-                    Email:
-                </label>
-                <input id="emailInput" class="input" placeholder="E-Mail" type="text" name="email"
-                    {% if subscribeResponse and not subscribeResponse.success %}value="{{ subscribeResponse.values.email ?? '' }}"{% endif %}/>
-            </div>
-
-            <button type="submit" name="" class="button button--primary">Abonnieren</button>
-          </form>
-        </div> #}
-
-
-
-
-
-        {# Formie Newsletter Form #}
-         {# {% set formQuery = craft.formie.forms()
-            .handle('newsletter') %}
-
-        {% set form = formQuery.one() %}
-
-        {% set options = {
-            formClasses: [
-                'newsletter__form',
-            ],
-            formAttributes: {
-                'title': 'Newsletter Anmeldeformular',
-            },
-        } %}
-        <div class="col col-xs-12 col-md-6 col-lg-3">
-          <h3 class="heading--3 heading--no-margin">{{ form.title }}</h3>
-
-        </div>
-
-        <div class="col col-xs-12 col-md-6 col-lg-9">
-          <div class="form__wrapper">
-            {{ craft.formie.renderform('newsletter', options)}}
-          </div>
-        </div> #}
 
         <div class="col col-xs-12 col-md-3 col-lg-3">
           <h3 class="heading--3 heading--no-margin">Newsletter</h3>
@@ -84,7 +25,7 @@
       </div>
     </div>
   </div>
-
+{% cache globally using key "footer" %}
   <div class="footer__middle">
     <div class="grid">
       <div class="row">
@@ -212,4 +153,4 @@
 
 </footer>
 
-{# {% endcache %} #}
+{% endcache %}

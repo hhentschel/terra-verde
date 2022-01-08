@@ -1,26 +1,59 @@
 <!-- Template: {{ _self }}.twig -->
+  {% set customer = craft.commerce.customers.customer %}
+  {% set primaryBillingAddress = customer.getPrimaryBillingAddress() %}
+  {% set primaryShippingAddress = customer.getPrimaryShippingAddress() %}
+
 <div class="js-address-fieldset {{ class }}">
     <h3 class="heading heading--3 heading--no-margin-top">{{ title }}</h3>
     {% if addresses and currentUser %}
+
       <div class="">
         {% for address in addresses %}
-          <div class="">
-            <label class="block address-select js-address-select {{ classes.box.base }}" data-address-id="{{ address.id }}">
-                <div class="js-radio">
+
+         <div>
+            <p>
+              {% if
+                primaryBillingAddress
+                  and primaryBillingAddress.id == address.id %}
+                als Rechnungsadresse gespeichert
+              {% endif %}
+            </p>
+          </div>
+          <div>
+            <p>
+              {% if
+                primaryShippingAddress
+                  and primaryShippingAddress.id == address.id %}
+                als Versandadresse gespeichert
+              {% endif %}
+            </p>
+          </div>
+        <div class="shippingadress-container">
+          <div class="radio-container">
+            <label class="radio-container__label address-select js-address-select" data-address-id="{{ address.id }}">
+
+                <div class="radio-container__box">
+                <div class="radio-container__radio radio-container__box js-radio">
                     <input type="radio" name="{{ name }}Id"
                            data-model-name="{{ name }}"
                         {% if attribute(cart,name~'Id') == address.id %}checked="checked"{% endif %} value="{{ address.id }}"/>
                         {% include 'shop/_includes/addresses/address' %}
                 </div>
-                <div class="actions">
-                  <ul>
-                    <li>
-                      <a class="button button--secondary button--edit" href="{{ url('shop/customer/addresses/edit?addressId='~ address.id ~'&redirect='~craft.app.request.fullPath)}}">Ändern</a>
-                    </li>
-                  </ul>
+
                 </div>
+
             </label>
+
           </div>
+          <div class="actions">
+              <ul>
+                <li>
+                  <a class="button button--secondary button--edit" href="{{ url('shop/customer/addresses/edit?addressId='~ address.id ~'&redirect='~craft.app.request.fullPath)}}">Ändern</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
         {% endfor %}
       </div>
     {% endif %}
@@ -53,4 +86,5 @@
             } %}
         </div>
     </div>
+
 </div>

@@ -16,7 +16,6 @@
     transform: transform
   } %} #}
 
-
   {% set img = img is defined and img is not empty ? img.one() : null %}
 
   {% set imageUrl = img ? img.getUrl('imageOneThird') : '' %}
@@ -48,21 +47,23 @@
     : ''
   %}
 
-{% if imageUrl %}
-  <figure class="image {{ imageTypeClass }}">
-    <div class="image__wrapper">
-      <img class="image__img" src="{{ imageUrl }}" alt="{{ imageAltText }}" />
-    </div>
-    {% if imageCaption %}
-      <figcaption class="image__caption">
-        {{ imageCaption }}
-      </figcaption>
-    {% endif %}
-  </figure>
-{% endif %}
-
+  {% if imageUrl %}
+    <figure class="image {{ imageTypeClass }}">
+      <div class="image__wrapper">
+        <img class="image__img" src="{{ imageUrl }}" alt="{{ imageAltText }}" />
+      </div>
+      {% if imageCaption %}
+        <figcaption class="image__caption">
+          {{ imageCaption }}
+        </figcaption>
+      {% endif %}
+    </figure>
+  {% endif %}
 
   <div class="formatted-text image-text__text">
+    <h3 class="image-text__title--desktop">
+      {{ title }}
+    </h3>
     {{ formattedText }}
   </div>
 </div>

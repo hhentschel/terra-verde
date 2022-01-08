@@ -6,7 +6,6 @@
   <!-- Template: {{ _self }}.twig -->
   <section class="grid">
     <div class="row">
-
       <div class="col col-xs-12 col-md-6 col-lg-5">
         {% include 'shop/checkout/_includes/order-summary' %}
       </div>
@@ -40,7 +39,7 @@
 
             {{ hiddenInput('billingAddressSameAsShipping', 0) }}
 
-            <div class="mt-3">
+            {# <div class="mt-3">
               <label for="billingAddressSameAsShipping">
                 <input id="billingAddressSameAsShipping"
                   name="billingAddressSameAsShipping"
@@ -50,9 +49,9 @@
                   Rechnungsadresse als Lieferadresse verwenden
                 </span>
               </label>
-            </div>
+            </div> #}
 
-            <div class="mt-3">
+            {# <div class="mt-3">
               <label for="makePrimaryShippingAddress">
                 <input id="makePrimaryShippingAddress"
                   name="makePrimaryShippingAddress"
@@ -61,7 +60,7 @@
                   Als primäre Versandadresse verwenden
                 </span>
               </label>
-            </div>
+            </div> #}
 
             <div class="mt-3">
               {% include 'shop/_includes/addresses/fieldset' with {
@@ -71,7 +70,7 @@
               } %}
             </div>
 
-            <div class="mt-3">
+            {# <div class="mt-3">
               <label for="makePrimaryBillingAddress">
                 <input id="makePrimaryBillingAddress"
                   name="makePrimaryBillingAddress"
@@ -80,29 +79,22 @@
                   Als primäre Rechnungsadresse verwenden
                 </span>
               </label>
+            </div> #}
+
+            <div class="checkout__steps">
+              <div class="checkout__steps--button">
+                <input type="submit"
+                  class="input input__primary"
+                  value="Adresse bestätigen und weiter" />
+              </div>
             </div>
-
-
-          <div class="checkout__steps">
-            <div class="checkout__steps--button">
-              <input type="submit"
-                class="input input__primary"
-                value="Adresse bestätigen und weiter" />
-            </div>
-          </div>
-
-
           </form>
         </div>
       </div>
 
-
       <div class="checkout__steps">
-        <div class="col col-xs-12 col-md-12 col-lg-12">
-
-        </div>
+        <div class="col col-xs-12 col-md-12 col-lg-12"></div>
       </div>
-
     </div>
   </section>
 

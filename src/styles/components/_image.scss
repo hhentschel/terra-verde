@@ -1,5 +1,4 @@
 .image {
-
   &--half {
     flex: 0 0 100%;
     max-width: 100%;
@@ -13,23 +12,27 @@
   &--one-third {
     flex: 0 0 100%;
     max-width: 100%;
+    align-self: flex-start;
+    margin-bottom: px-to-rem($space--xm);
 
     @include breakpoint('tablet-landscape') {
       flex: 0 0 30%;
-      margin-right: px-to-rem($space--xm);
+      margin: 0 px-to-rem($space--xm) 0 0;
       max-width: 30%;
     }
   }
 
-
   &__wrapper {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
+
+    @include breakpoint('tablet-landscape') {
+      justify-content: center;
+    }
   }
 
   &__img {
     display: flex;
-    width: auto;
     max-width: 100%;
     height: auto;
   }

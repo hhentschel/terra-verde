@@ -20,4 +20,10 @@
   &__text {
     @include lhCrop(1.8);
   }
+
+  &__title {
+    &--desktop {
+      font-size: px-to-rem($font-size-xm);
+    }
+  }
 }

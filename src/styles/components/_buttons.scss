@@ -48,6 +48,15 @@ $button-primary--disabled-border-color: $color--disabled-border;
 $button-primary--border-radius: 0;
 $button-primary--border-width: 2px;
 
+//success
+$button-success--background-color: $color--green;
+$button-success--border-color: $color--green;
+
+// success hover
+$button-success--hover-color: $color--white;
+$button-success--hover-background-color: rgba($color--green, 0.8);
+$button-success--hover-border-color: $color--green;
+
 /**
  * Secondary
  */
@@ -91,6 +100,12 @@ $button-secondary--disabled-border-color: $color--disabled-border;
 $button-secondary--border-radius: 0;
 $button-secondary--border-width: 2px;
 
+// SMALL
+$button-small--font-size: px-to-rem($font-size-s);
+// padding
+$button-small--horizontal-padding: px-to-em(6);
+$button-small--vertical-padding: px-to-em(8);
+
 .button {
   transition-property: $button--transition-properties;
   transition-duration: $button--transition-duration;
@@ -102,6 +117,7 @@ $button-secondary--border-width: 2px;
   &--primary {
     padding: $button-primary--horizontal-padding
       $button-primary--vertical-padding;
+    text-align: center;
 
     @if (has($button-primary--background-color)) {
       background-color: $button-primary--background-color;
@@ -180,7 +196,7 @@ $button-secondary--border-width: 2px;
   &--secondary {
     padding: $button-secondary--horizontal-padding
       $button-secondary--vertical-padding;
-      text-align: center;
+    text-align: center;
 
     @if (has($button-secondary--background-color)) {
       background-color: $button-secondary--background-color;
@@ -246,6 +262,14 @@ $button-secondary--border-width: 2px;
     display: inline-block;
   }
 
+  &--tertiary {
+    color: $button-secondary--color;
+    font-size: px-to-rem($font-size-xs);
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
   // secondary active
   &--secondary.button--active,
   &--secondary.button--active:hover {
@@ -258,5 +282,40 @@ $button-secondary--border-width: 2px;
     @if (has($button-secondary--active-border-color)) {
       border-color: $button-secondary--active-border-color;
     }
+  }
+
+  &--success {
+    @if (has($button-success--background-color)) {
+      background-color: $button-success--background-color;
+    }
+    @if (has($button-success--border-color)) {
+      border-color: $button-success--border-color;
+    }
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+
+    &:hover {
+      @if (has($button-success--hover-background-color)) {
+        background-color: $button-success--hover-background-color;
+      }
+
+      @if (has($button-success--hover-color)) {
+        color: $button-success--hover-color;
+      }
+
+      @if (has($button-success--hover-border-color)) {
+        border-color: $button-success--hover-border-color;
+      }
+    }
+  }
+
+  &--small {
+    padding: $button-small--horizontal-padding $button-small--vertical-padding;
+    background: none;
+    color: rgba($color--primary, 0.8);
+    font-size: $button-small--font-size;
   }
 }

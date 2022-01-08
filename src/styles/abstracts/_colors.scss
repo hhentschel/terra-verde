@@ -3,16 +3,14 @@
 // -----------------------------------------------------------------------------
 
 $color--white: #fff !default;
-$color--black: #000 !default;
+$color--black: #121 !default;
 
-$color--brown: #3D362F;
-$color--brown-light: #4C3A27;
-$color--brown-lighter: #A8A7A2;
-$color--brown-lightest: #F7F5F1;
-
+$color--brown: #3d362f;
+$color--brown-light: #4c3a27;
+$color--brown-lighter: #a8a7a2;
+$color--brown-lightest: #f7f5f1;
 
 $color--grey-dark: #333333;
-
 
 /* grey */
 $color--grey: #a3a3a3;
@@ -27,14 +25,14 @@ $color--grey-gradient-end: #e9ebef;
 
 /* news beige*/
 
-$color--beige-light: #F7F5F0;
+$color--beige-light: #f7f5f0;
 
 // blue
-$color--bluegrey: #3D596C;
+$color--bluegrey: #3d596c;
 
-$color--blue: #688AA1;
+$color--blue: #688aa1;
 $color--blue-dark: #0d3256;
-$color--blue-light: #7394AA;
+$color--blue-light: #7394aa;
 $color--blue-lighter: #9eadbb;
 $color--blue-lightest: #e6f6ff;
 
@@ -42,10 +40,8 @@ $color--blue-gradient-start: #0f4880;
 $color--blue-gradient-end: #326aa1;
 $color--blue-gradient-primary-end: #2f6ba7;
 
-
-
 // red
-$color--red: #D65E5A;
+$color--red: #d65e5a;
 $color--red-error: #bd3249;
 $color--red-dark: #9e5662;
 $color--red-light: #c99;
@@ -54,7 +50,7 @@ $color--red-gradient-start: $color--red-dark;
 $color--red-gradient-end: $color--red-light;
 
 // green
-$color--green: #43947C;
+$color--green: #43947c;
 
 $color--green-gradient-start: rgba(124, 180, 180, 0.4);
 $color--green-gradient-end: rgba(153, 204, 204, 0.4);

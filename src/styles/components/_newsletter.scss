@@ -1,20 +1,62 @@
-
 .newsletter {
-
   &__form {
     display: flex;
     flex-wrap: wrap;
+    width: 100%;
 
     @include breakpoint('tablet-portrait') {
       flex-wrap: nowrap;
     }
-    
+
     .mc-field-group {
       margin: px-to-rem($space--m) 0 px-to-rem($space--s) 0;
       width: 100%;
 
       @include breakpoint('tablet-portrait') {
         margin: 0 px-to-rem($space--m) 0 0;
+      }
+    }
+
+    .fui-i {
+      width: 100%;
+    }
+
+    .fui-page {
+      display: flex;
+      align-items: stretch;
+      flex-direction: column;
+
+      @include breakpoint('tablet') {
+        align-items: center;
+        flex-direction: row;
+      }
+    }
+    .fui-row {
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+
+      @include breakpoint('tablet') {
+        flex-direction: row;
+      }
+    }
+    .fui-field:not(.fui-type-hidden-field) {
+      margin: px-to-rem($space--m) 0;
+      padding: 0;
+
+      @include breakpoint('tablet') {
+        margin: 0;
+        padding: 0 px-to-rem($space--s);
+      }
+    }
+
+    input[type='text'],
+    input[type='email'] {
+      @include inputStyles();
+      padding: $input--padding-vertical $input--padding-horizontal;
+
+      @if (has($input--height)) {
+        height: $input--height;
       }
     }
   }

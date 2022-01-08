@@ -1,4 +1,6 @@
 /.env
+.env
+*.env
 /.idea
 /vendor
 .DS_Store
@@ -11,3 +13,4 @@ web/content/*
 _backup/*
 --templates/*
 web/assets/files/
+config/project/project.yaml

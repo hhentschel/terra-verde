@@ -1,4 +1,3 @@
-
 {# IMPORT MACROS #}
 {% import '_helpers/macros.twig' as macros %}
 
@@ -21,10 +20,6 @@
     {{ 'nav.mainNavigation'|t }}
   </h2>
   <ul class="nav-main__list">
-    {# <li class="nav-main__list-item">
-      <a class="nav__link {% if craft.app.request.segments|last == "" %}active{% endif %}" href="/">{{ "Home"|t }}</a>
-    </li> #}
-
     <li class="nav-main__list-item">
       <a href="{{ shopLink.url }}"
         class="nav__link {{ macros.isActive('shop', 1, 'nav__link--') }}">
@@ -73,7 +68,7 @@
     </li>
 
     <li class="nav-main__list-item nav-main__list-item-last">
-        {% include '_components/_nav/_nav-service/nav-service-desktop' %}
+      {% include '_components/_nav/_nav-service/nav-service-desktop' %}
     </li>
   </ul>
 </nav>

@@ -3,53 +3,33 @@
 // -----------------------------------------------------------------------------
 
 .footer {
-  
   color: $color--white;
   font-size: px-to-rem($font-size-s);
-  
+
   &--heading {
     font-size: px-to-rem($font-size-xl-p);
-    color:$color--white;
-  }  
+    color: $color--white;
+  }
   &__top {
     background-color: $color--brown-lightest;
     padding: px-to-rem($space--xm) 0;
-    
-    .button--primary {
-      margin-left: px-to-rem($space--m);
-    }
-
     color: $color--black;
 
-    // .button__container {
-    //   margin: 0;
-    //   padding: 0;
-    // }
+    .button--primary {
+      margin: 0;
 
-    // .email-input__container {
-    //   margin: 0;
-    //   padding: 0;
-    // }
+      @include breakpoint('tablet') {
+        margin-left: px-to-rem($space--m);
+      }
+    }
 
     .form__wrapper {
       display: flex;
       align-items: center;
       height: 100%;
     }
-
-    .email-input__container {
-      width: 250px;
-      height: 100%;
-    }
-
-    .fui-page {
-      display: flex;
-    }
-    .fui-row {
-      margin: 0;
-    }
   }
-  
+
   &__middle {
     padding: 0 0 px-to-rem($space--xxm) 0;
     background-color: $color--brown;
