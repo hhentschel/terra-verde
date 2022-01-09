@@ -1,0 +1,6 @@
+{
+  "files.defaultLanguage": "${activeEditorLanguage}",
+  "emmet.includeLanguages": {
+    "twig": "html"
+  }
+}
