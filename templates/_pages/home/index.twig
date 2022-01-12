@@ -11,13 +11,12 @@
       <div class="col col-xs-12 col-md-12 col-lg-12">
         <h1 class="heading heading--title heading--no-margin">
           <span class="visually-hidden">
-            {{ 'main.orgName'|t }} - {{ 'main.title'|t }}
+            {{ 'main.orgName'|t }} - {{ 'main.title'|t }} TEST
           </span>
         </h1>
       </div>
     </div>
   </section>
-
 
   {# HOMEPAGE-NEWS MOBILE #}
   {% if
@@ -66,7 +65,6 @@
     </div>
   </section>
 
-
   {# Aktionen #}
   <section class="section-home section-home__stripe section-home__campaigns">
     <div class="grid">
@@ -75,7 +73,8 @@
           <h3 class="heading heading--h3">
             Aktionen
           </h3>
-          <a class="section-home__link" href="shop/produkte?search=&limit=16&articleCategoriesStatus=10744&page=1">
+          <a class="section-home__link"
+            href="shop/produkte?search=&limit=16&articleCategoriesStatus=10744&page=1">
             <span class="link__text link__text--section">
               {{ 'Alle Aktionen'|t }}
             </span>
@@ -95,17 +94,17 @@
           {% for product in products %}
             {% for variant in product.getVariants() %}
               <div class="col col-xs-12 col-md-4 col-lg-4">
-                <a href="{{ product.url }}" class="section-home__product onsale">
+                <a href="{{ product.url }}"
+                  class="section-home__product onsale">
                   {% set transform = transformation|default('productListing') %}
-                    {% set img = product.articleImage.one() ?? null %}
+                  {% set img = product.articleImage.one() ?? null %}
 
-                    {% if img is defined %}
-                      {% include '_components/_content-elements/image'
-                        with {
-                          image: img,
-                          transform: transform
-                          } %}
-                    {% endif %}
+                  {% if img is defined %}
+                    {% include '_components/_content-elements/image' with {
+                      image: img,
+                      transform: transform
+                    } %}
+                  {% endif %}
 
                   <div class="section-home__product--info">
                     <h4 class="section-home__product--heading">
@@ -113,7 +112,6 @@
                     </h4>
 
                     {% include '/shop/produkte/_includes/prices.twig' %}
-
                   </div>
                 </a>
               </div>
@@ -125,7 +123,7 @@
     <div class="section-home__overlay"></div>
   </section>
 
-    {# Neuheiten #}
+  {# Neuheiten #}
   <section class="section-home section-home__stripe section-home__newproducts">
     <div class="grid">
       <div class="row">
@@ -133,7 +131,8 @@
           <h3 class="heading heading--h3">
             Neuheiten
           </h3>
-          <a class="section-home__link" href="shop/produkte?search=&limit=16&articleCategoriesStatus=10745&page=1">
+          <a class="section-home__link"
+            href="shop/produkte?search=&limit=16&articleCategoriesStatus=10745&page=1">
             <span class="link__text link__text--section">
               {{ 'Alle Neuheiten'|t }}
             </span>
@@ -155,15 +154,14 @@
               <div class="col col-xs-12 col-md-4 col-lg-4">
                 <a href="{{ product.url }}" class="section-home__product">
                   {% set transform = transformation|default('productListing') %}
-                    {% set img = product.articleImage.one() ?? null %}
+                  {% set img = product.articleImage.one() ?? null %}
 
-                    {% if img is defined %}
-                      {% include '_components/_content-elements/image'
-                        with {
-                          image: img,
-                          transform: transform
-                          } %}
-                    {% endif %}
+                  {% if img is defined %}
+                    {% include '_components/_content-elements/image' with {
+                      image: img,
+                      transform: transform
+                    } %}
+                  {% endif %}
 
                   <div class="section-home__product--info">
                     <h4 class="section-home__product--heading">
@@ -171,7 +169,6 @@
                     </h4>
 
                     {% include '/shop/produkte/_includes/prices.twig' %}
-
                   </div>
                 </a>
               </div>
