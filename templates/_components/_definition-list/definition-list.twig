@@ -1,0 +1,26 @@
+{% set isVertical = isVertical|default(false) %}
+{% set definitionListClasses = [
+  'definition-list',
+  isVertical ? 'definition-list--vertical' : 'definition-list--horizontal'
+] %}
+
+{% if classes is defined %}
+  {% set definitionListClasses =
+    definitionListClasses|merge(classes|trim|split(' '))
+  %}
+{% endif %}
+
+{% set attributes = {
+  class: definitionListClasses
+} %}
+
+<dl {{ attr(attributes) }}>
+  {% for item in items %}
+    {% if item.description %}
+      <dt class="definition-list__term">
+        {{ item.term }}
+      </dt>
+      <dd class="definition-list__description">{{ item.description }}</dd>
+    {% endif %}
+  {% endfor %}
+</dl>
