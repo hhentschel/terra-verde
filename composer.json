@@ -8,7 +8,9 @@
     "kuriousagency/commerce-bundles": "^1.2.1",
     "mediabeastnz/craft-commerce-back-in-stock": "^1.4.0",
     "nystudio107/craft-imageoptimize": "^1.6",
+    "nystudio107/craft-recipe": "1.4.0",
     "nystudio107/craft-retour": "^3.1.65",
+    "pompom/address-importer": "@dev",
     "pompom/commerce-datatrans": "^1.0",
     "pompom/omnipay-datatrans": "^3.0",
     "putyourlightson/craft-sendgrid": "^1.2.2",
@@ -16,8 +18,7 @@
     "spicyweb/craft-neo": "^2.11.15",
     "verbb/expanded-singles": "^1.1.4",
     "verbb/formie": "^1.4.23",
-    "vlucas/phpdotenv": "^3.4.0",
-    "pompom/address-importer": "@dev"
+    "vlucas/phpdotenv": "^3.4.0"
   },
   "require-dev": {
     "yiisoft/yii2-shell": "^2.0.3"

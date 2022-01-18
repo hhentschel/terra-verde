@@ -26,6 +26,24 @@ fieldLayouts:
             type: craft\fieldlayoutelements\AssetTitleField
             warning: null
             width: 100
+          -
+            fieldUid: f836488e-b5ab-4d7d-8b93-f9d9fb95263f # Bild Alt-Text
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 79922ac9-edbc-44e9-850c-3995f6bcdbee # Bild Legende
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
         name: Inhalt
         sortOrder: 1
 handle: producersImg

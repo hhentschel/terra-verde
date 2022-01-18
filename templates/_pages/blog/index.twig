@@ -1,0 +1,109 @@
+{% extends '_layouts/main' %}
+{% set pageTitle = entry.pageTitle is not empty ? entry.pageTitle : entry.title
+%}
+
+{% block content %}
+  <div class="grid">
+    <div class="row">
+      <div class="col col-xs-12 col-md-12 col-lg-12">
+        {% include '_components/breadcrumb.twig' %}
+        <h2 class="heading heading--h2 heading--site heading--no-margin-top">
+          {{ pageTitle }}
+        </h2>
+      </div>
+    </div>
+  </div>
+
+  <section class="grid">
+    <div class="row">
+      <div class="col col-xs-12 col-md-12 col-lg-12">
+        {# Create a category query with the 'group' parameter #}
+        {% set myCategoryQuery = craft.categories().group('blogCategories') %}
+
+        {# Fetch the categories #}
+        {% set categories = myCategoryQuery.all() %}
+
+        {# Display the navigation #}
+        <ul>
+          {% nav category in categories %}
+          <li>
+            <a href="{{ category.url }}">{{ category.title }}</a>
+            {% ifchildren %}
+            <ul>
+              {% children %}
+            </ul>
+            {% endifchildren %}
+          </li>
+          {% endnav %}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="grid">
+    <div class="row">
+      <div class="col col-xs-12 col-md-12 col-lg-12">
+        {% set relatedSection = craft.entries.section('blog').level(1).all() %}
+        {% if relatedSection|length %}
+          {% for entry in relatedSection %}
+            <div class="blog-entry">
+              <h3 class="blog-entry__title">
+                {{ entry.title }}
+              </h3>
+
+              <div class="blog-entry__preview">
+                {% if
+                  entry.contentElements is defined
+                    and entry.contentElements is not empty %}
+                  <a href="{{ entry.url }}" class="blog-entry__preview-image">
+                    {% set transform =
+                      transformation|default('imageOneThird')
+                    %}
+                    {% set img = entry.image.one() ?? null %}
+
+                    {% if img is defined %}
+                      {% include '_components/_content-elements/image' with {
+                        image: img,
+                        transform: transform
+                      } %}
+                    {% endif %}
+                  </a>
+                {% else %}
+                  <div class="blog-entry__preview-image">
+                    {% set transform =
+                      transformation|default('imageOneThird')
+                    %}
+                    {% set img = entry.image.one() ?? null %}
+
+                    {% if img is defined %}
+                      {% include '_components/_content-elements/image' with {
+                        image: img,
+                        transform: transform
+                      } %}
+                    {% endif %}
+                  </div>
+                {% endif %}
+
+                <div class="blog-entry__preview-lead">
+                  {{ entry.leadText }}
+                </div>
+              </div>
+
+              {% if
+                entry.contentElements is defined
+                  and entry.contentElements is not empty %}
+                <a href="{{ entry.url }}"
+                  class="producers blog-entry__linkdetail">
+                  mehr Informationen
+                </a>
+              {% elseif
+                entry.recipes is defined and entry.recipes is not empty %}
+                mehr Informationen zum Rezept
+              {% endif %}
+            </div>
+          {% endfor %}
+        {% endif %}
+      </div>
+    </div>
+  </section>
+{% endblock %}

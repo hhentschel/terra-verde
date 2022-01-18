@@ -1,20 +1,19 @@
 columnSuffix: null
-contentColumnType: 'decimal(12,2)'
+contentColumnType: text
 fieldGroup: 4fe8dfc1-b512-4508-a756-d29539b14b62 # Artikel
 handle: priceRetailTrader
 instructions: ''
 name: 'Preise (Detailhandel)'
 searchable: false
 settings:
-  decimals: '2'
-  defaultValue: null
-  max: null
-  min: '0'
-  prefix: null
-  previewCurrency: ''
-  previewFormat: decimal
-  size: null
-  suffix: null
+  byteLimit: null
+  charLimit: null
+  code: ''
+  columnType: null
+  initialRows: '4'
+  multiline: ''
+  placeholder: null
+  uiMode: normal
 translationKeyFormat: null
 translationMethod: none
-type: craft\fields\Number
+type: craft\fields\PlainText

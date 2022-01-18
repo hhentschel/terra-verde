@@ -1,0 +1,75 @@
+{% set newsListData = [
+  {
+    term: 'pages.news.postdate.title'|t,
+    description: entry.postDate|date('d. mm. Y')
+  },
+  {
+    term: 'pages.news.author.title'|t,
+    description: entry.title
+  }
+] %}
+
+{% block content %}
+  <section class="grid">
+    <div class="row">
+      <div class="col col-xs-12 col-md-12 col-lg-12">
+        <div class="content__detail-header">
+          <div class="content__detail-image blog-entry-overview__image">
+            {% set transform = transformation|default('imageOneThird') %}
+            {% set img = entry.image.one() ?? null %}
+
+            {% if img is defined %}
+              {% include '_components/_content-elements/image' with {
+                image: img,
+                transform: transform
+              } %}
+            {% endif %}
+          </div>
+
+          <div class="content__detail-lead blog-entry-overview__lead">
+            {{ entry.leadText }}
+          </div>
+        </div>
+
+        <p>
+          {{ entry.recipes.name }}
+          {{ entry.recipes.author }}
+        </p>
+
+        {% if
+          recipes.recipeCategory is defined
+            and recipes.recipeCategory is not empty %}
+          <p class="cate">
+            {{ entry.recipes.recipeCategory }}
+          </p>
+        {% endif %}
+
+        {% set directions = entry.recipes.getDirections() %}
+        {% if directions %}
+          {% for direction in directions %}
+            {{ direction }}
+          {% endfor %}
+        {% endif %}
+
+        {% set ingredients = entry.recipes.getIngredients('metric', 1) %}
+        {% if ingredients %}
+          {% for ingredient in ingredients %}
+            {{ ingredient }}
+          {% endfor %}
+        {% endif %}
+
+        {% set equipment = entry.recipes.getEquipment() %}
+        {% for item in equipment %}
+          {{ item }}
+        {% endfor %}
+
+        {% if newsListData %}
+          {% include '_components/_definition-list/definition-list' with {
+            items: newsListData,
+            classes: 'page-news-detail__info-wrapper'
+          } %}
+        {% endif %}
+      </div>
+    </div>
+  </section>
+{% endblock %}

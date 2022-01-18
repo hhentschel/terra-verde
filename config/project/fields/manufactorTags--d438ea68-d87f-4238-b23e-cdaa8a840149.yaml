@@ -1,9 +1,9 @@
 columnSuffix: null
 contentColumnType: string
-fieldGroup: 8e1d4181-5012-4bbc-9a55-048bb89f0863 # Super Filter
-handle: superFilterShowTags
-instructions: null
-name: 'Show Tags'
+fieldGroup: 4fe8dfc1-b512-4508-a756-d29539b14b62 # Artikel
+handle: manufactorTags
+instructions: ''
+name: 'Produzenten Tags'
 searchable: false
 settings:
   allowLimit: false
@@ -11,9 +11,9 @@ settings:
   allowSelfRelations: false
   limit: null
   localizeRelations: false
-  selectionLabel: null
-  showSiteMenu: false
-  source: 'taggroup:6545750d-55a9-4713-99e3-2aa767e3bb97' # Show Tags
+  selectionLabel: ''
+  showSiteMenu: true
+  source: 'taggroup:ad7f3368-57d3-4f97-ba54-6224326f9b95' # ähnliche Produzenten
   sources: '*'
   targetSiteId: null
   validateRelatedElements: false

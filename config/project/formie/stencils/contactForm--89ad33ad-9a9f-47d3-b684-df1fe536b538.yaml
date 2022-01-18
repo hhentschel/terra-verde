@@ -149,6 +149,7 @@ data:
     loadingIndicatorText: ''
     progressPosition: end
     redirectUrl: null
+    scrollToTop: true
     storeData: null
     submissionTitleFormat: '{timestamp}'
     submitAction: message
@@ -169,7 +170,7 @@ data:
     validationOnFocus: '1'
     validationOnSubmit: '1'
   userDeletedAction: retain
-defaultStatusId: null
+defaultStatus: c0a61470-04af-4d9c-997c-1f9f722bdf70 # New
 handle: contactForm
 name: 'Contact Form'
-templateId: null
+template: null
