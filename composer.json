@@ -13,6 +13,7 @@
     "pompom/address-importer": "@dev",
     "pompom/commerce-datatrans": "^1.0",
     "pompom/omnipay-datatrans": "^3.0",
+    "putyourlightson/craft-campaign": "1.22.2",
     "putyourlightson/craft-sendgrid": "^1.2.2",
     "putyourlightson/craft-sprig": "^1.10.4",
     "spicyweb/craft-neo": "^2.11.15",
