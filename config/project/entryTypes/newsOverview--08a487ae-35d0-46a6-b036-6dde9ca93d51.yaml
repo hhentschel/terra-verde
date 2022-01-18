@@ -39,8 +39,8 @@ fieldLayouts:
         sortOrder: 1
 handle: newsOverview
 hasTitleField: true
-name: 'Aktuell (Übersicht)'
-section: d549006b-271c-486c-900d-a9348f0ca63d # Aktuell (Übersicht)
+name: Blog
+section: d549006b-271c-486c-900d-a9348f0ca63d # Blog
 sortOrder: 1
 titleFormat: null
 titleTranslationKeyFormat: null

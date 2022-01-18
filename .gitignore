@@ -1,9 +1,5 @@
-/.env
-.env
-*.env
+
 /.idea
-/vendor
-.DS_Store
 node_modules/*
 package-lock.json
 web/assets/scripts/*
@@ -17,9 +13,11 @@ config/project/project.yaml
 project.yaml
 
 # CRAFT ENVIRONMENT
+/.env
+*.env
+.env
 .env.php
 .env.sh
-.env
 
 # COMPOSER
 /vendor

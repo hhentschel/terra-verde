@@ -1,0 +1,12 @@
+bcc: null
+cc: null
+enabled: true
+language: orderLanguage
+name: 'Bestellung TV Website an info@terra-verde.ch'
+pdf: 63fb2479-518b-42d4-b388-594c194ee08d # Bestell-PDF
+plainTextTemplatePath: ''
+recipientType: custom
+replyTo: info@terra-verde.ch
+subject: 'Bestellung Website – {{order.user.fullName}} – {{order.user.email}} – #{{order.reference }} – {{ order.shippingMethodName }}'
+templatePath: /shop/_email/order-confirmation-tv.twig
+to: p@henrik-hentschel.de

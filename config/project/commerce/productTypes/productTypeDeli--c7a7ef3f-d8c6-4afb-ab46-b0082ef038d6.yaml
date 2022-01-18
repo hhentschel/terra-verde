@@ -52,6 +52,42 @@ productFieldLayouts:
             warning: null
             width: 50
           -
+            fieldUid: 58794b5c-5350-47f3-a8fb-e4304e500450 # Artikel Mindestbestellmenge
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: 57dc5489-0c99-4527-bf4d-eaaaf2c2d601 # Artikel Tags
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: 2625559c-aa75-481d-a655-1c6590d7106d # Preis (Privatkunden)
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: f9ea37ad-b93c-4731-90ad-312428b52e6f # Preise (Detailhandel)
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
             fieldUid: a01e981b-9ab4-498e-9274-b1858943fc1c # Produkt Beschreibung
             instructions: null
             label: null
@@ -62,6 +98,15 @@ productFieldLayouts:
             width: 50
           -
             fieldUid: d63d76f8-75e4-40eb-9992-4ea21ba5b437 # Artikel Zusatz Beschreibung
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: 348a200e-7d31-4262-b613-e8cc6e039fb2 # Degustationsnotiz
             instructions: null
             label: null
             required: false
@@ -131,20 +176,11 @@ productFieldLayouts:
             tip: null
             type: craft\fieldlayoutelements\CustomField
             warning: null
-            width: 100
+            width: 50
         name: Produktinformationen
         sortOrder: 1
       -
         elements:
-          -
-            fieldUid: 05f55dad-fac0-482c-95a1-3b41ffa621c1 # Kategorien (Weine)
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            warning: null
-            width: 50
           -
             fieldUid: 3e29b0f8-b933-4ba4-9773-c1f7d96ec10d # Kategorien (Delikatessen)
             instructions: null
@@ -171,16 +207,7 @@ productFieldLayouts:
             tip: null
             type: craft\fieldlayoutelements\CustomField
             warning: null
-            width: 100
-          -
-            fieldUid: 8d976e17-a05f-4e1e-bfe6-7f9b617fda72 # Kategorien (shop)
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            warning: null
-            width: 100
+            width: 50
         name: Kategorien
         sortOrder: 2
       -
@@ -285,6 +312,15 @@ variantFieldLayouts:
             warning: null
             width: 50
           -
+            fieldUid: 58794b5c-5350-47f3-a8fb-e4304e500450 # Artikel Mindestbestellmenge
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
             fieldUid: 31d89d29-5bb5-4d25-81f8-d582276516b3 # Artikel Grundpreis (EVP inkl.)
             instructions: null
             label: null
@@ -320,5 +356,5 @@ variantFieldLayouts:
             type: craft\fieldlayoutelements\CustomField
             warning: null
             width: 25
-        name: Inhalt
+        name: Content
         sortOrder: 1

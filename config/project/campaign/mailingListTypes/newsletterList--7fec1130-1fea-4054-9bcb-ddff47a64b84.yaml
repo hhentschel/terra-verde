@@ -1,0 +1,12 @@
+handle: newsletterList
+name: 'Newsletter List'
+siteUid: dd0cd05e-0cb9-4a76-b993-3cb70e6fc147 # Terra Verde
+subscribeSuccessTemplate: ''
+subscribeVerificationEmailSubject: ''
+subscribeVerificationEmailTemplate: ''
+subscribeVerificationRequired: 1
+subscribeVerificationSuccessTemplate: ''
+unsubscribeFormAllowed: 0
+unsubscribeSuccessTemplate: ''
+unsubscribeVerificationEmailSubject: ''
+unsubscribeVerificationEmailTemplate: ''

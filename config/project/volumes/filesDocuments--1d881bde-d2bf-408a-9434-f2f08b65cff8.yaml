@@ -1,5 +1,5 @@
 fieldLayouts:
-  1ddf9c66-6c2e-4423-be10-7c786cd15cd7:
+  dba79042-ae67-4f7a-9db9-7b6067c9ea46:
     tabs:
       -
         elements:
@@ -23,10 +23,18 @@ fieldLayouts:
             step: null
             tip: null
             title: null
-            type: craft\fieldlayoutelements\TitleField
+            type: craft\fieldlayoutelements\AssetTitleField
             warning: null
             width: 100
         name: Inhalt
         sortOrder: 1
-handle: superFiltershowTags
-name: 'Show Tags'
+handle: filesDocuments
+hasUrls: true
+name: Dokumente
+settings:
+  path: '@webroot/assets/images/content/products/documents'
+sortOrder: 11
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
+type: craft\volumes\Local
+url: '@web/assets/images/content/products/documents'

@@ -1,20 +1,20 @@
 columnSuffix: null
 contentColumnType: string
-fieldGroup: 8e1d4181-5012-4bbc-9a55-048bb89f0863 # Super Filter
-handle: superFilterGenre
-instructions: null
-name: Genre
+fieldGroup: 1856a1a8-498c-4498-84ad-6fcbe1de89f7 # Kategorien
+handle: catBlog
+instructions: ''
+name: 'Kategorien Blog'
 searchable: false
 settings:
   allowLimit: false
   allowMultipleSources: false
   allowSelfRelations: false
-  branchLimit: null
+  branchLimit: ''
   limit: null
   localizeRelations: false
-  selectionLabel: null
+  selectionLabel: ''
   showSiteMenu: false
-  source: 'group:c34200c2-6fd8-4eaa-afaa-7076e4ee7461'
+  source: 'group:0f8a4c95-cf33-41d9-80d6-f568d50b7d4a' # Blog
   sources: '*'
   targetSiteId: null
   validateRelatedElements: false

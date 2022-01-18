@@ -1,0 +1,8 @@
+handle: newsletter
+htmlTemplate: templates/email/newsletter.html
+name: Newsletter
+plaintextTemplate: templates/email/newsletter.html
+queryStringParameters: ''
+siteUid: dd0cd05e-0cb9-4a76-b993-3cb70e6fc147 # Terra Verde
+testContactIds: ''
+uriFormat: '{slug}'
