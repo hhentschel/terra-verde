@@ -3,7 +3,8 @@ $shop-list__grid-gutter--tablet: px-to-rem($grid__space-gutter--tablet);
 $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
 
 :root {
-  --grid-col-breakpoint: 13rem;
+  --grid-col-breakpoint-shop: 12rem;
+  --grid-col-breakpoint-blog: 15rem;
   --grid-col-gap: 0.75rem;
   --grid-row-gap: 2.75rem;
 }
@@ -186,7 +187,7 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
     display: grid;
     grid-template-columns: repeat(
       auto-fill,
-      minmax(var(--grid-col-breakpoint), 1fr)
+      minmax(var(--grid-col-breakpoint-shop), 1fr)
     );
     grid-column-gap: var(--grid-col-gap);
     grid-row-gap: var(--grid-row-gap);

@@ -1,6 +1,14 @@
 {% extends '_layouts/main' %}
 {% set pageTitle = entry.pageTitle is not empty ? entry.pageTitle : entry.title
 %}
+{# Create a category query with the 'group' parameter #}
+{% set myCategoryQuery = craft.categories().group('blogCategories') %}
+{% set catNews = myCategoryQuery.id(16351) %}
+{% set catRecipe = myCategoryQuery.id(16352) %}
+{% set catMagazin = myCategoryQuery.id(16353) %}
+
+{# Fetch the categories #}
+
 
 {% block content %}
   <div class="grid">
@@ -17,14 +25,8 @@
   <section class="grid">
     <div class="row">
       <div class="col col-xs-12 col-md-12 col-lg-12">
-        {# Create a category query with the 'group' parameter #}
-        {% set myCategoryQuery = craft.categories().group('blogCategories') %}
-
-        {# Fetch the categories #}
-        {% set categories = myCategoryQuery.all() %}
-
-        {# Display the navigation #}
         <ul>
+          {% set categories = myCategoryQuery.all() %}
           {% nav category in categories %}
           <li>
             <a href="{{ category.url }}">{{ category.title }}</a>
@@ -42,65 +44,74 @@
 
   <section class="grid">
     <div class="row">
-      <div class="col col-xs-12 col-md-12 col-lg-12">
+      <div class="col col-xs-12 col-md-12 col-lg-12 blog-list">
         {% set relatedSection = craft.entries.section('blog').level(1).all() %}
         {% if relatedSection|length %}
           {% for entry in relatedSection %}
-            <div class="blog-entry">
-              <h3 class="blog-entry__title">
-                {{ entry.title }}
-              </h3>
-
-              <div class="blog-entry__preview">
-                {% if
-                  entry.contentElements is defined
-                    and entry.contentElements is not empty %}
-                  <a href="{{ entry.url }}" class="blog-entry__preview-image">
-                    {% set transform =
-                      transformation|default('imageOneThird')
-                    %}
-                    {% set img = entry.image.one() ?? null %}
-
-                    {% if img is defined %}
-                      {% include '_components/_content-elements/image' with {
-                        image: img,
-                        transform: transform
-                      } %}
-                    {% endif %}
-                  </a>
-                {% else %}
-                  <div class="blog-entry__preview-image">
-                    {% set transform =
-                      transformation|default('imageOneThird')
-                    %}
-                    {% set img = entry.image.one() ?? null %}
-
-                    {% if img is defined %}
-                      {% include '_components/_content-elements/image' with {
-                        image: img,
-                        transform: transform
-                      } %}
-                    {% endif %}
+            <a href="{{ entry.url }}">
+              <div class="blog-list__item">
+                <h3 class="blog-list__item--title">
+                  {{ entry.title }}
+                </h3>
+                {% if categories is defined and categories is not empty %}
+                  {% set categories = entry.catBlog.all() %}
+                  <div class="blog-list__item--cat-container">
+                    {% for cat in categories %}
+                      <span class="blog-list__item--cat-item blog-list__item--cat-item--{% if cat.id == 16351 %}news{% elseif cat.id == 16352 %}recipe{% elseif cat.id == 16353 %}magazin{% endif %}">
+                        {{ cat.title }}
+                      </span>
+                    {% endfor %}
                   </div>
                 {% endif %}
 
-                <div class="blog-entry__preview-lead">
-                  {{ entry.leadText }}
-                </div>
-              </div>
+                <div class="blog-list__item--preview">
+                  {% if
+                    entry.contentElements is defined
+                      and entry.contentElements is not empty %}
+                    {% set transform =
+                      transformation|default('imageOneThird')
+                    %}
 
-              {% if
-                entry.contentElements is defined
-                  and entry.contentElements is not empty %}
-                <a href="{{ entry.url }}"
-                  class="producers blog-entry__linkdetail">
-                  mehr Informationen
-                </a>
-              {% elseif
-                entry.recipes is defined and entry.recipes is not empty %}
-                mehr Informationen zum Rezept
-              {% endif %}
-            </div>
+                    {% set img = entry.image.one() ?? null %}
+
+                    {% if img is defined %}
+                      {% include '_components/_content-elements/image' with {
+                        image: img,
+                        transform: transform
+                      } %}
+                    {% endif %}
+                  {% endif %}
+
+                   {% if
+                    entry.recipes is defined and entry.recipes is not empty %}
+                    {% set img = entry.recipes.getImageUrl() ?? null %}
+                    {% set transform =
+                      transformation|default('imageOneThird')
+                    %}
+                    {% include '_components/_content-elements/image-recipe' with {
+                        image: img,
+                        transform: transform
+                      } %}
+                  {% endif %}
+
+                  <div class="blog-list__item--preview-lead">
+                    {{ entry.leadText }}
+                  </div>
+                </div>
+
+                <span href="{{ entry.url }}"
+                  class="blog-list__item--linkdetail">
+                  {% if
+                    entry.contentElements is defined
+                      and entry.contentElements is not empty %}
+                    mehr Informationen
+                  {% elseif
+                    entry.recipes is defined and entry.recipes is not empty %}
+                    mehr Informationen zum Rezept
+                  {% endif %}
+                </span>
+              </div>
+            </a>
           {% endfor %}
         {% endif %}
       </div>

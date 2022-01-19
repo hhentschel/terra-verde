@@ -1,36 +1,24 @@
-
 {% block content %}
-  <section class="grid">
-    <div class="row">
-      <div class="col col-xs-12 col-md-12 col-lg-12">
+  <div class="content__detail-header">
+    <div class="content__detail-image producers-overview__image">
+      {% set transform = transformation|default('imageOneThird') %}
+      {% set img = entry.image.one() ?? null %}
 
-        <div class="content__detail-header">
-          <div class="content__detail-image producers-overview__image">
-            {% set transform = transformation|default('imageOneThird') %}
-            {% set img = entry.image.one() ?? null %}
-
-            {% if img is defined %}
-              {% include '_components/_content-elements/image'
-                with {
-                  image: img,
-                  transform: transform
-                  } %}
-            {% endif %}
-          </div>
-
-          <div class="content__detail-lead producers-overview__lead">
-            {{ entry.leadText }}
-          </div>
-        </div>
-
-        {% include '_components/_content-elements/content-elements-loop' with {
-          contentElements: entry.contentElements.level(1),
-          usesGrid: false
+      {% if img is defined %}
+        {% include '_components/_content-elements/image' with {
+          image: img,
+          transform: transform
         } %}
-
-      </div>
-
-      </div>
+      {% endif %}
     </div>
-  </section>
+
+    <div class="content__detail-lead producers-overview__lead">
+      {{ entry.leadText }}
+    </div>
+  </div>
+
+  {% include '_components/_content-elements/content-elements-loop' with {
+    contentElements: entry.contentElements.level(1),
+    usesGrid: false
+  } %}
 {% endblock %}
