@@ -26,12 +26,21 @@ fieldLayouts:
             type: craft\fieldlayoutelements\EntryTitleField
             warning: null
             width: 100
+          -
+            fieldUid: b205d303-121a-4aae-8c85-bb00a76f312a # Titel
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
         name: Inhalt
         sortOrder: 1
 handle: instashop
-hasTitleField: false
+hasTitleField: true
 name: InstaShop
-section: 13456c46-75a5-4427-af83-ab20099cf05b
+section: 13456c46-75a5-4427-af83-ab20099cf05b # InstaShop
 sortOrder: 1
 titleFormat: '{section.name|raw}'
 titleTranslationKeyFormat: null

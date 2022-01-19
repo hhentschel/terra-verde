@@ -1,0 +1,47 @@
+fieldLayouts:
+  4394b07c-4197-47f4-b0d9-77111483ee13:
+    tabs:
+      -
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\EntryTitleField
+            warning: null
+            width: 100
+          -
+            fieldUid: b205d303-121a-4aae-8c85-bb00a76f312a # Titel
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Inhalt
+        sortOrder: 1
+handle: producersOverview
+hasTitleField: true
+name: 'Produzenten Übersicht'
+section: c8c7989d-9a6a-4faa-a787-7538cf72ee11 # Produzenten Übersicht
+sortOrder: 1
+titleFormat: '{section.name|raw}'
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

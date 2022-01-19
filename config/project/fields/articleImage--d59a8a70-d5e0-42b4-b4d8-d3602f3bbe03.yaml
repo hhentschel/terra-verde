@@ -1,0 +1,42 @@
+columnSuffix: null
+contentColumnType: string
+fieldGroup: 4fe8dfc1-b512-4508-a756-d29539b14b62 # Artikel
+handle: articleImage
+instructions: ''
+name: 'Produkt Bild'
+searchable: true
+settings:
+  allowSelfRelations: false
+  allowUploads: true
+  allowedKinds:
+    - image
+    - video
+  defaultUploadLocationSource: 'volume:63339d3e-c6d1-4455-be6d-33715340baf0' # Produkte
+  defaultUploadLocationSubpath: ''
+  limit: ''
+  localizeRelations: false
+  previewMode: full
+  restrictFiles: '1'
+  selectionLabel: ''
+  showSiteMenu: true
+  showUnpermittedFiles: false
+  showUnpermittedVolumes: false
+  singleUploadLocationSource: 'volume:63339d3e-c6d1-4455-be6d-33715340baf0' # Produkte
+  singleUploadLocationSubpath: ''
+  source: null
+  sources:
+    - 'volume:63339d3e-c6d1-4455-be6d-33715340baf0' # Produkte
+    - 'volume:127bba7e-6a96-4ffa-8cbb-f4c17d39e347' # Team
+    - 'volume:62aa7cc1-c9ad-4ef4-9d94-4fc3275ba26a' # Produzenten
+    - 'volume:b32fd57a-109a-4013-bf90-72b25ad6b6cd' # Weine Spanien
+    - 'volume:a67b61db-e6cc-4102-85f1-473d36f52ea8' # Weine Italien
+    - 'volume:8aec977e-df97-4119-93e9-0b745252a944' # Weine Frankreich /  Portugal
+    - 'volume:cfba8ac8-e0a0-405f-87ed-accd8f27b372' # Geschenksets
+    - 'volume:1d881bde-d2bf-408a-9434-f2f08b65cff8' # Dokumente
+  targetSiteId: null
+  useSingleFolder: false
+  validateRelatedElements: false
+  viewMode: list
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Assets

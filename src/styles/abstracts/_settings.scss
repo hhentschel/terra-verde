@@ -18,10 +18,10 @@ $breakpoint--base: phone;
 // phone min is 0
 $phone--max: 600px !global;
 
-$tablet-portrait--min: 601px !global;
-$tablet-portrait--max: 900px !global;
+$tablet-portrait--min: 740px !global;
+$tablet-portrait--max: 960px !global;
 
-$tablet-landscape--min: 901px !global;
+$tablet-landscape--min: 961px !global;
 $tablet-landscape--max: 1200px !global;
 
 $desktop--min: 1201px !global;
@@ -130,9 +130,9 @@ $hover-scale-factor: 1.02;
 $background-gradient__angle: 280deg;
 
 // spacing content
-$content-spacing--phone: 90;
+$content-spacing--phone: 120;
 $content-spacing--tablet-landscape: 200;
-$content-spacing--desktop: 400;
+$content-spacing--desktop: 200;
 
 //header height
 $header-height--desktop: 186;

@@ -1,0 +1,111 @@
+.blog-list {
+  @supports (display: grid) {
+    display: grid;
+    grid-template-columns: repeat(
+      auto-fill,
+      minmax(var(--grid-col-breakpoint-blog), 1fr)
+    );
+    grid-column-gap: var(--grid-col-gap);
+    grid-row-gap: var(--grid-row-gap);
+    grid-auto-rows: 1fr;
+    margin: 0;
+  }
+
+  @supports not (display: grid) {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -$shop-list__grid-gutter--phone * 2;
+
+    @include breakpoint('tablet-landscape') {
+      margin: -$shop-list__grid-gutter--tablet / 2;
+    }
+    @include breakpoint('desktop') {
+      margin: -$shop-list__grid-gutter--desktop / 2;
+    }
+  }
+
+  &__item {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: px-to-rem(2);
+    height: 100%;
+
+    @supports not (display: grid) {
+      @include breakpoint('tablet-landscape') {
+        width: 50%;
+      }
+      @include breakpoint('desktop') {
+        width: 33.33%;
+      }
+    }
+  }
+
+  &__item {
+    background-color: $color--beige-light;
+    padding: px-to-rem($space--m);
+
+    &--title {
+      flex: 1;
+      font-size: px-to-rem($font-size-xl-p);
+      margin-top: 0;
+      line-height: $line-height--s;
+    }
+    &--cat-container {
+      display: flex;
+      align-self: flex-start;
+      gap: px-to-rem(10);
+    }
+    &--cat-item {
+      color: $color--white;
+      font-size: px-to-rem(12);
+      padding: px-to-rem(4) px-to-rem(6);
+      background-color: $color--grey-light;
+      border-radius: px-to-rem(3);
+
+      &--news {
+        background-color: $color--orange;
+      }
+      &--recipe {
+        background-color: $color--green;
+      }
+      &--magazin {
+        background-color: $color--blue;
+      }
+    }
+
+    &--preview {
+      display: flex;
+      margin: px-to-rem($space--m) 0;
+      flex-wrap: wrap;
+      flex-direction: column;
+
+      @include breakpoint('tablet-landscape') {
+        flex-wrap: nowrap;
+      }
+
+      &-image {
+        flex: 1 0 100%;
+        margin: 0 0 px-to-rem($space--xm) 0;
+        @include breakpoint('tablet-landscape') {
+          flex: 1 0 30%;
+          margin: 0 px-to-rem($space--xm) 0 0;
+        }
+
+        .image__wrapper {
+          justify-content: flex-start;
+        }
+      }
+      &-lead {
+        p {
+          margin: 0 0 px-to-rem($space--m) 0;
+        }
+      }
+    }
+
+    &--linkdetail {
+      align-self: flex-end;
+    }
+  }
+}

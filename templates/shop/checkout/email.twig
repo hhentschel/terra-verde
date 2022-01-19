@@ -14,29 +14,27 @@
           Bitte geben Sie zuerst Ihre E-Mail Adresse ein.
         </h3>
 
-        <div class="flex">
-          <div class="">
-            <form method="post" action="">
-              {{ actionInput('commerce/cart/update-cart') }}
-              {{ redirectInput('shop/checkout/register-signin') }}
-              {{ csrfInput() }}
+        <form method="post" action="" class="flex checkout">
+          {{ actionInput('commerce/cart/update-cart') }}
+          {{ redirectInput('shop/checkout/register-signin') }}
+          {{ csrfInput() }}
 
-              <div class="field">
-                <label for="email">E-Mail</label>
-                <input id="email"
-                  class="input"
-                  type="text"
-                  value="{{ cart.email }}"
-                  name="email"
-                  placeholder="email@website.ch" />
-              </div>
-
-              <div class="">
-                <input type="submit" value="Weiter" class="btn btn--primary" />
-              </div>
-            </form>
+          <div class="checkout__flex-field">
+            <label for="email">E-Mail</label>
+            <input id="email"
+              class="input"
+              type="text"
+              value="{{ cart.email }}"
+              name="email"
+              placeholder="email@website.ch" />
           </div>
-        </div>
+
+          <div class="">
+            <input type="submit"
+              value="Weiter"
+              class="input input__secondary" />
+          </div>
+        </form>
       </div>
     </div>
   </section>

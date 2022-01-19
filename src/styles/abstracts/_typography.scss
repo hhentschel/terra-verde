@@ -207,7 +207,11 @@ $typography--tablet-portrait: (
  */
 $typography--tablet-landscape: (
   h2: (
-    font-size: px-to-rem($font-size-xxl),
+    font-size: px-to-rem($font-size-xl),
+  ),
+  navMainMobileLogoLine: (
+    font-size: px-to-rem($font-size-m),
+    letter-spacing: 0.78rem,
   ),
 );
 

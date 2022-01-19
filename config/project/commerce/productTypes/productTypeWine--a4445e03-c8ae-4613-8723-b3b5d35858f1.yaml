@@ -1,0 +1,335 @@
+descriptionFormat: ''
+handle: productTypeWine
+hasDimensions: false
+hasProductTitleField: true
+hasVariantTitleField: false
+hasVariants: false
+name: Weine
+productFieldLayouts:
+  c4fc5bf1-601e-43bc-bb64-f8e8f900495f:
+    tabs:
+      -
+        elements:
+          -
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\commerce\fieldlayoutelements\VariantsField
+            warning: null
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\commerce\fieldlayoutelements\ProductTitleField
+            warning: null
+            width: 50
+          -
+            fieldUid: a01e981b-9ab4-498e-9274-b1858943fc1c # Produkt Beschreibung
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: ea603a9d-ad1a-46a9-8400-4c237d4f779e # Artikelnummer
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: 2625559c-aa75-481d-a655-1c6590d7106d # Preis (Privatkunden)
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: f9ea37ad-b93c-4731-90ad-312428b52e6f # Preise (Detailhandel)
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: 31d89d29-5bb5-4d25-81f8-d582276516b3 # Artikel Grundpreis (EVP inkl.)
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: 34381c5f-24e3-4876-a534-c12339c44433 # EANNummer
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: d59a8a70-d5e0-42b4-b4d8-d3602f3bbe03 # Produkt Bild
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: 58794b5c-5350-47f3-a8fb-e4304e500450 # Artikel Mindestbestellmenge
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: dcb77335-6819-4597-a153-2b3ecfc9586f # Artikelgruppe
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: d63d76f8-75e4-40eb-9992-4ea21ba5b437 # Artikel Zusatz Beschreibung
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: a0f9f7a2-3635-47ba-a758-47e6b1bc400e # Zusatzinfo
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: b2b053ff-c5c8-4e2a-83c4-068e2d9ff597 # Zutaten
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: 1c95f87a-2123-4b4b-a9f8-831335adfe84 # Artikel Nährstoffe
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: 8fa0d8eb-0c01-49db-a2ba-515d571b8805 # Passt zu
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: 676d6484-bb25-4582-abcd-c9f07f618d98 # Artikel Jahrgang
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: a4e3c0b2-c990-461b-b016-eeed4b33412e # Bio-Zertifizierung
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: 06d544a4-f99f-422c-b445-cb1b03a87860 # Vinifikation
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: 9041254e-7c39-4bd9-9590-0a646283a360 # Artikel Einheit (Gl, Fl, Dose, Stk., Kan.)
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: 06c0da13-2423-4cbb-8b58-6dddb456fa8c # Artikel Einheit Gewicht/Volumen
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: f021083a-e208-4eaa-974d-3ae4d7e91811 # Artikel Einheit Volumen/Gewicht
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: 6d8afd42-06ac-41d2-9772-f8a1144b0152 # Artikel Einheit für Grundpreis
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: 0ed0afd6-e6a8-4ec5-8acd-e69ce7627106 # Alkoholgehalt
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: 3b29092d-6e27-4661-87d3-a212528b2a3a # Trinktemperatur
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: f73632b8-d77e-478a-9a4b-1a9a41ed6c45 # Allergene
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: 348a200e-7d31-4262-b613-e8cc6e039fb2 # Degustationsnotiz
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: 27ee92fc-2ecb-42a3-86cb-ff619931841a # Vegan
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: 4a97706d-db06-4301-b6ea-066bb4fe9b83 # Artikel Lagerung
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: 090ca3e8-52f7-44f4-8eb1-31b1d8706ff5 # Hersteller
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+        name: Inhalt
+        sortOrder: 1
+      -
+        elements:
+          -
+            fieldUid: 05f55dad-fac0-482c-95a1-3b41ffa621c1 # Kategorien (Weine)
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: cc57da94-196b-4536-a2f4-3b4e6d7a67ab # Kategorien (Geschenke)
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 121a4c00-ea55-46f5-b606-4288506164da # Kategorien (Status)
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+        name: Kategorien
+        sortOrder: 2
+productTitleFormat: ''
+siteSettings:
+  dd0cd05e-0cb9-4a76-b993-3cb70e6fc147: # Terra Verde
+    hasUrls: true
+    template: shop/produkte/_product
+    uriFormat: 'shop/weine/{slug}'
+skuFormat: ''
+titleFormat: '{product.title}'

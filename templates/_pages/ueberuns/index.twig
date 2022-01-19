@@ -1,6 +1,7 @@
 {% extends '_layouts/main' %}
 {% set pageTitle = entry.pageTitle is not empty ? entry.pageTitle : entry.title
 %}
+{% import '_helpers/macros.twig' as macros %}
 
 {% block content %}
   <div class="grid">
@@ -17,13 +18,21 @@
   <section class="grid">
     <div class="row">
       <div class="col col-xs-12 col-md-12 col-lg-3">
-        <ul>
+        <ul class="nav-sidebar">
           {% set relatedSection =
             craft.entries.section('aboutUsStructure').all()
           %}
           {% if relatedSection|length %}
-            {% for entry in relatedSection %}
-              <li><a href="{{ entry.url }}">{{ entry.title }}</a></li>
+            {% for subnav in relatedSection %}
+              <li class="nav-sidebar__item">
+                <a href="{{ subnav.url }}"
+                  class="nav-sidebar__link {{
+                  subnav.id == entry.id
+                    ? 'nav-sidebar__link--active'
+                  }}">
+                  {{ subnav.title }}
+                </a>
+              </li>
             {% endfor %}
           {% endif %}
         </ul>
@@ -35,6 +44,14 @@
           usesGrid: false
         } %}
       </div>
+
+      {% if entry.id == 106 %}
+        <div class="col col-xs-12 col-md-12 col-lg-12 col-lg-shift-3">
+          <div class="form__wrapper">
+            {% include '_pages/newsletter/index.twig' %}
+          </div>
+        </div>
+      {% endif %}
     </div>
   </section>
 {% endblock %}

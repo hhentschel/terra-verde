@@ -1,0 +1,128 @@
+{% set newsListData = [
+  {
+    term: 'pages.news.postdate.title'|t,
+    description: entry.postDate|date('d. mm. Y')
+  },
+  {
+    term: 'pages.news.author.title'|t,
+    description: entry.title
+  }
+] %}
+
+{% block content %}
+  <div class="content__detail-header">
+    <div class="content__detail-image blog-entry-overview__image">
+      {% set transform = transformation|default('imageOneThird') %}
+      {% set img = entry.recipes.getImageUrl() ?? null %}
+
+      {% if img is defined %}
+        {% include '_components/_content-elements/image-recipe' with {
+          image: img,
+          transform: transform
+        } %}
+      {% endif %}
+    </div>
+
+    <div class="content__detail-lead blog-entry-overview__lead">
+      {{ entry.leadText }}
+    </div>
+  </div>
+
+  <h3>
+    {{ entry.recipes.name }}
+  </h3>
+  {% if entry.recipes.serves is defined and entry.recipes.serves is not empty %}
+    <p class="recipe-serves">
+      Für {{ entry.recipes.serves }} Personen
+    </p>
+  {% endif %}
+  {% if
+    entry.recipes.prepTime is defined and entry.recipes.prepTime is not empty %}
+    <p class="recipe-preptime">
+      Vorbereitungszeit: {{ entry.recipes.prepTime }}
+    </p>
+  {% endif %}
+  {% if
+    entry.recipes.cookTime is defined and entry.recipes.cookTime is not empty %}
+    <p class="recipe-cooktime">
+      Kochzeit: {{ entry.recipes.cookTime }}
+    </p>
+  {% endif %}
+  {% if
+    entry.recipes.totalTime is defined
+      and entry.recipes.totalTime is not empty %}
+    <p class="recipe-totaltime">
+      Gesamtzeit: {{ entry.recipes.totalTime }}
+    </p>
+  {% endif %}
+
+  {% if entry.recipes.author is defined and entry.recipes.author is not empty %}
+    <p class="recipe-author">
+      Autor: {{ entry.recipes.author }}
+    </p>
+  {% endif %}
+
+  {% if
+    entry.recipes.recipeCategory is defined
+      and entry.recipes.recipeCategory is not empty %}
+    <p class="recipe-category">
+      {{ entry.recipes.recipeCategory }}
+    </p>
+  {% endif %}
+
+  {% if
+    entry.recipes.recipeCuisine is defined
+      and entry.recipes.recipeCuisine is not empty %}
+    <p class="recipe-style">
+      {{ entry.recipes.recipeCuisine }}
+    </p>
+  {% endif %}
+
+  {% if entry.recipes.skill is defined and entry.recipes.skill is not empty %}
+    <p class="recipe-skill">
+      {{ entry.recipes.skill }}
+    </p>
+  {% endif %}
+
+  {% if recipes.skill is defined and recipes.skill is not empty %}
+    <p class="recipe-skill">
+      {{ entry.recipes.skill }}
+    </p>
+  {% endif %}
+
+  {% set directions = entry.recipes.getDirections() %}
+  {% if directions %}
+    <h4>
+      Anleitung
+    </h4>
+    <ol>
+      {% for direction in directions %}
+        <li>{{ direction }}</li>
+      {% endfor %}
+    </ol>
+  {% endif %}
+
+  {% set ingredients = entry.recipes.getIngredients('metric', 1) %}
+  {% if ingredients %}
+    <h4>
+      Zutaten
+    </h4>
+    <ul class="recipe-list">
+      {% for ingredient in ingredients %}
+        <li>{{ ingredient }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+  {% set equipment = entry.recipes.getEquipment() %}
+  {% if equipment %}
+    <h4>
+      Zubehör
+    </h4>
+    <ul class="recipe-list">
+      {% for item in equipment %}
+        <li>{{ item }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+{% endblock %}

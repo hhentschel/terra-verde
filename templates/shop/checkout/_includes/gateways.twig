@@ -2,7 +2,7 @@
 {% set paymentSources = paymentSources is not defined ? [] : paymentSources %}
 {% set availableGateways = availableGateways is not defined ? [] : availableGateways %}
 
-<label class="font-semibold">Bezahlung auswählen: </label>
+{# <label class="font-semibold">Bezahlung auswählen: </label> #}
 {% if paymentSources|length %}
   {% for source in paymentSources %}
     <label class="block bg-gray-100 p-2 hover:bg-gray-200 cursor-pointer mt-3">
@@ -19,7 +19,7 @@
   {% endfor %}
 {% endif %}
 
-{% if availableGateways|length %}
+{# {% if availableGateways|length %}
   {% for id,name in availableGateways %}
     <label class="block bg-gray-100 p-2 hover:bg-gray-200 cursor-pointer mt-3">
       <div class="flex justify-start items-center">
@@ -28,12 +28,12 @@
         </div>
         <div>
           <strong>{{ name }}</strong>
-          <br><span class="text-gray-600">Zahlungs-Gateway</span>
         </div>
       </div>
     </label>
   {% endfor %}
-{% endif %}
+{% endif %} #}
+
 
 {% js %}
 var $paymentSources = document.querySelectorAll('[name="paymentSourceId"]');

@@ -1,0 +1,24 @@
+columnSuffix: null
+contentColumnType: string
+fieldGroup: 4fe8dfc1-b512-4508-a756-d29539b14b62 # Artikel
+handle: articleCategoriesDeli
+instructions: ''
+name: 'Kategorien (Delikatessen)'
+searchable: false
+settings:
+  allowLimit: false
+  allowMultipleSources: false
+  allowSelfRelations: false
+  branchLimit: ''
+  limit: null
+  localizeRelations: false
+  selectionLabel: ''
+  showSiteMenu: false
+  source: 'group:6d0a5390-063e-400f-aa66-a685d82aa41b' # Delikatessen
+  sources: '*'
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: null
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Categories

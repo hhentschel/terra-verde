@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"name": "terra-verde",
+			"path": "."
+		}
+	],
+	"settings": {
+		"files.defaultLanguage": "${activeEditorLanguage}",
+		"emmet.includeLanguages": {
+			"twig": "html"
+		}
+	}
+}

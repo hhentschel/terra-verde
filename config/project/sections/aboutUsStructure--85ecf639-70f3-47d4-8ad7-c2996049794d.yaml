@@ -1,3 +1,4 @@
+defaultPlacement: end
 enableVersioning: true
 handle: aboutUsStructure
 name: 'Über uns'
@@ -15,11 +16,11 @@ previewTargets:
         - '1'
 propagationMethod: all
 siteSettings:
-  dd0cd05e-0cb9-4a76-b993-3cb70e6fc147:
+  dd0cd05e-0cb9-4a76-b993-3cb70e6fc147: # Terra Verde
     enabledByDefault: true
     hasUrls: true
     template: _pages/ueberuns/index
-    uriFormat: '{slug}'
+    uriFormat: '{parent.uri}/{slug}'
 structure:
   maxLevels: null
   uid: d653b475-c150-4f4d-b997-434bf30ca07d

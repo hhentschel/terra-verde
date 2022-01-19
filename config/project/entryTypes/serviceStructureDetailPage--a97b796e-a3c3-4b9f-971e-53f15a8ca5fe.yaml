@@ -1,0 +1,47 @@
+fieldLayouts:
+  c67b4f87-6cab-456e-b29b-9b2c5d3d1e22:
+    tabs:
+      -
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\EntryTitleField
+            warning: null
+            width: 100
+          -
+            fieldUid: 9f46731d-7fdd-4245-9ca1-719db0672448 # Inhaltselemente
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Inhalt
+        sortOrder: 1
+handle: serviceStructureDetailPage
+hasTitleField: true
+name: Detailseite
+section: 75646a14-9db8-445b-a350-a5068040914b # Service
+sortOrder: 2
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

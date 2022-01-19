@@ -1,3 +1,24 @@
 .visually-hidden {
   @include visually-hidden();
 }
+
+
+.hidden {
+  display: none;
+}
+
+.mobile-hidden {
+  display: none;
+
+  @include breakpoint('desktop') {
+    display: block;
+  }
+}
+
+.desktop-hidden {
+  display: block;
+
+  @include breakpoint('desktop') {
+    display: none;
+  }
+}

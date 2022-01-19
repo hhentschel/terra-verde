@@ -6,4 +6,27 @@
 
 <div class="main-image {{ fullHeight }}"
   style="background-image: url({{ entry.mainImage.one.url }})">
+  {# News #}
+  <div class="circle--bio">
+    <span>100% BIO</span>
+  </div>
+
+  {% if
+    entry.newsHomepageField is defined
+      and entry.newsHomepageField is not empty %}
+    {% for block in entry.newsHomepageField.all() %}
+      <div class="homepage-news">
+        <span class="homepage-news__time">{{ block.newsHomepageTime }}</span>
+        <span class="homepage-news__location">
+          {{ block.newsHomepageLocation }}
+        </span>
+        <h3 class="homepage-news__title heading heading--no-margin heading--3">
+          {{ block.newsHomepageTitle }}
+        </h3>
+        <p class="homepage-news__text">
+          {{ block.newsHomepageText }}
+        </p>
+      </div>
+    {% endfor %}
+  {% endif %}
 </div>

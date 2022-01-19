@@ -13,6 +13,7 @@ $button--transition-easing: easing();
 
 // typo - if you change this, don't forget to change it in `css/utils/_typography.scss`
 $button-primary--font-size: $font-size--base;
+$button-primary-shop--font-size: $font-size-s;
 
 // padding
 $button-primary--horizontal-padding: px-to-em(12, $button-primary--font-size);
@@ -25,7 +26,7 @@ $button-primary--border-color: $color--primary;
 
 // hover
 $button-primary--hover-color: $color--white;
-$button-primary--hover-background-color: $color--primary;
+$button-primary--hover-background-color: rgba($color--primary, 0.8);
 $button-primary--hover-border-color: $color--primary;
 
 // active
@@ -34,9 +35,9 @@ $button-primary--active-background-color: $color--primary;
 $button-primary--active-border-color: $color--primary;
 
 // focus
-$button-primary--focus-color: null;
-$button-primary--focus-background-color: null;
-$button-primary--focus-border-color: null;
+$button-primary--focus-background-color: $color--primary;
+$button-primary--focus-color: $color--white;
+$button-primary--focus-border-color: inherit;
 
 // disabled
 $button-primary--disabled-color: $color--disabled-text;
@@ -46,6 +47,15 @@ $button-primary--disabled-border-color: $color--disabled-border;
 // borders
 $button-primary--border-radius: 0;
 $button-primary--border-width: 2px;
+
+//success
+$button-success--background-color: $color--green;
+$button-success--border-color: $color--green;
+
+// success hover
+$button-success--hover-color: $color--white;
+$button-success--hover-background-color: rgba($color--green, 0.8);
+$button-success--hover-border-color: $color--green;
 
 /**
  * Secondary
@@ -68,7 +78,7 @@ $button-secondary--border-color: $color--secondary;
 
 // hover
 $button-secondary--hover-color: $color--white;
-$button-secondary--hover-background-color: $color--secondary;
+$button-secondary--hover-background-color: rgba($color--secondary, 0.8);
 $button-secondary--hover-border-color: $color--secondary;
 
 // active
@@ -77,9 +87,9 @@ $button-secondary--active-background-color: $color--secondary;
 $button-secondary--active-border-color: $color--secondary;
 
 // focus
-$button-secondary--focus-color: null;
-$button-secondary--focus-background-color: null;
-$button-secondary--focus-border-color: null;
+$button-secondary--focus-color: inherit;
+$button-secondary--focus-background-color: inherit;
+$button-secondary--focus-border-color: inherit;
 
 // disabled
 $button-secondary--disabled-color: $color--disabled-text;
@@ -90,17 +100,24 @@ $button-secondary--disabled-border-color: $color--disabled-border;
 $button-secondary--border-radius: 0;
 $button-secondary--border-width: 2px;
 
+// SMALL
+$button-small--font-size: px-to-rem($font-size-s);
+// padding
+$button-small--horizontal-padding: px-to-em(6);
+$button-small--vertical-padding: px-to-em(8);
+
 .button {
   transition-property: $button--transition-properties;
   transition-duration: $button--transition-duration;
   transition-timing-function: $button--transition-easing;
-
+  display: inline-block;
   /**
    *  Primary styles
    */
   &--primary {
     padding: $button-primary--horizontal-padding
       $button-primary--vertical-padding;
+    text-align: center;
 
     @if (has($button-primary--background-color)) {
       background-color: $button-primary--background-color;
@@ -179,6 +196,7 @@ $button-secondary--border-width: 2px;
   &--secondary {
     padding: $button-secondary--horizontal-padding
       $button-secondary--vertical-padding;
+    text-align: center;
 
     @if (has($button-secondary--background-color)) {
       background-color: $button-secondary--background-color;
@@ -239,6 +257,19 @@ $button-secondary--border-width: 2px;
     }
   }
 
+  &--edit {
+    margin: px-to-rem($space--m) 0;
+    display: inline-block;
+  }
+
+  &--tertiary {
+    color: $button-secondary--color;
+    font-size: px-to-rem($font-size-xs);
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
   // secondary active
   &--secondary.button--active,
   &--secondary.button--active:hover {
@@ -251,5 +282,40 @@ $button-secondary--border-width: 2px;
     @if (has($button-secondary--active-border-color)) {
       border-color: $button-secondary--active-border-color;
     }
+  }
+
+  &--success {
+    @if (has($button-success--background-color)) {
+      background-color: $button-success--background-color;
+    }
+    @if (has($button-success--border-color)) {
+      border-color: $button-success--border-color;
+    }
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+
+    &:hover {
+      @if (has($button-success--hover-background-color)) {
+        background-color: $button-success--hover-background-color;
+      }
+
+      @if (has($button-success--hover-color)) {
+        color: $button-success--hover-color;
+      }
+
+      @if (has($button-success--hover-border-color)) {
+        border-color: $button-success--hover-border-color;
+      }
+    }
+  }
+
+  &--small {
+    padding: $button-small--horizontal-padding $button-small--vertical-padding;
+    background: none;
+    color: rgba($color--primary, 0.8);
+    font-size: $button-small--font-size;
   }
 }

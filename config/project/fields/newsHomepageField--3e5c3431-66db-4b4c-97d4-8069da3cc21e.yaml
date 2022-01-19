@@ -1,0 +1,16 @@
+columnSuffix: null
+contentColumnType: string
+fieldGroup: 57003c64-aadc-404d-a990-553d81d5fef3 # Startseite
+handle: newsHomepageField
+instructions: ''
+name: News
+searchable: true
+settings:
+  contentTable: '{{%matrixcontent_newshomepagefield}}'
+  maxBlocks: '1'
+  minBlocks: ''
+  propagationKeyFormat: null
+  propagationMethod: all
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

@@ -45,32 +45,88 @@ $nav-main--button-list--carret-transition-easing: easing(open);
 
   &-main {
     background-color: $color--white;
-    padding: px-to-rem($space--m) 0;
-    height: px-to-rem(65);
-    margin-left: px-to-rem($space--xm);
+    padding: 0 0 0 px-to-rem($space--xm);
+    display: flex;
+    flex-direction: column;
+    // height: px-to-rem(65);
+    // margin-left: px-to-rem($space--xm);
+    width: 100%;
+   
+
+        .header--sticky & {
+          // padding-top: px-to-rem(($space--s));
+        }
+
     &__list {
       display: flex;
+      align-items: baseline;
       // justify-content: flex-end;
       
       &-item {
         &:not(:last-child) {
-          margin-right: px-to-rem($space--m);
+          margin-right: px-to-rem($space--xm);
+          align-self: center;
+        }
+
+        &:last-child {
+          margin-left: auto;
+          font-size: px-to-rem(15);
+          height: 100%;
+          display: flex;
         }
       }
     }
   }
   
   &-service {
-    height: px-to-rem(65);
+    height: 100%;
     background-color: $color--white;
-    padding: px-to-rem($space--m) 0;
     font-size: px-to-rem(15);
+    display: flex;
     &__list {
       display: flex;
-      justify-content: flex-end;
+      align-items: center;
+
       &-item {
+        position: relative;
+
         &:not(:last-child) {
-          margin-right: px-to-rem($space--m);
+          margin-right: px-to-rem($space--xm);
+        }
+        
+      
+      &-shop {
+        position: relative;
+        background-color: $color--white;
+        cursor: pointer;
+        top: px-to-rem($space--s);
+        margin: 0;
+        left: 0;
+        padding: px-to-rem($space--s);
+        @include breakpoint('tablet-landscape') {
+          top: 0;
+        }
+      }
+
+      &-cartsize {
+        position: absolute;
+        left: (px-to-rem($space--m) + px-to-rem($space--m));
+        border-radius: 50%;
+        top: 0;
+        font-size: px-to-rem(10);
+        padding: px-to-rem(4) px-to-rem($space--s);
+        margin: -(px-to-rem($space--s)) 0 -(px-to-rem($space--s)) 0;
+        background-color: $color--primary;
+        color: $color--white;
+
+        @include breakpoint('tablet-landscape') {
+          right: 0;
+          left: inherit;
+        }
+      }
+
+      .currentuser {
+        display: inline-block;
         }
       }
     }

@@ -1,0 +1,94 @@
+.floating-cart {
+
+  &__wrapper {
+    position: absolute;
+    top: 0;
+    right:0;
+    // width: 33%;
+    z-index: 100;
+    min-width: 350px;
+  }
+
+  &__box {
+    position: relative;
+    background-color: $color--white;
+    padding: px-to-rem($space--m);
+    margin: 0;
+    --tw-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    box-shadow: var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow);
+  }
+
+  &__closebox {
+    position: absolute;
+    right: 0;
+    top: 0;
+    // margin: px-to-rem($space--s) px-to-rem($space--m) px-to-rem($space--m) 0;
+    // padding: px-to-rem($space--s) 0 px-to-rem($space--s) px-to-rem($space--s);
+    margin: 0;
+    padding: 0;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &-icon {
+      height: 30px;
+      background-color: $color--primary;
+      width: 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: $color--white;
+
+      // cursor-pointer uppercase text-gray-400 hover:text-gray-800
+    }
+  }
+
+  &__content {
+    margin-top: px-to-rem($space--xm);
+
+    &-articles {
+      font-size: $font-size-s;
+    }
+
+    &-total {
+      // mt-2 border-t-2 border-gray-200 text-right
+      text-align: right;
+      border-top: 1px solid $color--brown-lighter;
+      margin-top: px-to-rem($space--s);
+      padding: px-to-rem($space--s) 0 0 0;
+    }
+
+    &-subtotal {
+      color: $color--brown-lighter;
+      font-size: $font-size-s;
+    }
+
+    &-subtotalnumber {
+      
+      font-size: $font-size-m;
+    }
+
+    &-item {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &-itemname {
+      overflow: hidden;
+      margin-right: px-to-rem($space--s);
+      justify-content: space-between;
+      align-items: center;
+      display: flex;
+    }
+
+    &-buttons {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      height: 100%;
+      margin: px-to-rem($space--m) 0 px-to-rem($space--s) 0;
+    }
+  }
+}

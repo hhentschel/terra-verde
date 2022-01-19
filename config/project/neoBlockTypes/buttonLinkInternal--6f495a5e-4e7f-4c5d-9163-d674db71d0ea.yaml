@@ -1,0 +1,43 @@
+childBlocks: null
+field: 9f46731d-7fdd-4245-9ca1-719db0672448 # Inhaltselemente
+fieldLayouts:
+  5cdec686-f7a0-4cbc-8665-d6985766923c:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 86c08488-49e8-48fc-8daf-61b59aaf31fa # Button Link auf Eintrag
+            instructions: ''
+            label: ''
+            required: '1'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: ac56b463-604b-4eb0-afca-e3cf6579de22 # Link Farbe
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 15e8e382-ef35-4ba0-b82a-fd65b047ea1e # Link Text
+            instructions: ''
+            label: ''
+            required: '1'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Inhalt
+        sortOrder: 1
+handle: buttonLinkInternal
+maxBlocks: 0
+maxChildBlocks: 0
+maxSiblingBlocks: 0
+name: 'Interner Link (hervorgehoben)'
+sortOrder: 7
+topLevel: true

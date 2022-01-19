@@ -2,10 +2,14 @@
 
   text-align: center;
   width: 100%;
-  margin: 0 auto;
+  margin: 0 auto px-to-rem($space--xm) auto;
   
   &__nav {
     display: flex;
+    flex-direction: column;
+    @include breakpoint('tablet-landscape') {
+      flex-direction: row;
+    }
 
     &--link {
       flex: 1 1 0%;
@@ -25,6 +29,26 @@
       height: px-to-rem($space--s);
       margin-top: px-to-rem(-$space--s);
       
+    }
+  }
+}
+
+
+.checkout {
+  margin: px-to-rem($space--l) 0;
+  &__flex-field {
+    display: flex;
+
+
+    > label {
+      flex: 1 0 auto;
+      padding-right: px-to-rem($space--m);
+      align-self: center;
+    }
+
+    .input {
+      width: px-to-rem(360);
+      margin-right: px-to-rem($space--m);
     }
   }
 }

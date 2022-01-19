@@ -18,17 +18,16 @@
         {% include '_components/_main-image/main-image' %}
       {% endif %}
 
-      {% include '_layouts/_includes/flash-notices' %}
+      {% include '_layouts/_includes/flash-notices.twig' %}
 
-      {# <div class="container mx-auto p-6 flex-grow"> #}
+
       {% include 'shop/_includes/nav-checkout' %}
+                {# {% include 'shop/_includes/nav-main' %} #}
       {% block content %}
 
       {% endblock %}
-      {# </div> #}
     </div>
   </main>
 
   {% include '_layouts/_includes/footer' %}
-  {% include '_layouts/_includes/sprig' %}
 {% endblock %}

@@ -8,6 +8,7 @@ $form-input--label-pos-y: px-to-rem($space--xs * 2);
 $form-input--spacing: px-to-rem($space--m + $space--xs);
 
 .form {
+  position: relative;
   @include typo(formInput);
   $this: &;
 
@@ -51,8 +52,20 @@ $form-input--spacing: px-to-rem($space--m + $space--xs);
     }
   }
 
-  &--freeform {
+  &-registration{
     width: 100%;
+    display: flex;
+    // flex-direction: column;
+    flex-wrap: wrap;
+
+    &__item {
+      flex: 0 1 50%;
+      width: 50%;
+
+      input {
+        width: 90%;
+      }
+    }
   }
 
   &__selection {
@@ -126,5 +139,30 @@ $form-input--spacing: px-to-rem($space--m + $space--xs);
     background-position: calc(100% - #{$form-input--spacing}) center;
     content: ' ';
     display: inline-block;
+  }
+
+  &-adress {
+    display: flex;
+    flex-flow: row wrap;
+
+    &__item {
+      flex: 0 1 100%;
+      margin: 0 0 $form-input--spacing 0;
+      
+      @include breakpoint('tablet-landscape') {
+        flex: 0 1 50%;
+      }
+
+      &:nth-child(odd) {
+        margin: 0 0 $form-input--spacing 0;
+        flex: 0 1 100%;
+        
+        @include breakpoint('tablet-landscape') {
+          margin: 0 $form-input--spacing 0 0;
+          flex: 0 1 calc(50% - #{$form-input--spacing});
+
+        }
+      }
+    }
   }
 }

@@ -1,12 +1,16 @@
-
-{% if cart.lineItems|length %}
-
-  <li class="nav-service__list-item">
-    <a class="" href=" {{ url('shop/cart') }}">
-      {% if cart.totalQty %}<span  class="">{{ cart.totalQty }}</span>{% endif %}
-      {% include 'shop/_images/cart.svg' %}
-      <strong class="">({{ cart.itemSubtotal|currency(cart.currency) }})</strong>
-    </a>
-  </li>
-
-{% endif %}
+<li class="nav-service__list-item nav-service__list-item-shop">
+  <a href="/shop/warenkorb" class="cursor-pointer">
+    <span class="nav-service__list-item-cartsize">
+      {{
+        sprig(
+          'sprig/components/cart/_components/cartsize',
+          {},
+          {
+            id: 'cartsize'
+          }
+        )
+      }}
+    </span>
+    {% include 'shop/_images/cart.svg' %}
+  </a>
+</li>

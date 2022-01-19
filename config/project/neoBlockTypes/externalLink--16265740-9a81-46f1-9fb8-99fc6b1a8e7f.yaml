@@ -1,0 +1,34 @@
+childBlocks: null
+field: 9f46731d-7fdd-4245-9ca1-719db0672448 # Inhaltselemente
+fieldLayouts:
+  4e33616d-1820-4821-9b20-cb5198e6383a:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 15e8e382-ef35-4ba0-b82a-fd65b047ea1e # Link Text
+            instructions: ''
+            label: ''
+            required: '1'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 437e0241-3704-4701-a904-0082985e64ed # Externer Link
+            instructions: ''
+            label: ''
+            required: '1'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Inhalt
+        sortOrder: 1
+handle: externalLink
+maxBlocks: 0
+maxChildBlocks: 0
+maxSiblingBlocks: 0
+name: 'Externer Link (mit Icon)'
+sortOrder: 9
+topLevel: true

@@ -1,0 +1,44 @@
+childBlocks:
+  - titleH2
+  - titleH3
+  - titleH4
+  - formattedText
+  - table
+  - buttonLinkInternal
+  - externalLink
+  - linkDownload
+  - image
+  - youtubeVideo
+field: 9f46731d-7fdd-4245-9ca1-719db0672448 # Inhaltselemente
+fieldLayouts:
+  3a4f3a17-e648-4926-ada4-4762a0cd8e8d:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 54175d52-141f-426e-9de0-3891627e7502 # Akkordeon Titel
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: a91450b5-15a1-4780-96c1-0dffea095613 # Akkordeon Zustand
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Inhalt
+        sortOrder: 1
+handle: accordionPanel
+maxBlocks: 0
+maxChildBlocks: 0
+maxSiblingBlocks: 0
+name: AkkordeonPanel
+sortOrder: 19
+topLevel: false

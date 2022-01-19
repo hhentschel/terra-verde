@@ -3,23 +3,33 @@
 // -----------------------------------------------------------------------------
 
 .footer {
-  
   color: $color--white;
   font-size: px-to-rem($font-size-s);
-  
+
   &--heading {
     font-size: px-to-rem($font-size-xl-p);
-    color:$color--white;
-  }  
+    color: $color--white;
+  }
   &__top {
     background-color: $color--brown-lightest;
     padding: px-to-rem($space--xm) 0;
-    
+    color: $color--black;
+
     .button--primary {
-      margin-left: px-to-rem($space--m);
+      margin: 0;
+
+      @include breakpoint('tablet') {
+        margin-left: px-to-rem($space--m);
+      }
+    }
+
+    .form__wrapper {
+      display: flex;
+      align-items: center;
+      height: 100%;
     }
   }
-  
+
   &__middle {
     padding: 0 0 px-to-rem($space--xxm) 0;
     background-color: $color--brown;

@@ -1,0 +1,27 @@
+// -----------------------------------------------------------------------------
+// #QUICK EDIT LINK
+// -----------------------------------------------------------------------------
+.quick-edit {
+  position: fixed;
+  bottom: px-to-rem($space--xxm);
+  right: px-to-rem($space--s);
+
+  &__link {
+    @include typo(quickEdit);
+    @include interactionStyle(
+      background-color,
+      $color--primary,
+      $color--black,
+      $color--black
+    );
+    @include interactionStyle(
+      color,
+      $color--white,
+      $color--white,
+      $color--white
+    );
+    padding: px-to-rem($space--s);
+    border-radius: 3px;
+    z-index: z(top);
+  }
+}

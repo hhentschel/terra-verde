@@ -34,5 +34,7 @@ name: Startseite
 settings:
   path: '@webroot/assets/images/content/homepage/'
 sortOrder: 3
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
 type: craft\volumes\Local
 url: '@web/assets/images/content/homepage/'

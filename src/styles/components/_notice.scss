@@ -1,0 +1,12 @@
+.notice {
+  margin: 0 0 px-to-rem($space--xm) 0;
+  h4 {
+
+    color: $color--green;
+  }
+  p {
+    margin: 0;
+    color: $color--red;
+  }
+
+}

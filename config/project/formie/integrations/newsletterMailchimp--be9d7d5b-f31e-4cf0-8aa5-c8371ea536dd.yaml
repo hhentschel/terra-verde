@@ -1,0 +1,10 @@
+enabled: true
+handle: newsletterMailchimp
+name: 'Newsletter (Mailchimp)'
+settings:
+  apiKey: $MAILCHIMP_API_KEY
+  appendTags: false
+  useDoubleOptIn: false
+sortOrder: 1
+tokenId: null
+type: verbb\formie\integrations\emailmarketing\Mailchimp

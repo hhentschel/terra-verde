@@ -1,20 +1,17 @@
-{# ARBEITNEHMENDE & PENSIONIERTE DB QUERY #}
-{# % set navNew = craft.entries.section('newStructure').status(null).all() % #}
-
-{# ÜBER UNS & ORGANISATION, JOBS & MEHR #}
-{# % set navAboutUs = craft.entries.section('aboutUsStructure').level(1).all() % #}
-
 {# IMPORT MACROS #}
 {% import '_helpers/macros.twig' as macros %}
 
 {% set homeLink = craft.entries.section('homepage').one() %}
 {% set ueberunsLink = craft.entries.section('aboutUsStructure').one() %}
 {% set shopLink = craft.entries.section('shopStructure').one() %}
-{% set aktuellLink = craft.entries.section('newStructure').one() %}
-{% set verkaufsstellenLink =
+{% set aktuellLink = craft.entries.section('newsOverview').one() %}
+
+{% set loginLink = craft.entries.section('loginStructure').one() %}
+
+{# {% set verkaufsstellenLink =
   craft.entries.section('sellingPointsStructureSingle').one()
-%}
-{% set produzentenLink = craft.entries.section('producersStructure').one() %}
+%} #}
+{% set produzentenLink = craft.entries.section('producersOverview').one() %}
 
 {% set url = craft.app.request.pathInfo %}
 
@@ -23,10 +20,6 @@
     {{ 'nav.mainNavigation'|t }}
   </h2>
   <ul class="nav-main__list">
-    {# <li class="nav-main__list-item">
-      <a class="nav__link {% if craft.app.request.segments|last == "" %}active{% endif %}" href="/">{{ "Home"|t }}</a>
-    </li> #}
-
     <li class="nav-main__list-item">
       <a href="{{ shopLink.url }}"
         class="nav__link {{ macros.isActive('shop', 1, 'nav__link--') }}">
@@ -44,11 +37,11 @@
     <li class="nav-main__list-item">
       <a href="{{ aktuellLink.url }}"
         class="nav__link {{ macros.isActive('aktuell', 1, 'nav__link--') }}">
-        {{ 'Aktuell'|t }}
+        {{ 'Blog'|t }}
       </a>
     </li>
 
-    <li class="nav-main__list-item">
+    {# <li class="nav-main__list-item">
       <a href="{{ verkaufsstellenLink.url }}"
         class="nav__link {{
         macros.isActive(
@@ -59,7 +52,7 @@
         }}">
         {{ 'Verkaufsstellen'|t }}
       </a>
-    </li>
+    </li> #}
 
     <li class="nav-main__list-item">
       <a href="{{ produzentenLink.url }}"
@@ -72,6 +65,10 @@
         }}">
         {{ 'Produzenten'|t }}
       </a>
+    </li>
+
+    <li class="nav-main__list-item nav-main__list-item-last">
+      {% include '_components/_nav/_nav-service/nav-service-desktop' %}
     </li>
   </ul>
 </nav>

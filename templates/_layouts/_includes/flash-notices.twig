@@ -1,31 +1,108 @@
 {# Add `or true` to this if condition to temporarily see what this flash notice would look like #}
-{% if flashNotice %}
-    <div class="bg-blue-500 text-white">
-        <div class="container mx-auto px-6 py-4">
-            {{ flashNotice ?? 'Test flash notice' }}
-        </div>
-    </div>
-{% endif %}
+ <!-- Template: {{ _self }}.twig -->
 
-{# Add `or true` to this if condition to temporarily see what this flash error would look like #}
-{% if flashError %}
-    <div class="bg-red-500 text-white">
-        <div class="container mx-auto px-6 py-4">
-            {{ flashError ?? 'Test flash error' }}
-        </div>
-    </div>
-{% endif %}
+      {% if flashNotice %}
+          <div class="flash-notice__container flash-notice__container--info">
+              <section class="grid">
+                <div class="row">
+                  <div class="col col-xs-12 col-md-12 col-lg-12">
+                    {{ flashNotice ?? 'Test flash notice' }}
 
-{% if cart.errors|length %}
-    <div class="bg-red-500 text-white">
-        <div class="container mx-auto px-6 py-4">
-            {% for attribute, errors in cart.errors %}
-                {% if loop.first %}<ul>{% endif %}
-                {% for key, error in errors %}
-                    <li>{{ attribute }}: {{ error }}</li>
+                    <form method="post">
+                        {{ actionInput('commerce/cart/update-cart') }}
+                        {{ successMessageInput('Hinweiss geschlossen') }}
+                        {{ hiddenInput('clearNotices') }}
+                        {{ csrfInput() }}
+                        <button type="submit"
+                                class="cursor-pointer rounded px-2 py-1 text-sm inline-block [[classes.btn.blue]] absolute mt-4 mr-4 top-0 right-0">
+                            schliessen
+                        </button>
+                    </form>
+                  </div>
+                </div>
+              </section>
+          </div>
+      {% endif %}
+
+      {# Add `or true` to this if condition to temporarily see what this flash error would look like #}
+      {% if flashError %}
+          <div class="flash-notice__container flash-notice__container--error">
+            <section class="grid">
+              <div class="row">
+                <div class="col col-xs-12 col-md-12 col-lg-12">
+                {{ flashError ?? 'Test flash error' }}
+
+                <form method="post">
+                    {{ actionInput('commerce/cart/update-cart') }}
+                    {{ successMessageInput('Hinweiss geschlossen') }}
+                    {{ hiddenInput('clearNotices') }}
+                    {{ csrfInput() }}
+                    <button type="submit"
+                            class="cursor-pointer rounded px-2 py-1 text-sm inline-block [[classes.btn.blue]] absolute mt-4 mr-4 top-0 right-0">
+                        schliessen
+                    </button>
+                </form>
+                </div>
+              </div>
+            </section>
+          </div>
+      {% endif %}
+
+      {% if cart.errors|length %}
+          <div class="flash-notice__container flash-notice__container--error">
+            <section class="grid">
+              <div class="row">
+                <div class="col col-xs-12 col-md-12 col-lg-12">
+                  {% for attribute, errors in cart.errors %}
+                      {% if loop.first %}<ul>{% endif %}
+                      {% for key, error in errors %}
+                          {# <li>{{ attribute }}: {{ error }}</li> #}
+                           <li>{{ error }}</li>
+                      {% endfor %}
+                      {% if loop.last %}</ul>{% endif %}
+                  {% endfor %}
+
+                  <form method="post">
+                    {{ actionInput('commerce/cart/update-cart') }}
+                    {{ successMessageInput('Hinweiss geschlossen') }}
+                    {{ hiddenInput('clearNotices') }}
+                    {{ csrfInput() }}
+                    <button type="submit"
+                            class="cursor-pointer rounded px-2 py-1 text-sm inline-block [[classes.btn.blue]] absolute mt-4 mr-4 top-0 right-0">
+                        schliessen
+                    </button>
+                </form>
+                </div>
+              </div>
+            </section>
+          </div>
+      {% endif %}
+
+
+    {% if cart.hasNotices() %}
+   <div class="flash-notice__container flash-notice__container--info">
+      <section class="grid">
+          <div class="row">
+            <div class="col col-xs-12 col-md-12 col-lg-12">
+            <span>Warenkorb Hinweis</span>
+            {% set entriesByType = cart.getNotices()|group('type') %}
+            {% for type, notices in entriesByType %}
+                {% for notice in notices %}
+                <li class="list-disc" data-type="{{ notice.type }}" data-attribute="{{ notice.attribute }}" data-message="{{ notice.message }}">{{ notice }}</li>
                 {% endfor %}
-                {% if loop.last %}</ul>{% endif %}
             {% endfor %}
+            </div>
+             <form class="form" method="post">
+                {{ actionInput('commerce/cart/update-cart') }}
+                {{ successMessageInput('Hinweiss geschlossen') }}
+                {{ hiddenInput('clearNotices') }}
+                {{ csrfInput() }}
+                <button type="submit"
+                        class="cursor-pointer rounded px-2 py-1 text-sm inline-block [[classes.btn.blue]] absolute mt-4 mr-4 top-0 right-0">
+                    schliessen
+                </button>
+            </form>
         </div>
+      </section>
     </div>
-{% endif %}
+    {% endif %}

@@ -7,9 +7,7 @@
 <header class="header">
   <div class="header__background {{ headerBackground }}"></div>
 
-  {% include 'shop/_includes/floating-cart' %}
-
-  {% include 'shop/_includes/nav-main' %}
+  {# {% include 'shop/_includes/nav-main' %} #}
 
   <div class="grid">
     <div class="row">
@@ -26,6 +24,9 @@
               alt="Terra Verde Logo" />
             <span class="header__logo-line">Verde</span>
           </a>
+
+          {% include '_components/_nav/_nav-shop/nav-shop-mobile' %}
+
           <div class="header__menu-button-wrapper">
             <button class="header__menu-button-mobile" type="button">
               <span class="header__menu-button-text">
@@ -60,11 +61,15 @@
               <span class="header__logo-line">Verde</span>
             </a>
 
-            {% include '_components/_nav/_nav-main/nav-main-desktop' %}
+            <div class="header__top-nav">
+              {% include '_components/_nav/_nav-main/nav-main-desktop' %}
 
-            <div class="header__nav-service">
-              {% include '_components/_nav/_nav-service/nav-service-desktop' %}
+              {# {% include '_components/_nav/_nav-service/nav-service-desktop' %} #}
             </div>
+
+            {# <div class="header__nav-service-top">
+              {% include '_components/_nav/_nav-service/nav-service-desktop-top' %}
+            </div> #}
           </div>
         </div>
       </div>

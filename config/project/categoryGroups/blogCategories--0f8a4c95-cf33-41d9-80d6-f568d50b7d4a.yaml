@@ -1,0 +1,41 @@
+defaultPlacement: end
+fieldLayouts:
+  4a6e3d2a-0c53-4755-b67d-d47a9e1bf8ff:
+    tabs:
+      -
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\TitleField
+            warning: null
+            width: 100
+        name: Inhalt
+        sortOrder: 1
+handle: blogCategories
+name: Blog
+siteSettings:
+  dd0cd05e-0cb9-4a76-b993-3cb70e6fc147: # Terra Verde
+    hasUrls: true
+    template: null
+    uriFormat: 'blog/{slug}'
+structure:
+  maxLevels: null
+  uid: f48aa85f-e48c-4302-9637-99777ae01237

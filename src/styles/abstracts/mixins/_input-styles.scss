@@ -33,7 +33,7 @@ $transition-properties: border-color, color, background-color;
   border-width: $input--border-width;
   border-radius: $input--border-radius;
   outline: none;
-  height: 100%;
+  // height: 100%;
   transition: $input--transition-duration $input--transition-easing;
   transition-property: $input--transition-properties;
 

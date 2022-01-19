@@ -1,14 +1,18 @@
-{% set img = img is defined and img is not empty ? img.one() : null %}
-{% set imageUrl = img ? img.url : '' %}
+{% set imageUrl = img.getUrl|default('') %}
+{% set imageheight = img.getHeight(transform)|default('') %}
+{% set imagewidth = img.getWidth(transform)|default('') %}
+{% set imagetitle = img.title|default('') %}
+
 {% set imageStandardAltText = img
   and img.imageAltText is defined
   and img.imageAltText is not empty
   ? img.imageAltText
-  : ''
+  : 'Terra Verde'
 %}
-{% set imageAltText = imageAltText is defined and imageAltText is not empty
-  ? imageAltText
-  : imageStandardAltText
+{% set imageAltText = img.imageAltText is defined
+  and img.imageAltText is not empty
+  ? img.imageAltText
+  : 'Terra Verde: ' ~ imagetitle
 %}
 {% set imageStandardCaption = img
   and img.imageCaption is defined
@@ -21,16 +25,29 @@
   : imageStandardCaption
 %}
 
-{% set imageTypeClass = imageSizeParam is defined
-  and imageSizeParam is not empty
-  ? imageSizeParam
-  : ''
-%}
-
 {% if imageUrl %}
-  <figure class="image {{ imageTypeClass }}">
+  <figure class="image">
     <div class="image__wrapper">
-      <img class="image__img" src="{{ imageUrl }}" alt="{{ imageAltText }}" />
+      <picture>
+        <source srcset="{{ imageUrl }}"
+          alt="{{ imageAltText }}"
+          width="{{ imagewidth }}"
+          height="{{ imageheight }}"
+          title="{{- imagetitle -}}"
+          type="image/webp" />
+        <source srcset="{{ imageUrl }}"
+          alt="{{ imageAltText }}"
+          width="{{ imagewidth }}"
+          height="{{ imageheight }}"
+          title="{{- imagetitle -}}"
+          type="image/jpg" />
+        <img class="image__img"
+          src="{{ imageUrl }}"
+          alt="{{ imageAltText }}"
+          width="{{ imagewidth }}"
+          height="{{ imageheight }}"
+          title="{{- imagetitle -}}" />
+      </picture>
     </div>
     {% if imageCaption %}
       <figcaption class="image__caption">

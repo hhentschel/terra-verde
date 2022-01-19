@@ -1,0 +1,166 @@
+description: ''
+handle: userGroupRedactors
+name: Redakteure
+permissions:
+  - accessplugin-commerce-bundles
+  - accessplugin-commerce
+  - accesscp
+  - 'assignusergroup:2db88e09-5caa-44ec-a62a-3780b2b427c0' # Detailhandel
+  - 'assignusergroup:f4d40b23-6531-4583-b509-b7870a992261' # Privatkunden
+  - assignusergroups
+  - editusers
+  - 'createentries:e9d74d60-1b19-494e-a1af-537c054484c9' # Login
+  - 'publishentries:e9d74d60-1b19-494e-a1af-537c054484c9' # Login
+  - 'deleteentries:e9d74d60-1b19-494e-a1af-537c054484c9' # Login
+  - 'publishpeerentries:e9d74d60-1b19-494e-a1af-537c054484c9' # Login
+  - 'deletepeerentries:e9d74d60-1b19-494e-a1af-537c054484c9' # Login
+  - 'editpeerentries:e9d74d60-1b19-494e-a1af-537c054484c9' # Login
+  - 'publishpeerentrydrafts:e9d74d60-1b19-494e-a1af-537c054484c9' # Login
+  - 'deletepeerentrydrafts:e9d74d60-1b19-494e-a1af-537c054484c9' # Login
+  - 'editpeerentrydrafts:e9d74d60-1b19-494e-a1af-537c054484c9' # Login
+  - 'editentries:e9d74d60-1b19-494e-a1af-537c054484c9' # Login
+  - 'createentries:ff3ac612-1ec2-4883-a246-a759318ed0e1'
+  - 'publishentries:ff3ac612-1ec2-4883-a246-a759318ed0e1'
+  - 'deleteentries:ff3ac612-1ec2-4883-a246-a759318ed0e1'
+  - 'publishpeerentries:ff3ac612-1ec2-4883-a246-a759318ed0e1'
+  - 'deletepeerentries:ff3ac612-1ec2-4883-a246-a759318ed0e1'
+  - 'editpeerentries:ff3ac612-1ec2-4883-a246-a759318ed0e1'
+  - 'publishpeerentrydrafts:ff3ac612-1ec2-4883-a246-a759318ed0e1'
+  - 'deletepeerentrydrafts:ff3ac612-1ec2-4883-a246-a759318ed0e1'
+  - 'editpeerentrydrafts:ff3ac612-1ec2-4883-a246-a759318ed0e1'
+  - 'editentries:ff3ac612-1ec2-4883-a246-a759318ed0e1'
+  - 'publishentries:13456c46-75a5-4427-af83-ab20099cf05b' # InstaShop
+  - 'publishpeerentrydrafts:13456c46-75a5-4427-af83-ab20099cf05b' # InstaShop
+  - 'deletepeerentrydrafts:13456c46-75a5-4427-af83-ab20099cf05b' # InstaShop
+  - 'editpeerentrydrafts:13456c46-75a5-4427-af83-ab20099cf05b' # InstaShop
+  - 'editentries:13456c46-75a5-4427-af83-ab20099cf05b' # InstaShop
+  - 'createentries:9547c4b2-034f-4e07-9a02-b94d052fec7c' # Blog-Einträge
+  - 'publishentries:9547c4b2-034f-4e07-9a02-b94d052fec7c' # Blog-Einträge
+  - 'deleteentries:9547c4b2-034f-4e07-9a02-b94d052fec7c' # Blog-Einträge
+  - 'publishpeerentries:9547c4b2-034f-4e07-9a02-b94d052fec7c' # Blog-Einträge
+  - 'deletepeerentries:9547c4b2-034f-4e07-9a02-b94d052fec7c' # Blog-Einträge
+  - 'editpeerentries:9547c4b2-034f-4e07-9a02-b94d052fec7c' # Blog-Einträge
+  - 'publishpeerentrydrafts:9547c4b2-034f-4e07-9a02-b94d052fec7c' # Blog-Einträge
+  - 'deletepeerentrydrafts:9547c4b2-034f-4e07-9a02-b94d052fec7c' # Blog-Einträge
+  - 'editpeerentrydrafts:9547c4b2-034f-4e07-9a02-b94d052fec7c' # Blog-Einträge
+  - 'editentries:9547c4b2-034f-4e07-9a02-b94d052fec7c' # Blog-Einträge
+  - 'createentries:8e2bbb53-7b2a-493f-9592-4847ec7d1194' # Produzenten
+  - 'publishentries:8e2bbb53-7b2a-493f-9592-4847ec7d1194' # Produzenten
+  - 'deleteentries:8e2bbb53-7b2a-493f-9592-4847ec7d1194' # Produzenten
+  - 'publishpeerentries:8e2bbb53-7b2a-493f-9592-4847ec7d1194' # Produzenten
+  - 'deletepeerentries:8e2bbb53-7b2a-493f-9592-4847ec7d1194' # Produzenten
+  - 'editpeerentries:8e2bbb53-7b2a-493f-9592-4847ec7d1194' # Produzenten
+  - 'publishpeerentrydrafts:8e2bbb53-7b2a-493f-9592-4847ec7d1194' # Produzenten
+  - 'deletepeerentrydrafts:8e2bbb53-7b2a-493f-9592-4847ec7d1194' # Produzenten
+  - 'editpeerentrydrafts:8e2bbb53-7b2a-493f-9592-4847ec7d1194' # Produzenten
+  - 'editentries:8e2bbb53-7b2a-493f-9592-4847ec7d1194' # Produzenten
+  - 'createentries:48548b44-1daa-40e6-8a33-e8f7fd5a9bb6' # Shop
+  - 'publishentries:48548b44-1daa-40e6-8a33-e8f7fd5a9bb6' # Shop
+  - 'deleteentries:48548b44-1daa-40e6-8a33-e8f7fd5a9bb6' # Shop
+  - 'publishpeerentries:48548b44-1daa-40e6-8a33-e8f7fd5a9bb6' # Shop
+  - 'deletepeerentries:48548b44-1daa-40e6-8a33-e8f7fd5a9bb6' # Shop
+  - 'editpeerentries:48548b44-1daa-40e6-8a33-e8f7fd5a9bb6' # Shop
+  - 'publishpeerentrydrafts:48548b44-1daa-40e6-8a33-e8f7fd5a9bb6' # Shop
+  - 'deletepeerentrydrafts:48548b44-1daa-40e6-8a33-e8f7fd5a9bb6' # Shop
+  - 'editpeerentrydrafts:48548b44-1daa-40e6-8a33-e8f7fd5a9bb6' # Shop
+  - 'editentries:48548b44-1daa-40e6-8a33-e8f7fd5a9bb6' # Shop
+  - 'publishentries:e5c66396-f991-4b4c-8edc-5e4960340ca3' # Startseite
+  - 'publishpeerentrydrafts:e5c66396-f991-4b4c-8edc-5e4960340ca3' # Startseite
+  - 'deletepeerentrydrafts:e5c66396-f991-4b4c-8edc-5e4960340ca3' # Startseite
+  - 'editpeerentrydrafts:e5c66396-f991-4b4c-8edc-5e4960340ca3' # Startseite
+  - 'editentries:e5c66396-f991-4b4c-8edc-5e4960340ca3' # Startseite
+  - 'publishentries:d953a3a0-62dc-4cd9-ad85-a7656faa8d58' # Suche
+  - 'publishpeerentrydrafts:d953a3a0-62dc-4cd9-ad85-a7656faa8d58' # Suche
+  - 'deletepeerentrydrafts:d953a3a0-62dc-4cd9-ad85-a7656faa8d58' # Suche
+  - 'editpeerentrydrafts:d953a3a0-62dc-4cd9-ad85-a7656faa8d58' # Suche
+  - 'editentries:d953a3a0-62dc-4cd9-ad85-a7656faa8d58' # Suche
+  - 'createentries:85ecf639-70f3-47d4-8ad7-c2996049794d' # Über uns
+  - 'publishentries:85ecf639-70f3-47d4-8ad7-c2996049794d' # Über uns
+  - 'deleteentries:85ecf639-70f3-47d4-8ad7-c2996049794d' # Über uns
+  - 'publishpeerentries:85ecf639-70f3-47d4-8ad7-c2996049794d' # Über uns
+  - 'deletepeerentries:85ecf639-70f3-47d4-8ad7-c2996049794d' # Über uns
+  - 'editpeerentries:85ecf639-70f3-47d4-8ad7-c2996049794d' # Über uns
+  - 'publishpeerentrydrafts:85ecf639-70f3-47d4-8ad7-c2996049794d' # Über uns
+  - 'deletepeerentrydrafts:85ecf639-70f3-47d4-8ad7-c2996049794d' # Über uns
+  - 'editpeerentrydrafts:85ecf639-70f3-47d4-8ad7-c2996049794d' # Über uns
+  - 'editentries:85ecf639-70f3-47d4-8ad7-c2996049794d' # Über uns
+  - 'publishentries:f659b749-959d-41b7-aca0-80889378ead1' # Verkaufsstellen
+  - 'publishpeerentrydrafts:f659b749-959d-41b7-aca0-80889378ead1' # Verkaufsstellen
+  - 'deletepeerentrydrafts:f659b749-959d-41b7-aca0-80889378ead1' # Verkaufsstellen
+  - 'editpeerentrydrafts:f659b749-959d-41b7-aca0-80889378ead1' # Verkaufsstellen
+  - 'editentries:f659b749-959d-41b7-aca0-80889378ead1' # Verkaufsstellen
+  - 'createentries:34eecfa5-9662-4a5c-addd-6a484fbebe8d' # Verkaufsstellen Orte
+  - 'publishentries:34eecfa5-9662-4a5c-addd-6a484fbebe8d' # Verkaufsstellen Orte
+  - 'deleteentries:34eecfa5-9662-4a5c-addd-6a484fbebe8d' # Verkaufsstellen Orte
+  - 'publishpeerentries:34eecfa5-9662-4a5c-addd-6a484fbebe8d' # Verkaufsstellen Orte
+  - 'deletepeerentries:34eecfa5-9662-4a5c-addd-6a484fbebe8d' # Verkaufsstellen Orte
+  - 'editpeerentries:34eecfa5-9662-4a5c-addd-6a484fbebe8d' # Verkaufsstellen Orte
+  - 'publishpeerentrydrafts:34eecfa5-9662-4a5c-addd-6a484fbebe8d' # Verkaufsstellen Orte
+  - 'deletepeerentrydrafts:34eecfa5-9662-4a5c-addd-6a484fbebe8d' # Verkaufsstellen Orte
+  - 'editpeerentrydrafts:34eecfa5-9662-4a5c-addd-6a484fbebe8d' # Verkaufsstellen Orte
+  - 'editentries:34eecfa5-9662-4a5c-addd-6a484fbebe8d' # Verkaufsstellen Orte
+  - 'editglobalset:a2441c10-1f1b-4c83-a406-220a6e33dd17' # Footer
+  - 'editcategories:149a3219-5b27-4275-8a0f-b97cbff1e3ec' # Shop
+  - 'saveassetinvolume:789fdb6d-520f-4cf1-be1e-478056358e79' # Inhaltsbilder
+  - 'createfoldersinvolume:789fdb6d-520f-4cf1-be1e-478056358e79' # Inhaltsbilder
+  - 'deletefilesandfoldersinvolume:789fdb6d-520f-4cf1-be1e-478056358e79' # Inhaltsbilder
+  - 'replacefilesinvolume:789fdb6d-520f-4cf1-be1e-478056358e79' # Inhaltsbilder
+  - 'editimagesinvolume:789fdb6d-520f-4cf1-be1e-478056358e79' # Inhaltsbilder
+  - 'editpeerfilesinvolume:789fdb6d-520f-4cf1-be1e-478056358e79' # Inhaltsbilder
+  - 'replacepeerfilesinvolume:789fdb6d-520f-4cf1-be1e-478056358e79' # Inhaltsbilder
+  - 'deletepeerfilesinvolume:789fdb6d-520f-4cf1-be1e-478056358e79' # Inhaltsbilder
+  - 'editpeerimagesinvolume:789fdb6d-520f-4cf1-be1e-478056358e79' # Inhaltsbilder
+  - 'viewpeerfilesinvolume:789fdb6d-520f-4cf1-be1e-478056358e79' # Inhaltsbilder
+  - 'viewvolume:789fdb6d-520f-4cf1-be1e-478056358e79' # Inhaltsbilder
+  - 'saveassetinvolume:63339d3e-c6d1-4455-be6d-33715340baf0' # Produkte
+  - 'createfoldersinvolume:63339d3e-c6d1-4455-be6d-33715340baf0' # Produkte
+  - 'deletefilesandfoldersinvolume:63339d3e-c6d1-4455-be6d-33715340baf0' # Produkte
+  - 'replacefilesinvolume:63339d3e-c6d1-4455-be6d-33715340baf0' # Produkte
+  - 'editimagesinvolume:63339d3e-c6d1-4455-be6d-33715340baf0' # Produkte
+  - 'editpeerfilesinvolume:63339d3e-c6d1-4455-be6d-33715340baf0' # Produkte
+  - 'replacepeerfilesinvolume:63339d3e-c6d1-4455-be6d-33715340baf0' # Produkte
+  - 'deletepeerfilesinvolume:63339d3e-c6d1-4455-be6d-33715340baf0' # Produkte
+  - 'editpeerimagesinvolume:63339d3e-c6d1-4455-be6d-33715340baf0' # Produkte
+  - 'viewpeerfilesinvolume:63339d3e-c6d1-4455-be6d-33715340baf0' # Produkte
+  - 'viewvolume:63339d3e-c6d1-4455-be6d-33715340baf0' # Produkte
+  - 'saveassetinvolume:e221908a-3496-4eb9-8727-682969a83304' # Startseite
+  - 'createfoldersinvolume:e221908a-3496-4eb9-8727-682969a83304' # Startseite
+  - 'deletefilesandfoldersinvolume:e221908a-3496-4eb9-8727-682969a83304' # Startseite
+  - 'replacefilesinvolume:e221908a-3496-4eb9-8727-682969a83304' # Startseite
+  - 'editimagesinvolume:e221908a-3496-4eb9-8727-682969a83304' # Startseite
+  - 'editpeerfilesinvolume:e221908a-3496-4eb9-8727-682969a83304' # Startseite
+  - 'replacepeerfilesinvolume:e221908a-3496-4eb9-8727-682969a83304' # Startseite
+  - 'deletepeerfilesinvolume:e221908a-3496-4eb9-8727-682969a83304' # Startseite
+  - 'editpeerimagesinvolume:e221908a-3496-4eb9-8727-682969a83304' # Startseite
+  - 'viewpeerfilesinvolume:e221908a-3496-4eb9-8727-682969a83304' # Startseite
+  - 'viewvolume:e221908a-3496-4eb9-8727-682969a83304' # Startseite
+  - 'saveassetinvolume:3bb39d28-0fde-4351-82f7-4a35d96e4a3b' # Karten Vorschaubilder
+  - 'createfoldersinvolume:3bb39d28-0fde-4351-82f7-4a35d96e4a3b' # Karten Vorschaubilder
+  - 'deletefilesandfoldersinvolume:3bb39d28-0fde-4351-82f7-4a35d96e4a3b' # Karten Vorschaubilder
+  - 'replacefilesinvolume:3bb39d28-0fde-4351-82f7-4a35d96e4a3b' # Karten Vorschaubilder
+  - 'editimagesinvolume:3bb39d28-0fde-4351-82f7-4a35d96e4a3b' # Karten Vorschaubilder
+  - 'editpeerfilesinvolume:3bb39d28-0fde-4351-82f7-4a35d96e4a3b' # Karten Vorschaubilder
+  - 'replacepeerfilesinvolume:3bb39d28-0fde-4351-82f7-4a35d96e4a3b' # Karten Vorschaubilder
+  - 'deletepeerfilesinvolume:3bb39d28-0fde-4351-82f7-4a35d96e4a3b' # Karten Vorschaubilder
+  - 'editpeerimagesinvolume:3bb39d28-0fde-4351-82f7-4a35d96e4a3b' # Karten Vorschaubilder
+  - 'viewpeerfilesinvolume:3bb39d28-0fde-4351-82f7-4a35d96e4a3b' # Karten Vorschaubilder
+  - 'viewvolume:3bb39d28-0fde-4351-82f7-4a35d96e4a3b' # Karten Vorschaubilder
+  - 'utility:find-replace'
+  - 'commerce-manageproducttype:c7a7ef3f-d8c6-4afb-ab46-b0082ef038d6' # Delikatessen
+  - 'commerce-manageproducttype:075a0f13-9a50-4fb3-9f01-e507232af197'
+  - 'commerce-manageproducttype:ec2abe39-1dff-4615-95f5-510e7a95e091'
+  - 'commerce-manageproducttype:7b706265-0fcf-4b07-a211-6fb9e613dd55'
+  - commerce-manageproducts
+  - commerce-editorders
+  - commerce-deleteorders
+  - commerce-capturepayment
+  - commerce-refundpayment
+  - commerce-manageorders
+  - commerce-managecustomers
+  - commerce-managepromotions
+  - commerce-managesubscriptions
+  - commerce-manageshipping
+  - commerce-managetaxes
+  - commerce-managestoresettings
+  - commerce-bundles-managebundles
+  - commerce-bundles-managebundletype

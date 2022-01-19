@@ -1,0 +1,25 @@
+childBlocks: null
+field: 9f46731d-7fdd-4245-9ca1-719db0672448 # Inhaltselemente
+fieldLayouts:
+  0e13189f-a46b-481a-bc88-3ad9de084bac:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: d22d8183-8d37-4569-9fda-4480d52e3498 # Text Standard ohne Titel
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Inhalt
+        sortOrder: 1
+handle: formattedText
+maxBlocks: 0
+maxChildBlocks: 0
+maxSiblingBlocks: 0
+name: 'Formatierter Text'
+sortOrder: 5
+topLevel: true

@@ -1,0 +1,23 @@
+handle: datratrans
+isFrontendEnabled: true
+name: 'Kreditkarte, Postfinance, Paypal, Twint'
+paymentType: purchase
+settings:
+  checkoutMode: redirect
+  liveHmac1Key: $DATATRANS_HMAC_1_KEY_LIVE
+  liveHmac2Key: $DATATRANS_HMAC_2_KEY_LIVE
+  liveMerchantId: $DATATRANS_MERCHANT_ID_LIVE
+  liveSignKey: $DATATRANS_SIGN_KEY_LIVE
+  orderPrefix: null
+  referrerId: null
+  securityLevel: '3'
+  sendCartInfo: '1'
+  testHmac1Key: $DATATRANS_HMAC_1_KEY_TEST
+  testHmac2Key: $DATATRANS_HMAC_2_KEY_TEST
+  testMerchantId: $DATATRANS_MERCHANT_ID_TEST
+  testMode: '1'
+  testSignKey: $DATATRANS_SIGN_KEY_TEST
+  useOldBasketFormat: false
+  vendor: null
+sortOrder: 2
+type: craft\commerce\datatrans\gateways\PaymentPages

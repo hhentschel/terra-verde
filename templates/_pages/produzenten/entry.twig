@@ -1,0 +1,74 @@
+{% extends '_layouts/main' %}
+{% set pageTitle = entry.pageTitle is not empty ? entry.pageTitle : entry.title
+%}
+
+
+{% block content %}
+  <div class="grid">
+    <div class="row">
+      <div class="col col-xs-12 col-md-12 col-lg-12">
+        {% include '_components/breadcrumb.twig' %}
+        <h2 class="heading heading--h2 heading--site heading--no-margin-top">
+          {{ pageTitle }}
+        </h2>
+      </div>
+    </div>
+  </div>
+
+  <section class="grid">
+    <div class="row">
+      <div class="col col-xs-12 col-md-12 col-lg-12">
+
+        <div class="content__detail-header">
+          <div class="content__detail-image producers-overview__image">
+
+            {% set transform = transformation|default('imageOneThird') %}
+            {% set img = entry.image.one() ?? null %}
+            {% if img is defined %}
+              {% include '_components/_content-elements/image'
+                with {
+                  img: img,
+                  transform: transform
+                  } %}
+            {% endif %}
+          </div>
+
+          <div class="content__detail-lead producers-overview__lead">
+            {{ entry.leadText }}
+          </div>
+        </div>
+
+        {% include '_components/_content-elements/content-elements-loop' with {
+          contentElements: entry.contentElements.level(1),
+          usesGrid: false
+        } %}
+
+      </div>
+
+      {# //Tags #}
+
+      {# {% set myTagQuery = craft.tags().group('aehnlicheProduzenten') %}
+
+      {% set tags = myTagQuery.all() %}
+      <ul>
+          {% for tag in tags %}
+              <li><a href="{{ url('blog/tags/'~tag.id) }}">{{ tag.title }}</a></li>
+          {% endfor %}
+      </ul>
+
+
+      {% set similarEntriesByTags = craft.similar.find({ element: entry, context: entry.manufactorTags }) %}
+      <ul>
+      {% for similarEntry in similarEntriesByTags %}
+          <li>{{ similarEntry.title }} ({{ similarEntry.count }} tags in common)</li>
+      {% endfor %}
+      </ul> #}
+
+
+
+
+
+      </div>
+    </div>
+  </section>
+{% endblock %}

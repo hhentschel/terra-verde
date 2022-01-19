@@ -1,6 +1,7 @@
 {% extends '/_layouts/main' %}
 
 {% block content %}
+     {% set availableGateways = craft.commerce.gateways.getAllCustomerEnabledGateways %}
 
     {% if not cart.gateway %}
         {%  redirect 'shop/checkout/payment-method' %}
@@ -8,8 +9,10 @@
 
   <section class="grid">
     <div class="row">
-      <div class="col col-xs-12 col-md-8 col-lg-8">
-          <h3 class="heading heading--h3">Bezahlung</h3>
+
+      <div class="col col-xs-12 col-md-12 col-lg-12">
+          {% include "shop/checkout/_includes/order-summary" with { showShippingAddress: true, showShippingMethod: true } %}
+
             {# Payment form #}
             {% if cart.gatewayId or cart.paymentSourceId %}
                 {% if paymentForm is defined %}
@@ -22,12 +25,28 @@
                   {% endfor %}
                 {% endif %}
 
-                <div class="{{ classes.box.base }}">
+                <div class="checkout__box checkout__box--button">
 
                   <form method="post" action="" class="js-paymentSource-form" id="paymentForm">
                       {{ actionInput('commerce/payments/pay') }}
                       {{ redirectInput(siteUrl('shop/customer/order', { number: cart.number, success: 'true' })) }}
                       {{ hiddenInput('cancelUrl', siteUrl('shop/checkout/payment')|hash) }}
+
+
+                        {# {% set id = 4 %}
+                        {% if id == cart.gatewayId %}
+                          {{ successMessageInput('Vielen Dank! Ihre Bestellung wurde abgeschickt') }}
+                          {{ hiddenInput('action', 'commerce/cart/complete') }}
+                          {{ redirectInput('/shop/customer/order?number='~cart.number~'&success=true') }}
+
+                          {% else %}
+                            {{ actionInput('commerce/payments/pay') }}
+                            {{ redirectInput(siteUrl('shop/customer/order', { number: cart.number, success: 'true' })) }}
+                            {{ hiddenInput('cancelUrl', siteUrl('shop/checkout/payment')|hash) }}
+                          {% endif %} #}
+
+                          {# {{ actionInput('commerce/cart/update-cart') }} #}
+
                       {{ hiddenInput('orderEmail', cart.email) }}
 
                       {{ csrfInput() }}
@@ -45,7 +64,7 @@
 
                           {% if cart.gateway.supportsPaymentSources() and currentUser %}
                               <div class="checkbox">
-                                  <label><input type="checkbox" name="savePaymentSource" value="1" /> {{ "Save card for future purchases" }}</label>
+                                  <label><input type="checkbox" name="savePaymentSource" value="1" /> {{ "Angaben für spätere Einkäufe sichern" }}</label>
                               </div><br />
                           {% endif %}
 
@@ -58,17 +77,38 @@
                         <div class="mt-3">
                           <label for="registerUserOnOrderComplete">
                               {{ hiddenInput('registerUserOnOrderComplete', false) }}
-                              <input type="checkbox" id="registerUserOnOrderComplete" name="registerUserOnOrderComplete" value="1" /> {{ "für ein Benutzerkonto registrieren" }}
+                              <input type="checkbox" id="registerUserOnOrderComplete" name="registerUserOnOrderComplete" value="1" /> {{ "für ein Kundenkonto registrieren" }}
                           </label>
                         </div>
                       {% endif %}
+
+                      <div class="checkout__box--requirements">
+                          <label for="termsAgreement" class="requirements__label">
+                              {{ hiddenInput('termsAgreement', false) }}
+                              <span>Ich bin mit <a href="/agb" class="requirements__links">den AGB</a> einverstanden</span>
+                              <input type="checkbox" id="termsAgreement" name="termsAgreement" class="requirements__chekcbox" value="1" required />
+                          </label>
+
+                          <label for="overEighteen" class="requirements__label">
+                              {{ hiddenInput('overEighteen', false) }}
+                              {{ "Hiermit bestätige ich, dass ich mindestens 18 Jahre alt bin" }}
+                              <input type="checkbox" id="overEighteen" name="overEighteen" class="requirements__chekcbox" value="1" required />
+                          </label>
+                        </div>
 
                       {# Only show the payment button for gateways that don't provide their own #}
                       {% if className(cart.gateway) not in [
                         'craft\\commerce\\paypalcheckout\\gateways\\Gateway',
                       ] %}
-                        <div class="mt-3 text-right">
-                          <button class="button button--primary" type="submit">{{ cart.totalPrice|commerceCurrency(cart.paymentCurrency,convert=true) }} bezahlen</button>
+                        <div class="checkout__box--button">
+                          <button class="button button--primary" type="submit">
+                              {% set id = 4 %}
+                              {% if id == cart.gatewayId %}
+                                Bestellung abschicken
+                              {% else %}
+                                  {{ cart.totalPrice|commerceCurrency(cart.paymentCurrency,convert=true) }} jetzt bezahlen
+                              {% endif %}
+                          </button>
                         </div>
                       {% endif %}
                   </form>
@@ -76,10 +116,6 @@
             {% endif %}
         </div>
 
-        <div class="col col-xs-12 col-md-8 col-lg-4 border-l border-grey-lighter">
-
-            {% include "shop/checkout/_includes/order-summary" with { showShippingAddress: true, showShippingMethod: true } %}
-        </div>
       </div>
     <section>
 

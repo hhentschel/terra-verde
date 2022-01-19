@@ -45,15 +45,15 @@ html {
   line-height: $line-height--base;
 }
 
-body {
-  &:not(.focus--active) a:focus,
-  &:not(.focus--active) button:focus,
-  &:not(.focus--active) select:focus,
-  &:not(.focus--active) textarea:focus {
-    background-color: transparent;
-    outline: none;
-  }
-}
+// body {
+//   &:not(.focus--active) a:focus,
+//   &:not(.focus--active) button:focus,
+//   &:not(.focus--active) select:focus,
+//   &:not(.focus--active) textarea:focus {
+//     background-color: transparent;
+//     outline: none;
+//   }
+// }
 
 [tabindex='-1']:focus {
   outline: 0;
@@ -89,7 +89,7 @@ ul,
 ol {
   margin: 0;
   padding: 0;
-  list-style: none;
+  // list-style: none;
 }
 
 sub,

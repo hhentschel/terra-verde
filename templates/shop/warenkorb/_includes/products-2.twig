@@ -1,0 +1,381 @@
+{% set cart = craft.commerce.carts.cart %}
+{% set discount = craft.commerce.discounts.getDiscountByCode(cart.couponCode) %}
+
+{% if sprig.isRequest %}
+    <script>
+        htmx.trigger('#cartsize', 'refresh');
+    </script>
+{% endif %}
+
+{% set couponAddedToCart = success is defined %}
+{% set changedGiftNote = success is defined %}
+{% set erasedGiftNote = success is defined %}
+
+{% set product = craft.products.one() %}
+
+ {% if cart.lineItems|length %}
+      <form  method="post" class="form__cart">
+      <div class="form__cart" >
+        {{ hiddenInput('fields[giftWrapped]', '') }}
+        {{ hiddenInput('fields[giftNote]', '') }}
+
+        <table class="form__cart-table table">
+            <thead>
+            <tr class="form__cart-table--head">
+                <th class="form__cart-table--item form__cart-table--item-left">Artikel</th>
+                <th class="form__cart-table--item form__cart-table--item-middle">Anzahl</th>
+                <th class="form__cart-table--item form__cart-table--item-right">Preis</th>
+                <th class="form__cart-table--item"></th>
+            </tr>
+            </thead>
+                <tbody>
+                {% for item in cart.lineItems %}
+                    <tr>
+                        <td class="" rowspan="2">
+                            <div class="">
+                              <div class="truncate">
+                                <strong class="{% if item.hasErrors() %}text-red-500{% endif %}">{{ item.description }}</strong>
+                              </div>
+                            </div>
+                            <span class="">Artikelnummer: {{ item.purchasable.product.articleNumber }}</span><br />
+
+                            {% if (item.purchasable.product.getType().name == 'Geschenke') or  ((item.purchasable.product.getType().name == 'Geschenke' and item.purchasable.product.getType().name == 'Delikatessen')) %}
+
+                                <div class="form__cart-table--options">
+                                    <div class="form__cart-table--options-header">
+                                        <h4 class="layout-helper__margin-vertical--none form__cart-table--options-heading">Zusatzoptionen</h4>
+                                        {% set vals = {('lineItems[' ~ item.id ~ '][options][remove]'): 1}|json_encode %}
+                                        <a sprig s-action="commerce/cart/update-cart" s-method="post" s-vals="{{ vals }}"  href="#" class="button button--tertiary">
+                                            entfernen
+                                        </a>
+                                    </div>
+
+                                    {% if (item.options.giftWrapped is defined) and (item.options.giftWrapped is not empty) %}
+                                        <span class="form__cart-table--options-item">
+                                            - Geschenkpapier
+                                        </span>
+                                    {% endif %}
+                                    {% if (item.options.giftNote is defined) and (item.options.giftNote is not empty) %}
+                                        <span class="form__cart-table--options-item">
+                                            - Grusskarte
+                                        </span>
+                                    {% endif %}
+
+
+
+
+                                    {# {% if (item.options.giftNote is defined) and (item.options.giftNote is not empty) %}
+                                        <div class="form__cart-table--options-item">
+                                            {% if erasedGiftNote %}
+                                                <span class="form__cart-table--options-notice">Zusatzoption Grusskarte entfernt</span>
+                                            {% else %}
+                                                Grusskarte
+                                                {% set vals = {('lineItems[' ~ item.id ~ '][options][giftNote][remove]'): 1}|json_encode %}
+                                                <a sprig s-action="commerce/cart/update-cart" s-method="post" s-vals="{{ vals }}"  href="#" class="button button--tertiary">
+                                                    entfernen
+                                                </a>
+
+                                                <div class="form__cart-table--note">
+                                                 <label for="lineitem-note-{{ item.id }}" class="form__cart-table--note-label">Textfeld für Grusskarte</label>
+                                                <textarea sprig s-action="commerce/cart/update-cart" s-method="post" s-trigger="keyup changed delay:3s" s-replace="#results" id="lineitem-note-{{ item.id }}" class="input" type="text" name="lineItems[{{ item.id }}][note]" value="{{ item.note }}" placeholder="Text für Grusskarte" rows="2">{{ item.note }}</textarea>
+                                                <span>Text wird automatisch gespeichert<span>
+                                                    <div id="results">
+
+                                                        </div>
+
+                                                </div>
+
+
+                                            {% endif %}
+
+                                            {% if (item.options.giftNote is defined) and (item.options.giftNote is not empty) %}
+                                                <div class="form__cart-table--note">
+                                                    <label for="lineitem-note-{{ item.id }}" class="form__cart-table--note-label">Textfeld für Grusskarte </label>
+                                                    <textarea  id="lineitem-note-{{ item.id }}" class="input" type="text" name="lineItems[{{ item.id }}][note]" value="{{ item.note }}" placeholder="Text für Grusskarte" rows="2">{{ item.note }}</textarea>
+
+                                                        <a sprig s-action="commerce/cart/update-cart" s-method="post" href="#" value="{{ item.note }}">neuen Text speichern</a>
+                                                </div>
+                                            {% endif %}
+
+
+                                        </div>
+                                    {% endif %} #}
+                                </div>
+
+                            {% endif %}
+
+
+
+                            {# <div class="pr-2">
+                                {{ redirectInput('shop/warenkorb') }}
+                                <input class="button button--secondary" type="submit" value="Warenkorb aktualisieren"/>
+                            </div> #}
+                        </td>
+                        <td class="py-3 {{ not loop.first ? 'border-t border-gray-300 border-dashed' : '' }}">
+                            {% if item.options.donationAmount is defined %}
+                                <label for="lineitem-note-{{ item.id }}" class="text-xs uppercase block">Donation Betrag</label>
+                                <input class="input input-small"
+                                       type="text" name="lineItems[{{ item.id }}][options][donationAmount]" placeholder="Donation" value="{{item.options.donationAmount}}">
+                            {% endif %}
+
+                            <span class=" {{ item.options.donationAmount is defined ? 'hidden' : '' }}">
+                                <input sprig s-action="commerce/cart/update-cart" s-method="post"
+                                      class="input  input-small {% if item.getFirstError('qty') %}border-red-500 border{% endif %}"
+                                       type="{% if item.options.donationAmount is defined %}hidden{%else%}number{%endif%}"
+                                       name="lineItems[{{ item.id }}][qty]"
+                                       {# ANPASSUNGEN DETAILHANDEL #}
+                                       {% if currentUser %}
+                                          {% if currentUser.isInGroup('userGroupRetail') %}
+                                            min="{{ item.purchasable.product.artikelMinOrderSize }}"
+                                          {% else %}
+                                          min="1"
+                                          {% endif %}
+                                        {% else %}
+                                          min="1"
+                                        {% endif %}
+                                       value="{{ item.qty }}">
+                            </span>
+
+                            {% if (item.purchasable.product.getType().name == 'Geschenke') or  ((item.purchasable.product.getType().name == 'Geschenke' and item.purchasable.product.getType().name == 'Delikatessen')) %}
+                                {% if (item.options.giftNote is defined) and (item.options.giftNote is not empty) %}
+                                    <div class="form__cart-table--note">
+
+
+                                        {# <label for="lineitem-note-{{ item.id }}" class="text-gray-500 text-xs uppercase block">Textfeld für Grusskarte</label>
+                                        <textarea sprig s-action="commerce/cart/update-cart" s-method="post" s-trigger="keyup changed delay:3s" s-replace="#results" id="lineitem-note-{{ item.id }}" class="input" type="text" name="lineItems[{{ item.id }}][note]" value="{{ item.note }}" placeholder="Text für Grusskarte" rows="2">{{ item.note }}</textarea>
+
+                                        <div id="results">
+                                            {% if changedGiftNote %}
+                                            <span>Text wird automatisch gespeichert<span>
+                                            {% endif %}
+                                            </div> #}
+
+
+                                        {# {% if item.note %}
+                                            <a sprig s-action="commerce/cart/update-cart" s-method="post" href="#" value="{{ item.note }}">neuen Text speichern</a>
+                                        {% else %}
+                                            <span>
+                                                <svg class="icon--check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                                </svg>
+                                                neuer Text gespeichert
+                                            </span>
+                                        {% endif %} #}
+
+                                    </div>
+                                {% endif %}
+                            {% endif %}
+                        </td>
+
+                        <td class="form__cart-table--item-prices {{ not loop.first ? 'border-t border-gray-300 border-dashed' : '' }} text-right">
+                            {% if not cart.hasErrors() %}
+                                <div class="form__cart-table--item-price" title="{{ item.price }}">
+                                    <div class="form__cart-table--item-price-name">Einzelpreis:</div>
+                                    {# <div class="form__cart-table--item-price-number">{% if item.onSale %}<del>{% endif %}{{ item.price|commerceCurrency(cart.currency) }}{% if item.onSale %}</del>{% endif %}</div> #}
+                                    <div class="form__cart-table--item-price-number form__cart-table--item-price-number-bold">{{ item.price|commerceCurrency(cart.currency) }}</div>
+                                </div>
+                                {% if item.onSale %}
+                                    <div class="form__cart-table--item-price" title="{{ item.salePrice }}">
+                                        <div class="form__cart-table--item-price-name">Sale Preise:</div>
+                                        <div class="form__cart-table--item-price-number">{{ item.salePrice|commerceCurrency(cart.currency) }}</div>
+                                    </div>
+                                    <div class="form__cart-table--item-price" title="{{ item.saleAmount }}">
+                                        <div class="form__cart-table--item-price-name">Sale Betrag:</div>
+                                        <div class="form__cart-table--item-price-number">{{ item.saleAmount|commerceCurrency(cart.currency) }}</div>
+                                    </div>
+
+                                    {% set itemSales = item.snapshot.sales ?? [] %}
+                                    {% if itemSales|length %}
+                                        <div class="flex w-full justify-end">
+                                            <div class="text-xs pr-2">Sales hinzugefügt:</div>
+                                            <div class="text-xs">
+                                                {% for sale in itemSales %}
+                                                    {{ sale.name }}<br>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                {% endif %}
+                            {% endif %}
+                        </td>
+
+                        <td class="form__cart-table--item-remove">
+                           {% set vals = {('lineItems[' ~ item.id ~ '][remove]'): 1}|json_encode %}
+                            <a sprig s-action="commerce/cart/update-cart" s-method="post" s-vals="{{ vals }}" s-confirm="Are you sure you want to remove this product from your cart?" href="#" class="text-red-600 hover:text-red-800">
+                                Entfernen
+                            </a>
+                        </td>
+                    </tr>
+
+                    <tr class="form__cart--adjustments">
+                        <td class="text-right" colspan="2">
+                            {% if (item.options.giftWrapped is defined) or (item.options.giftNote is defined) %}
+                                {% if not cart.hasErrors() and item.adjustments|length %}
+                                    <div class="adjustments">
+                                        {% for adjustment in item.adjustments %}
+                                            <div class="adjustments__data">
+                                                <div class="adjustments__data--type">
+                                                    <strong class="">{{ adjustment.type }}</strong>
+                                                </div>
+                                                <div class="">
+                                                    <span class="adjustments__data--name">{{ adjustment.name }}</span>
+                                                </div>
+                                                <div class="adjustments__data--amount">
+                                                    <span class="" title="{{ adjustment.amount }}"> {{ adjustment.amount|commerceCurrency(cart.currency) }}</span>
+                                                </div>
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                            {% endif %}
+
+                            {% if not cart.hasErrors() %}
+                                <div class="form__cart-table--item-price" title="{{ item.total }}">
+                                    <div class="form__cart-table--item-price-name">Total Artikelpreis:</div>
+                                    <div class="form__cart-table--item-price-number form__cart-table--item-price-number-bold">{{ item.total|commerceCurrency(cart.currency) }}</div>
+                                </div>
+                            {% endif %}
+
+                        </td>
+                    </tr>
+                {% endfor %}
+
+                {% if not cart.hasErrors() %}
+                <tr>
+                    <td>
+                    </td>
+                    <td colspan="1">
+                      <div>
+                        <span class="">{{ cart.totalQty }} </span>
+                        Artikel
+                      </div>
+                    </td>
+                    <td colspan="1" class="">
+                        <div class="form__cart-table--item-pricesubtotal" title="{{ cart.itemSubTotal }}">
+                            <div class="form__cart-table--item-price-name">Gesamtpreis:</div>
+                            <div class="form__cart-table--item-pricesubtotal-number">{{ cart.itemTotalAsCurrency }}</div>
+                        </div>
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+                {% endif %}
+
+                {% if not cart.hasErrors() and cart.orderAdjustments|length %}
+                    <tr class="form__cart--adjustments">
+                        <td class=""></td>
+                        <td colspan="2" class="">
+                            <div class="adjustments__title">Anpassungen an die Bestellung:</div>
+                            <div class="">
+                                {% for adjustment in cart.orderAdjustments %}
+                                    <div class="adjustments__data">
+                                        <div class="adjustments__data--type">
+                                            <strong class="">{{ adjustment.type }}</strong>
+                                        </div>
+                                        <div class="">
+                                            <span class="adjustments__data--description">{{ adjustment.description }}</span>
+                                            {% if adjustment.isEstimated %}<i class="">{{ 'Estimated' }}</i>{% endif %}<br>
+                                            <span class="adjustments__data--name">{{ adjustment.name }}</span>
+                                        </div>
+                                        <div class="adjustments__data--amount">
+                                            <span class="" title="{{ adjustment.amount }}"> {{ adjustment.amount|commerceCurrency(cart.currency) }}</span>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </td>
+                    </tr>
+                {% endif %}
+                <tr class="cart__box cart__box--flex">
+                    <td class="" colspan="2">
+                        <div class="form__cart-table--coupon">
+                            {# <div class="{{ cart.getFirstError('couponCode') ? classes.box.error : classes.box.base }} form__cart-table--coupon-box"> #}
+                            <div class="{{ cart.getFirstError('couponCode') }} form__cart-table--coupon-box">
+                                {# The Update Coupon form uses the single update controller action #}
+                                <h4 class="heading heading--4 heading--no-margin-top">Gutschein Code</h4>
+
+                                {% if cart.getFirstError('couponCode') %}
+                                    <div class="text-red-500">{{ cart.getFirstError('couponCode') }}</div>
+                                {% endif %}
+
+
+                                <div class="form__cart-table--coupon-box-button">
+                                    {# {{ redirectInput('shop/warenkorb') }}
+                                    <input class="button button--secondary" type="submit" value="Coupon anwenden"/> #}
+                                    {% if cart.couponCode %}
+                                    <span>
+                                        <svg class="icon--check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                        </svg>
+                                        Code «{{ discount.description }}» angewendet
+                                    </span>
+                                    {{ hiddenInput('couponCode', 'Coupon code gelöscht.'|hash) }}
+                                     <a sprig s-action="commerce/cart/update-cart" s-method="post" value="null" href="#" class="button button--secondary">
+                                            Code löschen
+                                    </a>
+                                    {% else %}
+                                    <input type="text" name="couponCode" width="11"
+                                           class="input {% if cart.getFirstError('couponCode') %}text-red-500{% endif %}"
+                                            {# value="{{ cart.couponCode }}" #}>
+                                        <a sprig s-action="commerce/cart/update-cart" s-method="post" value="{{ cart.couponCode }}" href="#" class="button button--primary">
+                                        Code anwenden
+                                    </a>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+
+                    <td colspan="2" class="form__cart-table--adjustments-order">
+                        {% if not cart.hasErrors() %}
+                            <div class="form__cart-table--item-addprice" title="{{ cart.getTotalShippingCost() }}">
+                                <div class="form__cart-table--item-price-name">Versand:</div>
+                                <div class="form__cart-table--item-price-number">{{ cart.getTotalShippingCost()|commerceCurrency(cart.currency) }}</div>
+                            </div>
+                            <div class="form__cart-table--item-addprice" title="{{ cart.getTotalTaxIncluded() }}">
+                                <div class="form__cart-table--item-price-name">Mwst. (inkl):</div>
+                                <div class="form__cart-table--item-price-number">{{ cart.getTotalTaxIncluded()|commerceCurrency(cart.currency) }}</div>
+                            </div>
+                            <div class="form__cart-table--item-addprice" title="{{ cart.getTotalDiscount() }}">
+                                <div class="form__cart-table--item-price-name">
+                                {% if cart.couponCode %}
+                                Coupon:
+                                {% else %}
+                                Rabatt:
+                                {% endif %}
+                                </div>
+                                <div class="form__cart-table--item-price-number">{{ cart.getTotalDiscount()|commerceCurrency(cart.currency) }}</div>
+                            </div>
+
+                            <div class="form__cart-table--item-pricetotal" title="{{ cart.totalPrice }}">
+                                <div class="form__cart-table--item-price-name">Warenkorb Gesamtpreis:</div>
+                                <div class="form__cart-table--item-pricetotal-number">{{ cart.totalPrice|commerceCurrency(cart.currency) }}</div>
+                            </div>
+                        {% endif %}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="" colspan="4">
+                        <div class="form__cart-table--buttons">
+                            <div class="form__cart-table--buttons-container">
+                                <div>
+                                    {% if not cart.hasErrors() %}
+                                      {% if cart.totalPrice < 30 %}
+                                      <div class="form__cart--expection">
+                                        <a class="button button--secondary" href="#">Zahlung nicht möglich</a>
+                                        <span>Mindestbestellbetrag: 30,- CHF</span>
+                                      </div>
+                                      {% else %}
+                                        <a class="button button--primary" href="{{ url('shop/checkout') }}">Bezahlen</a>
+                                      {% endif %}
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+              </tbody>
+          </table>
+        </div>
+        </form>
+ {% endif %}

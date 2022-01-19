@@ -1,0 +1,23 @@
+columnSuffix: null
+contentColumnType: string
+fieldGroup: 4fe8dfc1-b512-4508-a756-d29539b14b62 # Artikel
+handle: manufactorTags
+instructions: ''
+name: 'Produzenten Tags'
+searchable: false
+settings:
+  allowLimit: false
+  allowMultipleSources: false
+  allowSelfRelations: false
+  limit: null
+  localizeRelations: false
+  selectionLabel: ''
+  showSiteMenu: true
+  source: 'taggroup:ad7f3368-57d3-4f97-ba54-6224326f9b95' # ähnliche Produzenten
+  sources: '*'
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: null
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Tags

@@ -1,0 +1,6 @@
+color: red
+default: false
+description: ''
+handle: orderStatusError
+name: Fehler
+sortOrder: 99

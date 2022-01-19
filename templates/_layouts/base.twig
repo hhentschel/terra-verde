@@ -2,6 +2,7 @@
 {% if cart is not defined %}
     {% set cart = craft.commerce.carts.cart %}
 {% endif %}
+<!-- Template: {{ _self }}.twig -->
 
 <!DOCTYPE HTML>
 <html lang="{{ currentSite.language }}">
@@ -28,15 +29,32 @@
       }
     } %}
 
+      {% set flashNotice = craft.app.session.getFlash('notice') %}
+      {% set flashError = craft.app.session.getFlash('error') %}
 
-    {% set flashNotice = craft.app.session.getFlash('notice') %}
-    {% set flashError = craft.app.session.getFlash('error') %}
 
-    {% block layout %}
 
-    {% endblock %}
+
+      {% block layout %}
+
+      {% endblock %}
+
+      {# <script type="text/javascript">
+    window.csrfTokenName = "{{ craft.app.config.general.csrfTokenName|e('js') }}";
+    window.csrfTokenValue = "{{ craft.app.request.csrfToken|e('js') }}";
+</script> #}
 
     {% include '_layouts/_includes/scripts' %}
+
+  {% include '_layouts/_includes/sprig' %}
+
+
+    {% if currentUser %}
+      {% if currentUser.isInGroup('userGroupRedactors') or currentUser.admin %}
+        {% include '_components/_quick-edit/quick-edit' %}
+        {% endif %}
+    {% endif %}
+
 
     {% if devMode %}
       <script>console.log('Cart on page load: ', {{ cart.toArray()|json_encode|raw }});</script>

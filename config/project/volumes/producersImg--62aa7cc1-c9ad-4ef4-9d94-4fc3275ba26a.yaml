@@ -1,0 +1,58 @@
+fieldLayouts:
+  ffadd063-e81b-4851-875d-65ba183deb9d:
+    tabs:
+      -
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\AssetTitleField
+            warning: null
+            width: 100
+          -
+            fieldUid: f836488e-b5ab-4d7d-8b93-f9d9fb95263f # Bild Alt-Text
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 79922ac9-edbc-44e9-850c-3995f6bcdbee # Bild Legende
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Inhalt
+        sortOrder: 1
+handle: producersImg
+hasUrls: true
+name: Produzenten
+settings:
+  path: '@webroot/assets/images/content/producers/'
+sortOrder: 6
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
+type: craft\volumes\Local
+url: '@web/assets/images/content/producers/'

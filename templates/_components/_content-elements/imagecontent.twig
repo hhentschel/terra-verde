@@ -1,0 +1,44 @@
+{% set img = img is defined and img is not empty ? img.one() : null %}
+
+{# {% set img = entry.image.one() ?? null %} #}
+{% set imageUrl = img ? img.getUrl('imageContentFull') : '' %}
+
+{% set imageStandardAltText = img
+  and img.imageAltText is defined
+  and img.imageAltText is not empty
+  ? img.imageAltText
+  : ''
+%}
+{% set imageAltText = imageAltText is defined and imageAltText is not empty
+  ? imageAltText
+  : imageStandardAltText
+%}
+{% set imageStandardCaption = img
+  and img.imageCaption is defined
+  and img.imageCaption is not empty
+  ? img.imageCaption
+  : ''
+%}
+{% set imageCaption = imageCaption is defined and imageCaption is not empty
+  ? imageCaption
+  : imageStandardCaption
+%}
+
+{% set imageTypeClass = imageSizeParam is defined
+  and imageSizeParam is not empty
+  ? imageSizeParam
+  : ''
+%}
+
+{% if imageUrl %}
+  <figure class="image {{ imageTypeClass }}">
+    <div class="image__wrapper">
+      <img class="image__img" src="{{ imageUrl }}" alt="{{ imageAltText }}" />
+    </div>
+    {% if imageCaption %}
+      <figcaption class="image__caption">
+        {{ imageCaption }}
+      </figcaption>
+    {% endif %}
+  </figure>
+{% endif %}
