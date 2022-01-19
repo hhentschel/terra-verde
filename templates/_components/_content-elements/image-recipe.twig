@@ -1,4 +1,5 @@
-{% set imageUrl = img.getUrl|default('') %}
+{# {% set imageUrl = img.getUrl|default('') %} #}
+{% set imageUrl = img %}
 {% set imageheight = img.getHeight(transform)|default('') %}
 {% set imagewidth = img.getWidth(transform)|default('') %}
 {% set imagetitle = img.title|default('') %}

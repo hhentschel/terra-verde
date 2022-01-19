@@ -21,6 +21,7 @@
   &__detail {
     &-header {
       display: flex;
+      flex-direction: column;
       // margin: px-to-rem($space--xm) 0;
     }
 
