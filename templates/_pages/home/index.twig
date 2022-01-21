@@ -11,7 +11,7 @@
       <div class="col col-xs-12 col-md-12 col-lg-12">
         <h1 class="heading heading--title heading--no-margin">
           <span class="visually-hidden">
-            {{ 'main.orgName'|t }} - {{ 'main.title'|t }}Test
+            {{ 'main.orgName'|t }} - {{ 'main.title'|t }}
           </span>
         </h1>
       </div>
@@ -38,10 +38,10 @@
     {% endfor %}
   {% endif %}
 
-  {% include '_components/_content-elements/content-elements-startpage-loop' with {
+  {# {% include '_components/_content-elements/content-elements-startpage-loop' with {
     contentElementsStartpage: entry.contentElementsStartpage.level(1),
     usesGrid: false
-  } %}
+  } %} #}
 
   {# Auswahl aus dem Shop #}
   <section class="grid">
@@ -98,12 +98,13 @@
                 <a href="{{ product.url }}"
                   class="section-home__product--link onsale">
                   {% set transform = transformation|default('productListing') %}
-                  {% set img = product.articleImage.one() ?? generic.image.one()
+                  {% set img = product.articleImage.one().optimizedimages
+                    ?? generic.image.one().optimizedimages
                   %}
 
                   {% if img is defined %}
                     {% include '_components/_content-elements/image' with {
-                      image: img,
+                      optimizedImages: img,
                       transform: transform
                     } %}
                   {% endif %}
@@ -157,12 +158,13 @@
               <div class="col col-xs-12 col-md-4 col-lg-4 section-home__product">
                 <a href="{{ product.url }}" class="section-home__product--link">
                   {% set transform = transformation|default('productListing') %}
-                  {% set img = product.articleImage.one() ?? generic.image.one()
+                  {% set img = product.articleImage.one().optimizedimages
+                    ?? generic.image.one().optimizedimages
                   %}
 
                   {% if img is defined %}
                     {% include '_components/_content-elements/image' with {
-                      image: img,
+                      optimizedImages: img,
                       transform: transform
                     } %}
                   {% endif %}
@@ -203,12 +205,13 @@
               <div class="col col-xs-12 col-md-4 col-lg-4 section-home__product">
                 <a href="{{ product.url }}" class="section-home__product--link">
                   {% set transform = transformation|default('productListing') %}
-                  {% set img = product.articleImage.one() ?? generic.image.one()
+                  {% set img = product.articleImage.one().optimizedimages
+                    ?? generic.image.one().optimizedimages
                   %}
 
                   {% if img is defined %}
                     {% include '_components/_content-elements/image' with {
-                      image: img,
+                      optimizedImages: img,
                       transform: transform
                     } %}
                   {% endif %}
@@ -261,11 +264,13 @@
             <article class="col col-xs-12 col-md-4 col-lg-4 section-home__blogentry">
               <a href="{{ entry.url }}" class="section-home__product--link">
                 {% set transform = transformation|default('productListing') %}
-                {% set img = entry.image.one() ?? generic.image.one() %}
+                {% set img = entry.image.one().optimizedimages %}
+
+                {# {% set img = entry.image.one() ?? generic.image.one() %} #}
 
                 {% if img is defined %}
                   {% include '_components/_content-elements/image' with {
-                    image: img,
+                    optimizedImages: img,
                     transform: transform
                   } %}
                 {% endif %}

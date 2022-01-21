@@ -2,7 +2,6 @@
 {% set pageTitle = entry.pageTitle is not empty ? entry.pageTitle : entry.title
 %}
 
-
 {% block content %}
   <div class="grid">
     <div class="row">
@@ -18,21 +17,33 @@
   <section class="grid">
     <div class="row">
       <div class="col col-xs-12 col-md-12 col-lg-12">
+        {% set optimizedImages = entry.image.one().optimizedImagesField %}
+        <picture>
+          <source srcset="{{ optimizedImages.srcsetWebP() }}"
+            sizes="100vw"
+            type="image/webp" />
+          <img src="{{ optimizedImages.src() }}"
+            srcset="{{ optimizedImages.srcset() }}"
+            sizes="100vw" />
+        </picture>
 
-          {% set relatedSection =
-            craft.entries.section('producersStructure').level(1).all()
-          %}
-          {% if relatedSection|length %}
-            {% for entry in relatedSection %}
+        {% set relatedSection =
+          craft.entries.section('producersStructure').level(1).all()
+        %}
+        {% if relatedSection|length %}
+          {% for entry in relatedSection %}
+            <div class="producers producers-overview">
+              <h3 class="producers-overview__title">
+                {{ entry.title }}
+              </h3>
 
-              <div class="producers producers-overview">
-                <h3 class="producers-overview__title">{{ entry.title }}</h3>
-
-                <div class="producers-overview__preview">
-
-                {% if entry.contentElements is defined and entry.contentElements is not empty %}
-                  <a href="{{ entry.url }}" class="producers-overview__preview-image">
-                    {% set transform = transformation|default('imageOneThird') %}
+              <div class="producers-overview__preview">
+                {% if
+                  entry.contentElements is defined
+                    and entry.contentElements is not empty %}
+                  <a href="{{ entry.url }}"
+                    class="producers-overview__preview-image">
+                    {# {% set transform = transformation|default('imageOneThird') %}
                       {% set img = entry.image.one() ?? null %}
                       {% if img is defined %}
                         {% include '_components/_content-elements/image'
@@ -40,9 +51,9 @@
                             img: img,
                             transform: transform
                             } %}
-                    {% endif %}
+                    {% endif %} #}
                   </a>
-                {% else %}
+                  {# {% else %}
                   <div class="producers-overview__preview-image">
                     {% set transform = transformation|default('imageOneThird') %}
                       {% set img = entry.image.one() ?? null %}
@@ -53,26 +64,25 @@
                             transform: transform
                             } %}
                     {% endif %}
-                  </div>
+                  </div> #}
                 {% endif %}
 
-                  <div class="producers-overview__preview-lead">
-                    {{ entry.leadText }}
-                  </div>
+                <div class="producers-overview__preview-lead">
+                  {{ entry.leadText }}
                 </div>
-
-                {% if entry.contentElements is defined and entry.contentElements is not empty %}
-                  <a href="{{ entry.url }}" class="producers producers-overview__linkdetail">
-                    mehr Informationen
-                  </a>
-                {% endif %}
               </div>
 
-            {% endfor %}
-          {% endif %}
-      </div>
-
-
+              {% if
+                entry.contentElements is defined
+                  and entry.contentElements is not empty %}
+                <a href="{{ entry.url }}"
+                  class="producers producers-overview__linkdetail">
+                  mehr Informationen
+                </a>
+              {% endif %}
+            </div>
+          {% endfor %}
+        {% endif %}
       </div>
     </div>
   </section>
