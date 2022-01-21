@@ -161,7 +161,10 @@
 
   &__favorites {
     background-color: $color--green;
-    // min-height: 100px;
+  }
+
+  &__blog {
+    background-color: $color--orange;
   }
 }
 

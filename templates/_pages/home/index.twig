@@ -194,19 +194,6 @@
             <h3 class="heading heading--h3">
               Beliebteste
             </h3>
-            {# <a class="section-home__link"
-            href="shop/produkte?search=&limit=16&articleCategoriesStatus=10745&page=1">
-            <span class="link__text link__text--section">
-              {{ 'Alle Beliebteste'|t }}
-            </span>
-            <div class="link__icon-wrapper link__icon-wrapper--internal">
-              {{
-                macros.svg('arrow_42')|attr({
-                  class: 'link__icon link__icon--internal icon icon--42'
-                })
-              }}
-            </div>
-          </a> #}
           </div>
         </div>
 
@@ -243,27 +230,59 @@
     </section>
   {% endif %}
 
-  {# <section class="section-home section-home__favorites">
-    <div class="grid">
-      <div class="row">
-        <div class="col col-xs-12 col-md-12 col-lg-12">
-          <h3 class="heading heading--h3">
-            Beliebteste
-          </h3>
+  {# Blog Artikel #}
+  {% set blogQuery = craft.entries().section('blog').limit(3) %}
+  {% set entries = blogQuery.all() %}
+  {% if favproducts|length %}
+    <section class="section-home section-home__stripe section-home__blog">
+      <div class="grid">
+        <div class="row">
+          <div class="col col-xs-12 col-md-12 col-lg-12">
+            <h3 class="heading heading--h3">
+              Aus dem Blog
+            </h3>
+            <a class="section-home__link" href="/blog">
+              <span class="link__text link__text--section">
+                {{ 'Zum Blog'|t }}
+              </span>
+              <div class="link__icon-wrapper link__icon-wrapper--internal">
+                {{
+                  macros.svg('arrow_42')|attr({
+                    class: 'link__icon link__icon--internal icon icon--42'
+                  })
+                }}
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="row section-home__row-products">
+          {% for entry in entries %}
+            <article class="col col-xs-12 col-md-4 col-lg-4 section-home__blogentry">
+              <a href="{{ entry.url }}" class="section-home__product--link">
+                {% set transform = transformation|default('productListing') %}
+                {% set img = entry.image.one() ?? generic.image.one() %}
+
+                {% if img is defined %}
+                  {% include '_components/_content-elements/image' with {
+                    image: img,
+                    transform: transform
+                  } %}
+                {% endif %}
+
+                <div class="section-home__product--info">
+                  <h4 class="section-home__product--heading">
+                    {{ entry.title }}
+                  </h4>
+                </div>
+              </a>
+            </article>
+          {% endfor %}
         </div>
       </div>
-      {% set products = entry.homeFavorites %}
-      <div class="row">
-        {% if products|length %}
-          {% for product in products %}
-            <div class="col col-xs-12 col-md-6 col-lg-4">
-              <a href="{{ product.url }}">{{ product.title }}</a>
-            </div>
-          {% endfor %}
-        {% endif %}
-      </div>
-    </div>
-  </section> #}
+      <div class="section-home__overlay"></div>
+    </section>
+  {% endif %}
 {% endblock %}
 
 {# Alle Neuheiten #}
