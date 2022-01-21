@@ -66,38 +66,40 @@
   </section>
 
   {# Aktionen #}
-  <section class="section-home section-home__stripe section-home__campaigns">
-    <div class="grid">
-      <div class="row">
-        <div class="col col-xs-12 col-md-12 col-lg-12">
-          <h3 class="heading heading--h3">
-            Aktionen
-          </h3>
-          <a class="section-home__link"
-            href="shop/produkte?search=&limit=16&articleCategoriesStatus=10744&page=1">
-            <span class="link__text link__text--section">
-              {{ 'Alle Aktionen'|t }}
-            </span>
-            <div class="link__icon-wrapper link__icon-wrapper--internal">
-              {{
-                macros.svg('arrow_42')|attr({
-                  class: 'link__icon link__icon--internal icon icon--42'
-                })
-              }}
-            </div>
-          </a>
+  {% set saleproducts = entry.homeSales %}
+  {% if saleproducts|length %}
+    <section class="section-home section-home__stripe section-home__campaigns">
+      <div class="grid">
+        <div class="row">
+          <div class="col col-xs-12 col-md-12 col-lg-12">
+            <h3 class="heading heading--h3">
+              Aktionen
+            </h3>
+            <a class="section-home__link"
+              href="shop/produkte?search=&limit=16&articleCategoriesStatus=10744&page=1">
+              <span class="link__text link__text--section">
+                {{ 'Alle Aktionen'|t }}
+              </span>
+              <div class="link__icon-wrapper link__icon-wrapper--internal">
+                {{
+                  macros.svg('arrow_42')|attr({
+                    class: 'link__icon link__icon--internal icon icon--42'
+                  })
+                }}
+              </div>
+            </a>
+          </div>
         </div>
-      </div>
-      {% set products = entry.homeSales %}
-      <div class="row section-home__row-products">
-        {% if products|length %}
-          {% for product in products %}
+
+        <div class="row section-home__row-products">
+          {% for product in saleproducts %}
             {% for variant in product.getVariants() %}
-              <div class="col col-xs-12 col-md-4 col-lg-4">
+              <div class="col col-xs-12 col-md-4 col-lg-4 section-home__product">
                 <a href="{{ product.url }}"
-                  class="section-home__product onsale">
+                  class="section-home__product--link onsale">
                   {% set transform = transformation|default('productListing') %}
-                  {% set img = product.articleImage.one() ?? null %}
+                  {% set img = product.articleImage.one() ?? generic.image.one()
+                  %}
 
                   {% if img is defined %}
                     {% include '_components/_content-elements/image' with {
@@ -117,44 +119,46 @@
               </div>
             {% endfor %}
           {% endfor %}
-        {% endif %}
+        </div>
       </div>
-    </div>
-    <div class="section-home__overlay"></div>
-  </section>
+      <div class="section-home__overlay"></div>
+    </section>
+  {% endif %}
 
   {# Neuheiten #}
-  <section class="section-home section-home__stripe section-home__newproducts">
-    <div class="grid">
-      <div class="row">
-        <div class="col col-xs-12 col-md-12 col-lg-12">
-          <h3 class="heading heading--h3">
-            Neuheiten
-          </h3>
-          <a class="section-home__link"
-            href="shop/produkte?search=&limit=16&articleCategoriesStatus=10745&page=1">
-            <span class="link__text link__text--section">
-              {{ 'Alle Neuheiten'|t }}
-            </span>
-            <div class="link__icon-wrapper link__icon-wrapper--internal">
-              {{
-                macros.svg('arrow_42')|attr({
-                  class: 'link__icon link__icon--internal icon icon--42'
-                })
-              }}
-            </div>
-          </a>
+  {% set newproducts = entry.homeNewProduct %}
+  {% if newproducts|length %}
+    <section class="section-home section-home__stripe section-home__newproducts">
+      <div class="grid">
+        <div class="row">
+          <div class="col col-xs-12 col-md-12 col-lg-12">
+            <h3 class="heading heading--h3">
+              Neuheiten
+            </h3>
+            <a class="section-home__link"
+              href="shop/produkte?search=&limit=16&articleCategoriesStatus=10745&page=1">
+              <span class="link__text link__text--section">
+                {{ 'Alle Neuheiten'|t }}
+              </span>
+              <div class="link__icon-wrapper link__icon-wrapper--internal">
+                {{
+                  macros.svg('arrow_42')|attr({
+                    class: 'link__icon link__icon--internal icon icon--42'
+                  })
+                }}
+              </div>
+            </a>
+          </div>
         </div>
-      </div>
-      {% set products = entry.homeNewProduct %}
-      <div class="row section-home__row-products">
-        {% if products|length %}
-          {% for product in products %}
+
+        <div class="row section-home__row-products">
+          {% for product in newproducts %}
             {% for variant in product.getVariants() %}
-              <div class="col col-xs-12 col-md-4 col-lg-4">
-                <a href="{{ product.url }}" class="section-home__product">
+              <div class="col col-xs-12 col-md-4 col-lg-4 section-home__product">
+                <a href="{{ product.url }}" class="section-home__product--link">
                   {% set transform = transformation|default('productListing') %}
-                  {% set img = product.articleImage.one() ?? null %}
+                  {% set img = product.articleImage.one() ?? generic.image.one()
+                  %}
 
                   {% if img is defined %}
                     {% include '_components/_content-elements/image' with {
@@ -174,13 +178,71 @@
               </div>
             {% endfor %}
           {% endfor %}
-        {% endif %}
+        </div>
       </div>
-    </div>
-    <div class="section-home__overlay"></div>
-  </section>
+      <div class="section-home__overlay"></div>
+    </section>
+  {% endif %}
 
   {# Beliebteste #}
+  {% set favproducts = entry.homeFavorites %}
+  {% if favproducts|length %}
+    <section class="section-home section-home__stripe section-home__favorites">
+      <div class="grid">
+        <div class="row">
+          <div class="col col-xs-12 col-md-12 col-lg-12">
+            <h3 class="heading heading--h3">
+              Beliebteste
+            </h3>
+            {# <a class="section-home__link"
+            href="shop/produkte?search=&limit=16&articleCategoriesStatus=10745&page=1">
+            <span class="link__text link__text--section">
+              {{ 'Alle Beliebteste'|t }}
+            </span>
+            <div class="link__icon-wrapper link__icon-wrapper--internal">
+              {{
+                macros.svg('arrow_42')|attr({
+                  class: 'link__icon link__icon--internal icon icon--42'
+                })
+              }}
+            </div>
+          </a> #}
+          </div>
+        </div>
+
+        <div class="row section-home__row-products">
+          {% for product in favproducts %}
+            {% for variant in product.getVariants() %}
+              <div class="col col-xs-12 col-md-4 col-lg-4 section-home__product">
+                <a href="{{ product.url }}" class="section-home__product--link">
+                  {% set transform = transformation|default('productListing') %}
+                  {% set img = product.articleImage.one() ?? generic.image.one()
+                  %}
+
+                  {% if img is defined %}
+                    {% include '_components/_content-elements/image' with {
+                      image: img,
+                      transform: transform
+                    } %}
+                  {% endif %}
+
+                  <div class="section-home__product--info">
+                    <h4 class="section-home__product--heading">
+                      {{ product.title }}
+                    </h4>
+
+                    {% include '/shop/produkte/_includes/prices.twig' %}
+                  </div>
+                </a>
+              </div>
+            {% endfor %}
+          {% endfor %}
+        </div>
+      </div>
+      <div class="section-home__overlay"></div>
+    </section>
+  {% endif %}
+
   {# <section class="section-home section-home__favorites">
     <div class="grid">
       <div class="row">

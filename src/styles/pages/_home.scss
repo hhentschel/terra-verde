@@ -67,6 +67,12 @@
   &__stripe {
     margin: px-to-rem($space--xm) 0 0 0;
     padding: px-to-rem($space--xm) 0 0 0;
+
+    .image__wrapper {
+      justify-content: center;
+      min-height: 250px;
+      align-items: center;
+    }
   }
 
   &__product {
@@ -74,18 +80,33 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    margin: 0;
+    padding-bottom: px-to-rem($space--m);
+
+    &:not(:last-child) {
+      border-bottom: 1px solid $color--white;
+    }
 
     @include breakpoint('tablet') {
       height: 100%;
-      margin: px-to-rem($space--m) 0;
-      padding-bottom: px-to-rem($space--m);
-      border-bottom: 1px solid $color--grey-light;
+      border-bottom: 0;
+    }
+
+    &--link {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
     }
 
     &--heading {
       text-align: center;
       font-size: px-to-rem($font-size-m);
-      margin-top: px-to-rem($space--xm);
+      margin: px-to-rem($space--xm) 0 0 0;
+      color: $color--white;
+
+      @include breakpoint('tablet') {
+        color: $color--text;
+      }
     }
 
     &--price {
@@ -106,7 +127,11 @@
     width: 100%;
     background: $color--white;
     bottom: 0;
-    height: 200px;
+    height: 0;
+
+    @include breakpoint('tablet') {
+      height: 200px;
+    }
   }
 
   &__link {
@@ -117,16 +142,13 @@
 
   &__newproducts {
     background-color: $color--red;
-
-    .heading--h3 {
-      color: $color--white;
-      margin-top: px-to-rem($space--m);
-    }
   }
 
   .heading {
     text-align: center;
     font-size: px-to-rem($font-size-xxl-p);
+    color: $color--white;
+    margin-top: 0;
   }
 
   &__campaigns {
@@ -145,13 +167,18 @@
 
 .quicklinks {
   .image__img {
-    max-height: px-to-rem(150);
+    max-height: px-to-rem(250);
     width: auto;
   }
 
   .heading {
+    font-size: px-to-rem(30);
     align-self: center;
     text-align: center;
+  }
+
+  .image__wrapper {
+    justify-content: center;
   }
 
   &__items {

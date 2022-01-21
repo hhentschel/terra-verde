@@ -240,6 +240,14 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
   &__item--price,
   &__item--price-sale {
     font-weight: $font-weight--bold;
+
+    .page--home & {
+      color: $color--white;
+
+      @include breakpoint('tablet') {
+        color: $color--text;
+      }
+    }
   }
 
   &__item--price-old {
