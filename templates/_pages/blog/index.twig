@@ -2,7 +2,7 @@
 {% set pageTitle = entry.pageTitle is not empty ? entry.pageTitle : entry.title
 %}
 {# Create a category query with the 'group' parameter #}
-{% set BlogCategoryQuery = craft.categories().group('catGroupForBlog') %}
+{% set BlogCategoryQuery = craft.categories().group('catGroupForBlog').orderBy('lft ASC') %}
 {% set catNews = BlogCategoryQuery.id(16717) %}
 {% set catMagazin = BlogCategoryQuery.id(16719) %}
 {% set catRecipe = BlogCategoryQuery.id(16718) %}
