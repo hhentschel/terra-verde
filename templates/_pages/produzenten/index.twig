@@ -17,16 +17,6 @@
   <section class="grid">
     <div class="row">
       <div class="col col-xs-12 col-md-12 col-lg-12">
-        {% set optimizedImages = entry.image.one().optimizedImagesField %}
-        <picture>
-          <source srcset="{{ optimizedImages.srcsetWebP() }}"
-            sizes="100vw"
-            type="image/webp" />
-          <img src="{{ optimizedImages.src() }}"
-            srcset="{{ optimizedImages.srcset() }}"
-            sizes="100vw" />
-        </picture>
-
         {% set relatedSection =
           craft.entries.section('producersStructure').level(1).all()
         %}
@@ -43,15 +33,16 @@
                     and entry.contentElements is not empty %}
                   <a href="{{ entry.url }}"
                     class="producers-overview__preview-image">
-                    {# {% set transform = transformation|default('imageOneThird') %}
-                      {% set img = entry.image.one() ?? null %}
-                      {% if img is defined %}
-                        {% include '_components/_content-elements/image'
-                          with {
-                            img: img,
-                            transform: transform
-                            } %}
-                    {% endif %} #}
+                    {% set transform =
+                      transformation|default('imageOneThird')
+                    %}
+                    {% set img = entry.image.one().optimizedimages ?? null %}
+                    {% if img is defined and img is not empty %}
+                      {% include '_components/_content-elements/image' with {
+                        optimizedImages: img,
+                        transform: transform
+                      } %}
+                    {% endif %}
                   </a>
                   {# {% else %}
                   <div class="producers-overview__preview-image">

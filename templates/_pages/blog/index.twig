@@ -2,10 +2,10 @@
 {% set pageTitle = entry.pageTitle is not empty ? entry.pageTitle : entry.title
 %}
 {# Create a category query with the 'group' parameter #}
-{% set myCategoryQuery = craft.categories().group('blogCategories') %}
-{% set catNews = myCategoryQuery.id(16351) %}
-{% set catRecipe = myCategoryQuery.id(16352) %}
-{% set catMagazin = myCategoryQuery.id(16353) %}
+{% set BlogCategoryQuery = craft.categories().group('catGroupForBlog') %}
+{% set catNews = BlogCategoryQuery.id(16717) %}
+{% set catMagazin = BlogCategoryQuery.id(16719) %}
+{% set catRecipe = BlogCategoryQuery.id(16718) %}
 
 {# Fetch the categories #}
 
@@ -26,17 +26,13 @@
     <div class="row">
       <div class="col col-xs-12 col-md-12 col-lg-12">
         <ul>
-          {% set categories = myCategoryQuery.all() %}
-          {% nav category in categories %}
+          {% set blogcategories = BlogCategoryQuery.all() %}
+
+          {% for category in blogcategories %}
           <li>
             <a href="{{ category.url }}">{{ category.title }}</a>
-            {% ifchildren %}
-            <ul>
-              {% children %}
-            </ul>
-            {% endifchildren %}
           </li>
-          {% endnav %}
+          {% endfor %}
         </ul>
       </div>
     </div>
@@ -53,11 +49,11 @@
                 <h3 class="blog-list__item--title">
                   {{ entry.title }}
                 </h3>
-                {% if categories is defined and categories is not empty %}
-                  {% set categories = entry.catBlog.all() %}
+                {% if blogcategories is defined and blogcategories is not empty %}
+                  {% set categories = entry.catsForBlogEntries.all() %}
                   <div class="blog-list__item--cat-container">
                     {% for cat in categories %}
-                      <span class="blog-list__item--cat-item blog-list__item--cat-item--{% if cat.id == 16351 %}news{% elseif cat.id == 16352 %}recipe{% elseif cat.id == 16353 %}magazin{% endif %}">
+                      <span class="blog-list__item--cat-item blog-list__item--cat-item--{% if cat.id == 16717 %}news{% elseif cat.id == 16718 %}recipe{% elseif cat.id == 16719 %}magazin{% endif %}">
                         {{ cat.title }}
                       </span>
                     {% endfor %}
@@ -72,11 +68,11 @@
                       transformation|default('imageOneThird')
                     %}
 
-                    {% set img = entry.image.one() ?? null %}
+                    {% set img = entry.image.one().optimizedimages ?? null %}
 
-                    {% if img is defined %}
+                    {% if img is defined and img is not empty %}
                       {% include '_components/_content-elements/image' with {
-                        image: img,
+                        optimizedImages: img,
                         transform: transform
                       } %}
                     {% endif %}
