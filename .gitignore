@@ -9,8 +9,6 @@ web/content/*
 _backup/*
 --templates/*
 web/assets/files/
-config/project/project.yaml
-project.yaml
 
 # CRAFT ENVIRONMENT
 /.env
@@ -47,4 +45,3 @@ project.yaml
 config.codekit3
 prepros-6.config
 
-project.yaml
