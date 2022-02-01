@@ -2,15 +2,12 @@
 /.idea
 node_modules/*
 package-lock.json
-web/assets/scripts/*
-web/assets/styles/*
 web/assets/images/content/*
 web/content/*
 _backup/*
 --templates/*
 web/assets/files/
-config/project/project.yaml
-project.yaml
+
 
 # CRAFT ENVIRONMENT
 /.env
@@ -47,4 +44,4 @@ project.yaml
 config.codekit3
 prepros-6.config
 
-project.yaml
+
