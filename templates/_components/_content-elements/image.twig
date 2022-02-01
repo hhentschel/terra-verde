@@ -1,5 +1,14 @@
 {% set imagetitle = product.title|default('Bild') %}
 
+{# {% set imageheight = img.getHeight(transform)|default('') %} #}
+{# {% set imagewidth = img.getWidth(transform)|default('') %} #}
+
+{% set imageheight = '' %}
+{% set imagewidth = '' %}
+
+{# {% set imageheight = optimizedImages.variantHeights[VARIANT_WIDTH] %}
+{% set imagewidth = optimizedImages.variantHeights[VARIANT_WIDTH] %} #}
+
 {% set imageStandardAltText = optimizedImages
   and image.imageAltText is defined
   and image.imageAltText is not empty
@@ -30,14 +39,20 @@
     <picture>
       <source srcset="{{ optimizedImages.srcsetWebP() }}"
         sizes="100vw"
+        width="{{ imagewidth }}"
+        height="{{ imageheight }}"
         type="image/webp"
         alt="{{ imageAltText }}"
-        title="{{- imagetitle -}}" />
+        title="{{- imagetitle -}}"
+        class="lazyload" />
       <img src="{{ optimizedImages.src() }}"
         srcset="{{ optimizedImages.srcset() }}"
         sizes="100vw"
+        width="{{ imagewidth }}"
+        height="{{ imageheight }}"
         alt="{{ imageAltText }}"
-        title="{{- imagetitle -}}" />
+        title="{{- imagetitle -}}"
+        class="lazyload" />
     </picture>
   </div>
   {% if imageCaption %}

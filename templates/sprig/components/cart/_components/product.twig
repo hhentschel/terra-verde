@@ -53,6 +53,17 @@
                         } %}
                   {% endif %}
 
+                   {# {% set img = product.articleImage.one().optimizedimages
+                    ?? generic.image.one().optimizedimages
+                  %}
+
+                  {% if img is defined %}
+                    {% include '_components/_content-elements/image-product' with {
+                      optimizedImages: img,
+                      transform: transform
+                    } %}
+                  {% endif %} #}
+
                 </div>
 
                 <div class="shop-list__text">

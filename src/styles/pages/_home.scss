@@ -70,7 +70,7 @@
 
     .image__wrapper {
       justify-content: center;
-      min-height: 250px;
+      max-height: px-to-rem(250);
       align-items: center;
     }
   }

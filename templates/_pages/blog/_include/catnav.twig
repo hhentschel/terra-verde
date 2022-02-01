@@ -1,0 +1,9 @@
+{% set blogcategories = craft.categories().group('catGroupForBlog').all() %}
+
+<ul class="blog__cat--list">
+  {% for singlecategory in blogcategories %}
+    <li class="blog__cat--item">
+      <a href="{{ singlecategory.url }}">{{ singlecategory.title }}</a>
+    </li>
+  {% endfor %}
+</ul>
