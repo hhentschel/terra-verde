@@ -9,20 +9,48 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
   --grid-row-gap: 2.75rem;
 }
 
+.shop {
+  &__board {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: px-to-rem($space--xm);
+
+    @include breakpoint('tablet-portrait') {
+      flex-wrap: nowrap;
+    }
+  }
+}
+
+#tvboard {
+  width: 100%;
+}
+
 .filter {
   margin: 0 0 px-to-rem($space--m) 0;
 
-  .heading--2 {
-    font-size: px-to-rem($font-size-m);
-    font-weight: 300;
-    text-transform: uppercase;
-    border-bottom: 1px solid $color--text;
-    padding-bottom: px-to-rem($space--xs);
+  &__accordion {
+    margin: px-to-rem($space--m) 0 px-to-rem($space--m) 0;
+
+    &[open] {
+      margin-bottom: px-to-rem($space--xm);
+    }
+    &--title {
+      font-size: px-to-rem($font-size-m);
+      font-weight: 300;
+      text-transform: uppercase;
+      border-bottom: 1px solid $color--text;
+      padding-bottom: px-to-rem($space--xs);
+      margin: px-to-rem($space--m) 0;
+    }
   }
 
   .no-border {
     border: 0;
     padding: 0;
+  }
+
+  &__search {
+    margin-bottom: px-to-rem($space--xxm);
   }
 
   &__hint {
@@ -43,8 +71,14 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
   &__checkbox {
     display: flex;
     align-items: center;
-    margin: 0 0 px-to-rem($space--s) 0;
+    margin: 0 0 px-to-rem($space--m) 0;
     font-size: px-to-rem($font-size-s);
+    align-items: flex-start;
+  }
+
+  &__checkbox--label {
+    line-height: $line-height--xm;
+    flex: 1;
   }
 
   &__pagination {
@@ -94,24 +128,26 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
     flex-wrap: wrap;
     height: auto;
 
-    @include breakpoint('tablet-portrait') {
-      height: 240px;
-    }
+    // uncomment for filter on top
+    // @include breakpoint('tablet-portrait') {
+    //   height: 240px;
+    // }
 
-    @include breakpoint('tablet-landscape') {
-      height: 160px;
-    }
+    // @include breakpoint('tablet-landscape') {
+    //   height: 160px;
+    // }
 
     &--checkbox {
       width: 100%;
 
-      @include breakpoint('tablet-portrait') {
-        width: 50%;
-      }
+      // uncomment for filter on top
+      // @include breakpoint('tablet-portrait') {
+      //   width: 50%;
+      // }
 
-      @include breakpoint('tablet-landscape') {
-        width: 33%;
-      }
+      // @include breakpoint('tablet-landscape') {
+      //   width: 33%;
+      // }
     }
   }
 
@@ -122,9 +158,10 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
     flex-wrap: nowrap;
     height: auto;
 
-    @include breakpoint('tablet-portrait') {
-      height: 140px;
-    }
+    // uncomment for filter on top
+    // @include breakpoint('tablet-portrait') {
+    //   height: 140px;
+    // }
 
     @include breakpoint('desktop') {
       flex-wrap: wrap;

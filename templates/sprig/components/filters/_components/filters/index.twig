@@ -22,7 +22,7 @@
 {% set catGroupWine = catGroupWine ?? [] %}
 {% set catGroupStatus = catGroupStatus ?? [] %} #}
 
-{% set limit = limit ?? 8 %}
+{% set limit = limit ?? 15 %}
 {% set page = page ?? 1 %}
 {# Defines maximum number of pages to show. #}
 {% set maxPages = 7 %}
@@ -113,10 +113,10 @@
   </script>
 {% endif %}
 
-<div s-replace="#tvboard">
+<div s-replace="#tvboard" class="shop__board row">
   {% include 'sprig/components/filters/_components/filters/catfilter' %}
 
-  <div id="tvboard">
+  <div id="tvboard" class="col col-xs-12 col-md-6 col-lg-9">
     {# shop-list anfang #}
 
     <p class="">
