@@ -1,5 +1,5 @@
 fieldLayouts:
-  c448b5a5-8e33-4bf2-bdeb-6ff6b83a4747:
+  135c80d7-9a9f-45ff-aed1-7284d1095b2c:
     tabs:
       -
         elements:
@@ -27,7 +27,16 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: 1c9b1275-03a3-4fcd-bec4-034e84d1b437 # Kategorien Blog
+            fieldUid: 421eaf0b-f542-45ff-8051-2921d93b3eeb # Vorschautext
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 037a2847-d799-44e7-ae4b-4bf40233db70 # Kategorien
             instructions: null
             label: null
             required: false
@@ -46,11 +55,11 @@ fieldLayouts:
             width: 100
         name: Inhalt
         sortOrder: 1
-handle: recipeBlog
+handle: recipeCatBlog
 hasTitleField: true
-name: Rezepte
-section: 9547c4b2-034f-4e07-9a02-b94d052fec7c # Blog-Einträge
-sortOrder: 2
+name: Rezept
+section: 650553f0-dbb7-42c0-ba12-1b19aa58126a # Blog Beiträge
+sortOrder: 3
 titleFormat: null
 titleTranslationKeyFormat: null
 titleTranslationMethod: site

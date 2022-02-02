@@ -1,5 +1,5 @@
 fieldLayouts:
-  1d221156-f409-4f72-91b8-5cb19f1e7c4d:
+  fddf78ed-4942-4d93-a384-ca867a44ea4b:
     tabs:
       -
         elements:
@@ -23,27 +23,16 @@ fieldLayouts:
             step: null
             tip: null
             title: null
-            type: craft\fieldlayoutelements\AssetTitleField
-            warning: null
-            width: 100
-          -
-            fieldUid: c8246e09-6dc5-4d7c-91e5-e4ad36778317 # OptimizedImages
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
+            type: craft\fieldlayoutelements\EntryTitleField
             warning: null
             width: 100
         name: Inhalt
         sortOrder: 1
-handle: contentImages
-hasUrls: true
-name: Inhaltsbilder
-settings:
-  path: '@webroot/assets/images/content/content/'
-sortOrder: 0
+handle: magazinBlog
+hasTitleField: true
+name: Magazin
+section: 917f584a-0623-4190-aeac-21df0ea17e9e # Magazin
+sortOrder: 1
+titleFormat: null
 titleTranslationKeyFormat: null
 titleTranslationMethod: site
-type: craft\volumes\Local
-url: '@web/assets/images/content/content/'

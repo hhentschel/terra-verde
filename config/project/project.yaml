@@ -1,4 +1,4 @@
-dateModified: 1642524443
+dateModified: 1643799847
 email:
   fromEmail: p@henrik-hentschel.de
   fromName: 'Terra Verde'
@@ -14,12 +14,10 @@ meta:
     0cbcf3ca-9627-47fb-9dd3-c2e6a8a7b86b: Shop # Shop
     0ea32ec6-2007-4dcf-b0f1-12ac84095283: Bild # Bild
     0ed0afd6-e6a8-4ec5-8acd-e69ce7627106: Alkoholgehalt # Alkoholgehalt
-    0f8a4c95-cf33-41d9-80d6-f568d50b7d4a: Blog # Blog
     0fcc56d7-2743-46e9-8eb7-2a149be4de22: Startseite # Startseite
     01afa3d1-503d-4b92-a7a4-5b29b34624c6: 'Bearbeitet und fertig zum Versenden' # Bearbeitet und fertig zum Versenden
     1b636224-64d4-4794-a5cf-fe9b821da18a: Registrieren # Registrieren
     1baab5b6-ddf1-4a49-8435-b3bd6a0cc383: Anrede # Anrede
-    1c9b1275-03a3-4fcd-bec4-034e84d1b437: 'Kategorien Blog' # Kategorien Blog
     1c95f87a-2123-4b4b-a9f8-831335adfe84: 'Artikel Nährstoffe' # Artikel Nährstoffe
     1cd651ff-a41f-4d1c-9296-41e714505e6b: Rezepte # Rezepte
     1d881bde-d2bf-408a-9434-f2f08b65cff8: Dokumente # Dokumente
@@ -36,6 +34,7 @@ meta:
     3c5824e6-9e4f-47c8-b1d2-9d1000064cdf: Aufklappelemente # Aufklappelemente
     3e5c3431-66db-4b4c-97d4-8069da3cc21e: News # News
     3e29b0f8-b933-4ba4-9773-c1f7d96ec10d: 'Kategorien (Delikatessen)' # Kategorien (Delikatessen)
+    3e63c7a3-9bb5-4903-bb3d-63842b8a267f: Rezept # Rezept
     3e664364-e972-44e5-9819-78e6cf9ba210: 'Telefon (Mobile)' # Telefon (Mobile)
     3ed3ae6b-7394-4a4e-bb7d-a6a9e41cd752: 'Titel H4' # Titel H4
     4a97706d-db06-4301-b6ea-066bb4fe9b83: 'Artikel Lagerung' # Artikel Lagerung
@@ -43,6 +42,7 @@ meta:
     4c495c1a-4db8-48e1-94fc-15ba7f24bd25: Aktionen # Aktionen
     4c920e95-c071-49d6-974d-175f3cc51bc9: 'Youtube Video Liste' # Youtube Video Liste
     4ee0e70f-49f4-45b6-b165-cd7bcc7cd938: Neu # Neu
+    4eefbdb2-7ec8-4ecb-a7cf-69f627ef4ccc: Magazin # Magazin
     4f5a7862-8683-4e2c-9e31-f96a7fbd3fd6: Detailseite # Detailseite
     4f8f4a48-d40f-49ad-9811-278133f9a9eb: Verkaufsstellen # Verkaufsstellen
     4fbda939-0a27-483c-a7c8-7def0a9418ee: Adresse # Adresse
@@ -78,11 +78,13 @@ meta:
     15e8e382-ef35-4ba0-b82a-fd65b047ea1e: 'Link Text' # Link Text
     22eccfa5-697f-401b-888f-54b058b00572: 'Bild 2 Schnellzugriff' # Bild 2 Schnellzugriff
     023a6dc1-c7ac-4b4a-9908-220b69485841: 'Öffnungszeiten Samstag' # Öffnungszeiten Samstag
+    25a44f78-04a9-4629-9428-984e1c1201a3: Aktuell # Aktuell
     25be000d-e33e-4660-8f91-eb82c826edd6: 'Bestellung TV Website an info@terra-verde.ch' # Bestellung TV Website an info@terra-verde.ch
     27ee92fc-2ecb-42a3-86cb-ff619931841a: Vegan # Vegan
     31d89d29-5bb5-4d25-81f8-d582276516b3: 'Artikel Grundpreis (EVP inkl.)' # Artikel Grundpreis (EVP inkl.)
     33dbae5e-2503-4d41-903b-5625211aca45: Tabelle # Tabelle
     34eecfa5-9662-4a5c-addd-6a484fbebe8d: 'Verkaufsstellen Orte' # Verkaufsstellen Orte
+    037a2847-d799-44e7-ae4b-4bf40233db70: Kategorien # Kategorien
     47bc485c-9111-499a-99df-616baa7dba1e: 'Relations Hersteller' # Relations Hersteller
     47c3ee37-8371-469c-8566-fb641a48324e: 'Ähnliche Produkte Apero' # Ähnliche Produkte Apero
     50ff7a2e-9fc7-4f85-aa48-b24f439d44cb: 'Bild Inhalt Voll' # Bild Inhalt Voll
@@ -101,12 +103,13 @@ meta:
     89ad33ad-9a9f-47d3-b684-df1fe536b538: 'Contact Form' # Contact Form
     090ca3e8-52f7-44f4-8eb1-31b1d8706ff5: Hersteller # Hersteller
     90ef89be-0cc4-42b9-881d-b782644c5701: Akkordeon # Akkordeon
+    92fe9f1d-016c-47b7-93b0-91c866fd6175: Generic # Generic
     95d567e2-ef54-4216-b7bf-f3afd51b9ddd: 'Kreditkarte, Postfinance, Paypal, Twint' # Kreditkarte, Postfinance, Paypal, Twint
-    97cc999b-d561-4306-80d3-388b7b6f269c: Rezepte # Rezepte
     105f3719-0e2b-409f-851b-64e895b976aa: Redakteure # Redakteure
     121a4c00-ea55-46f5-b606-4288506164da: 'Kategorien (Status)' # Kategorien (Status)
     127bba7e-6a96-4ffa-8cbb-f4c17d39e347: Team # Team
     149a3219-5b27-4275-8a0f-b97cbff1e3ec: Shop # Shop
+    219d5317-b509-4c72-87a2-15026938e903: Blog # Blog
     348a200e-7d31-4262-b613-e8cc6e039fb2: Degustationsnotiz # Degustationsnotiz
     421eaf0b-f542-45ff-8051-2921d93b3eeb: Vorschautext # Vorschautext
     0434bb85-e818-4834-be05-c89d49427ca9: 'Quicklinks Liste' # Quicklinks Liste
@@ -120,19 +123,20 @@ meta:
     723ee43b-e0d2-448a-9126-13f9a28125bc: Suche # Suche
     763aeea2-9aa6-475b-ab99-66fb8c6b67f2: Startseite # Startseite
     789fdb6d-520f-4cf1-be1e-478056358e79: Inhaltsbilder # Inhaltsbilder
+    813c7c4d-1437-4f3b-bcee-430974ff086b: 'Schaum- & Suessweine' # Schaum- & Suessweine
     842f167d-10b6-44fb-826b-d13831f73ff9: Common # Common
     872de5f4-04bb-4eb5-8c3f-7a3151ea37ea: Rechnung # Rechnung
+    917f584a-0623-4190-aeac-21df0ea17e9e: Magazin # Magazin
     942ff559-0290-4738-ae31-bd8570484d25: Adresse # Adresse
     944f60e0-b559-4698-bb4d-3d2eec04eef6: 'Produkt Beschreibung Alt' # Produkt Beschreibung Alt
-    0980edb1-8a8a-4980-b58f-7b99313311dd: Zeitschrift # Zeitschrift
     982a8eec-f2e3-4260-b25a-904d904b42a9: Firma # Firma
+    989d4dcb-771d-4ce2-9438-e1594d6ba13d: Magazin # Magazin
     1746b6f6-7af3-4e0c-9f4d-5be0656816b1: 'Produkt Detail' # Produkt Detail
     01783ac4-31e6-440a-ae6f-f490016997ad: 'Externer Link (Preview' # Externer Link (Preview
     1856a1a8-498c-4498-84ad-6fcbe1de89f7: Kategorien # Kategorien
     2133d0ff-1af0-4a47-b4ab-4b5da820381e: Einzeleinträge # Einzeleinträge
     4572c692-2d3a-4c96-ae75-06bc37ceb6e2: Einordnung # Einordnung
     5312d07d-5231-47b2-a41f-e3524322da7c: Matchcode # Matchcode
-    9547c4b2-034f-4e07-9a02-b94d052fec7c: Blog-Einträge # Blog-Einträge
     13456c46-75a5-4427-af83-ab20099cf05b: InstaShop # InstaShop
     34381c5f-24e3-4876-a534-c12339c44433: EANNummer # EANNummer
     34406d5e-074d-493b-9894-adb4145b5f83: AGB # AGB
@@ -150,6 +154,7 @@ meta:
     87203f45-375b-40d7-98b8-3bdd33b721f1: 'Formatierter Text' # Formatierter Text
     547698ec-7561-4cee-95b1-f358f727b230: 'Interner Link (simple)' # Interner Link (simple)
     633900fd-0eae-4bfc-b2da-d85a3a01a68b: Produktbild # Produktbild
+    650553f0-dbb7-42c0-ba12-1b19aa58126a: 'Blog Beiträge' # Blog Beiträge
     911777fe-811a-46e9-bb80-0228ddd66234: Medien # Medien
     2625559c-aa75-481d-a655-1c6590d7106d: 'Preis (Privatkunden)' # Preis (Privatkunden)
     6140743f-8150-44d8-9c8f-ea48412627bb: AkkordeonPanel # AkkordeonPanel
@@ -204,6 +209,7 @@ meta:
     c9e74448-323c-4314-8339-8767051c39f5: 'Titel, Text & Links' # Titel, Text & Links
     c84df4c8-43eb-4b3c-92e6-8f0cf6ee14b6: 'Bild / Text - 30% / 70%' # Bild / Text - 30% / 70%
     c280f1d1-4f12-4055-8607-8006585970fd: Telefon # Telefon
+    c8246e09-6dc5-4d7c-91e5-e4ad36778317: OptimizedImages # OptimizedImages
     c243569d-1495-477e-81d5-8e56d348fc88: Text # Text
     cbf7f593-68bf-4c83-b97d-b6959558cb3e: 'Titel H3' # Titel H3
     cc57da94-196b-4536-a2f4-3b4e6d7a67ab: 'Kategorien (Geschenke)' # Kategorien (Geschenke)
@@ -233,10 +239,10 @@ meta:
     e408f37d-9b71-4f78-ae4a-18fe5c8dbef7: News # News
     e22957f0-c9f4-40f0-aaed-0cb3d674851f: Status # Status
     e221908a-3496-4eb9-8727-682969a83304: Startseite # Startseite
-    e466247a-66ec-4077-b0f8-93a845f86a8a: Aktuelles # Aktuelles
     ea3d0d8a-06a4-48ed-b8aa-3e7cbaa24971: Registrieren # Registrieren
     ea603a9d-ad1a-46a9-8400-4c237d4f779e: Artikelnummer # Artikelnummer
     eb0e12f9-6563-4af9-a66b-b29028951bcb: Beliebteste # Beliebteste
+    ec45610a-116e-4f59-81ef-2b22ad4cf4c8: Blog # Blog
     ee73ad95-c3b7-4b1a-97d4-77987063c463: Bestell-Bestätigung # Bestell-Bestätigung
     f021083a-e208-4eaa-974d-3ae4d7e91811: 'Artikel Einheit Volumen/Gewicht' # Artikel Einheit Volumen/Gewicht
     f4d40b23-6531-4583-b509-b7870a992261: Privatkunden # Privatkunden
@@ -287,7 +293,6 @@ plugins:
           - 'Terra Verde'
           - p@henrik-hentschel.de
           - ''
-          - 1
       geoIp: false
       ipstackApiKey: null
       mailgunWebhookSigningKey: ''
@@ -317,8 +322,12 @@ plugins:
       testMode: '1'
       timeLimit: 3600
       timeThreshold: 0.8
-      transportSettings: null
-      transportType: craft\mail\transportadapters\Sendmail
+      transportSettings:
+        __assoc__:
+          -
+            - apiKey
+            - $SENDGRID_API_KEY
+      transportType: putyourlightson\sendgrid\mail\SendgridAdapter
   ckeditor:
     edition: standard
     enabled: true
@@ -489,7 +498,53 @@ plugins:
   image-optimize:
     edition: standard
     enabled: true
+    licenseKey: KTPXN8E890GADLRUF1046M43
     schemaVersion: 1.0.0
+    settings:
+      allowUpScaledImageVariants: true
+      assetVolumeSubFolders: true
+      autoSharpenScaledImages: true
+      capSilhouetteSvgSize: true
+      createColorPalette: true
+      createPlaceholderSilhouettes: false
+      imageTransformTypeSettings:
+        __assoc__:
+          -
+            - nystudio107\imageoptimizeimgix\imagetransforms\ImgixImageTransform
+            -
+              __assoc__:
+                -
+                  - domain
+                  - ''
+                -
+                  - apiKey
+                  - ''
+                -
+                  - securityToken
+                  - ''
+                -
+                  - unsharpMask
+                  - '20'
+          -
+            - nystudio107\imageoptimizesharp\imagetransforms\SharpImageTransform
+            -
+              __assoc__:
+                -
+                  - baseUrl
+                  - ''
+          -
+            - nystudio107\imageoptimizethumbor\imagetransforms\ThumborImageTransform
+            -
+              __assoc__:
+                -
+                  - baseUrl
+                  - ''
+                -
+                  - securityKey
+                  - ''
+      lowerQualityRetinaImageVariants: true
+      sharpenScaledImagePercentage: 50
+      transformClass: nystudio107\imageoptimize\imagetransforms\CraftImageTransform
   mailchimp-subscribe:
     edition: standard
     enabled: true

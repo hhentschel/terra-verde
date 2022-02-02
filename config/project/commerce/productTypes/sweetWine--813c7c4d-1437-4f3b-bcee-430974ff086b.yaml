@@ -1,6 +1,12 @@
-defaultPlacement: end
-fieldLayouts:
-  4a6e3d2a-0c53-4755-b67d-d47a9e1bf8ff:
+descriptionFormat: ''
+handle: sweetWine
+hasDimensions: false
+hasProductTitleField: true
+hasVariantTitleField: false
+hasVariants: false
+name: 'Schaum- & Suessweine'
+productFieldLayouts:
+  4fca68a6-832a-4f59-a3c0-e2044b673603:
     tabs:
       -
         elements:
@@ -24,18 +30,23 @@ fieldLayouts:
             step: null
             tip: null
             title: null
-            type: craft\fieldlayoutelements\TitleField
+            type: craft\commerce\fieldlayoutelements\ProductTitleField
             warning: null
             width: 100
+          -
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\commerce\fieldlayoutelements\VariantsField
+            warning: null
         name: Inhalt
         sortOrder: 1
-handle: blogCategories
-name: Blog
+productTitleFormat: ''
 siteSettings:
   dd0cd05e-0cb9-4a76-b993-3cb70e6fc147: # Terra Verde
     hasUrls: true
-    template: null
-    uriFormat: 'blog/{slug}'
-structure:
-  maxLevels: null
-  uid: f48aa85f-e48c-4302-9637-99777ae01237
+    template: ''
+    uriFormat: 'schaum-suessweine/{slug}'
+skuFormat: ''
+titleFormat: '{product.title}'
