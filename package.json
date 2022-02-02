@@ -48,6 +48,7 @@
     "git-filter-repo": "0.0.30",
     "gulp-ext-replace": "^0.3.0",
     "imagemin-webp": "^6.0.0",
+    "lazysizes": "^5.3.2",
     "postcss": "^8.3.11"
   }
 }

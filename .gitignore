@@ -8,7 +8,6 @@ _backup/*
 --templates/*
 web/assets/files/
 
-
 # CRAFT ENVIRONMENT
 /.env
 *.env
@@ -43,5 +42,4 @@ web/assets/files/
 !.vscode/extensions.json
 config.codekit3
 prepros-6.config
-
 

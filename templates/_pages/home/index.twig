@@ -98,13 +98,23 @@
                 <a href="{{ product.url }}"
                   class="section-home__product--link onsale">
                   {% set transform = transformation|default('productListing') %}
-                  {% set img = product.articleImage.one().optimizedimages
+                  {# {% set img = product.articleImage.one().optimizedimages
                     ?? generic.image.one().optimizedimages
                   %}
 
                   {% if img is defined %}
-                    {% include '_components/_content-elements/image' with {
+                    {% include '_components/_content-elements/image-product' with {
                       optimizedImages: img,
+                      transform: transform
+                    } %}
+                  {% endif %} #}
+
+                  {% set transform = transformation|default('productListing') %}
+                  {% set img = product.articleImage.one ?? generic.image.one %}
+
+                  {% if img is defined %}
+                    {% include '_components/_content-elements/image-product' with {
+                      img: img,
                       transform: transform
                     } %}
                   {% endif %}
@@ -158,13 +168,23 @@
               <div class="col col-xs-12 col-md-4 col-lg-4 section-home__product">
                 <a href="{{ product.url }}" class="section-home__product--link">
                   {% set transform = transformation|default('productListing') %}
-                  {% set img = product.articleImage.one().optimizedimages
+                  {# {% set img = product.articleImage.one().optimizedimages
                     ?? generic.image.one().optimizedimages
                   %}
 
                   {% if img is defined %}
                     {% include '_components/_content-elements/image' with {
                       optimizedImages: img,
+                      transform: transform
+                    } %}
+                  {% endif %} #}
+
+                  {% set transform = transformation|default('productListing') %}
+                  {% set img = product.articleImage.one ?? generic.image.one %}
+
+                  {% if img is defined %}
+                    {% include '_components/_content-elements/image-product' with {
+                      img: img,
                       transform: transform
                     } %}
                   {% endif %}
@@ -205,13 +225,11 @@
               <div class="col col-xs-12 col-md-4 col-lg-4 section-home__product">
                 <a href="{{ product.url }}" class="section-home__product--link">
                   {% set transform = transformation|default('productListing') %}
-                  {% set img = product.articleImage.one().optimizedimages
-                    ?? generic.image.one().optimizedimages
-                  %}
+                  {% set img = product.articleImage.one ?? generic.image.one %}
 
                   {% if img is defined %}
-                    {% include '_components/_content-elements/image' with {
-                      optimizedImages: img,
+                    {% include '_components/_content-elements/image-product' with {
+                      img: img,
                       transform: transform
                     } %}
                   {% endif %}
@@ -234,9 +252,9 @@
   {% endif %}
 
   {# Blog Artikel #}
-  {% set blogQuery = craft.entries().section('blog').limit(3) %}
+  {% set blogQuery = craft.entries().section('newsEntries').limit(3) %}
   {% set entries = blogQuery.all() %}
-  {% if favproducts|length %}
+  {% if entries|length %}
     <section class="section-home section-home__stripe section-home__blog">
       <div class="grid">
         <div class="row">
@@ -264,18 +282,17 @@
             <article class="col col-xs-12 col-md-4 col-lg-4 section-home__blogentry">
               <a href="{{ entry.url }}" class="section-home__product--link">
                 {% set transform = transformation|default('productListing') %}
-                {# {% set img = entry.recipes.getImageUrl() %} #}
-                {# {% set img = imgrecipe.optimizedimages %} #}
-
-                {# <pre>
-                  {{ dump(img) }}
-                </pre> #}
-                {# {% set img = entry.recipes.getImageUrl() %} #}
 
                 {% if
                   entry.recipes.name is defined
                     and entry.recipes.name is not empty %}
                   {% set img = entry.recipes.getImageUrl() %}
+                  {% if img is defined %}
+                    {% include '_components/_content-elements/image-recipe' with {
+                      optimizedImages: img,
+                      transform: transform
+                    } %}
+                  {% endif %}
                 {% else %}
                   {% set img = entry.image.one().optimizedimages
                     ?? generic.image.one()

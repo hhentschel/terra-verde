@@ -51,16 +51,28 @@
       {# SHOP #}
       <li class="mobile-nav__list-item">
         <a href="{{ shopLink.url }}"
-          class="mobile-nav__text mobile-nav__text--bold {{ macros.isActive('shop', 1, 'mobile-nav__text--') }}">
+          class="mobile-nav__text mobile-nav__text--bold {{
+          macros.isActive(
+            'shop',
+            1,
+            'mobile-nav__text--'
+          )
+          }}">
           {{ 'Shop'|t }}
         </a>
       </li>
       {# END SHOP #}
 
       {# ÜBER UNS #}
-       <li class="mobile-nav__list-item">
+      <li class="mobile-nav__list-item">
         <a href="{{ ueberunsLink.url }}"
-          class="mobile-nav__text mobile-nav__text--bold {{ macros.isActive('ueberuns', 1, 'mobile-nav__text--') }}">
+          class="mobile-nav__text mobile-nav__text--bold {{
+          macros.isActive(
+            'ueberuns',
+            1,
+            'mobile-nav__text--'
+          )
+          }}">
           {{ 'Über uns'|t }}
         </a>
       </li>
@@ -69,7 +81,13 @@
       {# Aktuell #}
       <li class="mobile-nav__list-item">
         <a href="{{ aktuellLink.url }}"
-          class="mobile-nav__text mobile-nav__text--bold {{ macros.isActive('aktuell', 1, 'mobile-nav__text--') }}">
+          class="mobile-nav__text mobile-nav__text--bold {{
+          macros.isActive(
+            'aktuell',
+            1,
+            'mobile-nav__text--'
+          )
+          }}">
           {{ 'Aktuell'|t }}
         </a>
       </li>
@@ -104,7 +122,6 @@
         </a>
       </li> #}
       {# END VERKAUFSSTELLEN #}
-
 
       <li>{% include '_components/_nav/_nav-service/nav-service-phone' %}</li>
     </ul>

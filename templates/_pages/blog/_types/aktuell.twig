@@ -2,11 +2,11 @@
   <div class="content__detail-header">
     <div class="content__detail-image producers-overview__image">
       {% set transform = transformation|default('imageOneThird') %}
-      {% set img = entry.image.one().optimizedimages ?? null %}
+      {% set img = entry.image.one().optimizedimages ?? generic.image.one() %}
 
       {% if img is defined and img is not empty %}
         {% include '_components/_content-elements/image' with {
-          optimizedimages: img,
+          optimizedImages: img,
           transform: transform
         } %}
       {% endif %}

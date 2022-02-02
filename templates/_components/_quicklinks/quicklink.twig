@@ -14,7 +14,7 @@
           <li class="col col-xs-12 col-md-4 col-lg-4 quicklinks__items">
             <a href="{{ item.buttonLinkToEntry.one().url() }}"
               class="quicklinks__items--link">
-               {% set transform = transformation|default('imageOneThird') %}
+              {% set transform = transformation|default('imageOneThird') %}
               {% set img = item.image.one() ?? null %}
               {% include '_components/_content-elements/image' with {
                 img: img,
@@ -22,8 +22,6 @@
                 imageAltText: item.imageAltText,
                 imageCaption: item.imageCaption
               } %}
-
-
 
               <h2 class="heading heading--2 heading--no-margin">
                 {{ item.titleH2 }}
