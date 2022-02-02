@@ -46,7 +46,7 @@
                   {% set img = product.articleImage.one() ?? null %}
 
                   {% if img is defined %}
-                    {% include '_components/_content-elements/image'
+                    {% include '_components/_content-elements/image-product'
                       with {
                         image: img,
                         transform: transform
