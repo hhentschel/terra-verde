@@ -34,16 +34,16 @@ permissions:
   - 'deletepeerentrydrafts:13456c46-75a5-4427-af83-ab20099cf05b' # InstaShop
   - 'editpeerentrydrafts:13456c46-75a5-4427-af83-ab20099cf05b' # InstaShop
   - 'editentries:13456c46-75a5-4427-af83-ab20099cf05b' # InstaShop
-  - 'createentries:9547c4b2-034f-4e07-9a02-b94d052fec7c' # Blog-Einträge
-  - 'publishentries:9547c4b2-034f-4e07-9a02-b94d052fec7c' # Blog-Einträge
-  - 'deleteentries:9547c4b2-034f-4e07-9a02-b94d052fec7c' # Blog-Einträge
-  - 'publishpeerentries:9547c4b2-034f-4e07-9a02-b94d052fec7c' # Blog-Einträge
-  - 'deletepeerentries:9547c4b2-034f-4e07-9a02-b94d052fec7c' # Blog-Einträge
-  - 'editpeerentries:9547c4b2-034f-4e07-9a02-b94d052fec7c' # Blog-Einträge
-  - 'publishpeerentrydrafts:9547c4b2-034f-4e07-9a02-b94d052fec7c' # Blog-Einträge
-  - 'deletepeerentrydrafts:9547c4b2-034f-4e07-9a02-b94d052fec7c' # Blog-Einträge
-  - 'editpeerentrydrafts:9547c4b2-034f-4e07-9a02-b94d052fec7c' # Blog-Einträge
-  - 'editentries:9547c4b2-034f-4e07-9a02-b94d052fec7c' # Blog-Einträge
+  - 'createentries:9547c4b2-034f-4e07-9a02-b94d052fec7c'
+  - 'publishentries:9547c4b2-034f-4e07-9a02-b94d052fec7c'
+  - 'deleteentries:9547c4b2-034f-4e07-9a02-b94d052fec7c'
+  - 'publishpeerentries:9547c4b2-034f-4e07-9a02-b94d052fec7c'
+  - 'deletepeerentries:9547c4b2-034f-4e07-9a02-b94d052fec7c'
+  - 'editpeerentries:9547c4b2-034f-4e07-9a02-b94d052fec7c'
+  - 'publishpeerentrydrafts:9547c4b2-034f-4e07-9a02-b94d052fec7c'
+  - 'deletepeerentrydrafts:9547c4b2-034f-4e07-9a02-b94d052fec7c'
+  - 'editpeerentrydrafts:9547c4b2-034f-4e07-9a02-b94d052fec7c'
+  - 'editentries:9547c4b2-034f-4e07-9a02-b94d052fec7c'
   - 'createentries:8e2bbb53-7b2a-493f-9592-4847ec7d1194' # Produzenten
   - 'publishentries:8e2bbb53-7b2a-493f-9592-4847ec7d1194' # Produzenten
   - 'deleteentries:8e2bbb53-7b2a-493f-9592-4847ec7d1194' # Produzenten

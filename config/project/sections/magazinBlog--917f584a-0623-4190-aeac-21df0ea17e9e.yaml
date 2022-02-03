@@ -1,7 +1,7 @@
-defaultPlacement: beginning
+defaultPlacement: end
 enableVersioning: true
-handle: blog
-name: Blog-Einträge
+handle: magazinBlog
+name: Magazin
 previewTargets:
   -
     __assoc__:
@@ -19,9 +19,6 @@ siteSettings:
   dd0cd05e-0cb9-4a76-b993-3cb70e6fc147: # Terra Verde
     enabledByDefault: true
     hasUrls: true
-    template: _pages/blog/entry
-    uriFormat: 'blog/{slug}'
-structure:
-  maxLevels: null
-  uid: 94c1e190-c7ab-4543-90a9-e7d6cc43a68a
-type: structure
+    template: _pages/blog/magazin/_entry
+    uriFormat: blog/magazin
+type: single
