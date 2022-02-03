@@ -20,10 +20,18 @@
         <div class="content__detail-header">
           <div class="content__detail-image producers-overview__image">
             {% set transform = transformation|default('imageOneThird') %}
-            {% set img = entry.image.one().optimizedimages %}
+            {# {% set img = entry.image.one().optimizedimages %}
             {% if img is defined %}
               {% include '_components/_content-elements/image' with {
                 optimizedImages: img,
+                transform: transform
+              } %}
+            {% endif %} #}
+
+            {% set img = entry.image.one() ?? null %}
+            {% if img is defined %}
+              {% include '_components/_content-elements/image' with {
+                img: img,
                 transform: transform
               } %}
             {% endif %}

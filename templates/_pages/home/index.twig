@@ -113,7 +113,7 @@
                   {% set img = product.articleImage.one ?? generic.image.one %}
 
                   {% if img is defined %}
-                    {% include '_components/_content-elements/image-product' with {
+                    {% include '_components/_content-elements/image' with {
                       img: img,
                       transform: transform
                     } %}
@@ -183,7 +183,7 @@
                   {% set img = product.articleImage.one ?? generic.image.one %}
 
                   {% if img is defined %}
-                    {% include '_components/_content-elements/image-product' with {
+                    {% include '_components/_content-elements/image' with {
                       img: img,
                       transform: transform
                     } %}
@@ -228,7 +228,7 @@
                   {% set img = product.articleImage.one ?? generic.image.one %}
 
                   {% if img is defined %}
-                    {% include '_components/_content-elements/image-product' with {
+                    {% include '_components/_content-elements/image' with {
                       img: img,
                       transform: transform
                     } %}
@@ -288,19 +288,17 @@
                     and entry.recipes.name is not empty %}
                   {% set img = entry.recipes.getImageUrl() %}
                   {% if img is defined %}
-                    {% include '_components/_content-elements/image-recipe' with {
-                      optimizedImages: img,
+                    {% include '_components/_content-elements/image' with {
+                      img: img,
                       transform: transform
                     } %}
                   {% endif %}
                 {% else %}
-                  {% set img = entry.image.one().optimizedimages
-                    ?? generic.image.one()
-                  %}
+                  {% set img = entry.image.one ?? generic.image.one() %}
 
                   {% if img is defined %}
                     {% include '_components/_content-elements/image' with {
-                      optimizedImages: img,
+                      img: img,
                       transform: transform
                     } %}
                   {% endif %}

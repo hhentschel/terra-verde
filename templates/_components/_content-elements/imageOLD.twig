@@ -1,0 +1,63 @@
+{% set imagetitle = product.title|default('Bild') %}
+
+{# {% set imageheight = img.getHeight(transform)|default('') %} #}
+{# {% set imagewidth = img.getWidth(transform)|default('') %} #}
+
+{% set imageheight = '' %}
+{% set imagewidth = '' %}
+
+{# {% set imageheight = optimizedImages.variantHeights[VARIANT_WIDTH] %}
+{% set imagewidth = optimizedImages.variantHeights[VARIANT_WIDTH] %} #}
+
+{% set imageStandardAltText = optimizedImages
+  and image.imageAltText is defined
+  and image.imageAltText is not empty
+  ? image.imageAltText
+  : imagetitle
+%}
+
+{% set imageAltText = image.imageAltText is defined
+  and image.imageAltText is not empty
+  ? imageStandardAltText
+  : 'Terra Verde: ' ~ imageStandardAltText
+%}
+
+{% set imageStandardCaption = optimizedImages
+  and entry.imageCaption is defined
+  and entry.imageCaption is not empty
+  ? entry.imageCaption
+  : ''
+%}
+{% set imageCaption = optimizedImages is defined
+  and optimizedImages is not empty
+  ? entry.imageCaption
+  : imageStandardCaption
+%}
+
+<figure class="image">
+  <div class="image__wrapper">
+    <picture>
+      <source srcset="{{ optimizedImages.srcsetWebP() }}"
+        sizes="100vw"
+        width="{{ imagewidth }}"
+        height="{{ imageheight }}"
+        type="image/webp"
+        alt="{{ imageAltText }}"
+        title="{{- imagetitle -}}"
+        class="lazyload" />
+      <img src="{{ optimizedImages.src() }}"
+        srcset="{{ optimizedImages.srcset() }}"
+        sizes="100vw"
+        width="{{ imagewidth }}"
+        height="{{ imageheight }}"
+        alt="{{ imageAltText }}"
+        title="{{- imagetitle -}}"
+        class="lazyload" />
+    </picture>
+  </div>
+  {% if imageCaption %}
+    <figcaption class="image__caption">
+      {{ imageCaption }}
+    </figcaption>
+  {% endif %}
+</figure>

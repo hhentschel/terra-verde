@@ -33,13 +33,24 @@
                     and entry.contentElements is not empty %}
                   <a href="{{ entry.url }}"
                     class="producers-overview__preview-image">
-                    {% set transform =
+                    {# {% set transform =
                       transformation|default('imageOneThird')
                     %}
                     {% set img = entry.image.one().optimizedimages ?? null %}
                     {% if img is defined and img is not empty %}
                       {% include '_components/_content-elements/image' with {
                         optimizedImages: img,
+                        transform: transform
+                      } %}
+                    {% endif %} #}
+
+                    {% set transform =
+                      transformation|default('imageOneThird')
+                    %}
+                    {% set img = entry.image.one() ?? null %}
+                    {% if img is defined %}
+                      {% include '_components/_content-elements/image' with {
+                        img: img,
                         transform: transform
                       } %}
                     {% endif %}

@@ -1,63 +1,58 @@
-{% set imagetitle = product.title|default('Bild') %}
+{% set imageUrl = img.getUrl|default('') %}
+{% set imageheight = img.getHeight(transform)|default('') %}
+{% set imagewidth = img.getWidth(transform)|default('') %}
+{% set imagetitle = img.title|default('') %}
 
-{# {% set imageheight = img.getHeight(transform)|default('') %} #}
-{# {% set imagewidth = img.getWidth(transform)|default('') %} #}
-
-{% set imageheight = '' %}
-{% set imagewidth = '' %}
-
-{# {% set imageheight = optimizedImages.variantHeights[VARIANT_WIDTH] %}
-{% set imagewidth = optimizedImages.variantHeights[VARIANT_WIDTH] %} #}
-
-{% set imageStandardAltText = optimizedImages
-  and image.imageAltText is defined
-  and image.imageAltText is not empty
-  ? image.imageAltText
-  : imagetitle
+{% set imageStandardAltText = img
+  and img.imageAltText is defined
+  and img.imageAltText is not empty
+  ? 'Terra Verde' ~ img.imageAltText
+  : 'Terra Verde'
 %}
-
-{% set imageAltText = image.imageAltText is defined
-  and image.imageAltText is not empty
-  ? imageStandardAltText
-  : 'Terra Verde: ' ~ imageStandardAltText
+{% set imageAltText = img.imageAltText is defined
+  and img.imageAltText is not empty
+  ? 'Terra Verde' ~ img.imageAltText
+  : 'Terra Verde: ' ~ imagetitle
 %}
-
-{% set imageStandardCaption = optimizedImages
-  and entry.imageCaption is defined
-  and entry.imageCaption is not empty
-  ? entry.imageCaption
+{% set imageStandardCaption = img
+  and img.imageCaption is defined
+  and img.imageCaption is not empty
+  ? img.imageCaption
   : ''
 %}
-{% set imageCaption = optimizedImages is defined
-  and optimizedImages is not empty
-  ? entry.imageCaption
+{% set imageCaption = imageCaption is defined and imageCaption is not empty
+  ? imageCaption
   : imageStandardCaption
 %}
 
-<figure class="image">
-  <div class="image__wrapper">
-    <picture>
-      <source srcset="{{ optimizedImages.srcsetWebP() }}"
-        sizes="100vw"
-        width="{{ imagewidth }}"
-        height="{{ imageheight }}"
-        type="image/webp"
-        alt="{{ imageAltText }}"
-        title="{{- imagetitle -}}"
-        class="lazyload" />
-      <img src="{{ optimizedImages.src() }}"
-        srcset="{{ optimizedImages.srcset() }}"
-        sizes="100vw"
-        width="{{ imagewidth }}"
-        height="{{ imageheight }}"
-        alt="{{ imageAltText }}"
-        title="{{- imagetitle -}}"
-        class="lazyload" />
-    </picture>
-  </div>
-  {% if imageCaption %}
-    <figcaption class="image__caption">
-      {{ imageCaption }}
-    </figcaption>
-  {% endif %}
-</figure>
+{% if imageUrl %}
+  <figure class="image">
+    <div class="image__wrapper">
+      <picture>
+        <source srcset="{{ imageUrl }}"
+          alt="{{ imageAltText }}"
+          width="{{ imagewidth }}"
+          height="{{ imageheight }}"
+          title="{{- imagetitle -}}"
+          type="image/webp" />
+        <source srcset="{{ imageUrl }}"
+          alt="{{ imageAltText }}"
+          width="{{ imagewidth }}"
+          height="{{ imageheight }}"
+          title="{{- imagetitle -}}"
+          type="image/jpg" />
+        <img class="image__img"
+          src="{{ imageUrl }}"
+          alt="{{ imageAltText }}"
+          width="{{ imagewidth }}"
+          height="{{ imageheight }}"
+          title="{{- imagetitle -}}" />
+      </picture>
+    </div>
+    {% if imageCaption %}
+      <figcaption class="image__caption">
+        {{ imageCaption }}
+      </figcaption>
+    {% endif %}
+  </figure>
+{% endif %}
