@@ -16,6 +16,7 @@
     "putyourlightson/craft-campaign": "1.22.2",
     "putyourlightson/craft-sendgrid": "^1.2.2",
     "putyourlightson/craft-sprig": "^1.10.4",
+    "servd/craft-asset-storage": "2.5.0",
     "spicyweb/craft-neo": "^2.11.15",
     "verbb/expanded-singles": "^1.1.4",
     "verbb/formie": "^1.4.23",

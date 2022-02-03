@@ -41,9 +41,15 @@ handle: contentImages
 hasUrls: true
 name: Inhaltsbilder
 settings:
-  path: '@webroot/assets/images/content/content/'
+  cdnUrlPattern: ''
+  customSubfolder: /assets/images/content/content/
+  makeUploadsPublic: true
+  optimisePrefix: ''
+  optimiseUrlPattern: ''
+  projectSlug: ''
+  securityKey: ''
 sortOrder: 0
 titleTranslationKeyFormat: null
-titleTranslationMethod: site
-type: craft\volumes\Local
-url: '@web/assets/images/content/content/'
+titleTranslationMethod: null
+type: servd\AssetStorage\Volume
+url: 'https://cdn2.assets-servd.host/'

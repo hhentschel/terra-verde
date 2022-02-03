@@ -1,4 +1,4 @@
-dateModified: 1643882268
+dateModified: 1643888782
 email:
   fromEmail: p@henrik-hentschel.de
   fromName: 'Terra Verde'
@@ -671,6 +671,23 @@ plugins:
       submitSitemaps: true
       truncateDescriptionTags: '1'
       truncateTitleTags: '1'
+  servd-asset-storage:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.0.5
+    settings:
+      adjustFeedmeLogs: ''
+      assetsEnvironment: ''
+      assetsEnvironmentOverwrite: ''
+      cacheClearMode: full
+      clearCachesOnSave: always
+      disableDynamic: ''
+      disableTransforms: ''
+      injectCors: ''
+      projectSlug: $SERVD_PROJECT_SLUG
+      securityKey: $SERVD_SECURITY_KEY
+      suppressWarnings: ''
+      useLocalVolumes: ''
   similar:
     edition: standard
     enabled: true
