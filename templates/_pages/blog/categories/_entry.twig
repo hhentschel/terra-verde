@@ -1,15 +1,16 @@
 {% extends '_layouts/main' %}
-{# {% set pageTitle = entry.pageTitle is not empty ? entry.pageTitle : entry.title
-%} #}
-{# Create a category query with the 'group' parameter #}
+{% set pageTitle = entry.pageTitle is not empty ? entry.pageTitle : entry.title
+%}
 
-{% set blogcategories = craft.categories().group('catGroupForBlog').all() %}
+{# {% set blogcategories = craft.categories().group('catGroupForBlog').all() %} #}
 
-{# {% set catNews = blogcategories.id(16717) %}
-{% set catMagazin = blogcategories.id(16719) %}
-{% set catRecipe = blogcategories.id(16718) %} #}
+{% set category = craft.categories()
+  .slug('aktuell')
+  .one() %}
 
-{# Fetch the categories #}
+{% set entries = craft.entries()
+  .relatedTo(category)
+  .all() %}
 
 
 {% block content %}
@@ -18,7 +19,7 @@
       <div class="col col-xs-12 col-md-12 col-lg-12">
         {% include '_components/breadcrumb.twig' %}
         <h2 class="heading heading--h2 heading--site heading--no-margin-top">
-          {# {{ pageTitle }} #}
+          {{ pageTitle }}
         </h2>
       </div>
     </div>
@@ -32,12 +33,17 @@
     </div>
   </section>
 
-  <section class="grid">
+
+   <section class="grid">
     <div class="row">
       <div class="col col-xs-12 col-md-12 col-lg-12 blog-list">
-        {% set relatedSection = craft.entries.section('newsEntries').level(1).all() %}
+
+
+
+        {# {% set relatedSection = craft.entries.section('newsEntries').level(1).all() %}
         {% if relatedSection|length %}
-          {% for entry in relatedSection %}
+          {% for entry in relatedSection %} #}
+          {% for entry in entries %}
             <a href="{{ entry.url }}" class="blog-list__item">
               <div class="blog-list__item--top">
                 <h3 class="blog-list__item--title">
@@ -62,11 +68,11 @@
                       transformation|default('imageOneThird')
                     %}
 
-                    {% set img = entry.image.one().optimizedimages ?? generic.image.one() %}
+                    {% set img = entry.image.one ?? generic.image.one() %}
 
                     {% if img is defined and img is not empty %}
                       {% include '_components/_content-elements/image' with {
-                        optimizedImages: img,
+                        img: img,
                         transform: transform
                       } %}
                     {% endif %}
@@ -104,7 +110,7 @@
                 </span>
             </a>
           {% endfor %}
-        {% endif %}
+        {# {% endif %} #}
       </div>
     </div>
   </section>

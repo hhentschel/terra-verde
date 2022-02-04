@@ -1,5 +1,5 @@
 fieldLayouts:
-  fddf78ed-4942-4d93-a384-ca867a44ea4b:
+  43f5c497-fe31-4d85-a987-858903917b21:
     tabs:
       -
         elements:
@@ -28,11 +28,11 @@ fieldLayouts:
             width: 100
         name: Inhalt
         sortOrder: 1
-handle: magazinBlog
+handle: blogAktuell
 hasTitleField: true
-name: Magazin
-section: 917f584a-0623-4190-aeac-21df0ea17e9e # Magazin
+name: 'Blog Aktuell'
+section: 809da76b-a716-40fe-aed3-55f1fc0c57e9 # Blog Kategorien
 sortOrder: 1
-titleFormat: null
+titleFormat: '{section.name|raw}'
 titleTranslationKeyFormat: null
 titleTranslationMethod: site

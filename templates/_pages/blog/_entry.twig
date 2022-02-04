@@ -1,6 +1,6 @@
 {% extends '_layouts/main' %}
-{% set pageTitle = entry.pageTitle is not empty ? entry.pageTitle : entry.title
-%}
+{# {% set pageTitle = entry.pageTitle is not empty ? entry.pageTitle : entry.title
+%} #}
 
 {% block content %}
   <div class="grid">
@@ -8,7 +8,7 @@
       <div class="col col-xs-12 col-md-12 col-lg-12">
         {% include '_components/breadcrumb.twig' %}
         <h2 class="heading heading--h2 heading--site heading--no-margin-top">
-          {{ pageTitle }}
+          {# {{ pageTitle }} #} TEST
         </h2>
       </div>
     </div>

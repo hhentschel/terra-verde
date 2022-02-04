@@ -1,4 +1,4 @@
-dateModified: 1643988000
+dateModified: 1643992787
 email:
   fromEmail: p@henrik-hentschel.de
   fromName: 'Terra Verde'
@@ -85,6 +85,7 @@ meta:
     33dbae5e-2503-4d41-903b-5625211aca45: Tabelle # Tabelle
     34eecfa5-9662-4a5c-addd-6a484fbebe8d: 'Verkaufsstellen Orte' # Verkaufsstellen Orte
     037a2847-d799-44e7-ae4b-4bf40233db70: Kategorien # Kategorien
+    44a134bf-a896-43b6-897a-a294f6c27325: 'Blog Aktuell' # Blog Aktuell
     46afcaf9-86a4-4486-80f7-9676a812098b: AA_Testfeld-Local # AA_Testfeld-Local
     47bc485c-9111-499a-99df-616baa7dba1e: 'Relations Hersteller' # Relations Hersteller
     47c3ee37-8371-469c-8566-fb641a48324e: 'Ähnliche Produkte Apero' # Ähnliche Produkte Apero
@@ -124,14 +125,13 @@ meta:
     723ee43b-e0d2-448a-9126-13f9a28125bc: Suche # Suche
     763aeea2-9aa6-475b-ab99-66fb8c6b67f2: Startseite # Startseite
     789fdb6d-520f-4cf1-be1e-478056358e79: Inhaltsbilder # Inhaltsbilder
+    809da76b-a716-40fe-aed3-55f1fc0c57e9: 'Blog Kategorien' # Blog Kategorien
     813c7c4d-1437-4f3b-bcee-430974ff086b: 'Schaum- & Suessweine' # Schaum- & Suessweine
     842f167d-10b6-44fb-826b-d13831f73ff9: Common # Common
     872de5f4-04bb-4eb5-8c3f-7a3151ea37ea: Rechnung # Rechnung
-    917f584a-0623-4190-aeac-21df0ea17e9e: Magazin # Magazin
     942ff559-0290-4738-ae31-bd8570484d25: Adresse # Adresse
     944f60e0-b559-4698-bb4d-3d2eec04eef6: 'Produkt Beschreibung Alt' # Produkt Beschreibung Alt
     982a8eec-f2e3-4260-b25a-904d904b42a9: Firma # Firma
-    989d4dcb-771d-4ce2-9438-e1594d6ba13d: Magazin # Magazin
     1746b6f6-7af3-4e0c-9f4d-5be0656816b1: 'Produkt Detail' # Produkt Detail
     01783ac4-31e6-440a-ae6f-f490016997ad: 'Externer Link (Preview' # Externer Link (Preview
     1856a1a8-498c-4498-84ad-6fcbe1de89f7: Kategorien # Kategorien
