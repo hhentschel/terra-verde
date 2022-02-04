@@ -32,9 +32,15 @@ handle: filesDocuments
 hasUrls: true
 name: Dokumente
 settings:
-  path: '@webroot/assets/images/content/products/documents'
+  cdnUrlPattern: ''
+  customSubfolder: /assets/images/content/products/documents
+  makeUploadsPublic: true
+  optimisePrefix: ''
+  optimiseUrlPattern: ''
+  projectSlug: ''
+  securityKey: ''
 sortOrder: 11
 titleTranslationKeyFormat: null
-titleTranslationMethod: site
-type: craft\volumes\Local
-url: '@web/assets/images/content/products/documents'
+titleTranslationMethod: null
+type: servd\AssetStorage\Volume
+url: 'https://cdn2.assets-servd.host/'

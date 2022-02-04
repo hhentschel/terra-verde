@@ -50,9 +50,15 @@ handle: teamPhotos
 hasUrls: true
 name: Team
 settings:
-  path: '@webroot/assets/images/content/team/'
+  cdnUrlPattern: ''
+  customSubfolder: /assets/images/content/team/
+  makeUploadsPublic: true
+  optimisePrefix: ''
+  optimiseUrlPattern: ''
+  projectSlug: ''
+  securityKey: ''
 sortOrder: 5
 titleTranslationKeyFormat: null
-titleTranslationMethod: site
-type: craft\volumes\Local
-url: '@web/assets/images/content/team/'
+titleTranslationMethod: null
+type: servd\AssetStorage\Volume
+url: 'https://cdn2.assets-servd.host/'

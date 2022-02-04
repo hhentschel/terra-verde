@@ -32,9 +32,15 @@ handle: homepage
 hasUrls: true
 name: Startseite
 settings:
-  path: '@webroot/assets/images/content/homepage/'
+  cdnUrlPattern: ''
+  customSubfolder: /assets/images/content/homepage/
+  makeUploadsPublic: true
+  optimisePrefix: ''
+  optimiseUrlPattern: ''
+  projectSlug: ''
+  securityKey: ''
 sortOrder: 3
 titleTranslationKeyFormat: null
-titleTranslationMethod: site
-type: craft\volumes\Local
-url: '@web/assets/images/content/homepage/'
+titleTranslationMethod: null
+type: servd\AssetStorage\Volume
+url: 'https://cdn2.assets-servd.host/'
