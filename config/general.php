@@ -70,7 +70,7 @@ return [
         'disallowRobots' => true,
 
         'enableTemplateCaching' => false,
-        'allowAutoUpdates' => true,
+        'allowUpdates' => true,
         // 'isSystemLive' => true,
     ],
 
@@ -81,7 +81,6 @@ return [
 
         // Don’t allow updates on Staging
         'allowUpdates' => true,
-        'allowAutoUpdates' => true,
 
         // Prevent crawlers from indexing pages and following links
         'disallowRobots' => true,
@@ -99,7 +98,6 @@ return [
 
         // Don’t allow updates on Production
         'allowUpdates' => false,
-        'allowAutoUpdates' => false,
 
         'devMode' => false,
 

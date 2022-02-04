@@ -82,7 +82,7 @@ fieldLayouts:
             width: 100
         name: Inhalt
         sortOrder: 1
-handle: blogCatNews
+handle: current
 hasTitleField: true
 name: Aktuell
 section: 650553f0-dbb7-42c0-ba12-1b19aa58126a # Blog Beiträge
