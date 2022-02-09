@@ -1,37 +1,14 @@
-{% set newsListData = [
-  {
-    term: 'pages.news.postdate.title'|t,
-    description: entry.postDate|date('d. mm. Y')
-  },
-  {
-    term: 'pages.news.author.title'|t,
-    description: entry.title
-  }
-] %}
+
 
 {% block content %}
-  <div class="content__detail-header">
-    <div class="content__detail-image blog-entry-overview__image">
-      {% set transform = transformation|default('imageOneThird') %}
-      {% set img = entry.recipes.getImageUrl() ?? null %}
-
-      {% if img is defined %}
-        {% include '_components/_content-elements/image-recipe' with {
-          image: img,
-          transform: transform
-        } %}
-      {% endif %}
-    </div>
-
-    <div class="content__detail-lead blog-entry-overview__lead">
+<div class="blog-entry blog-entry__recipe">
+<div class="row">
+  <div class="col col-xs-12 col-md-6 col-lg-6">
+     <div class="blog-entry__lead">
       {{ entry.leadText }}
     </div>
-  </div>
 
-  <h3>
-    {{ entry.recipes.name }}
-  </h3>
-  {% if entry.recipes.serves is defined and entry.recipes.serves is not empty %}
+    {% if entry.recipes.serves is defined and entry.recipes.serves is not empty %}
     <p class="recipe-serves">
       Für {{ entry.recipes.serves }} Personen
     </p>
@@ -39,20 +16,20 @@
   {% if
     entry.recipes.prepTime is defined and entry.recipes.prepTime is not empty %}
     <p class="recipe-preptime">
-      Vorbereitungszeit: {{ entry.recipes.prepTime }}
+      Vorbereitungszeit: {{ entry.recipes.prepTime }} min.
     </p>
   {% endif %}
   {% if
     entry.recipes.cookTime is defined and entry.recipes.cookTime is not empty %}
     <p class="recipe-cooktime">
-      Kochzeit: {{ entry.recipes.cookTime }}
+      Kochzeit: {{ entry.recipes.cookTime }} min.
     </p>
   {% endif %}
   {% if
     entry.recipes.totalTime is defined
       and entry.recipes.totalTime is not empty %}
     <p class="recipe-totaltime">
-      Gesamtzeit: {{ entry.recipes.totalTime }}
+      Gesamtzeit: {{ entry.recipes.totalTime }} min.
     </p>
   {% endif %}
 
@@ -80,57 +57,85 @@
 
   {% if entry.recipes.skill is defined and entry.recipes.skill is not empty %}
     <p class="recipe-skill">
-      {{ entry.recipes.skill }}
+      Level: {{ entry.recipes.skill }}
     </p>
   {% endif %}
+  </div>
 
-  {% if recipes.skill is defined and recipes.skill is not empty %}
-    <p class="recipe-skill">
-      {{ entry.recipes.skill }}
-    </p>
-  {% endif %}
+  <div class="col col-xs-12 col-md-6 col-lg-6">
+      <div class="content__detail-image blog-entry-overview__image">
+        {% set transform = transformation|default('imageRecipeBig') %}
+        {% set img = entry.recipes.getImageUrl(transform) ?? null %}
 
-  {% set ingredients = entry.recipes.getIngredients() %}
-  {% if ingredients %}
-    <h4>
-      Zutaten
-    </h4>
-    <ul class="recipe-list">
-      {% for ingredient in ingredients %}
-        <li>{{ ingredient }}</li>
-        {# <li>
-          {{
-            ingredient|replace({
-              ' gs': ' g',
-              ' tbsp': ' Teelöffel'
-            })
-          }}
-        </li> #}
-      {% endfor %}
-    </ul>
-  {% endif %}
+        {% if img is defined %}
+          {% include '_components/_content-elements/image-recipe' with {
+            img: img
+          } %}
+        {% endif %}
+      </div>
+  </div>
 
-  {% set directions = entry.recipes.getDirections() %}
-  {% if directions %}
-    <h4>
-      Anleitung
-    </h4>
-    <ol>
-      {% for direction in directions %}
-        <li>{{ direction }}</li>
-      {% endfor %}
-    </ol>
-  {% endif %}
+</div>
 
-  {% set equipment = entry.recipes.getEquipment() %}
-  {% if equipment %}
-    <h4>
-      Zubehör
-    </h4>
-    <ul class="recipe-list">
-      {% for item in equipment %}
-        <li>{{ item }}</li>
-      {% endfor %}
-    </ul>
-  {% endif %}
-{% endblock %}
+  {# <h3>
+    {{ entry.recipes.name }}
+  </h3> #}
+
+<div class="row">
+  <div class="col col-xs-12 col-md-6 col-lg-6">
+    {% set ingredients = entry.recipes.getIngredients('metric') %}
+    {% if ingredients %}
+       <h2 class="heading--3 layout-helper__margin-top--m">
+        Zutaten
+      </h2>
+      <ul class="recipe-list__ingredient">
+        {% for ingredient in ingredients %}
+          <li>{{ ingredient }}</li>
+          {# <li>
+            {{
+              ingredient|replace({
+                ' tbsp': ' Teelöffel'
+              })
+            }}
+          </li> #}
+        {% endfor %}
+      </ul>
+    {% endif %}
+
+  </div>
+
+
+
+<div class="col col-xs-12 col-md-6 col-lg-6">
+ {% set directions = entry.recipes.getDirections() %}
+    {% if directions %}
+      <h2 class="heading--3 layout-helper__margin-top--m">
+        Anleitung
+      </h2>
+      <ol class="recipe-directions">
+        {% for direction in directions %}
+          <li>{{ direction }}</li>
+        {% endfor %}
+      </ol>
+    {% endif %}
+
+    {% set equipment = entry.recipes.getEquipment() %}
+    {% if equipment %}
+      <h4>
+        Zubehör
+      </h4>
+      <ul class="recipe-list">
+        {% for item in equipment %}
+          <li>{{ item }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  {% endblock %}
+
+
+
+</div>
+</div>
+</div>
+
+

@@ -3,14 +3,27 @@
     display: flex;
     border-bottom: 1px solid $color--grey-light;
     margin: 0 0 px-to-rem(30) 0;
+
+    input[type='radio'].blog__cat--input,
+    input[type='checkbox'].blog__cat--input {
+      display: none;
+    }
   }
 
   &--item {
-    padding: px-to-rem(12) px-to-rem(18);
     margin: 0 px-to-rem(10) 0 0;
 
     &:hover {
       background-color: $color--beige-light;
+    }
+  }
+
+  &--label,
+  &--item-reset {
+    padding: px-to-rem(12) px-to-rem(18);
+    display: block;
+    &:hover {
+      cursor: pointer;
     }
   }
 }
@@ -123,5 +136,15 @@
     &--linkdetail {
       align-self: flex-end;
     }
+  }
+}
+
+.blog-entry {
+  &__lead p {
+    font-weight: 700;
+    line-height: $line-height--m;
+  }
+
+  &__recipe {
   }
 }

@@ -1,0 +1,108 @@
+
+  <ul class="blog__cat--list">
+
+
+    <li class="blog__cat--item blog__cat--item-reset">
+       <a href="" sprig s-val:reset="1" title="Reset">Alle</a>
+    </li>
+    {% for catBlogOption in catBlogOptions %}
+
+         {# {% set selected = catBlogOption.id in articleCategoriesBlog ? 'active'  %} #}
+
+       <li class="blog__cat--item">
+        <input sprig
+          {# class="blog__cat--input " #}
+          class="blog__cat--input"
+          type="checkbox"
+          id="catdeli-{{ catBlogOption.id }}"
+          name="articleCategoriesBlog[]"
+          value="{{ catBlogOption.id }}"
+          {{ catBlogOption.id in articleCategoriesBlog ? 'checked' }} />
+        <label for="catdeli-{{ catBlogOption.id }}"
+          class="blog__cat--label">
+          {{ catBlogOption.title }}
+        </label>
+      </li>
+    {% endfor %}
+  </ul>
+
+
+{# <div id="blogboard">
+<div class="blog-list">
+  {% if entries|length %}
+    {% for entry in entries %}
+      <a href="{{ entry.url }}" class="blog-list__item">
+        <div class="blog-list__item--top">
+          <h3 class="blog-list__item--title">
+            {{ entry.title }}
+          </h3>
+          {% if catBlogOptions is defined and catBlogOptions is not empty %}
+            {% set categories = entry.catsForBlogEntries.all() %}
+            <div class="blog-list__item--cat-container">
+              {% for cat in categories %}
+                <span class="blog-list__item--cat-item blog-list__item--cat-item--{% if cat.id == 16717 %}news{% elseif cat.id == 16718 %}recipe{% elseif cat.id == 16719 %}magazin{% endif %}">
+                  {{ cat.title }}
+                </span>
+              {% endfor %}
+            </div>
+          {% endif %}
+
+          <div class="blog-list__item--preview">
+            {% if
+              entry.contentElements is defined
+                and entry.contentElements is not empty %}
+              {% set transform =
+                transformation|default('imageOneThird')
+              %}
+
+              {% set img = entry.image.one ?? generic.image.one() %}
+
+              {% if img is defined and img is not empty %}
+                {% include '_components/_content-elements/image' with {
+                  img: img,
+                  transform: transform
+                } %}
+              {% endif %}
+            {% endif %}
+
+              {% if
+              entry.recipes is defined and entry.recipes is not empty %}
+              {% set img = entry.recipes.getImageUrl() ?? null %}
+              {% set transform =
+                transformation|default('imageOneThird')
+              %}
+              {% include '_components/_content-elements/image-recipe' with {
+                  image: img,
+                  transform: transform
+                } %}
+            {% endif %}
+
+          </div>
+            <div class="blog-list__item--preview-lead">
+              {{ entry.leadText }}
+            </div>
+
+        </div>
+
+          <span href="{{ entry.url }}"
+            class="blog-list__item--linkdetail">
+            {% if
+              entry.contentElements is defined
+                and entry.contentElements is not empty %}
+              mehr Informationen
+            {% elseif
+              entry.recipes is defined and entry.recipes is not empty %}
+              mehr Informationen zum Rezept
+            {% endif %}
+          </span>
+      </a>
+    {% endfor %}
+  {% endif %}
+</div>
+</div>
+
+
+
+
+
+ #}

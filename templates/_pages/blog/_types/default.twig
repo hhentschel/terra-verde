@@ -1,24 +1,26 @@
-{% block content %}
-  <div class="content__detail-header">
-    <div class="content__detail-image producers-overview__image">
-      {% set transform = transformation|default('imageOneThird') %}
-      {% set img = entry.image.one() ?? null %}
+<div class="col col-xs-12 col-md-12 col-lg-9 col-lg-shift-2">
+  {% block content %}
+    <div class="content__detail-header">
+      <div class="content__detail-image producers-overview__image">
+        {% set transform = transformation|default('imageOneThird') %}
+        {% set img = entry.image.one() ?? null %}
 
-      {% if img is defined and img is not empty %}
-        {% include '_components/_content-elements/image' with {
-          img: img,
-          transform: transform
-        } %}
-      {% endif %}
+        {% if img is defined and img is not empty %}
+          {% include '_components/_content-elements/image' with {
+            img: img,
+            transform: transform
+          } %}
+        {% endif %}
+      </div>
+
+      <div class="content__detail-lead producers-overview__lead">
+        {{ entry.leadText }}
+      </div>
     </div>
 
-    <div class="content__detail-lead producers-overview__lead">
-      {{ entry.leadText }}
-    </div>
-  </div>
-
-  {% include '_components/_content-elements/content-elements-loop' with {
-    contentElements: entry.contentElements.level(1),
-    usesGrid: false
-  } %}
-{% endblock %}
+    {% include '_components/_content-elements/content-elements-loop' with {
+      contentElements: entry.contentElements.level(1),
+      usesGrid: false
+    } %}
+  {% endblock %}
+</div>

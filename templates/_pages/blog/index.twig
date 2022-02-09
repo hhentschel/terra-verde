@@ -1,16 +1,6 @@
 {% extends '_layouts/main' %}
 {% set pageTitle = entry.pageTitle is not empty ? entry.pageTitle : entry.title
 %}
-{# Create a category query with the 'group' parameter #}
-
-{% set blogcategories = craft.categories().group('catGroupForBlog').all() %}
-
-{# {% set catNews = blogcategories.id(16717) %}
-{% set catMagazin = blogcategories.id(16719) %}
-{% set catRecipe = blogcategories.id(16718) %} #}
-
-{# Fetch the categories #}
-
 
 {% block content %}
   <div class="grid">
@@ -27,84 +17,17 @@
   <section class="grid">
     <div class="row">
       <div class="col col-xs-12 col-md-12 col-lg-12">
-        {% include '_pages/blog/_include/catnav.twig' %}
-      </div>
-    </div>
-  </section>
+        {# {% include '_pages/blog/_include/catnav.twig' %} #}
 
-  <section class="grid">
-    <div class="row">
-      <div class="col col-xs-12 col-md-12 col-lg-12 blog-list">
-        {% set relatedSection = craft.entries.section('newsEntries').level(1).all() %}
-        {% if relatedSection|length %}
-          {% for entry in relatedSection %}
-            <a href="{{ entry.url }}" class="blog-list__item">
-              <div class="blog-list__item--top">
-                <h3 class="blog-list__item--title">
-                  {{ entry.title }}
-                </h3>
-                {% if blogcategories is defined and blogcategories is not empty %}
-                  {% set categories = entry.catsForBlogEntries.all() %}
-                  <div class="blog-list__item--cat-container">
-                    {% for cat in categories %}
-                      <span class="blog-list__item--cat-item blog-list__item--cat-item--{% if cat.id == 16717 %}news{% elseif cat.id == 16718 %}recipe{% elseif cat.id == 16719 %}magazin{% endif %}">
-                        {{ cat.title }}
-                      </span>
-                    {% endfor %}
-                  </div>
-                {% endif %}
-
-                <div class="blog-list__item--preview">
-                  {% if
-                    entry.contentElements is defined
-                      and entry.contentElements is not empty %}
-                    {% set transform =
-                      transformation|default('imageOneThird')
-                    %}
-
-                    {% set img = entry.image.one ?? generic.image.one() %}
-
-                    {% if img is defined and img is not empty %}
-                      {% include '_components/_content-elements/image' with {
-                        img: img,
-                        transform: transform
-                      } %}
-                    {% endif %}
-                  {% endif %}
-
-                   {% if
-                    entry.recipes is defined and entry.recipes is not empty %}
-                    {% set img = entry.recipes.getImageUrl() ?? null %}
-                    {% set transform =
-                      transformation|default('imageOneThird')
-                    %}
-                    {% include '_components/_content-elements/image-recipe' with {
-                        image: img,
-                        transform: transform
-                      } %}
-                  {% endif %}
-
-                </div>
-                  <div class="blog-list__item--preview-lead">
-                    {{ entry.leadText }}
-                  </div>
-
-              </div>
-
-                <span href="{{ entry.url }}"
-                  class="blog-list__item--linkdetail">
-                  {% if
-                    entry.contentElements is defined
-                      and entry.contentElements is not empty %}
-                    mehr Informationen
-                  {% elseif
-                    entry.recipes is defined and entry.recipes is not empty %}
-                    mehr Informationen zum Rezept
-                  {% endif %}
-                </span>
-            </a>
-          {% endfor %}
-        {% endif %}
+        {{
+          sprig(
+            'sprig/components/filters/_components/blog',
+            {},
+            {
+              id: 'blogfilters'
+            }
+          )
+        }}
       </div>
     </div>
   </section>
