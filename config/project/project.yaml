@@ -1,4 +1,4 @@
-dateModified: 1644439855
+dateModified: 1644446884
 email:
   fromEmail: p@henrik-hentschel.de
   fromName: 'Terra Verde'
@@ -94,6 +94,7 @@ meta:
     56e224de-e1ef-4c9a-897c-ab4a05fd8c96: 'Terra Verde' # Terra Verde
     57dc5489-0c99-4527-bf4d-eaaaf2c2d601: 'Artikel Tags' # Artikel Tags
     57e5fec1-460f-4063-a3db-815af978dc8f: Bild # Bild
+    61fb34f1-bb5b-4ed1-8b63-94b839150936: Rezepte # Rezepte
     62aa7cc1-c9ad-4ef4-9d94-4fc3275ba26a: Produzenten # Produzenten
     63fb2479-518b-42d4-b388-594c194ee08d: Bestell-PDF # Bestell-PDF
     072ea0f1-6edc-4617-a088-60b1c99374ba: 'Karten Vorschaubild' # Karten Vorschaubild
@@ -106,6 +107,7 @@ meta:
     090ca3e8-52f7-44f4-8eb1-31b1d8706ff5: Hersteller # Hersteller
     90ef89be-0cc4-42b9-881d-b782644c5701: Akkordeon # Akkordeon
     92fe9f1d-016c-47b7-93b0-91c866fd6175: Generic # Generic
+    93be6bc6-5c6c-4bc1-9542-05ce2d7fe57b: 'Blog-Bild Vorschau' # Blog-Bild Vorschau
     95d567e2-ef54-4216-b7bf-f3afd51b9ddd: 'Kreditkarte, Postfinance, Paypal, Twint' # Kreditkarte, Postfinance, Paypal, Twint
     105f3719-0e2b-409f-851b-64e895b976aa: Redakteure # Redakteure
     121a4c00-ea55-46f5-b606-4288506164da: 'Kategorien (Status)' # Kategorien (Status)
@@ -136,6 +138,7 @@ meta:
     01783ac4-31e6-440a-ae6f-f490016997ad: 'Externer Link (Preview' # Externer Link (Preview
     1856a1a8-498c-4498-84ad-6fcbe1de89f7: Kategorien # Kategorien
     2133d0ff-1af0-4a47-b4ab-4b5da820381e: Einzeleinträge # Einzeleinträge
+    2941dc0e-4ee6-4e86-873c-6f930bfad4e4: Rezepte # Rezepte
     4572c692-2d3a-4c96-ae75-06bc37ceb6e2: Einordnung # Einordnung
     5312d07d-5231-47b2-a41f-e3524322da7c: Matchcode # Matchcode
     13456c46-75a5-4427-af83-ab20099cf05b: InstaShop # InstaShop

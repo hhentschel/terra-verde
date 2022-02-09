@@ -65,7 +65,7 @@
   <div class="col col-xs-12 col-md-6 col-lg-6">
       <div class="content__detail-image blog-entry-overview__image">
         {% set transform = transformation|default('imageRecipeBig') %}
-        {% set img = entry.recipes.getImageUrl(transform) ?? null %}
+        {% set img = entry.recipes.getImageUrl(transform) ?? generic.image.one() %}
 
         {% if img is defined %}
           {% include '_components/_content-elements/image-recipe' with {

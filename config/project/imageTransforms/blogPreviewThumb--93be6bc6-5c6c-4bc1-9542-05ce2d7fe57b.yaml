@@ -1,9 +1,9 @@
 format: null
-handle: imageRecipeBig
-height: 500
+handle: blogPreviewThumb
+height: 320
 interlace: none
 mode: fit
-name: Rezeptbild
+name: 'Blog-Bild Vorschau'
 position: center-center
 quality: 82
-width: 500
+width: 320
