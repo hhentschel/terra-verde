@@ -61,14 +61,14 @@
         <a href="" sprig s-val:reset="1" title="Reset">Alle</a>
       </li>
       {% for catBlogOption in catBlogOptions %}
-        <li class="blog__cat--item">
+        <li class="blog__cat--item {{ catBlogOption.id in articleCategoriesBlog ? 'blog__cat--item-active' }}">
           <input sprig
             class="blog__cat--input"
             type="radio"
             id="catdeli-{{ catBlogOption.id }}"
             name="articleCategoriesBlog[]"
             value="{{ catBlogOption.id }}"
-            {{ catBlogOption.id in articleCategoriesBlog ? 'checked' }} />
+            checked="{{ catBlogOption.id in articleCategoriesBlog ? 'checked' }}" />
           <label for="catdeli-{{ catBlogOption.id }}"
             class="blog__cat--label">
             {{ catBlogOption.title }}
