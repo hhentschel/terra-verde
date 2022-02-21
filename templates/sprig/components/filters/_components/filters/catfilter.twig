@@ -45,35 +45,29 @@
     </details>
   </div>
 
-  <div class="mobile-hidden">
+  <div class="">
     <details open class="filter__accordion">
       <summary class="filter__accordion--title">
-        Geschenksets
+        Delikatessen
       </summary>
-      <div class="filter__gift">
-        {% for catGiftOption in catGiftOptions %}
-          <div class="filter__checkbox">
+      <div class="filter__deli">
+        {% for catDeliOption in catDeliOptions %}
+          <div class="filter__checkbox filter__deli--checkbox">
             <input sprig
               type="checkbox"
-              id="catgift-{{ catGiftOption.id }}"
-              name="articleCategoriesGift[]"
-              value="{{ catGiftOption.id }}"
-              {{ catGiftOption.id in articleCategoriesGift ? 'checked' }} />
-            <label for="catgift-{{ catGiftOption.id }}"
-              class="truncate filter__checkbox--label">
-              {{ catGiftOption.title }}
+              id="catdeli-{{ catDeliOption.id }}"
+              name="articleCategoriesDeli[]"
+              value="{{ catDeliOption.id }}"
+              {{ catDeliOption.id in articleCategoriesDeli ? 'checked' }} />
+            <label for="catdeli-{{ catDeliOption.id }}"
+              class="filter__checkbox--label">
+              {{ catDeliOption.title }}
             </label>
           </div>
         {% endfor %}
       </div>
     </details>
-    <button class="btn filter__btn--results anchor-link" href="#tvboard">
-      Resulate anzeigen
-    </button>
   </div>
-  {# </div> #}
-
-  {# <div class="row"> #}
 
   <div class="">
     <details open class="filter__accordion">
@@ -119,36 +113,33 @@
         {% endfor %}
       </div>
     </details>
-    {# <button class="btn filter__btn--results anchor-link" href="#tvboard">
-      Resulate anzeigen
-    </button> #}
   </div>
 
-  <div class="">
+  <div class="mobile-hidden">
     <details open class="filter__accordion">
       <summary class="filter__accordion--title">
-        Delikatessen
+        Geschenksets
       </summary>
-      <div class="filter__deli">
-        {% for catDeliOption in catDeliOptions %}
-          <div class="filter__checkbox filter__deli--checkbox">
+      <div class="filter__gift">
+        {% for catGiftOption in catGiftOptions %}
+          <div class="filter__checkbox">
             <input sprig
               type="checkbox"
-              id="catdeli-{{ catDeliOption.id }}"
-              name="articleCategoriesDeli[]"
-              value="{{ catDeliOption.id }}"
-              {{ catDeliOption.id in articleCategoriesDeli ? 'checked' }} />
-            <label for="catdeli-{{ catDeliOption.id }}"
-              class="filter__checkbox--label">
-              {{ catDeliOption.title }}
+              id="catgift-{{ catGiftOption.id }}"
+              name="articleCategoriesGift[]"
+              value="{{ catGiftOption.id }}"
+              {{ catGiftOption.id in articleCategoriesGift ? 'checked' }} />
+            <label for="catgift-{{ catGiftOption.id }}"
+              class="truncate filter__checkbox--label">
+              {{ catGiftOption.title }}
             </label>
           </div>
         {% endfor %}
       </div>
     </details>
-    {# <button class="btn filter__btn--results anchor-link" href="#tvboard">
+    <button class="btn filter__btn--results anchor-link" href="#tvboard">
       Resulate anzeigen
-    </button> #}
+    </button>
   </div>
 
   {# </div> #}
