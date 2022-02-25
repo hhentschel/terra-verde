@@ -107,23 +107,32 @@
                             {% if not cart.hasErrors() %}
                                 <div class="form__cart-table--item-price" title="{{ item.price }}">
                                     <div class="form__cart-table--item-price-name">Einzelpreis:</div>
-                                    {# <div class="form__cart-table--item-price-number">{% if item.onSale %}<del>{% endif %}{{ item.price|commerceCurrency(cart.currency) }}{% if item.onSale %}</del>{% endif %}</div> #}
-                                    <div class="form__cart-table--item-price-number form__cart-table--item-price-number-bold">{{ item.price|commerceCurrency(cart.currency) }}</div>
+                                      {% if item.onSale %}
+                                      <div class="form__cart-table--item-price-number">
+                                        <del> {{ item.price|commerceCurrency(cart.currency) }} </del>
+                                      </div>
+                                     <div class="form__cart-table--item-price-number form__cart-table--item-price-number-bold"> {{ item.salePrice|commerceCurrency(cart.currency) }} </div>
+                                      {% endif %}
+                                    {% if item.onSale %}
+
+                                    {% else %}
+                                    <div class="form__cart-table--item-price-number form__cart-table--item-price-number-bold"> {{ item.price|commerceCurrency(cart.currency) }}</div>
+                                    {% endif %}
                                 </div>
                                 {% if item.onSale %}
-                                    <div class="form__cart-table--item-price" title="{{ item.salePrice }}">
-                                        <div class="form__cart-table--item-price-name">Sale Preise:</div>
+                                    {# <div class="form__cart-table--item-price" title="{{ item.salePrice }}">
+                                        <div class="form__cart-table--item-price-name">Aktion Preise:</div>
                                         <div class="form__cart-table--item-price-number">{{ item.salePrice|commerceCurrency(cart.currency) }}</div>
                                     </div>
                                     <div class="form__cart-table--item-price" title="{{ item.saleAmount }}">
-                                        <div class="form__cart-table--item-price-name">Sale Betrag:</div>
+                                        <div class="form__cart-table--item-price-name">Aktion Betrag:</div>
                                         <div class="form__cart-table--item-price-number">{{ item.saleAmount|commerceCurrency(cart.currency) }}</div>
-                                    </div>
+                                    </div> #}
 
                                     {% set itemSales = item.snapshot.sales ?? [] %}
                                     {% if itemSales|length %}
                                         <div class="flex w-full justify-end">
-                                            <div class="text-xs pr-2">Sales hinzugefügt:</div>
+                                            <div class="text-xs pr-2">Aktion:</div>
                                             <div class="text-xs">
                                                 {% for sale in itemSales %}
                                                     {{ sale.name }}<br>

@@ -15,7 +15,7 @@
     Bestellübersicht
   </h3>
 
-   {% if cart.shippingMethodHandle != 'B2C_pickUpAtStore' %}
+  {% if cart.shippingMethodHandle != 'B2C_pickUpAtStore' %}
     {% if showShippingAddress %}
       <div class="">
         <h4 class="heading heading--4 heading--no-margin-top">
@@ -27,10 +27,6 @@
               address: cart.shippingAddress
             } %}
           </div>
-        {% else %}
-          <p>
-            Keine Versandadresse ausgewählt.
-          </p>
         {% endif %}
 
         {% if currentUser %}
@@ -44,19 +40,17 @@
   {% endif %}
 
   {% if showShippingMethod %}
-    <div class="checkout__box checkout__box--section">
-      <h4 class="font-semibold mt-3">
-        Versandart
-      </h4>
+    {% if cart.shippingMethod %}
+      <div class="checkout__box checkout__box--section">
+        <h4 class="font-semibold mt-3">
+          Versandart
+        </h4>
 
-      <div>
-        {% if cart.shippingMethod %}
+        <div>
           {{ cart.shippingMethod.name }}
-        {% else %}
-          keine Versandart ausgwählt.
-        {% endif %}
+        </div>
       </div>
-    </div>
+    {% endif %}
   {% endif %}
 
   <h4 class="heading layout-helper__margin-top--xxs">
@@ -66,15 +60,16 @@
     <div class="flex w-full justify-between">
       <div class="flex justify-between mr-3 overflow-hidden items-center">
         <div class="truncate">
-           {% if item.qty %}
+          {% if item.qty %}
             {{ item.qty }}&times;
           {% endif %}
           {{ item.description }}
         </div>
-
       </div>
 
-      {% if item.options.giftWrapped is defined or item.options.giftNote is defined %}
+      {% if
+        item.options.giftWrapped is defined
+          or item.options.giftNote is defined %}
         <div class="">
           {{ item.total|currency(cart.currency) }}
         </div>
@@ -83,15 +78,17 @@
           {{ item.subtotal|currency(cart.currency) }}
         </div>
       {% endif %}
-
     </div>
-     {% if item.note %}
-        <div class="mt-1 flex">
-            <div class="pr-2 uppercase">Notiz</div>
-            <div>{{ item.note }}</div>
+    {% if item.note %}
+      <div class="mt-1 flex">
+        <div class="pr-2 uppercase">
+          Notiz
         </div>
-      {% endif %}
-
+        <div>
+          {{ item.note }}
+        </div>
+      </div>
+    {% endif %}
   {% else %}
     <div class="mb-3">
       <p>
@@ -106,12 +103,12 @@
   {% if not cart.shippingMethod %}
     {# If the order requires a shipping method be selected, you could redirect back to the shipping page until
        one is applied to the order (`{% redirect "shop/checkout/shipping" %}`) #}
-    <div class="checkout__box checkout__box--section">
+    {# <div class="checkout__box checkout__box--section">
       <strong>Versand</strong> nicht ausgewählt.
       <a href="{{ url('shop/checkout/shipping') }}">
         Eine Versandart auswählen.
       </a>
-    </div>
+    </div> #}
   {% endif %}
 
   <div class="checkout__box checkout__box--section">
@@ -145,24 +142,22 @@
     {% endif %} #}
 
     {# {% if cart.orderAdjustments|length %} #}
-      {% for adjustment in cart.orderAdjustments %}
-        <div class="flex w-full justify-end items-center text-xs text-gray-500">
-          <div class="pr-2">
-            {# <span>Versand ({{ adjustment.description }} ) - {{ adjustment.name }}:</span> #}
-            {# <span>Versand ({{ adjustment.name }} ):</span> #}
-            {% if cart.shippingMethodHandle == 'B2C_pickUpAtStore' %}
-              <span>Rabatt ({{ adjustment.name }} ):</span>
-
-            {% else %}
+    {% for adjustment in cart.orderAdjustments %}
+      <div class="flex w-full justify-end items-center text-xs text-gray-500">
+        <div class="pr-2">
+          {# <span>Versand ({{ adjustment.description }} ) - {{ adjustment.name }}:</span> #}
+          {# <span>Versand ({{ adjustment.name }} ):</span> #}
+          {% if cart.shippingMethodHandle == 'B2C_pickUpAtStore' %}
+            <span>Rabatt ({{ adjustment.name }} ):</span>
+          {% else %}
             <span>Versand:</span>
-
-            {% endif %}
-          </div>
-          <div>
-            {{ adjustment.amount|commerceCurrency(cart.currency) }}
-          </div>
+          {% endif %}
         </div>
-      {% endfor %}
+        <div>
+          {{ adjustment.amount|commerceCurrency(cart.currency) }}
+        </div>
+      </div>
+    {% endfor %}
     {# {% endif %} #}
 
     <div class="flex w-full justify-end items-center text-xs text-gray-500">
@@ -174,14 +169,12 @@
       </div>
     </div>
 
-
-
     <div class="flex w-full justify-end items-center">
       <div class="text-gray-600 pr-2">
         Total:
       </div>
       <div class="text-lg font-bold">
-          {{ cart.totalPrice|commerceCurrency(cart.currency) }}
+        {{ cart.totalPrice|commerceCurrency(cart.currency) }}
       </div>
     </div>
   </div>
