@@ -10,7 +10,7 @@ $typography--phone: (
     font-size: px-to-rem($font-size-m),
   ),
   heading: (
-    font-family: $font-family--heading, 
+    font-family: $font-family--heading,
     font-weight: $font-weight--heading,
   ),
   button: (
@@ -22,18 +22,18 @@ $typography--phone: (
     font-size: px-to-rem($font-size-xm),
     line-height: $line-height--xm,
     text-align: center,
-    text-transform: uppercase
+    text-transform: uppercase,
   ),
   h1: (
     font-size: px-to-rem($font-size-xxl-p),
     line-height: $line-height--s,
   ),
   h2: (
-    font-size: px-to-rem($font-size-xl),
+    font-size: px-to-rem($font-size-xl-p),
     line-height: $line-height--xm,
   ),
   h3: (
-    font-size: px-to-rem($font-size-xl-p),
+    font-size: px-to-rem($font-size-l),
     line-height: $line-height--m,
   ),
   h4: (
@@ -44,7 +44,7 @@ $typography--phone: (
     font-size: px-to-rem($font-size-xm),
     line-height: $line-height--xm,
   ),
-  lead : (
+  lead: (
     font-family: $font-family--base,
     font-size: px-to-rem($font-size-xm),
   ),
@@ -133,7 +133,7 @@ $typography--phone: (
     font-family: $font-family--base,
   ),
   searchTitle: (
-    font-size: px-to-rem($font-size-l)
+    font-size: px-to-rem($font-size-l),
   ),
   searchArea: (
     font-family: $font-family--base,
@@ -144,7 +144,7 @@ $typography--phone: (
   ),
   tableHeading: (
     font-family: $font-family--heading,
-  )
+  ),
 );
 
 /**
@@ -158,10 +158,10 @@ $typography--tablet-portrait: (
     font-size: px-to-rem($font-size-xxxl),
   ),
   h2: (
-    font-size: px-to-rem($font-size-xl),
+    font-size: px-to-rem($font-size-xl-p),
   ),
   h3: (
-    font-size: px-to-rem($font-size-xl-p),
+    font-size: px-to-rem($font-size-l),
   ),
   h4: (
     font-size: px-to-rem($font-size-l),
@@ -207,7 +207,7 @@ $typography--tablet-portrait: (
  */
 $typography--tablet-landscape: (
   h2: (
-    font-size: px-to-rem($font-size-xl),
+    font-size: px-to-rem($font-size-xl-p),
   ),
   navMainMobileLogoLine: (
     font-size: px-to-rem($font-size-m),
@@ -220,10 +220,10 @@ $typography--tablet-landscape: (
  */
 $typography--desktop: (
   h1: (
-    font-size: px-to-rem($font-size-xxxl)
+    font-size: px-to-rem($font-size-xxxl),
   ),
   h2: (
-    font-size: px-to-rem($font-size-xxxl-p),
+    font-size: px-to-rem($font-size-xl-p),
   ),
   h3: (
     font-size: px-to-rem($font-size-xxl-p),
