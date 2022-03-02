@@ -28,7 +28,7 @@ fieldLayouts:
             width: 100
         name: Inhalt
         sortOrder: 1
-handle: newsPic
+handle: news
 hasUrls: true
 name: Aktuelles
 settings:
