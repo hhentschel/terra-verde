@@ -41,7 +41,10 @@ use PickUpDiscount;
 // for adresse validation
 use craft\commerce\models\Address;
 use craft\base\Model;
+use craft\commerce\services\Discounts;
 use craft\events\DefineRulesEvent;
+
+use craft\commerce\events\MatchLineItemEvent;
 
 /**
  * Craft plugins are very much like little applications in and of themselves. We’ve made
@@ -70,6 +73,8 @@ class TerraverdeModule extends Module
      * @var TerraverdeModule
      */
     public static $instance;
+
+    const NO_STACKING_MAGIC_STRING = "'nogrouping' == 'nogrouping'";
 
     // Public Methods
     // =========================================================================
@@ -100,6 +105,12 @@ class TerraverdeModule extends Module
             if (is_dir($baseDir = $this->getBasePath().DIRECTORY_SEPARATOR.'templates')) {
                 $e->roots[$this->id] = $baseDir;
             }
+        });
+
+        Event::on(Discounts::class, Discounts::EVENT_DISCOUNT_MATCHES_LINE_ITEM, function (MatchLineItemEvent $event) {
+            if ($event->discount->orderConditionFormula == self::NO_STACKING_MAGIC_STRING)
+                if ($event->discount->purchaseQty > $event->lineItem->qty)
+                    $event->isValid = false;                
         });
 
         // Set this as the global instance of this module class
