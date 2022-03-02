@@ -159,10 +159,10 @@
                                         {% for adjustment in item.adjustments %}
                                             <div class="adjustments__data">
                                                 <div class="adjustments__data--type">
-                                                    <strong class="">{{ adjustment.type }}</strong>
+                                                    <strong class="">{{ adjustment.name }}</strong>
                                                 </div>
                                                 <div class="">
-                                                    <span class="adjustments__data--name">{{ adjustment.name }}</span>
+                                                    <span class="adjustments__data--name">{{ adjustment.description }}</span>
                                                 </div>
                                                 <div class="adjustments__data--amount">
                                                     <span class="" title="{{ adjustment.amount }}"> {{ adjustment.amount|commerceCurrency(cart.currency) }}</span>
