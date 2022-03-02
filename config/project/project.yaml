@@ -1,4 +1,4 @@
-dateModified: 1645799610
+dateModified: 1645806618
 email:
   fromEmail: p@henrik-hentschel.de
   fromName: 'Terra Verde'
@@ -115,7 +115,6 @@ meta:
     149a3219-5b27-4275-8a0f-b97cbff1e3ec: Shop # Shop
     219d5317-b509-4c72-87a2-15026938e903: Blog # Blog
     348a200e-7d31-4262-b613-e8cc6e039fb2: Degustationsnotiz # Degustationsnotiz
-    354d2a4d-e67f-4915-afc0-8b1b1ce144d4: 'Preis Privatkunden Test' # Preis Privatkunden Test
     421eaf0b-f542-45ff-8051-2921d93b3eeb: Vorschautext # Vorschautext
     0434bb85-e818-4834-be05-c89d49427ca9: 'Quicklinks Liste' # Quicklinks Liste
     437e0241-3704-4701-a904-0082985e64ed: 'Externer Link' # Externer Link
@@ -242,6 +241,7 @@ meta:
     e5c66396-f991-4b4c-8edc-5e4960340ca3: Startseite # Startseite
     e9d74d60-1b19-494e-a1af-537c054484c9: Login # Login
     e45ebe2d-560e-4f8b-9bc9-6bda46de1a4f: 'Inhaltselemente Startseite' # Inhaltselemente Startseite
+    e61fb032-eec0-4f11-b450-86d1adea8934: Rezepte # Rezepte
     e65f535e-dc60-4351-a7bb-9a558ae2c75d: Newsletter # Newsletter
     e408f37d-9b71-4f78-ae4a-18fe5c8dbef7: News # News
     e22957f0-c9f4-40f0-aaed-0cb3d674851f: Status # Status
