@@ -1,0 +1,27 @@
+defaultPlacement: end
+enableVersioning: true
+handle: newsEntries
+name: 'Blog Beiträge'
+previewTargets:
+  -
+    __assoc__:
+      -
+        - label
+        - 'Primäre eintrag Seite'
+      -
+        - urlFormat
+        - '{url}'
+      -
+        - refresh
+        - '1'
+propagationMethod: all
+siteSettings:
+  dd0cd05e-0cb9-4a76-b993-3cb70e6fc147: # Terra Verde
+    enabledByDefault: true
+    hasUrls: true
+    template: _pages/blog/_entry.twig
+    uriFormat: 'blog/{type}/{slug}'
+structure:
+  maxLevels: null
+  uid: 5eafefd6-ccd4-4cad-aa07-84caed6111e5
+type: structure

@@ -1,0 +1,9 @@
+format: null
+handle: blogPreviewThumb
+height: 320
+interlace: none
+mode: fit
+name: 'Blog-Bild Vorschau'
+position: center-center
+quality: 82
+width: 320
