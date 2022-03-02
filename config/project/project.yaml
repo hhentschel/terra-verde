@@ -1,4 +1,4 @@
-dateModified: 1645806618
+dateModified: 1646216746
 email:
   fromEmail: p@henrik-hentschel.de
   fromName: 'Terra Verde'
@@ -92,6 +92,7 @@ meta:
     50ff7a2e-9fc7-4f85-aa48-b24f439d44cb: 'Bild Inhalt Voll' # Bild Inhalt Voll
     52b07f6a-0a03-4f36-90a6-237e75e980b9: Text # Text
     56e224de-e1ef-4c9a-897c-ab4a05fd8c96: 'Terra Verde' # Terra Verde
+    57d4d8f2-0e49-45bf-9f84-2e1917ef7c02: Magazin # Magazin
     57dc5489-0c99-4527-bf4d-eaaaf2c2d601: 'Artikel Tags' # Artikel Tags
     57e5fec1-460f-4063-a3db-815af978dc8f: Bild # Bild
     61fb34f1-bb5b-4ed1-8b63-94b839150936: Rezepte # Rezepte
@@ -144,6 +145,7 @@ meta:
     13456c46-75a5-4427-af83-ab20099cf05b: InstaShop # InstaShop
     34381c5f-24e3-4876-a534-c12339c44433: EANNummer # EANNummer
     34406d5e-074d-493b-9894-adb4145b5f83: AGB # AGB
+    39720a7b-fb62-4919-8f8c-b57fe485a7a6: Aktuelles # Aktuelles
     48548b44-1daa-40e6-8a33-e8f7fd5a9bb6: Shop # Shop
     54175d52-141f-426e-9de0-3891627e7502: 'Akkordeon Titel' # Akkordeon Titel
     57003c64-aadc-404d-a990-553d81d5fef3: Startseite # Startseite

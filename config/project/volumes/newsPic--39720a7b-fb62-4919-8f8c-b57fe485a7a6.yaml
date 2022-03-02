@@ -1,5 +1,5 @@
 fieldLayouts:
-  170a9e05-6bb4-4152-9996-5ce1226def46:
+  44660dab-9b85-4128-9629-8cf0cfc0eae1:
     tabs:
       -
         elements:
@@ -28,18 +28,18 @@ fieldLayouts:
             width: 100
         name: Inhalt
         sortOrder: 1
-handle: rezepte
+handle: newsPic
 hasUrls: true
-name: Rezepte
+name: Aktuelles
 settings:
   cdnUrlPattern: ''
-  customSubfolder: /assets/images/content/content/rezepte
+  customSubfolder: /assets/images/content/content/news
   makeUploadsPublic: true
   optimisePrefix: ''
   optimiseUrlPattern: ''
   projectSlug: ''
   securityKey: ''
-sortOrder: 12
+sortOrder: 13
 titleTranslationKeyFormat: null
 titleTranslationMethod: null
 type: servd\AssetStorage\Volume
