@@ -62,12 +62,6 @@
           </div>
           <div class="col col-xs-12 col-md-6 col-lg-6">
 
-            <h4 class="layout-helper__margin-top--none">
-              {{ product.articleDescription}}<br />{{ product.articleDescriptionAdditional }}
-            </h4>
-            {% if product.articleAdditionalInfo %}
-              <p> {{ product.articleAdditionalInfo }}</p>
-            {% endif %}
 
             <form class="js-form product-detail__form">
               {# {{ actionInput('commerce/cart/update-cart') }}
@@ -197,7 +191,7 @@
               </div>
             </form>
 
-            {% include 'shop/produkte/_includes/detail-summary' %}
+            {% include 'shop/produkte/_includes/detail-summary__gift' %}
 
           </div>
 
