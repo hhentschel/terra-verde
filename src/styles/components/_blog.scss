@@ -18,6 +18,10 @@
     }
   }
 
+  &--item-active {
+    background-color: $color--beige-light;
+  }
+
   &--label,
   &--item-reset {
     padding: px-to-rem(12) px-to-rem(18);

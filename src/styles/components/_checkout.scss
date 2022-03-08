@@ -21,6 +21,10 @@
     }
   }
 
+  &__box--subheading {
+    text-decoration: underline;
+  }
+
   &__box--section {
     padding: px-to-rem($space--xs) 0 px-to-rem($space--m) 0;
     border-bottom: 1px solid $color--grey-light;
@@ -51,6 +55,26 @@
       margin: 0 0 0 px-to-rem($space--m);
     }
   }
+}
+
+// order summary
+// adress List
+
+.address-list {
+  &__item {
+    line-height: $line-height--xm;
+  }
+}
+
+.forms__checkout--link {
+  visibility: visible;
+  display: none;
+}
+
+/* Show hidden content when the checkbox is checked */
+#billingAddressSameAsShipping:checked ~ .forms__checkout--link {
+  visibility: collapse;
+  display: none;
 }
 
 // Setting shippingadress

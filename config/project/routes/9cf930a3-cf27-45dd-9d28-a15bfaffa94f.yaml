@@ -1,9 +1,0 @@
-siteUid: null
-sortOrder: 1
-template: /blog
-uriParts:
-  - blog/
-  -
-    - '*'
-    - '[^\/]+'
-uriPattern: 'blog/<any:[^\/]+>'

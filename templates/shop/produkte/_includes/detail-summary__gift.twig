@@ -3,68 +3,8 @@
     Beschreibung
   </summary>
   <div class="product-detail__summary-content">
-    {% if product.articleNumber %}
-      <p>
-        Artikelnummer: {{ product.articleNumber }}
-      </p>
-    {% endif %}
-
     {% if product.articleVolume %}
       <span>{{ product.articleVolume }}{{ product.articleUnit }}</span>
-    {% endif %}
-
-    {% if product.articleStorage %}
-      <p>
-        Lagerung: {{ product.articleStorage }}
-      </p>
-    {% endif %}
-
-    {% if product.articleFitsTo %}
-      <p>
-        Passt zu: {{ product.articleFitsTo }}
-      </p>
-    {% endif %}
-
-    {% if product.articleDeguNotice %}
-      <p>
-        Degustationnotiz: {{ product.articleDeguNotice }}
-      </p>
-    {% endif %}
-
-    {% if product.articleTemperature %}
-      <p>
-        Trinktemperatur: {{ product.articleTemperature }}
-      </p>
-    {% endif %}
-
-    {% if product.arcticleVintage %}
-      <p>
-        Jahrgang: {{ product.arcticleVintage }}
-      </p>
-    {% endif %}
-
-    {% if product.articleManufacturer %}
-      <p>
-        Hersteller: {{ product.articleManufacturer }}
-      </p>
-    {% endif %}
-
-    {% if product.articleVinification %}
-      <p>
-        Vinifikation: {{ product.articleVinification }}
-      </p>
-    {% endif %}
-
-    {% if product.articleBioZertifisation %}
-      <p>
-        Bio-Zertifizierung: {{ product.articleBioZertifisation }}
-      </p>
-    {% endif %}
-
-    {% if product.articleAllergenic %}
-      <p>
-        Allergene: {{ product.articleAllergenic }}
-      </p>
     {% endif %}
 
     {% if product.articleNutritionalValue %}

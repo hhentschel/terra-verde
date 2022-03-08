@@ -356,5 +356,5 @@ variantFieldLayouts:
             type: craft\fieldlayoutelements\CustomField
             warning: null
             width: 25
-        name: Content
+        name: Inhalt
         sortOrder: 1

@@ -7,7 +7,7 @@ name: Rezepte
 searchable: true
 settings:
   assetSources:
-    - 'folder:ea4c3670-a713-4af4-a4a4-3fc935c21a56'
+    - 'folder:962e6c44-86b9-4a77-bf39-8a362ee99399'
 translationKeyFormat: null
 translationMethod: none
 type: nystudio107\recipe\fields\Recipe

@@ -1,0 +1,71 @@
+@keyframes discount10 {
+  0% {
+    opacity: 0;
+  }
+  4% {
+    opacity: 1;
+  }
+  43.33% {
+    opacity: 1;
+  }
+  47.33% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+#order-hints {
+  height: 10em;
+  position: relative;
+}
+
+#order-hints > * {
+  animation: 12s discount10 infinite linear;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+}
+
+#order-hints > *:nth-child(1) {
+  animation-delay: 0s;
+}
+#order-hints > *:nth-child(2) {
+  animation-delay: 6s;
+}
+
+.order-hints {
+  background-color: $color--orange-light;
+  text-align: center;
+  margin: px-to-rem($space--m) 0;
+  &__discount {
+    padding: px-to-rem($space--m);
+  }
+  &__discount--heading {
+    font-weight: 700;
+    margin: 0;
+  }
+  &__discount--text {
+    line-height: $line-height--xm;
+  }
+  &__discount--mark {
+    font-size: px-to-rem($font-size-xxs);
+    line-height: $line-height--xm;
+    hyphens: auto;
+  }
+  &__shipping {
+    padding: px-to-rem($space--m);
+    display: flex;
+  }
+  &__shipping--text {
+    font-size: px-to-rem($font-size-l);
+    color: $color--white;
+    margin: 0;
+    align-self: center;
+    line-height: $line-height--m;
+  }
+}

@@ -2,6 +2,10 @@
 
 {% set addresses = craft.commerce.customers.customer.addresses %}
 
+{% set customer = craft.commerce.customers.customer %}
+{% set primaryBillingAddress = customer.getPrimaryBillingAddress() %}
+{% set primaryShippingAddress = customer.getPrimaryShippingAddress() %}
+
 {% block content %}
   <!-- Template: {{ _self }}.twig -->
   <section class="grid">
@@ -20,15 +24,15 @@
             {% if not cart.email %}
               <label for="email">Email</label>
               <input id="email"
-                class="input"
-                type="email"
-                value="{{ cart.email }}"
-                name="email"
-                placeholder="email@webiste.ch" />
+                     class="input"
+                     type="email"
+                     value="{{ cart.email }}"
+                     name="email"
+                     placeholder="email@webiste.ch"/>
 
               <span class="flash">
                 {{ cart.getErrors('email')|join }}
-              </span><br />
+              </span><br/>
             {% endif %}
 
             {% include 'shop/_includes/addresses/fieldset' with {
@@ -39,17 +43,28 @@
 
             {{ hiddenInput('billingAddressSameAsShipping', 0) }}
 
-            {# <div class="mt-3">
-              <label for="billingAddressSameAsShipping">
-                <input id="billingAddressSameAsShipping"
-                  name="billingAddressSameAsShipping"
-                  type="checkbox"
-                  checked="checked" />
-                <span class="label-body">
-                  Rechnungsadresse als Lieferadresse verwenden
+            {% if primaryBillingAddress or primaryShippingAddress %}
+              <div class="">
+                <label for="billingAddressSameAsShipping">
+                  <input id="billingAddressSameAsShipping"
+                         name="billingAddressSameAsShipping"
+                         type="checkbox"
+                         checked="checked"/>
+                  <span class="label-body">
+                  Versandadresse als Rechnungsadresse verwenden
                 </span>
-              </label>
-            </div> #}
+
+                  <a class="forms__checkout--link link" href="{{ url('shop/customer/addresses/edit') }}">
+                    Neue Adresse hinzufügen
+                  </a>
+                </label>
+              </div>
+            {% else %}
+
+
+            {% endif %}
+
+
 
             {# <div class="mt-3">
               <label for="makePrimaryShippingAddress">
@@ -60,7 +75,7 @@
                   Als primäre Versandadresse verwenden
                 </span>
               </label>
-            </div> #}
+            </div>
 
             <div class="mt-3">
               {% include 'shop/_includes/addresses/fieldset' with {
@@ -70,7 +85,7 @@
               } %}
             </div>
 
-            {# <div class="mt-3">
+            <div class="mt-3">
               <label for="makePrimaryBillingAddress">
                 <input id="makePrimaryBillingAddress"
                   name="makePrimaryBillingAddress"
@@ -84,8 +99,8 @@
             <div class="checkout__steps">
               <div class="checkout__steps--button">
                 <input type="submit"
-                  class="input input__primary"
-                  value="Adresse bestätigen und weiter" />
+                       class="input input__primary"
+                       value="Adresse bestätigen und weiter"/>
               </div>
             </div>
           </form>
@@ -100,33 +115,33 @@
 
   {% js %}var $fieldsets = document.querySelectorAll('.js-address-fieldset');
 
-  if ($fieldsets && $fieldsets.length) { $fieldsets.forEach(function (el) { var
-  $addressSelects = el.querySelectorAll('.js-address-select');
+    if ($fieldsets && $fieldsets.length) { $fieldsets.forEach(function (el) { var
+    $addressSelects = el.querySelectorAll('.js-address-select');
 
-  if ($addressSelects && $addressSelects.length) {
-  $addressSelects.forEach(function(el) { var $radio =
-  el.querySelector('.js-radio input'); var $body = el.querySelector('.js-body');
+    if ($addressSelects && $addressSelects.length) {
+    $addressSelects.forEach(function(el) { var $radio =
+    el.querySelector('.js-radio input'); var $body = el.querySelector('.js-body');
 
-  if ($radio) { if ($body) { // Creating new address
-  $radio.addEventListener('change', function(ev) { if (ev.target.checked) {
-  $body.classList.remove('hidden'); } else { $body.classList.add('hidden'); }
-  });
+    if ($radio) { if ($body) { // Creating new address
+    $radio.addEventListener('change', function(ev) { if (ev.target.checked) {
+    $body.classList.remove('hidden'); } else { $body.classList.add('hidden'); }
+    });
 
-  if ($radio.checked) { $body.classList.remove('hidden'); } } else { //
-  Selecting existing address $radio.addEventListener('change', function(ev) { if
-  (ev.target.checked) { var $newBox =
-  document.querySelector('.js-address-select[data-model-name="' +
-  ev.target.dataset.modelName + '"]'); if ($newBox) {
-  $newBox.querySelector('.js-body').classList.add('hidden'); } } }); } } }); }
-  }); }
+    if ($radio.checked) { $body.classList.remove('hidden'); } } else { //
+    Selecting existing address $radio.addEventListener('change', function(ev) { if
+    (ev.target.checked) { var $newBox =
+    document.querySelector('.js-address-select[data-model-name="' +
+    ev.target.dataset.modelName + '"]'); if ($newBox) {
+    $newBox.querySelector('.js-body').classList.add('hidden'); } } }); } } }); }
+    }); }
 
-  var $billingSameAs = document.querySelector('#billingAddressSameAsShipping');
-  if ($billingSameAs) { $billingSameAs.addEventListener('change', function(ev) {
-  var $billingFieldSet =
-  document.querySelector('.js-address-fieldset.BillingAddress');
-  $billingFieldSet.classList.toggle('hidden'); });{% if
+    var $billingSameAs = document.querySelector('#billingAddressSameAsShipping');
+    if ($billingSameAs) { $billingSameAs.addEventListener('change', function(ev) {
+    var $billingFieldSet =
+    document.querySelector('.js-address-fieldset.BillingAddress');
+    $billingFieldSet.classList.toggle('hidden'); });{% if
     (cart.billingAddressId and cart.billingAddress.hasErrors())
-      or cart.billingAddressId != cart.shippingAddressId %}
+    or cart.billingAddressId != cart.shippingAddressId %}
     $billingSameAs.click();
   {% endif %}}{% endjs %}
 {% endblock %}
