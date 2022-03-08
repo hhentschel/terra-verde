@@ -6,7 +6,7 @@ fieldLayouts:
       -
         elements:
           -
-            fieldUid: 01783ac4-31e6-440a-ae6f-f490016997ad # Externer Link (Preview
+            fieldUid: 01783ac4-31e6-440a-ae6f-f490016997ad
             instructions: null
             label: null
             required: false

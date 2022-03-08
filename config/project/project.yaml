@@ -1,4 +1,4 @@
-dateModified: 1646402744
+dateModified: 1646768224
 email:
   fromEmail: p@henrik-hentschel.de
   fromName: 'Terra Verde'
@@ -86,7 +86,6 @@ meta:
     34eecfa5-9662-4a5c-addd-6a484fbebe8d: 'Verkaufsstellen Orte' # Verkaufsstellen Orte
     037a2847-d799-44e7-ae4b-4bf40233db70: Kategorien # Kategorien
     44a134bf-a896-43b6-897a-a294f6c27325: 'Blog Aktuell' # Blog Aktuell
-    46afcaf9-86a4-4486-80f7-9676a812098b: AA_Testfeld-Local # AA_Testfeld-Local
     47bc485c-9111-499a-99df-616baa7dba1e: 'Relations Hersteller' # Relations Hersteller
     47c3ee37-8371-469c-8566-fb641a48324e: 'Ähnliche Produkte Apero' # Ähnliche Produkte Apero
     50ff7a2e-9fc7-4f85-aa48-b24f439d44cb: 'Bild Inhalt Voll' # Bild Inhalt Voll
@@ -136,7 +135,6 @@ meta:
     944f60e0-b559-4698-bb4d-3d2eec04eef6: 'Produkt Beschreibung Alt' # Produkt Beschreibung Alt
     982a8eec-f2e3-4260-b25a-904d904b42a9: Firma # Firma
     1746b6f6-7af3-4e0c-9f4d-5be0656816b1: 'Produkt Detail' # Produkt Detail
-    01783ac4-31e6-440a-ae6f-f490016997ad: 'Externer Link (Preview' # Externer Link (Preview
     1856a1a8-498c-4498-84ad-6fcbe1de89f7: Kategorien # Kategorien
     2133d0ff-1af0-4a47-b4ab-4b5da820381e: Einzeleinträge # Einzeleinträge
     2941dc0e-4ee6-4e86-873c-6f930bfad4e4: Rezepte # Rezepte
@@ -380,11 +378,6 @@ plugins:
       validateBusinessTaxIdAsVatId: false
       validateCartCustomFieldsOnSubmission: false
       weightUnits: g
-  commerce-bundles:
-    edition: standard
-    enabled: false
-    licenseKey: QDJ3HXHEXEVI3GHUOB7HUQOT
-    schemaVersion: 1.1.1
   commerce-datatrans:
     edition: standard
     enabled: true
@@ -506,7 +499,7 @@ plugins:
       widgetTitle: Links
   image-optimize:
     edition: standard
-    enabled: true
+    enabled: false
     licenseKey: KTPXN8E890GADLRUF1046M43
     schemaVersion: 1.0.0
     settings:

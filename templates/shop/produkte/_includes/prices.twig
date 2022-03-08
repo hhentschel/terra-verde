@@ -2,7 +2,7 @@
   {% if currentUser %}
     {% if
       currentUser.isInGroup('userGroupPrivate')
-        or currentUser.isInGroup('userGroupRedactors') %}
+      or currentUser.isInGroup('userGroupRedactors') %}
       {% if variant.onSale %}
         <strike class="shop-list__item--price-old">
           {{ variant.price|currency('CHF') }}
@@ -12,20 +12,12 @@
         </span>
       {% else %}
         <span class="shop-list__item--price">
-          {# {% set amount = variant.price|currency('CHF') %} #}
-
-          {# {% set amountround = round((amount + 0.000001) * 20) / 20 %} #}
-          {# {% set amountround = round((amount + 0) / 20) %} #}
-
-          {# <strong>CHF {{ amountround|number_format(2, '.', '') }}</strong> #}
-          {# {{ product.pricePrivateCustomer|currency('CHF') }} #}
-          {# {{ product.pricePrivateCustomerTest|currency('CHF') }} #}
           {{ variant.price|currency('CHF') }}
         </span>
       {% endif %}
     {% elseif
       currentUser.isInGroup('userGroupRetail')
-        or currentUser.isInGroup('userGroupRedactors') %}
+      or currentUser.isInGroup('userGroupRedactors') %}
       {% if variant.onSale %}
         <strike class="shop-list__item--price-old">
           {{ variant.price|currency('CHF') }}
