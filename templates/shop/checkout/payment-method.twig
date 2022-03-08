@@ -14,16 +14,15 @@
       </div>
 
       <div class="col col-xs-12 col-md-6 col-lg-6">
-        <h3 class="heading heading--3 layout-helper__margin-top--none">
+        <h2 class="heading heading--2 heading--no-margin-top">
           Wie würden sie gerne bezahlen?
-        </h3>
+        </h2>
 
         {# Get the available payment sources the user has to be used later in this page #}
         {% set paymentSources =
           craft.commerce.paymentSources.allPaymentSourcesByUserId(
             currentUser.id ?? null
-          )
-        %}
+          ) %}
 
         {# Get the available gateways to be used later in this page #}
         {% set availableGateways = craft.commerce.gateways.getAllCustomerEnabledGateways %}
@@ -40,24 +39,26 @@
           <div class="mt-3">
             <form method="post" action="" class="forms__checkout relative border-b-1 mb-4">
 
-            {{ actionInput('commerce/cart/update-cart') }}
+              {{ actionInput('commerce/cart/update-cart') }}
 
               <div>
 
-                  {% for id,name in availableGateways %}
-                    <label class="block bg-gray-100 p-2 hover:bg-gray-200 cursor-pointer mt-3">
-                      <div class="flex justify-start items-center">
-                        <div class="pr-2">
-                          <input type="radio" name="gatewayId" value="{{ id }}" {% if id == cart.gatewayId %}checked{% endif %} />
-                        </div>
-                        <div>
-                          <strong>{{ name }}</strong>
-                        </div>
+                {% for id,name in availableGateways %}
+                  <label class="block bg-gray-100 p-2 hover:bg-gray-200 cursor-pointer mt-3">
+                    <div class="flex justify-start items-center">
+                      <div class="pr-2">
+                        <input type="radio" name="gatewayId" value="{{ id }}"
+                               {% if id == cart.gatewayId %}checked{% endif %} />
                       </div>
-                    </label>
-                  {% endfor %}
+                      <div>
+                        <strong>{{ name }}</strong>
+                      </div>
+                    </div>
+                  </label>
+                {% endfor %}
 
-                  <p> Bei Bezahlung auf Rechnung (30 Tage). Bitte haben Sie Verständnis, wenn wir in Einzelfällen eine abweichende Zahlungsweise erbitten.</p>
+                <p> Bei Bezahlung auf Rechnung (30 Tage). Bitte haben Sie Verständnis, wenn wir in Einzelfällen eine
+                  abweichende Zahlungsweise erbitten.</p>
 
               </div>
 
@@ -68,7 +69,7 @@
                 } %}
               </div>
 
-                {# {% for id in availableGateways %}
+              {# {% for id in availableGateways %}
                   {% set id = 4 %}
                   {% if id == cart.gatewayId %}
                     {{ successMessageInput('Vielen Dank! Ihre Bestellung wurde abgeschickt') }}
@@ -87,12 +88,11 @@
               <div class="checkout__steps">
                 <div class="checkout__steps--button">
                   <input type="submit"
-                    name="submit"
-                    class="input__primary input"
-                    value="Weiter zu Zahlung" />
+                         name="submit"
+                         class="input__primary input"
+                         value="Weiter zu Zahlung"/>
                 </div>
               </div>
-
 
 
             </form>

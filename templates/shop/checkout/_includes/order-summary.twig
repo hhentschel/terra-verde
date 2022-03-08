@@ -11,15 +11,15 @@
 {% endif %}
 
 <div class="checkout__box checkout__box-summary">
-  <h3 class="heading heading--3 heading--no-margin-top">
+  <h2 class="heading heading--2 heading--no-margin-top">
     Bestellübersicht
-  </h3>
+  </h2>
 
   {% if cart.shippingMethodHandle != 'B2C_pickUpAtStore' %}
     {% if showShippingAddress %}
       <div class="">
-        <h4 class="heading heading--4 heading--no-margin-top">
-          Versand nach:
+        <h4 class="heading heading--4 heading--no-margin-top checkout__box--subheading">
+          Versandadresse
         </h4>
         {% if cart.shippingAddress %}
           <div class="address-select js-address-select border-0">
@@ -29,10 +29,19 @@
           </div>
         {% endif %}
 
+        <h4 class="heading heading--4 checkout__box--subheading">
+          Rechnungsadresse
+        </h4>
+        {% if cart.billingAddress %}
+          {% include 'shop/_includes/addresses/address' with {
+            address: cart.billingAddress
+          } %}
+        {% endif %}
+
         {% if currentUser %}
           <a class="edit button button--edit button--secondary"
             href="{{ url('shop/checkout/addresses') }}">
-            Adresse bearbeiten
+            Adresse(n) bearbeiten
           </a>
         {% endif %}
       </div>
@@ -112,34 +121,33 @@
   {% endif %}
 
   <div class="checkout__box checkout__box--section">
-    {# <div class="flex w-full justify-end items-center text-xs text-gray-500">
+   {# <div class="flex w-full justify-end items-center text-xs text-gray-500">
       <div class="pr-2">
         Versand:
       </div>
       <div>
         {{ cart.totalShippingCost|commerceCurrency(cart.currency) }}
       </div>
-    </div> #}
-
-    {# <div class="flex w-full justify-end items-center text-xs text-gray-500">
+    </div>#}
+ {#   <div class="flex w-full justify-end items-center text-xs text-gray-500">
       <div class="pr-2">
         Mwst:
       </div>
       <div>
         {{ cart.totalTax|commerceCurrency(cart.currency) }}
       </div>
-    </div> #}
+    </div>#}
 
-    {# {% if cart.totalDiscount|length  %}
+     {% if cart.totalDiscount|length  %}
     <div class="flex w-full justify-end items-center text-xs text-gray-500">
       <div class="pr-2">
-        Rabatt:
+        Rabatt(e):
       </div>
       <div>
          {{ (cart.totalDiscount * -1)|commerceCurrency(cart.currency) }}
       </div>
     </div>
-    {% endif %} #}
+    {% endif %}
 
     {# {% if cart.orderAdjustments|length %} #}
     {% for adjustment in cart.orderAdjustments %}
@@ -162,7 +170,7 @@
 
     <div class="flex w-full justify-end items-center text-xs text-gray-500">
       <div class="pr-2">
-        Mwst. (inkl.):
+        Mwst.:
       </div>
       <div>
         {{ cart.totalTaxIncluded|commerceCurrency(cart.currency) }}

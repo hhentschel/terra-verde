@@ -1,18 +1,15 @@
 {% extends '_layouts/main' %}
-{% set pageTitle = entry.pageTitle is not empty ? entry.pageTitle : entry.title
-%}
+{% set pageTitle = entry.pageTitle is not empty ? entry.pageTitle : entry.title %}
 
 {% block content %}
   {% macro errorList(errors) %}
     {% if errors %}
-      {{
-        ul(
-          errors,
-          {
-            class: 'errors'
-          }
-        )
-      }}
+      {{ ul(
+        errors,
+        {
+          class: 'errors'
+        }
+      ) }}
     {% endif %}
   {% endmacro %}
 
@@ -20,14 +17,12 @@
     <div class="row">
       <div class="col col-xs-12 col-md-12 col-lg-12">
         <form method="post"
-          accept-charset="UTF-8"
-          class="form form-registration">
+              accept-charset="UTF-8"
+              class="form form-registration">
           {{ csrfInput() }}
           {{ actionInput('users/save-user') }}
-          {# {{ actionInput('commerce/customer-addresses/save') }} #}
-          {{
-            redirectInput('/customer/account/activation-email/?user={email}')
-          }}
+          {{ actionInput('commerce/customer-addresses/save') }}
+          {{ redirectInput('/customer/account/activation-email/?user={email}') }}
           {# {{ redirectInput('/register-success/') }} #}
           {# {{ redirectInput(craft.app.user.returnUrl) }} #}
 
@@ -52,18 +47,16 @@
 
           <div class="form-registration__item">
             <label for="firstName">Vorname *</label>
-            {{
-              input(
-                'text',
-                'firstName',
-                user.firstName ?? null,
-                {
-                  id: 'firstName',
-                  class: 'input layout-helper__margin-bottom--xxs',
-                  required: 'required'
-                }
-              )
-            }}
+            {{ input(
+              'text',
+              'firstName',
+              user.firstName ?? null,
+              {
+                id: 'firstName',
+                class: 'input layout-helper__margin-bottom--xxs',
+                required: 'required'
+              }
+            ) }}
 
             {% if user is defined %}
               {{ _self.errorList(user.getErrors('firstName')) }}
@@ -72,38 +65,86 @@
 
           <div class="form-registration__item">
             <label for="lastName">Nachname *</label>
-            {{
-              input(
-                'text',
-                'lastName',
-                user.lastName ?? null,
-                {
-                  id: 'lastName',
-                  class: 'input layout-helper__margin-bottom--xxs',
-                  required: 'required'
-                }
-              )
-            }}
+            {{ input(
+              'text',
+              'lastName',
+              user.lastName ?? null,
+              {
+                id: 'lastName',
+                class: 'input layout-helper__margin-bottom--xxs',
+                required: 'required'
+              }
+            ) }}
 
             {% if user is defined %}
               {{ _self.errorList(user.getErrors('lastName')) }}
             {% endif %}
           </div>
 
+          {# <div class="form-registration__item">
+          <label for="fields[userCompany]">Firma</label>
+          <input id="Company" type="text" class="input layout-helper__margin-bottom--xxs" name="fields[userCompany]"
+          {%- if account is defined %} value="{{ account.userCompany}}"{% endif -%}>
+        </div> #}
+
+          <div class="form-registration__item">
+            <label for="fields[userAdress]">Strasse *</label>
+            <input id="Address" type="text" class="input layout-helper__margin-bottom--xxs" name="fields[userAdress]"
+              {%- if account is defined %} value="{{ account.userAdress }}"{% endif -%} required>
+          </div>
+
+
+          <div class="form-registration__item">
+            <label for="fields[userAdditionalAdress]">Zusatz Adresse</label>
+            <input id="AddressAdditional" type="text" class="input layout-helper__margin-bottom--xxs"
+                   name="fields[userAdditionalAdress]"
+              {%- if account is defined %} value="{{ account.userAdditionalAdress }}"{% endif -%}>
+          </div>
+
+          {#  <div class="form-registration__item">
+          <label for="fields[userTelephone]">Telefon</label>
+          <input id="Telephone" type="text" class="input layout-helper__margin-bottom--xxs" name="fields[userTelephone]"
+          {%- if account is defined %} value="{{ account.userTelephone}}"{% endif -%} >
+        </div> #}
+
+          <div class="form-registration__item">
+            <label for="fields[userTelephoneMobile]">Telefon *</label>
+            <input id="TelephoneMobile" type="text" class="input layout-helper__margin-bottom--xxs"
+                   name="fields[userTelephoneMobile]"
+              {%- if account is defined %} value="{{ account.userTelephoneMobile }}"{% endif -%} required>
+          </div>
+
+          <div class="form-registration__item">
+            <label for="fields[userZip]">Postleitzahl *</label>
+            <input id="City" type="text" class="input layout-helper__margin-bottom--xxs" name="fields[userZip]"
+              {%- if account is defined %} value="{{ account.userZip }}"{% endif -%} required>
+          </div>
+
+          <div class="form-registration__item">
+            <label for="fields[userCity]">Ort *</label>
+            <input id="City" type="text" class="input layout-helper__margin-bottom--xxs" name="fields[userCity]"
+              {%- if account is defined %} value="{{ account.userCity }}"{% endif -%} required>
+          </div>
+
+          <div class="form-registration__item">
+            <label for="fields[userNotice]">Mitteilung</label>
+            <textarea id="Notice" type="number" class="textarea layout-helper__margin-bottom--xxs"
+                      name="fields[userNotice]" {%- if account is defined %} value="{{ account.userNotice }}"{% endif -%}></textarea>
+          </div>
+
+
           <div class="form-registration__item">
             <label for="email">E-Mail *</label>
-            {{
-              input(
-                'email',
-                'email',
-                user.email ?? null,
-                {
-                  id: 'email',
-                  class: 'input layout-helper__margin-bottom--xxs',
-                  required: 'required'
-                }
-              )
-            }}
+            {{ input(
+              'email',
+              'email',
+              user.email ?? null,
+              {
+                id: 'email',
+                class: 'input layout-helper__margin-bottom--xxs',
+                required: 'required'
+              }
+            ) }}
 
             {% if user is defined %}
               {{ _self.errorList(user.getErrors('email')) }}
@@ -112,75 +153,27 @@
 
           <div class="form-registration__item">
             <label for="password">Passwort *</label>
-            {{
-              input(
-                'password',
-                'password',
-                null,
-                {
-                  id: 'password',
-                  class: 'input layout-helper__margin-bottom--xxs',
-                  required: 'required'
-                }
-              )
-            }}
+            {{ input(
+              'password',
+              'password',
+              null,
+              {
+                id: 'password',
+                class: 'input layout-helper__margin-bottom--xxs',
+                required: 'required'
+              }
+            ) }}
 
             {% if user is defined %}
               {{ _self.errorList(user.getErrors('password')) }}
             {% endif %}
           </div>
 
-          {# <div class="form-registration__item">
-          <label for="fields[userCompany]">Firma</label>
-          <input id="Company" type="text" class="input layout-helper__margin-bottom--xxs" name="fields[userCompany]"
-          {%- if account is defined %} value="{{ account.userCompany}}"{% endif -%}>
-        </div>
-
-        <div class="form-registration__item">
-          <label for="fields[userAdress]">Strasse *</label>
-          <input id="Address" type="text" class="input layout-helper__margin-bottom--xxs" name="fields[userAdress]"
-          {%- if account is defined %} value="{{ account.userAdress}}"{% endif -%} required >
-        </div>
-
-
-        <div class="form-registration__item">
-          <label for="fields[userAdditionalAdress]">Zusatz Adresse</label>
-          <input id="AddressAdditional" type="text" class="input layout-helper__margin-bottom--xxs" name="fields[userAdditionalAdress]"
-          {%- if account is defined %} value="{{ account.userAdditionalAdress}}"{% endif -%}>
-        </div> #}
-
-          {# <div class="form-registration__item">
-          <label for="fields[userTelephone]">Telefon</label>
-          <input id="Telephone" type="text" class="input layout-helper__margin-bottom--xxs" name="fields[userTelephone]"
-          {%- if account is defined %} value="{{ account.userTelephone}}"{% endif -%} >
-        </div> #}
-
-          {# <div class="form-registration__item">
-          <label for="fields[userTelephoneMobile]">Telefon *</label>
-          <input id="TelephoneMobile" type="text" class="input layout-helper__margin-bottom--xxs" name="fields[userTelephoneMobile]"
-          {%- if account is defined %} value="{{ account.userTelephoneMobile}}"{% endif -%} required >
-        </div>
-
-         <div class="form-registration__item">
-          <label for="fields[userZip]">Postleitzahl *</label>
-          <input id="City" type="text" class="input layout-helper__margin-bottom--xxs" name="fields[userZip]"
-          {%- if account is defined %} value="{{ account.userZip}}"{% endif -%} required>
-        </div>
-
-        <div class="form-registration__item">
-          <label for="fields[userCity]">Ort *</label>
-          <input id="City" type="text" class="input layout-helper__margin-bottom--xxs" name="fields[userCity]"
-          {%- if account is defined %} value="{{ account.userCity}}"{% endif -%} required>
-        </div>
-
-        <div class="form-registration__item">
-          <label for="fields[userNotice]">Mitteilung</label>
-          <textarea id="Notice" type="number" class="textarea layout-helper__margin-bottom--xxs" name="fields[userNotice]" {%- if account is defined %} value="{{ account.userNotice}}"{% endif -%}></textarea>
-        </div> #}
-
           <button type="submit" class="button button--primary">
             Registrieren
           </button>
+
+
         </form>
       </div>
     </div>
