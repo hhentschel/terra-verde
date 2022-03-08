@@ -3,13 +3,13 @@
     <label for="search" class="">Suche</label>
     <div class="">
       <input sprig
-        s-trigger="keyup changed delay:300ms"
-        id="search"
-        name="search"
-        value="{{ search }}"
-        type="text"
-        placeholder="Suchbegriff..."
-        class="form-input input" />
+             s-trigger="keyup changed delay:300ms"
+             id="search"
+             name="search"
+             value="{{ search }}"
+             type="text"
+             placeholder="Suchbegriff..."
+             class="form-input input"/>
     </div>
     <div id="order-hints" class="order-hints">
       <div class="order-hints__discount">
@@ -43,20 +43,18 @@
   <div class="">
     <details open class="filter__accordion">
       <summary class="filter__accordion--title">
-        {# <h2 class="heading heading--2 layout-helper__margin-top--none"> #}
         Aktuell
-        {# </h2> #}
       </summary>
       {% for catStatusOption in catStatusOptions %}
         <div class="filter__checkbox">
           <input sprig
-            type="checkbox"
-            id="catstatus-{{ catStatusOption.id }}"
-            name="articleCategoriesStatus[]"
-            value="{{ catStatusOption.id }}"
+                 type="checkbox"
+                 id="catstatus-{{ catStatusOption.id }}"
+                 name="articleCategoriesStatus[]"
+                 value="{{ catStatusOption.id }}"
             {{ catStatusOption.id in articleCategoriesStatus ? 'checked' }} />
           <label for="catstatus-{{ catStatusOption.id }}"
-            class="truncate filter__checkbox--label">
+                 class="truncate filter__checkbox--label">
             {{ catStatusOption.title }}
           </label>
         </div>
@@ -73,13 +71,13 @@
         {% for catDeliOption in catDeliOptions %}
           <div class="filter__checkbox filter__deli--checkbox">
             <input sprig
-              type="checkbox"
-              id="catdeli-{{ catDeliOption.id }}"
-              name="articleCategoriesDeli[]"
-              value="{{ catDeliOption.id }}"
+                   type="checkbox"
+                   id="catdeli-{{ catDeliOption.id }}"
+                   name="articleCategoriesDeli[]"
+                   value="{{ catDeliOption.id }}"
               {{ catDeliOption.id in articleCategoriesDeli ? 'checked' }} />
             <label for="catdeli-{{ catDeliOption.id }}"
-              class="filter__checkbox--label">
+                   class="filter__checkbox--label">
               {{ catDeliOption.title }}
             </label>
           </div>
@@ -96,13 +94,13 @@
       {% for catWineOption in catWineOptions %}
         <div class="filter__checkbox">
           <input sprig
-            type="checkbox"
-            id="catwine-{{ catWineOption.id }}"
-            name="articleCategoriesWine[]"
-            value="{{ catWineOption.id }}"
+                 type="checkbox"
+                 id="catwine-{{ catWineOption.id }}"
+                 name="articleCategoriesWine[]"
+                 value="{{ catWineOption.id }}"
             {{ catWineOption.id in articleCategoriesWine ? 'checked' }} />
           <label for="catwine-{{ catWineOption.id }}"
-            class="truncate filter__checkbox--label">
+                 class="truncate filter__checkbox--label">
             {{ catWineOption.title }}
           </label>
         </div>
@@ -119,13 +117,13 @@
         {% for catGiftOption in catGiftOptions %}
           <div class="filter__checkbox">
             <input sprig
-              type="checkbox"
-              id="catgift-{{ catGiftOption.id }}"
-              name="articleCategoriesGift[]"
-              value="{{ catGiftOption.id }}"
+                   type="checkbox"
+                   id="catgift-{{ catGiftOption.id }}"
+                   name="articleCategoriesGift[]"
+                   value="{{ catGiftOption.id }}"
               {{ catGiftOption.id in articleCategoriesGift ? 'checked' }} />
             <label for="catgift-{{ catGiftOption.id }}"
-              class="truncate filter__checkbox--label">
+                   class="truncate filter__checkbox--label">
               {{ catGiftOption.title }}
             </label>
           </div>
@@ -143,13 +141,13 @@
         {% for catGiftOption in catGiftOptions %}
           <div class="filter__checkbox">
             <input sprig
-              type="checkbox"
-              id="catgift-{{ catGiftOption.id }}"
-              name="articleCategoriesGift[]"
-              value="{{ catGiftOption.id }}"
+                   type="checkbox"
+                   id="catgift-{{ catGiftOption.id }}"
+                   name="articleCategoriesGift[]"
+                   value="{{ catGiftOption.id }}"
               {{ catGiftOption.id in articleCategoriesGift ? 'checked' }} />
             <label for="catgift-{{ catGiftOption.id }}"
-              class="truncate filter__checkbox--label">
+                   class="truncate filter__checkbox--label">
               {{ catGiftOption.title }}
             </label>
           </div>
@@ -161,5 +159,4 @@
     </button>
   </div>
 
-  {# </div> #}
 </div>

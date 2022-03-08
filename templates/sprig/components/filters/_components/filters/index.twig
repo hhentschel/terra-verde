@@ -2,28 +2,19 @@
 {% set search = search ?? '' %}
 {% set section = section ?? '' %}
 
-{% set catDeliID = catDeliID ?? '' %}
+{# {% set catDeliID = catDeliID ?? '' %}
 {% set catGiftID = catGiftID ?? '' %}
 {% set catWineID = catWineID ?? '' %}
-{% set catStatusID = catStatusID ?? '' %}
+{% set catStatusID = catStatusID ?? '' %} #}
 
 {% set articleCategoriesDeli = articleCategoriesDeli ?? [] %}
 {% set articleCategoriesGift = articleCategoriesGift ?? [] %}
 {% set articleCategoriesWine = articleCategoriesWine ?? [] %}
 {% set articleCategoriesStatus = articleCategoriesStatus ?? [] %}
 
-{# {% set catGroupDeli = articleCategoriesDeli ?? [] %}
-{% set catGroupGift = articleCategoriesGift ?? [] %}
-{% set catGroupWine = articleCategoriesWine ?? [] %}
-{% set catGroupStatus = articleCategoriesStatus ?? [] %} #}
-
-{# {% set catGroupDeli = catGroupDeli ?? [] %}
-{% set catGroupGift = catGroupGift ?? [] %}
-{% set catGroupWine = catGroupWine ?? [] %}
-{% set catGroupStatus = catGroupStatus ?? [] %} #}
-
 {% set limit = limit ?? 9 %}
 {% set page = page ?? 1 %}
+
 {# Defines maximum number of pages to show. #}
 {% set maxPages = 7 %}
 {% set orderBy = orderBy ?? 'postDate desc' %}
@@ -31,8 +22,6 @@
 {% if cart is not defined %}
   {% set cart = craft.commerce.carts.cart %}
 {% endif %}
-
-{# Get options from field (https://craftcms.com/docs/3.x/dropdown-fields.html#saving-dropdown-fields). #}
 
 {# Get options from category groups. #}
 {% set catDeliOptions = craft.categories.group('catGroupDeli').all() %}
@@ -42,11 +31,6 @@
 
 {# Defines limit options. #}
 {% set limitOptions = [8, 16, 24, 48] %}
-
-{# {% set catDeliID = catDeliID in articleCategoriesDeli ? catDeliID : articleCategoriesDeli|join(',') %}
-{% set catGiftID = catGiftID in articleCategoriesGift ? catGiftID : articleCategoriesGift|join(',') %}
-{% set catWineID = catWineID in articleCategoriesWine ? catWineID : articleCategoriesWine|join(',') %}
-{% set catStatusID = catStatusID in articleCategoriesStatus ? catStatusID : articleCategoriesStatus|join(',') %} #}
 
 {# Create an array of filters. #}
 {% set filters = {
@@ -61,18 +45,17 @@
 {% set productQuery =
   craft.products(
     filters|merge({
-      limit: limit,
-      with: [
-        [
-          'image',
-          {
-            withTransforms: ['productListing']
-          }
-        ]
+    limit: limit,
+    with: [
+      [
+        'image',
+        {
+          withTransforms: ['productListing']
+        }
       ]
-    })
-  )
-%}
+    ]
+  })
+  ) %}
 
 {% if articleCategoriesDeli is not empty %}
   {% do productQuery.andRelatedTo(articleCategoriesDeli) %}
@@ -94,22 +77,22 @@
 {% set pageInfo = sprig.paginate(productQuery, page) %}
 
 {% set products = pageInfo.pageResults %}
-{# {% set products = storeCustomization.orderedProducts.all() %} #}
 
 {# Push the URL into the history stack with the filters, adding extra values. #}
 {% do sprig.pushUrl(
   '?'
-    ~ (filters
-      |merge({
-        page: page
-      })
-      |url_encode)
-) %}
+  ~ (filters
+  |merge({
+    page: page
+  })
+  |url_encode)
+  ) %}
 
 {% if sprig.isRequest %}
   <script>
-    htmx.trigger('#cartsize', 'refresh'); htmx.trigger('#cartsizemobile',
-    'refresh');
+    htmx.trigger('#cartsize', 'refresh');
+    htmx.trigger('#cartsizemobile',
+      'refresh');
   </script>
 {% endif %}
 
@@ -117,7 +100,7 @@
   {% include 'sprig/components/filters/_components/filters/catfilter' %}
 
   <div id="tvboard" class="col col-xs-12 col-md-6 col-lg-9">
-    {# shop-list anfang #}
+
 
     <p class="">
       <span class="">{{ pageInfo.first }}</span>
@@ -128,15 +111,13 @@
       Produkten
     </p>
 
+    {# shop-list anfang #}
     <div class="shop-list">
       {% for product in products %}
         {% for variant in product.getVariants() %}
-          {# {% for i in 1..2 %} #}
 
-          {# {{ sprig('sprig/components/cart/_components/product') }} #}
           {% include 'sprig/components/cart/_components/product' %}
 
-          {# {% endfor %} #}
         {% endfor %}
       {% endfor %}
     </div>
@@ -153,96 +134,8 @@
     {% endif %}
 
     {# pagination #}
-    <div class="filter__pagination">
-      <div class="filter__pagination-mobile">
-        <div>
-          {% if page > 1 %}
-            <a sprig
-              s-val:page="{{ page - 1 }}"
-              href="#"
-              class="relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm leading-5 font-medium rounded-md text-gray-700 bg-white hover:text-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150">
-              vorherige Seite
-            </a>
-          {% endif %}
-        </div>
-        <div>
-          {% if page < pageInfo.totalPages %}
-            <a sprig
-              s-val:page="{{ page + 1 }}"
-              href="#"
-              class="ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm leading-5 font-medium rounded-md text-gray-700 bg-white hover:text-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150">
-              nächste Seite
-            </a>
-          {% endif %}
-        </div>
-      </div>
-      <div class="filter__pagination-desktop">
-        <p class="">
-          <span class="">{{ pageInfo.first }}</span>
-          -
-          <span class="">{{ pageInfo.last }}</span>
-          von
-          <span class="">{{ pageInfo.total }}</span>
-          Produkten
-        </p>
-        <div class="filter__pagination-pagesbox">
-          <p class="filter__pagination-pagesindex">
-            Seite
-            <span class="">{{ pageInfo.currentPage }}</span>
-            von
-            <span class="">{{ pageInfo.totalPages }}</span>
-            Seiten
-          </p>
-          <nav class="relative z-0 filter__pagination-pagessingles">
-            <a sprig
-              s-val:page="{{ page > 1 ? page - 1 : 1 }}"
-              href="#"
-              class="pagination-pagesarrow"
-              aria-label="vorherige">
-              <svg class="pagination-svg"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-                fill="currentColor">
-                <path fill-rule="evenodd"
-                  d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
-                  clip-rule="evenodd" />
-              </svg>
-            </a>
-            {{ hiddenInput('page', page) }}
-            {% for pageNumber in pageInfo.dynamicRange(maxPages) %}
-              <a sprig
-                s-val:page="{{ pageNumber }}"
-                href="#"
-                class="pagination-pagesnumber {{
-                pageNumber == page
-                  ? 'pagination-pagesnumber-active'
-                  : ''
-                }}">
-                {{ pageNumber }}
-              </a>
-            {% endfor %}
-            <a sprig
-              s-val:page="{{
-              page < pageInfo.totalPages
-                ? page + 1
-                : pageInfo.totalPages
-              }}"
-              href="#"
-              class="pagination-pagesarrow"
-              aria-label="nächste">
-              <svg class="pagination-svg"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-                fill="currentColor">
-                <path fill-rule="evenodd"
-                  d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                  clip-rule="evenodd" />
-              </svg>
-            </a>
-          </nav>
-        </div>
-      </div>
-    </div>
+    {% include 'sprig/components/filters/_components/filters/pagination' %}
     {# pagination ende #}
+
   </div>
 </div>
