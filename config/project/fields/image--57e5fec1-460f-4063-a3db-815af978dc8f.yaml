@@ -34,6 +34,7 @@ settings:
     - 'volume:8aec977e-df97-4119-93e9-0b745252a944' # Weine Frankreich /  Portugal
     - 'volume:cfba8ac8-e0a0-405f-87ed-accd8f27b372' # Geschenksets
     - 'volume:1d881bde-d2bf-408a-9434-f2f08b65cff8' # Dokumente
+    - 'volume:e61fb032-eec0-4f11-b450-86d1adea8934' # Rezepte
     - 'volume:39720a7b-fb62-4919-8f8c-b57fe485a7a6' # Aktuelles
     - 'volume:57d4d8f2-0e49-45bf-9f84-2e1917ef7c02' # Magazin
   targetSiteId: null

@@ -2,6 +2,7 @@
   &--half {
     flex: 0 0 100%;
     max-width: 100%;
+    margin-right: px-to-rem($space--xm);
 
     @include breakpoint('tablet') {
       flex: 0 0 50%;
