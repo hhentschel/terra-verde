@@ -1,3 +1,8 @@
+.test {
+  visibility: collapse;
+  display: none;
+}
+
 .checkout__steps {
   width: 100%;
 
@@ -7,6 +12,18 @@
     display: flex;
     justify-content: flex-end;
   }
+
+  /*show weiter Button, if at least one shipping method is choosen*/
+  &--button-hidden {
+    /*    visibility: collapse;
+        display: none;*/
+  }
+}
+
+
+#shippingMethodHandle:checked + .hidden {
+  visibility: visible;
+  display: block;
 }
 
 .checkout {
@@ -21,8 +38,14 @@
     }
   }
 
+  &__box--adresses {
+    display: flex;
+    justify-content: space-between;
+  }
+
   &__box--subheading {
     text-decoration: underline;
+    margin: px-to-em($space--m) 0 px-to-em($space--s) 0;
   }
 
   &__box--section {
@@ -68,7 +91,7 @@
 
 .forms__checkout--link {
   visibility: visible;
-  display: none;
+  display: block;
 }
 
 /* Show hidden content when the checkbox is checked */
@@ -77,9 +100,10 @@
   display: none;
 }
 
+
 // Setting shippingadress
 
-.shippingadress-container {
+.adress-container {
   display: flex;
   justify-content: space-between;
   margin: 0 0 px-to-rem($space--m) 0;

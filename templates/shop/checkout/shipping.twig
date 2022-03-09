@@ -1,112 +1,119 @@
 {% extends '/_layouts/main' %}
 
 {% block content %}
-<!-- Template: {{ _self }}.twig -->
+  <!-- Template: {{ _self }}.twig -->
   <section class="grid">
     <div class="row">
 
-       <div class="col col-xs-12 col-md-6 col-lg-6">
-                {% include "shop/checkout/_includes/order-summary" with { showShippingAddress: true } %}
-            </div>
+      <div class="col col-xs-12 col-md-6 col-lg-6">
+        {% include "shop/checkout/_includes/order-summary" with { showShippingAddress: true } %}
+      </div>
 
       <div class="col col-xs-12 col-md-6 col-lg-6">
 
-                {# <h3 class="heading heading--3 heading--no-margin-top">Bitte wählen Sie eine Versandart aus:</h3> #}
-                 {% if currentUser %}
-                          {% if currentUser.isInGroup('userGroupRetail') %}
-                              <p>Ab 500,- CHF Nettowert gibt 5% Abholrabatt </p>
-                          {% else %}
-                              <p>Ab 100,- CHF ist der Economy Versand (B-Post) kostenlos.</p>
-                          {% endif %}
-                        {% endif %}
+        {# <h3 class="heading heading--3 heading--no-margin-top">Bitte wählen Sie eine Versandart aus:</h3> #}
+        {% if currentUser %}
+          {% if currentUser.isInGroup('userGroupRetail') %}
+            <p>Ab 500,- CHF Nettowert gibt 5% Abholrabatt </p>
+          {% else %}
+            <p>Ab 100,- CHF ist der Economy Versand (B-Post) kostenlos.</p>
+          {% endif %}
+        {% endif %}
 
 
-                {# `cart.shippingMethods` only returns methods available to the order, per the shipping methods'
+        {# `cart.shippingMethods` only returns methods available to the order, per the shipping methods'
                   rules. You can create a catchall rule that matches all addresses if necessary. #}
-                {# {% if cart.availableShippingMethodOptions|length < 2 and cart.shippingMethod %}
+        {# {% if cart.availableShippingMethodOptions|length < 2 and cart.shippingMethod %}
                     {% redirect 'shop/checkout/payment-method' %}
                 {% endif %} #}
 
-                {% if not cart.availableShippingMethodOptions|length %}
-                  <p class="my-3 ">Keine Versandmöglichkeiten verfügbar.</p>
-                  <div>
-                    <a class="{{ classes.btn.base ~ ' ' ~ classes.btn.blue }}" href="{{ url('shop/checkout/payment-method') }}">weiter zur Bezahlung</a>
-                  </div>
+        {% if not cart.availableShippingMethodOptions|length %}
+          <p class="my-3 ">Keine Versandmöglichkeiten verfügbar.</p>
+          <div>
+            <a class="{{ classes.btn.base ~ ' ' ~ classes.btn.blue }}" href="{{ url('shop/checkout/payment-method') }}">weiter
+              zur Bezahlung</a>
+          </div>
+        {% endif %}
+
+        {% if cart.availableShippingMethodOptions|length %}
+          <div class="mt-3">
+            <form method="post" class="forms__checkout">
+              {{ actionInput('commerce/cart/update-cart') }}
+
+              {% if cart.shippingMethodHandle == 'B2C_pickUpAtStore' %}
+                {{ hiddenInput('shippingSameAsBilling', 1) }}
+                {{ redirectInput('shop/checkout/payment') }}
+              {% else %}
+                {{ redirectInput('shop/checkout/payment-method') }}
+              {% endif %}
+              {{ csrfInput() }}
+
+              {% set isB2BCustomer = false %}
+              {% if currentUser %}
+                {% if currentUser.isInGroup('userGroupRetail') %}
+                  {% set isB2BCustomer = true %}
+
                 {% endif %}
+              {% endif %}
 
-                {% if cart.availableShippingMethodOptions|length %}
-                  <div class="mt-3">
-                    <form method="post" class="forms__checkout">
-                      {{ actionInput('commerce/cart/update-cart') }}
+              {% for handle, method in cart.availableShippingMethodOptions %}
+                {% set shippingMethodPrefix = handle|split('', 3)|first %}
 
-                       {% if cart.shippingMethodHandle == 'B2C_pickUpAtStore' %}
-                          {{ hiddenInput('shippingSameAsBilling', 1) }}
-                          {{ redirectInput('shop/checkout/payment') }}
-                      {% else %}
-                          {{ redirectInput('shop/checkout/payment-method') }}
-                      {% endif %}
-                      {{ csrfInput() }}
+                {% if isB2BCustomer and  shippingMethodPrefix == 'B2B' %}
 
-                      {% set isB2BCustomer = false %}
-                       {% if currentUser %}
-                          {% if currentUser.isInGroup('userGroupRetail') %}
-                              {% set isB2BCustomer = true %}
-
-                          {% endif %}
-                        {% endif %}
-
-                      {% for handle, method in cart.availableShippingMethodOptions %}
-                      {% set shippingMethodPrefix = handle|split('', 3)|first %}
-
-                      {% if isB2BCustomer and  shippingMethodPrefix == 'B2B' %}
-
-                        <div class="js-shipping-select mt-2">
-                          <label class="block bg-gray-100 p-2 hover:bg-gray-200 cursor-pointer">
-                            <div class="flex justify-start items-center">
-                              <div class="pr-2">
-                                <input type="radio" name="shippingMethodHandle" value="{{ handle }}" {% if handle == cart.shippingMethodHandle %}checked{% endif %} />
-                              </div>
-                              <div>
-                                {{ method.name }}<br>
-                                <strong><span class="price">{{ method.getPrice()|commerceCurrency(cart.currency) }}</span></strong>
-                              </div>
-                            </div>
-                          </label>
+                  <div class="js-shipping-select mt-2">
+                    <label class="block bg-gray-100 p-2 hover:bg-gray-200 cursor-pointer">
+                      <div class="flex justify-start items-center">
+                        <div class="pr-2">
+                          <input type="radio" name="shippingMethodHandle" id="shippingMethodHandle"
+                                 value="{{ handle }}"
+                                 {% if handle == cart.shippingMethodHandle %}checked{% endif %} />
                         </div>
+                        <div>
+                          {{ method.name }}<br>
 
-                        {% elseif not  isB2BCustomer and  shippingMethodPrefix == 'B2C' %}
-                                                  <div class="js-shipping-select mt-2">
-                          <label class="block bg-gray-100 p-2 hover:bg-gray-200 cursor-pointer">
-                            <div class="flex justify-start items-center">
-                              <div class="pr-2">
-                                <input type="radio" name="shippingMethodHandle" value="{{ handle }}" {% if handle == cart.shippingMethodHandle %}checked{% endif %} />
-                              </div>
-                              <div>
-                                {{ method.name }}<br>
-                                <strong><span class="price">{{ method.getPrice()|commerceCurrency(cart.currency) }}</span></strong>
-                              </div>
-                            </div>
-                          </label>
+                          <strong><span
+                              class="price">{{ method.getPrice()|commerceCurrency(cart.currency) }}</span></strong>
                         </div>
-                        {% endif %}
-
-
-                      {% endfor %}
-
-
-                      <span class="flash">{{ cart.getErrors('shippingMethod')|join }}</span>
-
-                    <div class="checkout__steps">
-                      <div class="checkout__steps--button">
-                        <input type="submit" class="input input__primary" value="Weiter"/>
                       </div>
-                    </div>
-                    </form>
+                    </label>
+                  </div>
+
+                {% elseif not  isB2BCustomer and  shippingMethodPrefix == 'B2C' %}
+                  <div class="js-shipping-select mt-2">
+                    <label class="block bg-gray-100 p-2 hover:bg-gray-200 cursor-pointer">
+                      <div class="flex justify-start items-center">
+                        <div class="pr-2">
+                          <input type="radio" name="shippingMethodHandle" class="shippingMethodHandle"
+                                 value="{{ handle }}"
+                                 {% if handle == cart.shippingMethodHandle %}checked{% endif %} />
+                        </div>
+                        <div>
+                          {{ method.name }}<br>
+                          <strong><span
+                              class="price">{{ method.getPrice()|commerceCurrency(cart.currency) }}</span></strong>
+                        </div>
+                      </div>
+                    </label>
                   </div>
                 {% endif %}
 
-        </div>
+
+              {% endfor %}
+
+
+              <span class="flash">{{ cart.getErrors('shippingMethod')|join }}</span>
+              <div class="checkout__steps">
+                <div class="checkout__steps--button ">
+                  <input type="submit" class="input input__primary" value="Weiter"/>
+                </div>
+              </div>
+            </form>
+          </div>
+        {% endif %}
+
       </div>
+    </div>
     </div>
   </section>
 

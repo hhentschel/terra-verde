@@ -17,34 +17,41 @@
 
   {% if cart.shippingMethodHandle != 'B2C_pickUpAtStore' %}
     {% if showShippingAddress %}
-      <div class="">
-        <h4 class="heading heading--4 heading--no-margin-top checkout__box--subheading">
-          Versandadresse
-        </h4>
-        {% if cart.shippingAddress %}
-          <div class="address-select js-address-select border-0">
+      <div class="checkout__box--adresses">
+        <div class="checkout__box--adresses-single">
+
+          <h4 class="heading heading--4 checkout__box--subheading">
+            Versandadresse
+          </h4>
+          {% if cart.shippingAddress %}
+            <div class="address-select js-address-select border-0">
+              {% include 'shop/_includes/addresses/address' with {
+                address: cart.shippingAddress
+              } %}
+            </div>
+          {% endif %}
+        </div>
+
+        <div class="checkout__box--adresses-single">
+          <h4 class="heading heading--4 checkout__box--subheading">
+            Rechnungsadresse
+          </h4>
+          {% if cart.billingAddress %}
             {% include 'shop/_includes/addresses/address' with {
-              address: cart.shippingAddress
+              address: cart.billingAddress
             } %}
-          </div>
-        {% endif %}
+          {% endif %}
 
-        <h4 class="heading heading--4 checkout__box--subheading">
-          Rechnungsadresse
-        </h4>
-        {% if cart.billingAddress %}
-          {% include 'shop/_includes/addresses/address' with {
-            address: cart.billingAddress
-          } %}
-        {% endif %}
-
-        {% if currentUser %}
-          <a class="edit button button--edit button--secondary"
-            href="{{ url('shop/checkout/addresses') }}">
+        </div>
+      </div>
+      {% if currentUser %}
+        <div class="button-container">
+          <a class="edit button button--success button--primary"
+             href="{{ url('shop/checkout/addresses') }}">
             Adresse(n) bearbeiten
           </a>
-        {% endif %}
-      </div>
+        </div>
+      {% endif %}
     {% endif %}
   {% endif %}
 
@@ -78,7 +85,7 @@
 
       {% if
         item.options.giftWrapped is defined
-          or item.options.giftNote is defined %}
+        or item.options.giftNote is defined %}
         <div class="">
           {{ item.total|currency(cart.currency) }}
         </div>
@@ -102,7 +109,7 @@
     <div class="mb-3">
       <p>
         Der Warenkorb ist leer, <a class="underline text-blue-500"
-          href="{{ url('shop/produkte') }}">
+                                   href="{{ url('shop/produkte') }}">
           etwas hinzufügen
         </a>.
       </p>
@@ -121,32 +128,32 @@
   {% endif %}
 
   <div class="checkout__box checkout__box--section">
-   {# <div class="flex w-full justify-end items-center text-xs text-gray-500">
+    {# <div class="flex w-full justify-end items-center text-xs text-gray-500">
       <div class="pr-2">
         Versand:
       </div>
       <div>
         {{ cart.totalShippingCost|commerceCurrency(cart.currency) }}
       </div>
-    </div>#}
- {#   <div class="flex w-full justify-end items-center text-xs text-gray-500">
+    </div> #}
+    {#   <div class="flex w-full justify-end items-center text-xs text-gray-500">
       <div class="pr-2">
         Mwst:
       </div>
       <div>
         {{ cart.totalTax|commerceCurrency(cart.currency) }}
       </div>
-    </div>#}
+    </div> #}
 
-     {% if cart.totalDiscount|length  %}
-    <div class="flex w-full justify-end items-center text-xs text-gray-500">
-      <div class="pr-2">
-        Rabatt(e):
+    {% if cart.totalDiscount|length %}
+      <div class="flex w-full justify-end items-center text-xs text-gray-500">
+        <div class="pr-2">
+          Rabatt(e):
+        </div>
+        <div>
+          {{ (cart.totalDiscount * -1)|commerceCurrency(cart.currency) }}
+        </div>
       </div>
-      <div>
-         {{ (cart.totalDiscount * -1)|commerceCurrency(cart.currency) }}
-      </div>
-    </div>
     {% endif %}
 
     {# {% if cart.orderAdjustments|length %} #}
@@ -188,32 +195,28 @@
   </div>
   {% if
     cart.currency != cart.paymentCurrency
-      and cart.totalPrice == cart.getOutstandingBalance() %}
+    and cart.totalPrice == cart.getOutstandingBalance() %}
     <div class="mt-1 flex w-full justify-end">
       <div class="text-gray-600 pr-2">
         Zahlung {{ cart.paymentCurrency }}:
       </div>
       <div>
-        {{
-          cart.totalPrice|commerceCurrency(cart.paymentCurrency, convert = true)
-        }}
+        {{ cart.totalPrice|commerceCurrency(cart.paymentCurrency, convert = true) }}
       </div>
     </div>
   {% endif %}
   {% if
     cart.hasOutstandingBalance
-      and cart.totalPrice != cart.getOutstandingBalance() %}
+    and cart.totalPrice != cart.getOutstandingBalance() %}
     <div class="mt-1 flex w-full justify-end">
       <div class="text-gray-600 pr-2">
         Ausstehender Saldo {{ cart.paymentCurrency }}:
       </div>
       <div>
-        {{
-          cart.outstandingBalance|commerceCurrency(
-            cart.paymentCurrency,
-            convert = true
-          )
-        }}
+        {{ cart.outstandingBalance|commerceCurrency(
+          cart.paymentCurrency,
+          convert = true
+        ) }}
       </div>
     </div>
   {% endif %}
