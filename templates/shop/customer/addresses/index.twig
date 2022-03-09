@@ -7,84 +7,105 @@
   {% set primaryShippingAddress = customer.getPrimaryShippingAddress() %}
 
 
-<section class="grid">
-    <div class="row">
-      <div class="col col-xs-12 col-md-12 col-lg-12">
-      {% if customer.addresses|length %}
-        <div class="flex justify-between items-center">
-          <h2 class="heading heading--2">
-            Adressen verwalten
-          </h2>
-          <a class="link"
-            href="{{ url('shop/customer/addresses/edit') }}">
-            Neue Adresse hinzufügen
-          </a>
-        </div>
+  <section class="grid">
+  <div class="row">
+  <div class="col col-xs-12 col-md-12 col-lg-12">
+  {% if customer.addresses|length %}
+    <div class="flex justify-between items-center">
+      <h2 class="heading heading--2">
+        Adressen verwalten
+      </h2>
+      <a class="link button--primary button--small"
+         href="{{ url('shop/customer/addresses/edit') }}">
+        Neue Adresse hinzufügen
+      </a>
+    </div>
 
-        <div class="profile__adresses-list">
-          {% for address in customer.addresses %}
-            <div>
-              <h3>
-                {% if
-                  primaryBillingAddress
-                    and primaryBillingAddress.id == address.id %}
-                  Rechnungsadresse
-                {% endif %}
-              </h3>
-            </div>
-            <div>
-              <h3>
-                {% if
-                  primaryShippingAddress
-                    and primaryShippingAddress.id == address.id %}
-                  Versandadresse
-                {% endif %}
-              </h3>
-            </div>
+    <div class="profile__adresses row">
+      <div class="col col-xs-12 col-md-12 col-lg-6">
+        {% for address in customer.addresses %}
+          {% if
+            primaryShippingAddress
+            and primaryShippingAddress.id == address.id %}
 
-            <div class="adresses-list__item">
+            <h4 class="heading heading--4 heading--no-margin-top ">
+              Versandadresse
+            </h4>
+            <div class="adress-item">
               {% include 'shop/_includes/addresses/address' with {
                 address: address
               } %}
 
-              <div class="">
-                <a class="button button--primary layout-helper__margin-bottom--xs layout-helper__margin-top--xxs"
-                  href="{{ url('shop/customer/addresses/edit') }}?addressId={{
-                  address.id
-                  }}">
+              <div class="adress-item__buttons">
+                <a class="button button--primary button--success"
+                   href="{{ url('shop/customer/addresses/edit') }}?addressId={{ address.id }}">
                   Bearbeiten
                 </a>
                 <form method="post" action="">
                   {{ actionInput('commerce/customer-addresses/delete') }}
                   {{ hiddenInput('id', address.id) }}
                   {{ csrfInput() }}
-                  <input type="submit" class="input input__secondary layout-helper__margin-bottom--xs" value="löschen" />
+                  <input type="submit" class="input input__secondary " value="löschen"/>
                 </form>
               </div>
 
             </div>
-          {% endfor %}
-        </div>
-      {% else %}
-        <h2 class="heading heading--2">
-            Adressen verwalten
-          </h2>
 
-        <hr />
-
-        <div class="empty-index">
-          <i class="fas fa-address-book"></i>
-          <div>
-            Noch keine Adressen hinterlegt.<div class="mt-6">
-              <a class="button button-primary"
-                href="{{ url('shop/customer/addresses/edit') }}">
-                neue Adresse hinzufügen
-              </a>
-            </div>
-          </div>
-        </div>
+          {% endif %}
+        {% endfor %}
       </div>
+
+      <div class="col col-xs-12 col-md-12 col-lg-6">
+        {% for address in customer.addresses %}
+          {% if
+            primaryBillingAddress
+            and primaryBillingAddress.id == address.id %}
+
+            <h4 class="heading heading--4 heading--no-margin-top ">
+              Rechnungsadresse
+            </h4>
+
+            <div class="adress-item">
+              {% include 'shop/_includes/addresses/address' with {
+                address: address
+              } %}
+
+              <div class="adress-item__buttons">
+                <a
+                  class="button button--primary button--success"
+                  href="{{ url('shop/customer/addresses/edit') }}?addressId={{ address.id }}">
+                  Bearbeiten
+                </a>
+                <form method="post" action="">
+                  {{ actionInput('commerce/customer-addresses/delete') }}
+                  {{ hiddenInput('id', address.id) }}
+                  {{ csrfInput() }}
+                  <input type="submit" class="input input__secondary"
+                         value="löschen"/>
+                </form>
+              </div>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+
     </div>
-  </section>
-    {% endif %}
+  {% else %}
+    <h2 class="heading heading--2">
+      Adressen verwalten
+    </h2>
+
+    <hr/>
+
+    <div>
+      Noch keine Adressen hinterlegt.
+      <a class="link button--primary button--small"
+         href="{{ url('shop/customer/addresses/edit') }}">
+        neue Adresse hinzufügen
+      </a>
+    </div>
+    </div>
+    </div>
+    </section>
+  {% endif %}
 {% endblock %}

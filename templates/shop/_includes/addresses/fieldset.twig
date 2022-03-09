@@ -9,9 +9,8 @@
     <div class="">
       {% for address in addresses %}
 
-        <div class="shippingadress-container">
-          <div class="radio-container">
-            {# <label class="radio-container__label address-select js-address-select" data-address-id="{{ address.id }}">
+
+        {# <label class="radio-container__label address-select js-address-select" data-address-id="{{ address.id }}">
               <div class="radio-container__box">
                 <div class="radio-container__radio radio-container__box js-radio">
                   <input type="checkbox" name="{{ name }}Id"
@@ -22,40 +21,53 @@
               </div>
             </label> #}
 
-            <div class="radio-container__box">
-              <div class="radio-container__radio radio-container__box js-radio">
-                <h2 class="heading heading--2 heading--no-margin-top">
-                  {% if
-                    primaryBillingAddress
-                    and primaryBillingAddress.id == address.id %}
-                    Rechnungsadresse
-                  {% endif %}
-                  {% if
-                    primaryShippingAddress
-                    and primaryShippingAddress.id == address.id %}
-                    Versandadresse
-                  {% endif %}
-                  </h3>
+        {% if
+          primaryShippingAddress
+          and primaryShippingAddress.id == address.id %}
+          <div class="adress-container">
+            <div class="radio-container">
+              <h2 class="heading heading--2 heading--no-margin-top">
+                Versandadresse
+              </h2>
+
+              <div class="radio-container__box">
+                <div class="radio-container__radio radio-container__box js-radio">
                   {% include 'shop/_includes/addresses/address' %}
+                </div>
+                <div class="button-container">
+                  <a class="button button--primary button--success"
+                     href="{{ url('shop/customer/addresses/edit?addressId='~ address.id ~'&redirect='~craft.app.request.fullPath) }}">Bearbeiten</a>
+                </div>
               </div>
             </div>
-            <div>
+          </div>
+        {% endif %}
+
+        {% if
+          primaryBillingAddress
+          and primaryBillingAddress.id == address.id %}
+          <div class="adress-container">
+            <div class="radio-container">
+              <h2 class="heading heading--2 heading--no-margin-top">
+                Rechnungsadresse
+              </h2>
+
+              <div class="radio-container__box">
+                <div class="radio-container__radio radio-container__box js-radio">
+                  {% include 'shop/_includes/addresses/address' %}
+                </div>
+                <div class="button-container">
+                  <a class="button button--primary button--success"
+                     href="{{ url('shop/customer/addresses/edit?addressId='~ address.id ~'&redirect='~craft.app.request.fullPath) }}">Bearbeiten</a>
+                </div>
+              </div>
 
             </div>
 
           </div>
-          <div class="actions">
-            <ul>
-              <li>
-                <a class="button button--secondary button--edit"
-                   href="{{ url('shop/customer/addresses/edit?addressId='~ address.id ~'&redirect='~craft.app.request.fullPath) }}">Ändern</a>
-              </li>
-            </ul>
-          </div>
-        </div>
+        {% endif %}
 
       {% endfor %}
-
 
     </div>
   {% endif %}
@@ -89,4 +101,4 @@
     </div>
   </div>
 
-</div>
+</div>{# js-address-fieldset #}
