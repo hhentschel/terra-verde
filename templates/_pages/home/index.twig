@@ -64,7 +64,7 @@
   </section>
 
   {# Aktionen #}
-  {% set saleproducts = entry.homeSales.all() %}
+  {% set saleproducts = entry.homeSales %}
   {% if saleproducts|length %}
     <section class="section-home section-home__stripe section-home__campaigns">
       <div class="grid">
@@ -88,7 +88,7 @@
         </div>
 
         <div class="row section-home__row-products">
-          {% for product in saleproducts %}
+          {% for product in saleproducts.all() %}
             {% for variant in product.getVariants() %}
               <div class="col col-xs-12 col-md-4 col-lg-4 section-home__product">
                 <a href="{{ product.url }}"
@@ -133,7 +133,7 @@
   {% endif %}
 
   {# Neuheiten #}
-  {% set newproducts = entry.homeNewProduct.all() %}
+  {% set newproducts = entry.homeNewProduct %}
   {% if newproducts|length %}
     <section class="section-home section-home__stripe section-home__newproducts">
       <div class="grid">
@@ -157,7 +157,7 @@
         </div>
 
         <div class="row section-home__row-products">
-          {% for product in newproducts %}
+          {% for product in newproducts.all() %}
             {% for variant in product.getVariants() %}
               <div class="col col-xs-12 col-md-4 col-lg-4 section-home__product">
                 <a href="{{ product.url }}" class="section-home__product--link">
@@ -201,7 +201,7 @@
   {% endif %}
 
   {# Beliebteste #}
-  {% set favproducts = entry.homeFavorites.all() %}
+  {% set favproducts = entry.homeFavorites %}
   {% if favproducts|length %}
     <section class="section-home section-home__stripe section-home__favorites">
       <div class="grid">
@@ -214,7 +214,7 @@
         </div>
 
         <div class="row section-home__row-products">
-          {% for product in favproducts %}
+          {% for product in favproducts.all() %}
             {% for variant in product.getVariants() %}
               <div class="col col-xs-12 col-md-4 col-lg-4 section-home__product">
                 <a href="{{ product.url }}" class="section-home__product--link">
