@@ -1,5 +1,5 @@
 description: ''
-enabled: true
+enabled: false
 fileNameFormat: '{myOrderCustomField}{number}'
 handle: receiptOrderPdf
 isDefault: true

@@ -144,6 +144,15 @@ productFieldLayouts:
       -
         elements:
           -
+            fieldUid: d4d7e8e5-0118-407a-a1f3-8bb67c86f0ca # Featured
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
             fieldUid: cc57da94-196b-4536-a2f4-3b4e6d7a67ab # Kategorien (Geschenke)
             instructions: null
             label: null
@@ -160,7 +169,7 @@ productFieldLayouts:
             tip: null
             type: craft\fieldlayoutelements\CustomField
             warning: null
-            width: 100
+            width: 50
           -
             fieldUid: 121a4c00-ea55-46f5-b606-4288506164da # Kategorien (Status)
             instructions: null

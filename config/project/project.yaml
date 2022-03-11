@@ -1,4 +1,4 @@
-dateModified: 1646771975
+dateModified: 1646987191
 email:
   fromEmail: p@henrik-hentschel.de
   fromName: 'Terra Verde'
@@ -223,6 +223,7 @@ meta:
     ceeb55b1-0aab-46a0-9d39-91e0f706901f: 'Youtube Video Liste' # Youtube Video Liste
     cfba8ac8-e0a0-405f-87ed-accd8f27b372: Geschenksets # Geschenksets
     cfbe4629-cba3-461e-a930-5e32a064326f: GTIN # GTIN
+    d4d7e8e5-0118-407a-a1f3-8bb67c86f0ca: Featured # Featured
     d5eb7b01-8b1f-4b3f-83c7-ccfa4c76d49d: Inhaltselemente # Inhaltselemente
     d8cbe40a-89a4-4804-8992-aba26cbb1aca: 'Youtube Video' # Youtube Video
     d22d8183-8d37-4569-9fda-4480d52e3498: 'Text Standard ohne Titel' # Text Standard ohne Titel
@@ -703,6 +704,14 @@ plugins:
     enabled: true
     licenseKey: JXHZASVWB1TY66SQLYF4FQZU
     schemaVersion: 1.0.0
+  untransform:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+    settings:
+      baseUrlPrefix: ''
+      placeholderImage: ''
+      replaceTransforms: '0'
   user-guide:
     edition: standard
     enabled: true
