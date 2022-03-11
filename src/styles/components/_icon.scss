@@ -1,0 +1,87 @@
+.btn-viewchange {
+  display: flex;
+
+  &__text {
+    margin-right: px-to-rem($space--s);
+  }
+
+  &__bar {
+    width: 22px;
+    height: 2px;
+    background-color: $color--text;
+    margin: 4px 0;
+    display: flex;
+  }
+}
+
+// GRID ICON
+.grid-icon {
+  display: inline-block;
+}
+
+.grid-icon:hover > span > span {
+  opacity: 0.8;
+}
+
+.grid-icon > .layer {
+  width: 100%;
+  position: absolute;
+  left: 0;
+}
+
+.grid-icon--fill {
+  position: relative;
+  width: 26px;
+  height: 26px;
+}
+
+.grid-icon--fill > .layer {
+  width: 100%;
+  height: 5px;
+}
+
+.grid-icon--fill > .layer--primary {
+  top: 3px;
+}
+
+.grid-icon--fill > .layer--secondary {
+  top: 50%;
+  margin-top: -1px;
+}
+
+.grid-icon--fill > .layer--tertiary {
+  bottom: 0;
+}
+
+.grid-icon--fill > .layer > span {
+  position: absolute;
+  display: block;
+  width: 5px;
+  height: 100%;
+  background-color: $color--text;
+}
+
+.grid-icon--fill > .layer > span {
+  left: 50%;
+  margin-left: -1px;
+}
+
+.grid-icon--fill > .layer > span:before {
+  display: block;
+  content: '';
+  width: 5px;
+  height: 100%;
+  background-color: $color--text;
+  left: -10px;
+  position: absolute;
+}
+
+.grid-icon--fill > .layer > span:after {
+  display: block;
+  content: '';
+  width: 5px;
+  height: 100%;
+  background-color: $color--text;
+  right: -10px;
+  position: absolute;
+}

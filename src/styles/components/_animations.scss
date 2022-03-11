@@ -1,3 +1,5 @@
+$hintSize: px-to-rem(176);
+
 @keyframes discount10 {
   0% {
     opacity: 0;
@@ -17,8 +19,9 @@
 }
 
 #order-hints {
-  height: 10em;
+  height: $hintSize;
   position: relative;
+  max-width: $hintSize;
 }
 
 #order-hints > * {
@@ -48,6 +51,7 @@
   &__discount--heading {
     font-weight: 700;
     margin: 0;
+    font-size: px-to-rem($font-size-xm);
   }
   &__discount--text {
     line-height: $line-height--xm;
