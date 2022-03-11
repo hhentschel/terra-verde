@@ -1,5 +1,5 @@
-{#  pagination #}
-<div class="filter__pagination">
+{# pagination #}
+<div class="filter__pagination" s-swap="outerHTML show:body:top">
   <div class="filter__pagination-mobile">
     <div>
       {% if page > 1 %}
@@ -10,15 +10,12 @@
     </div>
     <div>
       {% if page < pageInfo.totalPages %}
-        <a sprig s-val:page="{{ page + 1 }}" href="#" class="">
-          nächste Seite
-        </a>
+        <a sprig s-val:page="{{ page + 1 }}" href="#" class="">nächste Seite</a>
       {% endif %}
     </div>
   </div>
   <div class="filter__pagination-desktop">
     <p class="">
-
       <span class="">{{ pageInfo.first }}</span>
       -
       <span class="">{{ pageInfo.last }}</span>
@@ -35,31 +32,52 @@
         Seiten
       </p>
       <nav class="relative z-0 filter__pagination-pagessingles">
-        <a sprig s-val:page="{{ page > 1 ? page - 1 : 1 }}" href="#" class="pagination-pagesarrow"
-           aria-label="vorherige">
-          <svg class="pagination-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+        <a sprig
+          s-val:page="{{ page > 1 ? page - 1 : 1 }}"
+          href="#"
+          class="pagination-pagesarrow"
+          aria-label="vorherige">
+          <svg class="pagination-svg"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+            fill="currentColor">
             <path fill-rule="evenodd"
-                  d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
-                  clip-rule="evenodd"/>
+              d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+              clip-rule="evenodd" />
           </svg>
         </a>
         {% for pageNumber in pageInfo.dynamicRange(maxPages) %}
-          <a sprig s-val:page="{{ pageNumber }}" href="#"
-             class="pagination-pagesnumber {{ pageNumber == page ? 'pagination-pagesnumber-active' : '' }}">
+          <a sprig
+            s-val:page="{{ pageNumber }}"
+            href="#"
+            class="pagination-pagesnumber {{
+            pageNumber == page
+              ? 'pagination-pagesnumber-active'
+              : ''
+            }}">
             {{ pageNumber }}
           </a>
         {% endfor %}
-        <a sprig s-val:page="{{ page < pageInfo.totalPages ? page + 1 : pageInfo.totalPages }}" href="#"
-           class="pagination-pagesarrow" aria-label="nächste">
-          <svg class="pagination-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+        <a sprig
+          s-val:page="{{
+          page < pageInfo.totalPages
+            ? page + 1
+            : pageInfo.totalPages
+          }}"
+          href="#"
+          class="pagination-pagesarrow"
+          aria-label="nächste">
+          <svg class="pagination-svg"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+            fill="currentColor">
             <path fill-rule="evenodd"
-                  d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                  clip-rule="evenodd"/>
+              d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+              clip-rule="evenodd" />
           </svg>
         </a>
       </nav>
     </div>
   </div>
 </div>
-{#  pagination ende #}
-
+{# pagination ende #}

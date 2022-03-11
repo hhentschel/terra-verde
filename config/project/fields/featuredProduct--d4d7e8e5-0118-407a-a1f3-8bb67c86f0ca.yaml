@@ -1,0 +1,14 @@
+columnSuffix: wxdecdcw
+contentColumnType: boolean
+fieldGroup: 4fe8dfc1-b512-4508-a756-d29539b14b62 # Artikel
+handle: featuredProduct
+instructions: ''
+name: Featured
+searchable: false
+settings:
+  default: false
+  offLabel: 'normale Sortierung'
+  onLabel: 'Auf der Shopseite oben anzeigen'
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Lightswitch

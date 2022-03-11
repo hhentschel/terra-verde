@@ -4,23 +4,6 @@
 {% set addedToCart = success is defined %}
 
 
-{# {% if addedToCart %}
-    {% set productQuery = craft.products.id(lastProductId) %}
-{% else %}
-    {% set productQuery = craft.products.id('not ' ~ lastProductId).orderBy('dateCreated ASC') %}
-{% endif %} #}
-
-{# {% set product = productQuery.one() %}
-{% set variant = product.defaultVariant %} #}
-
-{# {{ hiddenInput('lastProductId', product.id) }} #}
-
-{# {% if addedToCart %}
-  <script>
-    htmx.trigger(htmx.find('#cart'), 'refresh');
-  </script>
-{% endif %} #}
-
 {% if sprig.isRequest %}
   <script>
     htmx.trigger('#cartsize', 'refresh');
@@ -68,13 +51,7 @@
 
   </a>
 
-  <form method="post" class="js-form">
-    {{ actionInput('commerce/cart/update-cart') }}
-    {{ hiddenInput(
-      'successMessage',
-      ('Artikel ' ~ product.title ~ ' wurde zum Warenkorb hinzugefügt.')|hash
-    ) }}
-    {{ csrfInput() }}
+  <form class="js-form">
 
     <div class="shop-list__item-cart">
       <div class="item-cart__variants">

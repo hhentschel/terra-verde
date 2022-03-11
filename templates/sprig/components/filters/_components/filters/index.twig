@@ -12,12 +12,13 @@
 {% set articleCategoriesWine = articleCategoriesWine ?? [] %}
 {% set articleCategoriesStatus = articleCategoriesStatus ?? [] %}
 
-{% set limit = limit ?? 9 %}
+{% set limit = limit ?? 51 %}
 {% set page = page ?? 1 %}
+{% set viewType = viewType ?? 'grid' %}
 
 {# Defines maximum number of pages to show. #}
 {% set maxPages = 7 %}
-{% set orderBy = orderBy ?? 'postDate desc' %}
+{% set orderBy = orderBy ?? 'featuredProduct DESC, postDate DESC' %}
 
 {% if cart is not defined %}
   {% set cart = craft.commerce.carts.cart %}
@@ -45,19 +46,30 @@
 {% set productQuery =
   craft.products(
     filters|merge({
-    limit: limit,
-    with: [
-      [
-        'image',
-        {
-          withTransforms: ['productListing']
-        }
+      limit: limit,
+      with: [
+        [
+          'image',
+          {
+            withTransforms: ['productListing']
+          }
+        ]
       ]
-    ]
-  })
-  ) %}
+    })
+  )
+%}
 
-{% if articleCategoriesDeli is not empty %}
+{% set categories =
+  articleCategoriesDeli
+    |merge(articleCategoriesWine)
+    |merge(articleCategoriesGift)
+%}
+
+{% if categories is not empty %}
+  {% do productQuery.andRelatedTo(categories) %}
+{% endif %}
+
+{# {% if articleCategoriesDeli is not empty %}
   {% do productQuery.andRelatedTo(articleCategoriesDeli) %}
 {% endif %}
 
@@ -65,12 +77,12 @@
   {% do productQuery.andRelatedTo(articleCategoriesWine) %}
 {% endif %}
 
-{% if articleCategoriesStatus is not empty %}
-  {% do productQuery.andRelatedTo(articleCategoriesStatus) %}
-{% endif %}
-
 {% if articleCategoriesGift is not empty %}
   {% do productQuery.andRelatedTo(articleCategoriesGift) %}
+{% endif %} #}
+
+{% if articleCategoriesStatus is not empty %}
+  {% do productQuery.andRelatedTo(articleCategoriesStatus) %}
 {% endif %}
 
 {# Paginate entry query to get page info. #}
@@ -81,18 +93,18 @@
 {# Push the URL into the history stack with the filters, adding extra values. #}
 {% do sprig.pushUrl(
   '?'
-  ~ (filters
-  |merge({
-    page: page
-  })
-  |url_encode)
-  ) %}
+    ~ (filters
+      |merge({
+        page: page,
+        viewType: viewType
+      })
+      |url_encode)
+) %}
 
 {% if sprig.isRequest %}
   <script>
-    htmx.trigger('#cartsize', 'refresh');
-    htmx.trigger('#cartsizemobile',
-      'refresh');
+    htmx.trigger('#cartsize', 'refresh'); htmx.trigger('#cartsizemobile',
+    'refresh');
   </script>
 {% endif %}
 
@@ -100,9 +112,10 @@
   {% include 'sprig/components/filters/_components/filters/catfilter' %}
 
   <div id="tvboard" class="col col-xs-12 col-md-6 col-lg-9">
+    <input type="hidden" name="viewType" value="{{ viewType }}" />
 
-
-    <p class="">
+    <div class="shop__board-topline">
+    <p class="shop__board-pagination">
       <span class="">{{ pageInfo.first }}</span>
       -
       <span class="">{{ pageInfo.last }}</span>
@@ -111,13 +124,51 @@
       Produkten
     </p>
 
+    {% if viewType == 'grid' %}
+    <div>
+      <button sprig
+        s-val:view-type="list"
+        s-val:page="1"
+        s-val:limit="102"
+        class="btn-viewchange">
+        <span class="btn-viewchange__text">Listenansicht</span>
+        <div>
+        <span class="btn-viewchange__bar"></span>
+        <span class="btn-viewchange__bar"></span>
+        <span class="btn-viewchange__bar"></span>
+        <span class="btn-viewchange__bar"></span>
+        </div>
+      </button>
+    </div>
+    {% else %}
+    <div>
+      <button sprig
+        s-val:view-type="grid"
+        s-val:page="1"
+        s-val:limit="36"
+        class="btn-viewchange">
+        <span class="btn-viewchange__text">Rasteransicht</span>
+      <span href="" class="grid-icon grid-icon--fill">
+        <span class="layer layer--primary">
+          <span></span>
+        </span>
+        <span class="layer layer--secondary">
+          <span></span>
+        </span>
+        <span class="layer layer--tertiary">
+          <span></span>
+        </span>
+      </span>
+      </button>
+    </div>
+    {% endif %}
+    </div>
+
     {# shop-list anfang #}
-    <div class="shop-list">
+    <div class="shop-list{% if viewType == 'list' %}__listview{% endif %}">
       {% for product in products %}
         {% for variant in product.getVariants() %}
-
           {% include 'sprig/components/cart/_components/product' %}
-
         {% endfor %}
       {% endfor %}
     </div>
@@ -136,6 +187,5 @@
     {# pagination #}
     {% include 'sprig/components/filters/_components/filters/pagination' %}
     {# pagination ende #}
-
   </div>
 </div>

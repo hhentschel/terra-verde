@@ -1,7 +1,7 @@
 childBlocks: null
 field: 9f46731d-7fdd-4245-9ca1-719db0672448 # Inhaltselemente
 fieldLayouts:
-  9080015f-1b2a-4bb6-af65-4b5b645fa7dd:
+  67b7a086-081b-49f0-8d16-68fd274d0de9:
     tabs:
       -
         elements:
@@ -52,10 +52,10 @@ fieldLayouts:
             width: 100
         name: Inhalt
         sortOrder: 1
-handle: imageText
+handle: imageText5050
 maxBlocks: 0
 maxChildBlocks: 0
 maxSiblingBlocks: 0
-name: 'Bild / Text - 30% / 70%'
-sortOrder: 16
+name: 'Bild / Text - 50% / 50%'
+sortOrder: 17
 topLevel: true

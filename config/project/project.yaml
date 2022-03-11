@@ -1,4 +1,4 @@
-dateModified: 1646402744
+dateModified: 1646952011
 email:
   fromEmail: p@henrik-hentschel.de
   fromName: 'Terra Verde'
@@ -86,7 +86,6 @@ meta:
     34eecfa5-9662-4a5c-addd-6a484fbebe8d: 'Verkaufsstellen Orte' # Verkaufsstellen Orte
     037a2847-d799-44e7-ae4b-4bf40233db70: Kategorien # Kategorien
     44a134bf-a896-43b6-897a-a294f6c27325: 'Blog Aktuell' # Blog Aktuell
-    46afcaf9-86a4-4486-80f7-9676a812098b: AA_Testfeld-Local # AA_Testfeld-Local
     47bc485c-9111-499a-99df-616baa7dba1e: 'Relations Hersteller' # Relations Hersteller
     47c3ee37-8371-469c-8566-fb641a48324e: 'Ähnliche Produkte Apero' # Ähnliche Produkte Apero
     50ff7a2e-9fc7-4f85-aa48-b24f439d44cb: 'Bild Inhalt Voll' # Bild Inhalt Voll
@@ -95,6 +94,7 @@ meta:
     57d4d8f2-0e49-45bf-9f84-2e1917ef7c02: Magazin # Magazin
     57dc5489-0c99-4527-bf4d-eaaaf2c2d601: 'Artikel Tags' # Artikel Tags
     57e5fec1-460f-4063-a3db-815af978dc8f: Bild # Bild
+    59c7fdcf-31f8-482b-b017-d267318b81ef: 'Bild / Text - 50% / 50%' # Bild / Text - 50% / 50%
     61fb34f1-bb5b-4ed1-8b63-94b839150936: Rezepte # Rezepte
     62aa7cc1-c9ad-4ef4-9d94-4fc3275ba26a: Produzenten # Produzenten
     63fb2479-518b-42d4-b388-594c194ee08d: Bestell-PDF # Bestell-PDF
@@ -136,7 +136,6 @@ meta:
     944f60e0-b559-4698-bb4d-3d2eec04eef6: 'Produkt Beschreibung Alt' # Produkt Beschreibung Alt
     982a8eec-f2e3-4260-b25a-904d904b42a9: Firma # Firma
     1746b6f6-7af3-4e0c-9f4d-5be0656816b1: 'Produkt Detail' # Produkt Detail
-    01783ac4-31e6-440a-ae6f-f490016997ad: 'Externer Link (Preview' # Externer Link (Preview
     1856a1a8-498c-4498-84ad-6fcbe1de89f7: Kategorien # Kategorien
     2133d0ff-1af0-4a47-b4ab-4b5da820381e: Einzeleinträge # Einzeleinträge
     2941dc0e-4ee6-4e86-873c-6f930bfad4e4: Rezepte # Rezepte
@@ -224,6 +223,7 @@ meta:
     ceeb55b1-0aab-46a0-9d39-91e0f706901f: 'Youtube Video Liste' # Youtube Video Liste
     cfba8ac8-e0a0-405f-87ed-accd8f27b372: Geschenksets # Geschenksets
     cfbe4629-cba3-461e-a930-5e32a064326f: GTIN # GTIN
+    d4d7e8e5-0118-407a-a1f3-8bb67c86f0ca: Featured # Featured
     d5eb7b01-8b1f-4b3f-83c7-ccfa4c76d49d: Inhaltselemente # Inhaltselemente
     d8cbe40a-89a4-4804-8992-aba26cbb1aca: 'Youtube Video' # Youtube Video
     d22d8183-8d37-4569-9fda-4480d52e3498: 'Text Standard ohne Titel' # Text Standard ohne Titel
@@ -380,11 +380,6 @@ plugins:
       validateBusinessTaxIdAsVatId: false
       validateCartCustomFieldsOnSubmission: false
       weightUnits: g
-  commerce-bundles:
-    edition: standard
-    enabled: false
-    licenseKey: QDJ3HXHEXEVI3GHUOB7HUQOT
-    schemaVersion: 1.1.1
   commerce-datatrans:
     edition: standard
     enabled: true
@@ -506,7 +501,7 @@ plugins:
       widgetTitle: Links
   image-optimize:
     edition: standard
-    enabled: true
+    enabled: false
     licenseKey: KTPXN8E890GADLRUF1046M43
     schemaVersion: 1.0.0
     settings:
@@ -709,6 +704,14 @@ plugins:
     enabled: true
     licenseKey: JXHZASVWB1TY66SQLYF4FQZU
     schemaVersion: 1.0.0
+  untransform:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+    settings:
+      baseUrlPrefix: ''
+      placeholderImage: ''
+      replaceTransforms: '0'
   user-guide:
     edition: standard
     enabled: true

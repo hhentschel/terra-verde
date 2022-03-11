@@ -1,21 +1,5 @@
 childBlocks: null
 field: 9f46731d-7fdd-4245-9ca1-719db0672448 # Inhaltselemente
-fieldLayouts:
-  5c89407f-afda-4391-aa01-bf8ac106dec0:
-    tabs:
-      -
-        elements:
-          -
-            fieldUid: 01783ac4-31e6-440a-ae6f-f490016997ad # Externer Link (Preview
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            warning: null
-            width: 100
-        name: Inhalt
-        sortOrder: 1
 handle: externerLinkPreview
 maxBlocks: 0
 maxChildBlocks: 0
