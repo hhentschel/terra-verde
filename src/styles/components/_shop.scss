@@ -274,6 +274,11 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
     }
   }
 
+  &.loading-button__indicator--loading {
+    opacity: 0.5;
+    background-color: lightblue;
+  }
+
   &__listview {
     .shop-list__item {
       flex-direction: row;

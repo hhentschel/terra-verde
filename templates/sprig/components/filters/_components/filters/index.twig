@@ -108,6 +108,7 @@
   </script>
 {% endif %}
 
+
 <div s-replace="#tvboard" class="shop__board row">
   {% include 'sprig/components/filters/_components/filters/catfilter' %}
 
@@ -124,12 +125,16 @@
       Produkten
     </p>
 
+
+    {{ sprig('sprig/components/filters/_components/indicator') }}
+
     {% if viewType == 'grid' %}
     <div>
       <button sprig
         s-val:view-type="list"
         s-val:page="1"
         s-val:limit="102"
+        s-indicator=".loading-button__indicator"
         class="btn-viewchange">
         <span class="btn-viewchange__text">Listenansicht</span>
         <div>
@@ -139,6 +144,7 @@
         <span class="btn-viewchange__bar"></span>
         </div>
       </button>
+
     </div>
     {% else %}
     <div>
@@ -146,6 +152,7 @@
         s-val:view-type="grid"
         s-val:page="1"
         s-val:limit="36"
+        s-indicator=".loading-button__indicator"
         class="btn-viewchange">
         <span class="btn-viewchange__text">Rasteransicht</span>
       <span href="" class="grid-icon grid-icon--fill">

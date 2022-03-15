@@ -73,3 +73,28 @@ $hintSize: px-to-rem(176);
     line-height: $line-height--m;
   }
 }
+
+// loading svg
+.loading-button {
+  $this: &;
+
+  display: flex;
+  align-items: center;
+  gap: get-spacing(small-3);
+
+  &__indicator {
+    &--loading {
+      #{$this}__spinner {
+        display: inline;
+      }
+
+      #{$this}__check {
+        display: none;
+      }
+    }
+  }
+
+  &__spinner {
+    display: none;
+  }
+}
