@@ -303,14 +303,46 @@
                             <div class="form__cart-table--buttons-container">
                                 <div>
                                     {% if not cart.hasErrors() %}
-                                      {% if cart.totalPrice < 30 %}
-                                      <div class="form__cart--expection">
-                                        <a class="button button--secondary" href="#">Zahlung nicht möglich</a>
-                                        <span>Mindestbestellbetrag: 30,- CHF</span>
-                                      </div>
-                                      {% else %}
-                                        <a class="button button--primary" href="{{ url('shop/checkout') }}">Bezahlen</a>
-                                      {% endif %}
+                                      {% set userExists = craft.users.email(cart.email).one() %}
+                                      {% if userExists %}
+                                        {% if userExists.isInGroup('userGroupRetail') %}
+
+                                          {% set nettoPrice = cart.totalPrice - cart.getTotalTaxIncluded %}
+                                          {% if nettoPrice < 150 %}
+                                          <div class="form__cart--expection">
+                                            <a class="button button--secondary" href="#">Zahlung nicht möglich</a>
+                                            <span>Mindestbestellbetrag Netto: 150,- CHF</span>
+                                          </div>
+                                          {% else %}
+                                            <a class="button button--primary" href="{{ url('shop/checkout') }}">Bezahlen</a>
+                                          {% endif %}
+
+                                        {% elseif userExists.isInGroup('userGroupPrivate') %}
+
+                                          {% if cart.totalPrice < 30 %}
+                                          <div class="form__cart--expection">
+                                            <a class="button button--secondary" href="#">Zahlung nicht möglich</a>
+                                            <span>Mindestbestellbetrag: 30,- CHF</span>
+                                          </div>
+                                          {% else %}
+                                            <a class="button button--primary" href="{{ url('shop/checkout') }}">Bezahlen</a>
+                                          {% endif %}
+
+                                        {% else %}
+
+                                        {% if cart.totalPrice < 30 %}
+                                          <div class="form__cart--expection">
+                                            <a class="button button--secondary" href="#">Zahlung nicht möglich</a>
+                                            <span>Mindestbestellbetrag: 30,- CHF</span>
+                                          </div>
+                                          {% else %}
+                                            <a class="button button--primary" href="{{ url('shop/checkout') }}">Bezahlen</a>
+                                          {% endif %}
+
+                                        {% endif %}
+
+                                      {% endif %} {# if user exists #}
+
                                     {% endif %}
                                 </div>
                             </div>

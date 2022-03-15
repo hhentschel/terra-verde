@@ -21,7 +21,7 @@ $hintSize: px-to-rem(176);
 #order-hints {
   height: $hintSize;
   position: relative;
-  max-width: $hintSize;
+  width: $hintSize;
 }
 
 #order-hints > * {
