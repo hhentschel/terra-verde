@@ -8,6 +8,8 @@
 {% set catStatusID = catStatusID ?? '' %} #}
 
 {% set articleCategoriesDeli = articleCategoriesDeli ?? [] %}
+{% set articleCategoriesDeliAll = articleCategoriesDeliAll ?? [] %}
+
 {% set articleCategoriesGift = articleCategoriesGift ?? [] %}
 {% set articleCategoriesWine = articleCategoriesWine ?? [] %}
 {% set articleCategoriesStatus = articleCategoriesStatus ?? [] %}
@@ -63,7 +65,9 @@
   articleCategoriesDeli
     |merge(articleCategoriesWine)
     |merge(articleCategoriesGift)
+    |merge(articleCategoriesStatus)
 %}
+
 
 {% if categories is not empty %}
   {% do productQuery.andRelatedTo(categories) %}
@@ -79,11 +83,13 @@
 
 {% if articleCategoriesGift is not empty %}
   {% do productQuery.andRelatedTo(articleCategoriesGift) %}
+{% endif %}
+#}
+
+{# {% if articleCategoriesStatus is not empty %}
+  {% do productQuery.relatedTo(articleCategoriesStatus) %}
 {% endif %} #}
 
-{% if articleCategoriesStatus is not empty %}
-  {% do productQuery.andRelatedTo(articleCategoriesStatus) %}
-{% endif %}
 
 {# Paginate entry query to get page info. #}
 {% set pageInfo = sprig.paginate(productQuery, page) %}
@@ -114,6 +120,7 @@
 
   <div id="tvboard" class="col col-xs-12 col-md-6 col-lg-9">
     <input type="hidden" name="viewType" value="{{ viewType }}" />
+    <input type="hidden" name="orderBy" value="{{ orderBy }}" />
 
     <div class="shop__board-topline">
     <p class="shop__board-pagination">
