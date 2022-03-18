@@ -115,8 +115,7 @@
           </button>
 
           <form class="form" sprig s-action="craft-commerce-back-in-stock/base/register-interest" s-method="post">
-                {{ successMessageInput('Hinweiss ...') }}
-                {{ hiddenInput('product.defaultVariant.id') }}
+                 <input type="hidden" name="variantId" value="{{ product.defaultVariant.id }}">
                 <div class="mb-4">
                     <label  for="email">Email</label>
                     {# Users email #}
