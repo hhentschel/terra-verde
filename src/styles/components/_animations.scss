@@ -83,7 +83,8 @@ $hintSize: px-to-rem(176);
   gap: get-spacing(small-3);
 
   &__indicator {
-    &--loading {
+    &--loading,
+    &--loading-shop {
       #{$this}__spinner {
         display: inline;
       }

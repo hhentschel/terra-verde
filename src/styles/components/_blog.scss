@@ -81,7 +81,6 @@
     justify-content: space-between;
 
     &--title {
-      font-size: px-to-rem($font-size-xl-p);
       margin-top: 0;
       line-height: $line-height--s;
       min-height: px-to-rem(60);
@@ -149,8 +148,5 @@
   &__lead p {
     font-weight: 700;
     line-height: $line-height--m;
-  }
-
-  &__recipe {
   }
 }
