@@ -31,9 +31,7 @@
 {% set catGiftOptions = craft.categories.group('catGroupGift').all() %}
 {% set catWineOptions = craft.categories.group('catGroupWine').all() %}
 {% set catStatusOptions = craft.categories.group('catGroupStatus').all() %}
-
-{# Defines limit options. #}
-{% set limitOptions = [8, 16, 24, 48] %}
+{% set catAll = craft.categories.group('catGroupStatus, catGroupDeli, catGroupGift, catGroupWine').all() %}
 
 {# Create an array of filters. #}
 {% set filters = {
@@ -60,16 +58,16 @@
     })
   )
 %}
-
 {% set categories =
   articleCategoriesDeli
-    |merge(articleCategoriesWine)
     |merge(articleCategoriesGift)
+    |merge(articleCategoriesWine)
     |merge(articleCategoriesStatus)
 %}
 
 
-{% if categories is not empty %}
+
+{% if not articleCategoriesDeliAll %}
   {% do productQuery.andRelatedTo(categories) %}
 {% endif %}
 

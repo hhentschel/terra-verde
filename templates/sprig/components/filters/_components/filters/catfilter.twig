@@ -68,10 +68,21 @@
         Delikatessen
       </summary>
       <div class="filter__deli">
+        {# <input sprig
+          type="checkbox"
+          id="catdeli-catDeliOptionAll"
+          name="articleCategoriesDeliAll"
+          value="1"
+          {{ articleCategoriesDeliAll ? 'checked' : '' }} />
+        <label for="catdeli-catDeliOptionAll" class="filter__checkbox--label">
+          Alle
+        </label> #}
+
         {% for catDeliOption in catDeliOptions %}
           <div class="filter__checkbox filter__deli--checkbox">
             <input sprig
               type="checkbox"
+              s-swap="outerHTML show:body:top"
               id="catdeli-{{ catDeliOption.id }}"
               name="articleCategoriesDeli[]"
               value="{{ catDeliOption.id }}"
@@ -91,20 +102,27 @@
       <summary class="filter__accordion--title">
         Weine
       </summary>
-      {% for catWineOption in catWineOptions %}
-        <div class="filter__checkbox">
-          <input sprig
-            type="checkbox"
-            id="catwine-{{ catWineOption.id }}"
-            name="articleCategoriesWine[]"
-            value="{{ catWineOption.id }}"
-            {{ catWineOption.id in articleCategoriesWine ? 'checked' }} />
-          <label for="catwine-{{ catWineOption.id }}"
-            class="truncate filter__checkbox--label">
-            {{ catWineOption.title }}
-          </label>
-        </div>
-      {% endfor %}
+      {% nav catWineOption in catWineOptions %}
+
+      <div class="filter__checkbox">
+        <input sprig
+          type="checkbox"
+          s-swap="outerHTML show:body:top"
+          id="catwine-{{ catWineOption.id }}"
+          name="articleCategoriesWine[]"
+          value="{{ catWineOption.id }}"
+          {{ catWineOption.id in articleCategoriesWine ? 'checked' }} />
+        <label for="catwine-{{ catWineOption.id }}"
+          class="truncate filter__checkbox--label">
+          {{ catWineOption.title }}
+        </label>
+      </div>
+      {% ifchildren %}
+      <ul class="filter__subcategories">
+        {% children %}
+      </ul>
+      {% endifchildren %}
+      {% endnav %}
     </details>
   </div>
 
@@ -118,6 +136,7 @@
           <div class="filter__checkbox">
             <input sprig
               type="checkbox"
+              s-swap="outerHTML show:body:top"
               id="catgift-{{ catGiftOption.id }}"
               name="articleCategoriesGift[]"
               value="{{ catGiftOption.id }}"
