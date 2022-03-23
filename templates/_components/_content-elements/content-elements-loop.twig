@@ -17,244 +17,247 @@
     {% endif %}
 
     {% switch block.type.handle %}
-    {# formattedText Block #}
+      {# formattedText Block #}
     {% case 'formattedText' %}
-    {% set cmt = cmt ? cmt : 'layout-helper__margin-top--none' %}
-    {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--xs' %}
-    {% set colClasses =
-      'col col-xs-12 col-md-10 col-md-shift-1 col-lg-8 col-lg-shift-2'
-    %}
-    {% set contentBlock %}
-      {% include '_components/_content-elements/formatted-text' with {
-        formattedText: block.textStandardWithoutH1
-      } %}
-    {% endset %}
+      {% set cmt = cmt ? cmt : 'layout-helper__margin-top--none' %}
+      {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--xs' %}
+      {% set colClasses =
+        'col col-xs-12 col-md-10 col-md-shift-1 col-lg-8 col-lg-shift-2' %}
+      {% set contentBlock %}
+        {% include '_components/_content-elements/formatted-text' with {
+          formattedText: block.textStandardWithoutH1
+        } %}
+      {% endset %}
 
-    {# titleH2 Block #}
+      {# titleH2 Block #}
     {% case 'titleH2' %}
-    {% set cmt = cmt ? cmt : 'layout-helper__margin-top--m' %}
-    {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--xxs' %}
-    {% set colClasses =
-      'col col-xs-12 col-md-10 col-md-shift-1 col-lg-8 col-lg-shift-2'
-    %}
-    {% set contentBlock %}
-      <h2 class="heading heading--h2 heading--no-margin">
-        {{ block.titleH2 }}
-      </h2>
-    {% endset %}
+      {% set cmt = cmt ? cmt : 'layout-helper__margin-top--m' %}
+      {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--xxs' %}
+      {% set colClasses =
+        'col col-xs-12 col-md-10 col-md-shift-1 col-lg-8 col-lg-shift-2' %}
+      {% set contentBlock %}
+        <h2 class="heading heading--h2 heading--no-margin">
+          {{ block.titleH2 }}
+        </h2>
+      {% endset %}
 
-    {# table Block #}
+      {# table Block #}
     {% case 'table' %}
-    {% set cmt = cmt ? cmt : 'layout-helper__margin-top--m' %}
-    {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--xxs' %}
-    {% set colClasses =
-      'col col-xs-12 col-md-10 col-md-shift-1 col-lg-8 col-lg-shift-2'
-    %}
-    {% set contentBlock %}
-      <div class="table-container">
-        {{ block.tableContent }}
-      </div>
-    {% endset %}
+      {% set cmt = cmt ? cmt : 'layout-helper__margin-top--m' %}
+      {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--xxs' %}
+      {% set colClasses =
+        'col col-xs-12 col-md-10 col-md-shift-1 col-lg-8 col-lg-shift-2' %}
+      {% set contentBlock %}
+        <div class="table-container">
+          {{ block.tableContent }}
+        </div>
+      {% endset %}
 
-    {# titleH3 Block #}
+      {# titleH3 Block #}
     {% case 'titleH3' %}
-    {% set cmt = cmt ? cmt : 'layout-helper__margin-top--xs' %}
-    {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--xxs' %}
-    {% set colClasses =
-      'col col-xs-12 col-md-10 col-md-shift-1 col-lg-8 col-lg-shift-2'
-    %}
-    {% set contentBlock %}
-      <h3 class="heading heading--h3 heading--no-margin">
-        {{ block.titleH3 }}
-      </h3>
-    {% endset %}
+      {% set cmt = cmt ? cmt : 'layout-helper__margin-top--xs' %}
+      {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--xxs' %}
+      {% set colClasses =
+        'col col-xs-12 col-md-10 col-md-shift-1 col-lg-8 col-lg-shift-2' %}
+      {% set contentBlock %}
+        <h3 class="heading heading--h3 heading--no-margin">
+          {{ block.titleH3 }}
+        </h3>
+      {% endset %}
 
-    {# titleH4 Block #}
+      {# titleH4 Block #}
     {% case 'titleH4' %}
-    {% set cmt = cmt ? cmt : 'layout-helper__margin-top--s' %}
-    {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--xxs' %}
-    {% set colClasses =
-      'col col-xs-12 col-md-10 col-md-shift-1 col-lg-8 col-lg-shift-2'
-    %}
-    {% set contentBlock %}
-      <h4 class="heading heading--h4 heading--no-margin">
-        {{ block.titleH4 }}
-      </h4>
-    {% endset %}
+      {% set cmt = cmt ? cmt : 'layout-helper__margin-top--s' %}
+      {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--xxs' %}
+      {% set colClasses =
+        'col col-xs-12 col-md-10 col-md-shift-1 col-lg-8 col-lg-shift-2' %}
+      {% set contentBlock %}
+        <h4 class="heading heading--h4 heading--no-margin">
+          {{ block.titleH4 }}
+        </h4>
+      {% endset %}
 
-    {# buttonLinkInternal Block #}
+      {# buttonLinkInternal Block #}
     {% case 'buttonLinkInternal' %}
-    {% set cmt = cmt ? cmt : 'layout-helper__margin-top--xs' %}
-    {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--xs' %}
-    {% set colClasses =
-      'col col-xs-12 col-md-10 col-md-shift-1 col-lg-8 col-lg-shift-2'
-    %}
-    {% set contentBlock %}
-      {% include '_components/_content-elements/link' with {
-        linkUrl: block.buttonLinkToEntry.one().url(),
-        linkText: block.linkText,
-        type: 'button',
-        target: 'internal',
-        iconPosition: 'after',
-        buttonLinkColor: block.buttonLinkColor
-      } %}
-    {% endset %}
+      {% set cmt = cmt ? cmt : 'layout-helper__margin-top--xs' %}
+      {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--xs' %}
+      {% set colClasses =
+        'col col-xs-12 col-md-10 col-md-shift-1 col-lg-8 col-lg-shift-2' %}
+      {% set contentBlock %}
+        {% include '_components/_content-elements/link' with {
+          linkUrl: block.buttonLinkToEntry.one().url(),
+          linkText: block.linkText,
+          type: 'button',
+          target: 'internal',
+          iconPosition: 'after',
+          buttonLinkColor: block.buttonLinkColor
+        } %}
+      {% endset %}
 
-    {# buttonLinkInternal Block #}
+      {# buttonLinkInternal Block #}
     {% case 'buttonLinkInternalSimple' %}
-    {% set cmt = cmt ? cmt : 'layout-helper__margin-top--xs' %}
-    {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--xs' %}
-    {% set colClasses =
-      'col col-xs-12 col-md-10 col-md-shift-1 col-lg-8 col-lg-shift-2'
-    %}
-    {% set contentBlock %}
-      {% include '_components/_content-elements/link' with {
-        linkUrl: block.buttonLinkToEntry.one().url(),
-        linkText: block.linkText,
-        type: 'button',
-        target: 'internal',
-        iconPosition: 'after',
-        buttonLinkColor: block.buttonLinkColorSimple
-      } %}
-    {% endset %}
+      {% set cmt = cmt ? cmt : 'layout-helper__margin-top--xs' %}
+      {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--xs' %}
+      {% set colClasses =
+        'col col-xs-12 col-md-10 col-md-shift-1 col-lg-8 col-lg-shift-2' %}
+      {% set contentBlock %}
+        {% include '_components/_content-elements/link' with {
+          linkUrl: block.buttonLinkToEntry.one().url(),
+          linkText: block.linkText,
+          type: 'button',
+          target: 'internal',
+          iconPosition: 'after',
+          buttonLinkColor: block.buttonLinkColorSimple
+        } %}
+      {% endset %}
 
-    {# LinkInternal Block #}
+      {# LinkInternal Block #}
     {% case 'LinkInternal' %}
-    {% set cmt = cmt ? cmt : 'layout-helper__margin-top--xs' %}
-    {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--xs' %}
-    {% set colClasses =
-      'col col-xs-12 col-md-10 col-md-shift-1 col-lg-8 col-lg-shift-2'
-    %}
-    {% set contentBlock %}
-      {% include '_components/_content-elements/link' with {
-        linkUrl: block.linkToEntry.one().url(),
-        linkText: block.linkText,
-        target: 'internal',
-        iconPosition: 'before'
-      } %}
-    {% endset %}
+      {% set cmt = cmt ? cmt : 'layout-helper__margin-top--xs' %}
+      {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--xs' %}
+      {% set colClasses =
+        'col col-xs-12 col-md-10 col-md-shift-1 col-lg-8 col-lg-shift-2' %}
+      {% set contentBlock %}
+        {% include '_components/_content-elements/link' with {
+          linkUrl: block.linkToEntry.one().url(),
+          linkText: block.linkText,
+          target: 'internal',
+          iconPosition: 'before'
+        } %}
+      {% endset %}
 
-    {# externalLink Block #}
+      {# externalLink Block #}
     {% case 'externalLink' %}
-    {% set cmt = cmt ? cmt : 'layout-helper__margin-top--xs' %}
-    {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--xs' %}
-    {% set colClasses =
-      'col col-xs-12 col-md-10 col-md-shift-1 col-lg-8 col-lg-shift-2'
-    %}
-    {% set contentBlock %}
-      {% include '_components/_content-elements/link' with {
-        linkUrl: block.externalLink,
-        linkText: block.linkText,
-        target: 'external',
-        iconPosition: 'before'
-      } %}
-    {% endset %}
+      {% set cmt = cmt ? cmt : 'layout-helper__margin-top--xs' %}
+      {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--xs' %}
+      {% set colClasses =
+        'col col-xs-12 col-md-10 col-md-shift-1 col-lg-8 col-lg-shift-2' %}
+      {% set contentBlock %}
+        {% include '_components/_content-elements/link' with {
+          linkUrl: block.externalLink,
+          linkText: block.linkText,
+          target: 'external',
+          iconPosition: 'before'
+        } %}
+      {% endset %}
 
-    {# externerLinkPreview Block #}
+      {# externerLinkPreview Block #}
     {% case 'externerLinkPreview' %}
-    {% set cmt = cmt ? cmt : 'layout-helper__margin-top--m' %}
-    {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--xxs' %}
-    {% set colClasses =
-      'col col-xs-12 col-md-10 col-md-shift-1 col-lg-8 col-lg-shift-2'
-    %}
-    {% set contentBlock %}
-      {% if block.externerLinkPreview.valid %}
-        {% include 'prismatic-preview-links.twig' with block.externerLinkPreview %}
-      {% endif %}
-    {% endset %}
+      {% set cmt = cmt ? cmt : 'layout-helper__margin-top--m' %}
+      {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--xxs' %}
+      {% set colClasses =
+        'col col-xs-12 col-md-10 col-md-shift-1 col-lg-8 col-lg-shift-2' %}
+      {% set contentBlock %}
+        {% if block.externerLinkPreview.valid %}
+          {% include 'prismatic-preview-links.twig' with block.externerLinkPreview %}
+        {% endif %}
+      {% endset %}
 
-    {# linkDownload Block #}
+      {# linkDownload Block #}
     {% case 'linkDownload' %}
-    {% set cmt = cmt ? cmt : 'layout-helper__margin-top--xxs' %}
-    {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--xxs' %}
-    {% set colClasses =
-      'col col-xs-12 col-md-10 col-md-shift-1 col-lg-8 col-lg-shift-2'
-    %}
-    {% set contentBlock %}
-      {% include '_components/_content-elements/link' with {
-        linkUrl: block.linkToDownload.one().url(),
-        linkText: block.linkText,
-        target: 'download',
-        iconPosition: 'before'
-      } %}
-    {% endset %}
+      {% set cmt = cmt ? cmt : 'layout-helper__margin-top--xxs' %}
+      {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--xxs' %}
+      {% set colClasses =
+        'col col-xs-12 col-md-10 col-md-shift-1 col-lg-8 col-lg-shift-2' %}
+      {% set contentBlock %}
+        {% include '_components/_content-elements/link' with {
+          linkUrl: block.linkToDownload.one().url(),
+          linkText: block.linkText,
+          target: 'download',
+          iconPosition: 'before'
+        } %}
+      {% endset %}
 
-    {# Image Block #}
+      {# Image Block #}
 
     {% case 'image' %}
-    {% set cmt = cmt ? cmt : 'layout-helper__margin-top--m' %}
-    {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--m' %}
-    {% set colClasses =
-      'col col-xs-12 col-md-10 col-md-shift-1 col-lg-8 col-lg-shift-2'
-    %}
-    {% set contentBlock %}
-      {% include '_components/_content-elements/imagecontent' with {
-        img: block.image,
-        imageAltText: block.imageAltText,
-        imageCaption: block.imageCaption
-      } %}
-    {% endset %}
+      {% set cmt = cmt ? cmt : 'layout-helper__margin-top--m' %}
+      {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--m' %}
+      {% set colClasses =
+        'col col-xs-12 col-md-10 col-md-shift-1 col-lg-8 col-lg-shift-2' %}
+      {% set contentBlock %}
+        {% include '_components/_content-elements/imagecontent' with {
+          img: block.image,
+          imageAltText: block.imageAltText,
+          imageCaption: block.imageCaption
+        } %}
+      {% endset %}
 
-    {# ImageText 30/70 Block #}
-    {% case 'imageText' %}
-    {% set cmt = cmt ? cmt : 'layout-helper__margin-top--m' %}
-    {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--m' %}
-    {% set colClasses =
-      'col col-xs-12 col-md-10 col-md-shift-1 col-lg-8 col-lg-shift-2'
-    %}
-    {% set transform = transformation|default('imageOneThird') %}
-    {% set contentBlock %}
-      {% include '_components/_content-elements/image-text' with {
-        img: block.image,
-        title: block.titleH3,
-        imageAltText: block.imageAltText,
-        imageCaption: block.imageCaption,
-        formattedText: block.textStandardWithoutH1,
-        imageSize: 'image--one-third',
-        transform: transform
-      } %}
-    {% endset %}
+      {# ImageText 30/70 Block #}
+    {% case 'imageText3070' %}
+      {% set cmt = cmt ? cmt : 'layout-helper__margin-top--m' %}
+      {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--m' %}
+      {% set colClasses =
+        'col col-xs-12 col-md-10 col-md-shift-1 col-lg-8 col-lg-shift-2' %}
+      {% set transform = transformation|default('imageOneThird') %}
+      {% set contentBlock %}
+        {% include '_components/_content-elements/image-text' with {
+          img: block.image,
+          title: block.titleH3,
+          imageAltText: block.imageAltText,
+          imageCaption: block.imageCaption,
+          formattedText: block.textStandardWithoutH1,
+          imageSize: 'image--one-third',
+          transform: transform
+        } %}
+      {% endset %}
 
-    {# Image 1/2 Block #}
+      {# ImageText 50/50 Block #}
+    {% case 'imageText5050' %}
+      {% set cmt = cmt ? cmt : 'layout-helper__margin-top--m' %}
+      {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--m' %}
+      {% set colClasses =
+        'col col-xs-12 col-md-10 col-md-shift-1 col-lg-8 col-lg-shift-2' %}
+      {% set transform = transformation|default('imageHalf') %}
+      {% set contentBlock %}
+        {% include '_components/_content-elements/image-text' with {
+          img: block.image,
+          title: block.titleH3,
+          imageAltText: block.imageAltText,
+          imageCaption: block.imageCaption,
+          formattedText: block.textStandardWithoutH1,
+          imageSize: 'image--half',
+          transform: transform
+        } %}
+      {% endset %}
+
+      {# Image 1/2 Block #}
     {% case 'imageHalfWidth' %}
-    {% set cmt = cmt ? cmt : 'layout-helper__margin-top--m' %}
-    {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--m' %}
-    {% set colClasses =
-      'col col-xs-12 col-md-10 col-md-shift-1 col-lg-8 col-lg-shift-2'
-    %}
-    {% set contentBlock %}
-      {% include '_components/_content-elements/imagecontent' with {
-        img: block.image,
-        imageAltText: block.imageAltText,
-        imageSizeParam: 'image--half'
-      } %}
-    {% endset %}
+      {% set cmt = cmt ? cmt : 'layout-helper__margin-top--m' %}
+      {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--m' %}
+      {% set colClasses =
+        'col col-xs-12 col-md-10 col-md-shift-1 col-lg-8 col-lg-shift-2' %}
+      {% set contentBlock %}
+        {% include '_components/_content-elements/imagecontent' with {
+          img: block.image,
+          imageAltText: block.imageAltText,
+          imageSizeParam: 'image--half'
+        } %}
+      {% endset %}
 
-    {# Video Block #}
+      {# Video Block #}
     {% case 'youtubeVideo' %}
-    {% set cmt = cmt ? cmt : 'layout-helper__margin-top--m' %}
-    {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--m' %}
-    {% set colClasses =
-      'col col-xs-12 col-md-10 col-md-shift-1 col-lg-8 col-lg-shift-2'
-    %}
-    {% set contentBlock %}
-      {% include '_components/_content-elements/video' with {
-        videoSrc: block.youtubeVideoSrc
-      } %}
-    {% endset %}
+      {% set cmt = cmt ? cmt : 'layout-helper__margin-top--m' %}
+      {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--m' %}
+      {% set colClasses =
+        'col col-xs-12 col-md-10 col-md-shift-1 col-lg-8 col-lg-shift-2' %}
+      {% set contentBlock %}
+        {% include '_components/_content-elements/video' with {
+          videoSrc: block.youtubeVideoSrc
+        } %}
+      {% endset %}
 
-    {# Accordion Block #}
+      {# Accordion Block #}
     {% case 'accordion' %}
-    {% set cmt = cmt ? cmt : 'layout-helper__margin-top--m' %}
-    {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--l' %}
-    {% set colClasses =
-      'col col-xs-12 col-md-10 col-md-shift-1 col-lg-8 col-lg-shift-2'
-    %}
-    {% set contentBlock %}
-      {% include '_components/_content-elements/accordion' with {
-        items: block.children
-      } %}
-    {% endset %}
+      {% set cmt = cmt ? cmt : 'layout-helper__margin-top--m' %}
+      {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--l' %}
+      {% set colClasses =
+        'col col-xs-12 col-md-10 col-md-shift-1 col-lg-8 col-lg-shift-2' %}
+      {% set contentBlock %}
+        {% include '_components/_content-elements/accordion' with {
+          items: block.children
+        } %}
+      {% endset %}
 
     {% endswitch %}
 

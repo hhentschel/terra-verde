@@ -8,6 +8,8 @@
 {% set catStatusID = catStatusID ?? '' %} #}
 
 {% set articleCategoriesDeli = articleCategoriesDeli ?? [] %}
+{% set articleCategoriesDeliAll = articleCategoriesDeliAll ?? [] %}
+
 {% set articleCategoriesGift = articleCategoriesGift ?? [] %}
 {% set articleCategoriesWine = articleCategoriesWine ?? [] %}
 {% set articleCategoriesStatus = articleCategoriesStatus ?? [] %}
@@ -29,9 +31,7 @@
 {% set catGiftOptions = craft.categories.group('catGroupGift').all() %}
 {% set catWineOptions = craft.categories.group('catGroupWine').all() %}
 {% set catStatusOptions = craft.categories.group('catGroupStatus').all() %}
-
-{# Defines limit options. #}
-{% set limitOptions = [8, 16, 24, 48] %}
+{% set catAll = craft.categories.group('catGroupStatus, catGroupDeli, catGroupGift, catGroupWine').all() %}
 
 {# Create an array of filters. #}
 {% set filters = {
@@ -58,14 +58,16 @@
     })
   )
 %}
-
 {% set categories =
   articleCategoriesDeli
-    |merge(articleCategoriesWine)
     |merge(articleCategoriesGift)
+    |merge(articleCategoriesWine)
+    |merge(articleCategoriesStatus)
 %}
 
-{% if categories is not empty %}
+
+
+{% if not articleCategoriesDeliAll %}
   {% do productQuery.andRelatedTo(categories) %}
 {% endif %}
 
@@ -79,11 +81,13 @@
 
 {% if articleCategoriesGift is not empty %}
   {% do productQuery.andRelatedTo(articleCategoriesGift) %}
+{% endif %}
+#}
+
+{# {% if articleCategoriesStatus is not empty %}
+  {% do productQuery.relatedTo(articleCategoriesStatus) %}
 {% endif %} #}
 
-{% if articleCategoriesStatus is not empty %}
-  {% do productQuery.andRelatedTo(articleCategoriesStatus) %}
-{% endif %}
 
 {# Paginate entry query to get page info. #}
 {% set pageInfo = sprig.paginate(productQuery, page) %}
@@ -108,6 +112,7 @@
   </script>
 {% endif %}
 
+
 <div s-replace="#tvboard" class="shop__board row">
   {% include 'sprig/components/filters/_components/filters/catfilter' %}
 
@@ -125,12 +130,16 @@
       Produkten
     </p>
 
+
+    {{ sprig('sprig/components/filters/_components/indicator') }}
+
     {% if viewType == 'grid' %}
     <div>
       <button sprig
         s-val:view-type="list"
         s-val:page="1"
         s-val:limit="102"
+        s-indicator=".loading-button__indicator"
         class="btn-viewchange">
         <span class="btn-viewchange__text">Listenansicht</span>
         <div>
@@ -140,6 +149,7 @@
         <span class="btn-viewchange__bar"></span>
         </div>
       </button>
+
     </div>
     {% else %}
     <div>
@@ -147,6 +157,7 @@
         s-val:view-type="grid"
         s-val:page="1"
         s-val:limit="36"
+        s-indicator=".loading-button__indicator"
         class="btn-viewchange">
         <span class="btn-viewchange__text">Rasteransicht</span>
       <span href="" class="grid-icon grid-icon--fill">

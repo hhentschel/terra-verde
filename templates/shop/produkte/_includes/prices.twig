@@ -1,3 +1,9 @@
+{% set variantPrice = variant.price %}
+{% set variantPriceRound = round((variantPrice + 0.000001) * 20) / 20 %}
+
+{% set variantSalePrice = variant.salePrice %}
+{% set variantSalePriceRound = round((variantSalePrice + 0.000001) * 20) / 20 %}
+
 <div class="shop-list__item--prices">
   {% if currentUser %}
     {% if
@@ -5,22 +11,16 @@
         or currentUser.isInGroup('userGroupRedactors') %}
       {% if variant.onSale %}
         <strike class="shop-list__item--price-old">
-          {{ variant.price|currency('CHF') }}
+          {{ variantPriceRound|number_format(2, '.', '')|currency('CHF') }}
+          {# {{ variant.price|currency('CHF') }} #}
         </strike>
         <span class="shop-list__item--price-sale">
-          {{ variant.salePrice|currency('CHF') }}
+          {{ variantSalePriceRound|number_format(2, '.', '')|currency('CHF') }}
+          {# {{ variant.salePrice|currency('CHF') }} #}
         </span>
       {% else %}
         <span class="shop-list__item--price">
-          {# {% set amount = variant.price|currency('CHF') %} #}
-
-          {# {% set amountround = round((amount + 0.000001) * 20) / 20 %} #}
-          {# {% set amountround = round((amount + 0) / 20) %} #}
-
-          {# <strong>CHF {{ amountround|number_format(2, '.', '') }}</strong> #}
-          {# {{ product.pricePrivateCustomer|currency('CHF') }} #}
-          {# {{ product.pricePrivateCustomerTest|currency('CHF') }} #}
-          {{ variant.price|currency('CHF') }}
+          {{ variantPriceRound|number_format(2, '.', '')|currency('CHF') }}
         </span>
       {% endif %}
     {% elseif
@@ -28,10 +28,10 @@
         or currentUser.isInGroup('userGroupRedactors') %}
       {% if variant.onSale %}
         <strike class="shop-list__item--price-old">
-          {{ variant.price|currency('CHF') }}
+          {{ variantPriceRound|number_format(2, '.', '')|currency('CHF') }}
         </strike>
         <span class="shop-list__item--price-sale">
-          {{ variant.salePrice|currency('CHF') }}
+          {{ variantSalePriceRound|number_format(2, '.', '')|currency('CHF') }}
         </span>
       {% else %}
         <span class="shop-list__item--price">
@@ -42,10 +42,10 @@
   {% else %}
     {% if variant.onSale %}
       <strike class="shop-list__item--price-old">
-        {{ variant.price|currency('CHF') }}
+        {{ variantPriceRound|number_format(2, '.', '')|currency('CHF') }}
       </strike>
       <span class="shop-list__item--price-sale">
-        {{ variant.salePrice|currency('CHF') }}
+        {{ variantSalePriceRound|number_format(2, '.', '')|currency('CHF') }}
       </span>
     {% else %}
       <span class="shop-list__item--price">

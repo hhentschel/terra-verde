@@ -84,6 +84,8 @@
                                        type="text" name="lineItems[{{ item.id }}][options][donationAmount]" placeholder="Donation" value="{{item.options.donationAmount}}">
                             {% endif %}
 
+
+
                             <span class=" {{ item.options.donationAmount is defined ? 'hidden' : '' }}">
                                 <input sprig s-action="commerce/cart/update-cart" s-method="post"
                                       class="input  input-small {% if item.getFirstError('qty') %}border-red-500 border{% endif %}"
@@ -109,14 +111,36 @@
                                     <div class="form__cart-table--item-price-name">Einzelpreis:</div>
                                       {% if item.onSale %}
                                       <div class="form__cart-table--item-price-number">
-                                        <del> {{ item.price|commerceCurrency(cart.currency) }} </del>
+                                      {# {% set itemPrice = item.price %}
+                                      {% set itemPriceRound = round((itemPrice + 0.000001) * 20) / 20 %}
+                                        {{
+                                          itemPriceRound|number_format(2, '.', '')|commerceCurrency(cart.currency)
+                                        }} #}
+                                        <del>
+                                          {{ item.price|commerceCurrency(cart.currency) }}
+                                        </del>
                                       </div>
-                                     <div class="form__cart-table--item-price-number form__cart-table--item-price-number-bold"> {{ item.salePrice|commerceCurrency(cart.currency) }} </div>
+                                     <div class="form__cart-table--item-price-number form__cart-table--item-price-number-bold">
+                                      {# {% set itemSalePrice = item.salePrice %}
+                                      {% set itemSalePriceRound = round((itemSalePrice + 0.000001) * 20) / 20 %}
+                                      {{
+                                        itemSalePriceRound|number_format(2, '.', '')|commerceCurrency(cart.currency)
+                                      }} #}
+
+                                      {{ item.salePrice|commerceCurrency(cart.currency) }}
+                                      </div>
                                       {% endif %}
                                     {% if item.onSale %}
 
                                     {% else %}
-                                    <div class="form__cart-table--item-price-number form__cart-table--item-price-number-bold"> {{ item.price|commerceCurrency(cart.currency) }}</div>
+                                    <div class="form__cart-table--item-price-number form__cart-table--item-price-number-bold">
+                                      {# {% set itemPrice = item.price %}
+                                      {% set itemPriceRound = round((itemPrice + 0.000001) * 20) / 20 %}
+                                      {{
+                                        itemPriceRound|number_format(2, '.', '')|commerceCurrency(cart.currency)
+                                      }} #}
+
+                                    {{ item.price|commerceCurrency(cart.currency) }}</div>
                                     {% endif %}
                                 </div>
                                 {% if item.onSale %}
@@ -175,7 +199,14 @@
                             {% if not cart.hasErrors() %}
                                 <div class="form__cart-table--item-price" title="{{ item.total }}">
                                     <div class="form__cart-table--item-price-name">Total Artikelpreis:</div>
-                                    <div class="form__cart-table--item-price-number form__cart-table--item-price-number-bold">{{ item.total|commerceCurrency(cart.currency) }}</div>
+                                    <div class="form__cart-table--item-price-number form__cart-table--item-price-number-bold">
+                                      {% set itemTotalPrice = item.total %}
+                                      {% set itemTotalPriceRound = round((itemTotalPrice + 0.000001) * 20) / 20 %}
+                                      {{
+                                        itemTotalPriceRound|number_format(2, '.', '')|commerceCurrency(cart.currency)
+                                      }}
+                                    {# {{ item.total|commerceCurrency(cart.currency) }} #}
+                                    </div>
                                 </div>
                             {% endif %}
 
@@ -196,7 +227,15 @@
                     <td colspan="1" class="">
                         <div class="form__cart-table--item-pricesubtotal" title="{{ cart.itemSubTotal }}">
                             <div class="form__cart-table--item-price-name">Gesamtpreis:</div>
-                            <div class="form__cart-table--item-pricesubtotal-number">{{ cart.itemTotalAsCurrency }}</div>
+                            <div class="form__cart-table--item-pricesubtotal-number">
+                            {% set cartItemSubTotal  = cart.itemSubTotal  %}
+                            {% set cartItemSubTotalRound = round((cartItemSubTotal + 0.000001) * 20) / 20 %}
+                            {{
+                              cartItemSubTotalRound|number_format(2, '.', '')|commerceCurrency(cart.currency)
+                            }}
+
+                            {# {{ cart.itemTotalAsCurrency }} #}
+                            </div>
                         </div>
                     </td>
                     <td>
@@ -292,7 +331,14 @@
 
                             <div class="form__cart-table--item-pricetotal" title="{{ cart.totalPrice }}">
                                 <div class="form__cart-table--item-price-name">Warenkorb Gesamtpreis:</div>
-                                <div class="form__cart-table--item-pricetotal-number">{{ cart.totalPrice|commerceCurrency(cart.currency) }}</div>
+                                <div class="form__cart-table--item-pricetotal-number">
+                                {% set cartTotalPrice = cart.totalPrice %}
+                                {% set cartTotalPriceRound = round((cartTotalPrice + 0.000001) * 20) / 20 %}
+                                {{
+                                  cartTotalPriceRound|number_format(2, '.', '')|commerceCurrency(cart.currency)
+                                }}
+                                {# {{ cart.totalPrice|commerceCurrency(cart.currency) }} #}
+                                </div>
                             </div>
                         {% endif %}
                     </td>
@@ -303,14 +349,46 @@
                             <div class="form__cart-table--buttons-container">
                                 <div>
                                     {% if not cart.hasErrors() %}
-                                      {% if cart.totalPrice < 30 %}
-                                      <div class="form__cart--expection">
-                                        <a class="button button--secondary" href="#">Zahlung nicht möglich</a>
-                                        <span>Mindestbestellbetrag: 30,- CHF</span>
-                                      </div>
-                                      {% else %}
-                                        <a class="button button--primary" href="{{ url('shop/checkout') }}">Bezahlen</a>
-                                      {% endif %}
+                                      {% set userExists = craft.users.email(cart.email).one() %}
+                                      {% if userExists %}
+                                        {% if userExists.isInGroup('userGroupRetail') %}
+
+                                          {% set nettoPrice = cart.totalPrice - cart.getTotalTaxIncluded %}
+                                          {% if nettoPrice < 150 %}
+                                          <div class="form__cart--expection">
+                                            <a class="button button--secondary" href="#">Zahlung nicht möglich</a>
+                                            <span>Mindestbestellbetrag Netto: 150,- CHF</span>
+                                          </div>
+                                          {% else %}
+                                            <a class="button button--primary" href="{{ url('shop/checkout') }}">Bezahlen</a>
+                                          {% endif %}
+
+                                        {% elseif userExists.isInGroup('userGroupPrivate') %}
+
+                                          {% if cart.totalPrice < 30 %}
+                                          <div class="form__cart--expection">
+                                            <a class="button button--secondary" href="#">Zahlung nicht möglich</a>
+                                            <span>Mindestbestellbetrag: 30,- CHF</span>
+                                          </div>
+                                          {% else %}
+                                            <a class="button button--primary" href="{{ url('shop/checkout') }}">Bezahlen</a>
+                                          {% endif %}
+
+                                        {% else %}
+
+                                        {% if cart.totalPrice < 30 %}
+                                          <div class="form__cart--expection">
+                                            <a class="button button--secondary" href="#">Zahlung nicht möglich</a>
+                                            <span>Mindestbestellbetrag: 30,- CHF</span>
+                                          </div>
+                                          {% else %}
+                                            <a class="button button--primary" href="{{ url('shop/checkout') }}">Bezahlen</a>
+                                          {% endif %}
+
+                                        {% endif %}
+
+                                      {% endif %} {# if user exists #}
+
                                     {% endif %}
                                 </div>
                             </div>

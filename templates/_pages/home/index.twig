@@ -21,7 +21,7 @@
   {# HOMEPAGE-NEWS MOBILE #}
   {% if
     entry.newsHomepageField is defined
-      and entry.newsHomepageField is not empty %}
+    and entry.newsHomepageField is not empty %}
     {% for block in entry.newsHomepageField.all() %}
       <div class="homepage-news homepage-news--mobile">
         <span class="homepage-news__time">{{ block.newsHomepageTime }}</span>
@@ -51,14 +51,12 @@
           Auswahl aus dem Shop
         </h2>
         <a class="home__link layout-helper__margin-bottom--s"
-          href="{{ navNewArticles.url }}">
+           href="{{ navNewArticles.url }}">
           <span class="link__text link__text--section">{{ 'Shop'|t }}</span>
           <div class="link__icon-wrapper link__icon-wrapper--internal">
-            {{
-              macros.svg('arrow_42')|attr({
-                class: 'link__icon link__icon--internal icon icon--42'
-              })
-            }}
+            {{ macros.svg('arrow_42')|attr({
+              class: 'link__icon link__icon--internal icon icon--42'
+            }) }}
           </div>
         </a>
       </div>
@@ -76,27 +74,25 @@
               Aktionen
             </h3>
             <a class="section-home__link"
-              href="shop/produkte?search=&limit=16&articleCategoriesStatus=10744&page=1">
+               href="shop/produkte?search=&limit=16&articleCategoriesStatus=10744&page=1">
               <span class="link__text link__text--section">
                 {{ 'Alle Aktionen'|t }}
               </span>
               <div class="link__icon-wrapper link__icon-wrapper--internal">
-                {{
-                  macros.svg('arrow_42')|attr({
-                    class: 'link__icon link__icon--internal icon icon--42'
-                  })
-                }}
+                {{ macros.svg('arrow_42')|attr({
+                  class: 'link__icon link__icon--internal icon icon--42'
+                }) }}
               </div>
             </a>
           </div>
         </div>
 
         <div class="row section-home__row-products">
-          {% for product in saleproducts %}
+          {% for product in saleproducts.all() %}
             {% for variant in product.getVariants() %}
               <div class="col col-xs-12 col-md-4 col-lg-4 section-home__product">
                 <a href="{{ product.url }}"
-                  class="section-home__product--link onsale">
+                   class="section-home__product--link onsale">
                   {% set transform = transformation|default('productListing') %}
                   {# {% set img = product.articleImage.one().optimizedimages
                     ?? generic.image.one().optimizedimages
@@ -147,23 +143,21 @@
               Neuheiten
             </h3>
             <a class="section-home__link"
-              href="shop/produkte?search=&limit=16&articleCategoriesStatus=10745&page=1">
+               href="shop/produkte?search=&limit=16&articleCategoriesStatus=10745&page=1">
               <span class="link__text link__text--section">
                 {{ 'Alle Neuheiten'|t }}
               </span>
               <div class="link__icon-wrapper link__icon-wrapper--internal">
-                {{
-                  macros.svg('arrow_42')|attr({
-                    class: 'link__icon link__icon--internal icon icon--42'
-                  })
-                }}
+                {{ macros.svg('arrow_42')|attr({
+                  class: 'link__icon link__icon--internal icon icon--42'
+                }) }}
               </div>
             </a>
           </div>
         </div>
 
         <div class="row section-home__row-products">
-          {% for product in newproducts %}
+          {% for product in newproducts.all() %}
             {% for variant in product.getVariants() %}
               <div class="col col-xs-12 col-md-4 col-lg-4 section-home__product">
                 <a href="{{ product.url }}" class="section-home__product--link">
@@ -220,7 +214,7 @@
         </div>
 
         <div class="row section-home__row-products">
-          {% for product in favproducts %}
+          {% for product in favproducts.all() %}
             {% for variant in product.getVariants() %}
               <div class="col col-xs-12 col-md-4 col-lg-4 section-home__product">
                 <a href="{{ product.url }}" class="section-home__product--link">
@@ -267,11 +261,9 @@
                 {{ 'Zum Blog'|t }}
               </span>
               <div class="link__icon-wrapper link__icon-wrapper--internal">
-                {{
-                  macros.svg('arrow_42')|attr({
-                    class: 'link__icon link__icon--internal icon icon--42'
-                  })
-                }}
+                {{ macros.svg('arrow_42')|attr({
+                  class: 'link__icon link__icon--internal icon icon--42'
+                }) }}
               </div>
             </a>
           </div>
@@ -285,7 +277,7 @@
 
                 {% if
                   entry.recipes.name is defined
-                    and entry.recipes.name is not empty %}
+                  and entry.recipes.name is not empty %}
                   {% set img = entry.recipes.getImageUrl() %}
                   {% if img is defined %}
                     {% include '_components/_content-elements/image-recipe' with {

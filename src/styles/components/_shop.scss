@@ -90,6 +90,10 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
     flex: 1;
   }
 
+  &__subcategories {
+    margin-left: px-to-rem($space--m);
+  }
+
   &__pagination {
     margin: px-to-rem($space--l) 0 px-to-rem($space--s) 0;
 
@@ -274,6 +278,11 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
     }
   }
 
+  &.loading-button__indicator--loading {
+    opacity: 0.5;
+    background-color: lightblue;
+  }
+
   &__listview {
     .shop-list__item {
       flex-direction: row;
@@ -309,11 +318,15 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
       align-self: flex-start;
     }
     .shop-list__item-cart {
-      width: 210px;
+      // width: 210px;
       align-items: flex-end;
       .button--primary {
-        width: auto;
-        padding: px-to-rem($space--s) px-to-rem($space--xs);
+        width: 160px;
+        padding: px-to-rem($space--s) px-to-rem($space--s);
+      }
+      .button--primary.button--success {
+        width: 160px;
+        padding: px-to-rem($space--s) px-to-rem($space--s);
       }
     }
   }

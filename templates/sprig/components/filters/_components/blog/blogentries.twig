@@ -35,17 +35,6 @@
               {% endif %}
             {% endif %}
 
-              {% if
-              entry.recipes is defined and entry.recipes is not empty %}
-              {% set img = entry.recipes.getImageUrl() ?? null %}
-              {% set transform =
-                transformation|default('imageOneThird')
-              %}
-              {% include '_components/_content-elements/image-recipe' with {
-                  image: img,
-                  transform: transform
-                } %}
-            {% endif %}
 
           </div>
             <div class="blog-list__item--preview-lead">
@@ -54,17 +43,10 @@
 
         </div>
 
-          <span href="{{ entry.url }}"
+          <a href="{{ entry.url }}"
             class="blog-list__item--linkdetail">
-            {% if
-              entry.contentElements is defined
-                and entry.contentElements is not empty %}
-              mehr Informationen
-            {% elseif
-              entry.recipes is defined and entry.recipes is not empty %}
-              mehr Informationen zum Rezept
-            {% endif %}
-          </span>
+           mehr Informationen
+          </a>
       </a>
     {% endfor %}
   {% endif %}

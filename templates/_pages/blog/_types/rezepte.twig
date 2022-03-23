@@ -1,5 +1,32 @@
+<div class="col col-xs-12 col-md-12 col-lg-10 col-lg-shift-2">
+  {% block content %}
+    <div class="content__detail-header">
+      <div class="content__detail-image producers-overview__image">
+        {% set transform = transformation|default('imageOneThird') %}
+        {% set img = entry.image.one() ?? null %}
+
+        {% if img is defined and img is not empty %}
+          {% include '_components/_content-elements/image' with {
+            optimizedimages: img,
+            transform: transform
+          } %}
+        {% endif %}
+      </div>
+
+      <div class="content__detail-lead producers-overview__lead">
+        {{ entry.leadText }}
+      </div>
+    </div>
+
+    {% include '_components/_content-elements/content-elements-loop' with {
+      contentElements: entry.contentElements.level(1),
+      usesGrid: false
+    } %}
+  {% endblock %}
+</div>
 
 
+{#
 {% block content %}
 <div class="blog-entry blog-entry__recipe">
 <div class="row">
@@ -76,11 +103,10 @@
   </div>
 
 </div>
-
-  {# <h3>
+#}
+{# <h3>
     {{ entry.recipes.name }}
-  </h3> #}
-
+  </h3> #}{#
 <div class="row">
   <div class="col col-xs-12 col-md-6 col-lg-6">
     {% set ingredients = entry.recipes.getIngredients('metric') %}
@@ -91,51 +117,51 @@
       <ul class="recipe-list__ingredient">
         {% for ingredient in ingredients %}
           <li>{{ ingredient }}</li>
-          {# <li>
+#}
+{# <li>
             {{
               ingredient|replace({
                 ' tbsp': ' Teelöffel'
               })
             }}
-          </li> #}
-        {% endfor %}
-      </ul>
-    {% endif %}
+          </li> #}{#
+{% endfor %}
+</ul>
+{% endif %}
 
-  </div>
+</div>
 
 
 
 <div class="col col-xs-12 col-md-6 col-lg-6">
- {% set directions = entry.recipes.getDirections() %}
-    {% if directions %}
-      <h2 class="heading--3 layout-helper__margin-top--m">
-        Anleitung
-      </h2>
-      <ol class="recipe-directions">
-        {% for direction in directions %}
-          <li>{{ direction }}</li>
-        {% endfor %}
-      </ol>
-    {% endif %}
+{% set directions = entry.recipes.getDirections() %}
+{% if directions %}
+<h2 class="heading--3 layout-helper__margin-top--m">
+Anleitung
+</h2>
+<ol class="recipe-directions">
+{% for direction in directions %}
+  <li>{{ direction }}</li>
+{% endfor %}
+</ol>
+{% endif %}
 
-    {% set equipment = entry.recipes.getEquipment() %}
-    {% if equipment %}
-      <h4>
-        Zubehör
-      </h4>
-      <ul class="recipe-list">
-        {% for item in equipment %}
-          <li>{{ item }}</li>
-        {% endfor %}
-      </ul>
-    {% endif %}
-  {% endblock %}
+{% set equipment = entry.recipes.getEquipment() %}
+{% if equipment %}
+<h4>
+Zubehör
+</h4>
+<ul class="recipe-list">
+{% for item in equipment %}
+  <li>{{ item }}</li>
+{% endfor %}
+</ul>
+{% endif %}
+{% endblock %}
 
 
 
 </div>
 </div>
 </div>
-
-
+#}

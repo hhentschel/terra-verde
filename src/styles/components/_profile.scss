@@ -1,5 +1,13 @@
-.profile__adresses-list {
-  .adresses-list__item {
-    border-bottom: 2px solid $color--blue;
+.profile__adresses {
+  .adress-item {
+    border: 1px solid $color--blue;
+    padding: px-to-rem($space--m);
+    border-radius: px-to-rem(2);
+  }
+
+  .adress-item__buttons {
+    display: flex;
+    margin: px-to-rem($space--m) 0 0 0;
+    justify-content: space-between;
   }
 }

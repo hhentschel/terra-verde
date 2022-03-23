@@ -21,7 +21,7 @@ $hintSize: px-to-rem(176);
 #order-hints {
   height: $hintSize;
   position: relative;
-  max-width: $hintSize;
+  width: $hintSize;
 }
 
 #order-hints > * {
@@ -71,5 +71,31 @@ $hintSize: px-to-rem(176);
     margin: 0;
     align-self: center;
     line-height: $line-height--m;
+  }
+}
+
+// loading svg
+.loading-button {
+  $this: &;
+
+  display: flex;
+  align-items: center;
+  gap: get-spacing(small-3);
+
+  &__indicator {
+    &--loading,
+    &--loading-shop {
+      #{$this}__spinner {
+        display: inline;
+      }
+
+      #{$this}__check {
+        display: none;
+      }
+    }
+  }
+
+  &__spinner {
+    display: none;
   }
 }
