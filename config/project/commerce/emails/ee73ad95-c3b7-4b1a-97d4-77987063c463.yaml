@@ -3,10 +3,9 @@ cc: null
 enabled: true
 language: orderLanguage
 name: Bestell-Bestätigung
-pdf: 63fb2479-518b-42d4-b388-594c194ee08d # Bestell-PDF
 plainTextTemplatePath: ''
 recipientType: customer
-replyTo: null
+replyTo: bestellung@terra-verde.ch
 subject: 'Ihre Bestellung bei Terra Verde Bio Gourmet AG - #{{ order.reference }}'
 templatePath: /shop/_email/order-confirmation.twig
 to: null

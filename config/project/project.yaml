@@ -1,4 +1,4 @@
-dateModified: 1646952011
+dateModified: 1648028448
 email:
   fromEmail: p@henrik-hentschel.de
   fromName: 'Terra Verde'
@@ -396,9 +396,16 @@ plugins:
       toEmail: p@henrik-hentschel.de
   craft-commerce-back-in-stock:
     edition: standard
-    enabled: false
+    enabled: true
     licenseKey: HJ40MIOSHZVXNFVCVIR04RP7
     schemaVersion: 1.0.0
+    settings:
+      confirmationEmailSubject: 'Terra-Verde Shop, E-Mail Bestätigung für E-Mail Benachrichtigung (Produkt wieder verfügbar).'
+      confirmationEmailTemplate: /shop/_email/back-in-stock-confirmation.twig
+      emailSubject: 'Terra-Verde Shop, Produkt {{variant.title}} ist wieder erhältlich.'
+      emailTemplate: /shop/_email/back-in-stock-notification.twig
+      purgeRequests: ''
+      sendConfirmation: '1'
   diy-widget:
     edition: standard
     enabled: true
@@ -711,7 +718,7 @@ plugins:
     settings:
       baseUrlPrefix: ''
       placeholderImage: ''
-      replaceTransforms: '0'
+      replaceTransforms: '1'
   user-guide:
     edition: standard
     enabled: true

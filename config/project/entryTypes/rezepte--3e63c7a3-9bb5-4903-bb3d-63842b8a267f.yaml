@@ -45,6 +45,33 @@ fieldLayouts:
             warning: null
             width: 100
           -
+            fieldUid: 57e5fec1-460f-4063-a3db-815af978dc8f # Bild
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 79922ac9-edbc-44e9-850c-3995f6bcdbee # Bild Legende
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: f836488e-b5ab-4d7d-8b93-f9d9fb95263f # Bild Alt-Text
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
             fieldUid: 9f46731d-7fdd-4245-9ca1-719db0672448 # Inhaltselemente
             instructions: null
             label: null
@@ -55,19 +82,6 @@ fieldLayouts:
             width: 100
         name: Inhalt
         sortOrder: 1
-      -
-        elements:
-          -
-            fieldUid: 1cd651ff-a41f-4d1c-9296-41e714505e6b # Rezepte
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            warning: null
-            width: 100
-        name: OLD
-        sortOrder: 2
 handle: rezepte
 hasTitleField: true
 name: Rezept
