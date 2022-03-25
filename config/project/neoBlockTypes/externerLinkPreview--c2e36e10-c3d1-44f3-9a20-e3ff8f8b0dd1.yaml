@@ -5,5 +5,5 @@ maxBlocks: 0
 maxChildBlocks: 0
 maxSiblingBlocks: 0
 name: 'Externer Link Preview'
-sortOrder: 10
+sortOrder: 9
 topLevel: true

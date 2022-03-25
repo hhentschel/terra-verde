@@ -317,6 +317,14 @@
               <mj-text align="left" color="#222" font-size="15px" font-family="'Open Sans', Arial, sans-serif" padding-left="25px" padding-right="25px" padding-bottom="0px" padding-top="20">{{ order.getTotalShippingCost()|commerceCurrency(order.currency) }} - {{ order.shippingMethodName }}</mj-text>
             </td>
           </tr>
+           <tr>
+            <td>
+              <mj-text align="left" color="#222" font-size="15px" font-family="'Open Sans', Arial, sans-serif" padding-left="25px" padding-right="25px" padding-bottom="0px" padding-top="20"><strong>Bezahlung:</strong></mj-text>
+            </td>
+            <td>
+              <mj-text align="left" color="#222" font-size="15px" font-family="'Open Sans', Arial, sans-serif" padding-left="25px" padding-right="25px" padding-bottom="0px" padding-top="20">{{ order.gateway }}</mj-text>
+            </td>
+          </tr>
       </table>
 
                 </td>

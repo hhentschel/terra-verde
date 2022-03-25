@@ -19,6 +19,15 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
       flex-wrap: nowrap;
     }
   }
+
+  &__board-topline {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: px-to-rem($space--m);
+  }
+  &__board-pagination {
+    margin: 0;
+  }
 }
 
 #tvboard {
@@ -81,16 +90,21 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
     flex: 1;
   }
 
+  &__subcategories {
+    margin-left: px-to-rem($space--m);
+  }
+
   &__pagination {
     margin: px-to-rem($space--l) 0 px-to-rem($space--s) 0;
 
     &-desktop {
-      display: none;
+      // display: none;
 
       @include breakpoint('tablet-portrait') {
         display: flex;
         justify-content: space-between;
-        align-items: center;
+        // align-items: center;
+        flex-direction: column;
       }
     }
 
@@ -108,6 +122,12 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
       display: flex;
       align-items: center;
       margin: 0 px-to-rem($space--s) 0 0;
+      justify-content: space-between;
+      flex-direction: column;
+
+      @include breakpoint('tablet-landscape') {
+        flex-direction: row;
+      }
     }
 
     &-pagesindex {
@@ -255,6 +275,59 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
     }
     @include breakpoint('desktop') {
       margin: -$shop-list__grid-gutter--desktop / 2;
+    }
+  }
+
+  &.loading-button__indicator--loading {
+    opacity: 0.5;
+    background-color: lightblue;
+  }
+
+  &__listview {
+    .shop-list__item {
+      flex-direction: row;
+      border-top: 1px solid $color--grey-light;
+      padding: px-to-rem($space--m) 0;
+    }
+    .shop-list__link {
+      flex-direction: row;
+    }
+    .shop-list__image {
+      height: 60px;
+      min-width: 60px;
+      padding: 0;
+      // background-color: transparent;
+    }
+    .image__img {
+      height: 60px;
+      width: 60px;
+      object-fit: contain;
+    }
+    .shop-list__text {
+      padding: 0;
+      margin: 0 0 0 px-to-rem($space--m);
+
+      > h3 {
+        padding: 0;
+        align-self: flex-start;
+        text-align: start;
+      }
+    }
+    .shop-list__text--pricevolume {
+      flex-direction: row;
+      align-self: flex-start;
+    }
+    .shop-list__item-cart {
+      // width: 210px;
+      align-items: flex-end;
+      .button--primary {
+        width: 160px;
+        padding: px-to-rem($space--s) px-to-rem($space--s);
+      }
+      .button--primary.button--success {
+        width: 160px;
+        padding: px-to-rem($space--s) px-to-rem($space--s);
+      }
     }
   }
 

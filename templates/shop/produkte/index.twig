@@ -1,25 +1,21 @@
 {% extends '/_layouts/main' %}
 
-{# {% block main %} #}
 {% block content %}
   <!-- Template: {{ _self }}.twig -->
 
-  {# {% set pageTitle = entry.pageTitle is not empty ? entry.pageTitle : entry.title
-%} #}
   <section class="grid">
-  <div class="row">
-    <div class="col col-xs-12 col-md-12 col-lg-12">
-      <h1 class="heading heading--2 heading--no-margin">
-        Shop
-      </h1>
+    <div class="row">
+      <div class="col col-xs-12 col-md-12 col-lg-12">
+        <h1 class="heading heading--2 heading--no-margin">
+          Shop
+        </h1>
 
-       <div class="">
-        {{ sprig('sprig/components/filters/_components/filters', {}, {id: 'filters'}) }}
-      </div>
+        <div class="">
+          {{ sprig('sprig/components/filters/_components/filters', {}, {id: 'filters'}) }}
+        </div>
 
       </div>
     </div>
   </section
-
 
 {% endblock %}

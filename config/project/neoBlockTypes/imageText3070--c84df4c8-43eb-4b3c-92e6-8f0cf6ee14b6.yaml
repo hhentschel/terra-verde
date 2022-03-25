@@ -9,7 +9,7 @@ fieldLayouts:
             fieldUid: 57e5fec1-460f-4063-a3db-815af978dc8f # Bild
             instructions: ''
             label: ''
-            required: '1'
+            required: ''
             tip: null
             type: craft\fieldlayoutelements\CustomField
             warning: null
@@ -45,7 +45,7 @@ fieldLayouts:
             fieldUid: d22d8183-8d37-4569-9fda-4480d52e3498 # Text Standard ohne Titel
             instructions: ''
             label: ''
-            required: '1'
+            required: ''
             tip: null
             type: craft\fieldlayoutelements\CustomField
             warning: null
@@ -57,5 +57,5 @@ maxBlocks: 0
 maxChildBlocks: 0
 maxSiblingBlocks: 0
 name: 'Bild / Text - 30% / 70%'
-sortOrder: 16
+sortOrder: 15
 topLevel: true

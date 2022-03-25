@@ -21,17 +21,17 @@
     min-height: 80vh;
   }
 
-  
+
   &--full {
     min-height: 30vh;
-    margin: px-to-rem(100)  0 px-to-rem(60) 0;
+    margin: px-to-rem(100) 0 px-to-rem(60) 0;
 
     @include breakpoint('tablet-portrait') {
       margin: px-to-rem(110) auto px-to-rem(80) auto;
       min-height: 40vh;
     }
     @include breakpoint('tablet-landscape') {
-      margin: px-to-rem(170) auto px-to-rem(120) auto;
+      margin: px-to-rem(170) auto px-to-rem(20) auto;
       min-height: 50vh;
     }
     // @include breakpoint('desktop') {

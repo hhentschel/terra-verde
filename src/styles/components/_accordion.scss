@@ -60,8 +60,8 @@ $accordion--transition-timing-function: easing(open);
     margin: 0 0 0 $accordion__icon-size;
 
     transition-property: $accordion--transition-property-transform;
-      transition-duration: $accordion--transition-duration;
-      transition-timing-function: $accordion--transition-timing-function;
+    transition-duration: $accordion--transition-duration;
+    transition-timing-function: $accordion--transition-timing-function;
 
     @include breakpoint('tablet') {
       margin: 0 $accordion__icon-size;

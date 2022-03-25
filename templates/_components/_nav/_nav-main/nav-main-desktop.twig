@@ -22,21 +22,21 @@
   <ul class="nav-main__list">
     <li class="nav-main__list-item">
       <a href="{{ shopLink.url }}"
-        class="nav__link {{ macros.isActive('shop', 1, 'nav__link--') }}">
+         class="nav__link {{ macros.isActive('shop', 1, 'nav__link--') }}">
         {{ 'Shop'|t }}
       </a>
     </li>
 
     <li class="nav-main__list-item">
       <a href="{{ ueberunsLink.url }}"
-        class="nav__link {{ macros.isActive('ueberuns', 1, 'nav__link--') }}">
+         class="nav__link {{ macros.isActive('ueberuns', 1, 'nav__link--') }}">
         {{ 'Über uns'|t }}
       </a>
     </li>
 
     <li class="nav-main__list-item">
       <a href="{{ aktuellLink.url }}"
-        class="nav__link {{ macros.isActive('aktuell', 1, 'nav__link--') }}">
+         class="nav__link {{ macros.isActive('aktuell', 1, 'nav__link--') }}">
         {{ 'Blog'|t }}
       </a>
     </li>
@@ -56,16 +56,19 @@
 
     <li class="nav-main__list-item">
       <a href="{{ produzentenLink.url }}"
-        class="nav__link {{
-        macros.isActive(
-          'produzenten',
-          1,
-          'nav__link--'
-        )
-        }}">
-        {{ 'Produzenten'|t }}
+         class="nav__link {{ macros.isActive(
+           'produzenten',
+           1,
+           'nav__link--'
+         ) }}">
+        {{ 'Produzent:innen'|t }}
       </a>
     </li>
+
+    <div class="circle--bio">
+      <span class="circle--bio-number">100%</span>
+      <span class="circle--bio-word">BIO</span>
+    </div>
 
     <li class="nav-main__list-item nav-main__list-item-last">
       {% include '_components/_nav/_nav-service/nav-service-desktop' %}
