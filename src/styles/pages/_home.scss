@@ -46,19 +46,34 @@
 
 .circle--bio {
   border-radius: 999px;
-  background-color: $color--beige-light;
-  height: 90px;
-  width: 90px;
+  background-color: $color--green-bio;
+  height: 80px;
+  width: 80px;
   position: absolute;
-  left: px-to-rem($space--m);
-  bottom: px-to-rem($space--m);
+  z-index: 100;
+  right: px-to-rem(250);
+  top: -(px-to-rem($space--xs));
   display: flex;
   align-items: center;
   text-align: center;
   line-height: $line-height--s;
-  color: #808b4f;
-  // padding: px-to-rem($space--s);
-  font-size: px-to-rem($font-size-l);
+  color: $color--white;
+  //color: #808b4f;
+  flex-direction: column;
+  justify-content: center;
+  transform: rotate(-20deg);
+
+  &-number {
+    font-size: px-to-rem($font-size-m);
+  }
+
+  &-word {
+    font-size: px-to-rem($font-size-l);
+  }
+
+  @include breakpoint('desktop') {
+    right: 35%;
+  }
 }
 
 .section-home {
@@ -113,6 +128,7 @@
       font-weight: $font-weight--bold;
     }
   }
+
   &__row-products {
     margin: px-to-rem($space--xxm) 0 px-to-rem($space--xxm) 0;
     position: relative;

@@ -1,19 +1,18 @@
 {% import '_helpers/macros.twig' as macros %}
 {% set fullHeight = entry.getSection().handle == 'homepage'
   ? 'main-image--full'
-  : ''
-%}
+  : '' %}
 
 <div class="main-image {{ fullHeight }}"
-  style="background-image: url({{ entry.mainImage.one.url }})">
+     style="background-image: url({{ entry.mainImage.one.url }})">
   {# News #}
-  <div class="circle--bio">
-    <span>100% BIO</span>
-  </div>
+  {#  <div class="circle--bio"> #}
+  {#    <span>100% BIO</span> #}
+  {#  </div> #}
 
   {% if
     entry.newsHomepageField is defined
-      and entry.newsHomepageField is not empty %}
+    and entry.newsHomepageField is not empty %}
     {% for block in entry.newsHomepageField.all() %}
       <div class="homepage-news">
         <span class="homepage-news__time">{{ block.newsHomepageTime }}</span>
