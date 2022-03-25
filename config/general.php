@@ -73,6 +73,8 @@ return [
 
     'enableTemplateCaching' => false,
     'allowUpdates' => true,
+    'backupCommand' => getenv('BACKUP_COMMAND'),
+    'restoreCommand' => getenv('RESTORE_COMMAND'),
     // 'isSystemLive' => true,
   ],
 
