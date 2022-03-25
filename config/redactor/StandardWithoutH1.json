@@ -8,8 +8,14 @@
     "orderedlist",
     "link"
   ],
-  "formatting": ["p"],
-  "plugins": ["fullscreen"],
+  "formatting": [
+    "p"
+  ],
+  "plugins": [
+    "fullscreen",
+    "table",
+    "alignment"
+  ],
   "linkNewTab": true,
   "toolbarFixed": true
 }
