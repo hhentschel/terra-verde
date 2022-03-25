@@ -47,11 +47,11 @@
 .circle--bio {
   border-radius: 999px;
   background-color: $color--green-bio;
-  height: 80px;
-  width: 80px;
+  height: 60px;
+  width: 60px;
   position: absolute;
   z-index: 100;
-  right: px-to-rem(250);
+  right: px-to-rem(100);
   top: -(px-to-rem($space--xs));
   display: flex;
   align-items: center;
@@ -64,15 +64,23 @@
   transform: rotate(-20deg);
 
   &-number {
-    font-size: px-to-rem($font-size-m);
+    font-size: px-to-rem($font-size-xs);
+    @include breakpoint('tablet-portrait') {
+      font-size: px-to-rem($font-size-m);
+    }
   }
 
   &-word {
-    font-size: px-to-rem($font-size-l);
+    font-size: px-to-rem($font-size-xs);
+    @include breakpoint('tablet-portrait') {
+      font-size: px-to-rem($font-size-l);
+    }
   }
 
-  @include breakpoint('desktop') {
+  @include breakpoint('tablet-portrait') {
     right: 35%;
+    height: 80px;
+    width: 80px;
   }
 }
 
