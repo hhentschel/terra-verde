@@ -30,5 +30,5 @@ maxBlocks: 0
 maxChildBlocks: 0
 maxSiblingBlocks: 0
 name: 'Externer Link (mit Icon)'
-sortOrder: 9
+sortOrder: 8
 topLevel: true

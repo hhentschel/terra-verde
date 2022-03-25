@@ -30,5 +30,5 @@ maxBlocks: 0
 maxChildBlocks: 0
 maxSiblingBlocks: 0
 name: 'Download Link (mit Icon)'
-sortOrder: 11
+sortOrder: 10
 topLevel: true
