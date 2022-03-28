@@ -34,6 +34,7 @@ fieldLayouts:
             width: 100
         name: Inhalt
         sortOrder: 1
+group: c9e74448-323c-4314-8339-8767051c39f5 # Titel, Text & Links
 handle: buttonLinkInternalSimple
 maxBlocks: 0
 maxChildBlocks: 0

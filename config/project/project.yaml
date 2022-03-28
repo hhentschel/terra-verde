@@ -1,4 +1,4 @@
-dateModified: 1648202801
+dateModified: 1648458501
 email:
   fromEmail: p@henrik-hentschel.de
   fromName: 'Terra Verde'
@@ -343,7 +343,7 @@ plugins:
     edition: pro
     enabled: true
     licenseKey: 0AK0ZI2780A8KYFBX5GSBRKM
-    schemaVersion: 3.4.12
+    schemaVersion: 3.4.13
     settings:
       activeCartDuration: 3600
       allowEmptyCartOnCheckout: false
@@ -567,7 +567,7 @@ plugins:
     edition: standard
     enabled: true
     licenseKey: 3Q54BEZF2WFYX60V6UPM2IWL
-    schemaVersion: 2.11.6
+    schemaVersion: 2.13.0
   nsm-fields:
     edition: standard
     enabled: true
