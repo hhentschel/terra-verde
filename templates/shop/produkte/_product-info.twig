@@ -6,6 +6,7 @@
 {% endif %}
 
 {% set addedToCart = success is defined %}
+{% set informBackInStock = success is defined %}
 
 {% if addedToCart %}
   <script>
@@ -55,31 +56,30 @@
   <div class="col col-xs-12 col-md-6 col-lg-6">
 
     {% for variant in product.variants %}
-      {% if variant.stock <= 0 %}
-        <form method="post" class="oos-registration" id="product.oos.registration.form">
-          <div class="oos-signup-complete" id="oos.signup.complete">
-            <div class="close">&times;</div>
-            <div class="message">Vielen Dank. Sie werden benachrichtigt, sobald das Produkt wieder erhältlich ist.
+      {% if variant.hasstock == false %}
+        {% if success is defined and success %}
+          <div class="bis-complete">
+            <div class="bis-signup__complete-message">Vielen Dank. Sie werden benachrichtigt, sobald das Produkt wieder
+              erhältlich ist.
             </div>
           </div>
-
-          <div class="oos-message">
-            <p>Es tut uns leid, das Produkt ist momentan leider nicht verfügbar. Wir können sie benachrichtigen,
+        {% else %}
+          <form sprig s-action="craft-commerce-back-in-stock/base/register-interest" s-method="post"
+                class="bis-signup__registration-form">
+            <div class="bis-signup__registration-message">
+              Es tut uns leid, das Produkt ist momentan leider nicht verfügbar. Wir können sie benachrichtigen,
               sobald es wieder erhältlich ist. Einfach ihre E-Mail Adresse eintragen und sie werden
               informiert.
-          </div>
-
-          {{ csrfInput() }}
-          <input type="hidden" name="action" value="craft-commerce-back-in-stock/base/register-interest">
-          <input type="hidden" id="product.oos.product.id" name="variantId" value="{{ product.defaultVariant.id }}">
-          <div class="oos-data">
-            <div class="checkout-label-field-pair">
-              <input class="input" name="email" id="product.oos.email" type="email" value="{{ cart.email }}"
-                     placeholder="your@email.com">
             </div>
-            <button id="product.oos.notify" class="add-to-cart" type="submit">Abschicken</button>
-          </div>
-        </form>
+            <input type="hidden" name="variantId" value="{{ product.defaultVariant.id }}">
+            <div class="bis-signup__registration-fields">
+              <input class="input bis-signup__registration-input"
+                     name="email" type="email" value="{{ cart.email }}"
+                     placeholder="name@email.ch">
+              <button class="bis-signup__registration-btn button button--primary" type="submit">Abschicken</button>
+            </div>
+          </form>
+        {% endif %}
       {% endif %}
     {% endfor %}
 
@@ -137,7 +137,8 @@
 
               <div class="form-addtobasket__info-add">
                 <div class="form-addtobasket__info-quantity">
-                  <input class="input form-addtobasket__info-quantity--input"
+                  <input {% if variant.hasstock == false %}disabled{% endif %}
+                         class="input form-addtobasket__info-quantity--input"
                          type="number"
                          name="purchasables[{{ loop.index }}][qty]"
                          step="1"
@@ -210,7 +211,7 @@
                           </button> #}
                   {% else %}
                     <button disabled type="submit"
-                            class="disabled button button--primary text-center">nicht verfügbar
+                            class="disabled button button--primary text-center"> In den Warenkorb
                     </button>
                   {% endif %}
                 </div>

@@ -18,7 +18,14 @@
       <div class="onsale">
       </div>
     {% endif %}
+
     <div class="shop-list__image">
+
+      {% if variant.hasstock == false %}
+        <div class="oos">
+          <span class="oos-message">nicht verfügbar</span>
+        </div>
+      {% endif %}
 
       {% set transform = transformation|default('productListing') %}
       {% set img = product.articleImage.one() ?? null %}
@@ -51,6 +58,7 @@
 
   </a>
 
+
   <form class="js-form">
 
     <div class="shop-list__item-cart">
@@ -72,30 +80,30 @@
       </div>
 
       <div class="item-cart__qty-btn">
+        {% if variant.stock > 0 or variant.hasUnlimitedStock %}
 
-        <input class="input input-xsmall"
-               name="qty"
-               type="number"
-               step="1"
+          <input class="input input-xsmall"
+                 name="qty"
+                 type="number"
+                 step="1"
 
-          {% if currentUser %}
-            {% if currentUser.isInGroup('userGroupRetail') %}
-              value="{{ product.artikelMinOrderSize }}"
-              min="{{ product.artikelMinOrderSize }}"
-              placeholder="{{ product.artikelMinOrderSize }}"
+            {% if currentUser %}
+              {% if currentUser.isInGroup('userGroupRetail') %}
+                value="{{ product.artikelMinOrderSize }}"
+                min="{{ product.artikelMinOrderSize }}"
+                placeholder="{{ product.artikelMinOrderSize }}"
+              {% else %}
+                value="1"
+                min="1"
+
+              {% endif %}
             {% else %}
               value="1"
               min="1"
 
             {% endif %}
-          {% else %}
-            value="1"
-            min="1"
+          >
 
-          {% endif %}
-        >
-
-        {% if variant.stock > 0 or variant.hasUnlimitedStock %}
           <a sprig s-action="commerce/cart/update-cart" s-method="post" s-val:purchasable-id="{{ variant.id }}" href="#"
              class="button--primary {% if addedToCart and purchasableId == variant.id %}button--success {% endif %} text-center">
             {% if addedToCart and purchasableId == variant.id %}
@@ -110,9 +118,12 @@
             {% endif %}
           </a>
         {% else %}
-          <button disabled type="submit"
-                  class="disabled button button--primary text-center">nicht verfügbar
-          </button>
+          <a class="button--oos" href="{{ product.url }}">
+            <span class="disabled button button--primary button--small">Benachrichtigen Sie mich</span>
+            {#          <button disabled type="submit" #}
+            {#                  class="disabled button button--primary text-center">Benachrichtigen Sie mich. #}
+            {#          </button> #}
+          </a>
 
           {# <form class="form" action="craft-commerce-back-in-stock/base/register-interest" method="post">
                  <input type="hidden" name="variantId" value="{{ product.defaultVariant.id }}">

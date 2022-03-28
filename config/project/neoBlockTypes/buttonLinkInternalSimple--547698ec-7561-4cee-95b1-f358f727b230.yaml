@@ -39,5 +39,5 @@ maxBlocks: 0
 maxChildBlocks: 0
 maxSiblingBlocks: 0
 name: 'Interner Link (simple)'
-sortOrder: 8
+sortOrder: 7
 topLevel: true
