@@ -152,12 +152,18 @@
                     <tr>
                       <td style="width:150px;">
 
-                        <img
-                          alt="Terra-Verde Logo" height="auto"
-                          src="https://terra-verde-staging.cl-eu-west-2.servd.dev/assets/images/logo/TerraVerde_jpg_email.jpg"
-                          style="border:none;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;"
-                          width="150"
-                        />
+                        <a
+                          href="{{ siteUrl }}" target="_blank"
+                        >
+
+                          <img
+                            alt="Terra-Verde Logo" height="auto"
+                            src="https://terra-verde-staging.cl-eu-west-2.servd.dev/assets/images/logo/TerraVerde_jpg_email.jpg"
+                            style="border:none;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;"
+                            width="150"
+                          />
+
+                        </a>
 
                       </td>
                     </tr>
@@ -309,9 +315,8 @@
                 >
 
                   <div
-                    style="font-family:'Open Sans', Arial, sans-serif;font-size:16px;line-height:1.5;text-align:left;color:#FFFFFF;"
-                  ><span
-                      style="font-size:16px; font-weight:normal; color:#222">Das Produkt <strong>{{ variant.title }} </strong> ist wieder im Webshop von {{ currentSite.name }} erhältlich.</span>
+                    style="font-family:'Open Sans', Arial, sans-serif;font-size:16px;line-height:1;text-align:left;color:#FFFFFF;"
+                  ><span style="font-size:16px; font-weight:normal; color:#222">Vielen Dank für Ihre Anmeldung.</span>
                   </div>
 
                 </td>
@@ -371,9 +376,8 @@
 
                   <div
                     style="font-family:'Open Sans', Arial, sans-serif;font-size:16px;line-height:1.5;text-align:left;color:#112233;"
-                  >Sie hatten sich per E-Mail eingetragen, um informiert zu werden, sobald das Produkt <a
-                      href="{{ variant.url }}"
-                      style="font-size:16px; font-weight:normal; color:#222"><strong>{{ variant.title }} </strong></a>
+                  >Wir werden Sie per E-Mail informieren, sobald das Prodkut <a href="{{ variant.url }}"
+                                                                                style="font-size:16px; font-weight:normal	; color:#222"><strong>{{ variant.title }} </strong></a>
                     wieder erhältlich ist.
                   </div>
 
@@ -434,70 +438,10 @@
 
                   <div
                     style="font-family:'Open Sans', Arial, sans-serif;font-size:16px;line-height:1;text-align:left;color:#FFFFFF;"
-                  ><a href="{{ siteUrl }} style=" font-size:16px; font-weight:normal; color:#222"><strong>Zum
-                      Shop </strong></a> <br/><br/>
+                  ><a href="{{ siteUrl }}" style="font-size:16px; font-weight:normal; color:#222"><strong>Zum
+                        Shop </strong></a> <br/><br/>
                     <a href="{{ variant.url }}" style="font-size:16px; font-weight:normal; color:#222"><strong>Zum
                         Produkt </strong></a></div>
-
-                </td>
-              </tr>
-
-              </tbody>
-            </table>
-
-          </div>
-
-          <!--[if mso | IE]></td></tr></table><![endif]-->
-        </td>
-      </tr>
-      </tbody>
-    </table>
-
-  </div>
-
-
-  <!--[if mso | IE]></td></tr></table>
-  <table align="center" border="0" cellpadding="0" cellspacing="0" class="" style="width:600px;" width="600">
-    <tr>
-      <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]-->
-
-
-  <div style="background:#f7f5f0;background-color:#f7f5f0;margin:0px auto;max-width:600px;">
-
-    <table
-      align="center" border="0" cellpadding="0" cellspacing="0" role="presentation"
-      style="background:#f7f5f0;background-color:#f7f5f0;width:100%;"
-    >
-      <tbody>
-      <tr>
-        <td
-          style="direction:ltr;font-size:0px;padding:20px 0;padding-bottom:5px;padding-top:0;text-align:center;"
-        >
-          <!--[if mso | IE]>
-          <table role="presentation" border="0" cellpadding="0" cellspacing="0">
-            <tr>
-              <td class="" style="vertical-align:top;width:600px;"><![endif]-->
-
-          <div
-            class="mj-column-per-100 mj-outlook-group-fix"
-            style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;"
-          >
-
-            <table
-              border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;" width="100%"
-            >
-              <tbody>
-
-              <tr>
-                <td
-                  align="left"
-                  style="font-size:0px;padding:10px 25px;padding-top:10;padding-right:25px;padding-bottom:10px;padding-left:25px;word-break:break-word;"
-                >
-
-                  <div
-                    style="font-family:'Open Sans', Arial, sans-serif;font-size:16px;line-height:1;text-align:left;color:#112233;"
-                  >Viele Grüsse vom Terra-Verde Team.
-                  </div>
 
                 </td>
               </tr>
@@ -561,7 +505,8 @@
                       Switzerland<br/> Tel: <a href="tel:044 342 10 00" style="color:#fff; text-decoration:none">044 342
                         10 00</a><br/> Fax: 044 341 97 62<br/><br/>
                       <a href="mailto:info@terra-verde.ch" style="color:#fff; text-decoration:none">bestellung@terra-verde.ch</a>
-                    </p></div>
+                    </p>
+                    <p><a href="{{ siteUrl }}" style="color:#fff; text-decoration:none">www.terra-verde.ch</a></p></div>
 
                 </td>
               </tr>
