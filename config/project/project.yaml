@@ -1,4 +1,4 @@
-dateModified: 1648202801
+dateModified: 1648562945
 email:
   fromEmail: p@henrik-hentschel.de
   fromName: 'Terra Verde'
@@ -343,7 +343,7 @@ plugins:
     edition: pro
     enabled: true
     licenseKey: 0AK0ZI2780A8KYFBX5GSBRKM
-    schemaVersion: 3.4.12
+    schemaVersion: 3.4.13
     settings:
       activeCartDuration: 3600
       allowEmptyCartOnCheckout: false
@@ -394,9 +394,16 @@ plugins:
       toEmail: p@henrik-hentschel.de
   craft-commerce-back-in-stock:
     edition: standard
-    enabled: false
+    enabled: true
     licenseKey: HJ40MIOSHZVXNFVCVIR04RP7
     schemaVersion: 1.0.0
+    settings:
+      confirmationEmailSubject: 'Back in stock notification confirmation for {{variant.title}}'
+      confirmationEmailTemplate: shop/_email/back-in-stock-confirmation.twig
+      emailSubject: 'Order today, {{variant.title}} is now in stock'
+      emailTemplate: shop/_email/back-in-stock-notification.twig
+      purgeRequests: ''
+      sendConfirmation: '1'
   diy-widget:
     edition: standard
     enabled: true
@@ -567,7 +574,7 @@ plugins:
     edition: standard
     enabled: true
     licenseKey: 3Q54BEZF2WFYX60V6UPM2IWL
-    schemaVersion: 2.11.6
+    schemaVersion: 2.13.0
   nsm-fields:
     edition: standard
     enabled: true
