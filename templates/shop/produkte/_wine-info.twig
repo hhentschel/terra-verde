@@ -21,12 +21,8 @@
   </script>
 {% endif %}
 
-
-
 {% set productQuery = craft.products() %}
 
-
-{# {% set product = productQuery.one() %} #}
 {% set product = craft.products.id(productId).one() %}
 
 <a href="javascript: history.back()" class="product-detail__button-back product-detail__button-back-arrow">Zurück zur
@@ -216,7 +212,7 @@
       </div>
     </form>
 
-    {% include 'shop/produkte/_includes/detail-summary.twig' %}
+    {% include 'shop/produkte/_includes/detail-summary__wine.twig' %}
 
   </div>
 
