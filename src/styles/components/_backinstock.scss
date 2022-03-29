@@ -1,4 +1,8 @@
 .bis {
+  &-signup__registration-form {
+    margin-bottom: px-to-rem($space--xm);
+  }
+
   &-signup__complete-message {
     background-color: $color--green;
     padding: px-to-rem($space--m);
@@ -55,6 +59,7 @@
     width: 100%;
     padding: px-to-rem($space--s);
     opacity: 0.75;
+    text-align: center;
   }
 }
 
