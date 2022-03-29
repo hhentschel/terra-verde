@@ -1,20 +1,24 @@
-
 {% set lastProductId = lastProductId ?? 0 %}
 {% set purchasableId = purchasableId ?? 0 %}
 
+{% if cart is not defined %}
+  {% set cart = craft.commerce.carts.cart %}
+{% endif %}
+
 {% set addedToCart = success is defined %}
+{% set informBackInStock = success is defined %}
 
 {% if addedToCart %}
-    <script>
-        htmx.trigger(htmx.find('#cart'), 'refresh');
-    </script>
+  <script>
+    htmx.trigger(htmx.find('#cart'), 'refresh');
+  </script>
 {% endif %}
 
 {% if sprig.isRequest %}
-    <script>
-        htmx.trigger('#cartsize', 'refresh');
-        htmx.trigger('#cartsizemobile', 'refresh');
-    </script>
+  <script>
+    htmx.trigger('#cartsize', 'refresh');
+    htmx.trigger('#cartsizemobile', 'refresh');
+  </script>
 {% endif %}
 
 
@@ -25,114 +29,140 @@
 {# {% set product = productQuery.one() %} #}
 {% set product = craft.products.id(productId).one() %}
 
-<a href="javascript: history.back()" class="product-detail__button-back product-detail__button-back-arrow">Zurück zur Übersicht</a>
+<a href="javascript: history.back()" class="product-detail__button-back product-detail__button-back-arrow">Zurück zur
+  Übersicht</a>
 
 <h2 class="heading layout-helper__margin-top--s">
-          {{ product.defaultVariant.title }}
-        </h2>
+  {{ product.defaultVariant.title }}
+</h2>
 
-        <div class="row">
-          <div class="col col-xs-12 col-md-6 col-lg-6">
-            <div class="product-detail__image">
+<div class="row">
+  <div class="col col-xs-12 col-md-6 col-lg-6">
+    <div class="product-detail__image">
 
-              {% set transform = transformation|default('productDetail') %}
-              {% set img = product.articleImage.one() ?? null %}
+      {% set transform = transformation|default('productDetail') %}
+      {% set img = product.articleImage.one() ?? null %}
 
-              {% if img is defined %}
-                {% include '_components/_content-elements/image-product'
-                  with {
-                    img: img,
-                    transform: transform
-                    } %}
-              {% endif %}
+      {% if img is defined %}
+        {% include '_components/_content-elements/image-product'
+          with {
+          img: img,
+          transform: transform
+        } %}
+      {% endif %}
 
+    </div>
+  </div>
+  <div class="col col-xs-12 col-md-6 col-lg-6">
+
+    {% for variant in product.variants %}
+      {% if variant.hasstock == false %}
+        {% if success is defined and success %}
+          <div class="bis-complete">
+            <div class="bis-signup__complete-message">Vielen Dank. Sie werden benachrichtigt, sobald das Produkt wieder
+              erhältlich ist.
             </div>
           </div>
-          <div class="col col-xs-12 col-md-6 col-lg-6">
+        {% else %}
+          <form sprig s-action="craft-commerce-back-in-stock/base/register-interest" s-method="post"
+                class="bis-signup__registration-form">
+            <div class="bis-signup__registration-message">
+              Es tut uns leid, das Produkt ist momentan leider nicht verfügbar. Wir können sie benachrichtigen,
+              sobald es wieder erhältlich ist. Einfach ihre E-Mail Adresse eintragen und sie werden
+              informiert.
+            </div>
+            <input type="hidden" name="variantId" value="{{ product.defaultVariant.id }}">
+            <div class="bis-signup__registration-fields">
+              <input class="input bis-signup__registration-input"
+                     name="email" type="email" value="{{ cart.email }}"
+                     placeholder="name@email.ch">
+              <button class="bis-signup__registration-btn button button--primary" type="submit">Abschicken</button>
+            </div>
+          </form>
+        {% endif %}
+      {% endif %}
+    {% endfor %}
 
-           <h4 class="layout-helper__margin-top--none">
-              {# {{ product.articleDescription}} #}
-              {{ product.articleDescriptionAdditional }}
-            </h4>
-            {% if product.articleAdditionalInfo %}
-              <p> {{ product.articleAdditionalInfo }}</p>
-            {% endif %}
+    <h4 class="layout-helper__margin-top--none">
+      {# {{ product.articleDescription}} #}
+      {{ product.articleDescriptionAdditional }}
+    </h4>
+    {% if product.articleAdditionalInfo %}
+      <p> {{ product.articleAdditionalInfo }}</p>
+    {% endif %}
 
-
-            <form method="post" class="js-form product-detail__form">
-              {{ actionInput('commerce/cart/update-cart') }}
-              {{
-                hiddenInput(
-                  'successMessage',
-                  ('Artikel ' ~ product.title ~ ' wurde zum Warenkorb hinzugefügt.')|hash
-                )
-              }}
-              {{ csrfInput() }}
-              <div class="product-detail__form-addtobasket">
-                {% for variant in product.variants %}
-                  {# {{
+    <form method="post" class="js-form product-detail__form">
+      {{ actionInput('commerce/cart/update-cart') }}
+      {{ hiddenInput(
+        'successMessage',
+        ('Artikel ' ~ product.title ~ ' wurde zum Warenkorb hinzugefügt.')|hash
+      ) }}
+      {{ csrfInput() }}
+      <div class="product-detail__form-addtobasket">
+        {% for variant in product.variants %}
+          {# {{
                     hiddenInput('purchasables[' ~ loop.index ~ '][id], [options]', variant.id)
                   }} #}
 
-                  <div class="form-addtobasket__info">
-                    {% if variant.articleVolume %}
-                      <div class="form-addtobasket__info-unit">
-                        {% for variant in product.variants %}
-                            {{ variant.articleVolume }}{{ variant.articleVolumeUnit }}
-                        {% endfor %}
-                        <span class="form-addtobasket__info-unit-base">
+          <div class="form-addtobasket__info">
+            {% if variant.articleVolume %}
+              <div class="form-addtobasket__info-unit">
+                {% for variant in product.variants %}
+                  {{ variant.articleVolume }}{{ variant.articleVolumeUnit }}
+                {% endfor %}
+                <span class="form-addtobasket__info-unit-base">
                         {% if variant.articleBasePriceUnit %}
-                            ({{ variant.articleBasePriceUnit }}{{ variant.articleBaseUnit }})
-                          {% endif %}
+                          ({{ variant.articleBasePriceUnit }}{{ variant.articleBaseUnit }})
+                        {% endif %}
                       </span>
-                      </div>
+              </div>
+            {% endif %}
+
+
+            <div class="form-addtobasket__info-pricestockadd">
+              <div class="form-addtobasket__info-pricestock">
+                <div class="form-addtobasket__info-price">
+                  {% include '/shop/produkte/_includes/prices.twig' %}
+                </div>
+
+                <div class="form-addtobasket__info-stock">
+                  {% if variant.stock > 0 or variant.hasUnlimitedStock %}
+                    <span class="form-addtobasket__info-stock-in">verfügbar</span>
+                  {% else %}
+                    <span class="form-addtobasket__info-stock-out">momentan nicht verfügbar</span>
+                  {% endif %}
+                </div>
+              </div>
+
+
+              <div class="form-addtobasket__info-add">
+                <div class="form-addtobasket__info-quantity">
+                  <input {% if variant.hasstock == false %}disabled{% endif %}
+                         class="input form-addtobasket__info-quantity--input"
+                         type="number"
+                         name="purchasables[{{ loop.index }}][qty]"
+                         step="1"
+                    {% if currentUser %}
+                      {% if currentUser.isInGroup('userGroupRetail') %}
+                        value="{{ product.artikelMinOrderSize }}"
+                        min="{{ product.artikelMinOrderSize }}"
+                        placeholder="{{ product.artikelMinOrderSize }}"
+                      {% else %}
+                        value="1"
+                        min="1"
+                        placeholder="0"
+                      {% endif %}
+                    {% else %}
+                      value="1"
+                      min="1"
+                      placeholder="0"
                     {% endif %}
+                    {% if variant.stock < 0 %}
+                      disabled
+                    {% endif %}
+                  />
 
-
-
-                    <div class="form-addtobasket__info-pricestockadd">
-                      <div class="form-addtobasket__info-pricestock">
-                        <div class="form-addtobasket__info-price">
-                            {% include '/shop/produkte/_includes/prices.twig' %}
-                        </div>
-
-                        <div class="form-addtobasket__info-stock">
-                            {% if variant.stock > 0 or variant.hasUnlimitedStock %}
-                              <span class="form-addtobasket__info-stock-in">verfügbar</span>
-                            {% else %}
-                              <span class="form-addtobasket__info-stock-out">momentan nicht verfügbar</span>
-                            {% endif %}
-                        </div>
-                      </div>
-
-
-                      <div class="form-addtobasket__info-add">
-                        <div class="form-addtobasket__info-quantity">
-                          <input class="input form-addtobasket__info-quantity--input"
-                            type="number"
-                            name="purchasables[{{ loop.index }}][qty]"
-                            step="1"
-                            {% if currentUser %}
-                              {% if currentUser.isInGroup('userGroupRetail') %}
-                                value="{{ product.artikelMinOrderSize }}"
-                                min="{{ product.artikelMinOrderSize }}"
-                                placeholder="{{ product.artikelMinOrderSize }}"
-                              {% else %}
-                                value="1"
-                                min="1"
-                                placeholder="0"
-                              {% endif %}
-                            {% else %}
-                                value="1"
-                                min="1"
-                                placeholder="0"
-                            {% endif %}
-                            {% if variant.stock < 0 %}
-                              disabled
-                            {% endif %}
-                            />
-
-                           {# <input sprig s-action="commerce/cart/update-cart" s-method="post"
+                  {# <input sprig s-action="commerce/cart/update-cart" s-method="post"
                                       class="input input form-addtobasket__info-quantity--input"
                                        type="number"
                                        name="purchasables[{{ loop.index }}][qty]"
@@ -156,41 +186,46 @@
                                         disabled
                                       {% endif %}> #}
 
-                        </div>
+                </div>
 
-                        <div class="form-addtobasket__info-button">
-                           {% if variant.stock > 0 or variant.hasUnlimitedStock %}
-                            <a sprig s-action="commerce/cart/update-cart" s-method="post" s-val:purchasable-id="{{ variant.id }}" href="#" class="button--primary {% if addedToCart and purchasableId == variant.id %}button--success {% endif %} text-center">
-                                {% if addedToCart and purchasableId == variant.id %}
-                                    <svg class="icon--svg icon--check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-                                    </svg>
-                                    <span>Im Warenkorb</span>
-                                {% else %}
-                                In den Warenkorb
-                                {% endif %}
-                            </a>
-                            {# <button type="submit"
+                <div class="form-addtobasket__info-button">
+                  {% if variant.stock > 0 or variant.hasUnlimitedStock %}
+                    <a sprig s-action="commerce/cart/update-cart" s-method="post"
+                       s-val:purchasable-id="{{ variant.id }}" href="#"
+                       class="button--primary {% if addedToCart and purchasableId == variant.id %}button--success {% endif %} text-center">
+                      {% if addedToCart and purchasableId == variant.id %}
+                        <svg class="icon--svg icon--check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                             fill="currentColor">
+                          <path fill-rule="evenodd"
+                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                clip-rule="evenodd"/>
+                        </svg>
+                        <span>Im Warenkorb</span>
+                      {% else %}
+                        In den Warenkorb
+                      {% endif %}
+                    </a>
+                    {# <button type="submit"
                             class="button button--primary">
                             In den Warenkorb
                           </button> #}
-                          {% else %}
-                          <button disabled type="submit"
-                                    class="disabled button button--primary text-center">nicht verfügbar
-                            </button>
-                          {% endif %}
-                        </div>
-                      </div>
-                    </div>
-
-                  </div>
-                {% endfor %}
-
+                  {% else %}
+                    <button disabled type="submit"
+                            class="disabled button button--primary text-center"> In den Warenkorb
+                    </button>
+                  {% endif %}
+                </div>
               </div>
-            </form>
-
-            {% include 'shop/produkte/_includes/detail-summary.twig' %}
+            </div>
 
           </div>
+        {% endfor %}
 
-        </div>
+      </div>
+    </form>
+
+    {% include 'shop/produkte/_includes/detail-summary.twig' %}
+
+  </div>
+
+</div>

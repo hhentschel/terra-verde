@@ -19,6 +19,7 @@
     padding: 1rem 0 0 0;
     display: block;
   }
+
   &__button-back-arrow {
     //   border: solid black;
     //   border-width: 0 1px 1px 0;
@@ -127,6 +128,7 @@
     &-in {
       color: $color--green;
     }
+
     &-out {
       color: $color--red-error;
     }
@@ -139,6 +141,12 @@
     .button {
       background-color: $color--grey-dark;
       border-color: $color--grey-dark;
+    }
+
+    .button[disabled] {
+      background-color: $color--disabled-background;
+      border-color: $color--disabled-border;
+      cursor: default;
     }
   }
 }

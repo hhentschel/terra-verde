@@ -1,4 +1,4 @@
-dateModified: 1648458501
+dateModified: 1648393468
 email:
   fromEmail: p@henrik-hentschel.de
   fromName: 'Terra Verde'
@@ -343,7 +343,7 @@ plugins:
     edition: pro
     enabled: true
     licenseKey: 0AK0ZI2780A8KYFBX5GSBRKM
-    schemaVersion: 3.4.13
+    schemaVersion: 3.4.12
     settings:
       activeCartDuration: 3600
       allowEmptyCartOnCheckout: false
@@ -394,7 +394,7 @@ plugins:
       toEmail: p@henrik-hentschel.de
   craft-commerce-back-in-stock:
     edition: standard
-    enabled: false
+    enabled: true
     licenseKey: HJ40MIOSHZVXNFVCVIR04RP7
     schemaVersion: 1.0.0
   diy-widget:
@@ -567,7 +567,7 @@ plugins:
     edition: standard
     enabled: true
     licenseKey: 3Q54BEZF2WFYX60V6UPM2IWL
-    schemaVersion: 2.13.0
+    schemaVersion: 2.11.6
   nsm-fields:
     edition: standard
     enabled: true
