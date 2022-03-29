@@ -47,21 +47,21 @@
 .circle--bio {
   border-radius: 999px;
   background-color: $color--green-bio;
-  height: 80px;
-  width: 80px;
-  position: absolute;
+  height: 50px;
+  width: 50px;
+  position: relative;
   z-index: 100;
-  right: px-to-rem(250);
-  top: -(px-to-rem($space--xs));
+  right: px-to-rem(0);
+  top: (px-to-rem(0));
   display: flex;
   align-items: center;
   text-align: center;
   line-height: $line-height--s;
   color: $color--white;
-  //color: #808b4f;
   flex-direction: column;
   justify-content: center;
-  transform: rotate(-20deg);
+  transform: rotate(20deg);
+  text-transform: uppercase;
 
   &-number {
     font-size: px-to-rem($font-size-m);
@@ -72,7 +72,7 @@
   }
 
   @include breakpoint('desktop') {
-    right: 35%;
+    right: 0%;
   }
 }
 
@@ -90,21 +90,23 @@
     }
   }
 
-  &__product {
+  &__product,
+  &__blogentry {
     text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     margin: 0;
-    padding-bottom: px-to-rem($space--m);
+    padding: px-to-rem($space--m) 0;
 
     &:not(:last-child) {
-      border-bottom: 1px solid $color--white;
+      border-bottom: 1px solid rgba($color--white, 0.3);
     }
 
     @include breakpoint('tablet') {
       height: 100%;
       border-bottom: 0;
+      padding-top: 0;
     }
 
     &--link {

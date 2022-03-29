@@ -1,4 +1,3 @@
-
 // -----------------------------------------------------------------------------
 // #HEADER
 // -----------------------------------------------------------------------------
@@ -42,9 +41,9 @@ $header-login-overlay--transition-duration-easing: easing(open);
 
   &--home {
     background: linear-gradient(
-      268deg,
-      rgba(255, 255, 255, 0.93) 48%,
-      rgba(255, 255, 255, 0.67) 95%
+        268deg,
+        rgba(255, 255, 255, 0.93) 48%,
+        rgba(255, 255, 255, 0.67) 95%
     );
     mix-blend-mode: normal;
   }
@@ -132,6 +131,7 @@ $header-login-overlay--transition-duration-easing: easing(open);
       width: px-to-rem(23);
       background-color: $color--blue-gradient-primary-end;
       margin: px-to-rem(7) 0 0;
+
       &--first {
         margin-top: px-to-rem(0);
       }
@@ -159,9 +159,14 @@ $header-login-overlay--transition-duration-easing: easing(open);
 
   &__top-nav {
     display: flex;
-    // flex-direction: column-reverse;
     width: 100%;
+    //flex-direction: column;
     align-items: center;
+    justify-content: space-between;
+
+    //&-logo {
+    //  flex: 0 1 80px;
+    //}
   }
 
   &__logo-link {
@@ -199,7 +204,7 @@ $header-login-overlay--transition-duration-easing: easing(open);
 
   &--sticky {
     box-shadow: $header__box-shadow;
-    
+
     @include breakpoint('tablet-landscape') {
       // transform: translateY(px-to-rem(-$space--xm));
     }
@@ -217,10 +222,9 @@ $header-login-overlay--transition-duration-easing: easing(open);
     }
 
     #{$this}__content-desktop {
-      
+
     }
 
-    
 
     #{$this}__background {
       height: 100%;
