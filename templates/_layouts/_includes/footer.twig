@@ -18,14 +18,36 @@
         <div class="col col-xs-12 col-md-9 col-lg-9">
           <div class="form__wrapper">
             {% include '_pages/newsletter/index.twig' %}
-            </div>
           </div>
+        </div>
 
 
       </div>
     </div>
   </div>
-{% cache globally using key "footer" %}
+  {% cache globally using key "footer" %}
+  <div class="footer__logo">
+    <div class="grid">
+      <div class="row">
+        <div class="col col-xs-6 col-md-9 col-md-shift-1 col-lg-9 col-lg-shift-2">
+          <div class="row">
+            <div class="col col-xs-12 col-md-3 col-lg-3">
+              <img class="footer__logo-img"
+                   src="{{ alias(
+                     '@rootUrl'
+                   ) }}/assets/images/logo/EU_Organic_Logo_Colour_rgb.jpg"
+                   alt="Bio Eu Logo"/>
+            </div>
+            <div class="col col-xs-12 col-md-9 col-lg-9">
+              <h4 class="heading heading-4 heading--no-margin">Bio Dal 1996. Geniessen im Einklang mit der Natur</h4>
+              <p>Terra-Verde steht für faire, mediterrane Delikatessen und Weine aus rein biologischer Produktion</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="footer__middle">
     <div class="grid">
       <div class="row">
@@ -35,39 +57,39 @@
 
             <div class="footer--contact__phone">
               {% if footerGlobal.phone %}
-              <span class="contact__phone">
-                Tel <a href="tel:{{footerGlobal.phone}}">{{footerGlobal.phone}}</a>
+                <span class="contact__phone">
+                Tel <a href="tel:{{ footerGlobal.phone }}">{{ footerGlobal.phone }}</a>
               </span>
               {% endif %}
 
               {% if footerGlobal.fax %}
-              <span class="contact__fax">
+                <span class="contact__fax">
                 Fax
-                {{footerGlobal.fax}}
+                {{ footerGlobal.fax }}
               </span>
               {% endif %}
             </div>
 
             <div class="footer--contact__email">
               {% if footerGlobal.emailOne %}
-              <span class="emailOne">
+                <span class="emailOne">
                 {{ macros.emailLinks(footerGlobal.emailOne, "email") }}
               </span>
               {% endif %}
 
               {% if footerGlobal.emailTwo %}
-              <span class="emailTwo">
+                <span class="emailTwo">
                 {{ macros.emailLinks(footerGlobal.emailTwo, "email") }}
               </span>
               {% endif %}
             </div>
 
           </div>
-            {% if footerGlobal.adress %}
-              <div class="footer--contact__adress">
-                {{footerGlobal.adress}}
-              </div>
-            {% endif %}
+          {% if footerGlobal.adress %}
+            <div class="footer--contact__adress">
+              {{ footerGlobal.adress }}
+            </div>
+          {% endif %}
 
 
         </div>
@@ -81,9 +103,9 @@
             <ul>
               {% for entry in entries.all() %}
                 <li>
-                  <a href="{{entry.url}}">
-                    {{ entry.title }}</li>
-                  </a>
+                  <a href="{{ entry.url }}">
+                  {{ entry.title }}</li>
+                </a>
               {% endfor %}
             </ul>
           </div>
@@ -93,16 +115,16 @@
         <div class="col col-xs-12 col-md-6 col-lg-3">
           <div class="footer--box footer--info">
             <h3 class="footer--heading">Service</h3>
-              {% set entries = craft.entries.section('serviceStructure').level(2) %}
+            {% set entries = craft.entries.section('serviceStructure').level(2) %}
 
-              <ul>
-                {% for entry in entries.all() %}
-                  <li>
-                    <a href="{{entry.url}}">
-                      {{ entry.title }}</li>
-                    </a>
-                {% endfor %}
-              </ul>
+            <ul>
+              {% for entry in entries.all() %}
+                <li>
+                  <a href="{{ entry.url }}">
+                  {{ entry.title }}</li>
+                </a>
+              {% endfor %}
+            </ul>
           </div>
         </div>
 
@@ -110,18 +132,18 @@
           <div class="footer--box footer--openinghours">
             <h3 class="footer--heading">Laden</h3>
             {% if footerGlobal.adress %}
-            <div class="footer--contact__adress">
-              {{footerGlobal.adress}}
-            </div>
+              <div class="footer--contact__adress">
+                {{ footerGlobal.adress }}
+              </div>
             {% endif %}
             {% if footerGlobal.openingHoursOne %}
               <span>
-                {{footerGlobal.openingHoursOne}}
+                {{ footerGlobal.openingHoursOne }}
               </span>
             {% endif %}
             {% if footerGlobal.openingHoursTwo %}
               <span>
-                {{footerGlobal.openingHoursTwo}}
+                {{ footerGlobal.openingHoursTwo }}
               </span>
             {% endif %}
           </div>
@@ -134,22 +156,22 @@
     <div class="grid">
       <div class="row">
         <div class="col col-xs-12 col-md-6 col-lg-12">
-        <ul class="nav__service">
-          <li class="nav__service--items">
-            <a href="/agb">
-                {{'nav.footer.slug.agb'|t}}
-            </a>
-          </li>
-          <li class="nav__service--items">
-            <a href="/impressum">
-                {{'nav.footer.slug.imprint'|t}}
-            </a>
-          </li>
-        </ul>
+          <ul class="nav__service">
+            <li class="nav__service--items">
+              <a href="/agb">
+                {{ 'nav.footer.slug.agb'|t }}
+              </a>
+            </li>
+            <li class="nav__service--items">
+              <a href="/impressum">
+                {{ 'nav.footer.slug.imprint'|t }}
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
 </footer>
 
