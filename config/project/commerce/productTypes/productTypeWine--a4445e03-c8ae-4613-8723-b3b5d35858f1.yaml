@@ -338,7 +338,7 @@ productTitleFormat: ''
 siteSettings:
   dd0cd05e-0cb9-4a76-b993-3cb70e6fc147: # Terra Verde
     hasUrls: true
-    template: shop/produkte/_product
+    template: shop/produkte/_wine
     uriFormat: 'shop/weine/{slug}'
 skuFormat: ''
 titleFormat: '{product.title}'

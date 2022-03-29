@@ -1,0 +1,111 @@
+<details open class="product-detail__summary">
+  <summary class="product-detail__summary-heading">
+    Beschreibung
+  </summary>
+  <dl class="product-detail__summary-content">
+
+    {% if product.articleAdditionalInfo %}
+      <dt> Hersteller</dt>
+      <dd> {{ product.articleAdditionalInfo }}</dd>
+    {% endif %}
+
+    {% if product.articleDeguNotice %}
+      <dt>
+        Degustationnotiz
+      </dt>
+      <dd> {{ product.articleDeguNotice }}</dd>
+    {% endif %}
+
+    {% if product.articleFitsTo %}
+      <dt>
+        Passt zu
+      </dt>
+      <dd>{{ product.articleFitsTo }}</dd>
+    {% endif %}
+
+    {% if product.articleTemperature %}
+      <dt>
+        Trinktemperatur
+      </dt>
+      <dd>{{ product.articleTemperature }}</dd>
+    {% endif %}
+
+    {% if product.arcticleVintage %}
+      <dt>
+        Jahrgang
+      </dt>
+      <dd>{{ product.arcticleVintage }}</dd>
+    {% endif %}
+
+    {% if product.articleAlcohol %}
+      <dt>
+        Alkoholgehalt
+      </dt>
+      <dd>{{ product.articleAlcohol }}</dd>
+    {% endif %}
+
+    {% if product.articleVinification %}
+      <dt>
+        Vinifikation
+      </dt>
+      <dd>{{ product.articleVinification }}</dd>
+    {% endif %}
+
+    {% if product.articleBioZertifisation %}
+      <dt>
+        Bio-Zertifizierung
+      </dt>
+      <dd>{{ product.articleBioZertifisation }}</dd>
+    {% endif %}
+
+    {% if product.articleAllergenic %}
+      <dt>
+        Allergene
+      </dt>
+      <dd>{{ product.articleAllergenic }}</dd>
+    {% endif %}
+
+    {% if product.articleVegan %}
+      <dt>
+        Vegan
+      </dt>
+      <dd>{{ product.articleVegan }}</dd>
+    {% endif %}
+
+    {% if product.articleEanNumber %}
+      <dt>
+        EAN-Nummer
+      </dt>
+      <dd>{{ product.articleEanNumber }}</dd>
+    {% endif %}
+
+    {% if product.articleNumber %}
+      <dt>
+        Artikelnummer
+      </dt>
+      <dd>{{ product.articleNumber }}</dd>
+    {% endif %}
+    
+    {#    {% if product.articleStorage %} #}
+    {#      <p> #}
+    {#        Lagerung: {{ product.articleStorage }} #}
+    {#      </p> #}
+    {#    {% endif %} #}
+
+    {% if product.articleNutritionalValue %}
+      <dt>
+        Zutaten
+      </dt>
+      <dd> {{ product.articleNutritionalValue }}</dd>
+    {% endif %}
+
+    {% if product.articleIngredients %}
+      <dt>
+        Zutaten
+      </dt>
+      <dd> {{ product.articleIngredients }}</dd>
+    {% endif %}
+
+
+  </dl>
+</details>

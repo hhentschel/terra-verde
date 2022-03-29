@@ -60,8 +60,11 @@
   color: $color--white;
   flex-direction: column;
   justify-content: center;
-  transform: rotate(20deg);
+  transform: rotate(12deg);
   text-transform: uppercase;
+  color: $color--beige;
+  font-weight: bold;
+  letter-spacing: .01em;
 
   &-number {
     font-size: px-to-rem($font-size-m);
