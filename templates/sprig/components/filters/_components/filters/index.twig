@@ -3,16 +3,16 @@
 {% set section = section ?? '' %}
 
 {# Get options from category groups. #}
-{% set catDeliOptionsQuery = craft.categories.group('catGroupDeli') %}
+ {% set catDeliOptionsQuery = craft.categories.group('catGroupDeli') %}
 {% set catGiftOptions = craft.categories.group('catGroupGift').all() %}
 {% set catWineOptions = craft.categories.group('catGroupWine').all() %}
 {% set catStatusOptions = craft.categories.group('catGroupStatus').all() %}
 
+ {% set articleCategoriesDeliAll = articleCategoriesDeliAll ?? false %}
+ {% set articleCategoriesDeliNone = articleCategoriesDeliNone ?? false %}
+ {% set articleCategoriesDeli = articleCategoriesDeliAll ? catDeliOptionsQuery.ids : (articleCategoriesDeli ?? []) %}
 
-
-{% set articleCategoriesDeliAll = articleCategoriesDeliAll ?? false %}
-{% set articleCategoriesDeliAllChecked = articleCategoriesDeliAllChecked ?? false %}
-{% set articleCategoriesDeli = articleCategoriesDeliAll ? catDeliOptionsQuery.ids : (articleCategoriesDeli ?? []) %}
+{% set articleCategoriesDeli = articleCategoriesDeli ?? [] %}
 {% set articleCategoriesGift = articleCategoriesGift ?? [] %}
 {% set articleCategoriesWine = articleCategoriesWine ?? [] %}
 {% set articleCategoriesStatus = articleCategoriesStatus ?? [] %}
@@ -80,7 +80,6 @@
 {% do sprig.pushUrl(
   '?'
   ~ ({ search: search,
-    articleCategoriesDeliAll: articleCategoriesDeliAll,
     articleCategoriesDeli: articleCategoriesDeli,
     articleCategoriesGift: articleCategoriesGift,
     articleCategoriesWine: articleCategoriesWine,
