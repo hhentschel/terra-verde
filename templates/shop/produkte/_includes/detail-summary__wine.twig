@@ -5,8 +5,15 @@
   <dl class="product-detail__summary-content">
 
     {% if product.articleAdditionalInfo %}
-      <dt> Hersteller</dt>
+      <dt> Weingut</dt>
       <dd> {{ product.articleAdditionalInfo }}</dd>
+    {% endif %}
+
+    {% if product.articleIngredients %}
+      <dt>
+        Traubensorten
+      </dt>
+      <dd> {{ product.articleIngredients }}</dd>
     {% endif %}
 
     {% if product.articleDeguNotice %}
@@ -51,6 +58,13 @@
       <dd>{{ product.articleVinification }}</dd>
     {% endif %}
 
+    {% if product.articleStorage %}
+      <dt>
+        Lagerung
+      </dt>
+      <dd>{{ product.articleStorage }}</dd>
+    {% endif %}
+
     {% if product.articleBioZertifisation %}
       <dt>
         Bio-Zertifizierung
@@ -85,25 +99,12 @@
       </dt>
       <dd>{{ product.articleNumber }}</dd>
     {% endif %}
-    
-    {#    {% if product.articleStorage %} #}
-    {#      <p> #}
-    {#        Lagerung: {{ product.articleStorage }} #}
-    {#      </p> #}
-    {#    {% endif %} #}
 
     {% if product.articleNutritionalValue %}
       <dt>
         Zutaten
       </dt>
       <dd> {{ product.articleNutritionalValue }}</dd>
-    {% endif %}
-
-    {% if product.articleIngredients %}
-      <dt>
-        Zutaten
-      </dt>
-      <dd> {{ product.articleIngredients }}</dd>
     {% endif %}
 
 

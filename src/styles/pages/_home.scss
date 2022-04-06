@@ -62,16 +62,19 @@
   justify-content: center;
   transform: rotate(12deg);
   text-transform: uppercase;
-  color: $color--beige;
   font-weight: bold;
   letter-spacing: .01em;
-
-  &-number {
-    font-size: px-to-rem($font-size-m);
+  @include breakpoint('tablet') {
+    height: 65px;
+    width: 65px;
   }
 
   &-word {
-    font-size: px-to-rem($font-size-l);
+    font-size: px-to-rem($font-size-m);
+
+    @include breakpoint('tablet') {
+      font-size: px-to-rem($font-size-l);
+    }
   }
 
   @include breakpoint('desktop') {

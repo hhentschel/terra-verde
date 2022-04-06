@@ -1,117 +1,82 @@
+{% if product.articleDescriptionAdditional %}
+  <h4 class="layout-helper__margin-top--none">{{ product.articleDescriptionAdditional }}</h4>
+{% endif %}
+
 <details open class="product-detail__summary">
   <summary class="product-detail__summary-heading">
     Beschreibung
   </summary>
-  <div class="product-detail__summary-content">
+  <dl class="product-detail__summary-content">
 
-    {% if product.articleAdditionalInfo %}
-      <p> Hersteller: {{ product.articleAdditionalInfo }}</p>
-    {% endif %}
+    {% set variant = product.defaultVariant %}
 
-    {% if product.articleDeguNotice %}
-      <p>
-        Degustationnotiz: {{ product.articleDeguNotice }}
-      </p>
-    {% endif %}
-
-    {% if product.articleFitsTo %}
-      <p>
-        Passt zu: {{ product.articleFitsTo }}
-      </p>
-    {% endif %}
-
-    {% if product.articleTemperature %}
-      <p>
-        Trinktemperatur: {{ product.articleTemperature }}
-      </p>
-    {% endif %}
-
-    {% if product.arcticleVintage %}
-      <p>
-        Jahrgang: {{ product.arcticleVintage }}
-      </p>
-    {% endif %}
-
-    {% if product.articleAlcohol %}
-      <p>
-        Alkoholgehalt: {{ product.articleAlcohol }}
-      </p>
-    {% endif %}
-
-    {% if product.articleVinification %}
-      <p>
-        Vinifikation: {{ product.articleVinification }}
-      </p>
-    {% endif %}
-
-    {% if product.articleBioZertifisation %}
-      <p>
-        Bio-Zertifizierung: {{ product.articleBioZertifisation }}
-      </p>
+    {% if product.articleIngredients %}
+      <dt>
+        Zutaten
+      </dt>
+      <dd> {{ product.articleIngredients }}</dd>
     {% endif %}
 
     {% if product.articleAllergenic %}
-      <p>
-        Allergene: {{ product.articleAllergenic }}
-      </p>
+      <dt>
+        Allergene
+      </dt>
+      <dd>{{ product.articleAllergenic }}</dd>
     {% endif %}
 
     {% if product.articleVegan %}
-      <p>
-        Vegan: {{ product.articleVegan }}
-      </p>
+      <dt>
+        Vegan
+      </dt>
+      <dd>{{ product.articleVegan }}</dd>
     {% endif %}
 
-    {% if product.articleEanNumber %}
-      <p>
-        EAN-Nummer: {{ product.articleEanNumber }}
-      </p>
-    {% endif %}
-
-    {% if product.articleNumber %}
-      <p>
-        Artikelnummer: {{ product.articleNumber }}
-      </p>
-    {% endif %}
-
-
-
-    {% if product.articleVolume %}
-      <span>{{ product.articleVolume }}{{ product.articleUnit }}</span>
+    {% if product.articleFitsTo %}
+      <dt>
+        Passt zu
+      </dt>
+      <dd>{{ product.articleFitsTo }}</dd>
     {% endif %}
 
     {% if product.articleStorage %}
-      <p>
-        Lagerung: {{ product.articleStorage }}
-      </p>
+      <dt>
+        Lagerung
+      </dt>
+      <dd>{{ product.articleStorage }}</dd>
     {% endif %}
 
     {% if product.articleNutritionalValue %}
-      <p>
-        Zutaten: {{ product.articleNutritionalValue }}
-      </p>
+      <dt>
+        100g enthalten
+      </dt>
+      <dd> {{ product.articleNutritionalValue }}</dd>
     {% endif %}
 
-    {% if product.articleIngredients %}
-      <p>
-        Zutaten: {{ product.articleIngredients }}
-      </p>
+    {% if product.articleNumber %}
+      <dt>
+        Artikelnummer
+      </dt>
+      <dd>{{ product.articleNumber }}</dd>
     {% endif %}
 
-    {#    {% if product.articleAdditionalInfo %} #}
-    {#      <p> #}
-    {#        Zusatzinfo: {{ product.articleAdditionalInfo }} #}
-    {#      </p> #}
-    {#    {% endif %} #}
+    {% if product.articleEanNumber %}
+      <dt>
+        EAN-Nummer
+      </dt>
+      <dd>{{ product.articleEanNumber }}</dd>
+    {% endif %}
 
+    {% if product.articleBioZertifisation %}
+      <dt>
+        Bio-Zertifizierung
+      </dt>
+      <dd>{{ product.articleBioZertifisation }}</dd>
+    {% endif %}
 
+    {% if product.articleAdditionalInfo %}
+      <dt> Hersteller</dt>
+      <dd> {{ product.articleAdditionalInfo }}</dd>
+    {% endif %}
 
-    {% for variant in product.variants %}
-      {% if variant.articleVolume %}
-        <p>
-          Gewicht: {{ variant.articleVolume }}{{ variant.articleVolumeUnit }}
-        </p>
-      {% endif %}
-    {% endfor %}
-  </div>
+  </dl>
 </details>

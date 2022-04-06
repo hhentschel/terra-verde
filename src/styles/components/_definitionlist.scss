@@ -1,16 +1,32 @@
 dt {
-  float: left;
+  float: none;
   clear: left;
-  width: 170px;
-  text-align: right;
+  width: 100%;
+  text-align: left;
   font-weight: bold;
+
+  @include breakpoint('tablet-landscape') {
+    text-align: right;
+    width: 170px;
+    float: left;
+  }
 }
 
 dt::after {
   content: ":";
+  color: $color--grey-light;
 }
 
 dd {
-  margin: 0 0 0 185px;
-  padding: 0 0 0.5em 0;
+  margin: 0;
+  padding: 0 0 px-to-rem($space--xm) 0;
+
+  @include breakpoint('tablet-landscape') {
+    padding: 0 0 px-to-rem($space--m) 0;
+    margin: 0 0 0 180px;
+  }
+
+  p {
+    margin: 0;
+  }
 }

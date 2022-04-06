@@ -97,19 +97,13 @@
                   }} #}
 
           <div class="form-addtobasket__info">
-            {% if product.articleVolumeUnit %}
+            {% if variant.articleVolumeUnit %}
               <div class="form-addtobasket__info-unit">
                 <span>
-                  {{ product.articleVolumeUnit }}{{ product.articleUnitVolumeWeight }}
+                  {{ variant.articleVolume }}{{ variant.articleVolumeUnit }}
                 </span>
-                <span class="form-addtobasket__info-unit-base">
-                        {% if variant.articleBasePriceUnit %}
-                          ({{ variant.articleBasePriceUnit }}{{ variant.articleBaseUnit }})
-                        {% endif %}
-                      </span>
               </div>
             {% endif %}
-
 
             <div class="form-addtobasket__info-pricestockadd">
               <div class="form-addtobasket__info-pricestock">
