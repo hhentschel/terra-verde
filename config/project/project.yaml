@@ -1,4 +1,4 @@
-dateModified: 1649231799
+dateModified: 1649340900
 email:
   fromEmail: p@henrik-hentschel.de
   fromName: 'Terra Verde'
@@ -64,7 +64,7 @@ meta:
     7f760799-8cd2-47b0-981a-c91cfe3036b4: AGB # AGB
     7fec1130-1fea-4054-9bcb-ddff47a64b84: 'Newsletter List' # Newsletter List
     08a487ae-35d0-46a6-b036-6dde9ca93d51: Blog # Blog
-    8aec977e-df97-4119-93e9-0b745252a944: 'Weine Frankreich /  Portugal' # Weine Frankreich /  Portugal
+    8aec977e-df97-4119-93e9-0b745252a944: 'Weine Frankreich' # Weine Frankreich
     8d844c54-289e-4640-9d67-9664d20a9353: 'Link auf Eintrag' # Link auf Eintrag
     8d976e17-a05f-4e1e-bfe6-7f9b617fda72: 'Kategorien (shop)' # Kategorien (shop)
     8e2bbb53-7b2a-493f-9592-4847ec7d1194: Produzenten # Produzenten
@@ -114,6 +114,7 @@ meta:
     127bba7e-6a96-4ffa-8cbb-f4c17d39e347: Team # Team
     149a3219-5b27-4275-8a0f-b97cbff1e3ec: Shop # Shop
     219d5317-b509-4c72-87a2-15026938e903: Blog # Blog
+    328c6ddf-69e0-47e5-8057-5c04984d8d85: 'Weine Portugal' # Weine Portugal
     348a200e-7d31-4262-b613-e8cc6e039fb2: Degustationsnotiz # Degustationsnotiz
     421eaf0b-f542-45ff-8051-2921d93b3eeb: Vorschautext # Vorschautext
     0434bb85-e818-4834-be05-c89d49427ca9: 'Quicklinks Liste' # Quicklinks Liste
