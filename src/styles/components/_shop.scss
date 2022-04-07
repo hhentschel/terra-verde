@@ -336,6 +336,10 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
         padding: px-to-rem($space--s) px-to-rem($space--s);
       }
 
+      .button--primary-bis {
+        width: 100%;
+      }
+
       .button--primary.button--success {
         width: 160px;
         padding: px-to-rem($space--s) px-to-rem($space--s);
