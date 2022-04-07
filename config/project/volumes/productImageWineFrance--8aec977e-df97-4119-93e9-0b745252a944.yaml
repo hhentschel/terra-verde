@@ -33,7 +33,7 @@ hasUrls: true
 name: 'Weine Frankreich'
 settings:
   cdnUrlPattern: ''
-  customSubfolder: /assets/images/content/products/wine/france
+  customSubfolder: /assets/images/content/products/wine/franceportugal
   makeUploadsPublic: true
   optimisePrefix: ''
   optimiseUrlPattern: ''
