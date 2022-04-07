@@ -51,6 +51,12 @@
   position: relative;
   z-index: 1;
 
+  .shop-list__listview & {
+    order: 3;
+    flex: 0 1 180px;
+    margin: 0 px-to-rem($space--m) 0 0;
+  }
+
   &-message {
     font-size: px-to-rem($font-size-s);
     color: $color--white;
