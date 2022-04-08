@@ -1,4 +1,4 @@
-dateModified: 1649344389
+dateModified: 1649364397
 email:
   fromEmail: p@henrik-hentschel.de
   fromName: 'Terra Verde'
@@ -399,9 +399,9 @@ plugins:
     licenseKey: HJ40MIOSHZVXNFVCVIR04RP7
     schemaVersion: 1.0.0
     settings:
-      confirmationEmailSubject: 'Back in stock notification confirmation for {{variant.title}}'
+      confirmationEmailSubject: 'Anmeldebestätigung für TERRA VERDE Shop Benachrichtigung für Produkt {{variant.title}}'
       confirmationEmailTemplate: shop/_email/back-in-stock-confirmation.twig
-      emailSubject: 'Order today, {{variant.title}} is now in stock'
+      emailSubject: 'TERRA VERDE Shop: {{variant.title}} ist wieder erhältlich!'
       emailTemplate: shop/_email/back-in-stock-notification.twig
       purgeRequests: ''
       sendConfirmation: '1'
