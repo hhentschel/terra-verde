@@ -25,6 +25,7 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
     justify-content: space-between;
     margin-bottom: px-to-rem($space--m);
   }
+
   &__board-pagination {
     margin: 0;
   }
@@ -43,6 +44,7 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
     &[open] {
       margin-bottom: px-to-rem($space--xm);
     }
+
     &--title {
       font-size: px-to-rem($font-size-m);
       font-weight: 300;
@@ -133,6 +135,7 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
     &-pagesindex {
       margin: 0 px-to-rem($space--s) 0 0;
     }
+
     &-pagessingles {
       display: inline-flex;
       align-items: center;
@@ -220,6 +223,7 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
     height: (px-to-rem($space--s) + px-to-rem($space--m));
     width: (px-to-rem($space--s) + px-to-rem($space--m));
   }
+
   &-pagesarrow {
     padding: px-to-rem($space--s);
     border: 1px solid $color--grey-light;
@@ -244,7 +248,7 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
     display: grid;
     grid-template-columns: repeat(
       auto-fill,
-      minmax(var(--grid-col-breakpoint-shop), 1fr)
+        minmax(var(--grid-col-breakpoint-shop), 1fr)
     );
     grid-column-gap: var(--grid-col-gap);
     grid-row-gap: var(--grid-row-gap);
@@ -289,20 +293,24 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
       border-top: 1px solid $color--grey-light;
       padding: px-to-rem($space--m) 0;
     }
+
     .shop-list__link {
       flex-direction: row;
     }
+
     .shop-list__image {
       height: 60px;
       min-width: 60px;
       padding: 0;
       // background-color: transparent;
     }
+
     .image__img {
       height: 60px;
       width: 60px;
       object-fit: contain;
     }
+
     .shop-list__text {
       padding: 0;
       margin: 0 0 0 px-to-rem($space--m);
@@ -313,17 +321,25 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
         text-align: start;
       }
     }
+
     .shop-list__text--pricevolume {
       flex-direction: row;
       align-self: flex-start;
     }
+
     .shop-list__item-cart {
       // width: 210px;
       align-items: flex-end;
+
       .button--primary {
         width: 160px;
         padding: px-to-rem($space--s) px-to-rem($space--s);
       }
+
+      .button--primary-bis {
+        width: 100%;
+      }
+
       .button--primary.button--success {
         width: 160px;
         padding: px-to-rem($space--s) px-to-rem($space--s);
@@ -371,18 +387,13 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
     justify-content: space-between;
     flex: 1 1 auto;
 
-    padding: 0 ($shop-list__grid-gutter--phone / 2)
-      ($shop-list__grid-gutter--phone / 3) ($shop-list__grid-gutter--phone / 2);
+    padding: 0 ($shop-list__grid-gutter--phone / 2) ($shop-list__grid-gutter--phone / 3) ($shop-list__grid-gutter--phone / 2);
 
     @include breakpoint('tablet-landscape') {
-      padding: 0 $shop-list__grid-gutter--tablet / 2
-        $shop-list__grid-gutter--tablet / 2 $shop-list__grid-gutter--tablet / 2;
+      padding: 0 $shop-list__grid-gutter--tablet / 2 $shop-list__grid-gutter--tablet / 2 $shop-list__grid-gutter--tablet / 2;
     }
     @include breakpoint('desktop') {
-      padding: ($shop-list__grid-gutter--desktop / 4)
-        ($shop-list__grid-gutter--desktop / 2)
-        ($shop-list__grid-gutter--desktop / 3)
-        ($shop-list__grid-gutter--desktop / 2);
+      padding: ($shop-list__grid-gutter--desktop / 4) ($shop-list__grid-gutter--desktop / 2) ($shop-list__grid-gutter--desktop / 3) ($shop-list__grid-gutter--desktop / 2);
     }
 
     > h3 {
@@ -420,6 +431,11 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
       width: 100%;
       margin-left: px-to-rem($space--s);
       font-size: px-to-rem($button-primary-shop--font-size);
+    }
+
+    .button--primary-bis {
+      margin-left: 0;
+      justify-content: center;
     }
   }
 

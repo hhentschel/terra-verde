@@ -21,12 +21,8 @@
   </script>
 {% endif %}
 
-
-
 {% set productQuery = craft.products() %}
 
-
-{# {% set product = productQuery.one() %} #}
 {% set product = craft.products.id(productId).one() %}
 
 <a href="javascript: history.back()" class="product-detail__button-back product-detail__button-back-arrow">Zurück zur
@@ -97,13 +93,19 @@
                   }} #}
 
           <div class="form-addtobasket__info">
-            {% if variant.articleVolumeUnit %}
+            {% if product.articleVolumeUnit %}
               <div class="form-addtobasket__info-unit">
                 <span>
-                  {{ variant.articleVolume }}{{ variant.articleVolumeUnit }}
+                  {{ product.articleVolumeUnit }}{{ product.articleUnitVolumeWeight }}
                 </span>
+                <span class="form-addtobasket__info-unit-base">
+                        {% if variant.articleBasePriceUnit %}
+                          ({{ variant.articleBasePriceUnit }}{{ variant.articleBaseUnit }})
+                        {% endif %}
+                      </span>
               </div>
             {% endif %}
+
 
             <div class="form-addtobasket__info-pricestockadd">
               <div class="form-addtobasket__info-pricestock">
@@ -210,7 +212,7 @@
       </div>
     </form>
 
-    {% include 'shop/produkte/_includes/detail-summary.twig' %}
+    {% include 'shop/produkte/_includes/detail-summary__wine.twig' %}
 
   </div>
 

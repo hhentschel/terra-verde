@@ -64,7 +64,7 @@ meta:
     7f760799-8cd2-47b0-981a-c91cfe3036b4: AGB # AGB
     7fec1130-1fea-4054-9bcb-ddff47a64b84: 'Newsletter List' # Newsletter List
     08a487ae-35d0-46a6-b036-6dde9ca93d51: Blog # Blog
-    8aec977e-df97-4119-93e9-0b745252a944: 'Weine Frankreich /  Portugal' # Weine Frankreich /  Portugal
+    8aec977e-df97-4119-93e9-0b745252a944: 'Weine Frankreich' # Weine Frankreich
     8d844c54-289e-4640-9d67-9664d20a9353: 'Link auf Eintrag' # Link auf Eintrag
     8d976e17-a05f-4e1e-bfe6-7f9b617fda72: 'Kategorien (shop)' # Kategorien (shop)
     8e2bbb53-7b2a-493f-9592-4847ec7d1194: Produzenten # Produzenten
@@ -82,7 +82,6 @@ meta:
     25be000d-e33e-4660-8f91-eb82c826edd6: 'Bestellung TV Website an info@terra-verde.ch' # Bestellung TV Website an info@terra-verde.ch
     27ee92fc-2ecb-42a3-86cb-ff619931841a: Vegan # Vegan
     31d89d29-5bb5-4d25-81f8-d582276516b3: 'Artikel Grundpreis (EVP inkl.)' # Artikel Grundpreis (EVP inkl.)
-    33dbae5e-2503-4d41-903b-5625211aca45: Tabelle # Tabelle
     34eecfa5-9662-4a5c-addd-6a484fbebe8d: 'Verkaufsstellen Orte' # Verkaufsstellen Orte
     037a2847-d799-44e7-ae4b-4bf40233db70: Kategorien # Kategorien
     44a134bf-a896-43b6-897a-a294f6c27325: 'Blog Aktuell' # Blog Aktuell
@@ -115,6 +114,7 @@ meta:
     127bba7e-6a96-4ffa-8cbb-f4c17d39e347: Team # Team
     149a3219-5b27-4275-8a0f-b97cbff1e3ec: Shop # Shop
     219d5317-b509-4c72-87a2-15026938e903: Blog # Blog
+    328c6ddf-69e0-47e5-8057-5c04984d8d85: 'Weine Portugal' # Weine Portugal
     348a200e-7d31-4262-b613-e8cc6e039fb2: Degustationsnotiz # Degustationsnotiz
     421eaf0b-f542-45ff-8051-2921d93b3eeb: Vorschautext # Vorschautext
     0434bb85-e818-4834-be05-c89d49427ca9: 'Quicklinks Liste' # Quicklinks Liste
@@ -208,7 +208,6 @@ meta:
     bf8bc4b2-3d7f-4972-9768-3026cc9f2184: 'Geschenke & Degustationen' # Geschenke & Degustationen
     c0a61470-04af-4d9c-997c-1f9f722bdf70: New # New
     c2e36e10-c3d1-44f3-9a20-e3ff8f8b0dd1: 'Externer Link Preview' # Externer Link Preview
-    c3f0c673-202d-479d-bbfc-ae5189d0760d: Tabelle # Tabelle
     c7a7ef3f-d8c6-4afb-ab46-b0082ef038d6: Delikatessen # Delikatessen
     c8c7989d-9a6a-4faa-a787-7538cf72ee11: 'Produzenten Übersicht' # Produzenten Übersicht
     c9a26bae-e663-4915-aa68-950ce62120a5: Quicklink # Quicklink
@@ -298,8 +297,7 @@ plugins:
       contactFieldLayoutId: null
       emailFieldLabel: Email
       fromNamesEmails:
-        -
-          - 'Terra Verde'
+        - - 'Terra Verde'
           - p@henrik-hentschel.de
           - ''
       geoIp: false
@@ -333,8 +331,7 @@ plugins:
       timeThreshold: 0.8
       transportSettings:
         __assoc__:
-          -
-            - apiKey
+          - - apiKey
             - $SENDGRID_API_KEY
       transportType: putyourlightson\sendgrid\mail\SendgridAdapter
   ckeditor:
@@ -345,7 +342,7 @@ plugins:
     edition: pro
     enabled: true
     licenseKey: 0AK0ZI2780A8KYFBX5GSBRKM
-    schemaVersion: 3.4.12
+    schemaVersion: 3.4.13
     settings:
       activeCartDuration: 3600
       allowEmptyCartOnCheckout: false
@@ -400,10 +397,10 @@ plugins:
     licenseKey: HJ40MIOSHZVXNFVCVIR04RP7
     schemaVersion: 1.0.0
     settings:
-      confirmationEmailSubject: 'Terra-Verde Shop, E-Mail Bestätigung für E-Mail Benachrichtigung (Produkt wieder verfügbar).'
-      confirmationEmailTemplate: /shop/_email/back-in-stock-confirmation.twig
-      emailSubject: 'Terra-Verde Shop, Produkt {{variant.title}} ist wieder erhältlich.'
-      emailTemplate: /shop/_email/back-in-stock-notification.twig
+      confirmationEmailSubject: 'Anmeldebestätigung für TERRA VERDE Shop Benachrichtigung für Produkt {{variant.title}}'
+      confirmationEmailTemplate: shop/_email/back-in-stock-confirmation.twig
+      emailSubject: 'TERRA VERDE Shop: {{variant.title}} ist wieder erhältlich!'
+      emailTemplate: shop/_email/back-in-stock-notification.twig
       purgeRequests: ''
       sendConfirmation: '1'
   diy-widget:
@@ -442,12 +439,9 @@ plugins:
       queueTtr: null
       requestOptions:
         __assoc__:
-          -
-            - headers
-            -
-              __assoc__:
-                -
-                  - User-Agent
+          - - headers
+            - __assoc__:
+                - - User-Agent
                   - 'Feed Me'
       runGcBeforeFeed: false
       skipUpdateFieldHandle: ''
@@ -501,10 +495,8 @@ plugins:
     schemaVersion: 1.0.0
     settings:
       sections:
-        -
-          - Intro
-        -
-          - Anleitungen
+        - - Intro
+        - - Anleitungen
       widgetTitle: Links
   image-optimize:
     edition: standard
@@ -520,38 +512,25 @@ plugins:
       createPlaceholderSilhouettes: false
       imageTransformTypeSettings:
         __assoc__:
-          -
-            - nystudio107\imageoptimizeimgix\imagetransforms\ImgixImageTransform
-            -
-              __assoc__:
-                -
-                  - domain
+          - - nystudio107\imageoptimizeimgix\imagetransforms\ImgixImageTransform
+            - __assoc__:
+                - - domain
                   - ''
-                -
-                  - apiKey
+                - - apiKey
                   - ''
-                -
-                  - securityToken
+                - - securityToken
                   - ''
-                -
-                  - unsharpMask
+                - - unsharpMask
                   - '20'
-          -
-            - nystudio107\imageoptimizesharp\imagetransforms\SharpImageTransform
-            -
-              __assoc__:
-                -
-                  - baseUrl
+          - - nystudio107\imageoptimizesharp\imagetransforms\SharpImageTransform
+            - __assoc__:
+                - - baseUrl
                   - ''
-          -
-            - nystudio107\imageoptimizethumbor\imagetransforms\ThumborImageTransform
-            -
-              __assoc__:
-                -
-                  - baseUrl
+          - - nystudio107\imageoptimizethumbor\imagetransforms\ThumborImageTransform
+            - __assoc__:
+                - - baseUrl
                   - ''
-                -
-                  - securityKey
+                - - securityKey
                   - ''
       lowerQualityRetinaImageVariants: true
       sharpenScaledImagePercentage: 50
@@ -576,7 +555,7 @@ plugins:
     edition: standard
     enabled: true
     licenseKey: 3Q54BEZF2WFYX60V6UPM2IWL
-    schemaVersion: 2.11.6
+    schemaVersion: 2.13.0
   nsm-fields:
     edition: standard
     enabled: true
@@ -646,11 +625,9 @@ plugins:
       cpTitlePrefix: '⚙ '
       cspNonce: ''
       cspScriptSrcPolicies:
-        -
-          __assoc__:
-            -
-              - policy
-              - '''self'''
+        - __assoc__:
+            - - policy
+              - "'self'"
       devModeCpTitlePrefix: '&#x1f6a7;⚙ '
       devModeTitlePrefix: '&#x1f6a7; '
       displayAnalysisSidebar: true

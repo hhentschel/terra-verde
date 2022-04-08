@@ -1,9 +1,10 @@
 childBlocks: null
 field: 9f46731d-7fdd-4245-9ca1-719db0672448 # Inhaltselemente
+group: c9e74448-323c-4314-8339-8767051c39f5 # Titel, Text & Links
 handle: externerLinkPreview
 maxBlocks: 0
 maxChildBlocks: 0
 maxSiblingBlocks: 0
 name: 'Externer Link Preview'
-sortOrder: 10
+sortOrder: 9
 topLevel: true

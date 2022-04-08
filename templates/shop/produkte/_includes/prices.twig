@@ -8,7 +8,7 @@
   {% if currentUser %}
     {% if
       currentUser.isInGroup('userGroupPrivate')
-        or currentUser.isInGroup('userGroupRedactors') %}
+      or currentUser.isInGroup('userGroupRedactors') %}
       {% if variant.onSale %}
         <strike class="shop-list__item--price-old">
           {{ variantPriceRound|number_format(2, '.', '')|currency('CHF') }}
@@ -25,7 +25,7 @@
       {% endif %}
     {% elseif
       currentUser.isInGroup('userGroupRetail')
-        or currentUser.isInGroup('userGroupRedactors') %}
+      or currentUser.isInGroup('userGroupRedactors') %}
       {% if variant.onSale %}
         <strike class="shop-list__item--price-old">
           {{ variantPriceRound|number_format(2, '.', '')|currency('CHF') }}

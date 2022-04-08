@@ -16,10 +16,11 @@ fieldLayouts:
             width: 100
         name: Inhalt
         sortOrder: 1
+group: 911777fe-811a-46e9-bb80-0228ddd66234 # Medien
 handle: youtubeVideo
 maxBlocks: 0
 maxChildBlocks: 0
 maxSiblingBlocks: 0
 name: 'Youtube Video'
-sortOrder: 14
+sortOrder: 13
 topLevel: true

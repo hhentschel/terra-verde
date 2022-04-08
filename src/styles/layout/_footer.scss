@@ -10,6 +10,7 @@
     font-size: px-to-rem($font-size-xl-p);
     color: $color--white;
   }
+
   &__top {
     background-color: $color--brown-lightest;
     padding: px-to-rem($space--xm) 0;
@@ -30,20 +31,55 @@
     }
   }
 
+  &__logo {
+    padding: px-to-rem($space--m) 0 px-to-rem($space--m) 0;
+    color: $color--text;
+    background-color: rgba($color--green-bio, 0.2);
+
+    &-container {
+      display: flex;
+    }
+
+    &-img {
+      max-width: px-to-rem(166.5);
+      height: fit-content;
+      margin: 0 px-to-rem($space--m) 0 0;
+
+    }
+
+    &-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      .heading {
+        line-height: $line-height--s;
+      }
+
+      .text {
+        margin: 0;
+        line-height: $line-height--xm;
+      }
+    }
+  }
+
   &__middle {
     padding: 0 0 px-to-rem($space--xxm) 0;
     background-color: $color--brown;
   }
+
   &--contact {
     &__adress {
       color: $color--brown-lighter;
     }
+
     &__phone {
       .contact__phone,
       .contact__fax {
         display: block;
       }
     }
+
     &__email {
       margin-top: px-to-rem($space--m);
     }

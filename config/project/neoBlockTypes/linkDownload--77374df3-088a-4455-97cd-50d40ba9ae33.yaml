@@ -25,10 +25,11 @@ fieldLayouts:
             width: 100
         name: Inhalt
         sortOrder: 1
+group: c9e74448-323c-4314-8339-8767051c39f5 # Titel, Text & Links
 handle: linkDownload
 maxBlocks: 0
 maxChildBlocks: 0
 maxSiblingBlocks: 0
 name: 'Download Link (mit Icon)'
-sortOrder: 11
+sortOrder: 10
 topLevel: true

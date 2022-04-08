@@ -314,7 +314,7 @@
                     <tr>
                       <td width="30%">
                         <mj-text align="left" color="#222" font-size="15px" font-family="'Open Sans', Arial, sans-serif"
-                                 padding-left="25px" padding-right="25px" padding-bottom="0px" padding-top="20"><strong>Kunde</strong>
+                                 padding-left="25px" padding-right="25px" padding-bottom="0px" padding-top="20"><strong>Kunde:</strong>
                         </mj-text>
                       </td>
                       <td>
@@ -325,9 +325,8 @@
                     </tr>
                     <tr>
                       <td width="30%">
-                        <mj-text align="right" color="#222" font-size="15px"
-                                 font-family="'Open Sans', Arial, sans-serif" padding-left="25px" padding-right="25px"
-                                 padding-bottom="0px" padding-top="20" text-align="right"><strong>Bestellnummer</strong>
+                        <mj-text align="left" color="#222" font-size="15px" font-family="'Open Sans', Arial, sans-serif"
+                                 padding-left="25px" padding-right="25px" padding-bottom="0px" padding-top="20"><strong>Bestellnummer:</strong>
                         </mj-text>
                       </td>
                       <td>
@@ -339,7 +338,7 @@
                     <tr>
                       <td>
                         <mj-text align="left" color="#222" font-size="15px" font-family="'Open Sans', Arial, sans-serif"
-                                 padding-left="25px" padding-right="25px" padding-bottom="0px" padding-top="20"><strong>Bestelldatum</strong>
+                                 padding-left="25px" padding-right="25px" padding-bottom="0px" padding-top="20"><strong>Bestelldatum:</strong>
                         </mj-text>
                       </td>
                       <td>
@@ -351,7 +350,7 @@
                     <tr>
                       <td>
                         <mj-text align="left" color="#222" font-size="15px" font-family="'Open Sans', Arial, sans-serif"
-                                 padding-left="25px" padding-right="25px" padding-bottom="0px" padding-top="20"><strong>Gesamtpreis</strong>
+                                 padding-left="25px" padding-right="25px" padding-bottom="0px" padding-top="20"><strong>Gesamtpreis:</strong>
                         </mj-text>
                       </td>
                       <td>
@@ -363,7 +362,7 @@
                     <tr>
                       <td>
                         <mj-text align="left" color="#222" font-size="15px" font-family="'Open Sans', Arial, sans-serif"
-                                 padding-left="25px" padding-right="25px" padding-bottom="0px" padding-top="20"><strong>Versand</strong>
+                                 padding-left="25px" padding-right="25px" padding-bottom="0px" padding-top="20"><strong>Versand:</strong>
                         </mj-text>
                       </td>
                       <td>
@@ -376,41 +375,15 @@
                     <tr>
                       <td>
                         <mj-text align="left" color="#222" font-size="15px" font-family="'Open Sans', Arial, sans-serif"
-                                 padding-left="25px" padding-right="25px" padding-bottom="0px" padding-top="20"><strong>Bezahlt?</strong>
+                                 padding-left="25px" padding-right="25px" padding-bottom="0px" padding-top="20"><strong>Bezahlung:</strong>
                         </mj-text>
                       </td>
                       <td>
                         <mj-text align="left" color="#222" font-size="15px" font-family="'Open Sans', Arial, sans-serif"
                                  padding-left="25px" padding-right="25px" padding-bottom="0px"
-                                 padding-top="20">{{ order.paidStatusHtml|raw }}</mj-text>
+                                 padding-top="20">{{ order.gateway }}</mj-text>
                       </td>
                     </tr>
-                    <tr>
-                      <td>
-                        <mj-text align="left" color="#222" font-size="15px" font-family="'Open Sans', Arial, sans-serif"
-                                 padding-left="25px" padding-right="25px" padding-bottom="0px" padding-top="20"><strong>Bezahlung</strong>
-                        </mj-text>
-                      </td>
-                      <td>
-                        <mj-text align="left" color="#222" font-size="15px" font-family="'Open Sans', Arial, sans-serif"
-                                 padding-left="25px" padding-right="25px" padding-bottom="0px"
-                                 padding-top="20">{{ order.gateway }} {{ order.status }}</mj-text>
-                      </td>
-                    </tr>
-                    {% if order.couponCode %}
-                      <tr>
-                        <td>
-                          <mj-text align="left" color="#222" font-size="15px"
-                                   font-family="'Open Sans', Arial, sans-serif" padding-left="25px" padding-right="25px"
-                                   padding-bottom="0px" padding-top="20"><strong>Coupon Code</strong></mj-text>
-                        </td>
-                        <td>
-                          <mj-text align="left" color="#222" font-size="15px"
-                                   font-family="'Open Sans', Arial, sans-serif" padding-left="25px" padding-right="25px"
-                                   padding-bottom="0px" padding-top="20">{{ order.couponCode }}</mj-text>
-                        </td>
-                      </tr>
-                    {% endif %}
                   </table>
 
                 </td>

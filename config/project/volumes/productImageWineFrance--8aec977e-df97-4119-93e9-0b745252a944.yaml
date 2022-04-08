@@ -1,0 +1,46 @@
+fieldLayouts:
+  ef8a1353-c1ef-45c7-96de-5b1043b399b6:
+    tabs:
+      -
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\AssetTitleField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+handle: productImageWineFrance
+hasUrls: true
+name: 'Weine Frankreich'
+settings:
+  cdnUrlPattern: ''
+  customSubfolder: /assets/images/content/products/wine/franceportugal
+  makeUploadsPublic: true
+  optimisePrefix: ''
+  optimiseUrlPattern: ''
+  projectSlug: ''
+  securityKey: ''
+sortOrder: 9
+titleTranslationKeyFormat: null
+titleTranslationMethod: null
+type: servd\AssetStorage\Volume
+url: 'https://cdn2.assets-servd.host/'

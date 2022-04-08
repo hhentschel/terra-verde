@@ -1,5 +1,5 @@
 fieldLayouts:
-  ef8a1353-c1ef-45c7-96de-5b1043b399b6:
+  32bb2d51-3cc3-4e7a-a964-46c8ca4fa985:
     tabs:
       -
         elements:
@@ -26,20 +26,20 @@ fieldLayouts:
             type: craft\fieldlayoutelements\AssetTitleField
             warning: null
             width: 100
-        name: Content
+        name: Inhalt
         sortOrder: 1
-handle: productImageWineFrancePortugal
+handle: productImageWinePortugal
 hasUrls: true
-name: 'Weine Frankreich /  Portugal'
+name: 'Weine Portugal'
 settings:
   cdnUrlPattern: ''
-  customSubfolder: /assets/images/content/products/wine/franceportugal/
+  customSubfolder: /assets/images/content/products/wine/portugal/
   makeUploadsPublic: true
   optimisePrefix: ''
   optimiseUrlPattern: ''
   projectSlug: ''
   securityKey: ''
-sortOrder: 9
+sortOrder: 15
 titleTranslationKeyFormat: null
 titleTranslationMethod: null
 type: servd\AssetStorage\Volume

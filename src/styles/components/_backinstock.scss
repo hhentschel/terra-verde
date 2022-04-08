@@ -1,0 +1,72 @@
+.bis {
+  &-signup__registration-form {
+    margin-bottom: px-to-rem($space--xm);
+  }
+
+  &-signup__complete-message {
+    background-color: $color--green;
+    padding: px-to-rem($space--m);
+    color: $color--white;
+
+    p {
+      margin-top: 0;
+    }
+  }
+
+  &-signup__registration-fields {
+    display: flex;
+  }
+
+  &-signup__registration-btn {
+    margin-left: px-to-rem($space--s);
+  }
+}
+
+.oos {
+  //display: inline-block;
+  //width: 0;
+  //height: 0;
+  //border-style: solid;
+  //border-width: 120px 120px 0 0;
+  //border-color: $color--red transparent transparent transparent;
+  //align-self: flex-start;
+  //position: absolute;
+  //z-index: 1;
+  //top: 0;
+  //left: 0;
+  //
+  //&::after {
+  //  content: 'momentan nicht verfügbar';
+  //  position: absolute;
+  //  top: -58px;
+  //  width: 50px;
+  //  left: 0;
+  //  text-align: center;
+  //  font-size: 16px;
+  //  transform: rotate(-45deg);
+  //  display: block;
+  //  color: $color--white;
+  //}
+
+  position: relative;
+  z-index: 1;
+
+  .shop-list__listview & {
+    order: 3;
+    flex: 0 1 180px;
+    margin: 0 px-to-rem($space--m) 0 0;
+  }
+
+  &-message {
+    font-size: px-to-rem($font-size-s);
+    color: $color--white;
+    background-color: $color--red;
+    position: absolute;
+    width: 100%;
+    padding: px-to-rem($space--s);
+    opacity: 0.75;
+    text-align: center;
+  }
+}
+
+

@@ -6,6 +6,6 @@ name: Bestell-Bestätigung
 plainTextTemplatePath: ''
 recipientType: customer
 replyTo: bestellung@terra-verde.ch
-subject: 'Ihre Bestellung bei Terra Verde Bio Gourmet AG - #{{ order.reference }}'
+subject: 'Ihre Bestellung bei TERRA VERDE Bio-Gourmet AG - Nr.{{ order.reference }}'
 templatePath: /shop/_email/order-confirmation.twig
 to: null
