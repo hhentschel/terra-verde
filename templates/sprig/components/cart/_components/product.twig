@@ -102,8 +102,8 @@
           >
 
 
-        {% if variant.stock > 0 or variant.hasUnlimitedStock %}
-          <a sprig s-action="commerce/cart/update-cart" s-method="post" s-val:purchasable-id="{{ variant.id }}" s-replace="#addtocart-{{ variant.id }}" id="addtocart-{{ variant.id }}" href="#"
+          <a sprig s-action="commerce/cart/update-cart" s-method="post" s-val:purchasable-id="{{ variant.id }}"
+             s-replace="#addtocart-{{ variant.id }}" id="addtocart-{{ variant.id }}" href="#"
              class="button--primary {% if addedToCart and purchasableId == variant.id %}button--success {% endif %} text-center">
             {% if addedToCart and purchasableId == variant.id %}
               <svg class="icon--check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
