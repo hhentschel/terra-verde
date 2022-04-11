@@ -68,64 +68,40 @@
         Delikatessen
       </summary>
 
-      {# SOLUTION #1 #}
-      <ul>
-        <li>
-          <input sprig type="checkbox" name="selectAll" value="1"
-            {{ selectAll ? 's-val:select-none="1" checked' }}
-          >
-          <label>All</label>
-          <ul>
-            {% for categoryOption in categoryOptions %}
-              <li>
-                <input sprig type="checkbox" name="categoryIds[]" value="{{ categoryOption }}"
-                  {{ categoryOption in selectedCategoryIds ? 's-val:select-all="0" checked' }}
-                >
-                <label>{{ categoryOption }}</label>
-              </li>
-            {% endfor %}
-          </ul>
-        </li>
-      </ul>
-      
+      <div class="filter__deli" s-replace="#filters">
+        <div class="filter__checkbox filter__deli--checkbox">
+          <input sprig
+            type="checkbox"
+            s-swap="outerHTML show:body:top"
+            id="catdeli-catDeliOptionAll"
+            name="articleCategoriesDeliAll"
+            value="1"
+            {{ articleCategoriesDeliAll ? 's-val:article-categories-deli-none="1" checked' : '' }}
+          />
+          <label for="catdeli-catDeliOptionAll" class="filter__checkbox--label">
+            Alle
+          </label>
+        </div>
 
-      {#      <div class="filter__deli" s-replace="#filters"> #}
-      {#        <div class="filter__checkbox filter__deli--checkbox"> #}
-      {#          <input sprig #}
-      {#            type="checkbox" #}
-      {#            id="catdeli-catDeliOptionAll" #}
-      {#            name="articleCategoriesDeliAll" #}
-      {#            value="1" #}
-      {#            {{ articleCategoriesDeliAll ? 'checked' : '' }} /> #}
-      {#          <label for="catdeli-catDeliOptionAll" class="filter__checkbox--label"> #}
-      {#            Alle #}
-      {#          </label> #}
-      {#        </div> #}
-
-      {#        {% for catDeliOption in catDeliOptionsQuery.all() %} #}
-      {#          <div class="filter__checkbox filter__deli--checkbox"> #}
-      {#            <input sprig #}
-      {#              type="checkbox" #}
-      {#              s-swap="outerHTML show:body:top" #}
-      {#              {{ #}
-      {#              articleCategoriesDeliAll #}
-      {#                ? 's-val:article-categories-deli-all="0"' #}
-      {#              }} #}
-      {#              id="catdeli-{{ catDeliOption.id }}" #}
-      {#              name="articleCategoriesDeli[]" #}
-      {#              value="{{ catDeliOption.id }}" #}
-      {#              {{ #}
-      {#              articleCategoriesDeliAll #}
-      {#                or catDeliOption.id in articleCategoriesDeli #}
-      {#                ? 'checked' #}
-      {#              }} /> #}
-      {#            <label for="catdeli-{{ catDeliOption.id }}" #}
-      {#              class="filter__checkbox--label"> #}
-      {#              {{ catDeliOption.title }} #}
-      {#            </label> #}
-      {#          </div> #}
-      {#        {% endfor %} #}
-      {#      </div> #}
+        <div class="filter__subcategories">
+          {% for catDeliOption in catDeliOptions %}
+            <div class="filter__checkbox filter__deli--checkbox">
+              <input sprig
+                type="checkbox"
+                s-swap="outerHTML show:body:top"
+                id="catdeli-{{ catDeliOption.id }}"
+                name="articleCategoriesDeli[]"
+                value="{{ catDeliOption.id }}"
+                {{ catDeliOption.id in articleCategoriesDeli ? 's-val:article-categories-deli-all="0" checked' }}
+              />
+              <label for="catdeli-{{ catDeliOption.id }}"
+                class="filter__checkbox--label">
+                {{ catDeliOption.title }}
+              </label>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
     </details>
   </div>
 

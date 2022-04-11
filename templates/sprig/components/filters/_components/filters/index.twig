@@ -3,37 +3,24 @@
 {% set section = section ?? '' %}
 
 {# Get options from category groups. #}
-{# {% set catDeliOptionsQuery = craft.categories.group('catGroupDeli') %} #}
+{% set catDeliOptions = craft.categories.group('catGroupDeli').all() %}
 {% set catGiftOptions = craft.categories.group('catGroupGift').all() %}
 {% set catWineOptions = craft.categories.group('catGroupWine').all() %}
 {% set catStatusOptions = craft.categories.group('catGroupStatus').all() %}
 
-{# {% set articleCategoriesDeliAll = articleCategoriesDeliAll ?? false %} #}
-{# {% set articleCategoriesDeliNone = articleCategoriesDeliNone ?? false %} #}
-{# {% set articleCategoriesDeli = articleCategoriesDeliAll ? catDeliOptionsQuery.ids : (articleCategoriesDeli ?? []) %} #}
+{% set articleCategoriesDeliAll = articleCategoriesDeliAll ?? false %}
+{% set articleCategoriesDeliNone = articleCategoriesDeliNone ?? false %}
+{% if articleCategoriesDeliAll %}
+  {% set articleCategoriesDeli = craft.categories.group('catGroupDeli').ids() %}
+{% elseif articleCategoriesDeliNone %}
+  {% set articleCategoriesDeli = [] %}
+{% else %}
+  {% set articleCategoriesDeli = articleCategoriesDeli ?? [] %}
+{% endif %}
 
-{# {% set articleCategoriesDeli = articleCategoriesDeli ?? [] %} #}
 {% set articleCategoriesGift = articleCategoriesGift ?? [] %}
 {% set articleCategoriesWine = articleCategoriesWine ?? [] %}
 {% set articleCategoriesStatus = articleCategoriesStatus ?? [] %}
-
-{# SOLUTION #1 #}
-{% set selectAll = selectAll ?? false %}
-{% set selectNone = selectNone ?? false %}
-{% set categoryIds = categoryIds ?? [] %}
-
-{# Replace this with an actual query. #}
-{% set categoryOptions = craft.categories.group('catGroupDeli') %}
-
-{% if selectNone %}
-  {% set selectedCategoryIds = [] %}
-{% elseif selectAll %}
-  {% set selectedCategoryIds = categoryOptions %}
-{% else %}
-  {% set selectedCategoryIds = categoryIds %}
-{% endif %}
-{# SOLUTION #1 ENDE #}
-
 
 {% set limit = limit ?? 51 %}
 {% set page = page ?? 1 %}
@@ -61,7 +48,7 @@
   ]
 }) %}
 
-{% set categories = selectedCategoryIds
+{% set categories = articleCategoriesDeli
   |merge(articleCategoriesGift)
   |merge(articleCategoriesWine)
   |merge(articleCategoriesStatus) %}
