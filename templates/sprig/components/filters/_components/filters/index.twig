@@ -8,19 +8,26 @@
 {% set catWineOptions = craft.categories.group('catGroupWine').all() %}
 {% set catStatusOptions = craft.categories.group('catGroupStatus').all() %}
 
+{% set articleCategoriesDeli = articleCategoriesDeli ?? [] %}
+{% set articleCategoriesWine = articleCategoriesWine ?? [] %}
+{% set articleCategoriesGift = articleCategoriesGift ?? [] %}
+{% set articleCategoriesStatus = articleCategoriesStatus ?? [] %}
+
 {% set articleCategoriesDeliAll = articleCategoriesDeliAll ?? false %}
 {% set articleCategoriesDeliNone = articleCategoriesDeliNone ?? false %}
 {% if articleCategoriesDeliAll %}
   {% set articleCategoriesDeli = craft.categories.group('catGroupDeli').ids() %}
 {% elseif articleCategoriesDeliNone %}
   {% set articleCategoriesDeli = [] %}
-{% else %}
-  {% set articleCategoriesDeli = articleCategoriesDeli ?? [] %}
 {% endif %}
 
-{% set articleCategoriesGift = articleCategoriesGift ?? [] %}
-{% set articleCategoriesWine = articleCategoriesWine ?? [] %}
-{% set articleCategoriesStatus = articleCategoriesStatus ?? [] %}
+{% set articleCategoriesWineSelect = articleCategoriesWineSelect ?? null %}
+{% set articleCategoriesWineUnselect = articleCategoriesWineUnselect ?? null %}
+{% if articleCategoriesWineSelect %}
+  {% set articleCategoriesWine = articleCategoriesWine|merge(articleCategoriesWineSelect|split(',')) %}
+{% elseif articleCategoriesWineUnselect %}
+  {% set articleCategoriesWine = articleCategoriesWine|filter(v => v not in articleCategoriesWineUnselect) %}
+{% endif %}
 
 {% set limit = limit ?? 51 %}
 {% set page = page ?? 1 %}

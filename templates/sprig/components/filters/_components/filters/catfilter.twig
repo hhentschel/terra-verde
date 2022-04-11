@@ -40,148 +40,158 @@
     </div>
   </div>
 
-  <div class="">
-    <details open class="filter__accordion">
-      <summary class="filter__accordion--title">
-        Aktuell
-      </summary>
-      {% for catStatusOption in catStatusOptions %}
-        <div class="filter__checkbox">
-          <input sprig
-                 type="checkbox"
-                 id="catstatus-{{ catStatusOption.id }}"
-                 name="articleCategoriesStatus[]"
-                 value="{{ catStatusOption.id }}"
-            {{ catStatusOption.id in articleCategoriesStatus ? 'checked' }} />
-          <label for="catstatus-{{ catStatusOption.id }}"
-                 class="truncate filter__checkbox--label">
-            {{ catStatusOption.title }}
-          </label>
+  <div s-replace="#filters">
+    <div class="">
+      <details open class="filter__accordion">
+        <summary class="filter__accordion--title">
+          Aktuell
+        </summary>
+        {% for catStatusOption in catStatusOptions %}
+          <div class="filter__checkbox">
+            <input sprig
+                   type="checkbox"
+                   id="catstatus-{{ catStatusOption.id }}"
+                   name="articleCategoriesStatus[]"
+                   value="{{ catStatusOption.id }}"
+              {{ catStatusOption.id in articleCategoriesStatus ? 'checked' }} />
+            <label for="catstatus-{{ catStatusOption.id }}"
+                   class="truncate filter__checkbox--label">
+              {{ catStatusOption.title }}
+            </label>
+          </div>
+        {% endfor %}
+      </details>
+    </div>
+
+    <div class="">
+      <details open class="filter__accordion">
+        <summary class="filter__accordion--title">
+          Delikatessen
+        </summary>
+
+        <div class="filter__deli">
+          <div class="filter__checkbox filter__deli--checkbox">
+            <input sprig
+              type="checkbox"
+              s-swap="outerHTML show:body:top"
+              id="catdeli-catDeliOptionAll"
+              name="articleCategoriesDeliAll"
+              value="1"
+              {{ articleCategoriesDeliAll ? 's-val:article-categories-deli-none="1" checked' : '' }}
+            />
+            <label for="catdeli-catDeliOptionAll" class="filter__checkbox--label">
+              Alle
+            </label>
+          </div>
+
+          <div class="filter__subcategories">
+            {% for catDeliOption in catDeliOptions %}
+              <div class="filter__checkbox filter__deli--checkbox">
+                <input sprig
+                  type="checkbox"
+                  s-swap="outerHTML show:body:top"
+                  id="catdeli-{{ catDeliOption.id }}"
+                  name="articleCategoriesDeli[]"
+                  value="{{ catDeliOption.id }}"
+                  {{ catDeliOption.id in articleCategoriesDeli ? 's-val:article-categories-deli-all="0" checked' }}
+                />
+                <label for="catdeli-{{ catDeliOption.id }}" class="filter__checkbox--label">
+                  {{ catDeliOption.title }}
+                </label>
+              </div>
+            {% endfor %}
+          </div>
         </div>
-      {% endfor %}
-    </details>
-  </div>
+      </details>
+    </div>
 
-  <div class="">
-    <details open class="filter__accordion">
-      <summary class="filter__accordion--title">
-        Delikatessen
-      </summary>
-
-      <div class="filter__deli" s-replace="#filters">
-        <div class="filter__checkbox filter__deli--checkbox">
-          <input sprig
-            type="checkbox"
-            s-swap="outerHTML show:body:top"
-            id="catdeli-catDeliOptionAll"
-            name="articleCategoriesDeliAll"
-            value="1"
-            {{ articleCategoriesDeliAll ? 's-val:article-categories-deli-none="1" checked' : '' }}
-          />
-          <label for="catdeli-catDeliOptionAll" class="filter__checkbox--label">
-            Alle
-          </label>
-        </div>
-
-        <div class="filter__subcategories">
-          {% for catDeliOption in catDeliOptions %}
-            <div class="filter__checkbox filter__deli--checkbox">
-              <input sprig
-                type="checkbox"
-                s-swap="outerHTML show:body:top"
-                id="catdeli-{{ catDeliOption.id }}"
-                name="articleCategoriesDeli[]"
-                value="{{ catDeliOption.id }}"
-                {{ catDeliOption.id in articleCategoriesDeli ? 's-val:article-categories-deli-all="0" checked' }}
-              />
-              <label for="catdeli-{{ catDeliOption.id }}"
-                class="filter__checkbox--label">
-                {{ catDeliOption.title }}
-              </label>
-            </div>
-          {% endfor %}
-        </div>
-      </div>
-    </details>
-  </div>
-
-  <div class="">
-    <details open class="filter__accordion">
-      <summary class="filter__accordion--title">
-        Weine
-      </summary>
-      {% nav catWineOption in catWineOptions %}
-        <div class="filter__checkbox">
-          <input sprig
-                 type="checkbox"
-                 s-swap="outerHTML show:body:top"
-                 id="catwine-{{ catWineOption.id }}"
-                 name="articleCategoriesWine[]"
-                 value="{{ catWineOption.id }}"
-            {{ catWineOption.id in articleCategoriesWine ? 'checked' }} />
-          <label for="catwine-{{ catWineOption.id }}"
-                 class="truncate filter__checkbox--label">
-            {{ catWineOption.title }}
-          </label>
-        </div>
-        {% ifchildren %}
-          <ul class="filter__subcategories">
-            {% children %}
-          </ul>
-        {% endifchildren %}
-      {% endnav %}
-    </details>
-  </div>
-
-  <div class="desktop-hidden">
-    <details open class="filter__accordion">
-      <summary class="filter__accordion--title">
-        Geschenksets
-      </summary>
-      <div class="filter__gift">
-        {% for catGiftOption in catGiftOptions %}
+    <div class="">
+      <details open class="filter__accordion">
+        <summary class="filter__accordion--title">
+          Weine
+        </summary>
+        {% nav catWineOption in catWineOptions %}
+          {% set parentWithChildrenIds = [catWineOption.id]
+              |merge(catWineOption.parent ? [catWineOption.parent.id] : [])
+              |merge(catWineOption.children|map(v => v.id))
+              |join(',')
+          %}
           <div class="filter__checkbox">
             <input sprig
                    type="checkbox"
                    s-swap="outerHTML show:body:top"
-                   id="catgift-{{ catGiftOption.id }}"
-                   name="articleCategoriesGift[]"
-                   value="{{ catGiftOption.id }}"
-              {{ catGiftOption.id in articleCategoriesGift ? 'checked' }} />
-            <label for="catgift-{{ catGiftOption.id }}"
-                   class="truncate filter__checkbox--label">
-              {{ catGiftOption.title }}
+                   id="catwine-{{ catWineOption.id }}"
+                   name="articleCategoriesWine[]"
+                   value="{{ catWineOption.id }}"
+                   {% if catWineOption.id in articleCategoriesWine %}
+                     s-val:article-categories-wine-unselect="{{ parentWithChildrenIds }}" checked
+                   {% else %}
+                     s-val:article-categories-wine-select="{{ parentWithChildrenIds }}"
+                   {% endif %}
+            />
+            <label for="catwine-{{ catWineOption.id }}" class="truncate filter__checkbox--label">
+              {{ catWineOption.title }}
             </label>
           </div>
-        {% endfor %}
-      </div>
-    </details>
-  </div>
+          {% ifchildren %}
+            <div class="filter__subcategories">
+              {% children %}
+            </div>
+          {% endifchildren %}
+        {% endnav %}
+      </details>
+    </div>
 
-  <div class="mobile-hidden">
-    <details open class="filter__accordion">
-      <summary class="filter__accordion--title">
-        Geschenksets
-      </summary>
-      <div class="filter__gift">
-        {% for catGiftOption in catGiftOptions %}
-          <div class="filter__checkbox">
-            <input sprig
-                   type="checkbox"
-                   id="catgift-{{ catGiftOption.id }}"
-                   name="articleCategoriesGift[]"
-                   value="{{ catGiftOption.id }}"
-              {{ catGiftOption.id in articleCategoriesGift ? 'checked' }} />
-            <label for="catgift-{{ catGiftOption.id }}"
-                   class="truncate filter__checkbox--label">
-              {{ catGiftOption.title }}
-            </label>
-          </div>
-        {% endfor %}
-      </div>
-    </details>
-    <button class="btn filter__btn--results anchor-link" href="#tvboard">
-      Resulate anzeigen
-    </button>
+    <div class="desktop-hidden">
+      <details open class="filter__accordion">
+        <summary class="filter__accordion--title">
+          Geschenksets
+        </summary>
+        <div class="filter__gift">
+          {% for catGiftOption in catGiftOptions %}
+            <div class="filter__checkbox">
+              <input sprig
+                     type="checkbox"
+                     s-swap="outerHTML show:body:top"
+                     id="catgift-{{ catGiftOption.id }}"
+                     name="articleCategoriesGift[]"
+                     value="{{ catGiftOption.id }}"
+                {{ catGiftOption.id in articleCategoriesGift ? 'checked' }} />
+              <label for="catgift-{{ catGiftOption.id }}"
+                     class="truncate filter__checkbox--label">
+                {{ catGiftOption.title }}
+              </label>
+            </div>
+          {% endfor %}
+        </div>
+      </details>
+    </div>
+
+    <div class="mobile-hidden">
+      <details open class="filter__accordion">
+        <summary class="filter__accordion--title">
+          Geschenksets
+        </summary>
+        <div class="filter__gift">
+          {% for catGiftOption in catGiftOptions %}
+            <div class="filter__checkbox">
+              <input sprig
+                     type="checkbox"
+                     id="catgift-{{ catGiftOption.id }}"
+                     name="articleCategoriesGift[]"
+                     value="{{ catGiftOption.id }}"
+                {{ catGiftOption.id in articleCategoriesGift ? 'checked' }} />
+              <label for="catgift-{{ catGiftOption.id }}"
+                     class="truncate filter__checkbox--label">
+                {{ catGiftOption.title }}
+              </label>
+            </div>
+          {% endfor %}
+        </div>
+      </details>
+      <button class="btn filter__btn--results anchor-link" href="#tvboard">
+        Resulate anzeigen
+      </button>
+    </div>
   </div>
 </div>
