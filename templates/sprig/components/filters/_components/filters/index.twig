@@ -1,6 +1,10 @@
 {# Sets default values. #}
 {% set search = search ?? '' %}
 {% set section = section ?? '' %}
+{% set articleCategoriesDeli = articleCategoriesDeli ?? [] %}
+{% set articleCategoriesWine = articleCategoriesWine ?? [] %}
+{% set articleCategoriesGift = articleCategoriesGift ?? [] %}
+{% set articleCategoriesStatus = articleCategoriesStatus ?? [] %}
 
 {# Get options from category groups. #}
 {% set catDeliOptions = craft.categories.group('catGroupDeli').all() %}
@@ -8,15 +12,10 @@
 {% set catWineOptions = craft.categories.group('catGroupWine').all() %}
 {% set catStatusOptions = craft.categories.group('catGroupStatus').all() %}
 
-{% set articleCategoriesDeli = articleCategoriesDeli ?? [] %}
-{% set articleCategoriesWine = articleCategoriesWine ?? [] %}
-{% set articleCategoriesGift = articleCategoriesGift ?? [] %}
-{% set articleCategoriesStatus = articleCategoriesStatus ?? [] %}
-
 {% set articleCategoriesDeliAll = articleCategoriesDeliAll ?? false %}
 {% set articleCategoriesDeliNone = articleCategoriesDeliNone ?? false %}
 {% if articleCategoriesDeliAll %}
-  {% set articleCategoriesDeli = craft.categories.group('catGroupDeli').ids() %}
+  {% set articleCategoriesDeli = catDeliOptions|map(v => v.id) %}
 {% elseif articleCategoriesDeliNone %}
   {% set articleCategoriesDeli = [] %}
 {% endif %}
