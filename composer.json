@@ -5,6 +5,7 @@
     "craftcms/feed-me": "4.4.2",
     "craftcms/redactor": "2.10.5",
     "doublesecretagency/craft-googlemaps": "4.1.5",
+    "henrik/craft-user-guide": "dev-develop",
     "mediabeastnz/craft-commerce-back-in-stock": "^1.4.0",
     "nystudio107/craft-imageoptimize": "1.6.44",
     "nystudio107/craft-recipe": "1.4.0",
