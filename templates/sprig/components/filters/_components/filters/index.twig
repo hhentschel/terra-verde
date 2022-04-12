@@ -1,18 +1,43 @@
 {# Sets default values. #}
 {% set search = search ?? '' %}
 {% set section = section ?? '' %}
-
-{# {% set catDeliID = catDeliID ?? '' %}
-{% set catGiftID = catGiftID ?? '' %}
-{% set catWineID = catWineID ?? '' %}
-{% set catStatusID = catStatusID ?? '' %} #}
-
 {% set articleCategoriesDeli = articleCategoriesDeli ?? [] %}
-{% set articleCategoriesDeliAll = articleCategoriesDeliAll ?? [] %}
-
-{% set articleCategoriesGift = articleCategoriesGift ?? [] %}
 {% set articleCategoriesWine = articleCategoriesWine ?? [] %}
+{% set articleCategoriesGift = articleCategoriesGift ?? [] %}
 {% set articleCategoriesStatus = articleCategoriesStatus ?? [] %}
+
+{# Get options from category groups. #}
+{% set catDeliOptions = craft.categories.group('catGroupDeli').all() %}
+{% set catGiftOptions = craft.categories.group('catGroupGift').all() %}
+{% set catWineOptions = craft.categories.group('catGroupWine').all() %}
+{% set catStatusOptions = craft.categories.group('catGroupStatus').all() %}
+
+{# Delikatessen #}
+{% set articleCategoriesDeliAll = articleCategoriesDeliAll ?? false %}
+{% set articleCategoriesDeliNone = articleCategoriesDeliNone ?? false %}
+{% if articleCategoriesDeliAll %}
+  {% set articleCategoriesDeli = catDeliOptions|map(v => v.id) %}
+{% elseif articleCategoriesDeliNone %}
+  {% set articleCategoriesDeli = [] %}
+{% endif %}
+
+{# Geschenksets #}
+{% set articleCategoriesGiftAll = articleCategoriesGiftAll ?? false %}
+{% set articleCategoriesGiftNone = articleCategoriesGiftNone ?? false %}
+{% if articleCategoriesGiftAll %}
+  {% set articleCategoriesGift = catGiftOptions|map(v => v.id) %}
+{% elseif articleCategoriesGiftNone %}
+  {% set articleCategoriesGift = [] %}
+{% endif %}
+
+{# Weine #}
+{% set articleCategoriesWineSelect = articleCategoriesWineSelect ?? null %}
+{% set articleCategoriesWineUnselect = articleCategoriesWineUnselect ?? null %}
+{% if articleCategoriesWineSelect %}
+  {% set articleCategoriesWine = articleCategoriesWine|merge(articleCategoriesWineSelect|split(',')) %}
+{% elseif articleCategoriesWineUnselect %}
+  {% set articleCategoriesWine = articleCategoriesWine|filter(v => v not in articleCategoriesWineUnselect) %}
+{% endif %}
 
 {% set limit = limit ?? 51 %}
 {% set page = page ?? 1 %}
@@ -26,68 +51,28 @@
   {% set cart = craft.commerce.carts.cart %}
 {% endif %}
 
-{# Get options from category groups. #}
-{% set catDeliOptions = craft.categories.group('catGroupDeli').all() %}
-{% set catGiftOptions = craft.categories.group('catGroupGift').all() %}
-{% set catWineOptions = craft.categories.group('catGroupWine').all() %}
-{% set catStatusOptions = craft.categories.group('catGroupStatus').all() %}
-{% set catAll = craft.categories.group('catGroupStatus, catGroupDeli, catGroupGift, catGroupWine').all() %}
-
-{# Create an array of filters. #}
-{% set filters = {
+{% set productQuery = craft.products({
   search: search,
-  articleCategoriesDeli: articleCategoriesDeli,
-  articleCategoriesGift: articleCategoriesGift,
-  articleCategoriesWine: articleCategoriesWine,
-  articleCategoriesStatus: articleCategoriesStatus,
-  orderBy: orderBy
-} %}
+  orderBy: orderBy,
+  limit: limit,
+  with: [
+    [
+      'image',
+      {
+        withTransforms: ['productListing']
+      }
+    ]
+  ]
+}) %}
 
-{% set productQuery =
-  craft.products(
-    filters|merge({
-      limit: limit,
-      with: [
-        [
-          'image',
-          {
-            withTransforms: ['productListing']
-          }
-        ]
-      ]
-    })
-  )
-%}
-{% set categories =
-  articleCategoriesDeli
-    |merge(articleCategoriesGift)
-    |merge(articleCategoriesWine)
-    |merge(articleCategoriesStatus)
-%}
+{% set categories = articleCategoriesDeli
+  |merge(articleCategoriesGift)
+  |merge(articleCategoriesWine)
+  |merge(articleCategoriesStatus) %}
 
-
-
-{% if not articleCategoriesDeliAll %}
+{% if categories is not empty %}
   {% do productQuery.andRelatedTo(categories) %}
 {% endif %}
-
-{# {% if articleCategoriesDeli is not empty %}
-  {% do productQuery.andRelatedTo(articleCategoriesDeli) %}
-{% endif %}
-
-{% if articleCategoriesWine is not empty %}
-  {% do productQuery.andRelatedTo(articleCategoriesWine) %}
-{% endif %}
-
-{% if articleCategoriesGift is not empty %}
-  {% do productQuery.andRelatedTo(articleCategoriesGift) %}
-{% endif %}
-#}
-
-{# {% if articleCategoriesStatus is not empty %}
-  {% do productQuery.relatedTo(articleCategoriesStatus) %}
-{% endif %} #}
-
 
 {# Paginate entry query to get page info. #}
 {% set pageInfo = sprig.paginate(productQuery, page) %}
@@ -97,70 +82,75 @@
 {# Push the URL into the history stack with the filters, adding extra values. #}
 {% do sprig.pushUrl(
   '?'
-    ~ (filters
-      |merge({
-        page: page,
-        viewType: viewType
-      })
-      |url_encode)
-) %}
+  ~ ({ search: search,
+    articleCategoriesDeli: articleCategoriesDeli,
+    articleCategoriesGift: articleCategoriesGift,
+    articleCategoriesWine: articleCategoriesWine,
+    articleCategoriesStatus: articleCategoriesStatus,
+    orderBy: orderBy,
+    page: page,
+    viewType: viewType
+  })
+  |url_encode
+  ) %}
 
 {% if sprig.isRequest %}
   <script>
-    htmx.trigger('#cartsize', 'refresh'); htmx.trigger('#cartsizemobile',
-    'refresh');
+    htmx.trigger('#cartsize', 'refresh');
+    htmx.trigger('#cartsizemobile',
+      'refresh');
   </script>
 {% endif %}
 
 
-<div s-replace="#tvboard" class="shop__board row">
+<div s-replace="#tvboard" id="filters" class="shop__board row">
   {% include 'sprig/components/filters/_components/filters/catfilter' %}
 
   <div id="tvboard" class="col col-xs-12 col-md-6 col-lg-9">
-    <input type="hidden" name="viewType" value="{{ viewType }}" />
-    <input type="hidden" name="orderBy" value="{{ orderBy }}" />
+    <input type="hidden" name="viewType" value="{{ viewType }}"/>
+    <input type="hidden" name="orderBy" value="{{ orderBy }}"/>
 
     <div class="shop__board-topline">
-    <p class="shop__board-pagination">
-      <span class="">{{ pageInfo.first }}</span>
-      -
-      <span class="">{{ pageInfo.last }}</span>
-      von
-      <span class="">{{ pageInfo.total }}</span>
-      Produkten
-    </p>
+      <p class="shop__board-pagination">
+        <span class="">{{ pageInfo.first }}</span>
+        -
+        <span class="">{{ pageInfo.last }}</span>
+        von
+        <span class="">{{ pageInfo.total }}</span>
+        Produkten
+      </p>
 
 
-    {{ sprig('sprig/components/filters/_components/indicator') }}
+      {{ sprig('sprig/components/filters/_components/indicator') }}
 
-    {% if viewType == 'grid' %}
-    <div>
-      <button sprig
-        s-val:view-type="list"
-        s-val:page="1"
-        s-val:limit="102"
-        s-indicator=".loading-button__indicator"
-        class="btn-viewchange">
-        <span class="btn-viewchange__text">Listenansicht</span>
+      {% if viewType == 'grid' %}
         <div>
-        <span class="btn-viewchange__bar"></span>
-        <span class="btn-viewchange__bar"></span>
-        <span class="btn-viewchange__bar"></span>
-        <span class="btn-viewchange__bar"></span>
-        </div>
-      </button>
+          <button sprig
+                  s-val:view-type="list"
+                  s-val:page="1"
+                  s-val:limit="102"
+                  s-indicator=".loading-button__indicator"
+                  class="btn-viewchange">
+            <span class="btn-viewchange__text">Listenansicht</span>
+            <div>
+              <span class="btn-viewchange__bar"></span>
+              <span class="btn-viewchange__bar"></span>
+              <span class="btn-viewchange__bar"></span>
+              <span class="btn-viewchange__bar"></span>
+            </div>
+          </button>
 
-    </div>
-    {% else %}
-    <div>
-      <button sprig
-        s-val:view-type="grid"
-        s-val:page="1"
-        s-val:limit="36"
-        s-indicator=".loading-button__indicator"
-        class="btn-viewchange">
-        <span class="btn-viewchange__text">Rasteransicht</span>
-      <span href="" class="grid-icon grid-icon--fill">
+        </div>
+      {% else %}
+        <div>
+          <button sprig
+                  s-val:view-type="grid"
+                  s-val:page="1"
+                  s-val:limit="36"
+                  s-indicator=".loading-button__indicator"
+                  class="btn-viewchange">
+            <span class="btn-viewchange__text">Rasteransicht</span>
+            <span href="" class="grid-icon grid-icon--fill">
         <span class="layer layer--primary">
           <span></span>
         </span>
@@ -171,9 +161,9 @@
           <span></span>
         </span>
       </span>
-      </button>
-    </div>
-    {% endif %}
+          </button>
+        </div>
+      {% endif %}
     </div>
 
     {# shop-list anfang #}

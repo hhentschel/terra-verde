@@ -1,4 +1,4 @@
-dateModified: 1649758517
+dateModified: 1648028448
 email:
   fromEmail: p@henrik-hentschel.de
   fromName: 'Terra Verde'
@@ -297,8 +297,7 @@ plugins:
       contactFieldLayoutId: null
       emailFieldLabel: Email
       fromNamesEmails:
-        -
-          - 'Terra Verde'
+        - - 'Terra Verde'
           - p@henrik-hentschel.de
           - ''
       geoIp: false
@@ -332,8 +331,7 @@ plugins:
       timeThreshold: 0.8
       transportSettings:
         __assoc__:
-          -
-            - apiKey
+          - - apiKey
             - $SENDGRID_API_KEY
       transportType: putyourlightson\sendgrid\mail\SendgridAdapter
   ckeditor:
@@ -441,12 +439,9 @@ plugins:
       queueTtr: null
       requestOptions:
         __assoc__:
-          -
-            - headers
-            -
-              __assoc__:
-                -
-                  - User-Agent
+          - - headers
+            - __assoc__:
+                - - User-Agent
                   - 'Feed Me'
       runGcBeforeFeed: false
       skipUpdateFieldHandle: ''
@@ -500,10 +495,8 @@ plugins:
     schemaVersion: 1.0.0
     settings:
       sections:
-        -
-          - Intro
-        -
-          - Anleitungen
+        - - Intro
+        - - Anleitungen
       widgetTitle: Links
   image-optimize:
     edition: standard
@@ -519,38 +512,25 @@ plugins:
       createPlaceholderSilhouettes: false
       imageTransformTypeSettings:
         __assoc__:
-          -
-            - nystudio107\imageoptimizeimgix\imagetransforms\ImgixImageTransform
-            -
-              __assoc__:
-                -
-                  - domain
+          - - nystudio107\imageoptimizeimgix\imagetransforms\ImgixImageTransform
+            - __assoc__:
+                - - domain
                   - ''
-                -
-                  - apiKey
+                - - apiKey
                   - ''
-                -
-                  - securityToken
+                - - securityToken
                   - ''
-                -
-                  - unsharpMask
+                - - unsharpMask
                   - '20'
-          -
-            - nystudio107\imageoptimizesharp\imagetransforms\SharpImageTransform
-            -
-              __assoc__:
-                -
-                  - baseUrl
+          - - nystudio107\imageoptimizesharp\imagetransforms\SharpImageTransform
+            - __assoc__:
+                - - baseUrl
                   - ''
-          -
-            - nystudio107\imageoptimizethumbor\imagetransforms\ThumborImageTransform
-            -
-              __assoc__:
-                -
-                  - baseUrl
+          - - nystudio107\imageoptimizethumbor\imagetransforms\ThumborImageTransform
+            - __assoc__:
+                - - baseUrl
                   - ''
-                -
-                  - securityKey
+                - - securityKey
                   - ''
       lowerQualityRetinaImageVariants: true
       sharpenScaledImagePercentage: 50
@@ -645,11 +625,9 @@ plugins:
       cpTitlePrefix: '⚙ '
       cspNonce: ''
       cspScriptSrcPolicies:
-        -
-          __assoc__:
-            -
-              - policy
-              - '''self'''
+        - __assoc__:
+            - - policy
+              - "'self'"
       devModeCpTitlePrefix: '&#x1f6a7;⚙ '
       devModeTitlePrefix: '&#x1f6a7; '
       displayAnalysisSidebar: true
@@ -717,7 +695,7 @@ plugins:
     settings:
       baseUrlPrefix: ''
       placeholderImage: ''
-      replaceTransforms: '0'
+      replaceTransforms: '1'
   user-guide:
     edition: standard
     enabled: true
