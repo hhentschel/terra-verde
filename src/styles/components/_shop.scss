@@ -190,13 +190,13 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
       flex-wrap: wrap;
     }
 
-    &--checkbox {
-      width: 100%;
+    // &--checkbox {
+    //   width: 100%;
 
-      @include breakpoint('tablet-landscape') {
-        width: 50%;
-      }
-    }
+    //   @include breakpoint('tablet-landscape') {
+    //     width: 50%;
+    //   }
+    // }
   }
 
   &__btn--results {
@@ -248,7 +248,7 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
     display: grid;
     grid-template-columns: repeat(
       auto-fill,
-        minmax(var(--grid-col-breakpoint-shop), 1fr)
+      minmax(var(--grid-col-breakpoint-shop), 1fr)
     );
     grid-column-gap: var(--grid-col-gap);
     grid-row-gap: var(--grid-row-gap);
@@ -387,13 +387,18 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
     justify-content: space-between;
     flex: 1 1 auto;
 
-    padding: 0 ($shop-list__grid-gutter--phone / 2) ($shop-list__grid-gutter--phone / 3) ($shop-list__grid-gutter--phone / 2);
+    padding: 0 ($shop-list__grid-gutter--phone / 2)
+      ($shop-list__grid-gutter--phone / 3) ($shop-list__grid-gutter--phone / 2);
 
     @include breakpoint('tablet-landscape') {
-      padding: 0 $shop-list__grid-gutter--tablet / 2 $shop-list__grid-gutter--tablet / 2 $shop-list__grid-gutter--tablet / 2;
+      padding: 0 $shop-list__grid-gutter--tablet / 2
+        $shop-list__grid-gutter--tablet / 2 $shop-list__grid-gutter--tablet / 2;
     }
     @include breakpoint('desktop') {
-      padding: ($shop-list__grid-gutter--desktop / 4) ($shop-list__grid-gutter--desktop / 2) ($shop-list__grid-gutter--desktop / 3) ($shop-list__grid-gutter--desktop / 2);
+      padding: ($shop-list__grid-gutter--desktop / 4)
+        ($shop-list__grid-gutter--desktop / 2)
+        ($shop-list__grid-gutter--desktop / 3)
+        ($shop-list__grid-gutter--desktop / 2);
     }
 
     > h3 {

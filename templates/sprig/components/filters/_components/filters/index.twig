@@ -12,6 +12,7 @@
 {% set catWineOptions = craft.categories.group('catGroupWine').all() %}
 {% set catStatusOptions = craft.categories.group('catGroupStatus').all() %}
 
+{# Delikatessen #}
 {% set articleCategoriesDeliAll = articleCategoriesDeliAll ?? false %}
 {% set articleCategoriesDeliNone = articleCategoriesDeliNone ?? false %}
 {% if articleCategoriesDeliAll %}
@@ -20,6 +21,16 @@
   {% set articleCategoriesDeli = [] %}
 {% endif %}
 
+{# Geschenksets #}
+{% set articleCategoriesGiftAll = articleCategoriesGiftAll ?? false %}
+{% set articleCategoriesGiftNone = articleCategoriesGiftNone ?? false %}
+{% if articleCategoriesGiftAll %}
+  {% set articleCategoriesGift = catGiftOptions|map(v => v.id) %}
+{% elseif articleCategoriesGiftNone %}
+  {% set articleCategoriesGift = [] %}
+{% endif %}
+
+{# Weine #}
 {% set articleCategoriesWineSelect = articleCategoriesWineSelect ?? null %}
 {% set articleCategoriesWineUnselect = articleCategoriesWineUnselect ?? null %}
 {% if articleCategoriesWineSelect %}
