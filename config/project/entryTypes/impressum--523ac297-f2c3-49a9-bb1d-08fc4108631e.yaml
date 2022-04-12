@@ -26,10 +26,19 @@ fieldLayouts:
             type: craft\fieldlayoutelements\EntryTitleField
             warning: null
             width: 100
+          -
+            fieldUid: 9f46731d-7fdd-4245-9ca1-719db0672448 # Inhaltselemente
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
         name: Inhalt
         sortOrder: 1
 handle: impressum
-hasTitleField: false
+hasTitleField: true
 name: Impressum
 section: 6d38f976-5e94-4016-abac-a9e2da77ab07 # Impressum
 sortOrder: 1
