@@ -3,14 +3,6 @@
 
 {% set addedToCart = success is defined %}
 
-{% if sprig.isRequest %}
-  <script>
-    htmx.trigger('#cartsize', 'refresh');
-    htmx.trigger('#cartsizemobile', 'refresh');
-  </script>
-{% endif %}
-
-
 <div class="shop-list__item">
   <a class="shop-list__link" href="{{ product.url }}">
     {% if variant.onSale %}
