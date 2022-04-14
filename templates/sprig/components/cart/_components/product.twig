@@ -3,10 +3,18 @@
 
 {% set addedToCart = success is defined %}
 
+{# get item with category "neuheit" #}
+{% set newCategory = craft.categories.group('catGroupStatus').slug('neuheit').one() %}
+{% set newItem = craft.products().relatedTo(newCategory) %}
+
 <div class="shop-list__item">
   <a class="shop-list__link" href="{{ product.url }}">
     {% if variant.onSale %}
       <div class="onsale">
+      </div>
+    {% endif %}
+    {% if newItem %}
+      <div class="newproduct">
       </div>
     {% endif %}
     {% if variant.hasstock == false %}

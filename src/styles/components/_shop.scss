@@ -481,6 +481,33 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
     }
   }
 
+  .newproduct {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 70px 0 0 70px;
+    border-color: $color--yellow transparent transparent transparent;
+    align-self: flex-start;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: 0;
+
+    &::after {
+      content: 'Neu';
+      position: absolute;
+      top: -58px;
+      width: 50px;
+      right: 0;
+      text-align: center;
+      font-size: 16px;
+      transform: rotate(45deg);
+      display: block;
+      color: $color--white;
+    }
+  }
+
   &__link {
     display: flex;
     flex-direction: column;
