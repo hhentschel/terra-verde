@@ -83,6 +83,7 @@
 {% do sprig.pushUrl(
   '?'
   ~ ({ search: search,
+    articleCategoriesDeliAll: articleCategoriesDeliAll,
     articleCategoriesDeli: articleCategoriesDeli,
     articleCategoriesGift: articleCategoriesGift,
     articleCategoriesWine: articleCategoriesWine,
@@ -93,14 +94,6 @@
   })
   |url_encode
   ) %}
-
-{% if sprig.isRequest %}
-  <script>
-    htmx.trigger('#cartsize', 'refresh');
-    htmx.trigger('#cartsizemobile',
-      'refresh');
-  </script>
-{% endif %}
 
 
 <div s-replace="#tvboard" id="filters" class="shop__board row">
