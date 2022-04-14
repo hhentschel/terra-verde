@@ -1,9 +1,9 @@
-<div class="newsletter__form">
+{# <div class="newsletter__form">
   {{ craft.formie.renderForm('newsletterForm') }}
-</div>
+</div> #}
 
 <!-- Begin Mailchimp Signup Form -->
-{# <div id="mc_embed_signup">
+<div id="mc_embed_signup">
   <form action="https://terra-verde.us13.list-manage.com/subscribe/post?u=630fdcf05d4a991b79622fff1&amp;id=b9b2b5a176"
     method="post"
     id="mc-embedded-subscribe-form"
@@ -11,18 +11,6 @@
     class="validate newsletter__form"
     target="_blank"
     novalidate>
-    <div class="mc-field-group">
-      <label for="mce-EMAIL" class="visually-hidden">
-        Email-Adresse <span class="asterisk">*</span>
-      </label>
-      <input type="email"
-        value=""
-        name="EMAIL"
-        class="required email input"
-        placeholder="E-Mail"
-        id="mce-EMAIL" />
-    </div>
-
     <div class="mc-field-group">
       <label for="mce-VNAME" class="visually-hidden">
         Vorname <span class="asterisk">*</span>
@@ -47,6 +35,18 @@
         id="mce-NNAME" />
     </div>
 
+    <div class="mc-field-group">
+      <label for="mce-EMAIL" class="visually-hidden">
+        Email-Adresse <span class="asterisk">*</span>
+      </label>
+      <input type="email"
+        value=""
+        name="EMAIL"
+        class="required email input"
+        placeholder="E-Mail"
+        id="mce-EMAIL" />
+    </div>
+
     <div id="mce-responses" class="clear">
       <div class="response" id="mce-error-response" style="display:none"></div>
       <div class="response"
@@ -69,6 +69,6 @@
         class="input input__primary" />
     </div>
   </form>
-</div> #}
+</div>
 
 <!-- End mc_embed_signup -->
