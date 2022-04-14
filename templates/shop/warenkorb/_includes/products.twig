@@ -189,8 +189,27 @@
              <td class="text-right" colspan="2">
                {% if not cart.hasErrors() and item.adjustments|length %}
                  <div class="adjustments">
-                   {% for adjustment in item.adjustments %}
+
+
+
+
+                    {% for adjustment in item.adjustments if adjustment.type == "discount" %}
                      <div class="adjustments__data">
+
+                       <div class="adjustments__data--type">
+                         <strong class="">{{ adjustment.description }}</strong>
+                       </div>
+
+                       <div class="adjustments__data--amount">
+                         <span class=""
+                               title="{{ adjustment.amount }}"> {{ adjustment.amount|commerceCurrency(cart.currency) }}</span>
+                       </div>
+                     </div>
+                   {% endfor %}
+
+                  {% for adjustment in item.adjustments if adjustment.type != "discount" %}
+                    <div class="adjustments__data">
+
                        <div class="adjustments__data--type">
                          <strong class="">{{ adjustment.name }}</strong>
                        </div>
@@ -202,7 +221,7 @@
                                title="{{ adjustment.amount }}"> {{ adjustment.amount|commerceCurrency(cart.currency) }}</span>
                        </div>
                      </div>
-                   {% endfor %}
+                  {% endfor %}
                  </div>
                {% endif %}
 
@@ -367,7 +386,7 @@
                        {% if userExists.isInGroup('userGroupRetail') %}
 
                          {% set nettoPrice = cart.totalPrice - cart.getTotalTaxIncluded %}
-                         {% if nettoPrice < 150 %}
+                         {% if nettoPrice < 150 and not cart.couponCode %}
                            <div class="form__cart--expection">
                              <a class="button button--secondary" href="#">Zahlung nicht möglich</a>
                              <span>Mindestbestellbetrag Netto: 150,- CHF</span>
@@ -378,7 +397,7 @@
 
                        {% elseif userExists.isInGroup('userGroupPrivate') %}
 
-                         {% if cart.totalPrice < 30 %}
+                         {% if cart.totalPrice < 30 and not cart.couponCode %}
                            <div class="form__cart--expection">
                              <a class="button button--secondary" href="#">Zahlung nicht möglich</a>
                              <span>Mindestbestellbetrag: 30,- CHF</span>
@@ -389,7 +408,7 @@
 
                        {% else %}
 
-                         {% if cart.totalPrice < 30 %}
+                         {% if cart.totalPrice < 30 and not cart.couponCode %}
                            <div class="form__cart--expection">
                              <a class="button button--secondary" href="#">Zahlung nicht möglich</a>
                              <span>Mindestbestellbetrag: 30,- CHF</span>
