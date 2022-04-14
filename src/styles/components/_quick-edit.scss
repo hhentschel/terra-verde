@@ -7,7 +7,7 @@
   right: px-to-rem($space--s);
 
   &__link {
-    @include typo(quickEdit);
+    @include typo(default);
     @include interactionStyle(
       background-color,
       $color--primary,
