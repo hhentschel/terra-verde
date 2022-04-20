@@ -41,5 +41,9 @@
     padding: px-to-rem($space--s);
     text-align: center;
     top: px-to-rem(120);
+
+    .shop-list__listview & {
+      top: 0;
+    }
   }
 }
