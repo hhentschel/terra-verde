@@ -3,6 +3,7 @@
     display: flex;
     border-bottom: 1px solid $color--grey-light;
     margin: 0 0 px-to-rem(30) 0;
+    flex-wrap: wrap;
 
     input[type='radio'].blog__cat--input,
     input[type='checkbox'].blog__cat--input {
@@ -11,7 +12,10 @@
   }
 
   &--item {
-    margin: 0 px-to-rem(10) 0 0;
+    margin: 0 px-to-rem($space--s) px-to-rem($space--s) 0;
+    background-color: $color--beige-light;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
 
     &:hover {
       background-color: $color--beige-light;
@@ -19,12 +23,15 @@
   }
 
   &--item-active {
-    background-color: $color--beige-light;
+    background-color: $color--grey-darkest;
+    border-bottom: 1px solid $color--grey-darkest;
+    color: $color--white;
   }
 
   &--label,
   &--item-reset {
     padding: px-to-rem(12) px-to-rem(18);
+
     display: block;
     &:hover {
       cursor: pointer;
