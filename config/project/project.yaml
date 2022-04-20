@@ -1,4 +1,4 @@
-dateModified: 1650447048
+dateModified: 1650470370
 email:
   fromEmail: p@henrik-hentschel.de
   fromName: 'Terra Verde'
@@ -109,7 +109,7 @@ meta:
     90ef89be-0cc4-42b9-881d-b782644c5701: Akkordeon # Akkordeon
     92fe9f1d-016c-47b7-93b0-91c866fd6175: Generic # Generic
     93be6bc6-5c6c-4bc1-9542-05ce2d7fe57b: 'Blog-Bild Vorschau' # Blog-Bild Vorschau
-    95d567e2-ef54-4216-b7bf-f3afd51b9ddd: 'Kreditkarte, Postfinance, Paypal, Twint' # Kreditkarte, Postfinance, Paypal, Twint
+    95d567e2-ef54-4216-b7bf-f3afd51b9ddd: 'Kreditkarte, Postfinance, Twint' # Kreditkarte, Postfinance, Twint
     105f3719-0e2b-409f-851b-64e895b976aa: Redakteure # Redakteure
     121a4c00-ea55-46f5-b606-4288506164da: 'Kategorien (Status)' # Kategorien (Status)
     127bba7e-6a96-4ffa-8cbb-f4c17d39e347: Team # Team
