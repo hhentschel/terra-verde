@@ -37,7 +37,7 @@ return [
 
     'generateTransformsBeforePageLoad' => true,
     // Set to 0 if you want users to stay logged in as long as their browser is open
-    'userSessionDuration' => 0,
+    // 'userSessionDuration' => 0,
 //    'rememberedUserSessionDuration' => 'P4W',
 
 
