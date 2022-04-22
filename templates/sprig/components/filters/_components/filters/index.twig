@@ -1,6 +1,7 @@
 {# Sets default values. #}
 {% set search = search ?? '' %}
 {% set section = section ?? '' %}
+{# set the arra of all categories to itself, otherwise to a empty array #}
 {% set articleCategoriesDeli = articleCategoriesDeli ?? [] %}
 {% set articleCategoriesWine = articleCategoriesWine ?? [] %}
 {% set articleCategoriesGift = articleCategoriesGift ?? [] %}
@@ -8,15 +9,23 @@
 
 {# Get options from category groups. #}
 {% set catDeliOptions = craft.categories.group('catGroupDeli').all() %}
+{% set catDeliOptionsIDs = craft.categories.group('catGroupDeli').ids() %}
 {% set catGiftOptions = craft.categories.group('catGroupGift').all() %}
 {% set catWineOptions = craft.categories.group('catGroupWine').all() %}
 {% set catStatusOptions = craft.categories.group('catGroupStatus').all() %}
 
 {# Delikatessen #}
+{# set a variable for selecting all categories to itself otherwise to false #}
 {% set articleCategoriesDeliAll = articleCategoriesDeliAll ?? false %}
+{# set a variable for selecting no categories to itself otherwise to false #}
 {% set articleCategoriesDeliNone = articleCategoriesDeliNone ?? false %}
+{# if the "All" checkbox for all categories is checked/true #}
 {% if articleCategoriesDeliAll %}
+  {# get all ids from the categories options (could have also been done with:
+  {% set catDeliOptionsIDs = craft.categories.group('catGroupDeli').ids() %})
+  map-> loop though all ids from all elements #}
   {% set articleCategoriesDeli = catDeliOptions|map(v => v.id) %}
+  {# if no categories are selected, then set the articleCategoriesDeli variable to an empty string #}
 {% elseif articleCategoriesDeliNone %}
   {% set articleCategoriesDeli = [] %}
 {% endif %}

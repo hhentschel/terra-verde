@@ -77,6 +77,8 @@
               id="catdeli-catDeliOptionAll"
               name="articleCategoriesDeliAll"
               value="1"
+              {# if the variable articleCategoriesDeliAll is true, set the checkbos to true and set the value of
+              articleCategoriesDeliNone to 1 if the checkbox gets unchecked again, otherwise set the checkbox to empty string  #}
               {{ articleCategoriesDeliAll ? 's-val:article-categories-deli-none="1" checked' : '' }}
             />
             <label for="catdeli-catDeliOptionAll" class="filter__checkbox--label">
@@ -93,6 +95,8 @@
                   id="catdeli-{{ catDeliOption.id }}"
                   name="articleCategoriesDeli[]"
                   value="{{ catDeliOption.id }}"
+                  {# if the checked cat option is in the articleCategoriesDeli array, the set the checkbox to checked
+                  and if it gets unchecked set the value of articleCategoriesDeliAll to 0 #}
                   {{ catDeliOption.id in articleCategoriesDeli ? 's-val:article-categories-deli-all="0" checked' }}
                 />
                 <label for="catdeli-{{ catDeliOption.id }}" class="filter__checkbox--label">
@@ -111,6 +115,9 @@
           Weine
         </summary>
         {% nav catWineOption in catWineOptions %}
+        {# set a variable with ids, if a wine option is selected, merge the id of the parent otherwise a empty array,
+        if there are children, then also merge the id of the child, otherwise an empty array (loop through the id, like the delis)
+        and join everything with comma #}
           {% set parentWithChildrenIds = [catWineOption.id]
               |merge(catWineOption.parent ? [catWineOption.parent.id] : [])
               |merge(catWineOption.children|map(v => v.id))
@@ -123,9 +130,12 @@
                    id="catwine-{{ catWineOption.id }}"
                    name="articleCategoriesWine[]"
                    value="{{ catWineOption.id }}"
+                   {# if the checked wineoption is in the wine array #}
                    {% if catWineOption.id in articleCategoriesWine %}
+                    {# set the value of articleCategoriesWineUnselect with the cat ids (parentWithChildrenIds) if checked #}
                      s-val:article-categories-wine-unselect="{{ parentWithChildrenIds }}" checked
                    {% else %}
+                   {# otherwise set the variable articleCategoriesWineSelect with the ids (parentWithChildrenIds) #}
                      s-val:article-categories-wine-select="{{ parentWithChildrenIds }}"
                    {% endif %}
             />
