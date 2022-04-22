@@ -61,7 +61,10 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
   }
 
   &__search {
-    margin-bottom: px-to-rem($space--xxm);
+    margin-bottom: px-to-rem($space--m);
+    @include breakpoint('tablet') {
+      margin-bottom: px-to-rem($space--xxm);
+    }
   }
 
   &__hint {
