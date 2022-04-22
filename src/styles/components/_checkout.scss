@@ -20,7 +20,6 @@
   }
 }
 
-
 #shippingMethodHandle:checked + .hidden {
   visibility: visible;
   display: block;
@@ -74,7 +73,7 @@
       margin: 0 0 px-to-rem($space--m) 0;
     }
 
-    .requirements__chekcbox {
+    .requirements__checkbox {
       margin: 0 0 0 px-to-rem($space--m);
     }
   }
@@ -99,7 +98,6 @@
   visibility: collapse;
   display: none;
 }
-
 
 // Setting shippingadress
 
