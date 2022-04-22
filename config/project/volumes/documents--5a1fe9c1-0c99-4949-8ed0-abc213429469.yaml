@@ -1,5 +1,5 @@
 fieldLayouts:
-  e1652b46-6834-4179-a2db-2990aa61003f:
+  8f4de9ee-3a11-43d3-b452-7332a0722a1e:
     tabs:
       -
         elements:
@@ -23,25 +23,24 @@ fieldLayouts:
             step: null
             tip: null
             title: null
-            type: craft\fieldlayoutelements\EntryTitleField
-            warning: null
-            width: 100
-          -
-            fieldUid: 9f46731d-7fdd-4245-9ca1-719db0672448 # Inhaltselemente
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
+            type: craft\fieldlayoutelements\AssetTitleField
             warning: null
             width: 100
         name: Inhalt
         sortOrder: 1
-handle: impressum
-hasTitleField: true
-name: Impressum
-section: 6d38f976-5e94-4016-abac-a9e2da77ab07 # Impressum
-sortOrder: 1
-titleFormat: '{section.name|raw}'
+handle: documents
+hasUrls: true
+name: 'Dokumente (PDF)'
+settings:
+  cdnUrlPattern: ''
+  customSubfolder: /assets/images/content/documents
+  makeUploadsPublic: true
+  optimisePrefix: ''
+  optimiseUrlPattern: ''
+  projectSlug: ''
+  securityKey: ''
+sortOrder: 16
 titleTranslationKeyFormat: null
-titleTranslationMethod: site
+titleTranslationMethod: null
+type: servd\AssetStorage\Volume
+url: 'https://cdn2.assets-servd.host/'

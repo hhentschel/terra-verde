@@ -12,5 +12,14 @@
         </h2>
       </div>
     </div>
+
+    <div class="row">
+      <div class="col col-xs-12 col-md-12 col-lg-9">
+        {% include '_components/_content-elements/content-elements-loop' with {
+          contentElements: entry.contentElements.level(1),
+          usesGrid: false
+        } %}
+      </div>
+    </div>
   </div>
 {% endblock %}

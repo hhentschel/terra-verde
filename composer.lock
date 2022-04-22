@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f780276a9b3f52a430d4c33fe1f5c83e",
+    "content-hash": "a474b4a3dcad11902d77da9ad846c78d",
     "packages": [
         {
             "name": "aws/aws-crt-php",
@@ -2165,6 +2165,46 @@
                 "url"
             ],
             "time": "2022-03-20T21:55:58+00:00"
+        },
+        {
+            "name": "henrik/craft-user-guide",
+            "version": "dev-develop",
+            "dist": {
+                "type": "path",
+                "url": "./plugins/craft-user-guide",
+                "reference": "fa1f2cf1b30f5563da3d98c8767aee7001e3441b"
+            },
+            "require": {
+                "craftcms/cms": "^3.1.0"
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "name": "Benutzerhandbuch",
+                "handle": "user-guide"
+            },
+            "autoload": {
+                "psr-4": {
+                    "henrik\\userguide\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Henrik",
+                    "homepage": "https://henrik-hentschel.de"
+                }
+            ],
+            "description": "Craft User Guide",
+            "keywords": [
+                "here",
+                "keywords",
+                "some"
+            ],
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "html2text/html2text",
@@ -8933,7 +8973,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "henrik/craft-user-guide": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],

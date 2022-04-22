@@ -23,31 +23,6 @@
 }
 
 .oos {
-  //display: inline-block;
-  //width: 0;
-  //height: 0;
-  //border-style: solid;
-  //border-width: 120px 120px 0 0;
-  //border-color: $color--red transparent transparent transparent;
-  //align-self: flex-start;
-  //position: absolute;
-  //z-index: 1;
-  //top: 0;
-  //left: 0;
-  //
-  //&::after {
-  //  content: 'momentan nicht verfügbar';
-  //  position: absolute;
-  //  top: -58px;
-  //  width: 50px;
-  //  left: 0;
-  //  text-align: center;
-  //  font-size: 16px;
-  //  transform: rotate(-45deg);
-  //  display: block;
-  //  color: $color--white;
-  //}
-
   position: relative;
   z-index: 1;
 
@@ -64,9 +39,11 @@
     position: absolute;
     width: 100%;
     padding: px-to-rem($space--s);
-    opacity: 0.75;
     text-align: center;
+    top: px-to-rem(120);
+
+    .shop-list__listview & {
+      top: 0;
+    }
   }
 }
-
-

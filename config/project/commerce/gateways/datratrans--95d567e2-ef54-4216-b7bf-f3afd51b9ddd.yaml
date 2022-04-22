@@ -1,6 +1,6 @@
 handle: datratrans
 isFrontendEnabled: true
-name: 'Kreditkarte, Postfinance, Paypal, Twint'
+name: 'Kreditkarte, Postfinance, Twint'
 paymentType: purchase
 settings:
   checkoutMode: redirect

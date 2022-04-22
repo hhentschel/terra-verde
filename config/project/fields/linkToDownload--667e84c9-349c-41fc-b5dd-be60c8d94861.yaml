@@ -16,13 +16,14 @@ settings:
   previewMode: full
   restrictFiles: ''
   selectionLabel: ''
-  showSiteMenu: false
+  showSiteMenu: true
   showUnpermittedFiles: false
   showUnpermittedVolumes: false
   singleUploadLocationSource: 'volume:63339d3e-c6d1-4455-be6d-33715340baf0' # Produkte
   singleUploadLocationSubpath: ''
   source: null
-  sources: '*'
+  sources:
+    - 'volume:5a1fe9c1-0c99-4949-8ed0-abc213429469' # Dokumente (PDF)
   targetSiteId: null
   useSingleFolder: false
   validateRelatedElements: false

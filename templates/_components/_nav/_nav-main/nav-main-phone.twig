@@ -3,7 +3,8 @@
 
 {% set homeLink = craft.entries.section('homepage').one() %}
 {% set ueberunsLink =
-  craft.entries.section('aboutUsStructure').level(1).all() %}
+  craft.entries.section('aboutUsStructure').level(1).all()
+%}
 {% set ueberunsLink = craft.entries.section('aboutUsStructure').one() %}
 {% set shopLink = craft.entries.section('shopStructure').one() %}
 {% set aktuellLink = craft.entries.section('newsOverview').one() %}
@@ -11,7 +12,8 @@
 {# {% set verkaufsstellenLink =
   craft.entries.section('sellingPointsStructureSingle').one()
 %} #}
-{% set produzentenLink = craft.entries.section('producersStructure').one() %}
+
+{% set produzentenLink = craft.entries.section('producersOverview').one() %}
 
 <div class="mobile-nav__wrapper">
   <div class="mobile-nav__header">
@@ -23,9 +25,11 @@
       <span class="visually-hidden">
         {{ 'nav.mainNavigation.menuClose'|t }}
       </span>
-      {{ macros.svg('close_24')|attr({
-        class: 'icon icon--24'
-      }) }}
+      {{
+        macros.svg('close_24')|attr({
+          class: 'icon icon--24'
+        })
+      }}
     </button>
   </div>
 
@@ -37,8 +41,10 @@
       {# Starteite #}
       <li class="mobile-nav__list-item">
         <a href="/{{ currentSite.language }}" class="link">
-          <span class="mobile-nav__text mobile-nav__text--bold {{ craft.app.request.url == '/' ~ currentSite.language
-          ? 'mobile-nav__text--active' }}">
+          <span class="mobile-nav__text mobile-nav__text--bold {{
+            craft.app.request.url == '/' ~ currentSite.language
+              ? 'mobile-nav__text--active'
+            }}">
             {{ 'Startseite'|t }}
           </span>
         </a>
@@ -46,11 +52,13 @@
       {# SHOP #}
       <li class="mobile-nav__list-item">
         <a href="{{ shopLink.url }}"
-           class="mobile-nav__text mobile-nav__text--bold {{ macros.isActive(
-             'shop',
-             1,
-             'mobile-nav__text--'
-           ) }}">
+          class="mobile-nav__text mobile-nav__text--bold {{
+          macros.isActive(
+            'shop',
+            1,
+            'mobile-nav__text--'
+          )
+          }}">
           {{ 'Shop'|t }}
         </a>
       </li>
@@ -59,11 +67,13 @@
       {# ÜBER UNS #}
       <li class="mobile-nav__list-item">
         <a href="{{ ueberunsLink.url }}"
-           class="mobile-nav__text mobile-nav__text--bold {{ macros.isActive(
-             'ueberuns',
-             1,
-             'mobile-nav__text--'
-           ) }}">
+          class="mobile-nav__text mobile-nav__text--bold {{
+          macros.isActive(
+            'ueberuns',
+            1,
+            'mobile-nav__text--'
+          )
+          }}">
           {{ 'Über uns'|t }}
         </a>
       </li>
@@ -72,12 +82,14 @@
       {# Aktuell #}
       <li class="mobile-nav__list-item">
         <a href="{{ aktuellLink.url }}"
-           class="mobile-nav__text mobile-nav__text--bold {{ macros.isActive(
-             'aktuell',
-             1,
-             'mobile-nav__text--'
-           ) }}">
-          {{ 'Aktuell'|t }}
+          class="mobile-nav__text mobile-nav__text--bold {{
+          macros.isActive(
+            'aktuell',
+            1,
+            'mobile-nav__text--'
+          )
+          }}">
+          {{ 'Blog'|t }}
         </a>
       </li>
       {# END NEUES #}
@@ -85,11 +97,13 @@
       {# PRODUZENTEN #}
       <li class="mobile-nav__list-item">
         <a href="{{ produzentenLink.url }}"
-           class="mobile-nav__text mobile-nav__text--bold {{ macros.isActive(
-             'produzenten',
-             1,
-             'mobile-nav__text--'
-           ) }}">
+          class="mobile-nav__text mobile-nav__text--bold {{
+          macros.isActive(
+            'produzenten',
+            1,
+            'mobile-nav__text--'
+          )
+          }}">
           {{ 'Produzent:innen'|t }}
         </a>
       </li>
@@ -109,7 +123,7 @@
         </a>
       </li> #}
       {# END VERKAUFSSTELLEN #}
-      
+
       <li>{% include '_components/_nav/_nav-service/nav-service-phone' %}</li>
     </ul>
   </nav>

@@ -3,10 +3,15 @@
 
 {% set addedToCart = success is defined %}
 
+
 <div class="shop-list__item">
   <a class="shop-list__link" href="{{ product.url }}">
     {% if variant.onSale %}
       <div class="onsale">
+      </div>
+    {% endif %}
+     {% if product.articleCategoriesStatus.id('10745').exists() %}
+      <div class="newproduct">
       </div>
     {% endif %}
     {% if variant.hasstock == false %}
@@ -64,7 +69,6 @@
                viewBox="0 0 20 20">
             <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
           </svg>
-
         </div>
       </div>
 
@@ -75,7 +79,6 @@
                  name="qty"
                  type="number"
                  step="1"
-
             {% if currentUser %}
               {% if currentUser.isInGroup('userGroupRetail') %}
                 value="{{ product.artikelMinOrderSize }}"
@@ -84,15 +87,12 @@
               {% else %}
                 value="1"
                 min="1"
-
               {% endif %}
             {% else %}
               value="1"
               min="1"
-
             {% endif %}
           >
-
 
           <a sprig s-action="commerce/cart/update-cart" s-method="post" s-val:purchasable-id="{{ variant.id }}"
              s-replace="#addtocart-{{ variant.id }}" id="addtocart-{{ variant.id }}" href="#"
@@ -112,7 +112,6 @@
           <a class="button button--primary button--primary-bis button--small" href="{{ product.url }}">
             <span>Benachrichtigen Sie mich</span>
           </a>
-
         {% endif %}
       </div>
 

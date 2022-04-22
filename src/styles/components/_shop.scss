@@ -207,6 +207,7 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
     font-size: px-to-rem($font-size-xs);
     margin: px-to-rem($space--m) 0;
     display: block;
+    line-height: 2;
     @include breakpoint('tablet-landscape') {
       display: none;
 
@@ -345,6 +346,27 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
         padding: px-to-rem($space--s) px-to-rem($space--s);
       }
     }
+
+    .onsale {
+      order: 3;
+      margin: 0 px-to-rem($space--m) 0 0;
+
+      &::after {
+        content: 'Aktion';
+        font-size: $font-size-m;
+        color: $color--green;
+      }
+    }
+    .newproduct {
+      order: 3;
+      margin: 0 px-to-rem($space--m) 0 0;
+
+      &::after {
+        content: 'Neu';
+        font-size: $font-size-m;
+        color: $color--yellow;
+      }
+    }
   }
 
   &__item {
@@ -476,6 +498,33 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
       text-align: center;
       font-size: 16px;
       transform: rotate(-45deg);
+      display: block;
+      color: $color--white;
+    }
+  }
+
+  .newproduct {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 70px 0 0 70px;
+    border-color: $color--yellow transparent transparent transparent;
+    align-self: flex-start;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: 0;
+
+    &::after {
+      content: 'Neu';
+      position: absolute;
+      top: -58px;
+      width: 50px;
+      right: 0;
+      text-align: center;
+      font-size: 16px;
+      transform: rotate(45deg);
       display: block;
       color: $color--white;
     }
