@@ -57,25 +57,20 @@
                      </div>
 
                      {% if (item.options.giftWrapped is defined) and (item.options.giftWrapped is not empty) %}
-                       <span class="form__cart-table--options-item">
-                                            - Geschenkpapier
-                                        </span>
+                       <span class="form__cart-table--options-item"> - Geschenkpapier</span>
                      {% endif %}
                      {% if (item.options.giftNote is defined) and (item.options.giftNote is not empty) %}
-                     <span class="form__cart-table--options-item">
-                                            - Grusskarte
-                                        </span>
-
-                     <label for="lineitem-note-{{ item.id }}" class="form__cart-table--note-label">Textfeld für
-                       Grusskarte</label>
-                     <textarea sprig s-action="commerce/cart/update-cart" s-method="post"
-                               s-trigger="keyup changed delay:3s" s-replace="#results" id="lineitem-note-{{ item.id }}"
-                               class="input" type="text" name="lineItems[{{ item.id }}][note]" value="{{ item.note }}"
-                               placeholder="Text für Grusskarte" rows="2">{{ item.note }}</textarea>
-                     <span>Text wird automatisch gespeichert<span>
-                                            <div id="results">
-                                            </div>
-                                    {% endif %}
+                        <span class="form__cart-table--options-item"> - Grusskarte</span>
+                        <label for="lineitem-note-{{ item.id }}" class="form__cart-table--note-label">
+                        Textfeld für Grusskarte</label>
+                        <textarea sprig s-action="commerce/cart/update-cart" s-method="post"
+                                  s-trigger="keyup changed delay:3s" s-replace="#results" id="lineitem-note-{{ item.id }}"
+                                  class="input" type="text" name="lineItems[{{ item.id }}][note]" value="{{ item.note }}"
+                                  placeholder="Text für Grusskarte" rows="2">{{ item.note }}</textarea>
+                        <span>Text wird automatisch gespeichert<span>
+                        <div id="results">
+                        </div>
+                    {% endif %}
 
                    </div>
 
@@ -190,38 +185,64 @@
                {% if not cart.hasErrors() and item.adjustments|length %}
                  <div class="adjustments">
 
+                    {# wenn geschenksets #}
+                  {% if (item.purchasable.product.getType().name == 'Geschenke') %}
 
+                    {# für anpassungen als Discount und nicht MWST (weil bei geschensets keine MWST angezeigt werden soll) #}
+                    {% for adjustment in item.adjustments if adjustment.type != "discount" and adjustment.type != "tax" %}
+                      <div class="adjustments__data">
+                        {% if adjustment.name %}
+                        <div class="adjustments__data--type">
+                          <strong class="">{{ adjustment.name }}</strong>
+                        </div>
+                        {% endif %}
+                        <div class="">
+                          <span class="adjustments__data--name">{{ adjustment.description }}</span>
+                        </div>
+                        <div class="adjustments__data--amount">
+                          <span class=""
+                                title="{{ adjustment.amount }}"> {{ adjustment.amount|commerceCurrency(cart.currency) }}</span>
+                        </div>
+                      </div>
+                    {% endfor %}
 
+                  {% else %}
 
+                    {# für Anpassungen als Discount #}
                     {% for adjustment in item.adjustments if adjustment.type == "discount" %}
-                     <div class="adjustments__data">
+                      <div class="adjustments__data">
 
-                       <div class="adjustments__data--type">
-                         <strong class="">{{ adjustment.description }}</strong>
-                       </div>
+                        <div class="adjustments__data--type">
+                          <strong class="">{{ adjustment.description }}</strong>
+                        </div>
 
-                       <div class="adjustments__data--amount">
-                         <span class=""
-                               title="{{ adjustment.amount }}"> {{ adjustment.amount|commerceCurrency(cart.currency) }}</span>
-                       </div>
-                     </div>
-                   {% endfor %}
+                        <div class="adjustments__data--amount">
+                          <span class=""
+                                title="{{ adjustment.amount }}"> {{ adjustment.amount|commerceCurrency(cart.currency) }}</span>
+                        </div>
+                      </div>
+                    {% endfor %}
 
-                  {% for adjustment in item.adjustments if adjustment.type != "discount" %}
-                    <div class="adjustments__data">
+                    {# für Anpassungen nicht als Discount #}
+                    {% for adjustment in item.adjustments if adjustment.type != "discount" %}
+                      <div class="adjustments__data">
 
-                       <div class="adjustments__data--type">
-                         <strong class="">{{ adjustment.name }}</strong>
-                       </div>
-                       <div class="">
-                         <span class="adjustments__data--name">{{ adjustment.description }}</span>
-                       </div>
-                       <div class="adjustments__data--amount">
-                         <span class=""
-                               title="{{ adjustment.amount }}"> {{ adjustment.amount|commerceCurrency(cart.currency) }}</span>
-                       </div>
-                     </div>
-                  {% endfor %}
+                        {% if adjustment.name %}
+                        <div class="adjustments__data--type">
+                          <strong class="">{{ adjustment.name }}</strong>
+                        </div>
+                        {% endif %}
+                        <div class="">
+                          <span class="adjustments__data--name">{{ adjustment.description }}</span>
+                        </div>
+                        <div class="adjustments__data--amount">
+                          <span class=""
+                                title="{{ adjustment.amount }}"> {{ adjustment.amount|commerceCurrency(cart.currency) }}</span>
+                        </div>
+                      </div>
+                    {% endfor %}
+                  {% endif %}
+
                  </div>
                {% endif %}
 
