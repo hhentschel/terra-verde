@@ -2,6 +2,7 @@
   "require": {
     "craftcms/cms": "3.7.37",
     "craftcms/commerce": "3.4.13",
+    "craftcms/contact-form": "2.5.1",
     "craftcms/feed-me": "4.4.2",
     "craftcms/redactor": "2.10.5",
     "doublesecretagency/craft-googlemaps": "4.1.5",

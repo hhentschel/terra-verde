@@ -3,7 +3,6 @@
 %}
 {% import '_helpers/macros.twig' as macros %}
 
-
 {% block content %}
   <div class="grid">
     <div class="row">
@@ -21,12 +20,16 @@
       <div class="col col-xs-12 col-md-12 col-lg-3">
         <ul class="nav-sidebar">
           {% set relatedSection =
-            craft.entries.section('serviceStructure').all()
+            craft.entries.section('serviceStructure').level(2)
           %}
           {% if relatedSection|length %}
             {% for subnav in relatedSection %}
               <li class="nav-sidebar__item">
-                <a href="{{ subnav.url }}" class="nav-sidebar__link {{ subnav.id == entry.id ? 'nav-sidebar__link--active' }}">
+                <a href="{{ subnav.url }}"
+                  class="nav-sidebar__link {{
+                  subnav.id == entry.id
+                    ? 'nav-sidebar__link--active'
+                  }}">
                   {{ subnav.title }}
                 </a>
               </li>
@@ -36,12 +39,15 @@
       </div>
 
       <div class="col col-xs-12 col-md-12 col-lg-9">
-        {% include '_components/_content-elements/content-elements-loop' with {
-          contentElements: entry.contentElements.level(1),
-          usesGrid: false
-        } %}
+        {% if entry.id == 19027 %}
+          {% include '_pages/service/contact/index.twig' %}
+        {% else %}
+          {% include '_components/_content-elements/content-elements-loop' with {
+            contentElements: entry.contentElements.level(1),
+            usesGrid: false
+          } %}
+        {% endif %}
       </div>
-
     </div>
   </section>
 {% endblock %}

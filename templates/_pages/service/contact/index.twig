@@ -1,0 +1,86 @@
+{% macro errorList(errors) %}
+  {% if errors %}
+    {{
+      ul(
+        errors,
+        {
+          class: 'errors'
+        }
+      )
+    }}
+  {% endif %}
+{% endmacro %}
+
+{% set message = message ?? null %}
+
+<form method="post" action="" accept-charset="UTF-8">
+  {{ csrfInput() }}
+  {{ actionInput('contact-form/send') }}
+  {# {{ redirectInput('service/contact/confirmation') }} #}
+
+  <h3>
+    <label for="from-name">Your Name</label>
+  </h3>
+  {{
+    input(
+      'text',
+      'fromName',
+      message.fromName ?? '',
+      {
+        id: 'from-name',
+        autocomplete: 'name'
+      }
+    )
+  }}
+  {{ message ? _self.errorList(message.getErrors('fromName')) }}
+
+  <h3>
+    <label for="from-email">Your Email</label>
+  </h3>
+  {{
+    input(
+      'email',
+      'fromEmail',
+      message.fromEmail ?? '',
+      {
+        id: 'from-email',
+        autocomplete: 'email'
+      }
+    )
+  }}
+  {{ message ? _self.errorList(message.getErrors('fromEmail')) }}
+
+  <h3>
+    <label for="subject">Subject</label>
+  </h3>
+  {{
+    input(
+      'text',
+      'subject',
+      message.subject ?? '',
+      {
+        id: 'subject'
+      }
+    )
+  }}
+  {{ message ? _self.errorList(message.getErrors('subject')) }}
+
+  <h3>
+    <label for="message">Message</label>
+  </h3>
+  {{
+    tag(
+      'textarea',
+      {
+        text: message.message ?? '',
+        id: 'message',
+        name: 'message',
+        rows: 10,
+        cols: 40
+      }
+    )
+  }}
+  {{ message ? _self.errorList(message.getErrors('message')) }}
+
+  <button type="submit">Send</button>
+</form>
