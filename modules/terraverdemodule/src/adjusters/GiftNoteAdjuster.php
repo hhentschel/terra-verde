@@ -34,7 +34,7 @@ class GiftNoteAdjuster extends Component implements AdjusterInterface
                   // Don't worry, you can have "positive" discounts, and this handle doesn't show up anywhere in the front-end.
                   'type' => self::ADJUSTMENT_TYPE,
                   // 'name' => 'Gift Wrap',
-                  'description' => 'Grusskarte beilegen',
+                  'description' => 'Grusskarte',
                   // Set the price, multiplying by the quantity (or not, your choice!)
                   // 'amount' => self::GIFTWRAP_PRICE * $lineItem->qty,
                   'amount' => self::GIFTWRAP_PRICE,
