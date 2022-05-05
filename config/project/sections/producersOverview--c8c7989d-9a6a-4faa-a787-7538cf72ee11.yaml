@@ -20,5 +20,5 @@ siteSettings:
     enabledByDefault: true
     hasUrls: true
     template: _pages/produzenten/index
-    uriFormat: produzenten
+    uriFormat: produzentinnen
 type: single
