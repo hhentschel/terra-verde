@@ -1,12 +1,19 @@
 columnSuffix: null
-contentColumnType: string
+contentColumnType: text
 fieldGroup: 546e63c7-3ad2-424d-ad71-31f33a561a7f # Kontakt | Globals
 handle: emailOne
 instructions: ''
 name: 'Email 1'
 searchable: false
 settings:
-  placeholder: ''
+  byteLimit: null
+  charLimit: null
+  code: ''
+  columnType: null
+  initialRows: '4'
+  multiline: ''
+  placeholder: null
+  uiMode: normal
 translationKeyFormat: null
 translationMethod: none
-type: craft\fields\Email
+type: craft\fields\PlainText
