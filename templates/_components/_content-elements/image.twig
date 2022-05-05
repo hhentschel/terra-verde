@@ -11,7 +11,7 @@
 %}
 {% set imageAltText = img.imageAltText is defined
   and img.imageAltText is not empty
-  ? 'Terra Verde' ~ img.imageAltText
+  ? 'Terra Verde: ' ~ img.imageAltText
   : 'Terra Verde: ' ~ imagetitle
 %}
 {% set imageStandardCaption = img
@@ -33,20 +33,20 @@
           alt="{{ imageAltText }}"
           width="{{ imagewidth }}"
           height="{{ imageheight }}"
-          title="{{- imagetitle -}}"
+          title="{{- imageAltText -}}"
           type="image/webp" />
         <source srcset="{{ imageUrl }}"
           alt="{{ imageAltText }}"
           width="{{ imagewidth }}"
           height="{{ imageheight }}"
-          title="{{- imagetitle -}}"
+          title="{{- imageAltText -}}"
           type="image/jpg" />
         <img class="image__img"
           src="{{ imageUrl }}"
           alt="{{ imageAltText }}"
           width="{{ imagewidth }}"
           height="{{ imageheight }}"
-          title="{{- imagetitle -}}" />
+          title="{{- imageAltText -}}" />
       </picture>
     </div>
     {% if imageCaption %}
