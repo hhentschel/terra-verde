@@ -13,80 +13,89 @@
 
 {% set message = message ?? null %}
 
-<form method="post" action="" accept-charset="UTF-8" class="form-contact">
-  {{ csrfInput() }}
-  {{ actionInput('contact-form/send') }}
-  {# {{ redirectInput('service/contact/confirmation') }} #}
+{% if success is defined and success %}
+  Nachricht gesendet
+{% else %}
+  <form sprig
+    s-method="post"
+    s-action="contact-form/send"
+    accept-charset="UTF-8"
+    class="form-contact">
+    {# {{ csrfInput() }} #}
+    {# {{ actionInput('contact-form/send') }} #}
+    {# {{ redirectInput('service/contact/confirmation') }} #}
 
-  <h3 class="layout-helper__margin-bottom--none layout-helper__margin-top--xxs">
-    <label for="from-name">Name</label>
-  </h3>
-  {{
-    input(
-      'text',
-      'fromName',
-      message.fromName ?? '',
-      {
-        id: 'from-name',
-        class: 'input',
-        autocomplete: 'name'
-      }
-    )
-  }}
-  {{ message ? _self.errorList(message.getErrors('fromName')) }}
+    <h3 class="layout-helper__margin-bottom--none layout-helper__margin-top--xxs">
+      <label for="from-name">Name</label>
+    </h3>
+    {{
+      input(
+        'text',
+        'fromName',
+        message.fromName ?? '',
+        {
+          id: 'from-name',
+          class: 'input',
+          autocomplete: 'name'
+        }
+      )
+    }}
+    {{ message ? _self.errorList(message.getErrors('fromName')) }}
 
-  <h3 class="layout-helper__margin-bottom--none layout-helper__margin-top--xxs">
-    <label for="from-email">E-Mail Adresse</label>
-  </h3>
-  {{
-    input(
-      'email',
-      'fromEmail',
-      message.fromEmail ?? '',
-      {
-        id: 'from-email',
-        class: 'input',
-        autocomplete: 'email'
-      }
-    )
-  }}
-  {{ message ? _self.errorList(message.getErrors('fromEmail')) }}
+    <h3 class="layout-helper__margin-bottom--none layout-helper__margin-top--xxs">
+      <label for="from-email">E-Mail Adresse</label>
+    </h3>
+    {{
+      input(
+        'email',
+        'fromEmail',
+        message.fromEmail ?? '',
+        {
+          id: 'from-email',
+          class: 'input',
+          autocomplete: 'email'
+        }
+      )
+    }}
+    {{ message ? _self.errorList(message.getErrors('fromEmail')) }}
 
-  <h3 class="layout-helper__margin-bottom--none layout-helper__margin-top--xxs">
-    <label for="subject">Betreff</label>
-  </h3>
-  {{
-    input(
-      'text',
-      'subject',
-      message.subject ?? '',
-      {
-        id: 'subject',
-        class: 'input'
-      }
-    )
-  }}
-  {{ message ? _self.errorList(message.getErrors('subject')) }}
+    <h3 class="layout-helper__margin-bottom--none layout-helper__margin-top--xxs">
+      <label for="subject">Betreff</label>
+    </h3>
+    {{
+      input(
+        'text',
+        'subject',
+        message.subject ?? '',
+        {
+          id: 'subject',
+          class: 'input'
+        }
+      )
+    }}
+    {{ message ? _self.errorList(message.getErrors('subject')) }}
 
-  <h3 class="layout-helper__margin-bottom--none layout-helper__margin-top--xxs">
-    <label for="message">Nachricht</label>
-  </h3>
-  {{
-    tag(
-      'textarea',
-      {
-        text: message.message ?? '',
-        id: 'message',
-        class: 'input',
-        name: 'message',
-        rows: 10,
-        cols: 40
-      }
-    )
-  }}
-  {{ message ? _self.errorList(message.getErrors('message')) }}
+    <h3 class="layout-helper__margin-bottom--none layout-helper__margin-top--xxs">
+      <label for="message">Nachricht</label>
+    </h3>
+    {{
+      tag(
+        'textarea',
+        {
+          text: message.message ?? '',
+          id: 'message',
+          class: 'input',
+          name: 'message',
+          rows: 10,
+          cols: 40
+        }
+      )
+    }}
+    {{ message ? _self.errorList(message.getErrors('message')) }}
 
-  <button class="layout-helper__margin-top--xxs button--primary" type="submit">
-    Absenden
-  </button>
-</form>
+    <button class="layout-helper__margin-top--xxs button--primary"
+      type="submit">
+      Absenden
+    </button>
+  </form>
+{% endif %}
