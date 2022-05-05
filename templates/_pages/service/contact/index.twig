@@ -13,6 +13,16 @@
 
 {% set message = message ?? null %}
 
+{% if craft.app.session.hasFlash('notice') %}
+  <p class="message notice">
+    {{ craft.app.session.getFlash('notice') }}
+  </p>
+{% elseif craft.app.session.hasFlash('error') %}
+  <p class="message error">
+    {{ craft.app.session.getFlash('error') }}
+  </p>
+{% endif %}
+
 {% if success is defined and success %}
   Nachricht gesendet
 {% else %}
@@ -22,7 +32,7 @@
     accept-charset="UTF-8"
     class="form-contact">
     {# {{ csrfInput() }} #}
-    {# {{ actionInput('contact-form/send') }} #}
+    {{ actionInput('contact-form/send') }}
     {# {{ redirectInput('service/contact/confirmation') }} #}
 
     <h3 class="layout-helper__margin-bottom--none layout-helper__margin-top--xxs">
@@ -87,7 +97,7 @@
           class: 'input',
           name: 'message',
           rows: 10,
-          cols: 40
+          cols: 20
         }
       )
     }}
