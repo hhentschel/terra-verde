@@ -118,6 +118,12 @@
                     <span class="form-addtobasket__info-stock-out">momentan nicht verfügbar</span>
                   {% endif %}
                 </div>
+
+                {% if product.articleBasePriceUnit is defined and product.articleBasePriceUnit is not empty %}
+                  <div class="form-addtobasket__info-baseprice">
+                    {{ product.articleBasePriceUnit }} {{ product.articleBaseUnit }}
+                  </div>
+                {% endif %}
               </div>
 
 

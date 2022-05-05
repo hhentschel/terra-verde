@@ -111,6 +111,7 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    align-self: flex-start;
     margin: px-to-rem($space--m) 0;
 
     @include breakpoint('desktop') {
@@ -123,6 +124,11 @@
     align-self: center;
     font-size: px-to-rem($space--xm);
     margin-right: px-to-rem($space--m);
+  }
+
+  &__info-baseprice {
+    margin-top: px-to-rem($space--m);
+    color: $color--grey-light;
   }
 
   &__info-stock {
