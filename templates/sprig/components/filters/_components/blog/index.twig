@@ -51,10 +51,7 @@
       |url_encode)
 ) %}
 
-
-{# <div s-replace="#blogboard" class="blog__board"> #}
 <div class="blog__board">
-  {# {% include 'sprig/components/filters/_components/blog/blogfilter.twig' %} #}
 
     <ul class="blog__cat--list">
       <li class="blog__cat--item blog__cat--item-reset">
@@ -68,7 +65,7 @@
             id="catdeli-{{ catBlogOption.id }}"
             name="articleCategoriesBlog[]"
             value="{{ catBlogOption.id }}"
-            checked="{{ catBlogOption.id in articleCategoriesBlog ? 'checked' }}" />
+            {{ catBlogOption.id in articleCategoriesBlog ? 'checked' }} />
           <label for="catdeli-{{ catBlogOption.id }}"
             class="blog__cat--label">
             {{ catBlogOption.title }}
@@ -76,9 +73,6 @@
         </li>
       {% endfor %}
     </ul>
-
-  {# <div id="blogboard"> #}
-    {# {% include 'sprig/components/filters/_components/blog/blogentries.twig' %} #}
 
     <div class="blog-list">
       {% if entries|length %}
@@ -118,18 +112,6 @@
                     {% endif %}
                   {% endif %}
 
-                  {# {% if
-                    entry.recipes is defined and entry.recipes is not empty %}
-                    {% set transform =
-                      transformation|default('blogPreviewThumb')
-                    %}
-                    {% set img = entry.recipes.getImageUrl(transform) ?? generic.image.one() %}
-                    {% include '_components/_content-elements/image-recipe' with {
-                        image: img,
-                        transform: transform
-                      } %}
-                  {% endif %} #}
-
                 </div>
                 <div class="blog-list__item--preview-lead">
                   {{ entry.leadText }}
@@ -160,8 +142,5 @@
         {% endfor %}
       {% endif %}
     </div>
-
-  {# </div> #}
-
 
 </div>
