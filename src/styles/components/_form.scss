@@ -18,9 +18,9 @@ $form-input--spacing: px-to-rem($space--m + $space--xs);
 
     &--success {
       background: linear-gradient(
-          $background-gradient__angle,
-          $color--green-gradient-start 0%,
-          $color--green-gradient-end 100%
+        $background-gradient__angle,
+        $color--green-gradient-start 0%,
+        $color--green-gradient-end 100%
       );
     }
 
@@ -163,9 +163,18 @@ $form-input--spacing: px-to-rem($space--m + $space--xs);
         @include breakpoint('tablet-landscape') {
           margin: 0 $form-input--spacing 0 0;
           flex: 0 1 calc(50% - #{$form-input--spacing});
-
         }
       }
+    }
+  }
+
+  //Kontaktform
+  &-contact {
+    display: flex;
+    flex-direction: column;
+
+    button {
+      align-self: flex-end;
     }
   }
 }
