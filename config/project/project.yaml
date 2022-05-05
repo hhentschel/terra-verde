@@ -1,4 +1,4 @@
-dateModified: 1651654136
+dateModified: 1651782215
 email:
   fromEmail: p@henrik-hentschel.de
   fromName: 'Terra Verde'
@@ -390,9 +390,10 @@ plugins:
     schemaVersion: 1.0.0
     settings:
       allowAttachments: ''
-      prependSender: 'On behalf of'
-      prependSubject: 'New message from Terra Verde'
-      successFlashMessage: 'Your message has been sent.'
+      allowedMessageFields: null
+      prependSender: ''
+      prependSubject: 'Nachricht vom Kontaktformular der Webseite'
+      successFlashMessage: 'Ihre Nachricht wurde erfolgreich gesendet.'
       toEmail: p@henrik-hentschel.de
   craft-commerce-back-in-stock:
     edition: standard
@@ -400,7 +401,7 @@ plugins:
     licenseKey: HJ40MIOSHZVXNFVCVIR04RP7
     schemaVersion: 1.0.0
     settings:
-      confirmationEmailSubject: 'Anmeldebestätigung für TERRA VERDE Shop Benachrichtigung für Produkt {{variant.title}}'
+      confirmationEmailSubject: 'Benachrichtigung Artikelverfügbarkeit im TERRA VERDE Shop für Produkt {{variant.title}}'
       confirmationEmailTemplate: shop/_email/back-in-stock-confirmation.twig
       emailSubject: 'TERRA VERDE Shop: {{variant.title}} ist wieder erhältlich!'
       emailTemplate: shop/_email/back-in-stock-notification.twig
