@@ -1,7 +1,7 @@
 {% set imageUrl = img.getUrl(transform) %}
 {% set imageheight = img.getHeight(transform)|default('') %}
 {% set imagewidth = img.getWidth(transform)|default('') %}
-{% set imagetitle = img.title|default('') %}
+{% set imagetitle = entry.title|default('') %}
 
 {% set imageStandardAltText = img
   and img.imageAltText is defined
