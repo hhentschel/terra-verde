@@ -533,11 +533,37 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
     }
   }
 
+  &__item--infohover {
+    display: none;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+
   &__link {
     display: flex;
     flex-direction: column;
     flex: 1 1 auto;
     position: relative;
+
+    &:hover {
+      .shop-list__image {
+        background-color: rgba($color--black, 0.1);
+      }
+      .shop-list__item--infohover {
+        display: flex;
+        text-align: center;
+        font-size: px-to-rem($font-size-s);
+        line-height: $line-height--s;
+        background-color: $color--white;
+        border-radius: 3px;
+        padding: px-to-rem($space--s);
+
+        .shop-list__listview & {
+          display: none;
+        }
+      }
+    }
   }
 
   &__no-result {

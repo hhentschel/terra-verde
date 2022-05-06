@@ -3,7 +3,6 @@
 
 {% set addedToCart = success is defined %}
 
-
 <div class="shop-list__item">
   <a class="shop-list__link" href="{{ product.url }}">
     {% if variant.onSale %}
@@ -20,6 +19,8 @@
       </div>
     {% endif %}
     <div class="shop-list__image">
+
+      <span class="shop-list__item--infohover">Informationen & Zusatzoptionen anschauen</span>
 
       {% set transform = transformation|default('productListing') %}
       {% set img = product.articleImage.one() ?? null %}
@@ -51,7 +52,6 @@
     </div>
 
   </a>
-
 
   <form class="js-form">
 
