@@ -1,10 +1,10 @@
 /**
  * Globals
  */
-$selection--label-padding-left: px-to-rem(12);
+$selection--label-padding-left: px-to-rem(10);
 $selection--margin-bottom: size(quarter);
 
-$selection--border-color: $color--grey-light;
+$selection--border-color: $color--grey;
 
 $selection--hover-label-color: $color--hover-text;
 
@@ -19,28 +19,28 @@ $selection--transition-easing: easing();
  */
 
 // box styles
-$checkbox--width: px-to-rem(24);
-$checkbox--height: px-to-rem(24);
-$checkbox--background-color: $color--grey-lightest;
+$checkbox--width: px-to-rem(22);
+$checkbox--height: px-to-rem(22);
+$checkbox--background-color: null;
 $checkbox--margin-bottom: size(quarter);
 
 $checkbox--border-width: 2px;
 
 // checkmark styles
 $checkbox--checkmark-position-top: px-to-rem(4);
-$checkbox--checkmark-position-left: px-to-rem(9);
+$checkbox--checkmark-position-left: px-to-rem(8);
 $checkbox--checkmark-width: px-to-rem(6);
 $checkbox--checkmark-height: px-to-rem(12);
 $checkbox--checkmark-border-width: 2px;
-$checkbox--checkmark-color: $color--primary;
+$checkbox--checkmark-color: $color--black;
 
 // hover
 $checkbox--hover-background-color: null;
 $checkbox--hover-border-color: $color--grey-dark;
 
 // checked
-$checkbox--checked-background-color: null;
-$checkbox--checked-border-color: $color--primary;
+$checkbox--checked-background-color: rgba($color--green-bio, 0.25);
+$checkbox--checked-border-color: $color--grey;
 
 // disabled
 $checkbox--disabled-background-color: $color--disabled-background;
