@@ -33,6 +33,7 @@ settings:
     - 'volume:8aec977e-df97-4119-93e9-0b745252a944' # Weine Frankreich
     - 'volume:cfba8ac8-e0a0-405f-87ed-accd8f27b372' # Geschenksets
     - 'volume:1d881bde-d2bf-408a-9434-f2f08b65cff8' # Dokumente
+    - 'volume:328c6ddf-69e0-47e5-8057-5c04984d8d85' # Weine Portugal
   targetSiteId: null
   useSingleFolder: false
   validateRelatedElements: false
