@@ -29,13 +29,8 @@
 
         {% if not cart.lineItems|length %}
           <p>
-            Keine Artikel im Warenkorb. Zur <a href="{{
-              url(
-                'shop/produkte'
-              )
-              }}">
-              Shop Seite
-            </a>.
+            Keine Artikel im Warenkorb. Zur <a href="{{ url('shop/produkte') }}" class="link">Shop
+              Seite.</a>
           </p>
         {% endif %}
       </div>
