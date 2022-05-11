@@ -123,11 +123,11 @@
         {# set a variable with ids, if a wine option is selected, merge the id of the parent otherwise a empty array,
         if there are children, then also merge the id of the child, otherwise an empty array (loop through the id, like the delis)
         and join everything with comma #}
-          {% set parentWithChildrenIds = [catWineOption.id]
-              |merge(catWineOption.parent ? [catWineOption.parent.id] : [])
-              |merge(catWineOption.children|map(v => v.id))
-              |join(',')
-          %}
+          {% if catWineOption.hasChildren %}
+            {% set catWineIds = catWineOption.children|map(v => v.id)|join(',') %}
+          {% else %}
+            {% set catWineIds = catWineOption.id %}
+          {% endif %}
           <div class="filter__checkbox selection selection--checkbox">
             <input sprig
                    type="checkbox"
@@ -138,11 +138,14 @@
                    value="{{ catWineOption.id }}"
                    {# if the checked wineoption is in the wine array #}
                    {% if catWineOption.id in articleCategoriesWine %}
-                    {# set the value of articleCategoriesWineUnselect with the cat ids (parentWithChildrenIds) if checked #}
-                     s-val:article-categories-wine-unselect="{{ parentWithChildrenIds }}" checked
+                    {# set the value of articleCategoriesWineUnselect with the cat ids (catWineIds) if checked #}
+                     s-val:article-categories-wine-unselect="{{ catWineIds }}" checked
                    {% else %}
-                   {# otherwise set the variable articleCategoriesWineSelect with the ids (parentWithChildrenIds) #}
-                     s-val:article-categories-wine-select="{{ parentWithChildrenIds }}"
+                   {# otherwise set the variable articleCategoriesWineSelect with the ids (catWineIds) #}
+                     s-val:article-categories-wine-select="{{ catWineIds }}"
+                     {% if catWineOption.children|intersects(articleCategoriesWine) is not empty %}
+                       checked
+                     {% endif %}
                    {% endif %}
             />
             <label for="catwine-{{ catWineOption.id }}" class="truncate filter__checkbox--label selection__label">
