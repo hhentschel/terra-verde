@@ -9,7 +9,7 @@
       <div class="onsale">
       </div>
     {% endif %}
-     {% if product.articleCategoriesStatus.id('10745').exists() %}
+    {% if product.articleCategoriesStatus.id('10745').exists() %}
       <div class="newproduct">
       </div>
     {% endif %}
@@ -19,8 +19,11 @@
       </div>
     {% endif %}
     <div class="shop-list__image">
-
-      <span class="shop-list__item--infohover">Informationen & Zusatzoptionen anschauen</span>
+      {% if product.articleCategoriesGift.id('10887').exists() or product.articleCategoriesGift.id('10888').exists() or product.articleCategoriesGift.id('10889').exists() or product.articleCategoriesGift.id('10890').exists() or product.articleCategoriesGift.id('10891').exists() or product.articleCategoriesGift.id('10892').exists() %}
+        <span class="shop-list__item--infohover">Zusatzoptionen anschauen</span>
+      {% else %}
+        <span class="shop-list__item--infohover">Informationen anschauen</span>
+      {% endif %}
 
       {% set transform = transformation|default('productListing') %}
       {% set img = product.articleImage.one() ?? null %}
