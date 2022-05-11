@@ -46,8 +46,21 @@
     }
 
     &-img {
-      max-width: px-to-rem(166.5);
-      margin: 0 px-to-rem($space--xm) 0 0;
+      // max-width: px-to-rem(125);
+      margin: 0 px-to-rem($space--xm) px-to-rem($space--m) 0;
+      display: flex;
+      align-self: flex-start;
+
+      @include breakpoint('tablet') {
+        margin-bottom: 0;
+      }
+
+      .logo-img {
+        aspect-ratio: 1.5 / 1;
+        width: 100%;
+        object-fit: contain;
+        max-height: 5rem;
+      }
     }
 
     &-text {
@@ -55,12 +68,11 @@
       flex-direction: column;
       justify-content: space-between;
       .heading {
-        margin: px-to-rem($space--s) 0 0 0;
         line-height: $line-height--s;
       }
 
       .text {
-        margin: px-to-rem($space--s) 0;
+        margin: px-to-rem($space--m) 0 0 0;
         line-height: $line-height--xm;
 
         @include breakpoint('tablet') {
