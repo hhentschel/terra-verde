@@ -235,6 +235,15 @@
   }
 }
 
+.item__column {
+  &-one {
+    display: flex;
+  }
+  &-image {
+    margin: 0 px-to-rem($space--m) 0 0;
+  }
+}
+
 .adjustments {
   &__title {
   }
