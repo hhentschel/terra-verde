@@ -36,10 +36,10 @@
 
                 <div class="footer__logo-img">
                   <img class="logo-img"
-                      src="{{ alias(
-                        '@rootUrl'
-                      ) }}/assets/images/logo/EU_Organic_Logo_Colour_rgb.jpg"
-                      alt="Bio Eu Logo"/>
+                       src="{{ alias(
+                         '@rootUrl'
+                       ) }}/assets/images/logo/EU_Organic_Logo_Colour_rgb.jpg"
+                       alt="Bio Eu Logo"/>
                 </div>
                 <div class="footer__logo-text">
 
@@ -81,7 +81,7 @@
             </div>
 
             <div class="footer--contact__email">
-               {% if footerGlobal.emailOne %}
+              {% if footerGlobal.emailOne %}
                 <span class="emailOne">
                 {{ macros.emailLinks(footerGlobal.emailOne, "email") }}
               </span>
@@ -111,6 +111,9 @@
             {% set entries = craft.entries.section('aboutusStructure').level(2) %}
 
             <ul>
+              <li>
+                <a href="/ueberuns">Werte</a>
+              </li>
               {% for entry in entries.all() %}
                 <li>
                   <a href="{{ entry.url }}">
@@ -128,6 +131,9 @@
             {% set entries = craft.entries.section('serviceStructure').level(2) %}
 
             <ul>
+              <li>
+                <a href="/service">Detailhandel</a>
+              </li>
               {% for entry in entries.all() %}
                 <li>
                   <a href="{{ entry.url }}">
