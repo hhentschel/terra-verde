@@ -1,4 +1,4 @@
-dateModified: 1652264566
+dateModified: 1652282374
 email:
   fromEmail: p@henrik-hentschel.de
   fromName: 'Terra Verde'
@@ -38,6 +38,7 @@ meta:
     3e664364-e972-44e5-9819-78e6cf9ba210: 'Telefon (Mobile)' # Telefon (Mobile)
     3ed3ae6b-7394-4a4e-bb7d-a6a9e41cd752: 'Titel H4' # Titel H4
     4a97706d-db06-4301-b6ea-066bb4fe9b83: 'Artikel Lagerung' # Artikel Lagerung
+    4a391357-5405-4a58-810f-fd04d12a8b96: 'Warenkorb Thumbnail' # Warenkorb Thumbnail
     4b3451e0-bb7f-44ee-aff9-290c54ff622f: Dummy # Dummy
     4c495c1a-4db8-48e1-94fc-15ba7f24bd25: Aktionen # Aktionen
     4c920e95-c071-49d6-974d-175f3cc51bc9: 'Youtube Video Liste' # Youtube Video Liste

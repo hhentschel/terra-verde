@@ -1,70 +1,56 @@
-
 {% set lastProductId = lastProductId ?? 0 %}
 {% set purchasableId = purchasableId ?? 0 %}
 
 {% set addedToCart = success is defined %}
-{# {% set addedGiftWrap = '' %} #}
 
 {% if addedToCart %}
-    <script>
-        htmx.trigger(htmx.find('#cart'), 'refresh');
-    </script>
+  <script>
+    htmx.trigger(htmx.find('#cart'), 'refresh');
+  </script>
 {% endif %}
-
-{# {% if addedGiftWrap %}
-    <script>
-        htmx.trigger(htmx.find('#singlegiftprize'), 'refresh');
-        htmx.trigger('#singlegiftprize', 'refresh');
-    </script>
-{% endif %} #}
 
 {% if sprig.isRequest %}
-    <script>
-        htmx.trigger('#cartsize', 'refresh');
-        htmx.trigger('#cartsizemobile', 'refresh');
-    </script>
+  <script>
+    htmx.trigger('#cartsize', 'refresh');
+    htmx.trigger('#cartsizemobile', 'refresh');
+  </script>
 {% endif %}
-
-
 
 {% set productQuery = craft.products() %}
 
-
-{# {% set product = productQuery.one() %} #}
 {% set product = craft.products.id(productId).one() %}
 {% set variant = product.defaultVariant %}
 
-<a href="javascript: history.back()" class="product-detail__button-back product-detail__button-back-arrow">Zurück zur Übersicht</a>
+<a href="javascript: history.back()" class="product-detail__button-back product-detail__button-back-arrow">Zurück zur
+  Übersicht</a>
 
-  <!-- Template: {{ _self }}.twig -->
+<!-- Template: {{ _self }}.twig -->
+<h2 class="heading layout-helper__margin-top--s">
+  {{ product.defaultVariant.title }}
+</h2>
+
+<div class="row">
+  <div class="col col-xs-12 col-md-6 col-lg-6">
+    <div class="product-detail__image">
+
+      {% set transform = transformation|default('productDetail') %}
+      {% set img = product.articleImage.one() ?? null %}
+
+      {% if img is defined %}
+        {% include '_components/_content-elements/image'
+          with {
+          img: img,
+          transform: transform
+        } %}
+      {% endif %}
+
+    </div>
+  </div>
+  <div class="col col-xs-12 col-md-6 col-lg-6">
 
 
-        <h2 class="heading layout-helper__margin-top--s">
-          {{ product.defaultVariant.title }}
-        </h2>
-
-        <div class="row">
-          <div class="col col-xs-12 col-md-6 col-lg-6">
-            <div class="product-detail__image">
-
-              {% set transform = transformation|default('productDetail') %}
-              {% set img = product.articleImage.one() ?? null %}
-
-              {% if img is defined %}
-                {% include '_components/_content-elements/image'
-                  with {
-                    img: img,
-                    transform: transform
-                    } %}
-              {% endif %}
-
-            </div>
-          </div>
-          <div class="col col-xs-12 col-md-6 col-lg-6">
-
-
-            <form class="js-form product-detail__form">
-              {# {{ actionInput('commerce/cart/update-cart') }}
+    <form class="js-form product-detail__form">
+      {# {{ actionInput('commerce/cart/update-cart') }}
               {{
                 hiddenInput(
                   'successMessage',
@@ -72,127 +58,124 @@
                 )
               }}
               {{ csrfInput() }} #}
-              <div class="product-detail__form-addtobasket">
-                {% for variant in product.variants %}
-                  {# {{
+      <div class="product-detail__form-addtobasket">
+        {% for variant in product.variants %}
+          {# {{
                     hiddenInput('purchasables[' ~ loop.index ~ '][id], [options]', variant.id)
                   }} #}
 
 
-                  <div class="form-addtobasket__info">
-                      {% if variant.articleVolume %}
-                        <div class="form-addtobasket__info-variant">
-                            <span> {{variant.articleVolume}}{{ variant.articleVolumeUnit }}</span>
-                        </div>
-                      {% endif %}
-
-                    <div class="form-addtobasket__options">
-                      {% set checkGift = checkGift ?? false %}
-                        <label for="giftwrapped">
-                          <input
-                            type="checkbox"
-                            id="giftwrapped"
-                            name="options[giftWrapped]"
-                            value="yes"
-                            {{ checkGift ? 'checked' }}
-                            />
-                          In Geschenkpapier einwickeln (+ 6.50 CHF)
-                        </label>
-                    </div>
-
-                    <div class="form-addtobasket__options">
-                      {% set checkNote = checkNote ?? false %}
-                        <label>
-                          <input
-                            type="checkbox"
-                            name="options[giftNote]"
-                            value="yes"
-                            {{ checkNote ? 'checked' }}
-                            />
-                        Karte nach Wunsch beschriften (+ 2.50 CHF)
-                        </label>
-                        <textarea id="" class="input" type="text" name="note" value="" placeholder="Text für Grusskarte" rows="2"></textarea>
-                     {{ hiddenInput('purchasableId', variant.id) }}
-                    </div>
-
-
-                    <div class="form-addtobasket__info-pricestockadd">
-                      <div class="form-addtobasket__info-pricestock">
-                        <div class="form-addtobasket__info-price">
-                          {% if variant.onSale %}
-                            <del>
-                              {{ variant.priceAsCurrency }}
-                            </del>
-                            <br />{{ variant.salePriceAsCurrency }}
-                          {% else %}
-
-                            {# {{
-                              sprig(
-                                '/shop/produkte/_includes/prices-gift.twig',
-                                { 'productId': product.id },
-                                {
-                                  id: 'singlegiftprize'
-                                }
-                              )
-                            }} #}
-                            {% include '/shop/produkte/_includes/prices.twig' %}
-
-                          {% endif %}
-                        </div>
-
-                        <div class="form-addtobasket__info-stock">
-                            {% if variant.stock > 0 or variant.hasUnlimitedStock %}
-                              <span class="form-addtobasket__info-stock-in">verfügbar</span>
-                            {% else %}
-                              <span class="form-addtobasket__info-stock-out">momentan nicht verfügbar</span>
-                            {% endif %}
-                        </div>
-                      </div>
-
-
-                      <div class="form-addtobasket__info-add">
-                        <div class="form-addtobasket__info-quantity">
-                          <input class="input form-addtobasket__info-quantity--input"
-                            type="text"
-                            name="purchasables[{{ loop.index }}][qty]"
-                            value="1"
-                            step="1"
-                            min="1"
-                            {% if variant.stock < 0 %}
-                              disabled
-                            {% endif %}
-                            />
-                        </div>
-
-                        <div class="form-addtobasket__info-button">
-                           {% if variant.stock > 0 or variant.hasUnlimitedStock %}
-                            <a sprig s-action="commerce/cart/update-cart" s-method="post" s-val:purchasable-id="{{ variant.id }}"  href="#" class="button--primary {% if addedToCart and purchasableId == variant.id %}button--success {% endif %} text-center">
-                                {% if addedToCart and purchasableId == variant.id %}
-                                    <svg class="icon--svg icon--check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-                                    </svg>
-                                    <span>Im Warenkorb</span>
-                                {% else %}
-                                In den Warenkorb
-                                {% endif %}
-                            </a>
-                          {% else %}
-                          <button disabled type="submit"
-                                    class="disabled button button--primary text-center">nicht verfügbar
-                            </button>
-                          {% endif %}
-                        </div>
-                      </div>
-                    </div>
-
-                  </div>
-                {% endfor %}
-
+          <div class="form-addtobasket__info">
+            {% if variant.articleVolume %}
+              <div class="form-addtobasket__info-variant">
+                <span> {{ variant.articleVolume }}{{ variant.articleVolumeUnit }}</span>
               </div>
-            </form>
+            {% endif %}
 
-            {% include 'shop/produkte/_includes/detail-summary__gift' %}
+            <div class="form-addtobasket__options">
+              {% set checkGift = checkGift ?? false %}
+              <label for="giftwrapped">
+                <input
+                  type="checkbox"
+                  id="giftwrapped"
+                  name="options[giftWrapped]"
+                  value="yes"
+                  {{ checkGift ? 'checked' }}
+                />
+                In Geschenkpapier einwickeln (+ 6.50 CHF)
+              </label>
+            </div>
+
+            <div class="form-addtobasket__options">
+              {% set checkNote = checkNote ?? false %}
+              <label>
+                <input
+                  type="checkbox"
+                  name="options[giftNote]"
+                  value="yes"
+                  {{ checkNote ? 'checked' }}
+                />
+                Karte nach Wunsch beschriften (+ 2.50 CHF)
+              </label>
+              <textarea id="" class="input" type="text" name="note" value="" placeholder="Text für Grusskarte"
+                        rows="2"></textarea>
+              {{ hiddenInput('purchasableId', variant.id) }}
+            </div>
+
+
+            <div class="form-addtobasket__info-pricestockadd">
+              <div class="form-addtobasket__info-pricestock">
+                <div class="form-addtobasket__info-price">
+                  {% if variant.onSale %}
+                    <del>
+                      {{ variant.priceAsCurrency }}
+                    </del>
+                    <br/>{{ variant.salePriceAsCurrency }}
+                  {% else %}
+
+                    {% include '/shop/produkte/_includes/prices.twig' %}
+
+                  {% endif %}
+                </div>
+
+                <div class="form-addtobasket__info-stock">
+                  {% if variant.stock > 0 or variant.hasUnlimitedStock %}
+                    <span class="form-addtobasket__info-stock-in">verfügbar</span>
+                  {% else %}
+                    <span class="form-addtobasket__info-stock-out">momentan nicht verfügbar</span>
+                  {% endif %}
+                </div>
+              </div>
+
+
+              <div class="form-addtobasket__info-add">
+                <div class="form-addtobasket__info-quantity">
+                  <input class="input form-addtobasket__info-quantity--input"
+                         type="text"
+                         name="purchasables[{{ loop.index }}][qty]"
+                         value="1"
+                         step="1"
+                         min="1"
+                    {% if variant.stock < 0 %}
+                      disabled
+                    {% endif %}
+                  />
+                </div>
+
+                <div class="form-addtobasket__info-button">
+                  {% if variant.stock > 0 or variant.hasUnlimitedStock %}
+                    <a sprig s-action="commerce/cart/update-cart" s-method="post"
+                       s-val:purchasable-id="{{ variant.id }}" href="#"
+                       class="button--primary {% if addedToCart and purchasableId == variant.id %}button--success {% endif %} text-center">
+                      {% if addedToCart and purchasableId == variant.id %}
+                        <svg class="icon--svg icon--check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                             fill="currentColor">
+                          <path fill-rule="evenodd"
+                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                clip-rule="evenodd"/>
+                        </svg>
+                        <span>Im Warenkorb</span>
+                      {% else %}
+                        In den Warenkorb
+                      {% endif %}
+                    </a>
+                  {% else %}
+                    <button disabled type="submit"
+                            class="disabled button button--primary text-center">nicht verfügbar
+                    </button>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
 
           </div>
+        {% endfor %}
 
-        </div>
+      </div>
+    </form>
+
+    {% include 'shop/produkte/_includes/detail-summary__gift' %}
+
+  </div>
+
+</div>

@@ -31,7 +31,21 @@
          <tbody>
          {% for item in cart.lineItems %}
            <tr>
-             <td class="" rowspan="2">
+             <td class="item__column-one" rowspan="2">
+              <div class="item__column-image">
+              <a href="{{ item.purchasable.url }}"
+                {% set transform = transformation|default('basketThumb') %}
+                  {% set img = item.purchasable.product.articleImage.one() ?? null %}
+
+                  {% if img is defined %}
+                    {% include '_components/_content-elements/image-product'
+                      with {
+                      image: img,
+                      transform: transform
+                    } %}
+                  {% endif %}
+                </a>
+              </div>
                <div class="">
                  <div class="truncate">
                    <strong class="{% if item.hasErrors() %}error{% endif %}">
@@ -40,8 +54,15 @@
                      </a>
                    </strong>
                  </div>
-               </div>
+               {% if item.purchasable.product.articleVolume %}
+                <div class="form-addtobasket__info-unit">
+                  <span>
+                    {{ item.purchasable.product.articleVolume }} {{ item.purchasable.product.articleVolumeUnit }}
+                  </span>
+                </div>
+              {% endif %}
                <span class="">Artikelnummer: {{ item.purchasable.product.articleNumber }}</span><br/>
+               </div>
 
                {% if (item.purchasable.product.getType().name == 'Geschenke') or  ((item.purchasable.product.getType().name == 'Geschenke' and item.purchasable.product.getType().name == 'Delikatessen')) %}
                  {% if (item.options.giftWrapped is defined) or (item.options.giftNote is defined) %}
@@ -181,6 +202,7 @@
            </tr>
 
            <tr class="form__cart--adjustments">
+              <td>&nbsp;</td>
              <td class="text-right" colspan="2">
                {% if not cart.hasErrors() and item.adjustments|length %}
                  <div class="adjustments">

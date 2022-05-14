@@ -10,6 +10,7 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
 }
 
 .shop {
+
   &__board {
     display: flex;
     flex-wrap: wrap;
@@ -252,7 +253,7 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
     display: grid;
     grid-template-columns: repeat(
       auto-fill,
-      minmax(var(--grid-col-breakpoint-shop), 1fr)
+        minmax(var(--grid-col-breakpoint-shop), 1fr)
     );
     grid-column-gap: var(--grid-col-gap);
     grid-row-gap: var(--grid-row-gap);
@@ -360,6 +361,7 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
         color: $color--green;
       }
     }
+
     .newproduct {
       order: 3;
       margin: 0 px-to-rem($space--m) 0 0;
@@ -412,18 +414,13 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
     justify-content: space-between;
     flex: 1 1 auto;
 
-    padding: 0 ($shop-list__grid-gutter--phone / 2)
-      ($shop-list__grid-gutter--phone / 3) ($shop-list__grid-gutter--phone / 2);
+    padding: 0 ($shop-list__grid-gutter--phone / 2) ($shop-list__grid-gutter--phone / 3) ($shop-list__grid-gutter--phone / 2);
 
     @include breakpoint('tablet-landscape') {
-      padding: 0 $shop-list__grid-gutter--tablet / 2
-        $shop-list__grid-gutter--tablet / 2 $shop-list__grid-gutter--tablet / 2;
+      padding: 0 $shop-list__grid-gutter--tablet / 2 $shop-list__grid-gutter--tablet / 2 $shop-list__grid-gutter--tablet / 2;
     }
     @include breakpoint('desktop') {
-      padding: ($shop-list__grid-gutter--desktop / 4)
-        ($shop-list__grid-gutter--desktop / 2)
-        ($shop-list__grid-gutter--desktop / 3)
-        ($shop-list__grid-gutter--desktop / 2);
+      padding: ($shop-list__grid-gutter--desktop / 4) ($shop-list__grid-gutter--desktop / 2) ($shop-list__grid-gutter--desktop / 3) ($shop-list__grid-gutter--desktop / 2);
     }
 
     > h3 {
@@ -545,10 +542,12 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
     flex-direction: column;
     flex: 1 1 auto;
     position: relative;
+
     &:hover {
       .shop-list__image {
         background-color: rgba($color--black, 0.1);
       }
+
       .shop-list__item--infohover {
         display: flex;
         text-align: center;
