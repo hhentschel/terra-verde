@@ -120,29 +120,29 @@
           Weine
         </summary>
         {% nav catWineOption in catWineOptions %}
-        {# set a variable with ids, if a wine option is selected, merge the id of the parent otherwise a empty array,
-        if there are children, then also merge the id of the child, otherwise an empty array (loop through the id, like the delis)
-        and join everything with comma #}
-          {% set parentWithChildrenIds = [catWineOption.id]
-              |merge(catWineOption.parent ? [catWineOption.parent.id] : [])
-              |merge(catWineOption.children|map(v => v.id))
-              |join(',')
-          %}
           <div class="filter__checkbox selection selection--checkbox">
             <input sprig
                    type="checkbox"
                    s-swap="outerHTML show:#tvboard:top"
                    id="catwine-{{ catWineOption.id }}"
-                   name="articleCategoriesWine[]"
                    class="selection__input"
-                   value="{{ catWineOption.id }}"
-                   {# if the checked wineoption is in the wine array #}
-                   {% if catWineOption.id in articleCategoriesWine %}
-                    {# set the value of articleCategoriesWineUnselect with the cat ids (parentWithChildrenIds) if checked #}
-                     s-val:article-categories-wine-unselect="{{ parentWithChildrenIds }}" checked
+                   {% set children = catWineOption.children.all() %}
+                   {# If this category has children then select/unselect its children only. #}
+                   {% if children %}
+                     {% set childrenIds = children|column('id') %}
+                     {% if childrenIds|intersect(articleCategoriesWine) is empty %}
+                       s-val:article-categories-wine-select="{{ childrenIds|join(',') }}"
+                     {% else %}
+                       s-val:article-categories-wine-unselect="{{ childrenIds|join(',') }}"
+                       checked
+                     {% endif %}
+                   {# If this category has no children then treat it like a regular checkbox. #}
                    {% else %}
-                   {# otherwise set the variable articleCategoriesWineSelect with the ids (parentWithChildrenIds) #}
-                     s-val:article-categories-wine-select="{{ parentWithChildrenIds }}"
+                     name="articleCategoriesWine[]"
+                     value="{{ catWineOption.id }}"
+                     {% if catWineOption.id in articleCategoriesWine %}
+                       checked
+                     {% endif %}
                    {% endif %}
             />
             <label for="catwine-{{ catWineOption.id }}" class="truncate filter__checkbox--label selection__label">
