@@ -18,22 +18,22 @@ use craft\commerce\Model;
 //if the amount in the cart is greater than 100$ a discount of 5% is applied.
 //if the amount in the cart is greater than 200$ a discount of 10% is applied.
 
-class PickUpDiscount extends Component implements AdjusterInterface
+class PickUpDiscountB2B extends Component implements AdjusterInterface
 {
   public function adjust(Order $order): array
   {
 
     $adjustments = [];
 
-    if ($order->shippingMethodHandle == 'B2C_pickUpAtStore') {
+    if ($order->shippingMethodHandle == 'B2B_pickUpAtStore') {
 
       $adjustment = new OrderAdjustment;
-      $adjustment->type = 'Rabat';
+      $adjustment->type = 'Rabatt';
       $adjustment->sourceSnapshot = ['data' => 'value'];
 
       $adjustment->amount = ($order->itemSubtotal * .05 * -1);
       $adjustment->name = 'Abholung';
-      $adjustment->description = '5%';
+      $adjustment->description = 'Abholrabatt 5% ab CHF 500.- Netto-Warenwert';
 
       $adjustment->setOrder($order);
 

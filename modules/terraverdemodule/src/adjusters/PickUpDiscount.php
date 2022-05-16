@@ -9,6 +9,7 @@ use craft\commerce\elements\Order;
 use craft\commerce\models\OrderAdjustment;
 use craft\commerce\Plugin;
 use craft\commerce\Model;
+
 // use craft\commerce\elements\Product;
 // use craft\commerce\elements\Variant;
 // use craft\commerce\services\LineItems;
@@ -19,31 +20,25 @@ use craft\commerce\Model;
 
 class PickUpDiscount extends Component implements AdjusterInterface
 {
-        public function adjust(Order $order): array
-    {
+  public function adjust(Order $order): array
+  {
 
-        $adjustments = [];
+    $adjustments = [];
 
-        if ($order->shippingMethodHandle == 'B2C_pickUpAtStore' ) {
+    if ($order->shippingMethodHandle == 'B2C_pickUpAtStore') {
 
-          $adjustment = new OrderAdjustment;
-          $adjustment->type = 'Rabat';
-          $adjustment->sourceSnapshot = [ 'data' => 'value' ];
+      $adjustment = new OrderAdjustment;
+      $adjustment->type = 'Rabat';
+      $adjustment->sourceSnapshot = ['data' => 'value'];
 
-          $adjustment->amount = ($order->itemSubtotal * .05 * -1);
-          $adjustment->name = 'Abholung';
-          $adjustment->description = '5%';
+      $adjustment->amount = ($order->itemSubtotal * .05 * -1);
+      $adjustment->name = 'Abholung';
+      $adjustment->description = '5%';
 
-          $adjustment->setOrder($order);
+      $adjustment->setOrder($order);
 
-          $adjustments[] = $adjustment;
-
-        }
-
-
-        return $adjustments;
-
-
+      $adjustments[] = $adjustment;
     }
-
+    return $adjustments;
+  }
 }

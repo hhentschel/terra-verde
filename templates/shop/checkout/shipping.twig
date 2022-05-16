@@ -1,5 +1,7 @@
 {% extends '/_layouts/main' %}
 
+{% set cart = craft.commerce.carts.cart %}
+
 {% block content %}
   <!-- Template: {{ _self }}.twig -->
   <section class="grid">
@@ -14,7 +16,9 @@
         {# <h3 class="heading heading--3 heading--no-margin-top">Bitte wählen Sie eine Versandart aus:</h3> #}
         {% if currentUser %}
           {% if currentUser.isInGroup('userGroupRetail') %}
-            <p>Ab 500,- CHF Nettowert gibt 5% Abholrabatt </p>
+            {% if cart.totalPrice < 500 %}
+              <p>Ab 500,- CHF Nettowert gibt 5% Abholrabatt </p>
+            {% endif %}
           {% else %}
             <p>Ab 100,- CHF ist der Economy Versand kostenlos.</p>
           {% endif %}
