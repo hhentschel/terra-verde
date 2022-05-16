@@ -79,26 +79,33 @@
                 <label for="registerUserOnOrderComplete" class="requirements__label">
                   {{ hiddenInput('registerUserOnOrderComplete', false) }}
                   <span>für ein Kundenkonto registrieren</span>
-                  <input type="checkbox" id="registerUserOnOrderComplete" class="requirements__checkbox" name="registerUserOnOrderComplete"
+                  <input type="checkbox" id="registerUserOnOrderComplete" class="requirements__checkbox"
+                         name="registerUserOnOrderComplete"
                          value="1"/>
                 </label>
               </div>
             {% endif %}
 
             <div class="checkout__box--requirements">
-              <label for="termsAgreement" class="requirements__label">
-                {{ hiddenInput('termsAgreement', false) }}
-                <span>Ich bin mit <a href="/agb" class="requirements__links">den AGB</a> einverstanden</span>
-                <input type="checkbox" id="termsAgreement" name="termsAgreement" class="requirements__checkbox"
+              <div class="selection selection--checkbox">
+                <input type="checkbox" id="termsAgreement" name="termsAgreement"
+                       class="requirements__checkbox selection__input"
                        value="1" required/>
-              </label>
+                <label for="termsAgreement" class="requirements__label selection__label">
+                  {{ hiddenInput('termsAgreement', false) }}
+                  <span>Ich bin mit <a href="/agb" class="requirements__links">den AGB</a> einverstanden</span>
+                </label>
+              </div>
 
-              <label for="overEighteen" class="requirements__label">
-                {{ hiddenInput('overEighteen', false) }}
-                {{ "Hiermit bestätige ich, dass ich mindestens 18 Jahre alt bin" }}
-                <input type="checkbox" id="overEighteen" name="overEighteen" class="requirements__checkbox" value="1"
+              <div class="selection selection--checkbox">
+                <input type="checkbox" id="overEighteen" name="overEighteen"
+                       class="requirements__checkbox selection__input" value="1"
                        required/>
-              </label>
+                <label for="overEighteen" class="requirements__label selection__label">
+                  {{ hiddenInput('overEighteen', false) }}
+                  {{ "Hiermit bestätige ich, dass ich mindestens 18 Jahre alt bin" }}
+                </label>
+              </div>
             </div>
 
             {# Only show the payment button for gateways that don't provide their own #}
