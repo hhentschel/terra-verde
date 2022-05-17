@@ -128,11 +128,11 @@
         <div class="col col-xs-12 col-md-6 col-lg-3">
           <div class="footer--box footer--info">
             <h3 class="footer--heading">Service</h3>
-            {% set entries = craft.entries.section('serviceStructure').level(2) %}
+            {% set entries = craft.entries.section('serviceStructure').all() %}
 
             <ul>
               <li>
-                <a href="/service">Detailhandel</a>
+                <a href="/detailhandel">Detailhandel</a>
               </li>
               {% for entry in entries.all() %}
                 <li>
