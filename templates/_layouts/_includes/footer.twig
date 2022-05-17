@@ -131,10 +131,7 @@
             {% set entries = craft.entries.section('serviceStructure').all() %}
 
             <ul>
-              <li>
-                <a href="/detailhandel">Detailhandel</a>
-              </li>
-              {% for entry in entries.all() %}
+              {% for entry in entries %}
                 <li>
                   <a href="{{ entry.url }}">
                   {{ entry.title }}</li>
