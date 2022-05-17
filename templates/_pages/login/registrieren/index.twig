@@ -21,7 +21,7 @@
               class="form form-registration">
           {{ csrfInput() }}
           {{ actionInput('users/save-user') }}
-          {{ actionInput('commerce/customer-addresses/save') }}
+          {# {{ actionInput('commerce/customer-addresses/save') }} #}
           {{ redirectInput('/customer/account/activation-email/?user={email}') }}
           {# {{ redirectInput('/register-success/') }} #}
           {# {{ redirectInput(craft.app.user.returnUrl) }} #}
