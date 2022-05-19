@@ -13,7 +13,7 @@
         <div id="order-hints" class="order-hints mobile">
           <div class="order-hints__discount">
             <h4 class="order-hints__discount--heading">
-              10 % Rabatt
+              10% Rabatt
             </h4>
             <p class="order-hints__discount--text">
               ab 6 Stück des selben Artikels *
@@ -24,7 +24,7 @@
           </div>
           <div class="order-hints__shipping">
             <h4 class="order-hints__shipping--text">
-              Portofrei ab 100.- CHF
+              Portofrei ab 100 CHF
             </h4>
           </div>
         </div>
@@ -34,8 +34,8 @@
 
           {% js %}
             htmx.on('#product-filters', 'htmx:afterSwap', function(event) {
-              htmx.trigger('#cartsize', 'refresh');
-              htmx.trigger('#cartsizemobile', 'refresh');
+            htmx.trigger('#cartsize', 'refresh');
+            htmx.trigger('#cartsizemobile', 'refresh');
             });
           {% endjs %}
         </div>
