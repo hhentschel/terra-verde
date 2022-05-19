@@ -21,12 +21,7 @@
   </script>
 {% endif %}
 
-
-
 {% set productQuery = craft.products() %}
-
-
-{# {% set product = productQuery.one() %} #}
 {% set product = craft.products.id(productId).one() %}
 
 <a href="javascript: history.back()" class="product-detail__button-back product-detail__button-back-arrow">Zurück zur
@@ -67,7 +62,8 @@
           <form sprig s-action="craft-commerce-back-in-stock/base/register-interest" s-method="post"
                 class="bis-signup__registration-form">
             <div class="bis-signup__registration-message">
-              Dieses Produkt ist zurzeit nicht lieferbar. Sobald das Produkt wieder erhältlich ist, werden wir Sie per Mail informieren. Fügen Sie dazu bitte hier Ihre E-Mail Adresse ein.
+              Dieses Produkt ist zurzeit nicht lieferbar. Sobald das Produkt wieder erhältlich ist, werden wir Sie per
+              Mail informieren. Fügen Sie dazu bitte hier Ihre E-Mail Adresse ein.
             </div>
             <input type="hidden" name="variantId" value="{{ product.defaultVariant.id }}">
             <div class="bis-signup__registration-fields">
@@ -82,7 +78,7 @@
     {% endfor %}
 
     <form method="post" class="js-form product-detail__form">
-      {{ actionInput('commerce/cart/update-cart') }}
+      {# {{ actionInput('commerce/cart/update-cart') }} #}
       {{ hiddenInput(
         'successMessage',
         ('Artikel ' ~ product.title ~ ' wurde zum Warenkorb hinzugefügt.')|hash
@@ -90,9 +86,6 @@
       {{ csrfInput() }}
       <div class="product-detail__form-addtobasket">
         {% for variant in product.variants %}
-          {# {{
-                    hiddenInput('purchasables[' ~ loop.index ~ '][id], [options]', variant.id)
-                  }} #}
 
           <div class="form-addtobasket__info">
             {% if variant.articleVolumeUnit %}
@@ -127,11 +120,11 @@
 
               <div class="form-addtobasket__info-add">
                 <div class="form-addtobasket__info-quantity">
-                  <input {% if variant.hasstock == false %}disabled{% endif %}
-                         class="input form-addtobasket__info-quantity--input"
-                         type="number"
-                         name="purchasables[{{ loop.index }}][qty]"
-                         step="1"
+                  <input
+                    class="input form-addtobasket__info-quantity--input"
+                    type="number"
+                    name="qty"
+                    step="1"
                     {% if currentUser %}
                       {% if currentUser.isInGroup('userGroupRetail') %}
                         value="{{ product.artikelMinOrderSize }}"
@@ -195,10 +188,6 @@
                         In den Warenkorb
                       {% endif %}
                     </a>
-                    {# <button type="submit"
-                            class="button button--primary">
-                            In den Warenkorb
-                          </button> #}
                   {% else %}
                     <button disabled type="submit"
                             class="disabled button button--primary text-center"> In den Warenkorb
