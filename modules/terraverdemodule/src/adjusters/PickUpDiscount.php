@@ -31,7 +31,7 @@ class PickUpDiscount extends Component implements AdjusterInterface
       $adjustment->type = 'Rabat';
       $adjustment->sourceSnapshot = ['data' => 'value'];
 
-      $adjustment->amount = ($order->itemSubtotal * .05 * -1);
+      $adjustment->amount = round(($order->itemSubtotal * .05 * -1) * 20, 0) / 20;
       $adjustment->name = 'Abholung';
       $adjustment->description = '5%';
 
