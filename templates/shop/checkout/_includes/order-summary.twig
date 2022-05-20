@@ -116,6 +116,15 @@
     </div>
   {% endfor %}
 
+  <div class="flex w-full justify-end items-center">
+    <div class="text-gray-600 pr-2">
+      Gesamtpreis:
+    </div>
+    <div class="text-lg font-bold">
+      {{ cart.itemSubTotal|commerceCurrency(cart.currency) }}
+    </div>
+  </div>
+
   {% if not cart.shippingMethod %}
     {# If the order requires a shipping method be selected, you could redirect back to the shipping page until
        one is applied to the order (`{% redirect "shop/checkout/shipping" %}`) #}
@@ -192,6 +201,7 @@
         {{ cart.totalPrice|commerceCurrency(cart.currency) }}
       </div>
     </div>
+
   </div>
   {% if
     cart.currency != cart.paymentCurrency

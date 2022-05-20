@@ -210,6 +210,17 @@
         </tr>
       {% endfor %}
 
+
+      <tr class="">
+        <td class="pb-3 pr-3 text-right" colspan="4">
+          <div class="flex items-center w-full justify-end mt-3" title="{{ order.itemSubTotal }}">
+            <div class="text-sm text-gray-600 pr-2">Gesamtpreis:</div>
+            <div class="font-bold">{{ order.itemSubTotal|commerceCurrency(cart.currency) }}</div>
+          </div>
+        </td>
+      </tr>
+
+
       {# <tr>
               <td></td>
               <td colspan="2" class="text-right pr-3 pb-3">
