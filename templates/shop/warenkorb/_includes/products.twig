@@ -32,20 +32,20 @@
          {% for item in cart.lineItems %}
            <tr>
              <td class="item__column-one" rowspan="2">
-              <div class="item__column-image">
-              <a href="{{ item.purchasable.url }}"
-                {% set transform = transformation|default('basketThumb') %}
-                  {% set img = item.purchasable.product.articleImage.one() ?? null %}
+               <div class="item__column-image">
+                 <a href="{{ item.purchasable.url }}"
+                 {% set transform = transformation|default('basketThumb') %}
+                 {% set img = item.purchasable.product.articleImage.one() ?? null %}
 
-                  {% if img is defined %}
-                    {% include '_components/_content-elements/image-product'
-                      with {
-                      image: img,
-                      transform: transform
-                    } %}
-                  {% endif %}
-                </a>
-              </div>
+                 {% if img is defined %}
+                   {% include '_components/_content-elements/image-product'
+                     with {
+                     image: img,
+                     transform: transform
+                   } %}
+                 {% endif %}
+                 </a>
+               </div>
                <div class="">
                  <div class="truncate">
                    <strong class="{% if item.hasErrors() %}error{% endif %}">
@@ -54,14 +54,14 @@
                      </a>
                    </strong>
                  </div>
-               {% if item.purchasable.product.articleVolume %}
-                <div class="form-addtobasket__info-unit">
+                 {% if item.purchasable.product.articleVolume %}
+                   <div class="form-addtobasket__info-unit">
                   <span>
                     {{ item.purchasable.product.articleVolume }} {{ item.purchasable.product.articleVolumeUnit }}
                   </span>
-                </div>
-              {% endif %}
-               <span class="">Artikelnummer: {{ item.purchasable.product.articleNumber }}</span><br/>
+                   </div>
+                 {% endif %}
+                 <span class="">Artikelnummer: {{ item.purchasable.product.articleNumber }}</span><br/>
                </div>
 
                {% if (item.purchasable.product.getType().name == 'Geschenke') or  ((item.purchasable.product.getType().name == 'Geschenke' and item.purchasable.product.getType().name == 'Delikatessen')) %}
@@ -81,14 +81,14 @@
                        <span class="form__cart-table--options-item"> - Geschenkpapier</span>
                      {% endif %}
                      {% if (item.options.giftNote is defined) and (item.options.giftNote is not empty) %}
-                        <span class="form__cart-table--options-item"> - Grusskarte</span>
-                        <label for="lineitem-note-{{ item.id }}" class="form__cart-table--note-label">
-                        Textfeld für Grusskarte</label>
-                        <textarea sprig s-action="commerce/cart/update-cart" s-method="post"
-                                  s-trigger="keyup changed delay:3s" s-replace="#results" id="lineitem-note-{{ item.id }}"
-                                  class="input" type="text" name="lineItems[{{ item.id }}][note]" value="{{ item.note }}"
-                                  placeholder="Text für Grusskarte" rows="2">{{ item.note }}</textarea>
-                        <span>Text wird automatisch gespeichert<span>
+                     <span class="form__cart-table--options-item"> - Grusskarte</span>
+                     <label for="lineitem-note-{{ item.id }}" class="form__cart-table--note-label">
+                       Textfeld für Grusskarte</label>
+                     <textarea sprig s-action="commerce/cart/update-cart" s-method="post"
+                               s-trigger="keyup changed delay:3s" s-replace="#results" id="lineitem-note-{{ item.id }}"
+                               class="input" type="text" name="lineItems[{{ item.id }}][note]" value="{{ item.note }}"
+                               placeholder="Text für Grusskarte" rows="2">{{ item.note }}</textarea>
+                     <span>Text wird automatisch gespeichert<span>
                         <div id="results">
                         </div>
                     {% endif %}
@@ -202,68 +202,68 @@
            </tr>
 
            <tr class="form__cart--adjustments">
-              <td>&nbsp;</td>
+             <td>&nbsp;</td>
              <td class="text-right" colspan="2">
                {% if not cart.hasErrors() and item.adjustments|length %}
                  <div class="adjustments">
 
-                    {# wenn geschenksets #}
-                  {% if (item.purchasable.product.getType().name == 'Geschenke') %}
+                   {# wenn geschenksets #}
+                   {% if (item.purchasable.product.getType().name == 'Geschenke') %}
 
-                    {# für anpassungen als Discount und nicht MWST (weil bei geschensets keine MWST angezeigt werden soll) #}
-                    {% for adjustment in item.adjustments if adjustment.type != "discount" and adjustment.type != "tax" %}
-                      <div class="adjustments__data">
-                        {% if adjustment.name %}
-                        <div class="adjustments__data--type">
-                          <strong class="">{{ adjustment.name }}</strong>
-                        </div>
-                        {% endif %}
-                        <div class="">
-                          <span class="adjustments__data--name">{{ adjustment.description }}</span>
-                        </div>
-                        <div class="adjustments__data--amount">
+                     {# für anpassungen als Discount und nicht MWST (weil bei geschensets keine MWST angezeigt werden soll) #}
+                     {% for adjustment in item.adjustments if adjustment.type != "discount" and adjustment.type != "tax" %}
+                       <div class="adjustments__data">
+                         {% if adjustment.name %}
+                           <div class="adjustments__data--type">
+                             <strong class="">{{ adjustment.name }}</strong>
+                           </div>
+                         {% endif %}
+                         <div class="">
+                           <span class="adjustments__data--name">{{ adjustment.description }}</span>
+                         </div>
+                         <div class="adjustments__data--amount">
                           <span class=""
                                 title="{{ adjustment.amount }}"> {{ adjustment.amount|commerceCurrency(cart.currency) }}</span>
-                        </div>
-                      </div>
-                    {% endfor %}
+                         </div>
+                       </div>
+                     {% endfor %}
 
-                  {% else %}
+                   {% else %}
 
-                    {# für Anpassungen als Discount #}
-                    {% for adjustment in item.adjustments if adjustment.type == "discount" %}
-                      <div class="adjustments__data">
+                     {# für Anpassungen als Discount #}
+                     {% for adjustment in item.adjustments if adjustment.type == "discount" %}
+                       <div class="adjustments__data">
 
-                        <div class="adjustments__data--type">
-                          <strong class="">{{ adjustment.description }}</strong>
-                        </div>
+                         <div class="adjustments__data--type">
+                           <strong class="">{{ adjustment.description }}</strong>
+                         </div>
 
-                        <div class="adjustments__data--amount">
+                         <div class="adjustments__data--amount">
                           <span class=""
                                 title="{{ adjustment.amount }}"> {{ adjustment.amount|commerceCurrency(cart.currency) }}</span>
-                        </div>
-                      </div>
-                    {% endfor %}
+                         </div>
+                       </div>
+                     {% endfor %}
 
-                    {# für Anpassungen nicht als Discount #}
-                    {% for adjustment in item.adjustments if adjustment.type != "discount" %}
-                      <div class="adjustments__data">
+                     {# für Anpassungen nicht als Discount #}
+                     {% for adjustment in item.adjustments if adjustment.type != "discount" %}
+                       <div class="adjustments__data">
 
-                        {% if adjustment.name %}
-                        <div class="adjustments__data--type">
-                          <strong class="">{{ adjustment.name }}</strong>
-                        </div>
-                        {% endif %}
-                        <div class="">
-                          <span class="adjustments__data--name">{{ adjustment.description }}</span>
-                        </div>
-                        <div class="adjustments__data--amount">
+                         {% if adjustment.name %}
+                           <div class="adjustments__data--type">
+                             <strong class="">{{ adjustment.name }}</strong>
+                           </div>
+                         {% endif %}
+                         <div class="">
+                           <span class="adjustments__data--name">{{ adjustment.description }}</span>
+                         </div>
+                         <div class="adjustments__data--amount">
                           <span class=""
                                 title="{{ adjustment.amount }}"> {{ adjustment.amount|commerceCurrency(cart.currency) }}</span>
-                        </div>
-                      </div>
-                    {% endfor %}
-                  {% endif %}
+                         </div>
+                       </div>
+                     {% endfor %}
+                   {% endif %}
 
                  </div>
                {% endif %}
@@ -312,12 +312,16 @@
          {% endif %}
 
          {% if not cart.hasErrors() and cart.orderAdjustments|length %}
+
+
            <tr class="form__cart--adjustments">
              <td class=""></td>
              <td colspan="2" class="">
                <div class="adjustments__title">Anpassungen an die Bestellung:</div>
                <div class="">
                  {% for adjustment in cart.orderAdjustments %}
+                   {#                   {% set amount = adjustment.amount|commerceCurrency(cart.currency) %}
+                   {% set amount = round((amount + 0.000001) * 20) / 20 %} #}
                    <div class="adjustments__data">
                      <div class="adjustments__data--type">
                        <strong class="">{{ adjustment.type }}</strong>
@@ -462,8 +466,8 @@
 
                        {% endif %}
 
-                      {% else %}
-                           <a class="button button--primary" href="{{ url('shop/checkout') }}">Bezahlen</a>
+                     {% else %}
+                       <a class="button button--primary" href="{{ url('shop/checkout') }}">Bezahlen</a>
                      {% endif %} {# if user exists #}
 
                    {% endif %}
