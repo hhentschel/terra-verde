@@ -25,43 +25,45 @@
            <th class="form__cart-table--item form__cart-table--item-left">Artikel</th>
            <th class="form__cart-table--item form__cart-table--item-middle">Anzahl</th>
            <th class="form__cart-table--item form__cart-table--item-right">Preis</th>
-           <th class="form__cart-table--item"></th>
          </tr>
          </thead>
          <tbody>
          {% for item in cart.lineItems %}
            <tr>
              <td class="item__column-one" rowspan="2">
-               <div class="item__column-image">
-                 <a href="{{ item.purchasable.url }}"
-                 {% set transform = transformation|default('basketThumb') %}
-                 {% set img = item.purchasable.product.articleImage.one() ?? null %}
+               <div class="item__column-product">
 
-                 {% if img is defined %}
-                   {% include '_components/_content-elements/image-product'
-                     with {
-                     image: img,
-                     transform: transform
-                   } %}
-                 {% endif %}
-                 </a>
-               </div>
-               <div class="">
-                 <div class="truncate">
-                   <strong class="{% if item.hasErrors() %}error{% endif %}">
-                     <a href="{{ item.purchasable.url }}" class="form__cart-table--itemtitle">
-                       {{ item.description }}
-                     </a>
-                   </strong>
+                 <div class="item__column-image">
+                   <a href="{{ item.purchasable.url }}"
+                   {% set transform = transformation|default('basketThumb') %}
+                   {% set img = item.purchasable.product.articleImage.one() ?? null %}
+
+                   {% if img is defined %}
+                     {% include '_components/_content-elements/image-product'
+                       with {
+                       image: img,
+                       transform: transform
+                     } %}
+                   {% endif %}
+                   </a>
                  </div>
-                 {% if item.purchasable.product.articleVolume %}
-                   <div class="form-addtobasket__info-unit">
+                 <div class="item__column-info">
+                   <div>
+                     <strong class="{% if item.hasErrors() %}error{% endif %}">
+                       <a href="{{ item.purchasable.url }}" class="form__cart-table--itemtitle">
+                         {{ item.description }}
+                       </a>
+                     </strong>
+                   </div>
+                   {% if item.purchasable.product.articleVolume %}
+                     <div class="form-addtobasket__info-unit">
                   <span>
                     {{ item.purchasable.product.articleVolume }} {{ item.purchasable.product.articleVolumeUnit }}
                   </span>
-                   </div>
-                 {% endif %}
-                 <span class="">Artikelnummer: {{ item.purchasable.product.articleNumber }}</span><br/>
+                     </div>
+                   {% endif %}
+                   <span class="">Artikelnummer: {{ item.purchasable.product.articleNumber }}</span><br/>
+                 </div>
                </div>
 
                {% if (item.purchasable.product.getType().name == 'Geschenke') or  ((item.purchasable.product.getType().name == 'Geschenke' and item.purchasable.product.getType().name == 'Delikatessen')) %}
@@ -189,16 +191,25 @@
                    {% endif %}
                  {% endif %}
                {% endif %}
-             </td>
 
-             <td class="form__cart-table--item-remove">
+               <span class="form__cart-table--item-remove">
                {% set vals = {('lineItems[' ~ item.id ~ '][remove]'): 1}|json_encode %}
                <a sprig s-action="commerce/cart/update-cart" s-method="post" s-vals="{{ vals }}"
                   s-confirm="Wollen Sie den Artikel aus dem Warenkorb löschen?" href="#"
                   class="button button--tertiary">
                  Entfernen
                </a>
+             </span>
              </td>
+
+             {# <td class="form__cart-table--item-remove">
+               {% set vals = {('lineItems[' ~ item.id ~ '][remove]'): 1}|json_encode %}
+               <a sprig s-action="commerce/cart/update-cart" s-method="post" s-vals="{{ vals }}"
+                  s-confirm="Wollen Sie den Artikel aus dem Warenkorb löschen?" href="#"
+                  class="button button--tertiary">
+                 Entfernen
+               </a>
+             </td> #}
            </tr>
 
            <tr class="form__cart--adjustments">
@@ -215,7 +226,7 @@
                        <div class="adjustments__data">
                          {% if adjustment.name %}
                            <div class="adjustments__data--type">
-                             <strong class="">{{ adjustment.name }}</strong>
+                             {{ adjustment.name }}
                            </div>
                          {% endif %}
                          <div class="">
@@ -235,7 +246,7 @@
                        <div class="adjustments__data">
 
                          <div class="adjustments__data--type">
-                           <strong class="">{{ adjustment.description }}</strong>
+                           {{ adjustment.description }}
                          </div>
 
                          <div class="adjustments__data--amount">
@@ -251,7 +262,7 @@
 
                          {% if adjustment.name %}
                            <div class="adjustments__data--type">
-                             <strong class="">{{ adjustment.name }}</strong>
+                             {{ adjustment.name }}
                            </div>
                          {% endif %}
                          <div class="">
@@ -324,7 +335,7 @@
                    {% set amount = round((amount + 0.000001) * 20) / 20 %} #}
                    <div class="adjustments__data">
                      <div class="adjustments__data--type">
-                       <strong class="">{{ adjustment.type }}</strong>
+                       {{ adjustment.type }}
                      </div>
                      <div class="">
                        <span class="adjustments__data--description">{{ adjustment.description }}</span>
