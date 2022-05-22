@@ -72,29 +72,34 @@
               </div>
             {% endif %}
 
-            <div class="form-addtobasket__options">
+            <div class="form-addtobasket__options selection--checkbox">
               {% set checkGift = checkGift ?? false %}
-              <label for="giftwrapped">
-                <input
-                  type="checkbox"
-                  id="giftwrapped"
-                  name="options[giftWrapped]"
-                  value="yes"
-                  {{ checkGift ? 'checked' }}
-                />
+              <input
+                type="checkbox"
+                id="giftwrapped"
+                name="options[giftWrapped]"
+                value="yes"
+                class="selection__input"
+                {{ checkGift ? 'checked' }}
+              />
+              <label for="giftwrapped" class="selection__label">
+
                 In Geschenkpapier einwickeln (+ 6.50 CHF)
               </label>
             </div>
 
-            <div class="form-addtobasket__options">
+            <div class="form-addtobasket__options selection--checkbox">
               {% set checkNote = checkNote ?? false %}
-              <label>
-                <input
-                  type="checkbox"
-                  name="options[giftNote]"
-                  value="yes"
-                  {{ checkNote ? 'checked' }}
-                />
+              <input
+                type="checkbox"
+                id="giftnote"
+                name="options[giftNote]"
+                value="yes"
+                class="selection__input"
+                {{ checkNote ? 'checked' }}
+              />
+              <label for="giftnote" class="selection__label">
+
                 Karte nach Wunsch beschriften (+ 6.00 CHF)
               </label>
               <textarea id="" class="input" type="text" name="note" value="" placeholder="Text für Grusskarte"
