@@ -116,11 +116,11 @@
     </div>
   {% endfor %}
 
-  <div class="flex w-full justify-end items-center">
-    <div class="text-gray-600 pr-2">
-      Gesamtpreis:
+  <div class="summary__price summary__price--line">
+    <div class="summary__price--title">
+      Zwischensumme:
     </div>
-    <div class="text-lg font-bold">
+    <div class="summary__price--number">
       {{ cart.itemSubTotal|commerceCurrency(cart.currency) }}
     </div>
   </div>
@@ -155,8 +155,8 @@
     </div> #}
 
     {% if cart.totalDiscount|length %}
-      <div class="flex w-full justify-end items-center text-xs text-gray-500">
-        <div class="pr-2">
+      <div class="summary__price">
+        <div class="summary__price--title">
           Rabatt(e):
         </div>
         <div>
@@ -167,8 +167,8 @@
 
     {# {% if cart.orderAdjustments|length %} #}
     {% for adjustment in cart.orderAdjustments %}
-      <div class="flex w-full justify-end items-center text-xs text-gray-500">
-        <div class="pr-2">
+      <div class="summary__price">
+        <div class="summary__price--title">
           {# <span>Versand ({{ adjustment.description }} ) - {{ adjustment.name }}:</span> #}
           {# <span>Versand ({{ adjustment.name }} ):</span> #}
           {% if cart.shippingMethodHandle == 'B2C_pickUpAtStore' %}
@@ -184,8 +184,8 @@
     {% endfor %}
     {# {% endif %} #}
 
-    <div class="flex w-full justify-end items-center text-xs text-gray-500">
-      <div class="pr-2">
+    <div class="summary__price">
+      <div class="summary__price--title">
         Mwst.:
       </div>
       <div>
@@ -193,11 +193,11 @@
       </div>
     </div>
 
-    <div class="flex w-full justify-end items-center">
-      <div class="text-gray-600 pr-2">
-        Total:
+    <div class="summary__price">
+      <div class="summary__price--title summary__price--title-bold">
+        Endsumme:
       </div>
-      <div class="text-lg font-bold">
+      <div class="summary__price--number summary__price--number-bold">
         {{ cart.totalPrice|commerceCurrency(cart.currency) }}
       </div>
     </div>
