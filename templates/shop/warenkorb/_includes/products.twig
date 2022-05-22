@@ -335,12 +335,21 @@
                    {% set amount = round((amount + 0.000001) * 20) / 20 %} #}
                    <div class="adjustments__data">
                      <div class="adjustments__data--type">
-                       {{ adjustment.type }}
+                       {% if adjustment.type == "shipping" %}
+                         Versand:
+                       {% elseif adjustment.type == "discount" %}
+                         Rabatt:
+                       {% elseif adjustment.type == "tax" %}
+                         Steuer
+                       {% else %}
+                         {{ adjustment.type }}
+                       {% endif %}
                      </div>
                      <div class="">
-                       <span class="adjustments__data--description">{{ adjustment.description }}</span>
-                       {% if adjustment.isEstimated %}<i class="">{{ 'Estimated' }}</i>{% endif %}<br>
-                       <span class="adjustments__data--name">{{ adjustment.name }}</span>
+                       {# <span class="adjustments__data--description">{{ adjustment.description }}</span> #}
+
+                       <span class="adjustments__data--name">{{ adjustment.description }}</span>
+
                      </div>
                      <div class="adjustments__data--amount">
                        <span class=""
