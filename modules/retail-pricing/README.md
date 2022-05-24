@@ -1,6 +1,6 @@
 # Retail Pricing Module
 
-Provides retail pricing from a custom field using an adjuster.
+Provides retail pricing from a custom field.
 
 Install the module by adding and bootstrapping it in the `/config/app.php` file:
 
