@@ -15,7 +15,7 @@ use yii\base\InvalidConfigException;
 
 class RetailAdjuster extends Component implements AdjusterInterface
 {
-    const RETAIL_USER_GROUP_ID = 3;
+    const RETAIL_USER_GROUP_ID = 1;
 
     public function adjust(Order $order): array
     {
