@@ -23,6 +23,7 @@ return [
     'id' => App::env('APP_ID') ?: 'CraftCMS',
     'modules' => [
         // 'c-q-control-panel' => terraverde\CQControlPanel::class,
+        'retail-pricing' => modules\retailpricing\RetailPricing::class,
         'terraverde-module' => modules\terraverdemodule\TerraverdeModule::class,
       //   'exampleadjuster' => [
       //     'class' => \modules\exampleadjuster\Example::class,
@@ -30,5 +31,5 @@ return [
     ],
     // 'bootstrap' => ['c-q-control-panel', 'terraverde-module'],
     // 'bootstrap' => ['terraverde-module', 'exampleadjuster'],
-    'bootstrap' => ['terraverde-module'],
+    'bootstrap' => ['retail-pricing', 'terraverde-module'],
 ];
