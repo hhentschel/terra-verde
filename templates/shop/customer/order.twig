@@ -107,7 +107,7 @@
       <tbody>
       {% for item in order.lineItems %}
         <tr class="align-top">
-          <td class="py-3 pl-3 {{ not loop.first ? 'border-t border-gray-300 border-dashed' : '' }}" rowspan="2">
+          <td class="{{ not loop.first ? 'border-t border-gray-300 border-dashed' : '' }}" rowspan="2">
             <strong class="text-lg">{{ item.description }}</strong><br>
             <span class="text-gray-500 tracking-widest font-mono text-xs">{{ item.sku }}</span>
             <div class="mt-2 relative">
@@ -121,7 +121,7 @@
                           <span class="absolute top-0 left-0 pt-2 pl-2 text-2xs text-gray-500 uppercase tracking-wider">Optionen</span> #}
             </div>
           </td>
-          <td class="py-3 {{ not loop.first ? 'border-t border-gray-300 border-dashed' : '' }}">
+          <td class="{{ not loop.first ? 'border-t border-gray-300 border-dashed' : '' }}">
             {% if item.options.donationAmount is not defined %}
               <div>{{ item.qty }}</div>
             {% endif %}
@@ -136,7 +136,7 @@
           </td>
 
           <td
-            class="py-3 pr-3 text-gray-500 {{ not loop.first ? 'border-t border-gray-300 border-dashed' : '' }} text-right">
+            class="text-gray-500 {{ not loop.first ? 'border-t border-gray-300 border-dashed' : '' }} text-right">
             <div class="flex items-center w-full justify-end" title="{{ item.price }}">
               <div class="text-xs pr-2">Preis:</div>
               <div class="text-sm">{% if item.onSale %}
@@ -160,7 +160,7 @@
           </td>
         </tr>
         <tr class="cart--adjustments">
-          <td colspan="2" class=" pr-3">
+          <td colspan="2" class="">
             {# <div class="adjustments__title">Anpassungen an die Bestellung:</div> #}
             <div class="adjustments">
               {% for adjustment in item.adjustments %}
@@ -199,7 +199,7 @@
           </td>
         </tr>
         <tr class="">
-          <td class="pb-3 pr-3 text-right" colspan="4">
+          <td class="text-right" colspan="4">
             <div class="flex items-center w-full justify-end mt-3" title="{{ item.total }}">
               <div class="text-sm text-gray-600 pr-2">Total:</div>
               <div>{{ item.total|commerceCurrency(order.currency) }}</div>
@@ -210,7 +210,7 @@
 
 
       <tr class="">
-        <td class="pb-3 pr-3 text-right" colspan="4">
+        <td class="text-right" colspan="4">
           <div class="flex items-center w-full justify-end mt-3" title="{{ order.itemSubTotal }}">
             <div class="text-sm text-gray-600 pr-2">Gesamtpreis:</div>
             <div class="font-bold">{{ order.itemSubTotal|commerceCurrency(cart.currency) }}</div>
@@ -233,7 +233,7 @@
       {% if order.orderAdjustments|length %}
         <tr class="cart--adjustments">
           <td class="py-3"></td>
-          <td colspan="2" class="py-3 pr-3">
+          <td colspan="2" class="">
             {# <div class="text-left text-2xs uppercase tracking-wider text-gray-600">Anpassungen Bestellungen</div> #}
             <div class="adjustments">
               {% for adjustment in order.orderAdjustments %}
