@@ -28,7 +28,7 @@ class PickUpDiscount extends Component implements AdjusterInterface
     if ($order->shippingMethodHandle == 'B2C_pickUpAtStore') {
 
       $adjustment = new OrderAdjustment;
-      $adjustment->type = 'Rabatt';
+      $adjustment->type = 'Abholrabatt';
       $adjustment->sourceSnapshot = ['data' => 'value'];
 
       $adjustment->amount = round(($order->itemSubtotal * .05 * -1) * 20, 0) / 20;
