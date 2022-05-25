@@ -1,0 +1,27 @@
+columnSuffix: vdgctntn
+contentColumnType: text
+fieldGroup: 546e63c7-3ad2-424d-ad71-31f33a561a7f # Kontakt | Globals
+handle: additionalOpenings
+instructions: ''
+name: 'Zusatzfeld Öffnungszeiten'
+searchable: false
+settings:
+  availableTransforms: '*'
+  availableVolumes: '*'
+  columnType: text
+  configSelectionMode: choose
+  defaultTransform: ''
+  manualConfig: ''
+  purifierConfig: ''
+  purifyHtml: '1'
+  redactorConfig: Simple.json
+  removeEmptyTags: '1'
+  removeInlineStyles: '1'
+  removeNbsp: '1'
+  showHtmlButtonForNonAdmins: ''
+  showUnpermittedFiles: false
+  showUnpermittedVolumes: false
+  uiMode: enlarged
+translationKeyFormat: null
+translationMethod: none
+type: craft\redactor\Field

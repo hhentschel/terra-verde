@@ -1,4 +1,4 @@
-dateModified: 1653216036
+dateModified: 1653505121
 email:
   fromEmail: p@henrik-hentschel.de
   fromName: 'Terra Verde'
@@ -252,6 +252,7 @@ meta:
     ea3d0d8a-06a4-48ed-b8aa-3e7cbaa24971: Registrieren # Registrieren
     ea603a9d-ad1a-46a9-8400-4c237d4f779e: Artikelnummer # Artikelnummer
     eb0e12f9-6563-4af9-a66b-b29028951bcb: Beliebteste # Beliebteste
+    eb3ef146-b785-48bc-ab53-40d64959cc24: 'Zusatzfeld Öffnungszeiten' # Zusatzfeld Öffnungszeiten
     ec45610a-116e-4f59-81ef-2b22ad4cf4c8: Blog # Blog
     ee73ad95-c3b7-4b1a-97d4-77987063c463: Bestell-Bestätigung # Bestell-Bestätigung
     f021083a-e208-4eaa-974d-3ae4d7e91811: 'Artikel Einheit Volumen/Gewicht' # Artikel Einheit Volumen/Gewicht
