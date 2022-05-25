@@ -94,7 +94,7 @@
               <div class="filter__checkbox filter__deli--checkbox selection selection--checkbox">
                 <input sprig
                        type="checkbox"
-                       s-swap="outerHTML show:#tvboard:top"
+                       s-swap="outerHTML"
                        id="catdeli-{{ catDeliOption.id }}"
                        name="articleCategoriesDeli[]"
                        class="selection__input"
@@ -122,7 +122,7 @@
           <div class="filter__checkbox selection selection--checkbox">
             <input sprig
                    type="checkbox"
-                   s-swap="outerHTML show:#tvboard:top"
+                   s-swap="outerHTML"
                    id="catwine-{{ catWineOption.id }}"
                    class="selection__input"
               {% set children = catWineOption.children.all() %}
@@ -166,7 +166,7 @@
           <div class="filter__checkbox filter__gift--checkbox selection selection--checkbox">
             <input sprig
                    type="checkbox"
-                   s-swap="outerHTML show:#tvboard:top"
+                   s-swap="outerHTML"
                    id="catgift-catGiftOptionAll"
                    class="selection__input"
                    name="articleCategoriesGiftAll"
@@ -183,7 +183,7 @@
               <div class="filter__checkbox selection selection--checkbox">
                 <input sprig
                        type="checkbox"
-                       s-swap="outerHTML show:#tvboard:top"
+                       s-swap="outerHTML"
                        id="catgift-{{ catGiftOption.id }}"
                        class="selection__input"
                        name="articleCategoriesGift[]"
