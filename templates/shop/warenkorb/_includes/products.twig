@@ -195,7 +195,7 @@
                <span class="form__cart-table--item-remove">
                {% set vals = {('lineItems[' ~ item.id ~ '][remove]'): 1}|json_encode %}
                <a sprig s-action="commerce/cart/update-cart" s-method="post" s-vals="{{ vals }}"
-                  s-confirm="Wollen Sie den Artikel aus dem Warenkorb löschen?" href="#"
+                  href="#"
                   class="button button--tertiary">
                  Entfernen
                </a>
