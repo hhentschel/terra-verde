@@ -256,8 +256,8 @@
                        </div>
                      {% endfor %}
 
-                     {# für Anpassungen nicht als Discount #}
-                     {% for adjustment in item.adjustments if adjustment.type != "discount" %}
+                     {# für Anpassungen nicht als Discount #} {# MWST: Ausgabe #}
+                     {# {% for adjustment in item.adjustments if adjustment.type != "discount" %}
                        <div class="adjustments__data">
 
                          {% if adjustment.name %}
@@ -273,7 +273,8 @@
                                 title="{{ adjustment.amount }}"> {{ adjustment.amount|commerceCurrency(cart.currency) }}</span>
                          </div>
                        </div>
-                     {% endfor %}
+                     {% endfor %} #}
+
                    {% endif %}
 
                  </div>
@@ -281,12 +282,12 @@
 
                {% if not cart.hasErrors() %}
                  <div class="form__cart-table--item-price" title="{{ item.total }}">
-                   <div class="form__cart-table--item-price-name">Total Artikelpreis:</div>
-                   <div class="form__cart-table--item-price-number form__cart-table--item-price-number-bold">
-                     {% set itemTotalPrice = item.total %}
+                   <div class="form__cart-table--item-price-name">Subtotal:</div>
+                   <div class="form__cart-table--item-price-number">
+                     {# {% set itemTotalPrice = item.total %}
                      {% set itemTotalPriceRound = round((itemTotalPrice + 0.000001) * 20) / 20 %}
-                     {{ itemTotalPriceRound|number_format(2, '.', '')|commerceCurrency(cart.currency) }}
-                     {# {{ item.total|commerceCurrency(cart.currency) }} #}
+                     {{ itemTotalPriceRound|number_format(2, '.', '')|commerceCurrency(cart.currency) }} #}
+                     {{ item.total|commerceCurrency(cart.currency) }}
                    </div>
                  </div>
                {% endif %}
@@ -309,11 +310,11 @@
                <div class="form__cart-table--item-pricesubtotal" title="{{ cart.itemSubTotal }}">
                  <div class="form__cart-table--item-price-name">Gesamtpreis:</div>
                  <div class="form__cart-table--item-pricesubtotal-number">
-                   {% set cartItemSubTotal  = cart.itemSubTotal %}
+                   {# {% set cartItemSubTotal  = cart.itemSubTotal %}
                    {% set cartItemSubTotalRound = round((cartItemSubTotal + 0.000001) * 20) / 20 %}
-                   {{ cartItemSubTotalRound|number_format(2, '.', '')|commerceCurrency(cart.currency) }}
+                   {{ cartItemSubTotalRound|number_format(2, '.', '')|commerceCurrency(cart.currency) }} #}
 
-                   {# {{ cart.itemTotalAsCurrency }} #}
+                   {{ cart.itemTotalAsCurrency }}
                  </div>
                </div>
              </td>
