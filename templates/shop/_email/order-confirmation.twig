@@ -43,12 +43,14 @@
     }
   </style>
   <!--[if mso]>
-  <xml>
-    <o:OfficeDocumentSettings>
-      <o:AllowPNG/>
-      <o:PixelsPerInch>96</o:PixelsPerInch>
-    </o:OfficeDocumentSettings>
-  </xml>
+  <noscript>
+    <xml>
+      <o:OfficeDocumentSettings>
+        <o:AllowPNG/>
+        <o:PixelsPerInch>96</o:PixelsPerInch>
+      </o:OfficeDocumentSettings>
+    </xml>
+  </noscript>
   <![endif]-->
   <!--[if lte mso 11]>
   <style type="text/css">
@@ -79,6 +81,17 @@
       }
     }
   </style>
+  <style media="screen and (min-width:480px)">
+    .moz-text-html .mj-column-per-100 {
+      width: 100% !important;
+      max-width: 100%;
+    }
+
+    .moz-text-html .mj-column-per-50 {
+      width: 50% !important;
+      max-width: 50%;
+    }
+  </style>
 
 
   <style type="text/css">
@@ -95,7 +108,9 @@
     }
 
   </style>
+  <style type="text/css">
 
+  </style>
 
 </head>
 <body style="word-spacing:normal;background-color:#ffffff;">
@@ -107,7 +122,8 @@
 
 
   <!--[if mso | IE]>
-  <table align="center" border="0" cellpadding="0" cellspacing="0" class="" style="width:600px;" width="600">
+  <table align="center" border="0" cellpadding="0" cellspacing="0" class="" role="presentation" style="width:600px;"
+         width="600" bgcolor="#ffffff">
     <tr>
       <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]-->
 
@@ -182,7 +198,8 @@
 
 
   <!--[if mso | IE]></td></tr></table>
-  <table align="center" border="0" cellpadding="0" cellspacing="0" class="" style="width:600px;" width="600">
+  <table align="center" border="0" cellpadding="0" cellspacing="0" class="" role="presentation" style="width:600px;"
+         width="600" bgcolor="#ffffff">
     <tr>
       <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]-->
 
@@ -211,7 +228,8 @@
 
 
   <!--[if mso | IE]></td></tr></table>
-  <table align="center" border="0" cellpadding="0" cellspacing="0" class="" style="width:600px;" width="600">
+  <table align="center" border="0" cellpadding="0" cellspacing="0" class="" role="presentation" style="width:600px;"
+         width="600" bgcolor="#ffffff">
     <tr>
       <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]-->
 
@@ -270,7 +288,8 @@
 
 
   <!--[if mso | IE]></td></tr></table>
-  <table align="center" border="0" cellpadding="0" cellspacing="0" class="" style="width:600px;" width="600">
+  <table align="center" border="0" cellpadding="0" cellspacing="0" class="" role="presentation" style="width:600px;"
+         width="600" bgcolor="#ffffff">
     <tr>
       <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]-->
 
@@ -330,7 +349,8 @@
 
 
   <!--[if mso | IE]></td></tr></table>
-  <table align="center" border="0" cellpadding="0" cellspacing="0" class="" style="width:600px;" width="600">
+  <table align="center" border="0" cellpadding="0" cellspacing="0" class="" role="presentation" style="width:600px;"
+         width="600" bgcolor="#f7f5f0">
     <tr>
       <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]-->
 
@@ -394,10 +414,58 @@
                                  padding-top="20">{{ order.dateOrdered|date('d. M Y') }}</mj-text>
                       </td>
                     </tr>
+
                     <tr>
                       <td>
                         <mj-text align="left" color="#222" font-size="15px" font-family="'Open Sans', Arial, sans-serif"
-                                 padding-left="25px" padding-right="25px" padding-bottom="0px" padding-top="20"><strong>Gesamtpreis:</strong>
+                                 padding-left="25px" padding-right="25px" padding-bottom="0px" padding-top="20"><strong>Totalpreis
+                            Artikel:</strong></mj-text>
+                      </td>
+                      <td>
+                        <mj-text align="left" color="#222" font-size="15px" font-family="'Open Sans', Arial, sans-serif"
+                                 padding-left="25px" padding-right="25px" padding-bottom="0px"
+                                 padding-top="20">{{ order.itemSubTotal|commerceCurrency(order.currency) }}</mj-text>
+                      </td>
+                    </tr>
+
+                    {% for adjustment in order.orderAdjustments %}
+                      {% if adjustment.amount|commerceCurrency(order.currency)|length %}
+                        <tr>
+                          <td>
+                            <mj-text align="left" color="#222" font-size="15px"
+                                     font-family="'Open Sans', Arial, sans-serif" padding-left="25px"
+                                     padding-right="25px" padding-bottom="0px" padding-top="20">
+                              <strong>Abholrabatt:</strong></mj-text>
+                          </td>
+                          <td>
+                            <mj-text align="left" color="#222" font-size="15px"
+                                     font-family="'Open Sans', Arial, sans-serif" padding-left="25px"
+                                     padding-right="25px" padding-bottom="0px"
+                                     padding-top="20">{{ adjustment.amount|commerceCurrency(order.currency) }}</mj-text>
+                          </td>
+                        </tr>
+                      {% endif %}
+                    {% endfor %}
+
+                    {% if order.totalDiscountAsCurrency is defined and order.totalDiscountAsCurrency is not empty %}
+                      <tr>
+                        <td>
+                          <mj-text align="left" color="#222" font-size="15px"
+                                   font-family="'Open Sans', Arial, sans-serif" padding-left="25px" padding-right="25px"
+                                   padding-bottom="0px" padding-top="20"><strong>Artikel-Rabatte:</strong></mj-text>
+                        </td>
+                        <td>
+                          <mj-text align="left" color="#222" font-size="15px"
+                                   font-family="'Open Sans', Arial, sans-serif" padding-left="25px" padding-right="25px"
+                                   padding-bottom="0px" padding-top="20">{{ order.totalDiscountAsCurrency }}</mj-text>
+                        </td>
+                      </tr>
+                    {% endif %}
+
+                    <tr>
+                      <td>
+                        <mj-text align="left" color="#222" font-size="15px" font-family="'Open Sans', Arial, sans-serif"
+                                 padding-left="25px" padding-right="25px" padding-bottom="0px" padding-top="20"><strong>Endsumme:</strong>
                         </mj-text>
                       </td>
                       <td>
@@ -407,7 +475,7 @@
                       </td>
                     </tr>
                     <tr>
-                      <td>
+                      <td style="vertical-align:top">
                         <mj-text align="left" color="#222" font-size="15px" font-family="'Open Sans', Arial, sans-serif"
                                  padding-left="25px" padding-right="25px" padding-bottom="0px" padding-top="20"><strong>Versand:</strong>
                         </mj-text>
@@ -451,7 +519,8 @@
 
 
   <!--[if mso | IE]></td></tr></table>
-  <table align="center" border="0" cellpadding="0" cellspacing="0" class="" style="width:600px;" width="600">
+  <table align="center" border="0" cellpadding="0" cellspacing="0" class="" role="presentation" style="width:600px;"
+         width="600" bgcolor="#688aa1">
     <tr>
       <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]-->
 
@@ -547,7 +616,8 @@
 
 
   <!--[if mso | IE]></td></tr></table>
-  <table align="center" border="0" cellpadding="0" cellspacing="0" class="" style="width:600px;" width="600">
+  <table align="center" border="0" cellpadding="0" cellspacing="0" class="" role="presentation" style="width:600px;"
+         width="600" bgcolor="#ffffff">
     <tr>
       <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]-->
 
@@ -589,27 +659,40 @@
                   >
                     <tr style="color:#121; border-bottom:1px solid #121;text-align:left;padding:15px 0; font-family="
                     'Open Sans' , Arial, sans-serif"">
-                    <th style="padding: 0 15px 0 0; width:10%;vertical-align:text-top">Stk.</th>
-                    <th style="padding: 0 15px 0 0; width:25%">Artikel<br/> Nummer</th>
-                    <th style="padding: 0 15px;width:50%;vertical-align:text-top">Artikel</th>
-                    <th style="padding: 0 0 0 15px;width:15%">Preis<br/> (in CHF)</th>
-                    </tr> {% for item in order.lineItems %}
+                    <th style="padding: 0 12px 0 0; width:20%">Artikelnr.</th>
+                    <th style="padding: 0 12px 0 0; width:8%;vertical-align:text-top">Stk.</th>
+                    <th style="padding: 0 12px 0 0;width:38%;vertical-align:text-top">Artikel</th>
+                    <th style="padding: 0 0 0 12px;width:17%; vertical-align:text-top;text-align:right"></th>
+                    <th style="padding: 0 0 0 12px;width:17%; vertical-align:text-top;text-align:right">Preis</th>
+                    </tr>
+                    <tr>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                    </tr>
+                    {% for item in order.lineItems %}
                       <tr style="color:#666; border-bottom:1px solid #121;">
-                        <td style="color:#121; padding: 0 15px 5px 0;vertical-align:text-top">{{ item.qty }}</td>
-                        <td style="color:#121; padding: 0 15px 5px 0;vertical-align:text-top">
+                        <td style="color:#121; padding: 0 12px 5px 0;vertical-align:text-top">
+                          {% if item.purchasable.product.articleNumber is defined and item.purchasable.product.articleNumber is not null %}
 
-
-                          {{ item.purchasable.product.articleNumber }}
-
+                            {{ item.purchasable.product.articleNumber }}
+                          {% endif %}
                         </td>
-                        <td style="color:#121; padding: 0px 15px 5px 15px;">
+                        <td style="color:#121; padding: 0 12px 5px 0;vertical-align:text-top">{{ item.qty }}</td>
+                        <td style="color:#121; padding: 0px 12px 5px 0;">
                           {{ item.description }}<br/> {% if item.options.giftWrapped is defined %}
                             <div>{% if item.options.giftWrapped == 'yes' %}Als Geschenk verpackt{% endif %}</div> {% endif %} {% if item.note %}
                             <div class="">
                               <div>Notiz</div>
                               <div>{{ item.note }}</div>
                             </div> {% endif %} </td>
-                        <td style="color:#121; padding: 0 0 0 15px;vertical-align:text-top"> {{ item.salePrice }}
+                        <td
+                          style="color:#121; padding: 0 0 0 12px;vertical-align:text-top; text-align:right"> {{ item.salePriceAsCurrency }}
+                        </td>
+                        <td
+                          style="color:#121; padding: 0 0 0 12px;vertical-align:text-top; text-align:right"> {{ item.subtotal|commerceCurrency() }}
                         </td>
                       </tr> {% endfor %}
                   </table>
@@ -629,10 +712,18 @@
                     <tr>
                       <td colspan="2"></td>
                       <td align:
+                      "right" style="text-align:right"> Totalpreis
+                      Artikel: {{ order.itemSubTotal()|commerceCurrency(order.currency) }}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td colspan="2"></td>
+                      <td align:
                       "right" style="text-align:right">
                       Versand: {{ order.getTotalShippingCost()|commerceCurrency(order.currency) }}
                       </td>
                     </tr>
+
                     <tr>
                       <td colspan="2"></td>
                       <td align:
@@ -643,12 +734,12 @@
                     <tr>
                       <td colspan="2"></td>
                       <td align:
-                      "right" style="text-align:right"> Total Rabatte: {{ order.totalDiscountAsCurrency }}</td>
+                      "right" style="text-align:right"> Total Artikel-Rabatte: {{ order.totalDiscountAsCurrency }}</td>
                     </tr>
                     <tr>
                       <td colspan="2"></td>
                       <td align:
-                      "right" style="text-align:right">Preis:
+                      "right" style="text-align:right">Endsumme:
                       <strong>{{ order.totalPrice|commerceCurrency(order.currency) }}</strong></td>
                     </tr>
                   </table>
@@ -671,7 +762,8 @@
 
 
   <!--[if mso | IE]></td></tr></table>
-  <table align="center" border="0" cellpadding="0" cellspacing="0" class="" style="width:600px;" width="600">
+  <table align="center" border="0" cellpadding="0" cellspacing="0" class="" role="presentation" style="width:600px;"
+         width="600">
     <tr>
       <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]-->
 
@@ -699,7 +791,8 @@
 
 
   <!--[if mso | IE]></td></tr></table>
-  <table align="center" border="0" cellpadding="0" cellspacing="0" class="" style="width:600px;" width="600">
+  <table align="center" border="0" cellpadding="0" cellspacing="0" class="" role="presentation" style="width:600px;"
+         width="600" bgcolor="#3d362f">
     <tr>
       <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]-->
 
@@ -789,6 +882,7 @@
                   <table
                     border="0" cellpadding="0" cellspacing="0" role="presentation" style="margin:0px;"
                   >
+                    <tbody>
 
                     <tr
 
@@ -798,6 +892,7 @@
                           border="0" cellpadding="0" cellspacing="0" role="presentation"
                           style="background:#3b5998;border-radius:3px;width:30px;"
                         >
+                          <tbody>
                           <tr>
                             <td style="font-size:0;height:30px;vertical-align:middle;width:30px;">
                               <a
@@ -811,6 +906,7 @@
                               </a>
                             </td>
                           </tr>
+                          </tbody>
                         </table>
                       </td>
 
@@ -833,6 +929,7 @@
                           border="0" cellpadding="0" cellspacing="0" role="presentation"
                           style="background:#3f729b;border-radius:3px;width:30px;"
                         >
+                          <tbody>
                           <tr>
                             <td style="font-size:0;height:30px;vertical-align:middle;width:30px;">
                               <a href="https://www.instagram.com/terra.verde.bio.gourmet.ag/?hl=de" target="_blank">
@@ -844,6 +941,7 @@
                               </a>
                             </td>
                           </tr>
+                          </tbody>
                         </table>
                       </td>
 
@@ -858,6 +956,7 @@
 
                     </tr>
 
+                    </tbody>
                   </table>
 
 
@@ -885,4 +984,4 @@
 
 </body>
 </html>
-
+  
