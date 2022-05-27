@@ -2,7 +2,7 @@
 
 {% set addresses = craft.commerce.customers.customer.addresses %}
 
-{% set customer = craft.commerce.customers.customer %}
+ {% set customer = craft.commerce.customers.customer %}
 {% set primaryBillingAddress = customer.getPrimaryBillingAddress() %}
 {% set primaryShippingAddress = customer.getPrimaryShippingAddress() %}
 
@@ -15,24 +15,132 @@
       </div>
 
       <div class="col col-xs-12 col-md-6 col-lg-7">
+        <h2 class="heading heading--2 heading--no-margin-top">
+          Wohin soll die Bestellung versendet werden?
+        </h2>
+
         <div class="">
-          <form method="post" action="" class="forms__checkout">
+
+
+          <form method="post" action="">
+            {{ csrfInput() }}
+            {{ actionInput('commerce/cart/update-cart') }}
+            {{ successMessageInput('Addresses selected.') }}
+            {{ redirectInput('shop/checkout/shipping') }}
+
+            {% if not cart.email %}
+              <div class="mb-6">
+                <label for="email">{{ 'Email'|t }}</label>
+                {{ input('email', 'email', cart.email, {
+                  id: 'email',
+                  placeholder: 'email@site.com',
+                  class: ['w-full', 'border border-gray-300 hover:border-gray-500 px-4 py-2 leading-tight rounded']
+                }) }}
+                <span class="flash">{{ cart.getErrors('email')|join }}</span>
+              </div>
+            {% endif %}
+
+            {{ include('shop/_includes/addresses/fieldset', {
+              title: 'Shipping Address'|t,
+              class: 'ShippingAddress',
+              name: 'shippingAddress'
+            }) }}
+
+
+            {{ hiddenInput('billingAddressSameAsShipping', 0) }}
+
+            <div class="selection--checkbox">
+              {{ input('checkbox', 'billingAddressSameAsShipping', 1, {
+                id: 'billingAddressSameAsShipping',
+                class: "selection__input",
+                checked: true
+              }) }}
+              <label for="billingAddressSameAsShipping" class="selection__label">
+                {{ 'Gewählte Adresse auch als Rechnungsadresse verwenden'|t }}
+              </label>
+              <a class="forms__checkout--link link"
+                 href="{{ url('shop/customer/addresses/edit') }}">
+                Neue Adresse hinzufügen
+              </a>
+            </div>
+
+
+            <div class="cart-container__checkboxes">
+
+              <div class="selection--checkbox">
+                {{ input('checkbox', 'makePrimaryShippingAddress', 1, {
+                  id: 'makePrimaryShippingAddress',
+                  class: "selection__input",
+                }) }}
+                <label for="makePrimaryShippingAddress" class="selection__label">
+                  {{ 'Gewählte Adresse als primäre Versandadresse festlegen'|t }}
+                </label>
+              </div>
+
+              <div class="mt-8">
+                {{ include('shop/_includes/addresses/fieldset', {
+                  title: 'Billing Address'|t,
+                  class: 'BillingAddress hidden',
+                  name: 'billingAddress'
+                }) }}
+              </div>
+
+
+              <div class="selection--checkbox">
+                {{ input('checkbox', 'makePrimaryBillingAddress', 1, {
+                  id: 'makePrimaryBillingAddress',
+                  class: "selection__input",
+                }) }}
+                <label for="makePrimaryBillingAddress" class="selection__label">
+                  {{ 'Gewählte Adresse als primäre Rechnungsadresse festlegen'|t }}
+                </label>
+              </div>
+            </div>
+
+            <div>
+              Adressen können auch im <a href="/shop/customer" class="link">
+                Profil
+              </a> verwaltet und geändert werden.
+            </div>
+
+            {% if customer.addresses|length %}
+              <div class="checkout__steps">
+                <div class="checkout__steps--button">
+                  <input type="submit"
+                         class="input input__primary"
+                         value="Adresse bestätigen und weiter"/>
+                </div>
+              </div>
+            {% else %}
+              <div>
+                Noch keine Adressen hinterlegt.
+                <a class="button button--primary"
+                   href="{{ url('shop/customer/addresses/edit') }}">
+                  neue Adresse hinzufügen
+                </a>
+              </div>
+            {% endif %}
+
+          </form>
+
+
+          {# <form method="post" action="" class="forms__checkout">
+            {{ csrfInput() }}
             {{ actionInput('commerce/cart/update-cart') }}
             {{ redirectInput('shop/checkout/shipping') }}
-            {{ csrfInput() }}
 
             {% if not cart.email %}
               <label for="email">Email</label>
               <input id="email"
-                class="input"
-                type="email"
-                value="{{ cart.email }}"
-                name="email"
-                placeholder="email@webiste.ch" />
+                     class="input"
+                     type="email"
+                     value="{{ cart.email }}"
+                     name="email"
+                     placeholder="email@webiste.ch"/>
 
               <span class="flash">
                 {{ cart.getErrors('email')|join }}
-              </span><br />
+              </span><br/>
             {% endif %}
 
             {% include 'shop/_includes/addresses/fieldset' with {
@@ -41,47 +149,106 @@
               name: 'shippingAddress'
             } %}
 
-            {# {% if primaryBillingAddress != primaryShippingAddress %} #}
-            {% if
+            <hr class="my-5">
+
+            {{ hiddenInput('billingAddressSameAsShipping', 0) }}
+
+
+            <div class="mt-3">
+              <label>
+                {{ input('checkbox', 'billingAddressSameAsShipping', 1, {
+                  id: 'billingAddressSameAsShipping',
+                  checked: true
+                }) }}
+                {{ 'Use same address for billing'|t }}
+              </label>
+            </div>
+
+            <div class="mt-3">
+              <label>
+                {{ input('checkbox', 'makePrimaryShippingAddress', 1, {
+                  id: 'makePrimaryShippingAddress',
+                }) }}
+                {{ 'Make this my default shipping address'|t }}
+              </label>
+            </div>
+
+            <div class="mt-8">
+              {{ include('shop/_includes/addresses/fieldset', {
+                title: 'Billing Address'|t,
+                class: 'BillingAddress hidden',
+                name: 'billingAddress'
+              }) }}
+            </div>
+
+            <hr class="my-5">
+
+            <div class="mt-3">
+              <label>
+                {{ input('checkbox', 'makePrimaryBillingAddress', 1, {
+                  id: 'makePrimaryBillingAddress',
+                }) }}
+                {{ 'Make this my default billing address'|t }}
+              </label>
+            </div>
+
+            <div class="mt-3 flex justify-end">
+              {{ tag('button', {
+                type: 'submit',
+                class: 'cursor-pointer rounded px-4 py-2 inline-block bg-blue-500 hover:bg-blue-600 text-white hover:text-white',
+                text: 'Confirm addresses'|t
+              }) }}
+            </div> #}
+
+
+
+
+          {#- ------ -#}
+
+          {# {% if primaryBillingAddress != primaryShippingAddress %} #}
+          {# {% if
               (customer.primaryBillingAddress|length)
-                and (customer.primaryShippingAddress|length) %}
+              and (customer.primaryShippingAddress|length) %}
               Adressen können im <a href="/shop/customer" class="link">
-                Profil
-              </a> verwaltet werden.
+              Profil
+            </a> verwaltet werden.
             {% else %}
-              {# {{ hiddenInput('billingAddressSameAsShipping', 0) }} #}
+
               <div class="">
                 <label for="billingAddressSameAsShipping">
                   <input id="billingAddressSameAsShipping"
-                    name="billingAddressSameAsShipping"
-                    type="checkbox"
-                    checked="checked" />
+                         name="billingAddressSameAsShipping"
+                         type="checkbox"
+                         checked="checked"/>
                   <span class="label-body">
                     Versandadresse als Rechnungsadresse verwenden
                   </span>
 
                   <a class="forms__checkout--link link"
-                    href="{{ url('shop/customer/addresses/edit') }}">
+                     href="{{ url('shop/customer/addresses/edit') }}">
                     Neue Adresse hinzufügen
                   </a>
                 </label>
               </div>
-            {% endif %}
+            {% endif %} #}
 
-            {% set user = craft.users.email(cart.email).one() %}
+          {#- ------- -#}
+
+
+          {# {% set user = craft.users.email(cart.email).one() %}
             {% if not user %}
               <div class="checkout__steps">
                 <div class="checkout__steps--button">
                   <input type="submit"
-                    class="input input__primary"
-                    value="Adresse speichern und weiter" />
+                         class="input input__primary"
+                         value="Adresse speichern und weiter"/>
                 </div>
               </div>
 
               <div class="checkout__steps">
                 <div class="checkout__steps--button">
                   <a class="button button--primary button--small"
-                    href="{{ url('shop/checkout/payment-method/') }}">
+                     href="{{ url('shop/checkout/payment-method/') }}">
                     Abholung vor Ort
                   </a>
                 </div>
@@ -91,22 +258,26 @@
                 <div class="checkout__steps">
                   <div class="checkout__steps--button">
                     <input type="submit"
-                      class="input input__primary"
-                      value="Adresse bestätigen und weiter" />
+                           class="input input__primary"
+                           value="Adresse bestätigen und weiter"/>
                   </div>
                 </div>
               {% else %}
                 <div>
                   Noch keine Adressen hinterlegt.
                   <a class="button button--primary"
-                    href="{{ url('shop/customer/addresses/edit') }}">
+                     href="{{ url('shop/customer/addresses/edit') }}">
                     neue Adresse hinzufügen
                   </a>
                 </div>
               {% endif %}
-            {% endif %}
+            {% endif %} #}
 
-            {# <div class="mt-3">
+
+
+          {#- ---- -#}
+
+          {# <div class="mt-3">
               <label for="makePrimaryShippingAddress">
                 <input id="makePrimaryShippingAddress"
                   name="makePrimaryShippingAddress"
@@ -135,7 +306,9 @@
                 </span>
               </label>
             </div> #}
-          </form>
+
+          {#- ---- -#}
+          {# </form> #}
         </div>
       </div>
     </div>
@@ -143,33 +316,33 @@
 
   {% js %}var $fieldsets = document.querySelectorAll('.js-address-fieldset');
 
-  if ($fieldsets && $fieldsets.length) { $fieldsets.forEach(function (el) { var
-  $addressSelects = el.querySelectorAll('.js-address-select');
+    if ($fieldsets && $fieldsets.length) { $fieldsets.forEach(function (el) { var
+    $addressSelects = el.querySelectorAll('.js-address-select');
 
-  if ($addressSelects && $addressSelects.length) {
-  $addressSelects.forEach(function(el) { var $radio =
-  el.querySelector('.js-radio input'); var $body = el.querySelector('.js-body');
+    if ($addressSelects && $addressSelects.length) {
+    $addressSelects.forEach(function(el) { var $radio =
+    el.querySelector('.js-radio input'); var $body = el.querySelector('.js-body');
 
-  if ($radio) { if ($body) { // Creating new address
-  $radio.addEventListener('change', function(ev) { if (ev.target.checked) {
-  $body.classList.remove('hidden'); } else { $body.classList.add('hidden'); }
-  });
+    if ($radio) { if ($body) { // Creating new address
+    $radio.addEventListener('change', function(ev) { if (ev.target.checked) {
+    $body.classList.remove('hidden'); } else { $body.classList.add('hidden'); }
+    });
 
-  if ($radio.checked) { $body.classList.remove('hidden'); } } else { //
-  Selecting existing address $radio.addEventListener('change', function(ev) { if
-  (ev.target.checked) { var $newBox =
-  document.querySelector('.js-address-select[data-model-name="' +
-  ev.target.dataset.modelName + '"]'); if ($newBox) {
-  $newBox.querySelector('.js-body').classList.add('hidden'); } } }); } } }); }
-  }); }
+    if ($radio.checked) { $body.classList.remove('hidden'); } } else { //
+    Selecting existing address $radio.addEventListener('change', function(ev) { if
+    (ev.target.checked) { var $newBox =
+    document.querySelector('.js-address-select[data-model-name="' +
+    ev.target.dataset.modelName + '"]'); if ($newBox) {
+    $newBox.querySelector('.js-body').classList.add('hidden'); } } }); } } }); }
+    }); }
 
-  var $billingSameAs = document.querySelector('#billingAddressSameAsShipping');
-  if ($billingSameAs) { $billingSameAs.addEventListener('change', function(ev) {
-  var $billingFieldSet =
-  document.querySelector('.js-address-fieldset.BillingAddress');
-  $billingFieldSet.classList.toggle('hidden'); });{% if
+    var $billingSameAs = document.querySelector('#billingAddressSameAsShipping');
+    if ($billingSameAs) { $billingSameAs.addEventListener('change', function(ev) {
+    var $billingFieldSet =
+    document.querySelector('.js-address-fieldset.BillingAddress');
+    $billingFieldSet.classList.toggle('hidden'); });{% if
     (cart.billingAddressId and cart.billingAddress.hasErrors())
-      or cart.billingAddressId != cart.shippingAddressId %}
+    or cart.billingAddressId != cart.shippingAddressId %}
     $billingSameAs.click();
   {% endif %}}{% endjs %}
 {% endblock %}

@@ -23,11 +23,6 @@
 
         <form method="post" action="">
 
-
-          {% if addressId %}
-            {{ hiddenInput('address[id]', addressId) }}
-          {% endif %}
-
           {{ csrfInput() }}
           {{ actionInput('commerce/customer-addresses/save') }}
           {{ redirectInput(redirect ?: 'shop/customer/addresses') }}

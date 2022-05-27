@@ -1,6 +1,8 @@
 <!-- Template: {{ _self }}.twig -->
 {# Allow passing of cart into partial #}
 {% set cart = cart is not defined ? craft.commerce.carts.cart : cart %}
+{% set addresses = craft.commerce.customers.customer.addresses %}
+
 
 {% if showShippingAddress is not defined %}
   {% set showShippingAddress = false %}
@@ -15,45 +17,52 @@
     Bestellübersicht
   </h2>
 
-  {% if cart.shippingMethodHandle != 'B2C_pickUpAtStore' %}
-    {% if showShippingAddress %}
-      <div class="checkout__box--adresses">
-        <div class="checkout__box--adresses-single">
+  {% if showShippingAddress %}
+    <div class="checkout__box--adresses">
 
-          <h4 class="heading heading--4 checkout__box--subheading">
-            Versandadresse
-          </h4>
-          {% if cart.shippingAddress %}
-            <div class="address-select js-address-select border-0">
-              {% include 'shop/_includes/addresses/address' with {
-                address: cart.shippingAddress
-              } %}
-            </div>
-          {% endif %}
-        </div>
+      <div class="checkout__box--adresses-single">
 
-        <div class="checkout__box--adresses-single">
+        <h4 class="heading heading--4 checkout__box--subheading">
+          Versandadresse
+        </h4>
+        {% if cart.shippingAddress %}
+          <div class="address-select js-address-select border-0">
+            {% include 'shop/_includes/addresses/address' with {
+              address: cart.shippingAddress
+            } %}
+          </div>
+
+        {% else %}
+          <p>{{ 'No shipping address selected.'|t }}</p>
+        {% endif %}
+      </div>
+
+      <div class="checkout__box--adresses-single">
+        {% if cart.billingAddress %}
           <h4 class="heading heading--4 checkout__box--subheading">
             Rechnungsadresse
           </h4>
-          {% if cart.billingAddress %}
-            {% include 'shop/_includes/addresses/address' with {
-              address: cart.billingAddress
-            } %}
-          {% endif %}
-
-        </div>
+          <div class="js-address-select border-0">
+            {{ include('shop/_includes/addresses/address', {
+              address: cart.billingAddress,
+              ignoreKeys: ['label'],
+              boldKeys: [],
+              asLines: false
+            }) }}
+          </div>
+        {% else %}
+          <p>{{ 'No billing address selected.'|t }}</p>
+        {% endif %}
       </div>
-      {% if currentUser %}
-        <div class="button-container">
-          <a class="edit button button--success button--primary"
-             href="{{ url('shop/checkout/addresses') }}">
-            Adresse(n) bearbeiten
-          </a>
-        </div>
-      {% endif %}
-    {% endif %}
+
+    </div>
+    <div class="checkout__box--button-change">
+      <a href="{{ url('/shop/checkout/addresses') }}" class="button--small button button--primary">
+        {{- 'Adressen ändern'|t -}}
+      </a>
+    </div>
   {% endif %}
+
 
   {% if showShippingMethod %}
     {% if cart.shippingMethod %}
@@ -230,4 +239,6 @@
       </div>
     </div>
   {% endif %}
+
+
 </div>
