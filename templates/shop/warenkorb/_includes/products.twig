@@ -434,10 +434,8 @@
                <div class="form__cart-table--item-pricetotal" title="{{ cart.totalPrice }}">
                  <div class="form__cart-table--item-price-name">Warenkorb Gesamtpreis:</div>
                  <div class="form__cart-table--item-pricetotal-number">
-                   {% set cartTotalPrice = cart.totalPrice %}
-                   {% set cartTotalPriceRound = round((cartTotalPrice + 0.000001) * 20) / 20 %}
-                   {{ cartTotalPriceRound|number_format(2, '.', '')|commerceCurrency(cart.currency) }}
-                   {# {{ cart.totalPrice|commerceCurrency(cart.currency) }} #}
+
+                   {{ cart.totalPrice|commerceCurrency(cart.currency) }}
                  </div>
                </div>
              {% endif %}
