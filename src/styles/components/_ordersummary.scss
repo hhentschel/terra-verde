@@ -78,6 +78,10 @@
     padding-right: px-to-rem($space--s);
   }
 
+  &--small {
+    font-size: px-to-rem($font-size-s);
+  }
+
   &--title-bold {
     font-weight: 700;
   }

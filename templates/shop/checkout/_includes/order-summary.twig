@@ -163,13 +163,13 @@
       </div>
     </div> #}
 
-    {% if cart.totalDiscount|length %}
+    {% if cart.totalDiscount < 0 %}
       <div class="summary__price">
         <div class="summary__price--title">
-          Rabatt(e):
+          Rabatt Artikel:
         </div>
         <div>
-          {{ (cart.totalDiscount * -1)|commerceCurrency(cart.currency) }}
+          {{ (cart.totalDiscount * 1)|commerceCurrency(cart.currency) }}
         </div>
       </div>
     {% endif %}
@@ -181,7 +181,7 @@
           {# <span>Versand ({{ adjustment.description }} ) - {{ adjustment.name }}:</span> #}
           {# <span>Versand ({{ adjustment.name }} ):</span> #}
           {% if cart.shippingMethodHandle == 'B2C_pickUpAtStore' %}
-            <span>Rabatt ({{ adjustment.name }} ):</span>
+            <span>Rabatt Versand - {{ adjustment.name }}:</span>
           {% else %}
             <span>Versand:</span>
           {% endif %}
@@ -193,12 +193,12 @@
     {% endfor %}
     {# {% endif %} #}
 
-    <div class="summary__price">
-      <div class="summary__price--title">
-        Mwst.:
+    <div class="summary__price summary__price--small">
+      <div class="summary__price--title ">
+        (Mwst.:
       </div>
       <div>
-        {{ cart.totalTaxIncluded|commerceCurrency(cart.currency) }}
+        {{ cart.totalTaxIncluded|commerceCurrency(cart.currency) }})
       </div>
     </div>
 
