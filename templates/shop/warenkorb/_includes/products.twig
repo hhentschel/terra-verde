@@ -216,6 +216,13 @@
              <td>&nbsp;</td>
              <td class="text-right" colspan="2">
                {% if not cart.hasErrors() and item.adjustments|length %}
+
+                 <div class="form__cart-table--item-price" title="{{ item.subtotal }}">
+                   <div class="form__cart-table--item-price-name">Gesamtpreis Artikel:</div>
+                   <div class="form__cart-table--item-price-number">
+                     {{ item.subtotal|commerceCurrency(cart.currency) }}
+                   </div>
+                 </div>
                  <div class="adjustments">
 
                    {# wenn geschenksets #}
@@ -254,6 +261,8 @@
                                 title="{{ adjustment.amount }}"> {{ adjustment.amount|commerceCurrency(cart.currency) }}</span>
                          </div>
                        </div>
+
+
                      {% endfor %}
 
                      {# für Anpassungen nicht als Discount #} {# MWST: Ausgabe #}
@@ -284,13 +293,11 @@
                  <div class="form__cart-table--item-price" title="{{ item.total }}">
                    <div class="form__cart-table--item-price-name">Subtotal:</div>
                    <div class="form__cart-table--item-price-number">
-                     {# {% set itemTotalPrice = item.total %}
-                     {% set itemTotalPriceRound = round((itemTotalPrice + 0.000001) * 20) / 20 %}
-                     {{ itemTotalPriceRound|number_format(2, '.', '')|commerceCurrency(cart.currency) }} #}
                      {{ item.total|commerceCurrency(cart.currency) }}
                    </div>
                  </div>
                {% endif %}
+
 
              </td>
            </tr>
@@ -308,7 +315,7 @@
              </td>
              <td colspan="1" class="">
                <div class="form__cart-table--item-pricesubtotal" title="{{ cart.itemSubTotal }}">
-                 <div class="form__cart-table--item-price-name">Gesamtpreis:</div>
+                 <div class="form__cart-table--item-price-name">Warenkorb Subtotal:</div>
                  <div class="form__cart-table--item-pricesubtotal-number">
                    {# {% set cartItemSubTotal  = cart.itemSubTotal %}
                    {% set cartItemSubTotalRound = round((cartItemSubTotal + 0.000001) * 20) / 20 %}
@@ -409,27 +416,27 @@
 
            <td colspan="2" class="form__cart-table--adjustments-order">
              {% if not cart.hasErrors() %}
-               <div class="form__cart-table--item-addprice" title="{{ cart.getTotalShippingCost() }}">
-                 <div class="form__cart-table--item-price-name">Versand:</div>
-                 <div
-                   class="form__cart-table--item-price-number">{{ cart.getTotalShippingCost()|commerceCurrency(cart.currency) }}</div>
-               </div>
-               <div class="form__cart-table--item-addprice" title="{{ cart.getTotalTaxIncluded() }}">
-                 <div class="form__cart-table--item-price-name">Mwst. (inkl):</div>
-                 <div
-                   class="form__cart-table--item-price-number">{{ cart.getTotalTaxIncluded()|commerceCurrency(cart.currency) }}</div>
-               </div>
-               <div class="form__cart-table--item-addprice" title="{{ cart.getTotalDiscount() }}">
-                 <div class="form__cart-table--item-price-name">
-                   {% if cart.couponCode %}
-                     Coupon:
-                   {% else %}
-                     Rabatt:
-                   {% endif %}
+               {% if cart.getTotalShippingCost() > 0 %}
+                 <div class="form__cart-table--item-addprice" title="{{ cart.getTotalShippingCost() }}">
+                   <div class="form__cart-table--item-price-name">Versand:</div>
+                   <div
+                     class="form__cart-table--item-price-number">{{ cart.getTotalShippingCost()|commerceCurrency(cart.currency) }}</div>
                  </div>
-                 <div
-                   class="form__cart-table--item-price-number">{{ cart.getTotalDiscount()|commerceCurrency(cart.currency) }}</div>
-               </div>
+               {% endif %}
+
+               {% if cart.couponCode %}
+                 <div class="form__cart-table--item-addprice" title="{{ cart.getTotalDiscount() }}">
+                   <div class="form__cart-table--item-price-name">
+                     {% if cart.couponCode %}
+                       Rabatte Gesamt:
+                     {% else %}
+                       Rabatt Artikel:
+                     {% endif %}
+                   </div>
+                   <div
+                     class="form__cart-table--item-price-number">{{ cart.getTotalDiscount()|commerceCurrency(cart.currency) }}</div>
+                 </div>
+               {% endif %}
 
                <div class="form__cart-table--item-pricetotal" title="{{ cart.totalPrice }}">
                  <div class="form__cart-table--item-price-name">Warenkorb Gesamtpreis:</div>
@@ -437,6 +444,11 @@
 
                    {{ cart.totalPrice|commerceCurrency(cart.currency) }}
                  </div>
+               </div>
+               <div class="form__cart-table--item-addprice" title="{{ cart.getTotalTaxIncluded() }}">
+                 <div class="form__cart-table--item-price-name">inkl. Mwst.:</div>
+                 <div
+                   class="form__cart-table--item-price-number">{{ cart.getTotalTaxIncluded()|commerceCurrency(cart.currency) }}</div>
                </div>
              {% endif %}
            </td>
