@@ -34,13 +34,32 @@
       padding: px-to-rem($space--xs);
     }
 
+    &-row {
+      padding: px-to-rem($space--s) 0;
+    }
+
+    &-data {
+      vertical-align: top;
+    }
+
+    &-data-price {
+      border-bottom: 1px solid $color--grey-light;
+      padding-bottom: px-to-rem($space--s);
+    }
+
+    &-itemtitle {
+      font-weight: 700;
+      line-height: $line-height--s;
+      display: block;
+    }
+
     .table-head {
       &__product {
         text-align: left;
       }
 
       &__qyt {
-
+        text-align: left;
       }
 
       &__price {

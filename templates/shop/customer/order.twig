@@ -106,10 +106,11 @@
       </thead>
       <tbody>
       {% for item in order.lineItems %}
-        <tr class="align-top">
-          <td class="{{ not loop.first ? 'border-t border-gray-300 border-dashed' : '' }}" rowspan="2">
-            <strong class="text-lg">{{ item.description }}</strong><br>
-            <span class="text-gray-500 tracking-widest font-mono text-xs">{{ item.sku }}</span>
+        <tr class="ordersummary__table-row">
+          <td rowspan="2" class="ordersummary__table-data">
+            <span class="ordersummary__table-itemtitle">{{ item.description }}</span><br>
+            <span
+              class="text-gray-500 tracking-widest font-mono text-xs">{{ item.purchasable.product.articleNumber }}</span>
             <div class="mt-2 relative">
               {% if item.note %}
                 <div class="mt-1 flex">
@@ -121,18 +122,16 @@
                           <span class="absolute top-0 left-0 pt-2 pl-2 text-2xs text-gray-500 uppercase tracking-wider">Optionen</span> #}
             </div>
           </td>
-          <td class="{{ not loop.first ? 'border-t border-gray-300 border-dashed' : '' }}">
+          <td class="ordersummary__table-data">
             {% if item.options.donationAmount is not defined %}
               <div>{{ item.qty }}</div>
             {% endif %}
-
-
             {# {% if item.options.giftWrapped is defined %}
-                          <div class="mt-1">
-                              <div class="pr-2 uppercase">Als Geschenk verpackt?</div>
-                              <div>{{ item.options.giftWrapped|title }}</div>
-                          </div>
-                      {% endif %} #}
+                <div class="mt-1">
+                    <div class="pr-2 uppercase">Als Geschenk verpackt?</div>
+                    <div>{{ item.options.giftWrapped|title }}</div>
+                </div>
+            {% endif %} #}
           </td>
 
           <td
@@ -159,8 +158,8 @@
             </div>
           </td>
         </tr>
-        <tr class="cart--adjustments">
-          <td colspan="2" class="">
+        <tr class="ordersummary__table-row">
+          <td colspan="2" class="ordersummary__table-data">
             {# <div class="adjustments__title">Anpassungen an die Bestellung:</div> #}
             <div class="adjustments">
               {% for adjustment in item.adjustments %}
@@ -179,27 +178,27 @@
               {% endfor %}
             </div>
             {# {% if order.shippingMethodHandle == 'B2C_pickUpAtStore' %}
-                            {% set totalcartDiscount = (order.getTotalDiscount * - 1) %}
-                            {% set totalPricePlusTax = (order.totalPrice) +  (totalcartDiscount) %}
-                            {% set pickupDiscount = (totalPricePlusTax * (5/100) * - 1) %}
+              {% set totalcartDiscount = (order.getTotalDiscount * - 1) %}
+              {% set totalPricePlusTax = (order.totalPrice) +  (totalcartDiscount) %}
+              {% set pickupDiscount = (totalPricePlusTax * (5/100) * - 1) %}
 
-                            <div class="adjustments__data">
-                                <div class="adjustments__data--type">
-                                    <strong>Rabatt </strong>
-                                </div>
-                                <div>
-                                  <span class="adjustments__data--description">5%</span>
-                                  <span class="adjustments__data--name">Abholung</span>
-                                </div>
-                                <div class="adjustments__data--amount">
-                                    <span class="">{{ pickupDiscount|commerceCurrency(order.currency) }}</span>
-                                </div>
-                            </div>
-                            {% endif %} #}
+              <div class="adjustments__data">
+                  <div class="adjustments__data--type">
+                      <strong>Rabatt </strong>
+                  </div>
+                  <div>
+                    <span class="adjustments__data--description">5%</span>
+                    <span class="adjustments__data--name">Abholung</span>
+                  </div>
+                  <div class="adjustments__data--amount">
+                      <span class="">{{ pickupDiscount|commerceCurrency(order.currency) }}</span>
+                  </div>
+              </div>
+              {% endif %} #}
           </td>
         </tr>
-        <tr class="">
-          <td class="text-right" colspan="4">
+        <tr class="ordersummary__table-row">
+          <td class="ordersummary__table-data ordersummary__table-data-price" colspan="4">
             <div class="flex items-center w-full justify-end mt-3" title="{{ item.total }}">
               <div class="text-sm text-gray-600 pr-2">Total:</div>
               <div>{{ item.total|commerceCurrency(order.currency) }}</div>
@@ -209,10 +208,10 @@
       {% endfor %}
 
 
-      <tr class="">
-        <td class="text-right" colspan="4">
+      <tr class="ordersummary__table-row">
+        <td class="ordersummary__table-data" colspan="4">
           <div class="flex items-center w-full justify-end mt-3" title="{{ order.itemSubTotal }}">
-            <div class="text-sm text-gray-600 pr-2">Gesamtpreis:</div>
+            <div class="text-sm text-gray-600 pr-2">Subtotal Warenkorb:</div>
             <div class="font-bold">{{ order.itemSubTotal|commerceCurrency(cart.currency) }}</div>
           </div>
         </td>
@@ -259,7 +258,7 @@
       <tr>
         <td colspan="2" class=""></td>
         <td class="">
-          <div class="">
+          <div class="flex items-center w-full justify-end">
             <strong class="">Zusammenfassung</strong>
           </div>
 
@@ -297,7 +296,7 @@
                   </div> #}
 
           <div class="flex items-center w-full justify-end mt-3" title="{{ order.totalPrice }}">
-            <div class="text-gray-600 pr-2">Preis:</div>
+            <div class="text-gray-600 pr-2">Endsumme:</div>
             <strong>{{ order.totalPrice|commerceCurrency(order.currency) }}</strong>
           </div>
         </td>

@@ -16,7 +16,7 @@
           >
             <span class="cart-box__select-radio">
               <span class="js-radio cart-box__select-radioinput">
-                {{ input('radio', name ~ 'Id', address.id, {
+                {{ input('radio', name ~ 'Id', address.id,{
                   checked: attribute(cart, name ~ 'Id') == address.id,
                   'data-model-name': name
                 }) }}
