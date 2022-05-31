@@ -1,6 +1,6 @@
 descriptionFormat: ''
 handle: productTypedivers
-hasDimensions: false
+hasDimensions: true
 hasProductTitleField: true
 hasVariantTitleField: false
 hasVariants: false
@@ -41,6 +41,15 @@ productFieldLayouts:
             warning: null
             width: 50
           -
+            fieldUid: f9ea37ad-b93c-4731-90ad-312428b52e6f # Preise (Detailhandel)
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 25
+          -
             fieldUid: d59a8a70-d5e0-42b4-b4d8-d3602f3bbe03 # Produkt Bild
             instructions: null
             label: null
@@ -48,7 +57,7 @@ productFieldLayouts:
             tip: null
             type: craft\fieldlayoutelements\CustomField
             warning: null
-            width: 50
+            width: 25
           -
             fieldUid: a01e981b-9ab4-498e-9274-b1858943fc1c # Produkt Beschreibung
             instructions: null
@@ -95,7 +104,7 @@ productTitleFormat: ''
 siteSettings:
   dd0cd05e-0cb9-4a76-b993-3cb70e6fc147: # Terra Verde
     hasUrls: true
-    template: shop/produkte/_product
+    template: shop/produkte/_divers
     uriFormat: 'shop/diverses/{slug}'
 skuFormat: ''
 titleFormat: '{product.title}'
