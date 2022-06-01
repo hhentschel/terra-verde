@@ -1,4 +1,4 @@
-dateModified: 1654113880
+dateModified: 1654117626
 email:
   fromEmail: p@henrik-hentschel.de
   fromName: 'Terra Verde'
@@ -397,6 +397,10 @@ plugins:
       prependSubject: 'Nachricht vom Kontaktformular der Webseite'
       successFlashMessage: 'Ihre Nachricht wurde erfolgreich gesendet.'
       toEmail: p@henrik-hentschel.de
+  cp-field-inspect:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
   craft-commerce-back-in-stock:
     edition: standard
     enabled: true
@@ -713,6 +717,10 @@ plugins:
     edition: standard
     enabled: true
     licenseKey: JXHZASVWB1TY66SQLYF4FQZU
+    schemaVersion: 1.0.0
+  typedlinkfield:
+    edition: standard
+    enabled: true
     schemaVersion: 1.0.0
   untransform:
     edition: standard
