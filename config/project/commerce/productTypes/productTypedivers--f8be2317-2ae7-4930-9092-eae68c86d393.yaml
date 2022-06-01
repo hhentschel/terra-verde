@@ -41,6 +41,24 @@ productFieldLayouts:
             warning: null
             width: 50
           -
+            fieldUid: ea603a9d-ad1a-46a9-8400-4c237d4f779e # Artikelnummer
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: 34381c5f-24e3-4876-a534-c12339c44433 # EANNummer
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
             fieldUid: f9ea37ad-b93c-4731-90ad-312428b52e6f # Preise (Detailhandel)
             instructions: null
             label: null
