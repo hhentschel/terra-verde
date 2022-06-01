@@ -391,9 +391,9 @@
                     style="color:#000000;font-family:'Open Sans', Arial, sans-serif;font-size:15px;line-height:22px;table-layout:auto;width:100%;border:none;"
                   >
                     <tr>
-                      <td width="30%">
+                      <td width="40%">
                         <mj-text align="left" color="#222" font-size="15px" font-family="'Open Sans', Arial, sans-serif"
-                                 padding-left="25px" padding-right="25px" padding-bottom="0px" padding-top="20"><strong>Bestellnummer:</strong>
+                                 padding-left="25px" padding-right="25px" padding-bottom="0px" padding-top="20"><strong>Bestellnummer</strong>
                         </mj-text>
                       </td>
                       <td>
@@ -405,7 +405,7 @@
                     <tr>
                       <td>
                         <mj-text align="left" color="#222" font-size="15px" font-family="'Open Sans', Arial, sans-serif"
-                                 padding-left="25px" padding-right="25px" padding-bottom="0px" padding-top="20"><strong>Bestelldatum:</strong>
+                                 padding-left="25px" padding-right="25px" padding-bottom="0px" padding-top="20"><strong>Bestelldatum</strong>
                         </mj-text>
                       </td>
                       <td>
@@ -419,7 +419,7 @@
                       <td>
                         <mj-text align="left" color="#222" font-size="15px" font-family="'Open Sans', Arial, sans-serif"
                                  padding-left="25px" padding-right="25px" padding-bottom="0px" padding-top="20"><strong>Totalpreis
-                            Artikel:</strong></mj-text>
+                            Artikel</strong></mj-text>
                       </td>
                       <td>
                         <mj-text align="left" color="#222" font-size="15px" font-family="'Open Sans', Arial, sans-serif"
@@ -428,14 +428,14 @@
                       </td>
                     </tr>
 
-                    {% for adjustment in order.orderAdjustments %}
+                    {% for adjustment in order.orderAdjustments if adjustment.type != "shipping" %}
                       {% if adjustment.amount|commerceCurrency(order.currency)|length %}
                         <tr>
                           <td>
                             <mj-text align="left" color="#222" font-size="15px"
                                      font-family="'Open Sans', Arial, sans-serif" padding-left="25px"
                                      padding-right="25px" padding-bottom="0px" padding-top="20">
-                              <strong>Abholrabatt:</strong></mj-text>
+                              <strong>Abholrabatt</strong></mj-text>
                           </td>
                           <td>
                             <mj-text align="left" color="#222" font-size="15px"
@@ -452,7 +452,7 @@
                         <td>
                           <mj-text align="left" color="#222" font-size="15px"
                                    font-family="'Open Sans', Arial, sans-serif" padding-left="25px" padding-right="25px"
-                                   padding-bottom="0px" padding-top="20"><strong>Artikel-Rabatte:</strong></mj-text>
+                                   padding-bottom="0px" padding-top="20"><strong>Artikel-Rabatte</strong></mj-text>
                         </td>
                         <td>
                           <mj-text align="left" color="#222" font-size="15px"
@@ -465,7 +465,7 @@
                     <tr>
                       <td>
                         <mj-text align="left" color="#222" font-size="15px" font-family="'Open Sans', Arial, sans-serif"
-                                 padding-left="25px" padding-right="25px" padding-bottom="0px" padding-top="20"><strong>Endsumme:</strong>
+                                 padding-left="25px" padding-right="25px" padding-bottom="0px" padding-top="20"><strong>Endsumme</strong>
                         </mj-text>
                       </td>
                       <td>
@@ -477,7 +477,7 @@
                     <tr>
                       <td style="vertical-align:top">
                         <mj-text align="left" color="#222" font-size="15px" font-family="'Open Sans', Arial, sans-serif"
-                                 padding-left="25px" padding-right="25px" padding-bottom="0px" padding-top="20"><strong>Versand:</strong>
+                                 padding-left="25px" padding-right="25px" padding-bottom="0px" padding-top="20"><strong>Versand</strong>
                         </mj-text>
                       </td>
                       <td>
@@ -490,7 +490,7 @@
                     <tr>
                       <td>
                         <mj-text align="left" color="#222" font-size="15px" font-family="'Open Sans', Arial, sans-serif"
-                                 padding-left="25px" padding-right="25px" padding-bottom="0px" padding-top="20"><strong>Bezahlung:</strong>
+                                 padding-left="25px" padding-right="25px" padding-bottom="0px" padding-top="20"><strong>Bezahlung</strong>
                         </mj-text>
                       </td>
                       <td>

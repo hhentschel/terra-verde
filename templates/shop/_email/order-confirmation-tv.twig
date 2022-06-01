@@ -331,7 +331,7 @@
                     style="color:#000000;font-family:'Open Sans', Arial, sans-serif;font-size:15px;line-height:22px;table-layout:auto;width:100%;border:none;"
                   >
                     <tr>
-                      <td width="30%">
+                      <td width="40%">
                         <mj-text align="left" color="#222" font-size="15px" font-family="'Open Sans', Arial, sans-serif"
                                  padding-left="25px" padding-right="25px" padding-bottom="0px" padding-top="20"><strong>Kunde</strong>
                         </mj-text>
@@ -343,7 +343,7 @@
                       </td>
                     </tr>
                     <tr>
-                      <td width="30%">
+                      <td width="40%">
                         <mj-text align="right" color="#222" font-size="15px"
                                  font-family="'Open Sans', Arial, sans-serif" padding-left="25px" padding-right="25px"
                                  padding-bottom="0px" padding-top="20" text-align="right"><strong>Bestellnummer</strong>
@@ -370,8 +370,8 @@
                     <tr>
                       <td>
                         <mj-text align="left" color="#222" font-size="15px" font-family="'Open Sans', Arial, sans-serif"
-                                 padding-left="25px" padding-right="25px" padding-bottom="0px" padding-top="20"><strong>Totalpreis
-                            Artikel:</strong></mj-text>
+                                 padding-left="25px" padding-right="25px" padding-bottom="0px" padding-top="20"><strong>Total
+                            Artikel</strong></mj-text>
                       </td>
                       <td>
                         <mj-text align="left" color="#222" font-size="15px" font-family="'Open Sans', Arial, sans-serif"
@@ -380,14 +380,14 @@
                       </td>
                     </tr>
 
-                    {% for adjustment in order.orderAdjustments %}
+                    {% for adjustment in order.orderAdjustments if adjustment.type != "shipping" %}
                       {% if adjustment.amount|commerceCurrency(order.currency) %}
                         <tr>
                           <td>
                             <mj-text align="left" color="#222" font-size="15px"
                                      font-family="'Open Sans', Arial, sans-serif" padding-left="25px"
                                      padding-right="25px" padding-bottom="0px" padding-top="20">
-                              <strong>Abholrabatt:</strong></mj-text>
+                              <strong>Abholrabatt</strong></mj-text>
                           </td>
                           <td>
                             <mj-text align="left" color="#222" font-size="15px"
@@ -405,7 +405,7 @@
                         <td>
                           <mj-text align="left" color="#222" font-size="15px"
                                    font-family="'Open Sans', Arial, sans-serif" padding-left="25px" padding-right="25px"
-                                   padding-bottom="0px" padding-top="20"><strong>Artikel-Rabatte:</strong></mj-text>
+                                   padding-bottom="0px" padding-top="20"><strong>Artikel-Rabatte</strong></mj-text>
                         </td>
                         <td>
                           <mj-text align="left" color="#222" font-size="15px"
