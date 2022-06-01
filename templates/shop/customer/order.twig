@@ -104,28 +104,29 @@
         <th class="table-head__price">Preis</th>
       </tr>
       </thead>
-      <tbody>
+      <tbody class="ordersummary__table-body">
       {% for item in order.lineItems %}
         <tr class="ordersummary__table-row">
           <td rowspan="2" class="ordersummary__table-data">
-            <span class="ordersummary__table-itemtitle">{{ item.description }}</span><br>
-            <span
-              class="text-gray-500 tracking-widest font-mono text-xs">{{ item.purchasable.product.articleNumber }}</span>
-            <div class="mt-2 relative">
-              {% if item.note %}
+            <span class="ordersummary__table-itemtitle">
+                {% if item.options.donationAmount is not defined %}
+                  <span>{{ item.qty }} x </span>
+                {% endif %}
+              {{ item.description }}</span>
+            <span class="ordersummary__table-itemarticlenumber">{{ item.purchasable.product.articleNumber }}</span>
+            {% if item.note %}
+              <div class="mt-2 relative">
                 <div class="mt-1 flex">
                   <div class="pr-2 uppercase">Notiz</div>
                   <div>{{ item.note }}</div>
                 </div>
-              {% endif %}
-              {# <code class="text-xs p-3 pt-8 bg-gray-100 inline-block tracking-wider font-mono text-gray-600">{{ item.options|length ? item.options|json_encode : 'keine Zusatzoptionen.' }}</code>
+                {# <code class="text-xs p-3 pt-8 bg-gray-100 inline-block tracking-wider font-mono text-gray-600">{{ item.options|length ? item.options|json_encode : 'keine Zusatzoptionen.' }}</code>
                           <span class="absolute top-0 left-0 pt-2 pl-2 text-2xs text-gray-500 uppercase tracking-wider">Optionen</span> #}
-            </div>
+              </div>
+            {% endif %}
           </td>
           <td class="ordersummary__table-data">
-            {% if item.options.donationAmount is not defined %}
-              <div>{{ item.qty }}</div>
-            {% endif %}
+
             {# {% if item.options.giftWrapped is defined %}
                 <div class="mt-1">
                     <div class="pr-2 uppercase">Als Geschenk verpackt?</div>
@@ -164,10 +165,10 @@
             <div class="adjustments">
               {% for adjustment in item.adjustments %}
                 <div class="adjustments__data">
-                  <div class="adjustments__data--type">
-                    <span>{{ adjustment.name }}</span>
+                  <div>
+                    <span class="adjustments__data--type">{{ adjustment.name }}</span>
                   </div>
-                  <div class="">
+                  <div>
                     <span class="adjustments__data--description">{{ adjustment.description }}</span>
                   </div>
                   <div class="adjustments__data--amount">
@@ -199,7 +200,7 @@
         </tr>
         <tr class="ordersummary__table-row">
           <td class="ordersummary__table-data ordersummary__table-data-price" colspan="4">
-            <div class="flex items-center w-full justify-end mt-3" title="{{ item.total }}">
+            <div class="flex items-center w-full justify-end" title="{{ item.total }}">
               <div class="text-sm text-gray-600 pr-2">Total:</div>
               <div>{{ item.total|commerceCurrency(order.currency) }}</div>
             </div>
@@ -235,18 +236,18 @@
           <td colspan="2" class="">
             {# <div class="text-left text-2xs uppercase tracking-wider text-gray-600">Anpassungen Bestellungen</div> #}
             <div class="adjustments">
-              {% for adjustment in order.orderAdjustments %}
+              {% for adjustment in order.orderAdjustments if adjustment.type != "shipping" %}
                 <div class="adjustments__data">
-                  <div class="adjustments__data--type">
-                    <span>Versand: </span>
+                  <div>
+                    <span class="adjustments__data--type">Rabatte: </span>
                   </div>
-                  <div class="adjustments__data--description">
+                  <div>
 
                     {# {{ adjustment.description }} #}
-                    <span class="adjustments__data--name">{{ adjustment.name }}</span>
+                    <span class="adjustments__data--description">{{ adjustment.name }}</span>
                   </div>
-                  <div class="adjustments__data--amount">
-                                      <span class=""
+                  <div>
+                                      <span class="adjustments__data--amount"
                                             title="{{ adjustment.amount }}"> {{ adjustment.amount|commerceCurrency(order.currency) }}</span>
                   </div>
                 </div>
@@ -255,7 +256,7 @@
           </td>
         </tr>
       {% endif %}
-      <tr>
+      <tr class="ordersummary__table-row">
         <td colspan="2" class=""></td>
         <td class="">
           <div class="flex items-center w-full justify-end">
