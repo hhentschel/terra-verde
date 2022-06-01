@@ -103,6 +103,15 @@ productFieldLayouts:
             type: craft\fieldlayoutelements\CustomField
             warning: null
             width: 50
+          -
+            fieldUid: 3d739192-d1d4-45f2-8239-0effd9b4f3a8 # Out of Stock
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
         name: Inhalt
         sortOrder: 1
       -

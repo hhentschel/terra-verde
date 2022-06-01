@@ -1,4 +1,4 @@
-dateModified: 1654099610
+dateModified: 1654113880
 email:
   fromEmail: p@henrik-hentschel.de
   fromName: 'Terra Verde'
@@ -32,6 +32,7 @@ meta:
     3b29092d-6e27-4661-87d3-a212528b2a3a: Trinktemperatur # Trinktemperatur
     3bb39d28-0fde-4351-82f7-4a35d96e4a3b: 'Karten Vorschaubilder' # Karten Vorschaubilder
     3c5824e6-9e4f-47c8-b1d2-9d1000064cdf: Aufklappelemente # Aufklappelemente
+    3d739192-d1d4-45f2-8239-0effd9b4f3a8: 'Out of Stock' # Out of Stock
     3e5c3431-66db-4b4c-97d4-8069da3cc21e: News # News
     3e29b0f8-b933-4ba4-9773-c1f7d96ec10d: 'Kategorien (Delikatessen)' # Kategorien (Delikatessen)
     3e63c7a3-9bb5-4903-bb3d-63842b8a267f: Rezept # Rezept
@@ -131,7 +132,6 @@ meta:
     763aeea2-9aa6-475b-ab99-66fb8c6b67f2: Startseite # Startseite
     789fdb6d-520f-4cf1-be1e-478056358e79: Inhaltsbilder # Inhaltsbilder
     809da76b-a716-40fe-aed3-55f1fc0c57e9: 'Blog Kategorien' # Blog Kategorien
-    813c7c4d-1437-4f3b-bcee-430974ff086b: 'Schaum- & Suessweine' # Schaum- & Suessweine
     842f167d-10b6-44fb-826b-d13831f73ff9: Common # Common
     872de5f4-04bb-4eb5-8c3f-7a3151ea37ea: Rechnung # Rechnung
     942ff559-0290-4738-ae31-bd8570484d25: Adresse # Adresse
