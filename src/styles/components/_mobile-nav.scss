@@ -16,8 +16,7 @@ $mobile-nav--main-text-color: $color--bluegrey;
   flex-direction: column;
   height: auto;
   width: 100%;
-  transition: $mobile-nav--transition-properties $mobile-nav--transition-duration
-    $mobile-nav--transition-duration-easing;
+  transition: $mobile-nav--transition-properties $mobile-nav--transition-duration $mobile-nav--transition-duration-easing;
   transform: translateX(-100%);
   z-index: z(overlay);
 
@@ -99,9 +98,9 @@ $mobile-nav--main-text-color: $color--bluegrey;
       height: 100%;
       width: 3px;
       background: linear-gradient(
-        280deg,
-        $nav-main--list-gradient-start 0%,
-        $nav-main--list-gradient-end 100%
+          280deg,
+          $nav-main--list-gradient-start 0%,
+          $nav-main--list-gradient-end 100%
       );
     }
 
@@ -154,7 +153,7 @@ $mobile-nav--main-text-color: $color--bluegrey;
     margin-top: px-to-rem($space--xm);
 
     &__item {
-      margin: 0 0 px-to-rem($space--m) 0;
+      margin: px-to-rem($space--m) 0;
     }
   }
 }

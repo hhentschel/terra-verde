@@ -2,6 +2,8 @@
 // #FORMATTED TEXT (e.g. for WYSIWYG-Editoren)
 // -----------------------------------------------------------------------------
 .#{$formatted-text-class} {
+  overflow-x: auto;
+
   & > * {
     &:first-child {
       margin-top: 0;
@@ -42,6 +44,8 @@
       vertical-align: top;
       border-right: 1px solid $color--grey-lighter;
       padding: px-to-rem($space--s);
+      min-width: px-to-rem(180);
     }
   }
+
 }

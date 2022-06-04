@@ -35,7 +35,7 @@
   &--mobile {
     display: block;
     margin-top: -(px-to-rem($space--xl));
-    margin-bottom: px-to-rem($space--xxm);
+    margin-bottom: 0;
     padding: px-to-rem($space--xm);
 
     @include breakpoint('tablet-landscape') {

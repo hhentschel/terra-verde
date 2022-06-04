@@ -31,6 +31,11 @@ $accordion--transition-timing-function: easing(open);
     display: flex;
     flex: 1;
     justify-content: space-between;
+    flex-direction: column;
+
+    @include breakpoint('tablet') {
+      flex-direction: row;
+    }
 
     .input-radio,
     input[type="radio"] {
@@ -44,6 +49,11 @@ $accordion--transition-timing-function: easing(open);
 
   &-radioinput {
     display: flex;
+  }
+
+  &-editbutton {
+    align-self: end;
+    margin: px-to-rem($space--m) 0;
   }
 
   &-hint {
