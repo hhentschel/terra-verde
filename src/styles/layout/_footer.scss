@@ -67,6 +67,7 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+
       .heading {
         line-height: $line-height--s;
       }
@@ -120,6 +121,20 @@
   &--box {
     span {
       display: block;
+    }
+  }
+
+  &-list__nav {
+    margin-left: px-to-rem($space--m);
+    @include breakpoint('tablet') {
+      margin-left: 0;
+    }
+
+    &-item {
+      padding: px-to-rem($space--s) 0;
+      @include breakpoint('tablet') {
+        padding: px-to-rem($space--xxs) 0;
+      }
     }
   }
 }
