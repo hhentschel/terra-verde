@@ -53,7 +53,11 @@
 {% set viewType = viewType ?? 'grid' %}
 
 {# Defines maximum number of pages to show. #}
-{% set maxPages = 7 %}
+{% if craft.app.request.isMobileBrowser() %}
+  {% set maxPages = 4 %}
+{% else %}
+  {% set maxPages = 7 %}
+{% endif %}
 {% set orderBy = orderBy ?? 'featuredProduct DESC, postDate DESC' %}
 
 {% if cart is not defined %}
