@@ -39,6 +39,11 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
 .filter {
   margin: 0 0 px-to-rem($space--m) 0;
 
+  &__heading {
+    margin: 0;
+    font-size: px-to-rem($font-size-m);
+  }
+
   &__accordion {
     margin: px-to-rem($space--m) 0 px-to-rem($space--m) 0;
 

@@ -34,6 +34,7 @@
     padding: px-to-rem(12) px-to-rem(18);
 
     display: block;
+
     &:hover {
       cursor: pointer;
     }
@@ -45,7 +46,7 @@
     display: grid;
     grid-template-columns: repeat(
       auto-fill,
-      minmax(var(--grid-col-breakpoint-blog), 1fr)
+        minmax(var(--grid-col-breakpoint-blog), 1fr)
     );
     grid-column-gap: var(--grid-col-gap);
     grid-row-gap: var(--grid-row-gap);
@@ -86,7 +87,11 @@
   &__item {
     background-color: $color--beige-light;
     padding: px-to-rem($space--m);
-    justify-content: space-between;
+    justify-content: start;
+
+    @include breakpoint('desktop') {
+      justify-content: space-between;
+    }
 
     &--title {
       margin-top: 0;
@@ -94,11 +99,13 @@
       min-height: px-to-rem(60);
       font-size: px-to-rem($font-size-l);
     }
+
     &--cat-container {
       display: flex;
       align-self: flex-start;
       gap: px-to-rem(10);
     }
+
     &--cat-item {
       color: $color--white;
       font-size: px-to-rem(12);
@@ -109,9 +116,11 @@
       &--news {
         background-color: $color--orange;
       }
+
       &--recipe {
         background-color: $color--green;
       }
+
       &--magazin {
         background-color: $color--blue;
       }
@@ -139,9 +148,10 @@
           justify-content: flex-start;
         }
       }
+
       &-lead {
         p {
-          margin: 0 0 px-to-rem($space--xm) 0;
+          margin: 0;
           line-height: $line-height--xm;
         }
       }
