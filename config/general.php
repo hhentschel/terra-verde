@@ -63,6 +63,7 @@ return [
     'limitAutoSlugsToAscii' => true,
 
     'isSystemLive' => (bool)getenv('IS_SYSTEM_LIVE'),
+    'runQueueAutomatically' => (bool)getenv('RUN_QUEUE_AUTOMATICALLY'),
   ],
 
   // Dev LOCAL environment settings
