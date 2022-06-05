@@ -20,7 +20,7 @@ siteSettings:
     enabledByDefault: true
     hasUrls: true
     template: _pages/blog/_entry.twig
-    uriFormat: 'blog/{type}/{slug}'
+    uriFormat: 'blog/{slug}'
 structure:
   maxLevels: null
   uid: 5eafefd6-ccd4-4cad-aa07-84caed6111e5
