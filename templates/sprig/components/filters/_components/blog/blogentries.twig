@@ -10,7 +10,8 @@
             {% set categories = entry.catsForBlogEntries.all() %}
             <div class="blog-list__item--cat-container">
               {% for cat in categories %}
-                <span class="blog-list__item--cat-item blog-list__item--cat-item--{% if cat.id == 16717 %}news{% elseif cat.id == 16718 %}recipe{% elseif cat.id == 16719 %}magazin{% endif %}">
+                <span
+                  class="blog-list__item--cat-item blog-list__item--cat-item--{% if cat.id == 16717 %}news{% elseif cat.id == 16718 %}recipe{% elseif cat.id == 16719 %}magazin{% endif %}">
                   {{ cat.title }}
                 </span>
               {% endfor %}
@@ -20,10 +21,9 @@
           <div class="blog-list__item--preview">
             {% if
               entry.contentElements is defined
-                and entry.contentElements is not empty %}
+              and entry.contentElements is not empty %}
               {% set transform =
-                transformation|default('imageOneThird')
-              %}
+                transformation|default('imageOneThird') %}
 
               {% set img = entry.image.one ?? generic.image.one() %}
 
@@ -37,16 +37,16 @@
 
 
           </div>
-            <div class="blog-list__item--preview-lead">
-              {{ entry.leadText }}
-            </div>
+          <div class="blog-list__item--preview-lead">
+            {{ entry.leadText }} leadtextblogentries
+          </div>
 
         </div>
 
-          <a href="{{ entry.url }}"
-            class="blog-list__item--linkdetail">
-           mehr Informationen
-          </a>
+        <a href="{{ entry.url }}"
+           class="blog-list__item--linkdetail">
+          mehr Informationen (blogentries.twig)
+        </a>
       </a>
     {% endfor %}
   {% endif %}
