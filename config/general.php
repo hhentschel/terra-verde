@@ -92,6 +92,7 @@ return [
     // 'isSystemLive' => false,
 
     'enableTemplateCaching' => false,
+    'isSystemLive' => false,
 
   ],
 
