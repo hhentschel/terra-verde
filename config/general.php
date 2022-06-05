@@ -61,6 +61,8 @@ return [
     ),
 
     'limitAutoSlugsToAscii' => true,
+
+    'isSystemLive' => (bool)getenv('IS_SYSTEM_LIVE'),
   ],
 
   // Dev LOCAL environment settings
@@ -89,10 +91,7 @@ return [
     // Prevent crawlers from indexing pages and following links
     'disallowRobots' => true,
 
-    // 'isSystemLive' => false,
-
     'enableTemplateCaching' => false,
-    'isSystemLive' => false,
 
   ],
 
