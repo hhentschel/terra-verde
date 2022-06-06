@@ -1,23 +1,30 @@
+{% extends '/_layouts/main' %}
+
 {% if currentUser %}
   {% redirect 'shop/checkout/addresses' %}
 {% endif %}
 
-{% extends '/_layouts/main' %}
+{% if cart is not defined %}
+  {% set cart = craft.commerce.carts.cart %}
+{% endif %}
 
-{% block content %}
-<!-- Template: {{ _self }}.twig -->
 {% if not cart.email %}
   {% redirect 'shop/checkout' %}
 {% endif %}
 
-    {# Does a user exist with this email address? #}
-    {% set userExistsButCantLogin = craft.users.email(cart.email).status(['locked','suspended','pending']).one() %}
+{% set userExistsButCantLogin = craft.users
+  .email(cart.email ?? 'NULL')
+  .status(['locked','suspended','pending'])
+  .one() %}
 
-    {% if userExistsButCantLogin %}
-      {% redirect 'shop/checkout/addresses' %}
-    {% endif %}
+{% if userExistsButCantLogin %}
+  {% redirect 'shop/checkout/addresses' %}
+{% endif %}
 
-    {% set userExists = craft.users.email(cart.email).one() %}
+{% set userExists = craft.users.email(cart.email ?? 'NULL').one() %}
+
+{% block content %}
+<!-- Template: {{ _self }}.twig -->
 
 <section class="grid">
   <div class="row">
