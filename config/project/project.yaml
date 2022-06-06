@@ -1,4 +1,4 @@
-dateModified: 1654464511
+dateModified: 1654506860
 email:
   fromEmail: p@henrik-hentschel.de
   fromName: 'Terra Verde'
@@ -290,7 +290,7 @@ plugins:
     schemaVersion: 1.0.0
   campaign:
     edition: pro
-    enabled: true
+    enabled: false
     licenseKey: 4JP28H3CA67ZG8DVAY1YX6M5
     schemaVersion: 1.21.0
     settings:
