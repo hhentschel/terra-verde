@@ -718,6 +718,17 @@
                       <td align:
                       "right" style="text-align:right"> Total Artikel-Rabatte: {{ order.totalDiscountAsCurrency }}</td>
                     </tr>
+                    {% for adjustment in order.orderAdjustments if adjustment.type != "shipping" %}
+                      {% if adjustment.amount|commerceCurrency(order.currency)|length %}
+                        <tr>
+                          <td colspan="2"></td>
+                          <td align:
+                          "right" style="text-align:right">
+                          Abholrabatt: {{ adjustment.amount|commerceCurrency(order.currency) }}
+                          </td>
+                        </tr>
+                      {% endif %}
+                    {% endfor %}
                     <tr>
                       <td colspan="2"></td>
                       <td align:
@@ -937,4 +948,4 @@
 
 </body>
 </html>
-
+  

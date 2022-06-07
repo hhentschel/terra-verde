@@ -268,7 +268,7 @@
 
                   <div
                     style="font-family:'Open Sans', Arial, sans-serif;font-size:16px;line-height:1;text-align:left;color:#222222;"
-                  >Sehr geehrte(r) {{ order.user.fullName }}</div>
+                  >Sehr geehrte(r) {{ order.user.firstName }} {{ order.user.lastName }}</div>
 
                 </td>
               </tr>
@@ -736,6 +736,19 @@
                       <td align:
                       "right" style="text-align:right"> Total Artikel-Rabatte: {{ order.totalDiscountAsCurrency }}</td>
                     </tr>
+                    {% for adjustment in order.orderAdjustments if adjustment.type != "shipping" %}
+                      {% if adjustment.amount|commerceCurrency(order.currency)|length %}
+                        <tr>
+                          <td colspan="2"></td>
+                          <td align:
+                          "right" style="text-align:right">
+                          Abholrabatt: {{ adjustment.amount|commerceCurrency(order.currency) }}
+                          </td>
+                        </tr>
+                      {% endif %}
+                    {% endfor %}
+
+
                     <tr>
                       <td colspan="2"></td>
                       <td align:
