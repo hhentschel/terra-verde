@@ -181,7 +181,7 @@
           {# <span>Versand ({{ adjustment.description }} ) - {{ adjustment.name }}:</span> #}
           {# <span>Versand ({{ adjustment.name }} ):</span> #}
           {% if cart.shippingMethodHandle == 'B2C_pickUpAtStore' %}
-            <span>Rabatt Versand - {{ adjustment.name }}:</span>
+            <span>Rabatt Versand: {{ adjustment.name }}:</span>
           {% else %}
             <span>Versand:</span>
           {% endif %}
