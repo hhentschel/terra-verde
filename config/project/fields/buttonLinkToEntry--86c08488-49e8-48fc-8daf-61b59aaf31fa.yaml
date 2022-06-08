@@ -1,12 +1,12 @@
 columnSuffix: null
-contentColumnType: string(255)
+contentColumnType: string(1000)
 fieldGroup: d5eb7b01-8b1f-4b3f-83c7-ccfa4c76d49d # Inhaltselemente
 handle: buttonLinkToEntry
 instructions: 'URL eintragen, auf den verlinkt werden soll.'
 name: 'Button Link auf Eintrag'
 searchable: false
 settings:
-  maxLength: '255'
+  maxLength: '1000'
   placeholder: null
   types:
     - url
