@@ -258,7 +258,15 @@
 
                          <div class="adjustments__data--amount">
                           <span class=""
-                                title="{{ adjustment.amount }}"> {{ adjustment.amount|commerceCurrency(cart.currency) }}</span>
+                                title="{{ adjustment.amount }}">
+
+                           {#   {% set adjustmentAmount  = adjustment.amount %}
+                            {% set adjustmentAmountRound = round((adjustmentAmount + 0.000001) * 20) / 20 %}
+                            {{ adjustmentAmountRound|number_format(2, '.', '')|commerceCurrency(cart.currency) }} #}
+
+                            {{ adjustment.amount|commerceCurrency(cart.currency) }}
+
+                          </span>
                          </div>
                        </div>
 
