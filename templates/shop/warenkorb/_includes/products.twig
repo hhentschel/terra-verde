@@ -483,7 +483,7 @@
 
                        {% elseif userExists.isInGroup('userGroupPrivate') %}
 
-                         {% if cart.totalPrice < 30 and not cart.couponCode %}
+                         {% if cart.totalPrice < 1 and not cart.couponCode %}
                            <div class="form__cart--expection">
                              <a class="button button--secondary" href="#">Zahlung nicht möglich</a>
                              <span>Mindestbestellbetrag: 30,- CHF</span>
@@ -494,7 +494,7 @@
 
                        {% else %}
 
-                         {% if cart.totalPrice < 30 and not cart.couponCode %}
+                         {% if cart.totalPrice < 1 and not cart.couponCode %}
                            <div class="form__cart--expection">
                              <a class="button button--secondary" href="#">Zahlung nicht möglich</a>
                              <span>Mindestbestellbetrag: 30,- CHF</span>
