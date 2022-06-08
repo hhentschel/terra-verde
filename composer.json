@@ -1,80 +1,81 @@
 {
-    "require": {
-        "craftcms/cms": "3.7.44",
-        "craftcms/commerce": "3.4.15",
-        "craftcms/contact-form": "2.5.1",
-        "craftcms/feed-me": "4.5.3",
-        "craftcms/redactor": "2.10.8",
-        "doublesecretagency/craft-googlemaps": "4.1.9",
-        "henrik/craft-user-guide": "dev-develop",
-        "mediabeastnz/craft-commerce-back-in-stock": "^1.4.0",
-        "mmikkel/cp-field-inspect": "1.4.4",
-        "nystudio107/craft-imageoptimize": "1.6.44",
-        "nystudio107/craft-recipe": "1.4.0",
-        "nystudio107/craft-retour": "3.1.72",
-        "nystudio107/craft-seomatic": "3.4.31",
-        "pompom/commerce-datatrans": "^1.0",
-        "pompom/omnipay-datatrans": "^3.0",
-        "putyourlightson/craft-campaign": "1.23.1",
-        "putyourlightson/craft-sendgrid": "1.3.1",
-        "putyourlightson/craft-sprig": "1.13.0",
-        "putyourlightson/craft-untransform": "1.0.2",
-        "sebastianlenz/linkfield": "1.0.25",
-        "servd/craft-asset-storage": "2.6.3",
-        "spicyweb/craft-neo": "2.13.11",
-        "verbb/expanded-singles": "1.2.0",
-        "verbb/formie": "1.5.19",
-        "vlucas/phpdotenv": "^3.4.0"
-    },
-    "require-dev": {
-        "nystudio107/craft-autocomplete": "^1.10",
-        "yiisoft/yii2-shell": "^2.0.3"
-    },
-    "autoload": {
-        "psr-4": {
-            "modules\\retailpricing\\": "modules/retail-pricing/src/",
-            "modules\\privatepricing\\": "modules/private-pricing/src/",
-            "modules\\terraverdemodule\\": "modules/terraverdemodule/src/",
-            "modules\\exampleadjuster\\": "modules/exampleadjuster/src/"
-        }
-    },
-    "config": {
-        "sort-packages": true,
-        "optimize-autoloader": true,
-        "platform": {
-            "php": "7.4.12"
-        },
-        "allow-plugins": {
-            "yiisoft/yii2-composer": true,
-            "craftcms/plugin-installer": true
-        }
-    },
-    "scripts": {
-        "post-root-package-install": [
-            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
-        ]
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true,
-    "repositories": {
-        "omnipay-datatrans": {
-            "type": "vcs",
-            "url": "git@bitbucket.org:pom-pom/omnipay-datatrans.git"
-        },
-        "commerce-datatrans": {
-            "type": "vcs",
-            "url": "git@bitbucket.org:pom-pom/commerce-datatrans.git"
-        },
-        "craft-user-guide": {
-            "type": "path",
-            "url": "./plugins/*"
-        },
-        "address-importer": {
-            "type": "path",
-            "url": "./craft-plugins/address-importer/",
-            "options": {
-                "symlink": true
-            }
-        }
+  "require": {
+    "craftcms/cms": "3.7.44",
+    "craftcms/commerce": "3.4.15",
+    "craftcms/contact-form": "2.5.1",
+    "craftcms/feed-me": "4.5.3",
+    "craftcms/redactor": "2.10.8",
+    "doublesecretagency/craft-googlemaps": "4.1.9",
+    "henrik/craft-user-guide": "dev-develop",
+    "mediabeastnz/craft-commerce-back-in-stock": "^1.4.0",
+    "mmikkel/cp-field-inspect": "1.4.4",
+    "nystudio107/craft-imageoptimize": "1.6.44",
+    "nystudio107/craft-recipe": "1.4.0",
+    "nystudio107/craft-retour": "3.1.72",
+    "pompom/address-importer": "@dev",
+    "nystudio107/craft-seomatic": "3.4.31",
+    "pompom/commerce-datatrans": "^1.0",
+    "pompom/omnipay-datatrans": "^3.0",
+    "putyourlightson/craft-campaign": "1.23.1",
+    "putyourlightson/craft-sendgrid": "1.3.1",
+    "putyourlightson/craft-sprig": "1.13.0",
+    "putyourlightson/craft-untransform": "1.0.2",
+    "sebastianlenz/linkfield": "1.0.25",
+    "servd/craft-asset-storage": "2.6.3",
+    "spicyweb/craft-neo": "2.13.11",
+    "verbb/expanded-singles": "1.2.0",
+    "verbb/formie": "1.5.19",
+    "vlucas/phpdotenv": "^3.4.0"
+  },
+  "require-dev": {
+    "nystudio107/craft-autocomplete": "^1.10",
+    "yiisoft/yii2-shell": "^2.0.3"
+  },
+  "autoload": {
+    "psr-4": {
+      "modules\\retailpricing\\": "modules/retail-pricing/src/",
+      "modules\\privatepricing\\": "modules/private-pricing/src/",
+      "modules\\terraverdemodule\\": "modules/terraverdemodule/src/",
+      "modules\\exampleadjuster\\": "modules/exampleadjuster/src/"
     }
+  },
+  "config": {
+    "sort-packages": true,
+    "optimize-autoloader": true,
+    "platform": {
+      "php": "7.4.12"
+    },
+    "allow-plugins": {
+      "yiisoft/yii2-composer": true,
+      "craftcms/plugin-installer": true
+    }
+  },
+  "scripts": {
+    "post-root-package-install": [
+      "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+    ]
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "repositories": {
+    "omnipay-datatrans": {
+      "type": "vcs",
+      "url": "git@bitbucket.org:pom-pom/omnipay-datatrans.git"
+    },
+    "commerce-datatrans": {
+      "type": "vcs",
+      "url": "git@bitbucket.org:pom-pom/commerce-datatrans.git"
+    },
+    "craft-user-guide": {
+      "type": "path",
+      "url": "./plugins/*"
+    },
+    "address-importer": {
+      "type": "path",
+      "url": "./craft-plugins/address-importer/",
+      "options": {
+        "symlink": true
+      }
+    }
+  }
 }
