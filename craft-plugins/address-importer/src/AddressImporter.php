@@ -11,6 +11,7 @@
 namespace pompom\addressimporter;
 
 use Craft;
+use craft\base\Plugin;
 use craft\helpers\FileHelper;
 use craft\helpers\Json;
 use yii\base\ErrorException;
@@ -30,90 +31,91 @@ use pompom\addressimporter\plugin\Events;
  * @package   AddressImporter
  * @since     1.0.0
  */
-class AddressImporter extends craft\base\Plugin
+class AddressImporter extends Plugin
 {
 
-    // Traits
-    // =========================================================================
+  // Traits
+  // =========================================================================
 
-    use Events;
+  use Events;
 
-    // Static Properties
-    // =========================================================================
+  // Static Properties
+  // =========================================================================
 
 
-    /**
-     * Static property that is an instance of this plugin class so that it can be accessed via
-     * AddressImporter::$plugin
-     *
-     * @var AddressImporter
-     */
-    public static $plugin;
+  /**
+   * Static property that is an instance of this plugin class so that it can be accessed via
+   * AddressImporter::$plugin
+   *
+   * @var AddressImporter
+   */
+  public static $plugin;
 
-    // Public Properties
-    // =========================================================================
+  // Public Properties
+  // =========================================================================
 
-    /**
-     * To execute your plugin’s migrations, you’ll need to increase its schema version.
-     *
-     * @var string
-     */
-    public $schemaVersion = '1.0.0';
+  /**
+   * To execute your plugin’s migrations, you’ll need to increase its schema version.
+   *
+   * @var string
+   */
+  public $schemaVersion = '1.0.0';
 
-    // Public Methods
-    // =========================================================================
+  // Public Methods
+  // =========================================================================
 
-    /**
-     * Set our $plugin static property to this class so that it can be accessed via
-     * AddressImporter::$plugin
-     *
-     * Called after the plugin class is instantiated; do any one-time initialization
-     * here such as hooks and events.
-     *
-     * If you have a '/vendor/autoload.php' file, it will be loaded for you automatically;
-     * you do not need to load it in your init() method.
-     *
-     */
-    public function init()
-    {
-        parent::init();
+  /**
+   * Set our $plugin static property to this class so that it can be accessed via
+   * AddressImporter::$plugin
+   *
+   * Called after the plugin class is instantiated; do any one-time initialization
+   * here such as hooks and events.
+   *
+   * If you have a '/vendor/autoload.php' file, it will be loaded for you automatically;
+   * you do not need to load it in your init() method.
+   *
+   */
+  public function init()
+  {
+    parent::init();
 
-        $this->_registerEvents();
+    $this->_registerEvents();
 
-        self::$plugin = $this;
+    self::$plugin = $this;
 
-        Craft::info(
-            Craft::t(
-                'address-importer',
-                '{name} plugin loaded',
-                ['name' => $this->name]
-            ),
-            __METHOD__
-        );
+    Craft::info(
+      Craft::t(
+        'address-importer',
+        '{name} plugin loaded',
+        ['name' => $this->name]
+      ),
+      __METHOD__
+    );
+  }
+
+  // Protected Methods
+  // =========================================================================
+
+  /**
+   * Custom logger
+   * @param $message
+   * @throws \yii\base\Exception
+   */
+  public static function log($message)
+  {
+    $file = Craft::getAlias('@storage/logs/address-importer.log');
+    if (is_object($message)) {
+      $message = Json::decodeIfJson($message);
+    }
+    if (is_array($message)) {
+      $message = Json::encode($message);
     }
 
-    // Protected Methods
-    // =========================================================================
-
-    /**
-     * Custom logger
-     * @param $message
-     * @throws \yii\base\Exception
-     */
-    public static function log($message){
-        $file = Craft::getAlias('@storage/logs/address-importer.log');
-        if (is_object($message)) {
-            $message = Json::decodeIfJson($message);
-        }
-        if (is_array($message)) {
-            $message = Json::encode($message);
-        }
-
-        try {
-            $log = date('Y-m-d H:i:s').' '.$message."\n";
-            FileHelper::writeToFile($file, $log, ['append' => true]);
-        } catch (ErrorException $e) {
-            // Do nothing
-        }
+    try {
+      $log = date('Y-m-d H:i:s') . ' ' . $message . "\n";
+      FileHelper::writeToFile($file, $log, ['append' => true]);
+    } catch (ErrorException $e) {
+      // Do nothing
     }
+  }
 }
