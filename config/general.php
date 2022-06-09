@@ -52,7 +52,7 @@ return [
       '@basePath' => getenv('BASE_PATH'),
       '@baseUrl' => getenv('BASE_URL'),
       '@rootUrl' => getenv('ROOT_URL'),
-      /*'@web' => 'https://www.terra-verde.ch/'*/
+      '@web' => getenv('WEB_URL'),
     ),
 
     // https://craftcms.com/knowledge-base/enabling-fuzzy-search
