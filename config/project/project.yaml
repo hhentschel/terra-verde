@@ -1,11 +1,12 @@
-dateModified: 1654847867
+dateModified: 1655210097
 email:
-  fromEmail: p@henrik-hentschel.de
+  fromEmail: $SYSTEM_EMAIL
   fromName: 'Terra Verde'
   replyToEmail: info@terra-verde.ch
   template: ''
   transportSettings:
     apiKey: $SENDGRID_API_KEY
+    categories: ''
   transportType: putyourlightson\sendgrid\mail\SendgridAdapter
 meta:
   __names__:
