@@ -179,6 +179,7 @@ $header-login-overlay--transition-duration-easing: easing(open);
 
   &__logo {
     height: $header-logo--height;
+    width: $header-logo--width;
     transition-property: $header-logo--transition-sticky-property;
     transition-duration: $header-logo--transition-sticky-duration;
     transition-timing-function: $header-logo--transition-sticky-timining-function;
