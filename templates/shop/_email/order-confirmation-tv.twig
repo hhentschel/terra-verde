@@ -330,18 +330,6 @@
                     cellpadding="0" cellspacing="0" width="100%" border="0"
                     style="color:#000000;font-family:'Open Sans', Arial, sans-serif;font-size:15px;line-height:22px;table-layout:auto;width:100%;border:none;"
                   >
-                    <tr>
-                      <td width="40%">
-                        <mj-text align="left" color="#222" font-size="15px" font-family="'Open Sans', Arial, sans-serif"
-                                 padding-left="25px" padding-right="25px" padding-bottom="0px" padding-top="20"><strong>Kunde</strong>
-                        </mj-text>
-                      </td>
-                      <td>
-                        <mj-text align="left" color="#222" font-size="15px" font-family="'Open Sans', Arial, sans-serif"
-                                 padding-left="25px" padding-right="25px" padding-bottom="0px"
-                                 padding-top="20">{{ order.user.fullName }}</mj-text>
-                      </td>
-                    </tr>
                     {% if order.user.userCompany %}
                       <tr>
                         <td width="40%">
@@ -356,6 +344,19 @@
                         </td>
                       </tr>
                     {% endif %}
+                    <tr>
+                      <td width="40%">
+                        <mj-text align="left" color="#222" font-size="15px" font-family="'Open Sans', Arial, sans-serif"
+                                 padding-left="25px" padding-right="25px" padding-bottom="0px" padding-top="20"><strong>Kunde</strong>
+                        </mj-text>
+                      </td>
+                      <td>
+                        <mj-text align="left" color="#222" font-size="15px" font-family="'Open Sans', Arial, sans-serif"
+                                 padding-left="25px" padding-right="25px" padding-bottom="0px"
+                                 padding-top="20">{{ order.user.fullName }}</mj-text>
+                      </td>
+                    </tr>
+
                     <tr>
                       <td width="40%">
                         <mj-text align="right" color="#222" font-size="15px"
