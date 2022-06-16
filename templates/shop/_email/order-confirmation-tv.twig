@@ -571,7 +571,6 @@
                       <div
                         style="line-height: 1.6">{% include 'shop/_includes/addresses/address-email-confirmation' with { address: order.billingAddress } %} {% if order.billingAddress.sameAs(order.shippingAddress) %} {% endif %}</div> {% else %}
                       <p>Nicht eingegeben</p> {% endif %}
-                    <p>{{ order.user.phone }}</p>
                     <p>{{ order.user.email }}</p></div>
 
                 </td>
@@ -607,7 +606,6 @@
                       <div
                         style="line-height: 1.6">{% include 'shop/_includes/addresses/address-email-confirmation' with { address: order.shippingAddress } %} {% if order.shippingAddress.sameAs(order.billingAddress) %} {% endif %} </div>{% else %}
                       <p>Nicht eingegeben.</p> {% endif %}
-                    <p>{{ order.user.phone }}</p>
                     <p>{{ order.user.email }}</p></div>
 
                 </td>
@@ -967,4 +965,4 @@
 
 </body>
 </html>
-
+  
