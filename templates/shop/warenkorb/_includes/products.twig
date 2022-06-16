@@ -14,7 +14,7 @@
 {% set product = craft.products.one() %}
 
  {% if cart.lineItems|length %}
-   <form method="post" class="form__cart">
+   <form class="form__cart">
      <div class="form__cart">
        {{ hiddenInput('fields[giftWrapped]', '') }}
        {{ hiddenInput('fields[giftNote]', '') }}
@@ -96,6 +96,19 @@
                     {% endif %}
 
                    </div>
+
+                   {# {% for variant in product.getVariants() %}
+                   #}{# @var variant \craft\commerce\elements\Variant #}{#
+                 {{ tag('option', {
+                   value: variant.id,
+                   text: variant.sku ~ ' ' ~ variant.salePrice|currency(cart.currency)
+                 }) }}
+               {% endfor %}
+
+               <label>
+                 {{ input('checkbox', 'options[giftWrapped]', 'yes') }}
+                 {{ 'Gift wrap item'|t }}
+               </label> #}
 
                  {% endif %}
                {% endif %}
