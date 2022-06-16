@@ -37,7 +37,7 @@ class GiftNoteAdjuster extends Component implements AdjusterInterface
           'description' => 'Grusskarte',
           // Set the price, multiplying by the quantity (or not, your choice!)
           // 'amount' => self::GIFTWRAP_PRICE * $lineItem->qty,
-          'amount' => self::GIFTWRAP_PRICE,
+          'amount' => self::GIFTWRAP_PRICE * $lineItem->qty,
         ]);
 
         // Make sure the Adjuster knows what Order and LineItem it's supposed to adjust. This also helps calculate stuff in-memory, prior to saving (especially for new LineItems that don't yet have an ID!):
