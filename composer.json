@@ -34,9 +34,7 @@
   "autoload": {
     "psr-4": {
       "modules\\retailpricing\\": "modules/retail-pricing/src/",
-      "modules\\privatepricing\\": "modules/private-pricing/src/",
-      "modules\\terraverdemodule\\": "modules/terraverdemodule/src/",
-      "modules\\exampleadjuster\\": "modules/exampleadjuster/src/"
+      "modules\\terraverdemodule\\": "modules/terraverdemodule/src/"
     }
   },
   "config": {
