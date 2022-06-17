@@ -1,7 +1,11 @@
-{% set lastProductId = lastProductId ?? 0 %}
 {% set purchasableId = purchasableId ?? 0 %}
 
+{% if cart is not defined %}
+  {% set cart = craft.commerce.carts.cart %}
+{% endif %}
+
 {% set addedToCart = success is defined %}
+{% set informBackInStock = success is defined %}
 
 {% if addedToCart %}
   <script>
@@ -17,7 +21,6 @@
 {% endif %}
 
 {% set productQuery = craft.products() %}
-
 {% set product = craft.products.id(productId).one() %}
 {% set variant = product.defaultVariant %}
 
@@ -49,22 +52,13 @@
   <div class="col col-xs-12 col-md-6 col-lg-6">
 
 
-    <form method="post" class="js-form product-detail__form">
-      {# {{ actionInput('commerce/cart/update-cart') }}
-              {{
-                hiddenInput(
-                  'successMessage',
-                  ('Artikel ' ~ product.title ~ ' wurde zum Warenkorb hinzugefügt.')|hash
-                )
-              }}
-              {{ csrfInput() }} #}
+    <form class="js-form product-detail__form">
+      {{ hiddenInput(
+        'successMessage',
+        ('Artikel ' ~ product.title ~ ' wurde zum Warenkorb hinzugefügt.')|hash
+      ) }}
       <div class="product-detail__form-addtobasket">
         {% for variant in product.variants %}
-          {# {{
-                    hiddenInput('purchasables[' ~ loop.index ~ '][id], [options]', variant.id)
-                  }} #}
-
-
           <div class="form-addtobasket__info">
             {% if variant.articleVolume %}
               <div class="form-addtobasket__info-variant">
@@ -138,7 +132,7 @@
                 <div class="form-addtobasket__info-quantity">
                   <input class="input form-addtobasket__info-quantity--input"
                          type="text"
-                         name="purchasables[{{ loop.index }}][qty]"
+                         name="qty"
                          value="1"
                          step="1"
                          min="1"

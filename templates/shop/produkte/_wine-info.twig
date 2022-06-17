@@ -1,4 +1,3 @@
-{% set lastProductId = lastProductId ?? 0 %}
 {% set purchasableId = purchasableId ?? 0 %}
 
 {% if cart is not defined %}
@@ -63,7 +62,8 @@
           <form sprig s-action="craft-commerce-back-in-stock/base/register-interest" s-method="post"
                 class="bis-signup__registration-form">
             <div class="bis-signup__registration-message">
-               Dieses Produkt ist zurzeit nicht lieferbar. Sobald das Produkt wieder erhältlich ist, werden wir Sie per Mail informieren. Fügen Sie dazu bitte hier Ihre E-Mail Adresse ein.
+              Dieses Produkt ist zurzeit nicht lieferbar. Sobald das Produkt wieder erhältlich ist, werden wir Sie per
+              Mail informieren. Fügen Sie dazu bitte hier Ihre E-Mail Adresse ein.
             </div>
             <input type="hidden" name="variantId" value="{{ product.defaultVariant.id }}">
             <div class="bis-signup__registration-fields">
@@ -77,13 +77,11 @@
       {% endif %}
     {% endfor %}
 
-    <form method="post" class="js-form product-detail__form">
-      {{ actionInput('commerce/cart/update-cart') }}
+    <form class="js-form product-detail__form">
       {{ hiddenInput(
         'successMessage',
         ('Artikel ' ~ product.title ~ ' wurde zum Warenkorb hinzugefügt.')|hash
       ) }}
-      {{ csrfInput() }}
       <div class="product-detail__form-addtobasket">
         {% for variant in product.variants %}
           {# {{
@@ -132,7 +130,7 @@
                   <input {% if variant.hasstock == false %}disabled{% endif %}
                          class="input form-addtobasket__info-quantity--input"
                          type="number"
-                         name="purchasables[{{ loop.index }}][qty]"
+                         name="qty"
                          step="1"
                     {% if currentUser %}
                       {% if currentUser.isInGroup('userGroupRetail') %}
@@ -154,30 +152,6 @@
                     {% endif %}
                   />
 
-                  {# <input sprig s-action="commerce/cart/update-cart" s-method="post"
-                                      class="input input form-addtobasket__info-quantity--input"
-                                       type="number"
-                                       name="purchasables[{{ loop.index }}][qty]"
-                                       step="1"
-                                       {% if currentUser %}
-                                        {% if currentUser.isInGroup('userGroupRetail') %}
-                                          value="{{ product.artikelMinOrderSize }}"
-                                          min="{{ product.artikelMinOrderSize }}"
-                                          placeholder="{{ product.artikelMinOrderSize }}"
-                                        {% else %}
-                                          value="1"
-                                          min="1"
-                                          placeholder="0"
-                                        {% endif %}
-                                      {% else %}
-                                          value="1"
-                                          min="1"
-                                          placeholder="0"
-                                      {% endif %}
-                                      {% if variant.stock < 0 %}
-                                        disabled
-                                      {% endif %}> #}
-
                 </div>
 
                 <div class="form-addtobasket__info-button">
@@ -197,10 +171,6 @@
                         In den Warenkorb
                       {% endif %}
                     </a>
-                    {# <button type="submit"
-                            class="button button--primary">
-                            In den Warenkorb
-                          </button> #}
                   {% else %}
                     <button disabled type="submit"
                             class="disabled button button--primary text-center"> In den Warenkorb

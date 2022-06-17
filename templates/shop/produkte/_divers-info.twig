@@ -1,4 +1,3 @@
-{% set lastProductId = lastProductId ?? 0 %}
 {% set purchasableId = purchasableId ?? 0 %}
 
 {% if cart is not defined %}
@@ -200,13 +199,10 @@
                       {% endif %}
                     </a>
 
-
-
                   {% else %}
                     <button disabled type="submit"
                             class="disabled button button--primary text-center"> In den Warenkorb
                     </button>
-
 
                   {% endif %}
                 </div>

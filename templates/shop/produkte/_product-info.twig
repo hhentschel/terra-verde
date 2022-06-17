@@ -1,4 +1,3 @@
-{% set lastProductId = lastProductId ?? 0 %}
 {% set purchasableId = purchasableId ?? 0 %}
 
 {% if cart is not defined %}
@@ -77,13 +76,13 @@
       {% endif %}
     {% endfor %}
 
-    <form method="post" class="js-form product-detail__form">
+    <form class="js-form product-detail__form">
       {# {{ actionInput('commerce/cart/update-cart') }} #}
       {{ hiddenInput(
         'successMessage',
         ('Artikel ' ~ product.title ~ ' wurde zum Warenkorb hinzugefügt.')|hash
       ) }}
-      {{ csrfInput() }}
+      
       <div class="product-detail__form-addtobasket">
         {% for variant in product.variants %}
 
@@ -144,46 +143,10 @@
                       disabled
                     {% endif %}
                   />
-
-                  {# <input sprig s-action="commerce/cart/update-cart" s-method="post"
-                                      class="input input form-addtobasket__info-quantity--input"
-                                       type="number"
-                                       name="purchasables[{{ loop.index }}][qty]"
-                                       step="1"
-                                       {% if currentUser %}
-                                        {% if currentUser.isInGroup('userGroupRetail') %}
-                                          value="{{ product.artikelMinOrderSize }}"
-                                          min="{{ product.artikelMinOrderSize }}"
-                                          placeholder="{{ product.artikelMinOrderSize }}"
-                                        {% else %}
-                                          value="1"
-                                          min="1"
-                                          placeholder="0"
-                                        {% endif %}
-                                      {% else %}
-                                          value="1"
-                                          min="1"
-                                          placeholder="0"
-                                      {% endif %}
-                                      {% if variant.stock < 0 %}
-                                        disabled
-                                      {% endif %}> #}
-
                 </div>
 
                 <div class="form-addtobasket__info-button">
-
-
                   {% if variant.stock > 0 or variant.hasUnlimitedStock %}
-
-                    {#                    {% if success is defined and success %}
-                      Product added to your cart!
-                    {% elseif errors is defined %}
-                      {% for error in errors %}
-                        <p class="error">{{ error|first }}</p>
-                      {% endfor %}
-                    {% endif %} #}
-
                     <a sprig s-action="commerce/cart/update-cart" s-method="post"
                        s-val:purchasable-id="{{ variant.id }}" href="#"
                        class="button--primary {% if addedToCart and purchasableId == variant.id %}button--success {% endif %} text-center">
@@ -199,17 +162,13 @@
                         In den Warenkorb
                       {% endif %}
                     </a>
-
-
-
                   {% else %}
                     <button disabled type="submit"
-                            class="disabled button button--primary text-center"> In den Warenkorb
+                            class="disabled button button--primary text-center">nicht verfügbar
                     </button>
-
-
                   {% endif %}
                 </div>
+
               </div>
             </div>
 
