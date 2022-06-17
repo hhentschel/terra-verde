@@ -10,27 +10,26 @@
     {{ 'search.button.text'|t }}
   </label>
   <input id="search"
-    type="text"
-    class="search__input"
-    name="search"
-    value="{{ search }}"
-    sprig
-    s-trigger="keyup changed delay:300ms"
-    aria-controls="search-results"
+         type="text"
+         class="search__input"
+         name="search"
+         value="{{ search }}"
+         sprig
+         s-trigger="keyup changed delay:300ms"
+         aria-controls="search-results"
 
-    autofocus="true" />
+         autofocus="true"/>
   <button type="submit" class="search__button">
-    {{
-      macros.svg('search_24')|attr({
-        class: 'icon icon--24 search__icon'
-      })
-    }}
+    {{ macros.svg('search_24')|attr({
+      class: 'icon icon--24 search__icon'
+    }) }}
     <span class="visually-hidden">{{ 'search.button.text'|t }}</span>
   </button>
 </form>
 
 {% set entryQuery = craft.products.search(search) %}
 {% set products = entryQuery.offset(offset).limit(limit).all() %}
+
 
 <div class="search__wrapper">
   {% if search %}
@@ -39,36 +38,39 @@
     </p>
     <div class="search__results" aria-live="polite">
       {% if entryQuery is not empty %}
-          <ul class="search__results-list">
-            {% for product in products %}
-              <li class="search__results-item">
-                <a href="{{ product.url }}">
+        <ul class="search__results-list">
+          {% for product in products %}
+            <li class="search__results-item">
+              <a href="{{ product.url }}">
                   <span class="search__results-title">
                     {{ product.title }}
                   </span>
-                  {% set transform = transformation|default('productListing') %}
-                  {% set img = product.articleImage.one() ?? null %}
+                {% set transform = transformation|default('productListing') %}
+                {% set img = product.articleImage.one() ?? null %}
 
-                  {% if img is defined %}
-                    {% include '_components/_content-elements/image'
-                      with {
-                        image: img,
-                        transform: transform
-                        } %}
-                  {% endif %}
-                </a>
-              </li>
-            {% endfor %}
-          </ul>
+                {% if img is defined %}
+                  {% include '_components/_content-elements/image'
+                    with {
+                    image: img,
+                    transform: transform
+                  } %}
+                {% endif %}
+                {% for variant in product.variants %}
+                  {% include '/shop/produkte/_includes/prices.twig' %}
+                {% endfor %}
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
 
         {% if entryQuery.count() > offset + (products|length) %}
           <div class="search__load-more">
             <button sprig
-              s-val:offset="{{ offset + limit }}"
-              s-replace=".search__results"
-              s-target=".search__load-more"
-              s-swap="outerHTML"
-              class="button button--secondary">
+                    s-val:offset="{{ offset + limit }}"
+                    s-replace=".search__results"
+                    s-target=".search__load-more"
+                    s-swap="outerHTML"
+                    class="button button--secondary">
               {{ 'search.loadmore.text'|t }}
             </button>
           </div>
