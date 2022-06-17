@@ -48,7 +48,7 @@ class RetailPricing extends Module
 
     // get all discounts and get the discount percentage
     foreach (Commerce::getInstance()->discounts->getAllDiscounts() as $discount) {
-      'percentDiscount' => $percentDiscount
+      /* ?????  'percentDiscount' => $percentDiscount*/
     }
 
 
@@ -58,8 +58,8 @@ class RetailPricing extends Module
         $lineItem->salePrice = $product->priceRetailTrader;
         $lineItem->price = $product->priceRetailTrader;
       }
-      // if product has a discount applied on it -> add percentage discount to price
-      if ($product && $product->priceRetailTrader)->hasDiscount {
+      // if product has a discount applied on it -> apply percentage discount to item price
+      if ($product && $product->priceRetailTrader) {
 
       }
 
