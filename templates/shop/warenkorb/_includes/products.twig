@@ -214,7 +214,7 @@
                </a>
              </span>
              </td>
-             
+
            </tr>
 
            <tr class="form__cart--adjustments">
@@ -473,17 +473,25 @@
                  <div>
                    {% if not cart.hasErrors() %}
                      {% set userExists = craft.users.email(cart.email).one() %}
+                     {# If User exists #}
                      {% if userExists %}
+                       {# If User is Retailer (Detailhandel) #}
                        {% if userExists.isInGroup('userGroupRetail') %}
 
-                         {% set nettoPrice = cart.totalPrice - cart.getTotalTaxIncluded %}
-                         {% if nettoPrice < 150 and not cart.couponCode %}
-                           <div class="form__cart--expection">
-                             <a class="button button--secondary" href="#">Zahlung nicht möglich</a>
-                             <span>Mindestbestellbetrag Netto: 150,- CHF</span>
-                           </div>
-                         {% else %}
+                         {# If User has Lightswitch to in, that min Order Amount is turned off #}
+                         {% if currentUser.minOrderValueSetting %}
                            <a class="button button--primary" href="{{ url('shop/checkout') }}">Bezahlen</a>
+                         {% else %}
+
+                           {% set nettoPrice = cart.totalPrice - cart.getTotalTaxIncluded %}
+                           {% if nettoPrice < 150 and not cart.couponCode %}
+                             <div class="form__cart--expection">
+                               <a class="button button--secondary" href="#">Zahlung nicht möglich</a>
+                               <span>Mindestbestellbetrag Netto: 150,- CHF</span>
+                             </div>
+                           {% else %}
+                             <a class="button button--primary" href="{{ url('shop/checkout') }}">Bezahlen</a>
+                           {% endif %}
                          {% endif %}
 
                        {% elseif userExists.isInGroup('userGroupPrivate') %}

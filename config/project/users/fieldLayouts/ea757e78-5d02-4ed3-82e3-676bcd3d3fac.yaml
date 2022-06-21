@@ -18,7 +18,7 @@ tabs:
         tip: null
         type: craft\fieldlayoutelements\CustomField
         warning: null
-        width: 75
+        width: 50
       -
         fieldUid: ada66c36-aa65-4328-b07e-d15f78f13aca # Fax
         instructions: null
@@ -90,7 +90,16 @@ tabs:
         tip: null
         type: craft\fieldlayoutelements\CustomField
         warning: null
-        width: 100
+        width: 75
+      -
+        fieldUid: 273d5a0c-4e06-47ec-8a4b-c1fcffa5684d # Mindestbestellwert
+        instructions: null
+        label: null
+        required: false
+        tip: null
+        type: craft\fieldlayoutelements\CustomField
+        warning: null
+        width: 25
     name: Info
     sortOrder: 1
   -
