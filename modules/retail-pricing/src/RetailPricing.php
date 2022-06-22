@@ -10,6 +10,9 @@ use craft\commerce\elements\Variant;
 use craft\commerce\events\LineItemEvent;
 use craft\commerce\models\LineItem;
 use craft\commerce\services\LineItems;
+use craft\commerce\services\OrderAdjustments;
+use craft\events\RegisterComponentTypesEvent;
+use modules\retailpricing\adjusters\RoundingAdjuster;
 use yii\base\Event;
 use yii\base\InvalidConfigException;
 use yii\base\Module as Module;
@@ -33,6 +36,14 @@ class RetailPricing extends Module
                 }
             );
         }
+
+        Event::on(
+            OrderAdjustments::class,
+            OrderAdjustments::EVENT_REGISTER_ORDER_ADJUSTERS,
+            function(RegisterComponentTypesEvent $event) {
+                $event->types[] = RoundingAdjuster::class;
+            }
+        );
 
         parent::init();
     }
@@ -58,13 +69,5 @@ class RetailPricing extends Module
             $purchasable->price = $product->priceRetailTrader;
             $lineItem->setPurchasable($purchasable);
         }
-    }
-
-    private function _roundFinalPrice(LineItem $lineItem)
-    {
-        // The number of cents to which to round to.
-        $centsToRoundDownTo = 5;
-        $factor = 100 / $centsToRoundDownTo;
-        $lineItem->salePrice = floor($lineItem->salePrice * $factor) / $factor;
     }
 }
