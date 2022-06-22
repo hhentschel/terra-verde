@@ -148,10 +148,10 @@
                 <div class="text-xs pr-2">Aktion Preis:</div>
                 <div class="text-sm">{{ item.salePrice|commerceCurrency(order.currency) }}</div>
               </div>
-              <div class="flex items-center w-full justify-end" title="{{ item.saleAmount }}">
+              {# <div class="flex items-center w-full justify-end" title="{{ item.saleAmount }}">
                 <div class="text-xs pr-2">Aktion Anzahl:</div>
                 <div class="text-sm">{{ item.saleAmount|commerceCurrency(order.currency) }}</div>
-              </div>
+              </div> #}
             {% endif %}
             <div class="flex items-center w-full justify-end" title="{{ item.subtotal }}">
               <div class="text-xs pr-2">Subtotal:</div>
@@ -230,32 +230,7 @@
               </td>
           </tr> #}
 
-      {% if order.orderAdjustments|length %}
-        <tr class="cart--adjustments">
-          <td class="py-3"></td>
-          <td colspan="2" class="">
-            {# <div class="text-left text-2xs uppercase tracking-wider text-gray-600">Anpassungen Bestellungen</div> #}
-            <div class="adjustments">
-              {% for adjustment in order.orderAdjustments if adjustment.type != "shipping" %}
-                <div class="adjustments__data">
-                  <div>
-                    <span class="adjustments__data--type">Rabatte: </span>
-                  </div>
-                  <div>
-
-                    {# {{ adjustment.description }} #}
-                    <span class="adjustments__data--description">{{ adjustment.name }}</span>
-                  </div>
-                  <div>
-                                      <span class="adjustments__data--amount"
-                                            title="{{ adjustment.amount }}"> {{ adjustment.amount|commerceCurrency(order.currency) }}</span>
-                  </div>
-                </div>
-              {% endfor %}
-            </div>
-          </td>
-        </tr>
-      {% endif %}
+     
       <tr class="ordersummary__table-row">
         <td colspan="2" class=""></td>
         <td class="">
@@ -263,10 +238,24 @@
             <strong class="">Zusammenfassung</strong>
           </div>
 
-          <div class="flex items-center w-full justify-end" title="{{ order.getTotalShippingCost() }}">
-            <div class="text-xs text-gray-500 pr-2">Versand:</div>
-            <div class="text-sm text-gray-500">{{ order.getTotalShippingCost()|commerceCurrency(order.currency) }}</div>
-          </div>
+          {% if order.getTotalShippingCost() > 0 %}
+            <div class="flex items-center w-full justify-end" title="{{ order.getTotalShippingCost() }}">
+              <div class="text-xs text-gray-500 pr-2">Versand:</div>
+              <div
+                class="text-sm text-gray-500">{{ order.getTotalShippingCost()|commerceCurrency(order.currency) }}</div>
+            </div>
+          {% endif %}
+
+          {% if order.orderAdjustments|length %}
+            {% for adjustment in order.orderAdjustments if adjustment.type != "shipping" %}
+              <div class="flex items-center w-full justify-end" title="{{ adjustment.name }}">
+                <div class="text-xs text-gray-500 pr-2">Rabatte {{ adjustment.name }}:</div>
+                <div
+                  class="text-sm text-gray-500">{{ adjustment.amount|commerceCurrency(order.currency) }}</div>
+              </div>
+            {% endfor %}
+          {% endif %}
+
           {#  <div class="flex items-center w-full justify-end" title="{{ order.getTotalTax() }}">
             <div class="text-xs text-gray-500 pr-2">Mwst.:</div>
             <div class="text-sm text-gray-500">{{ order.getTotalTax()|commerceCurrency(order.currency) }}</div>
