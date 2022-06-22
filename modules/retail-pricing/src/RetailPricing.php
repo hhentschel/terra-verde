@@ -10,61 +10,61 @@ use craft\commerce\elements\Variant;
 use craft\commerce\events\LineItemEvent;
 use craft\commerce\models\LineItem;
 use craft\commerce\services\LineItems;
-use craft\commerce\Plugin as Commerce;
 use yii\base\Event;
 use yii\base\InvalidConfigException;
 use yii\base\Module as Module;
 
 class RetailPricing extends Module
 {
-  const RETAIL_USER_GROUP_ID = 1;
+    const RETAIL_USER_GROUP_ID = 1;
 
-  public function init()
-  {
-    Craft::setAlias('@modules', __DIR__);
+    public function init()
+    {
+        Craft::setAlias('@modules', __DIR__);
 
-    $user = Craft::$app->getUser()->getIdentity();
+        $user = Craft::$app->getUser()->getIdentity();
 
-    if ($user && $user->isInGroup(self::RETAIL_USER_GROUP_ID)) {
-      Event::on(
-        LineItems::class,
-        LineItems::EVENT_POPULATE_LINE_ITEM,
-        function (LineItemEvent $event) {
-          $this->_applyRetailPrice($event->lineItem);
+        if ($user && $user->isInGroup(self::RETAIL_USER_GROUP_ID)) {
+            Event::on(
+                LineItems::class,
+                LineItems::EVENT_POPULATE_LINE_ITEM,
+                function (LineItemEvent $event) {
+                    $this->_applyRetailPrice($event->lineItem);
+                }
+            );
         }
-      );
+
+        parent::init();
     }
 
-    parent::init();
-  }
+    private function _applyRetailPrice(LineItem $lineItem)
+    {
+        $purchasable = $lineItem->getPurchasable();
 
-  private function _applyRetailPrice(LineItem $lineItem)
-  {
-    $purchasable = $lineItem->getPurchasable();
+        if (!($purchasable instanceof Variant)) {
+            return;
+        }
 
-    if (!($purchasable instanceof Variant)) {
-      return;
+        try {
+            $product = $purchasable->getProduct();
+        }
+        catch (InvalidConfigException $exception) {
+            return;
+        }
+
+        if ($product && $product->priceRetailTrader) {
+            // Update the purchasable price so that the retail trader price
+            // is used as a basis for calculating the sale price.
+            $purchasable->price = $product->priceRetailTrader;
+            $lineItem->setPurchasable($purchasable);
+        }
     }
 
-    // get all discounts and get the discount percentage
-    foreach (Commerce::getInstance()->discounts->getAllDiscounts() as $discount) {
-      /* ?????  'percentDiscount' => $percentDiscount*/
+    private function _roundFinalPrice(LineItem $lineItem)
+    {
+        // The number of cents to which to round to.
+        $centsToRoundDownTo = 5;
+        $factor = 100 / $centsToRoundDownTo;
+        $lineItem->salePrice = floor($lineItem->salePrice * $factor) / $factor;
     }
-
-
-    try {
-      $product = $purchasable->getProduct();
-      if ($product && $product->priceRetailTrader) {
-        $lineItem->salePrice = $product->priceRetailTrader;
-        $lineItem->price = $product->priceRetailTrader;
-      }
-      // if product has a discount applied on it -> apply percentage discount to item price
-      if ($product && $product->priceRetailTrader) {
-
-      }
-
-
-    } catch (InvalidConfigException $exception) {
-    }
-  }
 }
