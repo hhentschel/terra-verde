@@ -330,7 +330,7 @@
                     cellpadding="0" cellspacing="0" width="100%" border="0"
                     style="color:#000000;font-family:'Open Sans', Arial, sans-serif;font-size:15px;line-height:22px;table-layout:auto;width:100%;border:none;"
                   >
-                    {% if order.user.userCompany %}
+                    {% if order.user.userCompany is defined %}
                       <tr>
                         <td width="40%">
                           <mj-text align="left" color="#222" font-size="15px"
@@ -350,11 +350,13 @@
                                  padding-left="25px" padding-right="25px" padding-bottom="0px" padding-top="20"><strong>Kunde</strong>
                         </mj-text>
                       </td>
-                      <td>
-                        <mj-text align="left" color="#222" font-size="15px" font-family="'Open Sans', Arial, sans-serif"
-                                 padding-left="25px" padding-right="25px" padding-bottom="0px"
-                                 padding-top="20">{{ order.user.fullName }}</mj-text>
-                      </td>
+                      {% if order.user.userCompany is defined %}
+                        <td>
+                          <mj-text align="left" color="#222" font-size="15px"
+                                   font-family="'Open Sans', Arial, sans-serif" padding-left="25px" padding-right="25px"
+                                   padding-bottom="0px" padding-top="20">{{ order.user.fullName }}</mj-text>
+                        </td>
+                      {% endif %}
                     </tr>
 
                     <tr>
@@ -703,54 +705,92 @@
                         </td>
                       </tr>
                     {% endfor %}
-                  </table>
 
-                </td>
-              </tr>
-
-              <tr>
-                <td
-                  align="left" style="font-size:0px;padding:10px 25px;word-break:break-word;"
-                >
-
-                  <table
-                    cellpadding="0" cellspacing="0" width="100%" border="0"
-                    style="color:#000000;font-family:'Open Sans', Arial, sans-serif;font-size:15px;line-height:22px;table-layout:auto;width:100%;border:none;"
-                  >
-                    <tr>
-                      <td colspan="2"></td>
-                      <td align:
-                      "right" style="text-align:right">
-                      Versand: {{ order.getTotalShippingCost()|commerceCurrency(order.currency) }}
-                      </td>
+                    <tr style="color:#121; border-bottom:1px solid #121;text-align:left;padding:15px 0; font-family="
+                    'Open Sans' , Arial, sans-serif"">
                     </tr>
+
+
+                    {% for item in order.lineItems %}
+
+
+                      {% if item.adjustments|length %}
+                        {% for adjustment in item.adjustments %}
+                          {% if adjustment.name == "Rabatt:" %}
+                            <tr>
+
+                              <td>
+                                {{ item.purchasable.product.articleNumber }}
+                              </td>
+                              <td colspan="3" align:
+                              "right" style="text-align:right">
+                              {% if adjustment.name == "Rabatt:" %} Kistenrabatt: {% endif %}
+                              </td>
+                              <td align:
+                              "right"
+                              style="text-align:right">{{ adjustment.amount|commerceCurrency(order.currency) }}</td>
+                            </tr>
+                          {% endif %}
+                        {% endfor %}
+                      {% endif %}
+
+
+
+                    {% endfor %}
+
+                    {% if order.totalDiscountAsCurrency > 0 %}
+                      <tr>
+                        <td colspan="2"></td>
+                        <td colspan="2" align:
+                        "right" style="text-align:right"> Total Artikel-Rabatte: </td>
+                        <td align:
+                        "right" style="text-align:right">{{ order.totalDiscountAsCurrency }}</td>
+                      </tr>
+                    {% endif %}
+
                     <tr>
-                      <td colspan="2"></td>
+                      <td colspan="3"></td>
+                      <td align:
+                      "right" style="text-align:right"> Versand:
+                      </td>
                       <td align:
                       "right"
-                      style="text-align:right">Mwst.:{{ order.getTotalTaxIncluded()|commerceCurrency(order.currency) }}</td>
+                      style="text-align:right">{{ order.getTotalShippingCost()|commerceCurrency(order.currency) }}</td>
                     </tr>
                     <tr>
-                      <td colspan="2"></td>
+                      <td colspan="3"></td>
                       <td align:
-                      "right" style="text-align:right"> Total Artikel-Rabatte: {{ order.totalDiscountAsCurrency }}</td>
+                      "right" style="text-align:right">Mwst.:</td>
+                      <td align:
+                      "right"
+                      style="text-align:right">{{ order.getTotalTaxIncluded()|commerceCurrency(order.currency) }}</td>
                     </tr>
+
+
+                    <tr style="color:#121; border-bottom:1px solid #121;text-align:left;padding:15px 0; font-family="
+                    'Open Sans' , Arial, sans-serif"">
+                    </tr>
+
+
                     {% for adjustment in order.orderAdjustments if adjustment.type != "shipping" %}
                       {% if adjustment.amount|commerceCurrency(order.currency)|length %}
                         <tr>
                           <td colspan="2"></td>
+                          <td colspan="2" align:
+                          "right" style="text-align:right"> Abholrabatt:</td>
                           <td align:
-                          "right" style="text-align:right">
-                          Abholrabatt: {{ adjustment.amount|commerceCurrency(order.currency) }}
+                          "right" style="text-align:right">{{ adjustment.amount|commerceCurrency(order.currency) }}
                           </td>
                         </tr>
                       {% endif %}
                     {% endfor %}
                     <tr>
                       <td colspan="2"></td>
+                      <td colspan="2" align:
+                      "right" style="text-align:right">Endsumme: </td>
                       <td align:
-                      "right" style="text-align:right">Endsumme:
-                      <strong>{{ order.totalPrice|commerceCurrency(order.currency) }}</strong></td>
+                      "right"
+                      style="text-align:right"><strong>{{ order.totalPrice|commerceCurrency(order.currency) }}</strong></td>
                     </tr>
                   </table>
 
