@@ -1,13 +1,18 @@
-dateModified: 1655823921
+dateModified: 1655972035
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: 'Terra Verde'
   replyToEmail: info@terra-verde.ch
   template: ''
   transportSettings:
-    apiKey: $SENDGRID_API_KEY
-    categories: ''
-  transportType: putyourlightson\sendgrid\mail\SendgridAdapter
+    encryptionMethod: none
+    host: $SERVD_SMTP_HOSTNAME
+    password: $SERVD_SMTP_PASSWORD
+    port: $SERVD_SMTP_PORT
+    timeout: '10'
+    useAuthentication: '1'
+    username: $SERVD_SMTP_USERNAME
+  transportType: craft\mail\transportadapters\Smtp
 meta:
   __names__:
     00a72f8a-e7ae-4303-bcc0-e693888454a0: Geschenke # Geschenke
