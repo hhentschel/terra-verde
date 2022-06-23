@@ -1,6 +1,8 @@
 <!-- Template: {{ _self }}.twig -->
 {# Allow passing of cart into partial #}
 {% set cart = cart is not defined ? craft.commerce.carts.cart : cart %}
+{% set addresses = craft.commerce.customers.customer.addresses %}
+
 
 {% if showShippingAddress is not defined %}
   {% set showShippingAddress = false %}
@@ -15,45 +17,52 @@
     Bestellübersicht
   </h2>
 
-  {% if cart.shippingMethodHandle != 'B2C_pickUpAtStore' %}
-    {% if showShippingAddress %}
-      <div class="checkout__box--adresses">
-        <div class="checkout__box--adresses-single">
+  {% if showShippingAddress %}
+    <div class="checkout__box--adresses">
 
-          <h4 class="heading heading--4 checkout__box--subheading">
-            Versandadresse
-          </h4>
-          {% if cart.shippingAddress %}
-            <div class="address-select js-address-select border-0">
-              {% include 'shop/_includes/addresses/address' with {
-                address: cart.shippingAddress
-              } %}
-            </div>
-          {% endif %}
-        </div>
+      <div class="checkout__box--adresses-single">
 
-        <div class="checkout__box--adresses-single">
+        <h4 class="heading heading--4 checkout__box--subheading">
+          Versandadresse
+        </h4>
+        {% if cart.shippingAddress %}
+          <div class="address-select js-address-select border-0">
+            {% include 'shop/_includes/addresses/address' with {
+              address: cart.shippingAddress
+            } %}
+          </div>
+
+        {% else %}
+          <p>{{ 'No shipping address selected.'|t }}</p>
+        {% endif %}
+      </div>
+
+      <div class="checkout__box--adresses-single">
+        {% if cart.billingAddress %}
           <h4 class="heading heading--4 checkout__box--subheading">
             Rechnungsadresse
           </h4>
-          {% if cart.billingAddress %}
-            {% include 'shop/_includes/addresses/address' with {
-              address: cart.billingAddress
-            } %}
-          {% endif %}
-
-        </div>
+          <div class="js-address-select border-0">
+            {{ include('shop/_includes/addresses/address', {
+              address: cart.billingAddress,
+              ignoreKeys: ['label'],
+              boldKeys: [],
+              asLines: false
+            }) }}
+          </div>
+        {% else %}
+          <p>{{ 'No billing address selected.'|t }}</p>
+        {% endif %}
       </div>
-      {% if currentUser %}
-        <div class="button-container">
-          <a class="edit button button--success button--primary"
-             href="{{ url('shop/checkout/addresses') }}">
-            Adresse(n) bearbeiten
-          </a>
-        </div>
-      {% endif %}
-    {% endif %}
+
+    </div>
+    <div class="checkout__box--button-change">
+      <a href="{{ url('/shop/checkout/addresses') }}" class="button--small button button--primary">
+        {{- 'Adressen ändern'|t -}}
+      </a>
+    </div>
   {% endif %}
+
 
   {% if showShippingMethod %}
     {% if cart.shippingMethod %}
@@ -154,16 +163,25 @@
       </div>
     </div> #}
 
-    {% if cart.totalDiscount|length %}
+
+
+
+
+    {% if cart.totalDiscount < 0 %}
       <div class="summary__price">
         <div class="summary__price--title">
-          Rabatt(e):
+          {% for adjustment in cart.orderAdjustments %}
+            Rabatt Artikel:
+          {% endfor %}
         </div>
         <div>
-          {{ (cart.totalDiscount * -1)|commerceCurrency(cart.currency) }}
+          {{ (cart.totalDiscount * 1)|commerceCurrency(cart.currency) }}
         </div>
       </div>
     {% endif %}
+
+
+
 
     {# {% if cart.orderAdjustments|length %} #}
     {% for adjustment in cart.orderAdjustments %}
@@ -171,25 +189,40 @@
         <div class="summary__price--title">
           {# <span>Versand ({{ adjustment.description }} ) - {{ adjustment.name }}:</span> #}
           {# <span>Versand ({{ adjustment.name }} ):</span> #}
-          {% if cart.shippingMethodHandle == 'B2C_pickUpAtStore' %}
-            <span>Rabatt ({{ adjustment.name }} ):</span>
+          {% if adjustment.type == "shipping" %}
+            <span>Versand:</span>
+          {% elseif adjustment.type == "discount" %}
+            <span>Rabatt:</span>
+          {% elseif adjustment.type == "tax" %}
+            <span>Steuer</span>
+          {% else %}
+            <span>{{ adjustment.type }}:</span>
+          {% endif %}
+        </div>
+        <div>
+          {{ adjustment.amount|commerceCurrency(cart.currency) }}
+        </div>
+
+
+        {#          {% if cart.shippingMethodHandle == 'B2C_pickUpAtStore' %}
+            <span>Rabatt Versand: {{ adjustment.name }}:</span>
           {% else %}
             <span>Versand:</span>
           {% endif %}
         </div>
         <div>
           {{ adjustment.amount|commerceCurrency(cart.currency) }}
-        </div>
+        </div> #}
       </div>
     {% endfor %}
     {# {% endif %} #}
 
-    <div class="summary__price">
-      <div class="summary__price--title">
-        Mwst.:
+    <div class="summary__price summary__price--small">
+      <div class="summary__price--title ">
+        (Mwst.:
       </div>
       <div>
-        {{ cart.totalTaxIncluded|commerceCurrency(cart.currency) }}
+        {{ cart.totalTaxIncluded|commerceCurrency(cart.currency) }})
       </div>
     </div>
 
@@ -230,4 +263,6 @@
       </div>
     </div>
   {% endif %}
+
+
 </div>

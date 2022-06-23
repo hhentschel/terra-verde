@@ -31,7 +31,8 @@
           {{ variantPriceRound|number_format(2, '.', '')|currency('CHF') }}
         </strike>
         <span class="shop-list__item--price-sale">
-          {{ variantSalePriceRound|number_format(2, '.', '')|currency('CHF') }}
+          {{ variant.salePrice }}
+          {# {{ variantSalePriceRound|number_format(2, '.', '')|currency('CHF') }} #}
         </span>
       {% else %}
         <span class="shop-list__item--price">

@@ -27,6 +27,10 @@
     display: flex;
     justify-content: flex-start;
 
+    .product-detail__image & {
+      justify-content: center;
+    }
+
     @include breakpoint('tablet-landscape') {
       justify-content: center;
     }

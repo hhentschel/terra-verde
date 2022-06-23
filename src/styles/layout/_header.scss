@@ -5,6 +5,7 @@
 $header--height-mobile: px-to-rem($header-height--phone);
 
 $header-logo--height: px-to-rem(90);
+$header-logo--width: px-to-rem(120);
 $header-logo--height-sticky: px-to-rem(0);
 $header-logo--height-mobile: 'auto';
 
@@ -53,24 +54,7 @@ $header-login-overlay--transition-duration-easing: easing(open);
     height: 100%;
     width: 100%;
     background: $color--white;
-    // background: linear-gradient(
-    //   242deg,
-    //   $color--grey-gradient-start 0%,
-    //   $color--grey-gradient-end 100%
-    // );
     z-index: z(negative);
-
-    // &--transparent {
-    //   background: linear-gradient(
-    //     268.9deg,
-    //     rgba(255, 255, 255, 0.931) 47.83%,
-    //     rgba(255, 255, 255, 0.686) 94.99%
-    //   );
-    // }
-
-    // @include breakpoint('desktop') {
-    //   height: calc(100% - #{$header-background__offset-bottom--desktop});
-    // }
   }
 
   &__content {
@@ -91,7 +75,6 @@ $header-login-overlay--transition-duration-easing: easing(open);
       @include breakpoint('tablet-landscape') {
         display: flex;
         flex-direction: column;
-        // padding: px-to-rem($space--m) 0;
       }
 
       #{$this}__nav-service {
@@ -151,8 +134,6 @@ $header-login-overlay--transition-duration-easing: easing(open);
   /* Top Row */
   &__top-row {
     display: flex;
-    // justify-content: space-between;
-    // align-items: center;
     padding: 0;
     z-index: z(up); // for nav-language
   }
@@ -160,13 +141,8 @@ $header-login-overlay--transition-duration-easing: easing(open);
   &__top-nav {
     display: flex;
     width: 100%;
-    //flex-direction: column;
     align-items: center;
     justify-content: space-between;
-
-    //&-logo {
-    //  flex: 0 1 80px;
-    //}
   }
 
   &__logo-link {
@@ -178,6 +154,7 @@ $header-login-overlay--transition-duration-easing: easing(open);
 
   &__logo {
     height: $header-logo--height;
+    width: $header-logo--width;
     transition-property: $header-logo--transition-sticky-property;
     transition-duration: $header-logo--transition-sticky-duration;
     transition-timing-function: $header-logo--transition-sticky-timining-function;
@@ -205,14 +182,8 @@ $header-login-overlay--transition-duration-easing: easing(open);
   &--sticky {
     box-shadow: $header__box-shadow;
 
-    @include breakpoint('tablet-landscape') {
-      // transform: translateY(px-to-rem(-$space--xm));
-    }
-
     #{$this}__top-row {
-      @include breakpoint('tablet-landscape') {
-        // transform: translateY(px-to-rem($space--s + $space--xxs));
-      }
+
     }
 
     #{$this}__logo {

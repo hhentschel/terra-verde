@@ -1,0 +1,71 @@
+// -----------------------------------------------------------------------------
+// #ACCORDION
+// -----------------------------------------------------------------------------
+
+$accordion__icon-size: px-to-rem(24);
+
+//transition
+$accordion--transition-property-max-height: max-height;
+$accordion--transition-property-transform: transform;
+$accordion--transition-duration: speed();
+$accordion--transition-timing-function: easing(open);
+
+.cart-box__select {
+
+  background-color: $color--grey-lightest;
+  margin: 0 0 px-to-rem($space--m) 0;
+
+  &-label {
+    position: relative;
+    border-radius: 3px;
+    display: flex;
+    flex-direction: column;
+    padding: px-to-rem($space--m);
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &-radio {
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    flex-direction: column;
+
+    @include breakpoint('tablet') {
+      flex-direction: row;
+    }
+
+    .input-radio,
+    input[type="radio"] {
+      margin: px-to-rem($space--s) 0 0 0;
+    }
+
+    .address-list {
+      margin: 0 0 0 px-to-rem($space--s);
+    }
+  }
+
+  &-radioinput {
+    display: flex;
+  }
+
+  &-editbutton {
+    align-self: end;
+    margin: px-to-rem($space--m) 0;
+  }
+
+  &-hint {
+    display: flex;
+    flex-direction: column;
+    align-self: end;
+  }
+}
+
+
+.cart-container__checkboxes {
+  margin: px-to-rem($space--m) 0;
+  padding: px-to-rem($space--m) 0 0 0;
+  border-top: 1px solid $color--grey-lighter;
+}

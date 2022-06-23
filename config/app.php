@@ -20,16 +20,10 @@
 use craft\helpers\App;
 
 return [
-    'id' => App::env('APP_ID') ?: 'CraftCMS',
-    'modules' => [
-        // 'c-q-control-panel' => terraverde\CQControlPanel::class,
-        'retail-pricing' => modules\retailpricing\RetailPricing::class,
-        'terraverde-module' => modules\terraverdemodule\TerraverdeModule::class,
-      //   'exampleadjuster' => [
-      //     'class' => \modules\exampleadjuster\Example::class,
-      // ],
-    ],
-    // 'bootstrap' => ['c-q-control-panel', 'terraverde-module'],
-    // 'bootstrap' => ['terraverde-module', 'exampleadjuster'],
-    'bootstrap' => ['retail-pricing', 'terraverde-module'],
+  'id' => App::env('APP_ID') ?: 'CraftCMS',
+  'modules' => [
+    'retail-pricing' => modules\retailpricing\RetailPricing::class,
+    'terraverde-module' => modules\terraverdemodule\TerraverdeModule::class,
+  ],
+  'bootstrap' => ['retail-pricing', 'terraverde-module'],
 ];

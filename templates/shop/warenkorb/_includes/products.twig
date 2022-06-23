@@ -14,7 +14,7 @@
 {% set product = craft.products.one() %}
 
  {% if cart.lineItems|length %}
-   <form method="post" class="form__cart">
+   <form class="form__cart">
      <div class="form__cart">
        {{ hiddenInput('fields[giftWrapped]', '') }}
        {{ hiddenInput('fields[giftNote]', '') }}
@@ -96,6 +96,19 @@
                     {% endif %}
 
                    </div>
+
+                   {# {% for variant in product.getVariants() %}
+                   #}{# @var variant \craft\commerce\elements\Variant #}{#
+                 {{ tag('option', {
+                   value: variant.id,
+                   text: variant.sku ~ ' ' ~ variant.salePrice|currency(cart.currency)
+                 }) }}
+               {% endfor %}
+
+               <label>
+                 {{ input('checkbox', 'options[giftWrapped]', 'yes') }}
+                 {{ 'Gift wrap item'|t }}
+               </label> #}
 
                  {% endif %}
                {% endif %}
@@ -195,27 +208,26 @@
                <span class="form__cart-table--item-remove">
                {% set vals = {('lineItems[' ~ item.id ~ '][remove]'): 1}|json_encode %}
                <a sprig s-action="commerce/cart/update-cart" s-method="post" s-vals="{{ vals }}"
-                  s-confirm="Wollen Sie den Artikel aus dem Warenkorb löschen?" href="#"
+                  href="#"
                   class="button button--tertiary">
                  Entfernen
                </a>
              </span>
              </td>
 
-             {# <td class="form__cart-table--item-remove">
-               {% set vals = {('lineItems[' ~ item.id ~ '][remove]'): 1}|json_encode %}
-               <a sprig s-action="commerce/cart/update-cart" s-method="post" s-vals="{{ vals }}"
-                  s-confirm="Wollen Sie den Artikel aus dem Warenkorb löschen?" href="#"
-                  class="button button--tertiary">
-                 Entfernen
-               </a>
-             </td> #}
            </tr>
 
            <tr class="form__cart--adjustments">
              <td>&nbsp;</td>
              <td class="text-right" colspan="2">
                {% if not cart.hasErrors() and item.adjustments|length %}
+
+                 <div class="form__cart-table--item-price" title="{{ item.subtotal }}">
+                   <div class="form__cart-table--item-price-name">Gesamtpreis Artikel:</div>
+                   <div class="form__cart-table--item-price-number">
+                     {{ item.subtotal|commerceCurrency(cart.currency) }}
+                   </div>
+                 </div>
                  <div class="adjustments">
 
                    {# wenn geschenksets #}
@@ -251,13 +263,23 @@
 
                          <div class="adjustments__data--amount">
                           <span class=""
-                                title="{{ adjustment.amount }}"> {{ adjustment.amount|commerceCurrency(cart.currency) }}</span>
+                                title="{{ adjustment.amount }}">
+
+                           {#   {% set adjustmentAmount  = adjustment.amount %}
+                            {% set adjustmentAmountRound = round((adjustmentAmount + 0.000001) * 20) / 20 %}
+                            {{ adjustmentAmountRound|number_format(2, '.', '')|commerceCurrency(cart.currency) }} #}
+
+                            {{ adjustment.amount|commerceCurrency(cart.currency) }}
+
+                          </span>
                          </div>
                        </div>
+
+
                      {% endfor %}
 
-                     {# für Anpassungen nicht als Discount #}
-                     {% for adjustment in item.adjustments if adjustment.type != "discount" %}
+                     {# für Anpassungen nicht als Discount #} {# MWST: Ausgabe #}
+                     {# {% for adjustment in item.adjustments if adjustment.type != "discount" %}
                        <div class="adjustments__data">
 
                          {% if adjustment.name %}
@@ -273,7 +295,8 @@
                                 title="{{ adjustment.amount }}"> {{ adjustment.amount|commerceCurrency(cart.currency) }}</span>
                          </div>
                        </div>
-                     {% endfor %}
+                     {% endfor %} #}
+
                    {% endif %}
 
                  </div>
@@ -281,15 +304,13 @@
 
                {% if not cart.hasErrors() %}
                  <div class="form__cart-table--item-price" title="{{ item.total }}">
-                   <div class="form__cart-table--item-price-name">Total Artikelpreis:</div>
-                   <div class="form__cart-table--item-price-number form__cart-table--item-price-number-bold">
-                     {% set itemTotalPrice = item.total %}
-                     {% set itemTotalPriceRound = round((itemTotalPrice + 0.000001) * 20) / 20 %}
-                     {{ itemTotalPriceRound|number_format(2, '.', '')|commerceCurrency(cart.currency) }}
-                     {# {{ item.total|commerceCurrency(cart.currency) }} #}
+                   <div class="form__cart-table--item-price-name">Subtotal:</div>
+                   <div class="form__cart-table--item-price-number">
+                     {{ item.total|commerceCurrency(cart.currency) }}
                    </div>
                  </div>
                {% endif %}
+
 
              </td>
            </tr>
@@ -307,13 +328,13 @@
              </td>
              <td colspan="1" class="">
                <div class="form__cart-table--item-pricesubtotal" title="{{ cart.itemSubTotal }}">
-                 <div class="form__cart-table--item-price-name">Gesamtpreis:</div>
+                 <div class="form__cart-table--item-price-name">Warenkorb Subtotal:</div>
                  <div class="form__cart-table--item-pricesubtotal-number">
-                   {% set cartItemSubTotal  = cart.itemSubTotal %}
+                   {# {% set cartItemSubTotal  = cart.itemSubTotal %}
                    {% set cartItemSubTotalRound = round((cartItemSubTotal + 0.000001) * 20) / 20 %}
-                   {{ cartItemSubTotalRound|number_format(2, '.', '')|commerceCurrency(cart.currency) }}
+                   {{ cartItemSubTotalRound|number_format(2, '.', '')|commerceCurrency(cart.currency) }} #}
 
-                   {# {{ cart.itemTotalAsCurrency }} #}
+                   {{ cart.itemTotalAsCurrency }}
                  </div>
                </div>
              </td>
@@ -408,36 +429,39 @@
 
            <td colspan="2" class="form__cart-table--adjustments-order">
              {% if not cart.hasErrors() %}
-               <div class="form__cart-table--item-addprice" title="{{ cart.getTotalShippingCost() }}">
-                 <div class="form__cart-table--item-price-name">Versand:</div>
-                 <div
-                   class="form__cart-table--item-price-number">{{ cart.getTotalShippingCost()|commerceCurrency(cart.currency) }}</div>
-               </div>
-               <div class="form__cart-table--item-addprice" title="{{ cart.getTotalTaxIncluded() }}">
-                 <div class="form__cart-table--item-price-name">Mwst. (inkl):</div>
-                 <div
-                   class="form__cart-table--item-price-number">{{ cart.getTotalTaxIncluded()|commerceCurrency(cart.currency) }}</div>
-               </div>
-               <div class="form__cart-table--item-addprice" title="{{ cart.getTotalDiscount() }}">
-                 <div class="form__cart-table--item-price-name">
-                   {% if cart.couponCode %}
-                     Coupon:
-                   {% else %}
-                     Rabatt:
-                   {% endif %}
+               {% if cart.getTotalShippingCost() > 0 %}
+                 <div class="form__cart-table--item-addprice" title="{{ cart.getTotalShippingCost() }}">
+                   <div class="form__cart-table--item-price-name">Versand:</div>
+                   <div
+                     class="form__cart-table--item-price-number">{{ cart.getTotalShippingCost()|commerceCurrency(cart.currency) }}</div>
                  </div>
-                 <div
-                   class="form__cart-table--item-price-number">{{ cart.getTotalDiscount()|commerceCurrency(cart.currency) }}</div>
-               </div>
+               {% endif %}
+
+               {% if cart.couponCode %}
+                 <div class="form__cart-table--item-addprice" title="{{ cart.getTotalDiscount() }}">
+                   <div class="form__cart-table--item-price-name">
+                     {% if cart.couponCode %}
+                       Rabatte Gesamt:
+                     {% else %}
+                       Rabatt Artikel:
+                     {% endif %}
+                   </div>
+                   <div
+                     class="form__cart-table--item-price-number">{{ cart.getTotalDiscount()|commerceCurrency(cart.currency) }}</div>
+                 </div>
+               {% endif %}
 
                <div class="form__cart-table--item-pricetotal" title="{{ cart.totalPrice }}">
                  <div class="form__cart-table--item-price-name">Warenkorb Gesamtpreis:</div>
                  <div class="form__cart-table--item-pricetotal-number">
-                   {% set cartTotalPrice = cart.totalPrice %}
-                   {% set cartTotalPriceRound = round((cartTotalPrice + 0.000001) * 20) / 20 %}
-                   {{ cartTotalPriceRound|number_format(2, '.', '')|commerceCurrency(cart.currency) }}
-                   {# {{ cart.totalPrice|commerceCurrency(cart.currency) }} #}
+
+                   {{ cart.totalPrice|commerceCurrency(cart.currency) }}
                  </div>
+               </div>
+               <div class="form__cart-table--item-addprice" title="{{ cart.getTotalTaxIncluded() }}">
+                 <div class="form__cart-table--item-price-name">inkl. Mwst.:</div>
+                 <div
+                   class="form__cart-table--item-price-number">{{ cart.getTotalTaxIncluded()|commerceCurrency(cart.currency) }}</div>
                </div>
              {% endif %}
            </td>
@@ -449,22 +473,30 @@
                  <div>
                    {% if not cart.hasErrors() %}
                      {% set userExists = craft.users.email(cart.email).one() %}
+                     {# If User exists #}
                      {% if userExists %}
+                       {# If User is Retailer (Detailhandel) #}
                        {% if userExists.isInGroup('userGroupRetail') %}
 
-                         {% set nettoPrice = cart.totalPrice - cart.getTotalTaxIncluded %}
-                         {% if nettoPrice < 150 and not cart.couponCode %}
-                           <div class="form__cart--expection">
-                             <a class="button button--secondary" href="#">Zahlung nicht möglich</a>
-                             <span>Mindestbestellbetrag Netto: 150,- CHF</span>
-                           </div>
-                         {% else %}
+                         {# If User has Lightswitch to in, that min Order Amount is turned off #}
+                         {% if currentUser.minOrderValueSetting %}
                            <a class="button button--primary" href="{{ url('shop/checkout') }}">Bezahlen</a>
+                         {% else %}
+
+                           {% set nettoPrice = cart.totalPrice - cart.getTotalTaxIncluded %}
+                           {% if nettoPrice < 150 and not cart.couponCode %}
+                             <div class="form__cart--expection">
+                               <a class="button button--secondary" href="#">Zahlung nicht möglich</a>
+                               <span>Mindestbestellbetrag Netto: 150,- CHF</span>
+                             </div>
+                           {% else %}
+                             <a class="button button--primary" href="{{ url('shop/checkout') }}">Bezahlen</a>
+                           {% endif %}
                          {% endif %}
 
                        {% elseif userExists.isInGroup('userGroupPrivate') %}
 
-                         {% if cart.totalPrice < 30 and not cart.couponCode %}
+                         {% if cart.totalPrice < 1 and not cart.couponCode %}
                            <div class="form__cart--expection">
                              <a class="button button--secondary" href="#">Zahlung nicht möglich</a>
                              <span>Mindestbestellbetrag: 30,- CHF</span>
@@ -475,7 +507,7 @@
 
                        {% else %}
 
-                         {% if cart.totalPrice < 30 and not cart.couponCode %}
+                         {% if cart.totalPrice < 1 and not cart.couponCode %}
                            <div class="form__cart--expection">
                              <a class="button button--secondary" href="#">Zahlung nicht möglich</a>
                              <span>Mindestbestellbetrag: 30,- CHF</span>

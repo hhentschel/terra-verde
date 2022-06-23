@@ -35,7 +35,7 @@
   &--mobile {
     display: block;
     margin-top: -(px-to-rem($space--xl));
-    margin-bottom: px-to-rem($space--xxm);
+    margin-bottom: 0;
     padding: px-to-rem($space--xm);
 
     @include breakpoint('tablet-landscape') {
@@ -193,6 +193,8 @@
 }
 
 .quicklinks {
+  margin: px-to-rem($space--l) 0 0 0;
+
   .image__img {
     max-height: px-to-rem(250);
     width: auto;
@@ -211,7 +213,7 @@
   &__items {
     display: flex;
     flex-direction: column;
-    padding-bottom: px-to-rem($space--xxm);
+    padding-bottom: px-to-rem($space--m);
     justify-content: space-between;
 
     .link--button {

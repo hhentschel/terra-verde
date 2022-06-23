@@ -9,7 +9,6 @@
       a {
         position: relative;
         font-size: px-to-rem($font-size-s);
-        height: 30px;
         display: flex;
         align-items: center;
       }
@@ -24,6 +23,13 @@
         line-height: $line-height--s;
         @include breakpoint('tablet-portrait') {
           line-height: $line-height--m;
+        }
+
+        > a {
+          display: none;
+          @include breakpoint('tablet-portrait') {
+            display: block;
+          }
         }
       }
 

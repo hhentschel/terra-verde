@@ -3,7 +3,7 @@
   text-align: center;
   width: 100%;
   margin: 0 auto px-to-rem($space--xm) auto;
-  
+
   &__nav {
     display: flex;
     flex-direction: column;
@@ -22,13 +22,14 @@
     background-color: $color--grey-lighter;
     height: px-to-rem($space--s);
     margin-top: px-to-rem($space--s);
+
     &--active {
-      
+
       background-color: $color--primary;
       opacity: 1;
       height: px-to-rem($space--s);
       margin-top: px-to-rem(-$space--s);
-      
+
     }
   }
 }
@@ -36,6 +37,7 @@
 
 .checkout {
   margin: px-to-rem($space--l) 0;
+
   &__flex-field {
     display: flex;
 
@@ -47,7 +49,6 @@
     }
 
     .input {
-      width: px-to-rem(360);
       margin-right: px-to-rem($space--m);
     }
   }

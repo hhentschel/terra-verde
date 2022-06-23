@@ -12,8 +12,8 @@
       <ul class="row quicklinks">
         {% for item in items.all() %}
           <li class="col col-xs-12 col-md-4 col-lg-4 quicklinks__items">
-            <a href="{{ item.buttonLinkToEntry.one().url() }}"
-              class="quicklinks__items--link">
+            <a href="{{ item.buttonLinkToEntry }}"
+               class="quicklinks__items--link">
               {% set transform = transformation|default('imageOneThird') %}
               {% set img = item.image.one() ?? null %}
               {% include '_components/_content-elements/image' with {
@@ -28,7 +28,7 @@
               </h2>
             </a>
             {% include '_components/_content-elements/link' with {
-              linkUrl: item.buttonLinkToEntry.one().url(),
+              linkUrl: item.buttonLinkToEntry,
               linkText: item.linkText,
               type: 'button',
               target: 'internal',

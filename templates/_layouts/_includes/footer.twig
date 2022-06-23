@@ -61,7 +61,7 @@
   <div class="footer__middle">
     <div class="grid">
       <div class="row">
-        <div class="col col-xs-12 col-md-4 col-lg-3">
+        <div class="col col-xs-12 col-md-6 col-lg-3">
           <div class="footer--box footer--contact">
             <h3 class="footer--heading">Kontakt</h3>
 
@@ -104,18 +104,18 @@
 
         </div>
 
-        <div class="col col-xs-12 col-md-4 col-lg-3">
+        <div class="col col-xs-12 col-md-6 col-lg-3">
           <div class="footer--box footer--aboutus">
             <h3 class="footer--heading">Über uns</h3>
 
             {% set entries = craft.entries.section('aboutusStructure').level(2) %}
 
-            <ul>
-              <li>
+            <ul class="footer-list__nav">
+              <li class="footer-list__nav-item">
                 <a href="/ueberuns">Werte</a>
               </li>
               {% for entry in entries.all() %}
-                <li>
+                <li class="footer-list__nav-item">
                   <a href="{{ entry.url }}">
                   {{ entry.title }}</li>
                 </a>
@@ -130,9 +130,9 @@
             <h3 class="footer--heading">Service</h3>
             {% set entries = craft.entries.section('serviceStructure').all() %}
 
-            <ul>
+            <ul class="footer-list__nav">
               {% for entry in entries %}
-                <li>
+                <li class="footer-list__nav-item">
                   <a href="{{ entry.url }}">
                   {{ entry.title }}</li>
                 </a>
@@ -141,7 +141,7 @@
           </div>
         </div>
 
-        <div class="col col-xs-12 col-md-4 col-lg-3">
+        <div class="col col-xs-12 col-md-6 col-lg-3">
           <div class="footer--box footer--openinghours">
             <h3 class="footer--heading">Laden</h3>
             {% if footerGlobal.adress %}
@@ -157,6 +157,11 @@
             {% if footerGlobal.openingHoursTwo %}
               <span>
                 {{ footerGlobal.openingHoursTwo }}
+              </span>
+            {% endif %}
+            {% if footerGlobal.additionalOpenings %}
+              <span>
+                {{ footerGlobal.additionalOpenings }}
               </span>
             {% endif %}
           </div>

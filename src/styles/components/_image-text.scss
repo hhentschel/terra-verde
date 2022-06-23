@@ -24,6 +24,8 @@
   &__title {
     &--desktop {
       font-size: px-to-rem($font-size-xm);
+      line-height: $line-height--xm;
+      @include lhCrop(0.5);
     }
   }
 }

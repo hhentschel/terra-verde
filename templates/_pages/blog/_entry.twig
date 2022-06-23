@@ -1,6 +1,5 @@
 {% extends '_layouts/main' %}
-{% set pageTitle = entry.pageTitle is not empty ? entry.pageTitle : entry.title
-%}
+{% set pageTitle = entry.pageTitle is not empty ? entry.pageTitle : entry.title %}
 
 {% block content %}
   <div class="grid">
@@ -15,9 +14,11 @@
   </div>
 
   <section class="grid">
-    {% include [
-      '/_pages/blog/_types/' ~ entry.type,
-      '/_pages/blog/_types/default'
-    ] %}
+    <div class="row">
+      {% include [
+        '/_pages/blog/_types/' ~ entry.type,
+        '/_pages/blog/_types/default'
+      ] %}
+    </div>
   </section>
 {% endblock %}

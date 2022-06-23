@@ -1,12 +1,18 @@
-dateModified: 1653216036
+dateModified: 1655972035
 email:
-  fromEmail: p@henrik-hentschel.de
+  fromEmail: $SYSTEM_EMAIL
   fromName: 'Terra Verde'
   replyToEmail: info@terra-verde.ch
   template: ''
   transportSettings:
-    apiKey: $SENDGRID_API_KEY
-  transportType: putyourlightson\sendgrid\mail\SendgridAdapter
+    encryptionMethod: none
+    host: $SERVD_SMTP_HOSTNAME
+    password: $SERVD_SMTP_PASSWORD
+    port: $SERVD_SMTP_PORT
+    timeout: '10'
+    useAuthentication: '1'
+    username: $SERVD_SMTP_USERNAME
+  transportType: craft\mail\transportadapters\Smtp
 meta:
   __names__:
     00a72f8a-e7ae-4303-bcc0-e693888454a0: Geschenke # Geschenke
@@ -32,6 +38,7 @@ meta:
     3b29092d-6e27-4661-87d3-a212528b2a3a: Trinktemperatur # Trinktemperatur
     3bb39d28-0fde-4351-82f7-4a35d96e4a3b: 'Karten Vorschaubilder' # Karten Vorschaubilder
     3c5824e6-9e4f-47c8-b1d2-9d1000064cdf: Aufklappelemente # Aufklappelemente
+    3d739192-d1d4-45f2-8239-0effd9b4f3a8: 'Out of Stock' # Out of Stock
     3e5c3431-66db-4b4c-97d4-8069da3cc21e: News # News
     3e29b0f8-b933-4ba4-9773-c1f7d96ec10d: 'Kategorien (Delikatessen)' # Kategorien (Delikatessen)
     3e63c7a3-9bb5-4903-bb3d-63842b8a267f: Rezept # Rezept
@@ -116,6 +123,7 @@ meta:
     127bba7e-6a96-4ffa-8cbb-f4c17d39e347: Team # Team
     149a3219-5b27-4275-8a0f-b97cbff1e3ec: Shop # Shop
     219d5317-b509-4c72-87a2-15026938e903: Blog # Blog
+    273d5a0c-4e06-47ec-8a4b-c1fcffa5684d: Mindestbestellwert # Mindestbestellwert
     328c6ddf-69e0-47e5-8057-5c04984d8d85: 'Weine Portugal' # Weine Portugal
     348a200e-7d31-4262-b613-e8cc6e039fb2: Degustationsnotiz # Degustationsnotiz
     421eaf0b-f542-45ff-8051-2921d93b3eeb: Vorschautext # Vorschautext
@@ -131,7 +139,6 @@ meta:
     763aeea2-9aa6-475b-ab99-66fb8c6b67f2: Startseite # Startseite
     789fdb6d-520f-4cf1-be1e-478056358e79: Inhaltsbilder # Inhaltsbilder
     809da76b-a716-40fe-aed3-55f1fc0c57e9: 'Blog Kategorien' # Blog Kategorien
-    813c7c4d-1437-4f3b-bcee-430974ff086b: 'Schaum- & Suessweine' # Schaum- & Suessweine
     842f167d-10b6-44fb-826b-d13831f73ff9: Common # Common
     872de5f4-04bb-4eb5-8c3f-7a3151ea37ea: Rechnung # Rechnung
     942ff559-0290-4738-ae31-bd8570484d25: Adresse # Adresse
@@ -252,6 +259,7 @@ meta:
     ea3d0d8a-06a4-48ed-b8aa-3e7cbaa24971: Registrieren # Registrieren
     ea603a9d-ad1a-46a9-8400-4c237d4f779e: Artikelnummer # Artikelnummer
     eb0e12f9-6563-4af9-a66b-b29028951bcb: Beliebteste # Beliebteste
+    eb3ef146-b785-48bc-ab53-40d64959cc24: 'Zusatzfeld Öffnungszeiten' # Zusatzfeld Öffnungszeiten
     ec45610a-116e-4f59-81ef-2b22ad4cf4c8: Blog # Blog
     ee73ad95-c3b7-4b1a-97d4-77987063c463: Bestell-Bestätigung # Bestell-Bestätigung
     f021083a-e208-4eaa-974d-3ae4d7e91811: 'Artikel Einheit Volumen/Gewicht' # Artikel Einheit Volumen/Gewicht
@@ -396,6 +404,10 @@ plugins:
       prependSubject: 'Nachricht vom Kontaktformular der Webseite'
       successFlashMessage: 'Ihre Nachricht wurde erfolgreich gesendet.'
       toEmail: p@henrik-hentschel.de
+  cp-field-inspect:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
   craft-commerce-back-in-stock:
     edition: standard
     enabled: true
@@ -712,6 +724,10 @@ plugins:
     edition: standard
     enabled: true
     licenseKey: JXHZASVWB1TY66SQLYF4FQZU
+    schemaVersion: 1.0.0
+  typedlinkfield:
+    edition: standard
+    enabled: true
     schemaVersion: 1.0.0
   untransform:
     edition: standard

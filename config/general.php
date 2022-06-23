@@ -52,6 +52,7 @@ return [
       '@basePath' => getenv('BASE_PATH'),
       '@baseUrl' => getenv('BASE_URL'),
       '@rootUrl' => getenv('ROOT_URL'),
+      '@web' => getenv('WEB_URL'),
     ),
 
     // https://craftcms.com/knowledge-base/enabling-fuzzy-search
@@ -61,6 +62,9 @@ return [
     ),
 
     'limitAutoSlugsToAscii' => true,
+
+    'isSystemLive' => (bool)getenv('IS_SYSTEM_LIVE'),
+    'runQueueAutomatically' => (bool)getenv('RUN_QUEUE_AUTOMATICALLY'),
   ],
 
   // Dev LOCAL environment settings
@@ -88,8 +92,6 @@ return [
 
     // Prevent crawlers from indexing pages and following links
     'disallowRobots' => true,
-
-    // 'isSystemLive' => false,
 
     'enableTemplateCaching' => false,
 

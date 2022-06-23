@@ -5,10 +5,9 @@
   {% set addressId = craft.app.request.param('addressId') %}
   {% set redirect = craft.app.request.param('redirect') %}
 
-  {% if address is not defined and addressId %}
-    {% set address =
-      craft.commerce.customers.customer.getAddressById(addressId)
-    %}
+  {% if not address is defined and addressId %}
+    {# @var address \craft\commerce\models\Address #}
+    {% set address = craft.commerce.customers.customer.getAddressById(addressId) %}
   {% endif %}
 
   <section class="grid">
@@ -23,58 +22,44 @@
         </h2>
 
         <form method="post" action="">
+
           {{ csrfInput() }}
           {{ actionInput('commerce/customer-addresses/save') }}
-          {% if redirect %}
-            {{ redirectInput(redirect) }}
-          {% else %}
-            {{ redirectInput('shop/customer/addresses') }}
-          {% endif %}
+          {{ redirectInput(redirect ?: 'shop/customer/addresses') }}
 
           {% if addressId %}
             {{ hiddenInput('address[id]', addressId) }}
           {% endif %}
 
-          {% set isPrimaryBilling = cart.customer.primaryBillingAddressId
-            == addressId
-          %}
-          {% set isPrimaryShipping = cart.customer.primaryShippingAddressId
-            == addressId
-          %}
-
-          <div>
-            <label for="makePrimaryShippingAddress" class="flex items-center">
-              <input id="makePrimaryShippingAddress"
-                class=""
-                name="makePrimaryShippingAddress"
-                type="checkbox"
-                {{
-                isPrimaryShipping
-                  ? 'checked'
-                  : ''
-                }} /><span class="label-body">Als Versandadresse</span>
+          {% set isPrimaryShipping = (cart.customer.primaryShippingAddressId == addressId) %}
+          <div class="selection--checkbox">
+            {{ input('checkbox', 'makePrimaryShippingAddress', 1, {
+              id: 'makePrimaryShippingAddress',
+              checked: isPrimaryShipping,
+              class: 'selection__input'
+            }) }}
+            <label for="makePrimaryShippingAddress" class="selection__label">
+              {{ 'Diese Adresse als primäre Versandadresse verwenden'|t }}
             </label>
           </div>
 
-          <div>
-            <label for="makePrimaryBillingAddress" class="flex items-center">
-              <input id="makePrimaryBillingAddress"
-                class=""
-                name="makePrimaryBillingAddress"
-                type="checkbox"
-                {{
-                isPrimaryBilling
-                  ? 'checked'
-                  : ''
-                }} /><span class="label-body">Als Rechnungsadresse</span>
+          {% set isPrimaryBilling = (cart.customer.primaryBillingAddressId == addressId) %}
+          <div class="selection--checkbox">
+            {{ input('checkbox', 'makePrimaryBillingAddress', 1, {
+              id: 'makePrimaryBillingAddress',
+              checked: isPrimaryBilling,
+              class: 'selection__input'
+            }) }}
+            <label for="makePrimaryBillingAddress" class="selection__label">
+              {{ 'Diese Adresse als primäre Rechnungsadresse verwenden'|t }}
             </label>
           </div>
 
-          <hr class="my-3" />
+          <hr class="my-3"/>
 
           {% include 'shop/_includes/addresses/form' %}
 
-          <hr class="my-3" />
+          <hr class="my-3"/>
 
           <div class="flex justify-between">
             <div>
@@ -84,15 +69,15 @@
                 </a>
               {% else %}
                 <a href="{{ url('shop/customer/addresses') }}"
-                  class="button button--secondary">
+                   class="button button--secondary">
                   Abbrechen
                 </a>
               {% endif %}
             </div>
             <div>
               <input class="input input__primary"
-                type="submit"
-                value="Adresse sichern" />
+                     type="submit"
+                     value="Adresse sichern"/>
             </div>
           </div>
         </form>

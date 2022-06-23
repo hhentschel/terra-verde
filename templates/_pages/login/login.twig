@@ -3,48 +3,44 @@
   {{ actionInput('users/login') }}
 
   <label for="loginName">E-Mail</label>
-  {{
-    input(
-      'text',
-      'loginName',
-      craft.app.user.rememberedUsername,
-      {
-        id: 'loginName',
-        class: 'input input-medium layout-helper__margin-bottom--xxs'
-      }
-    )
-  }}
+  {{ input(
+    'text',
+    'loginName',
+    craft.app.user.rememberedUsername,
+    {
+      id: 'loginName',
+      class: 'input input-medium layout-helper__margin-bottom--xxs'
+    }
+  ) }}
 
   <label for="password">Passwort</label>
-  {{
-    input(
-      'password',
-      'password',
-      null,
-      {
-        id: 'password',
-        class: 'input input-medium layout-helper__margin-bottom--xxs'
-      }
-    )
-  }}
+  {{ input(
+    'password',
+    'password',
+    null,
+    {
+      id: 'password',
+      class: 'input input-medium layout-helper__margin-bottom--xxs'
+    }
+  ) }}
 
-  <div class="selection">
-    <label class="selection__label">
-      {{
-        input(
-          'checkbox',
-          'rememberMe',
-          '1',
-          {
-            class: 'selection--input'
-          }
-        )
-      }}Angemeldet bleiben
+  <div class="selection selection--checkbox">
+    {{ input(
+      'checkbox',
+      'rememberMe',
+      '1',
+      {
+        id: 'rememberMe',
+        class: 'selection--input selection__input'
+      }
+    ) }}
+    <label for="rememberMe" class="selection__label">
+      Angemeldet bleiben
     </label>
   </div>
 
   <button type="submit"
-    class="button button--primary layout-helper__margin-vertical--xxs">
+          class="button button--primary layout-helper__margin-vertical--xxs">
     Login
   </button>
 
@@ -61,7 +57,7 @@
     Passwort vergessen?
   </a>
 
-   <a href="{{ url('/customer/account/reset-password') }}" class="link link__block">
+  <a href="{{ url('/customer/account/reset-password') }}" class="link link__block">
     Neues Passwort erstellen.
   </a>
 </p>

@@ -4,23 +4,81 @@
 {% set primaryShippingAddress = customer.getPrimaryShippingAddress() %}
 
 <div class="js-address-fieldset {{ class }}">
+
+
   {% if addresses and currentUser %}
+    <div class="md:flex md:flex-wrap md:-mx-2 pb-4">
+      {% for address in addresses %}
+        {% set editUrl = '/shop/customer/addresses/edit?addressId=' ~ address.id ~ '&redirect=' ~ craft.app.request.fullPath %}
+        <div class="cart-box__select">
+          <label data-address-id="{{ address.id }}"
+                 class="address-select js-address-select cart-box__select-label"
+          >
+            <span class="cart-box__select-radio">
+              <span class="js-radio cart-box__select-radioinput">
+                {{ input('radio', name ~ 'Id', address.id,{
+                  checked: attribute(cart, name ~ 'Id') == address.id,
+                  'data-model-name': name
+                }) }}
+                <span class="-mt-2 ml-3 mb-2">
+                  {{ include('shop/_includes/addresses/address', {
+                    address: address,
+                    boldKeys: [ address.label ? 'label' : 'name'],
+                    asLines: false
+                  }) }}
+                </span>
+              </span>
+              <span class="cart-box__select-editbutton">
+                <a href="{{ url(editUrl) }}"
+                   class="button button--primary button--success button--small">
+                  {{- 'Bearbeiten'|t -}}
+                </a>
+              </span>
+            </span>
+            <span class="cart-box__select-hint">
+              {% if cart.customer.primaryBillingAddressId == address.id %}
+                <span title="{{ 'Primary billing address'|t }}">
+                  <svg class="icon--check"
+                       xmlns="http://www.w3.org/2000/svg"
+                       viewBox="0 0 20 20"
+                       fill="currentColor"
+                       role="img" aria-label="Check Mark">
+                        <path fill-rule="evenodd"
+                              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                              clip-rule="evenodd"/>
+                    </svg>
+                  Primäre Rechnungsadresse
+                  {# 💳 #}
+                </span>
+              {% endif %}
+              {% if cart.customer.primaryShippingAddressId == address.id %}
+                <span title="{{ 'Primary shipping address'|t }}">
+                  <svg class="icon--check"
+                       xmlns="http://www.w3.org/2000/svg"
+                       viewBox="0 0 20 20"
+                       fill="currentColor"
+                       role="img" aria-label="Check Mark">
+                        <path fill-rule="evenodd"
+                              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                              clip-rule="evenodd"/>
+                    </svg>
+                  Primäre Versandadresse
+                  {# 📦 #}
+                </span>
+              {% endif %}
+            </span>
+          </label>
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+
+
+
+  {#  {% if addresses and currentUser %}
 
     <div class="">
       {% for address in addresses %}
-
-
-        {# <label class="radio-container__label address-select js-address-select" data-address-id="{{ address.id }}">
-              <div class="radio-container__box">
-                <div class="radio-container__radio radio-container__box js-radio">
-                  <input type="checkbox" name="{{ name }}Id"
-                        data-model-name="{{ name }}"
-                      {% if attribute(cart,name~'Id') == address.id %}checked="checked"{% endif %} value="{{ address.id }}"/>
-                      {% include 'shop/_includes/addresses/address' %}
-                </div>
-              </div>
-            </label> #}
-
         {% if
           primaryShippingAddress
           and primaryShippingAddress.id == address.id %}
@@ -42,6 +100,7 @@
             </div>
           </div>
         {% endif %}
+
 
         {% if
           primaryBillingAddress
@@ -70,34 +129,32 @@
       {% endfor %}
 
     </div>
-  {% endif %}
+  {% endif %} #}
 
-  <div class="address-select js-address-select js-address-select-new" data-model-name="{{ name }}">
-    {% if attribute(cart, name~'Id') %}
+  <div class="js-address-select" data-model-name="{{ name }}">
+    {% if attribute(cart, name ~ 'Id') %}
       {% set addressHasErrors = attribute(cart, name).hasErrors() %}
     {% else %}
       {% set addressHasErrors = false %}
     {% endif %}
 
+    {#    {% if currentUser %}
+      <div class="js-radio">
+        <label>
+          {{ input('radio', name ~ 'Id', '', {
+            checked: not addresses|length or addressHasErrors
+          }) }}
+          {{ 'New {title}'|t({ title: title }) }}
+        </label>
+      </div>
+    {% endif %} #}
 
-    {# If we have no addresses expand the 'New Address" fields by default it to being checked.
-                   If we have errors on the address also check and expand. #}
-    {# {% if currentUser %}
-            <div class="js-radio">
-                <label>
-                  <input type="radio" name="{{ name }}Id"
-                         {% if not addresses|length or addressHasErrors %}checked="checked"{% endif %} value=""/>
-                  <strong>{{ "Neue" }} {{ title }}</strong>
-                </label>
-            </div>
-        {% endif %} #}
-
-    <div class="js-body {% if currentUser %}hidden{% endif %}">
+    <div class="js-body{% if currentUser %} hidden{% endif %}">
       {% if addressHasErrors %}<span class="flash">{{ cart.getErrors(name)|join }}</span><br>{% endif %}
-      {% include 'shop/_includes/addresses/form' with {
-        'modelName': name,
-        'address': attribute(cart, name)
-      } %}
+      {{ include('shop/_includes/addresses/form', {
+        modelName: name,
+        address: attribute(cart, name)
+      }) }}
     </div>
   </div>
 

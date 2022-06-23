@@ -3,5 +3,5 @@ isFrontendEnabled: false
 name: Dummy
 paymentType: purchase
 settings: null
-sortOrder: 1
+sortOrder: 3
 type: craft\commerce\gateways\Dummy

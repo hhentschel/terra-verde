@@ -25,6 +25,25 @@
   display: block;
 }
 
+//EMAIL FORM
+.checkout__box {
+  &--email-form {
+    display: flex;
+    flex-direction: column;
+
+    @include breakpoint('tablet') {
+      /*flex-direction: row;*/
+    }
+  }
+
+  &--email-form-container {
+    display: flex;
+    flex-direction: column;
+    margin: px-to-rem($space--m) 0;
+  }
+
+}
+
 .checkout {
   &__box {
     padding: px-to-rem($space--xm);
@@ -40,6 +59,11 @@
   &__box--adresses {
     display: flex;
     justify-content: space-between;
+    flex-direction: column;
+
+    @include breakpoint('tablet') {
+      flex-direction: row;
+    }
   }
 
   &__box--subheading {
@@ -56,6 +80,14 @@
     display: flex;
     justify-content: flex-end;
     margin: px-to-rem($space--m) 0 0 0;
+  }
+
+  &__box--button-change {
+    display: flex;
+    justify-content: flex-end;
+    padding: px-to-rem($space--m) 0 0 0;
+    margin: px-to-rem($space--m) 0 0 0;
+    border-top: 1px solid $color--grey-light;
   }
 
   &__box--requirements {

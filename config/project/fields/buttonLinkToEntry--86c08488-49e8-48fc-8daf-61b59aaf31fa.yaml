@@ -1,21 +1,15 @@
 columnSuffix: null
-contentColumnType: string
+contentColumnType: string(1000)
 fieldGroup: d5eb7b01-8b1f-4b3f-83c7-ccfa4c76d49d # Inhaltselemente
 handle: buttonLinkToEntry
-instructions: 'Eintrag auswählen, auf den verlinkt werden soll.'
+instructions: 'URL eintragen, auf den verlinkt werden soll.'
 name: 'Button Link auf Eintrag'
 searchable: false
 settings:
-  allowSelfRelations: false
-  limit: '1'
-  localizeRelations: false
-  selectionLabel: ''
-  showSiteMenu: true
-  source: null
-  sources: '*'
-  targetSiteId: null
-  validateRelatedElements: false
-  viewMode: null
+  maxLength: '1000'
+  placeholder: null
+  types:
+    - url
 translationKeyFormat: null
-translationMethod: site
-type: craft\fields\Entries
+translationMethod: none
+type: craft\fields\Url

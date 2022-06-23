@@ -28,8 +28,7 @@ $list__check-item-icon-width: px-to-rem(24);
 .list,
 .list ol,
 .list ul,
-.#{$formatted-text-class} ol,
-.#{$formatted-text-class} ul {
+{
   margin: $list__margin-vertical 0;
   list-style-type: none;
 
@@ -62,7 +61,6 @@ $list__check-item-icon-width: px-to-rem(24);
 }
 
 .list,
-.#{$formatted-text-class} ul,
 .list ul {
   li {
     padding-left: $list__ul-item-icon-width--level-0 +
@@ -91,7 +89,7 @@ $list__check-item-icon-width: px-to-rem(24);
 
 .list--ordered,
 .list--ordered ol,
-.#{$formatted-text-class} ol {
+{
   list-style: none;
   counter-reset: li;
 

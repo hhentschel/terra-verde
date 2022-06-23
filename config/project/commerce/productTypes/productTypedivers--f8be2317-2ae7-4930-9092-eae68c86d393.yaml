@@ -1,6 +1,6 @@
 descriptionFormat: ''
 handle: productTypedivers
-hasDimensions: false
+hasDimensions: true
 hasProductTitleField: true
 hasVariantTitleField: false
 hasVariants: false
@@ -41,7 +41,25 @@ productFieldLayouts:
             warning: null
             width: 50
           -
-            fieldUid: d59a8a70-d5e0-42b4-b4d8-d3602f3bbe03 # Produkt Bild
+            fieldUid: ea603a9d-ad1a-46a9-8400-4c237d4f779e # Artikelnummer
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 25
+          -
+            fieldUid: 34381c5f-24e3-4876-a534-c12339c44433 # EANNummer
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 25
+          -
+            fieldUid: 2625559c-aa75-481d-a655-1c6590d7106d # Preis (Privatkunden)
             instructions: null
             label: null
             required: false
@@ -49,6 +67,24 @@ productFieldLayouts:
             type: craft\fieldlayoutelements\CustomField
             warning: null
             width: 50
+          -
+            fieldUid: f9ea37ad-b93c-4731-90ad-312428b52e6f # Preise (Detailhandel)
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: d59a8a70-d5e0-42b4-b4d8-d3602f3bbe03 # Produkt Bild
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 25
           -
             fieldUid: a01e981b-9ab4-498e-9274-b1858943fc1c # Produkt Beschreibung
             instructions: null
@@ -59,6 +95,15 @@ productFieldLayouts:
             warning: null
             width: 50
           -
+            fieldUid: 090ca3e8-52f7-44f4-8eb1-31b1d8706ff5 # Hersteller
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 25
+          -
             fieldUid: a0f9f7a2-3635-47ba-a758-47e6b1bc400e # Zusatzinfo
             instructions: null
             label: null
@@ -68,7 +113,7 @@ productFieldLayouts:
             warning: null
             width: 50
           -
-            fieldUid: 090ca3e8-52f7-44f4-8eb1-31b1d8706ff5 # Hersteller
+            fieldUid: 3d739192-d1d4-45f2-8239-0effd9b4f3a8 # Out of Stock
             instructions: null
             label: null
             required: false
@@ -95,7 +140,7 @@ productTitleFormat: ''
 siteSettings:
   dd0cd05e-0cb9-4a76-b993-3cb70e6fc147: # Terra Verde
     hasUrls: true
-    template: shop/produkte/_product
+    template: shop/produkte/_divers
     uriFormat: 'shop/diverses/{slug}'
 skuFormat: ''
 titleFormat: '{product.title}'

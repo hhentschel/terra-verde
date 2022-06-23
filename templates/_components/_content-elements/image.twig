@@ -6,47 +6,44 @@
 {% set imageStandardAltText = img
   and img.imageAltText is defined
   and img.imageAltText is not empty
-  ? 'Terra Verde' ~ img.imageAltText
-  : 'Terra Verde'
-%}
+  ? img.imageAltText
+  : 'Terra Verde' %}
 {% set imageAltText = img.imageAltText is defined
   and img.imageAltText is not empty
-  ? 'Terra Verde: ' ~ img.imageAltText
-  : 'Terra Verde: ' ~ imagetitle
-%}
+  ? img.imageAltText
+  : imagetitle %}
 {% set imageStandardCaption = img
   and img.imageCaption is defined
   and img.imageCaption is not empty
   ? img.imageCaption
-  : ''
-%}
+  : '' %}
 {% set imageCaption = imageCaption is defined and imageCaption is not empty
   ? imageCaption
-  : imageStandardCaption
-%}
+  : imageStandardCaption %}
 
 {% if imageUrl %}
   <figure class="image">
     <div class="image__wrapper">
       <picture>
         <source srcset="{{ imageUrl }}"
-          alt="{{ imageAltText }}"
-          width="{{ imagewidth }}"
-          height="{{ imageheight }}"
-          title="{{- imageAltText -}}"
-          type="image/webp" />
+                alt="{{ imageAltText }}"
+                width="{{ imagewidth }}"
+                height="{{ imageheight }}"
+                title="{{- imageAltText -}}"
+                type="image/webp"/>
         <source srcset="{{ imageUrl }}"
-          alt="{{ imageAltText }}"
-          width="{{ imagewidth }}"
-          height="{{ imageheight }}"
-          title="{{- imageAltText -}}"
-          type="image/jpg" />
+                alt="{{ imageAltText }}"
+                width="{{ imagewidth }}"
+                height="{{ imageheight }}"
+                title="{{- imageAltText -}}"
+                type="image/jpg"/>
         <img class="image__img"
-          src="{{ imageUrl }}"
-          alt="{{ imageAltText }}"
-          width="{{ imagewidth }}"
-          height="{{ imageheight }}"
-          title="{{- imageAltText -}}" />
+             src="{{ imageUrl }}"
+             alt="{{ imageAltText }}"
+             width="{{ imagewidth }}"
+             height="{{ imageheight }}"
+             title="{{- imageAltText -}}"
+             loading="lazy"/>
       </picture>
     </div>
     {% if imageCaption %}

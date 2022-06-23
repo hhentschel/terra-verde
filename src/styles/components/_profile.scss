@@ -3,11 +3,17 @@
     border: 1px solid $color--blue;
     padding: px-to-rem($space--m);
     border-radius: px-to-rem(2);
+    margin-bottom: px-to-rem($space--m);
   }
 
   .adress-item__buttons {
     display: flex;
     margin: px-to-rem($space--m) 0 0 0;
     justify-content: space-between;
+  }
+
+  .adress-item__marker {
+    margin: px-to-rem($space--s) 0;
+
   }
 }

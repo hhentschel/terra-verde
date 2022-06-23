@@ -2,7 +2,7 @@
   display: flex;
 
   &__text {
-    margin-right: px-to-rem($space--s);
+    margin: 0 px-to-rem($space--s);
   }
 
   &__bar {

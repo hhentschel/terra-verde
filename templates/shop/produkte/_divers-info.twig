@@ -21,7 +21,6 @@
 {% endif %}
 
 {% set productQuery = craft.products() %}
-
 {% set product = craft.products.id(productId).one() %}
 
 <a href="javascript: history.back()" class="product-detail__button-back product-detail__button-back-arrow">Zurück zur
@@ -77,31 +76,24 @@
       {% endif %}
     {% endfor %}
 
-    <form class="js-form product-detail__form">
+    <form method="post" class="js-form product-detail__form">
+      {# {{ actionInput('commerce/cart/update-cart') }} #}
       {{ hiddenInput(
         'successMessage',
         ('Artikel ' ~ product.title ~ ' wurde zum Warenkorb hinzugefügt.')|hash
       ) }}
+      {{ csrfInput() }}
       <div class="product-detail__form-addtobasket">
         {% for variant in product.variants %}
-          {# {{
-                    hiddenInput('purchasables[' ~ loop.index ~ '][id], [options]', variant.id)
-                  }} #}
 
           <div class="form-addtobasket__info">
-            {% if product.articleVolumeUnit %}
+            {% if variant.articleVolumeUnit %}
               <div class="form-addtobasket__info-unit">
                 <span>
-                  {{ product.articleVolumeUnit }}{{ product.articleUnitVolumeWeight }}
+                  {{ variant.articleVolume }}{{ variant.articleVolumeUnit }}
                 </span>
-                <span class="form-addtobasket__info-unit-base">
-                        {% if variant.articleBasePriceUnit %}
-                          ({{ variant.articleBasePriceUnit }}{{ variant.articleBaseUnit }})
-                        {% endif %}
-                      </span>
               </div>
             {% endif %}
-
 
             <div class="form-addtobasket__info-pricestockadd">
               <div class="form-addtobasket__info-pricestock">
@@ -117,9 +109,9 @@
                   {% endif %}
                 </div>
 
-                {% if product.articleBasePriceUnit is defined and product.articleBasePriceUnit is not empty %}
+                {% if variant.articleBasePriceUnit is defined and variant.articleBasePriceUnit is not empty %}
                   <div class="form-addtobasket__info-baseprice">
-                    {{ product.articleBasePriceUnit }} {{ product.articleBaseUnit }}
+                    {{ variant.articleBasePriceUnit }} {{ variant.articleBaseUnit }}
                   </div>
                 {% endif %}
               </div>
@@ -127,11 +119,11 @@
 
               <div class="form-addtobasket__info-add">
                 <div class="form-addtobasket__info-quantity">
-                  <input {% if variant.hasstock == false %}disabled{% endif %}
-                         class="input form-addtobasket__info-quantity--input"
-                         type="number"
-                         name="qty"
-                         step="1"
+                  <input
+                    class="input form-addtobasket__info-quantity--input"
+                    type="number"
+                    name="qty"
+                    step="1"
                     {% if currentUser %}
                       {% if currentUser.isInGroup('userGroupRetail') %}
                         value="{{ product.artikelMinOrderSize }}"
@@ -152,10 +144,45 @@
                     {% endif %}
                   />
 
+                  {# <input sprig s-action="commerce/cart/update-cart" s-method="post"
+                                      class="input input form-addtobasket__info-quantity--input"
+                                       type="number"
+                                       name="purchasables[{{ loop.index }}][qty]"
+                                       step="1"
+                                       {% if currentUser %}
+                                        {% if currentUser.isInGroup('userGroupRetail') %}
+                                          value="{{ product.artikelMinOrderSize }}"
+                                          min="{{ product.artikelMinOrderSize }}"
+                                          placeholder="{{ product.artikelMinOrderSize }}"
+                                        {% else %}
+                                          value="1"
+                                          min="1"
+                                          placeholder="0"
+                                        {% endif %}
+                                      {% else %}
+                                          value="1"
+                                          min="1"
+                                          placeholder="0"
+                                      {% endif %}
+                                      {% if variant.stock < 0 %}
+                                        disabled
+                                      {% endif %}> #}
+
                 </div>
 
                 <div class="form-addtobasket__info-button">
+
+
                   {% if variant.stock > 0 or variant.hasUnlimitedStock %}
+
+                    {#                    {% if success is defined and success %}
+                      Product added to your cart!
+                    {% elseif errors is defined %}
+                      {% for error in errors %}
+                        <p class="error">{{ error|first }}</p>
+                      {% endfor %}
+                    {% endif %} #}
+
                     <a sprig s-action="commerce/cart/update-cart" s-method="post"
                        s-val:purchasable-id="{{ variant.id }}" href="#"
                        class="button--primary {% if addedToCart and purchasableId == variant.id %}button--success {% endif %} text-center">
@@ -171,10 +198,12 @@
                         In den Warenkorb
                       {% endif %}
                     </a>
+
                   {% else %}
                     <button disabled type="submit"
                             class="disabled button button--primary text-center"> In den Warenkorb
                     </button>
+
                   {% endif %}
                 </div>
               </div>
@@ -186,7 +215,7 @@
       </div>
     </form>
 
-    {% include 'shop/produkte/_includes/detail-summary__wine.twig' %}
+    {% include 'shop/produkte/_includes/detail-summary__divers.twig' %}
 
   </div>
 

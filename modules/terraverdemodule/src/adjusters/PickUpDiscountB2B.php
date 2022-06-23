@@ -31,7 +31,7 @@ class PickUpDiscountB2B extends Component implements AdjusterInterface
       $adjustment->type = 'Rabatt';
       $adjustment->sourceSnapshot = ['data' => 'value'];
 
-      $adjustment->amount = ($order->itemSubtotal * .05 * -1);
+      $adjustment->amount = round(($order->itemSubtotal * .05 * -1) * 20, 0) / 20;
       $adjustment->name = 'Abholung';
       $adjustment->description = 'Abholrabatt 5% ab CHF 500.- Netto-Warenwert';
 
