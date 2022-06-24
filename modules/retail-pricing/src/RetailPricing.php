@@ -6,11 +6,12 @@
 namespace modules\retailpricing;
 
 use Craft;
+use craft\base\ElementInterface;
+use craft\commerce\elements\db\VariantQuery;
 use craft\commerce\elements\Variant;
-use craft\commerce\events\LineItemEvent;
-use craft\commerce\models\LineItem;
-use craft\commerce\services\LineItems;
 use craft\commerce\services\OrderAdjustments;
+use craft\elements\db\ElementQuery;
+use craft\events\PopulateElementEvent;
 use craft\events\RegisterComponentTypesEvent;
 use modules\retailpricing\adjusters\RoundingAdjuster;
 use yii\base\Event;
@@ -21,7 +22,7 @@ class RetailPricing extends Module
 {
     const RETAIL_USER_GROUP_ID = 1;
 
-    public function init()
+    public function init(): void
     {
         Craft::setAlias('@modules', __DIR__);
 
@@ -29,10 +30,10 @@ class RetailPricing extends Module
 
         if ($user && $user->isInGroup(self::RETAIL_USER_GROUP_ID)) {
             Event::on(
-                LineItems::class,
-                LineItems::EVENT_POPULATE_LINE_ITEM,
-                function (LineItemEvent $event) {
-                    $this->_applyRetailPrice($event->lineItem);
+                VariantQuery::class,
+                ElementQuery::EVENT_AFTER_POPULATE_ELEMENT,
+                function (PopulateElementEvent $event) {
+                    $this->_applyRetailPrice($event->element);
                 }
             );
         }
@@ -49,26 +50,20 @@ class RetailPricing extends Module
         parent::init();
     }
 
-    private function _applyRetailPrice(LineItem $lineItem)
+    /**
+     * @param Variant $variant
+     */
+    private function _applyRetailPrice(ElementInterface $variant): void
     {
-        $purchasable = $lineItem->getPurchasable();
-
-        if (!($purchasable instanceof Variant)) {
-            return;
-        }
-
         try {
-            $product = $purchasable->getProduct();
+            $product = $variant->getProduct();
         }
         catch (InvalidConfigException $exception) {
             return;
         }
 
         if ($product && $product->priceRetailTrader) {
-            // Update the purchasable price so that the retail trader price
-            // is used as a basis for calculating the sale price.
-            $purchasable->price = $product->priceRetailTrader;
-            $lineItem->setPurchasable($purchasable);
+            $variant->price = $product->priceRetailTrader;
         }
     }
 }
