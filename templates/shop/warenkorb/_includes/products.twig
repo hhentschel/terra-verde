@@ -124,22 +124,22 @@
 
 
                <span class=" {{ item.options.donationAmount is defined ? 'hidden' : '' }}">
-                                <input sprig s-action="commerce/cart/update-cart" s-method="post"
-                                       class="input  input-small {% if item.getFirstError('qty') %}border-red-500 border{% endif %}"
-                                       type="{% if item.options.donationAmount is defined %}hidden{% else %}number{% endif %}"
-                                       name="lineItems[{{ item.id }}][qty]"
-                                       {# ANPASSUNGEN DETAILHANDEL #}
-                                  {% if currentUser %}
-                                    {% if currentUser.isInGroup('userGroupRetail') %}
-                                      min="{{ item.purchasable.product.artikelMinOrderSize }}"
-                                    {% else %}
-                                      min="1"
-                                    {% endif %}
-                                  {% else %}
-                                    min="1"
-                                  {% endif %}
-                                       value="{{ item.qty }}">
-                            </span>
+                  <input sprig s-action="commerce/cart/update-cart" s-method="post"
+                         class="input  input-small {% if item.getFirstError('qty') %}border-red-500 border{% endif %}"
+                         type="{% if item.options.donationAmount is defined %}hidden{% else %}number{% endif %}"
+                         name="lineItems[{{ item.id }}][qty]"
+                         {# ANPASSUNGEN DETAILHANDEL #}
+                    {% if currentUser %}
+                      {% if currentUser.isInGroup('userGroupRetail') %}
+                        min="{{ item.purchasable.product.artikelMinOrderSize }}"
+                      {% else %}
+                        min="1"
+                      {% endif %}
+                    {% else %}
+                      min="1"
+                    {% endif %}
+                         value="{{ item.qty }}">
+              </span>
              </td>
 
              <td
@@ -149,22 +149,11 @@
                    <div class="form__cart-table--item-price-name">Einzelpreis:</div>
                    {% if item.onSale %}
                      <div class="form__cart-table--item-price-number">
-                       {# {% set itemPrice = item.price %}
-                                      {% set itemPriceRound = round((itemPrice + 0.000001) * 20) / 20 %}
-                                        {{
-                                          itemPriceRound|number_format(2, '.', '')|commerceCurrency(cart.currency)
-                                        }} #}
                        <del>
                          {{ item.price|commerceCurrency(cart.currency) }}
                        </del>
                      </div>
                      <div class="form__cart-table--item-price-number form__cart-table--item-price-number-bold">
-                       {# {% set itemSalePrice = item.salePrice %}
-                                      {% set itemSalePriceRound = round((itemSalePrice + 0.000001) * 20) / 20 %}
-                                      {{
-                                        itemSalePriceRound|number_format(2, '.', '')|commerceCurrency(cart.currency)
-                                      }} #}
-
                        {{ item.salePrice|commerceCurrency(cart.currency) }}
                      </div>
                    {% endif %}
@@ -172,12 +161,6 @@
 
                    {% else %}
                      <div class="form__cart-table--item-price-number form__cart-table--item-price-number-bold">
-                       {# {% set itemPrice = item.price %}
-                                      {% set itemPriceRound = round((itemPrice + 0.000001) * 20) / 20 %}
-                                      {{
-                                        itemPriceRound|number_format(2, '.', '')|commerceCurrency(cart.currency)
-                                      }} #}
-
                        {{ item.price|commerceCurrency(cart.currency) }}</div>
                    {% endif %}
                  </div>
@@ -264,13 +247,7 @@
                          <div class="adjustments__data--amount">
                           <span class=""
                                 title="{{ adjustment.amount }}">
-
-                           {#   {% set adjustmentAmount  = adjustment.amount %}
-                            {% set adjustmentAmountRound = round((adjustmentAmount + 0.000001) * 20) / 20 %}
-                            {{ adjustmentAmountRound|number_format(2, '.', '')|commerceCurrency(cart.currency) }} #}
-
                             {{ adjustment.amount|commerceCurrency(cart.currency) }}
-
                           </span>
                          </div>
                        </div>
