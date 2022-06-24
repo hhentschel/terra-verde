@@ -8,7 +8,6 @@
   </script>
 {% endif %}
 
-
 {% set couponAddedToCart = success is defined %}
 
 {% set product = craft.products.one() %}
@@ -122,7 +121,6 @@
                         value="{{ item.options.donationAmount }}">
                {% endif %}
 
-
                <span class=" {{ item.options.donationAmount is defined ? 'hidden' : '' }}">
                   <input sprig s-action="commerce/cart/update-cart" s-method="post"
                          class="input  input-small {% if item.getFirstError('qty') %}border-red-500 border{% endif %}"
@@ -166,13 +164,13 @@
                  </div>
                  {% if item.onSale %}
                    {# <div class="form__cart-table--item-price" title="{{ item.salePrice }}">
-                                        <div class="form__cart-table--item-price-name">Aktion Preise:</div>
-                                        <div class="form__cart-table--item-price-number">{{ item.salePrice|commerceCurrency(cart.currency) }}</div>
-                                    </div>
-                                    <div class="form__cart-table--item-price" title="{{ item.saleAmount }}">
-                                        <div class="form__cart-table--item-price-name">Aktion Betrag:</div>
-                                        <div class="form__cart-table--item-price-number">{{ item.saleAmount|commerceCurrency(cart.currency) }}</div>
-                                    </div> #}
+                      <div class="form__cart-table--item-price-name">Aktion Preise:</div>
+                      <div class="form__cart-table--item-price-number">{{ item.salePrice|commerceCurrency(cart.currency) }}</div>
+                  </div>
+                  <div class="form__cart-table--item-price" title="{{ item.saleAmount }}">
+                      <div class="form__cart-table--item-price-name">Aktion Betrag:</div>
+                      <div class="form__cart-table--item-price-number">{{ item.saleAmount|commerceCurrency(cart.currency) }}</div>
+                  </div> #}
 
                    {% set itemSales = item.snapshot.sales ?? [] %}
                    {% if itemSales|length %}
@@ -287,8 +285,6 @@
                    </div>
                  </div>
                {% endif %}
-
-
              </td>
            </tr>
          {% endfor %}
@@ -307,10 +303,6 @@
                <div class="form__cart-table--item-pricesubtotal" title="{{ cart.itemSubTotal }}">
                  <div class="form__cart-table--item-price-name">Warenkorb Subtotal:</div>
                  <div class="form__cart-table--item-pricesubtotal-number">
-                   {# {% set cartItemSubTotal  = cart.itemSubTotal %}
-                   {% set cartItemSubTotalRound = round((cartItemSubTotal + 0.000001) * 20) / 20 %}
-                   {{ cartItemSubTotalRound|number_format(2, '.', '')|commerceCurrency(cart.currency) }} #}
-
                    {{ cart.itemTotalAsCurrency }}
                  </div>
                </div>
@@ -322,15 +314,12 @@
 
          {% if not cart.hasErrors() and cart.orderAdjustments|length %}
 
-
            <tr class="form__cart--adjustments">
              <td class=""></td>
              <td colspan="2" class="">
                <div class="adjustments__title">Anpassungen an die Bestellung:</div>
                <div class="">
                  {% for adjustment in cart.orderAdjustments %}
-                   {#                   {% set amount = adjustment.amount|commerceCurrency(cart.currency) %}
-                   {% set amount = round((amount + 0.000001) * 20) / 20 %} #}
                    <div class="adjustments__data">
                      <div class="adjustments__data--type">
                        {% if adjustment.type == "shipping" %}
@@ -344,10 +333,7 @@
                        {% endif %}
                      </div>
                      <div class="">
-                       {# <span class="adjustments__data--description">{{ adjustment.description }}</span> #}
-
                        <span class="adjustments__data--name">{{ adjustment.description }}</span>
-
                      </div>
                      <div class="adjustments__data--amount">
                        <span class=""
@@ -362,7 +348,6 @@
          <tr class="cart__box cart__box--flex">
            <td class="" colspan="2">
              <div class="form__cart-table--coupon">
-               {# <div class="{{ cart.getFirstError('couponCode') ? classes.box.error : classes.box.base }} form__cart-table--coupon-box"> #}
                <div class="{{ cart.getFirstError('couponCode') }} form__cart-table--coupon-box">
                  {# The Update Coupon form uses the single update controller action #}
                  <h4 class="heading heading--4 heading--no-margin-top">Promo Code</h4>
@@ -371,20 +356,19 @@
                    <div class="text-red-500">{{ cart.getFirstError('couponCode') }}</div>
                  {% endif %}
 
-
                  <div class="form__cart-table--coupon-box-button">
                    {# {{ redirectInput('shop/warenkorb') }}
                                     <input class="button button--secondary" type="submit" value="Coupon anwenden"/> #}
                    {% if cart.couponCode %}
                      <span>
-                                        <svg class="icon--check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                             fill="currentColor">
-                                            <path fill-rule="evenodd"
-                                                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                                  clip-rule="evenodd"/>
-                                        </svg>
-                                        Code «{{ discount.description }}» angewendet
-                                    </span>
+                          <svg class="icon--check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                               fill="currentColor">
+                              <path fill-rule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                    clip-rule="evenodd"/>
+                          </svg>
+                          Code «{{ discount.description }}» angewendet
+                      </span>
                      {{ hiddenInput('couponCode', 'Coupon code gelöscht.'|hash) }}
                      <a sprig s-action="commerce/cart/update-cart" s-method="post" value="null" href="#"
                         class="button button--secondary">
