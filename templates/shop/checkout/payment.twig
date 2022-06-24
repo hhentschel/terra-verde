@@ -76,13 +76,16 @@
             {% set user = craft.users.email(cart.email).one() %}
             {% if not user %}
               <div class="checkout__box--requirements">
-                <label for="registerUserOnOrderComplete" class="requirements__label">
-                  {{ hiddenInput('registerUserOnOrderComplete', false) }}
-                  <span>für ein Kundenkonto registrieren</span>
-                  <input type="checkbox" id="registerUserOnOrderComplete" class="requirements__checkbox"
+                <div class="selection selection--checkbox">
+                  <input type="checkbox" id="registerUserOnOrderComplete"
+                         class="requirements__checkbox selection__input"
                          name="registerUserOnOrderComplete"
                          value="1"/>
-                </label>
+                  <label for="registerUserOnOrderComplete" class="requirements__label selection__label">
+                    {{ hiddenInput('registerUserOnOrderComplete', false) }}
+                    <span>Für ein Kundenkonto registrieren</span>
+                  </label>
+                </div>
               </div>
             {% endif %}
 
