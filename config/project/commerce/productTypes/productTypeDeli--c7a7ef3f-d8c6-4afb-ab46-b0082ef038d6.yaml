@@ -178,24 +178,6 @@ productFieldLayouts:
             warning: null
             width: 50
           -
-            fieldUid: a629ed94-6a0d-445a-a486-7053cd507178 # Artikel Gewicht/Volumen
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            warning: null
-            width: 100
-          -
-            fieldUid: 06c0da13-2423-4cbb-8b58-6dddb456fa8c # Artikel Einheit Gewicht/Volumen
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            warning: null
-            width: 100
-          -
             fieldUid: 3d739192-d1d4-45f2-8239-0effd9b4f3a8 # Out of Stock
             instructions: null
             label: null
@@ -392,5 +374,5 @@ variantFieldLayouts:
             type: craft\fieldlayoutelements\CustomField
             warning: null
             width: 25
-        name: Inhalt
+        name: Content
         sortOrder: 1
