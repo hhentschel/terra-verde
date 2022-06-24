@@ -36,14 +36,15 @@ class RetailPricing extends Module
                 }
             );
         }
-
-        Event::on(
-            OrderAdjustments::class,
-            OrderAdjustments::EVENT_REGISTER_ORDER_ADJUSTERS,
-            function(RegisterComponentTypesEvent $event) {
-                $event->types[] = RoundingAdjuster::class;
-            }
-        );
+        else {
+            Event::on(
+                OrderAdjustments::class,
+                OrderAdjustments::EVENT_REGISTER_ORDER_ADJUSTERS,
+                function (RegisterComponentTypesEvent $event) {
+                    $event->types[] = RoundingAdjuster::class;
+                }
+            );
+        }
 
         parent::init();
     }
