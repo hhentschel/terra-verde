@@ -14,25 +14,25 @@
 }
 
 @include breakpoint('phone', 'only') {
-  body.dev:after {
+  body:after {
     content: 'xs';
   }
 }
 
 @include breakpoint('tablet-portrait') {
-  body.dev:after {
+  body:after {
     content: 'sm';
   }
 }
 
 @include breakpoint('tablet-landscape') {
-  body.dev:after {
+  body:after {
     content: 'md';
   }
 }
 
 @include breakpoint('desktop') {
-  body.dev:after {
+  body:after {
     content: 'lg';
   }
 }
