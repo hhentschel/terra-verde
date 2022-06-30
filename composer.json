@@ -1,5 +1,6 @@
 {
     "require": {
+        "bertoost/craft-mailjet": "1.2.3",
         "craftcms/cms": "3.7.44",
         "craftcms/commerce": "3.4.15",
         "craftcms/contact-form": "2.5.1",

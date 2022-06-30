@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "119bc11e7350e94516e8624f34cfd4dc",
+    "content-hash": "b1846128ffa1521e8f9e95ac925d557f",
     "packages": [
         {
             "name": "aws/aws-crt-php",
@@ -204,6 +204,50 @@
                 "source": "https://github.com/aws/aws-sdk-php/tree/3.224.5"
             },
             "time": "2022-06-07T18:15:41+00:00"
+        },
+        {
+            "name": "bertoost/craft-mailjet",
+            "version": "1.2.3",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bertoost/Craft-3-Mailjet/zipball/2a14b642f8d05e0d67be21140be54a574eac6f5a",
+                "reference": "2a14b642f8d05e0d67be21140be54a574eac6f5a",
+                "shasum": ""
+            },
+            "require": {
+                "craftcms/cms": "^3.1.5",
+                "mailjet/mailjet-swiftmailer": "^2.0",
+                "php": "^7.2 || ^8.0"
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "name": "Mailjet",
+                "handle": "mailjet",
+                "hasCpSettings": true,
+                "developer": "Bert Oost",
+                "developerUrl": "https://bertoost.com",
+                "documentationUrl": "https://github.com/bertoost/Craft-3-Mailjet/blob/master/README.md"
+            },
+            "autoload": {
+                "psr-4": {
+                    "bertoost\\mailjet\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Craft 3 CMS plugin for adding Mailjet mail adapter.",
+            "homepage": "https://github.com/bertoost/Craft-3-Mailjet",
+            "keywords": [
+                "adapter",
+                "craft",
+                "craftcms",
+                "craftcms plugin",
+                "mailer",
+                "mailjet",
+                "plugin"
+            ],
+            "time": "2021-04-17T19:55:37+00:00"
         },
         {
             "name": "cakephp/core",
@@ -3681,6 +3725,49 @@
                 "v3"
             ],
             "time": "2022-06-13T15:49:50+00:00"
+        },
+        {
+            "name": "mailjet/mailjet-swiftmailer",
+            "version": "2.0.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mailjet/MailjetSwiftMailer/zipball/300eb931b8b36c7f55349b54a41bfd763a182bff",
+                "reference": "300eb931b8b36c7f55349b54a41bfd763a182bff",
+                "shasum": ""
+            },
+            "require": {
+                "mailjet/mailjet-apiv3-php": "^1.2",
+                "php": ">=7.0",
+                "swiftmailer/swiftmailer": "~6.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Mailjet\\MailjetSwiftMailer\\": ""
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Titouan BENOIT",
+                    "email": "titouan.benoit@gmx.fr",
+                    "homepage": "https://github.com/Nightbr"
+                },
+                {
+                    "name": "Mailjet API",
+                    "email": "api@mailjet.com",
+                    "homepage": "https://dev.mailjet.com/"
+                }
+            ],
+            "description": "A SwiftMailer transport implementation for Mailjet",
+            "homepage": "https://github.com/mailjet/MailjetSwiftMailer",
+            "keywords": [
+                "Mailjet",
+                "swiftmailer"
+            ],
+            "time": "2019-06-13T12:40:37+00:00"
         },
         {
             "name": "markbaker/complex",
