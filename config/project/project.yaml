@@ -1,4 +1,4 @@
-dateModified: 1656101073
+dateModified: 1656619157
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: 'Terra Verde'
@@ -591,6 +591,24 @@ plugins:
     enabled: true
     licenseKey: 3Q54BEZF2WFYX60V6UPM2IWL
     schemaVersion: 2.13.0
+  newsletter:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+    settings:
+      adapterType: simplonprod\newsletter\adapters\Mailjet
+      adapterTypeSettings:
+        __assoc__:
+          -
+            - apiKey
+            - $MAILJET_API_KEY
+          -
+            - apiSecret
+            - $MAILJET_SECRET_KEY
+          -
+            - listId
+            - ''
+      recaptchaEnabled: true
   nsm-fields:
     edition: standard
     enabled: true
