@@ -11,30 +11,32 @@
 use craft\helpers\App;
 
 return [
-    // Global settings
-    '*' => [
+  // Global settings
+  '*' => [
 
-      'activeCartDuration' => 86400,
+    'activeCartDuration' => 86400,
 
-      'allowCheckoutWithoutPayment' => true,
+    'allowCheckoutWithoutPayment' => true,
 
-      'pdfAllowRemoteImages' => true,
+    'pdfAllowRemoteImages' => true,
 
-      // orderReferenceFormat
-    ],
+    'autoSetCartShippingMethodOption' => false,
 
-    // Dev environment settings
-    'dev' => [
+    // orderReferenceFormat
+  ],
 
-    ],
+  // Dev environment settings
+  'dev' => [
 
-    // Staging environment settings
-    'staging' => [
+  ],
 
-    ],
+  // Staging environment settings
+  'staging' => [
 
-    // Production environment settings
-    'production' => [
+  ],
 
-    ],
+  // Production environment settings
+  'production' => [
+
+  ],
 ];
