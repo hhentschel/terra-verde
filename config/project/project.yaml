@@ -1,18 +1,13 @@
-dateModified: 1656619741
+dateModified: 1656967093
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: 'Terra Verde'
   replyToEmail: info@terra-verde.ch
   template: ''
   transportSettings:
-    encryptionMethod: none
-    host: $SERVD_SMTP_HOSTNAME
-    password: $SERVD_SMTP_PASSWORD
-    port: $SERVD_SMTP_PORT
-    timeout: '10'
-    useAuthentication: '1'
-    username: $SERVD_SMTP_USERNAME
-  transportType: craft\mail\transportadapters\Smtp
+    apiKey: $MAILJET_API_KEY
+    apiSecret: $MAILJET_SECRET_KEY
+  transportType: bertoost\mailjet\adapters\MailjetAdapter
 meta:
   __names__:
     00a72f8a-e7ae-4303-bcc0-e693888454a0: Geschenke # Geschenke
