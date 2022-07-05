@@ -2,9 +2,10 @@
 {% set search = search ?? '' %}
 {% set section = section ?? '' %}
 {# set the arra of all categories to itself, otherwise to a empty array #}
-{# {% set articleCategoriesDeli = articleCategoriesDeli ?? [] %} #}
+{# aCatDeli = articleCategoriesDeli #}
 {% set aCatDeli = aCatDeli ?? [] %}
-{% set articleCategoriesWine = articleCategoriesWine ?? [] %}
+{# {% set articleCategoriesWine = articleCategoriesWine ?? [] %} #}
+{% set aCW = aCW ?? [] %}
 {% set articleCategoriesGift = articleCategoriesGift ?? [] %}
 {% set articleCategoriesStatus = articleCategoriesStatus ?? [] %}
 
@@ -45,9 +46,9 @@
 {% set articleCategoriesWineSelect = articleCategoriesWineSelect ?? null %}
 {% set articleCategoriesWineUnselect = articleCategoriesWineUnselect ?? null %}
 {% if articleCategoriesWineSelect %}
-  {% set articleCategoriesWine = articleCategoriesWine|merge(articleCategoriesWineSelect|split(',')) %}
+  {% set aCW = aCW|merge(articleCategoriesWineSelect|split(',')) %}
 {% elseif articleCategoriesWineUnselect %}
-  {% set articleCategoriesWine = articleCategoriesWine|filter(v => v not in articleCategoriesWineUnselect) %}
+  {% set aCW = aCW|filter(v => v not in articleCategoriesWineUnselect) %}
 {% endif %}
 
 {% set limit = limit ?? 51 %}
@@ -82,7 +83,7 @@
 
 {% set categories = aCatDeli
   |merge(articleCategoriesGift)
-  |merge(articleCategoriesWine)
+  |merge(aCW)
   |merge(articleCategoriesStatus) %}
 
 {% if categories is not empty %}
@@ -101,7 +102,7 @@
     aCatDelAll: aCatDelAll,
     aCatDeli: aCatDeli,
     articleCategoriesGift: articleCategoriesGift,
-    articleCategoriesWine: articleCategoriesWine,
+    aCW: aCW,
     articleCategoriesStatus: articleCategoriesStatus,
     orderBy: orderBy,
     page: page,

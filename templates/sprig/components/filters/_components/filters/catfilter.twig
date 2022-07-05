@@ -135,7 +135,7 @@
               {# If this category has children then select/unselect its children only. #}
               {% if children %}
                 {% set childrenIds = children|column('id') %}
-                {% if childrenIds|intersect(articleCategoriesWine) is empty %}
+                {% if childrenIds|intersect(aCW) is empty %}
                   s-val:article-categories-wine-select="{{ childrenIds|join(',') }}"
                 {% else %}
                   s-val:article-categories-wine-unselect="{{ childrenIds|join(',') }}"
@@ -143,9 +143,9 @@
                 {% endif %}
                 {# If this category has no children then treat it like a regular checkbox. #}
               {% else %}
-                name="articleCategoriesWine[]"
+                name="aCW[]"
                 value="{{ catWineOption.id }}"
-                {% if catWineOption.id in articleCategoriesWine %}
+                {% if catWineOption.id in aCW %}
                   checked
                 {% endif %}
               {% endif %}
