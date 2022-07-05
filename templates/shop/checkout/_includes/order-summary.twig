@@ -3,6 +3,7 @@
 {% set cart = cart is not defined ? craft.commerce.carts.cart : cart %}
 {% set addresses = craft.commerce.customers.customer.addresses %}
 
+{% set discount = craft.commerce.discounts.getDiscountByCode(cart.couponCode) %}
 
 {% if showShippingAddress is not defined %}
   {% set showShippingAddress = false %}
@@ -114,6 +115,7 @@
         </div>
       </div>
     {% endif %}
+
   {% else %}
     <div class="mb-3">
       <p>
@@ -170,9 +172,9 @@
     {% if cart.totalDiscount < 0 %}
       <div class="summary__price">
         <div class="summary__price--title">
-          {% for adjustment in cart.orderAdjustments %}
-            Rabatt Artikel:
-          {% endfor %}
+          {# {% for adjustment in cart.orderAdjustments %} #}
+          Rabatt Artikel:
+          {#  {% endfor %} #}
         </div>
         <div>
           {{ (cart.totalDiscount * 1)|commerceCurrency(cart.currency) }}
@@ -180,23 +182,21 @@
       </div>
     {% endif %}
 
-
-
-
     {# {% if cart.orderAdjustments|length %} #}
-    {% for adjustment in cart.orderAdjustments %}
+    {# {% for adjustment in cart.orderAdjustments %} #}
+    {% for adjustment in cart.adjustments %}
       <div class="summary__price">
         <div class="summary__price--title">
           {# <span>Versand ({{ adjustment.description }} ) - {{ adjustment.name }}:</span> #}
           {# <span>Versand ({{ adjustment.name }} ):</span> #}
           {% if adjustment.type == "shipping" %}
             <span>Versand:</span>
-          {% elseif adjustment.type == "discount" %}
-            <span>Rabatt:</span>
           {% elseif adjustment.type == "tax" %}
-            <span>Steuer</span>
+            <span>Steuer:</span>
+          {% elseif adjustment.name == "Retail" %}
+            <span>Rundung:</span>
           {% else %}
-            <span>{{ adjustment.type }}:</span>
+            <span>{{ adjustment.name }}:</span>
           {% endif %}
         </div>
         <div>
@@ -217,14 +217,14 @@
     {% endfor %}
     {# {% endif %} #}
 
-    <div class="summary__price summary__price--small">
+    {#    <div class="summary__price summary__price--small">
       <div class="summary__price--title ">
         (Mwst.:
       </div>
       <div>
         {{ cart.totalTaxIncluded|commerceCurrency(cart.currency) }})
       </div>
-    </div>
+    </div> #}
 
     <div class="summary__price">
       <div class="summary__price--title summary__price--title-bold">
