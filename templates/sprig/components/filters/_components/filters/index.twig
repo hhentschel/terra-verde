@@ -60,7 +60,7 @@
 {% else %}
   {% set maxPages = 7 %}
 {% endif %}
-{% set orderBy = orderBy ?? 'featuredProduct DESC, postDate DESC' %}
+{% set orderBy = orderBy ?? 'fProd DESC, postDate DESC' %}
 
 {% if cart is not defined %}
   {% set cart = craft.commerce.carts.cart %}
