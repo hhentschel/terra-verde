@@ -83,12 +83,12 @@
                    type="checkbox"
                    s-swap="outerHTML"
                    id="catdeli-catDeliOptionAll"
-                   name="articleCategoriesDeliAll"
+                   name="aCatDelAll"
                    class="selection__input"
                    value="1"
-              {# if the variable articleCategoriesDeliAll is true, set the checkbos to true and set the value of
+              {# if the variable aCatDelAll is true, set the checkbos to true and set the value of
               articleCategoriesDeliNone to 1 if the checkbox gets unchecked again, otherwise set the checkbox to empty string  #}
-              {{ articleCategoriesDeliAll ? 's-val:article-categories-deli-none="1" checked' : '' }}
+              {{ aCatDelAll ? 's-val:article-categories-deli-none="1" checked' : '' }}
             />
             <label for="catdeli-catDeliOptionAll" class="filter__checkbox--label selection__label">
               Alle
@@ -102,12 +102,12 @@
                        type="checkbox"
                        s-swap="outerHTML"
                        id="catdeli-{{ catDeliOption.id }}"
-                       name="articleCategoriesDeli[]"
+                       name="aCatDeli[]"
                        class="selection__input"
                        value="{{ catDeliOption.id }}"
-                  {# if the checked cat option is in the articleCategoriesDeli array, the set the checkbox to checked
-                  and if it gets unchecked set the value of articleCategoriesDeliAll to 0 #}
-                  {{ catDeliOption.id in articleCategoriesDeli ? 's-val:article-categories-deli-all="0" checked' }}
+                  {# if the checked cat option is in the aCatDeli array, the set the checkbox to checked
+                  and if it gets unchecked set the value of aCatDelAll to 0 #}
+                  {{ catDeliOption.id in aCatDeli ? 's-val:article-categories-deli-all="0" checked' }}
                 />
                 <label for="catdeli-{{ catDeliOption.id }}" class="filter__checkbox--label selection__label">
                   {{ catDeliOption.title }}
