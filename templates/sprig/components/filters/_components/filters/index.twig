@@ -6,7 +6,9 @@
 {% set aCatDeli = aCatDeli ?? [] %}
 {# {% set articleCategoriesWine = articleCategoriesWine ?? [] %} #}
 {% set aCW = aCW ?? [] %}
-{% set articleCategoriesGift = articleCategoriesGift ?? [] %}
+{# {% set articleCategoriesGift = articleCategoriesGift ?? [] %} #}
+{# aCG = articleCategoriesGift #}
+{% set aCG = aCG ?? [] %}
 {% set articleCategoriesStatus = articleCategoriesStatus ?? [] %}
 
 {# Get options from category groups. #}
@@ -37,9 +39,9 @@
 {% set articleCategoriesGiftAll = articleCategoriesGiftAll ?? false %}
 {% set articleCategoriesGiftNone = articleCategoriesGiftNone ?? false %}
 {% if articleCategoriesGiftAll %}
-  {% set articleCategoriesGift = catGiftOptions|map(v => v.id) %}
+  {% set aCG = catGiftOptions|map(v => v.id) %}
 {% elseif articleCategoriesGiftNone %}
-  {% set articleCategoriesGift = [] %}
+  {% set aCG = [] %}
 {% endif %}
 
 {# Weine #}
@@ -82,7 +84,7 @@
 }) %}
 
 {% set categories = aCatDeli
-  |merge(articleCategoriesGift)
+  |merge(aCG)
   |merge(aCW)
   |merge(articleCategoriesStatus) %}
 
@@ -101,7 +103,7 @@
   ~ ({ search: search,
     aCatDelAll: aCatDelAll,
     aCatDeli: aCatDeli,
-    articleCategoriesGift: articleCategoriesGift,
+    aCG: aCG,
     aCW: aCW,
     articleCategoriesStatus: articleCategoriesStatus,
     orderBy: orderBy,

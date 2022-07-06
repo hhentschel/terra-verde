@@ -192,9 +192,9 @@
                        s-swap="outerHTML"
                        id="catgift-{{ catGiftOption.id }}"
                        class="selection__input"
-                       name="articleCategoriesGift[]"
+                       name="aCG[]"
                        value="{{ catGiftOption.id }}"
-                  {{ catGiftOption.id in articleCategoriesGift ? 'checked' }} />
+                  {{ catGiftOption.id in aCG ? 'checked' }} />
                 <label for="catgift-{{ catGiftOption.id }}"
                        class="truncate filter__checkbox--label selection__label">
                   {{ catGiftOption.title }}
