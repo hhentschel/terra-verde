@@ -378,7 +378,7 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
 
   .newproduct {
     order: 3;
-    margin: 0 px-to-rem($space--m) 0 0;
+    margin: 0;
 
     &::after {
       content: 'Neu';
