@@ -96,19 +96,6 @@
 
                    </div>
 
-                   {# {% for variant in product.getVariants() %}
-                   #}{# @var variant \craft\commerce\elements\Variant #}{#
-                 {{ tag('option', {
-                   value: variant.id,
-                   text: variant.sku ~ ' ' ~ variant.salePrice|currency(cart.currency)
-                 }) }}
-               {% endfor %}
-
-               <label>
-                 {{ input('checkbox', 'options[giftWrapped]', 'yes') }}
-                 {{ 'Gift wrap item'|t }}
-               </label> #}
-
                  {% endif %}
                {% endif %}
 
@@ -163,14 +150,6 @@
                    {% endif %}
                  </div>
                  {% if item.onSale %}
-                   {# <div class="form__cart-table--item-price" title="{{ item.salePrice }}">
-                      <div class="form__cart-table--item-price-name">Aktion Preise:</div>
-                      <div class="form__cart-table--item-price-number">{{ item.salePrice|commerceCurrency(cart.currency) }}</div>
-                  </div>
-                  <div class="form__cart-table--item-price" title="{{ item.saleAmount }}">
-                      <div class="form__cart-table--item-price-name">Aktion Betrag:</div>
-                      <div class="form__cart-table--item-price-number">{{ item.saleAmount|commerceCurrency(cart.currency) }}</div>
-                  </div> #}
 
                    {% set itemSales = item.snapshot.sales ?? [] %}
                    {% if itemSales|length %}
@@ -249,8 +228,6 @@
                           </span>
                          </div>
                        </div>
-
-
                      {% endfor %}
 
                      {# für Anpassungen nicht als Discount #} {# MWST: Ausgabe #}
@@ -319,22 +296,25 @@
              <td colspan="2" class="">
                <div class="adjustments__title">Anpassungen an die Bestellung:</div>
                <div class="">
+
+
                  {% for adjustment in cart.orderAdjustments %}
                    <div class="adjustments__data">
                      <div class="adjustments__data--type">
                        {% if adjustment.type == "shipping" %}
-                         Versand:
+                         Versand:  {{ adjustment.name }}
                        {% elseif adjustment.type == "discount" %}
-                         Rabatt:
+                         Rabatt:  {{ adjustment.name }}
+
                        {% elseif adjustment.type == "tax" %}
-                         Steuer
+                         Steuer: {{ adjustment.name }}
                        {% else %}
                          {{ adjustment.type }}
                        {% endif %}
                      </div>
-                     <div class="">
+                     {# <div class="">
                        <span class="adjustments__data--name">{{ adjustment.description }}</span>
-                     </div>
+                     </div> #}
                      <div class="adjustments__data--amount">
                        <span class=""
                              title="{{ adjustment.amount }}"> {{ adjustment.amount|commerceCurrency(cart.currency) }}</span>
@@ -390,13 +370,13 @@
 
            <td colspan="2" class="form__cart-table--adjustments-order">
              {% if not cart.hasErrors() %}
-               {% if cart.getTotalShippingCost() > 0 %}
+               {#  {% if cart.getTotalShippingCost() > 0 %}
                  <div class="form__cart-table--item-addprice" title="{{ cart.getTotalShippingCost() }}">
                    <div class="form__cart-table--item-price-name">Versand:</div>
                    <div
                      class="form__cart-table--item-price-number">{{ cart.getTotalShippingCost()|commerceCurrency(cart.currency) }}</div>
                  </div>
-               {% endif %}
+               {% endif %} #}
 
                {% if cart.couponCode %}
                  <div class="form__cart-table--item-addprice" title="{{ cart.getTotalDiscount() }}">
