@@ -428,14 +428,15 @@
                       </td>
                     </tr>
 
-                    {% for adjustment in order.orderAdjustments if adjustment.type != "shipping" %}
-                      {% if adjustment.amount|commerceCurrency(order.currency)|length %}
+                    {% for adjustment in order.orderAdjustments if adjustment.type != "shipping" and adjustment.type != "tax" %}
+                      {% if adjustment.amount|commerceCurrency(order.currency) %}
                         <tr>
                           <td>
                             <mj-text align="left" color="#222" font-size="15px"
                                      font-family="'Open Sans', Arial, sans-serif" padding-left="25px"
                                      padding-right="25px" padding-bottom="0px" padding-top="20">
-                              <strong>Abholrabatt</strong></mj-text>
+                              <strong>{% if adjustment.name == "Rundung" %} Rundung {% else %} Abholrabatt {% endif %}</strong>
+                            </mj-text>
                           </td>
                           <td>
                             <mj-text align="left" color="#222" font-size="15px"
@@ -445,14 +446,16 @@
                           </td>
                         </tr>
                       {% endif %}
+
                     {% endfor %}
 
-                    {% if order.totalDiscountAsCurrency is defined and order.totalDiscountAsCurrency is not empty %}
+                    {% if order.totalDiscountAsCurrency %}
                       <tr>
                         <td>
                           <mj-text align="left" color="#222" font-size="15px"
                                    font-family="'Open Sans', Arial, sans-serif" padding-left="25px" padding-right="25px"
-                                   padding-bottom="0px" padding-top="20"><strong>Artikel-Rabatte</strong></mj-text>
+                                   padding-bottom="0px" padding-top="20"><strong>Kisten-Rabatt <br/>(10% ab
+                              6.Stk.)</strong></mj-text>
                         </td>
                         <td>
                           <mj-text align="left" color="#222" font-size="15px"
@@ -563,7 +566,11 @@
                       <div
                         style="line-height: 1.6">{% include 'shop/_includes/addresses/address-email-confirmation' with { address: order.billingAddress } %} {% if order.billingAddress.sameAs(order.shippingAddress) %} {% endif %}</div> {% else %}
                       <p>Nicht eingegeben</p> {% endif %}
-                    <p>{{ order.user.email }}</p></div>
+                    {% if order.user.email is defined %}
+                      <p>{{ order.user.email }}</p>
+                    {% else %}
+                      <p>{{ order.email }}</p>
+                    {% endif %}</div>
 
                 </td>
               </tr>
@@ -598,7 +605,11 @@
                       <div
                         style="line-height: 1.6">{% include 'shop/_includes/addresses/address-email-confirmation' with { address: order.shippingAddress } %} {% if order.shippingAddress.sameAs(order.billingAddress) %} {% endif %} </div>{% else %}
                       <p>Nicht eingegeben.</p> {% endif %}
-                    <p>{{ order.user.email }}</p></div>
+                    {% if order.user.email is defined %}
+                      <p>{{ order.user.email }}</p>
+                    {% else %}
+                      <p>{{ order.email }}</p>
+                    {% endif %}</div>
 
                 </td>
               </tr>
@@ -675,7 +686,7 @@
                       <td>&nbsp;</td>
                     </tr>
                     {% for item in order.lineItems %}
-                      <tr style="color:#666; border-bottom:1px solid #121;">
+                      <tr>
                         <td style="color:#121; padding: 0 12px 5px 0;vertical-align:text-top">
                           {{ item.purchasable.product.articleNumber }}
                         </td>
@@ -687,12 +698,34 @@
                               <div>Notiz</div>
                               <div>{{ item.note }}</div>
                             </div> {% endif %} </td>
-                        <td
-                          style="color:#121; padding: 0 0 0 12px;vertical-align:text-top; text-align:right"> {{ item.salePrice|commerceCurrency() }}
+                        <td style="color:#121; padding: 0 0 0 12px;vertical-align:text-top; text-align:right">
+                          {% if item.onSale %}
+                            <strike>{{ item.price|commerceCurrency() }}</strike>
+                          {% else %}
+                            {{ item.price|commerceCurrency() }}
+                          {% endif %}
                         </td>
                         <td
                           style="color:#121; padding: 0 0 0 12px;vertical-align:text-top; text-align:right"> {{ item.subtotal|commerceCurrency(order.currency) }}
                         </td>
+                      </tr>
+
+                      <tr style="color:#666; border-bottom:1px solid #121;">
+                        <td style="color:#121; padding: 0 12px 5px 0;vertical-align:text-top"></td>
+                        <td style="color:#121; padding: 0 12px 5px 0;vertical-align:text-top"></td>
+                        <td style="color:#121; padding: 0px 12px 5px 0;vertical-align:top">
+                          {% set itemSales = item.snapshot.sales ?? [] %}
+                          {% if itemSales|length %}
+                            <span>Aktion:</span>
+                            {% for sale in itemSales %}
+                              {{ sale.name }}<br>
+                            {% endfor %}
+                          {% endif %}
+                        </td>
+                        <td
+                          style="color:#121; padding: 0 0 0 12px;vertical-align:text-top; text-align:right">{% if itemSales|length %}{{ item.salePriceAsCurrency }}{% endif %} </td>
+                        <td style="color:#121; padding: 0 0 0 12px;vertical-align:text-top; text-align:right"></td>
+
                       </tr>
                     {% endfor %}
 
@@ -702,7 +735,6 @@
 
 
                     {% for item in order.lineItems %}
-
 
                       {% if item.adjustments|length %}
                         {% for adjustment in item.adjustments %}
@@ -714,7 +746,7 @@
                               </td>
                               <td colspan="3" align:
                               "right" style="text-align:right">
-                              {% if adjustment.name == "Rabatt:" %} Kistenrabatt: {% endif %}
+                              {% if adjustment.name == "Rundung" %} Rundung: {% else %} Kistenrabatt: {% endif %}
                               </td>
                               <td align:
                               "right"
@@ -724,11 +756,10 @@
                         {% endfor %}
                       {% endif %}
 
-
-
                     {% endfor %}
 
-                    {% if order.totalDiscountAsCurrency %}
+
+                    {% if order.totalDiscountAsCurrency > 0 %}
                       <tr>
                         <td colspan="2"></td>
                         <td colspan="2" align:
@@ -767,7 +798,8 @@
                         <tr>
                           <td colspan="2"></td>
                           <td colspan="2" align:
-                          "right" style="text-align:right"> Abholrabatt:</td>
+                          "right"
+                          style="text-align:right"> {% if adjustment.name == "Rundung" %} Rundung: {% else %} Abholrabatt: {% endif %}</td>
                           <td align:
                           "right" style="text-align:right">{{ adjustment.amount|commerceCurrency(order.currency) }}
                           </td>
@@ -995,4 +1027,4 @@
 
 </body>
 </html>
-
+  
