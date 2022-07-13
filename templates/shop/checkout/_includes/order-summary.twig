@@ -169,42 +169,44 @@
 
 
 
+    {# {% if cart.orderAdjustments|length %} #}
+    {# {% for adjustment in cart.orderAdjustments %} #}
+    <div class="checkout__box--adjustments-detail">
+
+      {% for adjustment in cart.adjustments %}
+        <div class="summary__price">
+          <div class="summary__price--title">
+            {% if adjustment.type == "shipping" %}
+              <span class="special-font-size">Versand:</span>
+              {#  {% elseif adjustment.type == "tax" %}
+            <span style="display:none">Steuer:</span> #}
+
+              {#   {% elseif adjustment.name == "Retail" %}
+            <span>Rundung:</span> #}
+
+            {% else %}
+              <span>{{ adjustment.name }}</span>
+            {% endif %}
+          </div>
+          <div {% if adjustment.type == "shipping" %}class="special-font-size" {% endif %}>
+            {{ adjustment.amount|commerceCurrency(cart.currency) }}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+
     {% if cart.totalDiscount < 0 %}
       <div class="summary__price">
         <div class="summary__price--title">
-          {# {% for adjustment in cart.orderAdjustments %} #}
-          Rabatt Artikel:
-          {#  {% endfor %} #}
+          Rabatt Artikel gesamt:
         </div>
         <div>
           {{ (cart.totalDiscount * 1)|commerceCurrency(cart.currency) }}
         </div>
       </div>
     {% endif %}
-
-    {# {% if cart.orderAdjustments|length %} #}
-    {# {% for adjustment in cart.orderAdjustments %} #}
-    {% for adjustment in cart.adjustments %}
-      <div class="summary__price">
-        <div class="summary__price--title">
-          {# <span>Versand ({{ adjustment.description }} ) - {{ adjustment.name }}:</span> #}
-          {# <span>Versand ({{ adjustment.name }} ):</span> #}
-          {% if adjustment.type == "shipping" %}
-            <span>Versand:</span>
-          {% elseif adjustment.type == "tax" %}
-            <span>Steuer:</span>
-          {% elseif adjustment.name == "Retail" %}
-            <span>Rundung:</span>
-          {% else %}
-            <span>{{ adjustment.name }}:</span>
-          {% endif %}
-        </div>
-        <div>
-          {{ adjustment.amount|commerceCurrency(cart.currency) }}
-        </div>
-
-
-        {#          {% if cart.shippingMethodHandle == 'B2C_pickUpAtStore' %}
+    {#          {% if cart.shippingMethodHandle == 'B2C_pickUpAtStore' %}
             <span>Rabatt Versand: {{ adjustment.name }}:</span>
           {% else %}
             <span>Versand:</span>
@@ -213,8 +215,7 @@
         <div>
           {{ adjustment.amount|commerceCurrency(cart.currency) }}
         </div> #}
-      </div>
-    {% endfor %}
+
     {# {% endif %} #}
 
     {#    <div class="summary__price summary__price--small">
