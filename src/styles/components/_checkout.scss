@@ -90,6 +90,18 @@
     border-top: 1px solid $color--grey-light;
   }
 
+  &__box--adjustments-detail {
+    font-size: px-to-rem($font-size-s);
+    margin: px-to-rem($space--s) 0;
+
+    .special-font-size {
+      margin: 0 0 px-to-rem($space--m) 0;
+      display: block;
+      font-size: px-to-rem($font-size-m);
+
+    }
+  }
+
   &__box--requirements {
     display: flex;
     flex-direction: column;
