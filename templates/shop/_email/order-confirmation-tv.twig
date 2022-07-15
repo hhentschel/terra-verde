@@ -446,6 +446,22 @@
                           - {{ order.shippingMethodName }}</mj-text>
                       </td>
                     </tr>
+
+                    {% if order.orderNotes %}
+                      <tr>
+                        <td style="vertical-align: top">
+                          <mj-text align="left" color="#222" font-size="15px"
+                                   font-family="'Open Sans', Arial, sans-serif" padding-left="25px" padding-right="25px"
+                                   padding-bottom="0px" padding-top="20"><strong>Kundennotiz</strong></mj-text>
+                        </td>
+                        <td>
+                          <mj-text align="left" color="#222" font-size="15px"
+                                   font-family="'Open Sans', Arial, sans-serif" padding-left="25px" padding-right="25px"
+                                   padding-bottom="0px" padding-top="20">{{ order.orderNotes }}</mj-text>
+                        </td>
+                      </tr>
+                    {% endif %}
+
                     <tr>
                       <td>
                         <mj-text align="left" color="#222" font-size="15px" font-family="'Open Sans', Arial, sans-serif"

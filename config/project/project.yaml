@@ -1,4 +1,4 @@
-dateModified: 1657276061
+dateModified: 1657895948
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: 'Terra Verde'
@@ -234,6 +234,7 @@ meta:
     d59a8a70-d5e0-42b4-b4d8-d3602f3bbe03: 'Produkt Bild' # Produkt Bild
     d63d76f8-75e4-40eb-9992-4ea21ba5b437: 'Artikel Zusatz Beschreibung' # Artikel Zusatz Beschreibung
     d438ea68-d87f-4238-b23e-cdaa8a840149: 'Produzenten Tags' # Produzenten Tags
+    d595e861-4c06-4115-8656-93e95a495147: Notiz # Notiz
     d953a3a0-62dc-4cd9-ad85-a7656faa8d58: Suche # Suche
     d549006b-271c-486c-900d-a9348f0ca63d: Blog # Blog
     db07ae15-a8d7-40c0-80e9-c918f6874a6d: Abgeschlossen # Abgeschlossen

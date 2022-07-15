@@ -31,7 +31,7 @@
             {{ actionInput('commerce/payments/pay') }}
             {{ redirectInput(siteUrl('shop/customer/order', { number: cart.number, success: 'true' })) }}
             {{ hiddenInput('cancelUrl', siteUrl('shop/checkout/payment')|hash) }}
-
+            {{ hiddenInput('fields[orderNotes]', '') }}
 
             {# {% set id = 4 %}
                         {% if id == cart.gatewayId %}
@@ -73,6 +73,11 @@
               {{ cart.gateway.getPaymentConfirmationFormHtml({})|raw }}
             {% endif %}
 
+            <div class="add-address-info">
+              <input type="text" class="input" name="fields[orderNotes]" value="">
+            </div>
+
+
             {% set user = craft.users.email(cart.email).one() %}
             {% if not user %}
               <div class="checkout__box--requirements">
@@ -110,6 +115,7 @@
                 </label>
               </div>
             </div>
+
 
             {# Only show the payment button for gateways that don't provide their own #}
             {% if className(cart.gateway) not in [

@@ -1,0 +1,14 @@
+tabs:
+  -
+    elements:
+      -
+        fieldUid: d595e861-4c06-4115-8656-93e95a495147 # Notiz
+        instructions: null
+        label: null
+        required: false
+        tip: null
+        type: craft\fieldlayoutelements\CustomField
+        warning: null
+        width: 100
+    name: Inhalt
+    sortOrder: 1

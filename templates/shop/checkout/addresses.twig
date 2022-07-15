@@ -29,6 +29,7 @@
             {{ actionInput('commerce/cart/update-cart') }}
             {{ successMessageInput('Addresses selected.') }}
             {{ redirectInput('shop/checkout/shipping') }}
+            {{ hiddenInput('fields[orderNotes]', '') }}
 
             {% if not cart.email %}
               <div class="mb-6">
@@ -106,6 +107,15 @@
                 </a> verwaltet und geändert werden.
               </div>
 
+              <div class="add-address-info">
+                <p class="add-address-info__text">Hier können Sie weitere Informationen für den Versand hinterlegen.
+                  Zusätzlich können Sie in der Adressverwaltung in
+                  Ihrem Profil
+                  auch für jede Adresse spezifische Angaben abspeichern.</p>
+                <textarea name="fields[orderNotes]" value="{{ cart.orderNotes }}" class="input" cols="20"
+                          rows="3" placeholder="Hinweis"></textarea>
+              </div>
+
               <div class="checkout__steps">
                 <div class="checkout__steps--button">
                   <input type="submit"
@@ -146,6 +156,14 @@
                       name: 'billingAddress'
                     }) }}
                   </div>
+                </div>
+
+                <div class="add-address-info">
+                  <p class="add-address-info__text">Hier können Sie weitere Informationen für den Versand hinterlegen.
+                    Zusätzlich können Sie in der Adressverwaltung in
+                    Ihrem Profil
+                    auch für jede Adresse spezifische Angaben abspeichern.</p>
+                  <textarea name="fields[orderNotes]" value="" class="input" cols="20" rows="3"></textarea>
                 </div>
 
                 <div class="checkout__steps">

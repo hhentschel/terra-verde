@@ -53,6 +53,14 @@
             <div class="ordersummary__info-data">{{ order.shippingMethodName }}</div>
           </div>
         {% endif %}
+
+        {% if order.orderNotes %}
+          <div class="ordersummary__info">
+            <div class="ordersummary__info-term">Notiz:</div>
+            <div class="ordersummary__info-data">{{ order.orderNotes }}</div>
+          </div>
+        {% endif %}
+        
         {# {% if order.pdfUrl %}
                     <div class="ordersummary__info">
                         <div class="ordersummary__info-term">PDF:</div>
@@ -230,7 +238,7 @@
               </td>
           </tr> #}
 
-     
+
       <tr class="ordersummary__table-row">
         <td colspan="2" class=""></td>
         <td class="">

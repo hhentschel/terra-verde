@@ -36,6 +36,7 @@
         {% else %}
           <p>{{ 'No shipping address selected.'|t }}</p>
         {% endif %}
+
       </div>
 
       <div class="checkout__box--adresses-single">
@@ -57,6 +58,7 @@
       </div>
 
     </div>
+
     <div class="checkout__box--button-change">
       <a href="{{ url('/shop/checkout/addresses') }}" class="button--small button button--primary">
         {{- 'Adressen ändern'|t -}}
@@ -179,7 +181,7 @@
             {% if adjustment.type == "shipping" %}
               <span class="special-font-size">Versand:</span>
             {% elseif adjustment.type == "tax" %}
-              <span>Steuer:  {% for item in cart.lineItems %}{{ item.articleNumber }} {% endfor %}</span>
+              <span>Steuer:</span>
 
             {% elseif adjustment.name == "Rundung" %}
               <span>Rundung:</span>
