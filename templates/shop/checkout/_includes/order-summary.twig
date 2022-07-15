@@ -178,11 +178,11 @@
           <div class="summary__price--title">
             {% if adjustment.type == "shipping" %}
               <span class="special-font-size">Versand:</span>
-              {#  {% elseif adjustment.type == "tax" %}
-            <span style="display:none">Steuer:</span> #}
+            {% elseif adjustment.type == "tax" %}
+              <span>Steuer:  {% for item in cart.lineItems %}{{ item.articleNumber }} {% endfor %}</span>
 
-              {#   {% elseif adjustment.name == "Retail" %}
-            <span>Rundung:</span> #}
+            {% elseif adjustment.name == "Rundung" %}
+              <span>Rundung:</span>
 
             {% else %}
               <span>{{ adjustment.name }}</span>

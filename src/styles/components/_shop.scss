@@ -442,6 +442,7 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
       text-align: center;
       padding: px-to-rem($space--s);
       font-size: px-to-em($space--m);
+      hyphens: none;
     }
   }
 
