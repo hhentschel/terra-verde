@@ -10,5 +10,5 @@ tabs:
         type: craft\fieldlayoutelements\CustomField
         warning: null
         width: 100
-    name: Inhalt
+    name: Notiz
     sortOrder: 1
