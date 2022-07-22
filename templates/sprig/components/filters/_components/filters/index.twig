@@ -137,7 +137,7 @@
       {% if vType == 'grid' %}
         <div>
           <button sprig
-                  s-val:view-type="list"
+                  s-val:v-type="list"
                   s-val:page="1"
                   s-val:limit="102"
                   s-indicator=".loading-button__indicator"
@@ -155,7 +155,7 @@
       {% else %}
         <div>
           <button sprig
-                  s-val:view-type="grid"
+                  s-val:v-type="grid"
                   s-val:page="1"
                   s-val:limit="36"
                   s-indicator=".loading-button__indicator"
