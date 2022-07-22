@@ -16,6 +16,8 @@ return [
 
     'activeCartDuration' => 86400,
 
+    'userSessionDuration' => 86400,
+
     'allowCheckoutWithoutPayment' => true,
 
     'pdfAllowRemoteImages' => true,
