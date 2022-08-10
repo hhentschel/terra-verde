@@ -1,4 +1,4 @@
-dateModified: 1657897315
+dateModified: 1659431206
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: 'Terra Verde'
@@ -399,7 +399,7 @@ plugins:
       prependSender: ''
       prependSubject: 'Nachricht vom Kontaktformular der Webseite'
       successFlashMessage: 'Ihre Nachricht wurde erfolgreich gesendet.'
-      toEmail: p@henrik-hentschel.de
+      toEmail: info@terra-verde.ch
   cp-field-inspect:
     edition: standard
     enabled: true
