@@ -2,7 +2,7 @@ color: orange
 default: true
 description: 'Bestellung wird bearbeitet.'
 emails:
-  25be000d-e33e-4660-8f91-eb82c826edd6: 25be000d-e33e-4660-8f91-eb82c826edd6 # Bestellung TV Website an info@terra-verde.ch
+  25be000d-e33e-4660-8f91-eb82c826edd6: 25be000d-e33e-4660-8f91-eb82c826edd6 # Bestellung TV Website an bestellung@terra-verde.ch
   ee73ad95-c3b7-4b1a-97d4-77987063c463: ee73ad95-c3b7-4b1a-97d4-77987063c463 # Bestell-Bestätigung
 handle: orderStatusPending
 name: 'In Bearbeitung'

@@ -1,4 +1,4 @@
-dateModified: 1662132252
+dateModified: 1662132481
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: 'Terra Verde'
@@ -83,7 +83,7 @@ meta:
     22eccfa5-697f-401b-888f-54b058b00572: 'Bild 2 Schnellzugriff' # Bild 2 Schnellzugriff
     023a6dc1-c7ac-4b4a-9908-220b69485841: 'Öffnungszeiten Samstag' # Öffnungszeiten Samstag
     25a44f78-04a9-4629-9428-984e1c1201a3: Aktuell # Aktuell
-    25be000d-e33e-4660-8f91-eb82c826edd6: 'Bestellung TV Website an info@terra-verde.ch' # Bestellung TV Website an info@terra-verde.ch
+    25be000d-e33e-4660-8f91-eb82c826edd6: 'Bestellung TV Website an bestellung@terra-verde.ch' # Bestellung TV Website an bestellung@terra-verde.ch
     27ee92fc-2ecb-42a3-86cb-ff619931841a: Vegan # Vegan
     31d89d29-5bb5-4d25-81f8-d582276516b3: 'Artikel Grundpreis (EVP inkl.)' # Artikel Grundpreis (EVP inkl.)
     34eecfa5-9662-4a5c-addd-6a484fbebe8d: 'Verkaufsstellen Orte' # Verkaufsstellen Orte

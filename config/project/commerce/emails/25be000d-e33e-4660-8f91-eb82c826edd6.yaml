@@ -2,7 +2,7 @@ bcc: null
 cc: null
 enabled: true
 language: orderLanguage
-name: 'Bestellung TV Website an info@terra-verde.ch'
+name: 'Bestellung TV Website an bestellung@terra-verde.ch'
 plainTextTemplatePath: ''
 recipientType: custom
 replyTo: '{{order.user.email}}'
