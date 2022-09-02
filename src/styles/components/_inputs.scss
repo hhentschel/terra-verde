@@ -151,7 +151,7 @@ input[type='submit'].input {
     }
   }
 
-  &.disabled {
+  &.input__disabled {
     background-color: $input--disabled-background-color;
     border-color: $input--disabled-border-color;
     color: $input--disabled-text-color;

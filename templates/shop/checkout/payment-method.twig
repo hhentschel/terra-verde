@@ -106,9 +106,7 @@
                     {% endif %}
                     type="submit"
                     name="submit"
-                    class="input__primary input  {% if not cart.shippingMethod %}
-                      disabled
-                    {% endif %}"
+                    class="input__primary input {% if not cart.shippingMethod %}input__disabled{% endif %}"
                     value="Weiter zu Zahlung"/>
                 </div>
               </div>
