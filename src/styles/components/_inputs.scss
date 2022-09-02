@@ -151,10 +151,16 @@ input[type='submit'].input {
     }
   }
 
-  &:disabled {
+  &.disabled {
     background-color: $input--disabled-background-color;
     border-color: $input--disabled-border-color;
     color: $input--disabled-text-color;
+
+    &:hover {
+      background-color: $input--disabled-background-color;
+      border-color: $input--disabled-border-color;
+      color: $input--disabled-text-color;
+    }
   }
 }
 
