@@ -87,39 +87,32 @@
               {% set user = craft.users.email(cart.email).one() %}
               {% if not user %}
                 {{ hiddenInput('noUserPickUp', 1) }}
-                <div class="checkout__steps">
-                  <div class="checkout__steps--button">
-                    <input
-                      type="submit"
-                      name="submit"
-                      class="input__primary input"
-                      value="Weiter zu Zahlung"/>
-                  </div>
-                </div>
-              {% else %}
+              {% endif %}
 
-                {% if not cart.shippingMethod %}
-                  <div class="hint">
-                    <p><span class="notice--error errors">Versand nicht ausgewählt.</span>
-                      <a href="{{ url('shop/checkout/shipping') }}" class="link">
-                        Eine Versandart auswählen.
-                      </a>
-                    </p>
-                  </div>
-                {% endif %}
-                <div class="checkout__steps">
-                  <div class="checkout__steps--button">
-                    <input
-                      {% if not cart.shippingMethod %}
-                        disabled
-                      {% endif %}
-                      type="submit"
-                      name="submit"
-                      class="input__primary input"
-                      value="Weiter zu Zahlung"/>
-                  </div>
+              {% if not cart.shippingMethod %}
+                <div class="hint">
+                  <p><span class="notice--error errors">Versand nicht ausgewählt.</span>
+                    <a href="{{ url('shop/checkout/shipping') }}" class="link">
+                      Eine Versandart auswählen.
+                    </a>
+                  </p>
                 </div>
               {% endif %}
+              <div class="checkout__steps">
+                <div class="checkout__steps--button">
+                  <input
+                    {% if not cart.shippingMethod %}
+                      disabled
+                    {% endif %}
+                    type="submit"
+                    name="submit"
+                    class="input__primary input  {% if not cart.shippingMethod %}
+                      disabled
+                    {% endif %}"
+                    value="Weiter zu Zahlung"/>
+                </div>
+              </div>
+
 
             </form>
           </div>
