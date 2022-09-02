@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "376d1f667663d72a6e85b827d514772e",
+    "content-hash": "46c2b5748b231250526441b362372875",
     "packages": [
         {
             "name": "aws/aws-crt-php",
@@ -1337,11 +1337,6 @@
         {
             "name": "davechild/textstatistics",
             "version": "1.0.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/DaveChild/Text-Statistics.git",
-                "reference": "dd16252a5c78fad6f8ea4fcd7e55d14fd07b1382"
-            },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/DaveChild/Text-Statistics/zipball/dd16252a5c78fad6f8ea4fcd7e55d14fd07b1382",
@@ -1350,9 +1345,6 @@
             },
             "require": {
                 "php": ">=5.3.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "4.2.*"
             },
             "suggest": {
                 "ext-bcmath": "More accurate floating point calculations.",
@@ -1369,7 +1361,6 @@
                     "DaveChild\\TextStatistics": "src"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "BSD-2-Clause"
             ],
@@ -1383,10 +1374,6 @@
             ],
             "description": "PHP package to measure the readability of text according to various algorithms.",
             "homepage": "https://github.com/DaveChild/Text-Statistics",
-            "support": {
-                "issues": "https://github.com/DaveChild/Text-Statistics/issues",
-                "source": "https://github.com/DaveChild/Text-Statistics/tree/master"
-            },
             "time": "2018-06-19T09:25:42+00:00"
         },
         {
@@ -3070,16 +3057,11 @@
         },
         {
             "name": "mediabeastnz/craft-commerce-back-in-stock",
-            "version": "1.4.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/mediabeastnz/craft-commerce-back-in-stock.git",
-                "reference": "b72fd7e94702ff3d0abb46afb7aee1cfff484a9a"
-            },
+            "version": "1.4.4",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mediabeastnz/craft-commerce-back-in-stock/zipball/b72fd7e94702ff3d0abb46afb7aee1cfff484a9a",
-                "reference": "b72fd7e94702ff3d0abb46afb7aee1cfff484a9a",
+                "url": "https://api.github.com/repos/mediabeastnz/craft-commerce-back-in-stock/zipball/7232de2f372837b5bf3fe3a65cbe6830e4b90d2e",
+                "reference": "7232de2f372837b5bf3fe3a65cbe6830e4b90d2e",
                 "shasum": ""
             },
             "require": {
@@ -3102,7 +3084,6 @@
                     "mediabeastnz\\backinstock\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "proprietary"
             ],
@@ -3114,21 +3095,20 @@
             ],
             "description": "Back in stock plugin for Craft Commerce that notifies subscribed users via an automated email",
             "keywords": [
-                "Craft",
-                "Out Of Stock",
                 "back in stock",
                 "cms",
+                "craft",
                 "craft-plugin",
                 "craftcms",
                 "notification",
+                "out of stock",
                 "re-stocked"
             ],
             "support": {
                 "docs": "https://github.com/mediabeastnz/craft-commerce-back-in-stock/blob/master/README.md",
-                "issues": "https://github.com/mediabeastnz/craft-commerce-back-in-stock/issues",
-                "source": "https://github.com/mediabeastnz/craft-commerce-back-in-stock/tree/1.4.0"
+                "issues": "https://github.com/mediabeastnz/craft-commerce-back-in-stock/issues"
             },
-            "time": "2020-05-27T03:52:29+00:00"
+            "time": "2022-07-09T11:35:42+00:00"
         },
         {
             "name": "mikehaertl/php-shellcommand",
@@ -3733,11 +3713,6 @@
         {
             "name": "nystudio107/craft-plugin-manifest",
             "version": "1.0.10",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/nystudio107/craft-plugin-manifest.git",
-                "reference": "d94d147b548384c7d9bd59777e12462d32042445"
-            },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/nystudio107/craft-plugin-manifest/zipball/d94d147b548384c7d9bd59777e12462d32042445",
@@ -3753,7 +3728,6 @@
                     "nystudio107\\pluginmanifest\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -3771,15 +3745,8 @@
             ],
             "support": {
                 "docs": "https://github.com/nystudio107/craft-plugin-manifest/blob/v1/README.md",
-                "issues": "https://github.com/nystudio107/craft-plugin-manifest/issues",
-                "source": "https://github.com/nystudio107/craft-plugin-manifest/tree/1.0.10"
+                "issues": "https://github.com/nystudio107/craft-plugin-manifest/issues"
             },
-            "funding": [
-                {
-                    "url": "https://github.com/khalwat",
-                    "type": "github"
-                }
-            ],
             "time": "2022-04-26T14:57:11+00:00"
         },
         {
@@ -3874,28 +3841,20 @@
         },
         {
             "name": "nystudio107/craft-seomatic",
-            "version": "3.4.31",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/nystudio107/craft-seomatic.git",
-                "reference": "a0cfac31742251cad77d0b8b8d8b7a66bd5a5694"
-            },
+            "version": "3.4.37",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nystudio107/craft-seomatic/zipball/a0cfac31742251cad77d0b8b8d8b7a66bd5a5694",
-                "reference": "a0cfac31742251cad77d0b8b8d8b7a66bd5a5694",
+                "url": "https://api.github.com/repos/nystudio107/craft-seomatic/zipball/7222ea76230fcf1cf74ab6c9980d49aac594a02a",
+                "reference": "7222ea76230fcf1cf74ab6c9980d49aac594a02a",
                 "shasum": ""
             },
             "require": {
                 "craftcms/cms": "^3.1.19",
                 "davechild/textstatistics": "1.0.2",
                 "nystudio107/craft-plugin-manifest": "^1.0.4",
+                "nystudio107/craft-twigfield": "^1.0.10",
                 "php-science/textrank": "^1.0.3",
                 "sunra/php-simple-html-dom-parser": "^1.5.2"
-            },
-            "require-dev": {
-                "codeception/codeception": "^3.0",
-                "vlucas/phpdotenv": "^3.0"
             },
             "type": "craft-plugin",
             "extra": {
@@ -3909,7 +3868,6 @@
                     "nystudio107\\seomatic\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "proprietary"
             ],
@@ -3921,31 +3879,72 @@
             ],
             "description": "SEOmatic facilitates modern SEO best practices & implementation for Craft CMS 3. It is a turnkey SEO system that is comprehensive, powerful, and flexible.",
             "keywords": [
-                "Craft",
-                "JSON-LD",
-                "Sitemap",
                 "cms",
+                "craft",
                 "craft-plugin",
                 "craftcms",
                 "facebook",
+                "json-ld",
                 "meta",
                 "seo",
                 "seomatic",
+                "sitemap",
                 "tags",
                 "twitter"
             ],
             "support": {
                 "docs": "https://nystudio107.com/plugins/seomatic/documentation",
-                "issues": "https://nystudio107.com/plugins/seomatic/support",
-                "source": "https://github.com/nystudio107/craft-seomatic/tree/3.4.31"
+                "issues": "https://nystudio107.com/plugins/seomatic/support"
             },
-            "funding": [
+            "time": "2022-07-23T21:01:02+00:00"
+        },
+        {
+            "name": "nystudio107/craft-twigfield",
+            "version": "1.0.11",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nystudio107/craft-twigfield/zipball/1b920b9fa491256755975c9dd8e3a9a160546494",
+                "reference": "1b920b9fa491256755975c9dd8e3a9a160546494",
+                "shasum": ""
+            },
+            "require": {
+                "craftcms/cms": "^3.0.0 || ^4.0.0"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "bootstrap": "nystudio107\\twigfield\\Twigfield"
+            },
+            "autoload": {
+                "psr-4": {
+                    "nystudio107\\twigfield\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
                 {
-                    "url": "https://github.com/khalwat",
-                    "type": "github"
+                    "name": "nystudio107",
+                    "homepage": "https://nystudio107.com"
                 }
             ],
-            "time": "2022-05-31T19:11:33+00:00"
+            "description": "Provides a twig editor field with Twig & Craft API autocomplete",
+            "keywords": [
+                "auto",
+                "autocomplete",
+                "cms",
+                "complete",
+                "craft",
+                "craftcms",
+                "editor",
+                "twig"
+            ],
+            "support": {
+                "docs": "https://github.com/nystudio107/craft-twigfield/blob/v1/README.md",
+                "issues": "https://github.com/nystudio107/craft-twigfield/issues",
+                "source": "https://github.com/nystudio107/craft-twigfield"
+            },
+            "time": "2022-07-24T18:06:56+00:00"
         },
         {
             "name": "omnipay/common",
@@ -4542,25 +4541,17 @@
         },
         {
             "name": "php-science/textrank",
-            "version": "1.2.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/PHP-Science/TextRank.git",
-                "reference": "cfa7480c9e136492109602473c242c1788279a4d"
-            },
+            "version": "1.2.2",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHP-Science/TextRank/zipball/cfa7480c9e136492109602473c242c1788279a4d",
-                "reference": "cfa7480c9e136492109602473c242c1788279a4d",
+                "url": "https://api.github.com/repos/PHP-Science/TextRank/zipball/c5ccfc998b3cee91bf5d01b9f107d382acfa0ca8",
+                "reference": "c5ccfc998b3cee91bf5d01b9f107d382acfa0ca8",
                 "shasum": ""
             },
             "require": {
                 "ext-ctype": "*",
                 "ext-mbstring": "*",
                 "php": ">=7.2"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "9.*"
             },
             "type": "library",
             "autoload": {
@@ -4571,7 +4562,6 @@
                     ]
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -4591,11 +4581,7 @@
                 "summarization",
                 "textrank"
             ],
-            "support": {
-                "issues": "https://github.com/PHP-Science/TextRank/issues",
-                "source": "https://github.com/PHP-Science/TextRank/tree/1.2.1"
-            },
-            "time": "2021-02-27T07:54:19+00:00"
+            "time": "2022-08-12T13:02:17+00:00"
         },
         {
             "name": "phpdocumentor/reflection-common",
@@ -6203,16 +6189,11 @@
         },
         {
             "name": "spicyweb/craft-neo",
-            "version": "2.13.11",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/spicywebau/craft-neo.git",
-                "reference": "fc2e1334f76e0f2564af16abb31b8dd0b00ae383"
-            },
+            "version": "2.13.15",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spicywebau/craft-neo/zipball/fc2e1334f76e0f2564af16abb31b8dd0b00ae383",
-                "reference": "fc2e1334f76e0f2564af16abb31b8dd0b00ae383",
+                "url": "https://api.github.com/repos/spicywebau/craft-neo/zipball/2d90b1d28cb29821dd5a988d59358404de6af2af",
+                "reference": "2d90b1d28cb29821dd5a988d59358404de6af2af",
                 "shasum": ""
             },
             "require": {
@@ -6232,7 +6213,6 @@
                     "benf\\neo\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "proprietary"
             ],
@@ -6244,20 +6224,20 @@
             ],
             "description": "A Matrix-like field type that uses existing fields",
             "keywords": [
-                "Neo",
                 "cms",
                 "craftcms",
                 "field",
                 "matrix",
+                "neo",
                 "plugin"
             ],
             "support": {
-                "docs": "https://github.com/spicywebau/craft-neo/blob/2.13.11/README.md",
                 "issues": "https://github.com/spicywebau/craft-neo/issues",
-                "rss": "https://github.com/spicywebau/craft-neo/commits/master.atom",
-                "source": "https://github.com/spicywebau/craft-neo"
+                "source": "https://github.com/spicywebau/craft-neo",
+                "docs": "https://github.com/spicywebau/craft-neo/blob/2.13.15/README.md",
+                "rss": "https://github.com/spicywebau/craft-neo/commits/master.atom"
             },
-            "time": "2022-06-04T13:27:39+00:00"
+            "time": "2022-07-19T13:01:48+00:00"
         },
         {
             "name": "starkbank/ecdsa",
@@ -6305,11 +6285,6 @@
         {
             "name": "sunra/php-simple-html-dom-parser",
             "version": "v1.5.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sunra/php-simple-html-dom-parser.git",
-                "reference": "75b9b1cb64502d8f8c04dc11b5906b969af247c6"
-            },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/sunra/php-simple-html-dom-parser/zipball/75b9b1cb64502d8f8c04dc11b5906b969af247c6",
@@ -6326,7 +6301,6 @@
                     "Sunra\\PhpSimple\\HtmlDomParser": "Src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -6348,10 +6322,6 @@
                 "html",
                 "parser"
             ],
-            "support": {
-                "issues": "https://github.com/sunra/php-simple-html-dom-parser/issues",
-                "source": "https://github.com/sunra/php-simple-html-dom-parser/tree/master"
-            },
             "time": "2016-11-22T22:57:47+00:00"
         },
         {
