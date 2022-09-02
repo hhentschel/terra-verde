@@ -8,4 +8,4 @@ recipientType: custom
 replyTo: '{{order.user.email}}'
 subject: 'Bestellung Website – {{order.user.fullName}} – {{order.user.email}} – Nr.{{order.reference }} – {{ order.shippingMethodName }}'
 templatePath: /shop/_email/order-confirmation-tv.twig
-to: bestellung@terra-verde.ch
+to: $ORDER_EMAIL
