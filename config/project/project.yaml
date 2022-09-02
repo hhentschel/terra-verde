@@ -1,4 +1,4 @@
-dateModified: 1659431206
+dateModified: 1662128983
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: 'Terra Verde'
@@ -516,56 +516,6 @@ plugins:
         -
           - Anleitungen
       widgetTitle: Links
-  image-optimize:
-    edition: standard
-    enabled: false
-    licenseKey: KTPXN8E890GADLRUF1046M43
-    schemaVersion: 1.0.0
-    settings:
-      allowUpScaledImageVariants: true
-      assetVolumeSubFolders: true
-      autoSharpenScaledImages: true
-      capSilhouetteSvgSize: true
-      createColorPalette: true
-      createPlaceholderSilhouettes: false
-      imageTransformTypeSettings:
-        __assoc__:
-          -
-            - nystudio107\imageoptimizeimgix\imagetransforms\ImgixImageTransform
-            -
-              __assoc__:
-                -
-                  - domain
-                  - ''
-                -
-                  - apiKey
-                  - ''
-                -
-                  - securityToken
-                  - ''
-                -
-                  - unsharpMask
-                  - '20'
-          -
-            - nystudio107\imageoptimizesharp\imagetransforms\SharpImageTransform
-            -
-              __assoc__:
-                -
-                  - baseUrl
-                  - ''
-          -
-            - nystudio107\imageoptimizethumbor\imagetransforms\ThumborImageTransform
-            -
-              __assoc__:
-                -
-                  - baseUrl
-                  - ''
-                -
-                  - securityKey
-                  - ''
-      lowerQualityRetinaImageVariants: true
-      sharpenScaledImagePercentage: 50
-      transformClass: nystudio107\imageoptimize\imagetransforms\CraftImageTransform
   mailchimp-subscribe:
     edition: standard
     enabled: true
@@ -644,10 +594,6 @@ plugins:
       statsStoredLimit: 1000
       stripQueryStringFromStats: true
       uriChangeRedirectSrcMatch: fullurl
-  sendgrid:
-    edition: standard
-    enabled: true
-    schemaVersion: 1.0.0
   seomatic:
     edition: standard
     enabled: true
