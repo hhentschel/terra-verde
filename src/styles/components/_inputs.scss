@@ -43,6 +43,11 @@ $button-secondary--hover-color: $color--white;
 $button-secondary--hover-background-color: rgba($color--secondary, 0.8);
 $button-secondary--hover-border-color: $color--secondary;
 
+//disabled 
+$input--disabled-background-color: $color--disabled-background;
+$input--disabled-border-color: $color--disabled-border;
+$input--disabled-text-color: $color--disabled-text;
+
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -85,8 +90,7 @@ input[type='submit'].input {
   line-height: $line-height--m;
 
   &.input__primary {
-    padding: $button-primary--horizontal-padding
-      $button-primary--vertical-padding;
+    padding: $button-primary--horizontal-padding $button-primary--vertical-padding;
 
     @if (has($button-primary--background-color)) {
       background-color: $button-primary--background-color;
@@ -117,8 +121,7 @@ input[type='submit'].input {
   }
 
   &.input__secondary {
-    padding: $button-secondary--horizontal-padding
-      $button-secondary--vertical-padding;
+    padding: $button-secondary--horizontal-padding $button-secondary--vertical-padding;
 
     @if (has($button-secondary--background-color)) {
       background-color: $button-secondary--background-color;
@@ -130,9 +133,7 @@ input[type='submit'].input {
       border-radius: $button-secondary--border-radius;
     }
     @if (has($button-secondary--border-width)) {
-      border: $button-secondary--border-width
-        solid
-        $button-secondary--border-color;
+      border: $button-secondary--border-width solid $button-secondary--border-color;
     }
 
     &:hover {
@@ -148,6 +149,12 @@ input[type='submit'].input {
         border-color: $button-secondary--hover-border-color;
       }
     }
+  }
+
+  &:disabled {
+    background-color: $input--disabled-background-color;
+    border-color: $input--disabled-border-color;
+    color: $input--disabled-text-color;
   }
 }
 
