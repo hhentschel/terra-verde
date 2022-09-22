@@ -1,4 +1,4 @@
-dateModified: 1662132481
+dateModified: 1663830608
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: 'Terra Verde'
@@ -265,6 +265,7 @@ meta:
     f9ea37ad-b93c-4731-90ad-312428b52e6f: 'Preise (Detailhandel)' # Preise (Detailhandel)
     f171c298-b09b-4b12-8d5a-f876e71109f3: 'Titel H4' # Titel H4
     f659b749-959d-41b7-aca0-80889378ead1: Verkaufsstellen # Verkaufsstellen
+    f2707fd4-f20f-4e96-9300-64f64a50f217: Rabatt # Rabatt
     f73632b8-d77e-478a-9a4b-1a9a41ed6c45: Allergene # Allergene
     f80417a4-4032-4133-b6b3-695f48119fa2: Map # Map
     f836488e-b5ab-4d7d-8b93-f9d9fb95263f: 'Bild Alt-Text' # Bild Alt-Text
