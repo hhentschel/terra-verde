@@ -11,6 +11,7 @@ use craft\commerce\elements\db\VariantQuery;
 use craft\commerce\elements\Variant;
 use craft\commerce\services\OrderAdjustments;
 use craft\elements\db\ElementQuery;
+use craft\elements\User;
 use craft\events\PopulateElementEvent;
 use craft\events\RegisterComponentTypesEvent;
 use modules\retailpricing\adjusters\RoundingAdjuster;
@@ -21,6 +22,8 @@ use yii\base\Module as Module;
 class RetailPricing extends Module
 {
     const RETAIL_USER_GROUP_ID = 1;
+    const DISCOUNTED_RETAIL_USER_GROUP_ID = 5;
+    const DISCOUNTED_RETAIL_USER_GROUP_PERCENTAGE = 23;
 
     public function init(): void
     {
@@ -32,8 +35,8 @@ class RetailPricing extends Module
             Event::on(
                 VariantQuery::class,
                 ElementQuery::EVENT_AFTER_POPULATE_ELEMENT,
-                function (PopulateElementEvent $event) {
-                    $this->_applyRetailPrice($event->element);
+                function (PopulateElementEvent $event) use ($user) {
+                    $this->_applyRetailPrice($event->element, $user);
                 }
             );
         }
@@ -53,7 +56,7 @@ class RetailPricing extends Module
     /**
      * @param Variant $variant
      */
-    private function _applyRetailPrice(ElementInterface $variant): void
+    private function _applyRetailPrice(ElementInterface $variant, User $user): void
     {
         try {
             $product = $variant->getProduct();
@@ -63,7 +66,23 @@ class RetailPricing extends Module
         }
 
         if ($product && $product->priceRetailTrader) {
-            $variant->price = $product->priceRetailTrader;
+            $discountPercentage = 0;
+            if ($user->isInGroup(self::DISCOUNTED_RETAIL_USER_GROUP_ID)) {
+                $discountPercentage = self::DISCOUNTED_RETAIL_USER_GROUP_PERCENTAGE;
+            }
+
+            if ($discountPercentage) {
+                // Apply percentage discount on `priceRetailTrader`
+                $discount = $product->priceRetailTrader * ($discountPercentage / 100);
+
+                $discountedPrice = $product->priceRetailTrader - $discount;
+
+                // Round the final price to the nearest cent
+                $variant->price = round($discountedPrice * 100) / 100;
+            }
+            else {
+                $variant->price = $product->priceRetailTrader;
+            }
         }
     }
 }
