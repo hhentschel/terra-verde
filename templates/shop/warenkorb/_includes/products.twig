@@ -418,13 +418,20 @@
                      {% if userExists %}
                        {# If User is Retailer (Detailhandel) #}
                        {% if userExists.isInGroup('userGroupRetail') %}
+                         {% set nettoPrice = cart.totalPrice - cart.getTotalTaxIncluded %}
 
-                         {# If User has Lightswitch to in, that min Order Amount is turned off #}
+                         {# If User has Lightswitch to in, that min Order Amount is 500,- #}
                          {% if currentUser.minOrderValueSetting %}
-                           <a class="button button--primary" href="{{ url('shop/checkout') }}">Bezahlen</a>
+                           {% if nettoPrice < 500 and not cart.couponCode %}
+                             <div class="form__cart--expection">
+                               <a class="button button--secondary" href="#">Zahlung nicht möglich</a>
+                               <span>Mindestbestellbetrag Netto: 500,- CHF</span>
+                             </div>
+                           {% else %}
+                             <a class="button button--primary" href="{{ url('shop/checkout') }}">Bezahlen</a>
+                           {% endif %}
                          {% else %}
 
-                           {% set nettoPrice = cart.totalPrice - cart.getTotalTaxIncluded %}
                            {% if nettoPrice < 150 and not cart.couponCode %}
                              <div class="form__cart--expection">
                                <a class="button button--secondary" href="#">Zahlung nicht möglich</a>
