@@ -3,12 +3,12 @@ contentColumnType: boolean
 fieldGroup: 84b58543-313b-40d6-a50b-2fbf9262c271 # Benutzer
 handle: minOrderValueSetting
 instructions: ''
-name: Mindestbestellwert
+name: 'Mindestbestellwert (betrifft nur Detailhandel) - Privat ist Mindestbestellwert generell deaktiviert.'
 searchable: false
 settings:
   default: false
-  offLabel: 'Mindestbestellwert aktiviert'
-  onLabel: 'Mindestbestellwert deaktiviert'
+  offLabel: 'Mindestbestellwert Standard - 150,-'
+  onLabel: 'Mindestbestellwert spezial (alle Bachsermärkte) 615,-'
 translationKeyFormat: null
 translationMethod: none
 type: craft\fields\Lightswitch

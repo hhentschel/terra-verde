@@ -1,4 +1,4 @@
-dateModified: 1663830608
+dateModified: 1665754098
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: 'Terra Verde'
@@ -118,7 +118,7 @@ meta:
     127bba7e-6a96-4ffa-8cbb-f4c17d39e347: Team # Team
     149a3219-5b27-4275-8a0f-b97cbff1e3ec: Shop # Shop
     219d5317-b509-4c72-87a2-15026938e903: Blog # Blog
-    273d5a0c-4e06-47ec-8a4b-c1fcffa5684d: Mindestbestellwert # Mindestbestellwert
+    273d5a0c-4e06-47ec-8a4b-c1fcffa5684d: 'Mindestbestellwert (betrifft nur Detailhandel) - Privat ist Mindestbestellwert generell deaktiviert.' # Mindestbestellwert (betrifft nur Detailhandel) - Privat ist Mindestbestellwert generell deaktiviert.
     328c6ddf-69e0-47e5-8057-5c04984d8d85: 'Weine Portugal' # Weine Portugal
     348a200e-7d31-4262-b613-e8cc6e039fb2: Degustationsnotiz # Degustationsnotiz
     421eaf0b-f542-45ff-8051-2921d93b3eeb: Vorschautext # Vorschautext

@@ -20,7 +20,7 @@ tabs:
         warning: null
         width: 25
       -
-        fieldUid: 273d5a0c-4e06-47ec-8a4b-c1fcffa5684d # Mindestbestellwert
+        fieldUid: 273d5a0c-4e06-47ec-8a4b-c1fcffa5684d # Mindestbestellwert (betrifft nur Detailhandel) - Privat ist Mindestbestellwert generell deaktiviert.
         instructions: null
         label: null
         required: false
