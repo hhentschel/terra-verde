@@ -422,7 +422,7 @@
 
                          {# If User has Lightswitch to on, that min Order Amount is 615,- #}
                          {% if currentUser.minOrderValueSetting %}
-                           {% if nettoPrice < 615 and not cart.couponCode %}
+                           {% if nettoPrice < 500 and not cart.couponCode %}
                              <div class="form__cart--expection">
                                <a class="button button--secondary" href="#">Zahlung nicht möglich</a>
                                <span>Mindestbestellbetrag: 615,- CHF</span>
