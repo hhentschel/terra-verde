@@ -1,5 +1,6 @@
 {% set cart = craft.commerce.carts.cart %}
 {% set discount = craft.commerce.discounts.getDiscountByCode(cart.couponCode) %}
+{% set userExists = craft.users.email(cart.email).one() %}
 
 {% if sprig.isRequest %}
   <script>
@@ -399,11 +400,24 @@
                    {{ cart.totalPrice|commerceCurrency(cart.currency) }}
                  </div>
                </div>
+
+
                <div class="form__cart-table--item-addprice" title="{{ cart.getTotalTaxIncluded() }}">
                  <div class="form__cart-table--item-price-name">inkl. Mwst.:</div>
                  <div
                    class="form__cart-table--item-price-number">{{ cart.getTotalTaxIncluded()|commerceCurrency(cart.currency) }}</div>
                </div>
+
+               {% if userExists.isInGroup('userGroupRetail') %}
+                 <div class="form__cart-table--item-pricetotal" title="{{ cart.totalPrice }}">
+                   <div class="form__cart-table--item-price-name">Gesamtpreis Netto:</div>
+                   <div class="form__cart-table--item-pricetotal-number">
+                     {% set nettoPrice = cart.totalPrice - cart.getTotalTaxIncluded %}
+                     {{ nettoPrice|commerceCurrency(cart.currency) }}
+                   </div>
+                 </div>
+               {% endif %}
+
              {% endif %}
            </td>
          </tr>
@@ -413,15 +427,16 @@
                <div class="form__cart-table--buttons-container">
                  <div>
                    {% if not cart.hasErrors() %}
-                     {% set userExists = craft.users.email(cart.email).one() %}
+
                      {# If User exists #}
                      {% if userExists %}
                        {# If User is Retailer (Detailhandel) #}
                        {% if userExists.isInGroup('userGroupRetail') %}
+
                          {% set nettoPrice = cart.totalPrice - cart.getTotalTaxIncluded %}
 
                          {# If User has Lightswitch to on, that min Order Amount is 615,- #}
-                         {% if currentUser.minOrderValueSetting %}
+                         {% if currentUser.minOrderValueSetting == true %}
                            {% if nettoPrice < 615 and not cart.couponCode %}
                              <div class="form__cart--expection">
                                <a class="button button--secondary" href="#">Zahlung nicht möglich</a>
