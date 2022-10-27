@@ -36,9 +36,7 @@ return [
     'postLoginRedirect' => '/',
 
     'generateTransformsBeforePageLoad' => true,
-    // Set to 0 if you want users to stay logged in as long as their browser is open
-    'rememberedUserSessionDuration' => 'P1Y',
-    'userSessionDuration' => 'P1Y',
+    'userSessionDuration' => '0',
 
 
     // setPasswordPath
