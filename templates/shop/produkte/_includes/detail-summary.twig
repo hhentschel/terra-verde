@@ -1,3 +1,5 @@
+{% set variant = product.defaultVariant %}
+
 {% if product.articleDescriptionAdditional %}
   <h4 class="layout-helper__margin-top--none">{{ product.articleDescriptionAdditional }}</h4>
 {% endif %}
@@ -7,8 +9,6 @@
     Beschreibung
   </summary>
   <dl class="product-detail__summary-content">
-
-    {% set variant = product.defaultVariant %}
 
     {% if product.articleIngredients %}
       <dt>

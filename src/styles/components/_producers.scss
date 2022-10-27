@@ -1,4 +1,10 @@
 .producers {
+  &-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr) );
+    grid-gap: px-to-rem($space--xm);
+  }
+
   &-overview {
     display: flex;
     flex-direction: column;
@@ -7,7 +13,8 @@
 
     &__title {
       flex: 1;
-      font-size: px-to-rem($font-size-xl-p);
+      font-size: px-to-rem($font-size-l);
+      margin-top: 0;
     }
 
     &__preview {
@@ -24,13 +31,18 @@
         margin: 0 0 px-to-rem($space--xm) 0;
         @include breakpoint('tablet-landscape') {
           flex: 1 0 33%;
-          margin: 0 px-to-rem($space--xm) 0 0;
+          margin: 0;
         }
 
-        .image__wrapper {
-          justify-content: flex-start;
-        }
+        /*        .image__wrapper {
+                  justify-content: flex-start;
+                }*/
       }
+
+      .image__img {
+        object-fit: cover;
+      }
+
       &-lead {
         p {
           margin: 0 0 px-to-rem($space--m) 0;

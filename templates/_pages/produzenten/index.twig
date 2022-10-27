@@ -1,6 +1,5 @@
 {% extends '_layouts/main' %}
-{% set pageTitle = entry.pageTitle is not empty ? entry.pageTitle : entry.title
-%}
+{% set pageTitle = entry.pageTitle is not empty ? entry.pageTitle : entry.title %}
 
 {% block content %}
   <div class="grid">
@@ -17,74 +16,54 @@
   <section class="grid">
     <div class="row">
       <div class="col col-xs-12 col-md-12 col-lg-12">
-        {% set relatedSection =
-          craft.entries.section('producersStructure').level(1).all()
-        %}
-        {% if relatedSection|length %}
-          {% for entry in relatedSection %}
-            <div class="producers producers-overview">
-              <h3 class="producers-overview__title">
-                {{ entry.title }}
-              </h3>
+        <div class="producers-grid">
 
-              <div class="producers-overview__preview">
-                {% if
-                  entry.contentElements is defined
+          {% set relatedSection =
+            craft.entries.section('producersStructure').level(1).all() %}
+          {% if relatedSection|length %}
+            {% for entry in relatedSection %}
+              <div class="producers producers-overview">
+                <h3 class="producers-overview__title">
+                  {{ entry.title }}
+                </h3>
+
+                <div class="producers-overview__preview">
+                  {% if
+                    entry.contentElements is defined
                     and entry.contentElements is not empty %}
-                  <a href="{{ entry.url }}"
-                    class="producers-overview__preview-image">
-                    {# {% set transform =
-                      transformation|default('imageOneThird')
-                    %}
-                    {% set img = entry.image.one().optimizedimages ?? null %}
-                    {% if img is defined and img is not empty %}
-                      {% include '_components/_content-elements/image' with {
-                        optimizedImages: img,
-                        transform: transform
-                      } %}
-                    {% endif %} #}
+                    <a href="{{ entry.url }}"
+                       class="producers-overview__preview-image">
 
-                    {% set transform =
-                      transformation|default('imageOneThird')
-                    %}
-                    {% set img = entry.image.one() ?? null %}
-                    {% if img is defined %}
-                      {% include '_components/_content-elements/image' with {
-                        img: img,
-                        transform: transform
-                      } %}
-                    {% endif %}
-                  </a>
-                  {# {% else %}
-                  <div class="producers-overview__preview-image">
-                    {% set transform = transformation|default('imageOneThird') %}
+                      {% set transform =
+                        transformation|default('producersThumb') %}
                       {% set img = entry.image.one() ?? null %}
                       {% if img is defined %}
-                        {% include '_components/_content-elements/image'
-                          with {
-                            img: img,
-                            transform: transform
-                            } %}
-                    {% endif %}
-                  </div> #}
-                {% endif %}
+                        {% include '_components/_content-elements/image' with {
+                          img: img,
+                          transform: transform
+                        } %}
+                      {% endif %}
+                    </a>
 
-                <div class="producers-overview__preview-lead">
+                  {% endif %}
+
+                  {# <div class="producers-overview__preview-lead">
                   {{ entry.leadText }}
+                </div> #}
                 </div>
-              </div>
 
-              {% if
-                entry.contentElements is defined
+                {% if
+                  entry.contentElements is defined
                   and entry.contentElements is not empty %}
-                <a href="{{ entry.url }}"
-                  class="producers producers-overview__linkdetail">
-                  mehr Informationen
-                </a>
-              {% endif %}
-            </div>
-          {% endfor %}
-        {% endif %}
+                  <a href="{{ entry.url }}"
+                     class="producers producers-overview__linkdetail">
+                    mehr Informationen
+                  </a>
+                {% endif %}
+              </div>
+            {% endfor %}
+          {% endif %}
+        </div>
       </div>
     </div>
   </section>

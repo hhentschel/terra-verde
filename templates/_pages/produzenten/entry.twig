@@ -1,6 +1,6 @@
 {% extends '_layouts/main' %}
-{% set pageTitle = entry.pageTitle is not empty ? entry.pageTitle : entry.title
-%}
+{% set pageTitle = entry.pageTitle is not empty ? entry.pageTitle : entry.title %}
+{% set products = entry.productsRelationfield %}
 
 {% block content %}
   <div class="grid">
@@ -20,13 +20,6 @@
         <div class="content__detail-header">
           <div class="content__detail-image producers-overview__image">
             {% set transform = transformation|default('imageOneThird') %}
-            {# {% set img = entry.image.one().optimizedimages %}
-            {% if img is defined %}
-              {% include '_components/_content-elements/image' with {
-                optimizedImages: img,
-                transform: transform
-              } %}
-            {% endif %} #}
 
             {% set img = entry.image.one() ?? null %}
             {% if img is defined %}
@@ -46,6 +39,21 @@
           contentElements: entry.contentElements.level(1),
           usesGrid: false
         } %}
+        
+        <ul>
+          {% for product in products %}
+            {% set variant = product.defaultVariant %}
+            <li>
+              <a href="{{ product.url }}">
+                {{ product.title }},
+                {% if product.articleVolume %}
+                  {{ product.articleVolume }} {{ product.articleVolumeUnit }}
+                {% endif %}
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+
 
         {# //Tags #}
 

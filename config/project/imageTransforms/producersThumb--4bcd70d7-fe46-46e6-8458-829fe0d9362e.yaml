@@ -1,0 +1,9 @@
+format: webp
+handle: producersThumb
+height: 300
+interlace: none
+mode: crop
+name: 'Produzenten Vorschaubild'
+position: center-center
+quality: null
+width: null

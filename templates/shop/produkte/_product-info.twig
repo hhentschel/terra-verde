@@ -23,6 +23,9 @@
 {% set productQuery = craft.products() %}
 {% set product = craft.products.id(productId).one() %}
 
+   {% set manufactors = product.defaultVariant.mancufactors %}
+
+
 <a href="javascript: history.back()" class="product-detail__button-back product-detail__button-back-arrow">Zurück zur
   Übersicht</a>
 
@@ -82,7 +85,7 @@
         'successMessage',
         ('Artikel ' ~ product.title ~ ' wurde zum Warenkorb hinzugefügt.')|hash
       ) }}
-      
+
       <div class="product-detail__form-addtobasket">
         {% for variant in product.variants %}
 
@@ -177,6 +180,15 @@
 
       </div>
     </form>
+
+
+    {% for manufactor in manufactors %}
+      <div>
+        <a href="{{ manufactor.url }}">
+          {{ manufactors.title }}
+        </a>
+      </div>
+    {% endfor %}
 
     {% include 'shop/produkte/_includes/detail-summary.twig' %}
 

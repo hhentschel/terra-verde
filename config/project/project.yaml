@@ -1,4 +1,4 @@
-dateModified: 1666167791
+dateModified: 1666361284
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: 'Terra Verde'
@@ -42,6 +42,7 @@ meta:
     4a97706d-db06-4301-b6ea-066bb4fe9b83: 'Artikel Lagerung' # Artikel Lagerung
     4a391357-5405-4a58-810f-fd04d12a8b96: 'Warenkorb Thumbnail' # Warenkorb Thumbnail
     4b3451e0-bb7f-44ee-aff9-290c54ff622f: Dummy # Dummy
+    4bcd70d7-fe46-46e6-8458-829fe0d9362e: 'Produzenten Vorschaubild' # Produzenten Vorschaubild
     4c495c1a-4db8-48e1-94fc-15ba7f24bd25: Aktionen # Aktionen
     4c920e95-c071-49d6-974d-175f3cc51bc9: 'Youtube Video Liste' # Youtube Video Liste
     4ee0e70f-49f4-45b6-b165-cd7bcc7cd938: Neu # Neu
@@ -64,6 +65,7 @@ meta:
     06d544a4-f99f-422c-b445-cb1b03a87860: Vinifikation # Vinifikation
     006dbb77-603b-4fa5-b89c-16c62df53342: Login # Login
     6f495a5e-4e7f-4c5d-9163-d674db71d0ea: 'Interner Link (hervorgehoben)' # Interner Link (hervorgehoben)
+    6f209601-f21e-4a01-b1d9-5214dba77620: 'Produzent:innen' # Produzent:innen
     07a64db3-fc15-40a2-af10-a8499ce5a108: VirtueMart-userInfo-Id # VirtueMart-userInfo-Id
     7f760799-8cd2-47b0-981a-c91cfe3036b4: AGB # AGB
     7fec1130-1fea-4054-9bcb-ddff47a64b84: 'Newsletter List' # Newsletter List
