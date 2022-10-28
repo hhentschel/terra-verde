@@ -21,8 +21,8 @@ use yii\base\Module as Module;
 
 class RetailPricing extends Module
 {
-  const RETAIL_USER_GROUP_ID = 2;
-  const DISCOUNTED_RETAIL_USER_GROUP_ID = 7;
+  const RETAIL_USER_GROUP_ID = 1;
+  const DISCOUNTED_RETAIL_USER_GROUP_ID = 8;
   const DISCOUNTED_RETAIL_USER_GROUP_PERCENTAGE = 23;
 
   public function init(): void
