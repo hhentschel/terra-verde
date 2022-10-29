@@ -1,4 +1,4 @@
-dateModified: 1666952717
+dateModified: 1667077897
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: 'Terra Verde'
@@ -42,7 +42,6 @@ meta:
     4a97706d-db06-4301-b6ea-066bb4fe9b83: 'Artikel Lagerung' # Artikel Lagerung
     4a391357-5405-4a58-810f-fd04d12a8b96: 'Warenkorb Thumbnail' # Warenkorb Thumbnail
     4b3451e0-bb7f-44ee-aff9-290c54ff622f: Dummy # Dummy
-    4bcd70d7-fe46-46e6-8458-829fe0d9362e: 'Produzenten Vorschaubild' # Produzenten Vorschaubild
     4c495c1a-4db8-48e1-94fc-15ba7f24bd25: Aktionen # Aktionen
     4c920e95-c071-49d6-974d-175f3cc51bc9: 'Youtube Video Liste' # Youtube Video Liste
     4ee0e70f-49f4-45b6-b165-cd7bcc7cd938: Neu # Neu
@@ -65,7 +64,6 @@ meta:
     06d544a4-f99f-422c-b445-cb1b03a87860: Vinifikation # Vinifikation
     006dbb77-603b-4fa5-b89c-16c62df53342: Login # Login
     6f495a5e-4e7f-4c5d-9163-d674db71d0ea: 'Interner Link (hervorgehoben)' # Interner Link (hervorgehoben)
-    6f209601-f21e-4a01-b1d9-5214dba77620: 'Produzent:innen' # Produzent:innen
     07a64db3-fc15-40a2-af10-a8499ce5a108: VirtueMart-userInfo-Id # VirtueMart-userInfo-Id
     7f760799-8cd2-47b0-981a-c91cfe3036b4: AGB # AGB
     7fec1130-1fea-4054-9bcb-ddff47a64b84: 'Newsletter List' # Newsletter List
@@ -173,7 +171,6 @@ meta:
     9041254e-7c39-4bd9-9590-0a646283a360: 'Artikel Einheit (Gl, Fl, Dose, Stk., Kan.)' # Artikel Einheit (Gl, Fl, Dose, Stk., Kan.)
     16265740-9a81-46f1-9fb8-99fc6b1a8e7f: 'Externer Link (mit Icon)' # Externer Link (mit Icon)
     42065150-3e31-4dfa-ad7d-b6b95f0eba0f: 'Product Home' # Product Home
-    52800980-d5ea-4549-9639-bf308a667cd1: 'Rabatt 23% (Bachsermärte)' # Rabatt 23% (Bachsermärte)
     76367094-179e-4fc3-8e70-b0f8fccc3422: 'Shop Anpassungen' # Shop Anpassungen
     80046407-de11-4bdb-9670-56b00656fb46: Bild # Bild
     84380320-2899-45dc-b326-bd0b24416c50: Video # Video
@@ -210,6 +207,7 @@ meta:
     b19c563f-f580-49f7-88f1-896078bcca7a: 'Titel H2' # Titel H2
     b32fd57a-109a-4013-bf90-72b25ad6b6cd: 'Weine Spanien' # Weine Spanien
     b205d303-121a-4aae-8c85-bb00a76f312a: Titel # Titel
+    bb672809-bd78-4ed8-b9cd-b634c8216640: Video # Video
     be9d7d5b-f31e-4cf0-8aa5-c8371ea536dd: 'Newsletter (Mailchimp)' # Newsletter (Mailchimp)
     be930c36-7ffe-488b-b6c5-783c77c32830: Stadt # Stadt
     bf8bc4b2-3d7f-4972-9768-3026cc9f2184: 'Geschenke & Degustationen' # Geschenke & Degustationen
@@ -221,6 +219,7 @@ meta:
     c9e74448-323c-4314-8339-8767051c39f5: 'Titel, Text & Links' # Titel, Text & Links
     c84df4c8-43eb-4b3c-92e6-8f0cf6ee14b6: 'Bild / Text - 30% / 70%' # Bild / Text - 30% / 70%
     c280f1d1-4f12-4055-8607-8006585970fd: Telefon # Telefon
+    c519b9f5-777f-4693-8ccb-c0ca93df332e: Video # Video
     c8246e09-6dc5-4d7c-91e5-e4ad36778317: OptimizedImages # OptimizedImages
     c243569d-1495-477e-81d5-8e56d348fc88: Text # Text
     cbf7f593-68bf-4c83-b97d-b6959558cb3e: 'Titel H3' # Titel H3
@@ -229,6 +228,7 @@ meta:
     ceeb55b1-0aab-46a0-9d39-91e0f706901f: 'Youtube Video Liste' # Youtube Video Liste
     cfba8ac8-e0a0-405f-87ed-accd8f27b372: Geschenksets # Geschenksets
     cfbe4629-cba3-461e-a930-5e32a064326f: GTIN # GTIN
+    d05fe0a7-d34a-429f-8f5b-4005eba39588: Video # Video
     d4d7e8e5-0118-407a-a1f3-8bb67c86f0ca: Featured # Featured
     d5eb7b01-8b1f-4b3f-83c7-ccfa4c76d49d: Inhaltselemente # Inhaltselemente
     d8cbe40a-89a4-4804-8992-aba26cbb1aca: 'Youtube Video' # Youtube Video
@@ -239,6 +239,7 @@ meta:
     d438ea68-d87f-4238-b23e-cdaa8a840149: 'Produzenten Tags' # Produzenten Tags
     d595e861-4c06-4115-8656-93e95a495147: Notiz # Notiz
     d953a3a0-62dc-4cd9-ad85-a7656faa8d58: Suche # Suche
+    d1470d44-1f37-4fc8-997d-958262298de7: 'Rabatt 23% (Bachsermärte)' # Rabatt 23% (Bachsermärte)
     d549006b-271c-486c-900d-a9348f0ca63d: Blog # Blog
     db07ae15-a8d7-40c0-80e9-c918f6874a6d: Abgeschlossen # Abgeschlossen
     dbadaaf2-9348-4069-9d8d-3e8e37e3d775: Postleitzahl # Postleitzahl

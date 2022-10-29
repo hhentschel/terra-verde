@@ -1,0 +1,9 @@
+{% set video = video is defined and video is not empty ? video.one() : null %}
+
+{# {% set img = entry.image.one() ?? null %} #}
+
+{% if video %}
+  <video width="800" height="500" controls>
+    <source src="{{ video.url() }}" type="video/webm">
+  </video>
+{% endif %}
