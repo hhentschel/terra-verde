@@ -1,7 +1,7 @@
 {
     "require": {
         "bertoost/craft-mailjet": "1.2.3",
-        "craftcms/cms": "3.7.58",
+        "craftcms/cms": "3.7.59",
         "craftcms/commerce": "3.4.18",
         "craftcms/contact-form": "2.5.1",
         "craftcms/feed-me": "4.5.3",
@@ -20,7 +20,7 @@
         "putyourlightson/craft-sprig": "1.13.0",
         "putyourlightson/craft-untransform": "1.0.2",
         "sebastianlenz/linkfield": "1.0.25",
-        "servd/craft-asset-storage": "2.7.6",
+        "servd/craft-asset-storage": "2.7.7",
         "spicyweb/craft-neo": "2.13.15",
         "verbb/expanded-singles": "1.2.0",
         "vlucas/phpdotenv": "^3.4.0"

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "da94e3e4c8d076bc5251e870843f874e",
+    "content-hash": "485c8cc122e67ef2281482ba62525604",
     "packages": [
         {
             "name": "aws/aws-crt-php",
@@ -87,11 +87,11 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.240.3",
+            "version": "3.240.6",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/2080f747489b2d4ca291dcfb8078db60dbb6c255",
-                "reference": "2080f747489b2d4ca291dcfb8078db60dbb6c255",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/81d8e135af0bbd0fd4dc1ffbcfb8869595ddadd2",
+                "reference": "81d8e135af0bbd0fd4dc1ffbcfb8869595ddadd2",
                 "shasum": ""
             },
             "require": {
@@ -147,7 +147,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2022-10-26T18:17:08+00:00"
+            "time": "2022-10-31T18:22:22+00:00"
         },
         {
             "name": "bertoost/craft-mailjet",
@@ -761,11 +761,11 @@
         },
         {
             "name": "craftcms/cms",
-            "version": "3.7.58",
+            "version": "3.7.59",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/craftcms/cms/zipball/eab0c651a9d3a6ce20e10bc134b57675e7863b36",
-                "reference": "eab0c651a9d3a6ce20e10bc134b57675e7863b36",
+                "url": "https://api.github.com/repos/craftcms/cms/zipball/b3e6247db27b315615c02dad6dab89ecd9233d89",
+                "reference": "b3e6247db27b315615c02dad6dab89ecd9233d89",
                 "shasum": ""
             },
             "require": {
@@ -848,7 +848,7 @@
                 "docs": "https://craftcms.com/docs/3.x/",
                 "rss": "https://github.com/craftcms/cms/releases.atom"
             },
-            "time": "2022-10-25T17:17:49+00:00"
+            "time": "2022-10-27T19:57:02+00:00"
         },
         {
             "name": "craftcms/commerce",
@@ -5944,11 +5944,11 @@
         },
         {
             "name": "servd/craft-asset-storage",
-            "version": "2.7.6",
+            "version": "2.7.7",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/servdhost/craft-asset-storage/zipball/8dd624b7ff2bd73f7d53d44472b8f5b709baa858",
-                "reference": "8dd624b7ff2bd73f7d53d44472b8f5b709baa858",
+                "url": "https://api.github.com/repos/servdhost/craft-asset-storage/zipball/94b26e9b1f0e4a511958bd429c8d82146275e709",
+                "reference": "94b26e9b1f0e4a511958bd429c8d82146275e709",
                 "shasum": ""
             },
             "require": {
@@ -5989,7 +5989,7 @@
                 "source": "https://github.com/servdhost/craft-asset-storage",
                 "docs": "https://github.com/servdhost/craft-asset-storage"
             },
-            "time": "2022-10-21T15:02:06+00:00"
+            "time": "2022-11-01T12:09:30+00:00"
         },
         {
             "name": "setasign/fpdi",
@@ -6231,11 +6231,11 @@
         },
         {
             "name": "symfony/console",
-            "version": "v5.4.14",
+            "version": "v5.4.15",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/984ea2c0f45f42dfed01d2f3987b187467c4b16d",
-                "reference": "984ea2c0f45f42dfed01d2f3987b187467c4b16d",
+                "url": "https://api.github.com/repos/symfony/console/zipball/ea59bb0edfaf9f28d18d8791410ee0355f317669",
+                "reference": "ea59bb0edfaf9f28d18d8791410ee0355f317669",
                 "shasum": ""
             },
             "require": {
@@ -6294,7 +6294,7 @@
                 "console",
                 "terminal"
             ],
-            "time": "2022-10-07T08:01:20+00:00"
+            "time": "2022-10-26T21:41:52+00:00"
         },
         {
             "name": "symfony/deprecation-contracts",
@@ -7126,11 +7126,11 @@
         },
         {
             "name": "symfony/string",
-            "version": "v5.4.14",
+            "version": "v5.4.15",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/string/zipball/089e7237497fae7a9c404d0c3aeb8db3254733e4",
-                "reference": "089e7237497fae7a9c404d0c3aeb8db3254733e4",
+                "url": "https://api.github.com/repos/symfony/string/zipball/571334ce9f687e3e6af72db4d3b2a9431e4fd9ed",
+                "reference": "571334ce9f687e3e6af72db4d3b2a9431e4fd9ed",
                 "shasum": ""
             },
             "require": {
