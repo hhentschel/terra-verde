@@ -144,12 +144,11 @@ class TerraverdeModule extends Module
       OrderAdjustments::EVENT_REGISTER_ORDER_ADJUSTERS,
       function (RegisterComponentTypesEvent $event) {
 
-        $event->types[] = adjusters\OrderAdjuster::class;
+        /*$event->types[] = adjusters\OrderAdjuster::class;*/
         $event->types[] = adjusters\PickUpDiscount::class;
         $event->types[] = adjusters\PickUpDiscountB2B::class;
         $event->types[] = adjusters\GiftWrapAdjuster::class;
         $event->types[] = adjusters\GiftNoteAdjuster::class;
-        // $event->types[] = adjusters\Discount10::class;
       });
 
     // run queue automatically
