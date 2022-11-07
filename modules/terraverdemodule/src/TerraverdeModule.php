@@ -33,7 +33,9 @@ use yii\base\Module;
 
 use craft\commerce\services\OrderAdjustments;
 use craft\events\RegisterComponentTypesEvent;
-use OrderAdjuster;
+
+/*use OrderAdjuster*/;
+
 use GiftWrapAdjuster;
 use GiftNoteAdjuster;
 use PickUpDiscount;
