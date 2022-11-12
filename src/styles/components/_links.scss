@@ -17,7 +17,7 @@ $link__icon-height--internal: px-to-rem(18);
 
 $link__icon-distance: px-to-rem($space--m);
 $link__icon-distance--formatted-text: px-to-rem($space--s);
-$link__icon-distance--external: px-to-rem($space--xm);
+$link__icon-distance--external: px-to-rem($space--s);
 $link__icon-distance--external-secondary: px-to-rem($space--m);
 
 $link__icon-offset-horizontal: $link__icon-size + $link__icon-distance;
@@ -38,10 +38,10 @@ $link__button-secondary-color-hover: $color--primary-hover;
 
   @include typo(linkInline);
   @include interactionStyle(
-    color,
-    $link__color,
-    $link__color-hover,
-    $link__color-hover
+      color,
+      $link__color,
+      $link__color-hover,
+      $link__color-hover
   );
 
   display: inline-flex;
@@ -50,8 +50,7 @@ $link__button-secondary-color-hover: $color--primary-hover;
   color: $link__color;
   cursor: pointer;
   text-decoration: $link__text-decoration;
-  transition: $link__transition-properties $link__transition-duration
-    $link__transition-easing;
+  transition: $link__transition-properties $link__transition-duration $link__transition-easing;
 
   &__text {
     flex: 1 0 0;
@@ -130,15 +129,15 @@ $link__button-secondary-color-hover: $color--primary-hover;
 
     &#{$this}--color-blue {
       @include interactionStyle(
-        color,
-        $color--white,
-        $color--white,
-        $color--white
+          color,
+          $color--white,
+          $color--white,
+          $color--white
       );
       background: linear-gradient(
-        279deg,
-        $color--blue-gradient-start 0%,
-        $color--blue-gradient-end 100%
+          279deg,
+          $color--blue-gradient-start 0%,
+          $color--blue-gradient-end 100%
       );
 
       @media (hover: hover) {
@@ -150,10 +149,10 @@ $link__button-secondary-color-hover: $color--primary-hover;
 
     &#{$this}--color-lightblue {
       @include interactionStyle(
-        color,
-        $link__button-secondary-color,
-        $link__button-secondary-color-hover,
-        $link__button-secondary-color-hover
+          color,
+          $link__button-secondary-color,
+          $link__button-secondary-color-hover,
+          $link__button-secondary-color-hover
       );
       background: none;
       border-color: transparent;
@@ -161,10 +160,10 @@ $link__button-secondary-color-hover: $color--primary-hover;
 
     &#{$this}--color-brown {
       @include interactionStyle(
-        color,
-        $color--brown,
-        $link__button-secondary-color-hover,
-        $link__button-secondary-color-hover
+          color,
+          $color--brown,
+          $link__button-secondary-color-hover,
+          $link__button-secondary-color-hover
       );
       background: none;
       border-color: transparent;
@@ -172,16 +171,16 @@ $link__button-secondary-color-hover: $color--primary-hover;
 
     &#{$this}--color-white {
       @include interactionStyle(
-        color,
-        $link__button-secondary-color,
-        $link__button-secondary-color-hover,
-        $link__button-secondary-color-hover
+          color,
+          $link__button-secondary-color,
+          $link__button-secondary-color-hover,
+          $link__button-secondary-color-hover
       );
       @include interactionStyle(
-        border-color,
-        $link__button-secondary-color,
-        $link__button-secondary-color-hover,
-        $link__button-secondary-color-hover
+          border-color,
+          $link__button-secondary-color,
+          $link__button-secondary-color-hover,
+          $link__button-secondary-color-hover
       );
 
       background-color: $color--white;
@@ -195,16 +194,16 @@ $link__button-secondary-color-hover: $color--primary-hover;
 
     &#{$this}--color-white-simple {
       @include interactionStyle(
-        color,
-        $color--white,
-        $color--grey-lightest,
-        $color--grey-lightest
+          color,
+          $color--white,
+          $color--grey-lightest,
+          $color--grey-lightest
       );
       @include interactionStyle(
-        border-color,
-        $link__button-secondary-color,
-        $link__button-secondary-color-hover,
-        $link__button-secondary-color-hover
+          border-color,
+          $link__button-secondary-color,
+          $link__button-secondary-color-hover,
+          $link__button-secondary-color-hover
       );
 
       background-color: $color--white;

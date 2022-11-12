@@ -1,12 +1,12 @@
 childBlocks: null
 field: 9f46731d-7fdd-4245-9ca1-719db0672448 # Inhaltselemente
 fieldLayouts:
-  3e094b04-b6d0-42aa-91a9-5459f65e9569:
+  ea595a44-4e0e-46c6-9a45-763f351ded50:
     tabs:
       -
         elements:
           -
-            fieldUid: 0b42c27d-7e98-4101-b0bd-4f1dacb84869 # Youtube Video Src
+            fieldUid: d05fe0a7-d34a-429f-8f5b-4005eba39588 # Video
             instructions: null
             label: null
             required: false
@@ -17,10 +17,10 @@ fieldLayouts:
         name: Inhalt
         sortOrder: 1
 group: 911777fe-811a-46e9-bb80-0228ddd66234 # Medien
-handle: youtubeVideo
+handle: video
 maxBlocks: 0
 maxChildBlocks: 0
 maxSiblingBlocks: 0
-name: 'Youtube Video'
-sortOrder: 14
+name: Video
+sortOrder: 13
 topLevel: true

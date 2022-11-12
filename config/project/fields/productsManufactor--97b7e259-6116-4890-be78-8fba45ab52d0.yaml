@@ -1,22 +1,23 @@
 columnSuffix: null
 contentColumnType: string
-fieldGroup: 4fe8dfc1-b512-4508-a756-d29539b14b62 # Artikel
-handle: mancufactors
+fieldGroup: bcc2f7c9-e4b5-432b-b079-3cd963db5854 # Produzenten
+handle: productsManufactor
 instructions: ''
-name: 'Produzent:innen'
+name: Produkte
 searchable: false
 settings:
   allowSelfRelations: false
   limit: ''
   localizeRelations: false
-  selectionLabel: ''
+  selectionLabel: 'Ein Produkt hinzufügen'
   showSiteMenu: false
   source: null
   sources:
-    - 'section:8e2bbb53-7b2a-493f-9592-4847ec7d1194' # Produzenten
+    - 'productType:c7a7ef3f-d8c6-4afb-ab46-b0082ef038d6' # Delikatessen
+    - 'productType:a4445e03-c8ae-4613-8723-b3b5d35858f1' # Weine
   targetSiteId: null
   validateRelatedElements: false
   viewMode: null
 translationKeyFormat: null
 translationMethod: site
-type: craft\fields\Entries
+type: craft\commerce\fields\Products

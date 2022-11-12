@@ -1,4 +1,4 @@
-dateModified: 1666361284
+dateModified: 1668267426
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: 'Terra Verde'
@@ -20,7 +20,6 @@ meta:
     1b636224-64d4-4794-a5cf-fe9b821da18a: Registrieren # Registrieren
     1baab5b6-ddf1-4a49-8435-b3bd6a0cc383: Anrede # Anrede
     1c95f87a-2123-4b4b-a9f8-831335adfe84: 'Artikel Nährstoffe' # Artikel Nährstoffe
-    1cd651ff-a41f-4d1c-9296-41e714505e6b: Rezepte # Rezepte
     1d881bde-d2bf-408a-9434-f2f08b65cff8: Dokumente # Dokumente
     1daedc6b-3766-4522-aef9-b8a340e0cef5: Versendet # Versendet
     1eb38f57-6c17-4bd1-9c83-fb9a7f776e7d: Bild # Bild
@@ -42,7 +41,6 @@ meta:
     4a97706d-db06-4301-b6ea-066bb4fe9b83: 'Artikel Lagerung' # Artikel Lagerung
     4a391357-5405-4a58-810f-fd04d12a8b96: 'Warenkorb Thumbnail' # Warenkorb Thumbnail
     4b3451e0-bb7f-44ee-aff9-290c54ff622f: Dummy # Dummy
-    4bcd70d7-fe46-46e6-8458-829fe0d9362e: 'Produzenten Vorschaubild' # Produzenten Vorschaubild
     4c495c1a-4db8-48e1-94fc-15ba7f24bd25: Aktionen # Aktionen
     4c920e95-c071-49d6-974d-175f3cc51bc9: 'Youtube Video Liste' # Youtube Video Liste
     4ee0e70f-49f4-45b6-b165-cd7bcc7cd938: Neu # Neu
@@ -65,7 +63,6 @@ meta:
     06d544a4-f99f-422c-b445-cb1b03a87860: Vinifikation # Vinifikation
     006dbb77-603b-4fa5-b89c-16c62df53342: Login # Login
     6f495a5e-4e7f-4c5d-9163-d674db71d0ea: 'Interner Link (hervorgehoben)' # Interner Link (hervorgehoben)
-    6f209601-f21e-4a01-b1d9-5214dba77620: 'Produzent:innen' # Produzent:innen
     07a64db3-fc15-40a2-af10-a8499ce5a108: VirtueMart-userInfo-Id # VirtueMart-userInfo-Id
     7f760799-8cd2-47b0-981a-c91cfe3036b4: AGB # AGB
     7fec1130-1fea-4054-9bcb-ddff47a64b84: 'Newsletter List' # Newsletter List
@@ -74,6 +71,7 @@ meta:
     8d844c54-289e-4640-9d67-9664d20a9353: 'Link auf Eintrag' # Link auf Eintrag
     8d976e17-a05f-4e1e-bfe6-7f9b617fda72: 'Kategorien (shop)' # Kategorien (shop)
     8e2bbb53-7b2a-493f-9592-4847ec7d1194: Produzenten # Produzenten
+    8e510c18-b6c3-47e7-aa2a-ba9bb8147ce7: 'Produzent:innen' # Produzent:innen
     8fa0d8eb-0c01-49db-a2ba-515d571b8805: 'Passt zu' # Passt zu
     9bfae22d-cf09-477b-8222-028196b40c01: 'Titel H2' # Titel H2
     9dd685d0-40db-4d68-81b5-48322accac9a: Zustimmung # Zustimmung
@@ -91,7 +89,6 @@ meta:
     34eecfa5-9662-4a5c-addd-6a484fbebe8d: 'Verkaufsstellen Orte' # Verkaufsstellen Orte
     037a2847-d799-44e7-ae4b-4bf40233db70: Kategorien # Kategorien
     44a134bf-a896-43b6-897a-a294f6c27325: 'Blog Aktuell' # Blog Aktuell
-    47bc485c-9111-499a-99df-616baa7dba1e: 'Relations Hersteller' # Relations Hersteller
     47c3ee37-8371-469c-8566-fb641a48324e: 'Ähnliche Produkte Apero' # Ähnliche Produkte Apero
     50ff7a2e-9fc7-4f85-aa48-b24f439d44cb: 'Bild Inhalt Voll' # Bild Inhalt Voll
     52b07f6a-0a03-4f36-90a6-237e75e980b9: Text # Text
@@ -115,6 +112,7 @@ meta:
     92fe9f1d-016c-47b7-93b0-91c866fd6175: Generic # Generic
     93be6bc6-5c6c-4bc1-9542-05ce2d7fe57b: 'Blog-Bild Vorschau' # Blog-Bild Vorschau
     95d567e2-ef54-4216-b7bf-f3afd51b9ddd: 'Kreditkarte, Postfinance, Twint' # Kreditkarte, Postfinance, Twint
+    97b7e259-6116-4890-be78-8fba45ab52d0: Produkte # Produkte
     105f3719-0e2b-409f-851b-64e895b976aa: Redakteure # Redakteure
     121a4c00-ea55-46f5-b606-4288506164da: 'Kategorien (Status)' # Kategorien (Status)
     127bba7e-6a96-4ffa-8cbb-f4c17d39e347: Team # Team
@@ -209,6 +207,8 @@ meta:
     b19c563f-f580-49f7-88f1-896078bcca7a: 'Titel H2' # Titel H2
     b32fd57a-109a-4013-bf90-72b25ad6b6cd: 'Weine Spanien' # Weine Spanien
     b205d303-121a-4aae-8c85-bb00a76f312a: Titel # Titel
+    bb672809-bd78-4ed8-b9cd-b634c8216640: Video # Video
+    bcc2f7c9-e4b5-432b-b079-3cd963db5854: Produzenten # Produzenten
     be9d7d5b-f31e-4cf0-8aa5-c8371ea536dd: 'Newsletter (Mailchimp)' # Newsletter (Mailchimp)
     be930c36-7ffe-488b-b6c5-783c77c32830: Stadt # Stadt
     bf8bc4b2-3d7f-4972-9768-3026cc9f2184: 'Geschenke & Degustationen' # Geschenke & Degustationen
@@ -220,6 +220,7 @@ meta:
     c9e74448-323c-4314-8339-8767051c39f5: 'Titel, Text & Links' # Titel, Text & Links
     c84df4c8-43eb-4b3c-92e6-8f0cf6ee14b6: 'Bild / Text - 30% / 70%' # Bild / Text - 30% / 70%
     c280f1d1-4f12-4055-8607-8006585970fd: Telefon # Telefon
+    c519b9f5-777f-4693-8ccb-c0ca93df332e: Video # Video
     c8246e09-6dc5-4d7c-91e5-e4ad36778317: OptimizedImages # OptimizedImages
     c243569d-1495-477e-81d5-8e56d348fc88: Text # Text
     cbf7f593-68bf-4c83-b97d-b6959558cb3e: 'Titel H3' # Titel H3
@@ -228,6 +229,7 @@ meta:
     ceeb55b1-0aab-46a0-9d39-91e0f706901f: 'Youtube Video Liste' # Youtube Video Liste
     cfba8ac8-e0a0-405f-87ed-accd8f27b372: Geschenksets # Geschenksets
     cfbe4629-cba3-461e-a930-5e32a064326f: GTIN # GTIN
+    d05fe0a7-d34a-429f-8f5b-4005eba39588: Video # Video
     d4d7e8e5-0118-407a-a1f3-8bb67c86f0ca: Featured # Featured
     d5eb7b01-8b1f-4b3f-83c7-ccfa4c76d49d: Inhaltselemente # Inhaltselemente
     d8cbe40a-89a4-4804-8992-aba26cbb1aca: 'Youtube Video' # Youtube Video

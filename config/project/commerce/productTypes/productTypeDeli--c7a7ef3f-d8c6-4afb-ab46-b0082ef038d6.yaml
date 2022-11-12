@@ -178,7 +178,7 @@ productFieldLayouts:
             warning: null
             width: 50
           -
-            fieldUid: 6f209601-f21e-4a01-b1d9-5214dba77620 # Produzent:innen
+            fieldUid: 8e510c18-b6c3-47e7-aa2a-ba9bb8147ce7 # Produzent:innen
             instructions: null
             label: null
             required: false
@@ -383,5 +383,5 @@ variantFieldLayouts:
             type: craft\fieldlayoutelements\CustomField
             warning: null
             width: 25
-        name: Inhalt
+        name: Content
         sortOrder: 1

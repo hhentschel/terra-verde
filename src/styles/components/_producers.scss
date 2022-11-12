@@ -54,4 +54,15 @@
       align-self: flex-end;
     }
   }
+
+  &-detail {
+
+    &__product-list {
+      margin-top: px-to-rem($space--m);
+    }
+
+    &__product-link {
+      margin-top: px-to-rem($space--s);
+    }
+  }
 }

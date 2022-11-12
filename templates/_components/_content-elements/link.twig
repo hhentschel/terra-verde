@@ -4,78 +4,71 @@
   {# Link text #}
   {% set linkText = linkText is defined and linkText is not empty
     ? linkText|trim
-    : linkUrl|trim
-  %}
+    : linkUrl|trim %}
 
   {# Type class #}
-  {% set typeClass = type is defined and type == 'button' ? 'link--button' : ''
-  %}
+  {% set typeClass = type is defined and type == 'button' ? 'link--button' : '' %}
 
   {# Target class #}
   {% set targetClass = target is defined and target is not empty
     ? 'link--' ~ target
-    : ''
-  %}
+    : '' %}
+
+  {# Target class #}
+  {% set customClass = customClass is defined and customClass is not empty
+    ? customClass
+    : '' %}
 
   {# Color class #}
   {% set colorClass = buttonLinkColor is defined
     and buttonLinkColor is not empty
     ? 'link--color-' ~ buttonLinkColor
-    : ''
-  %}
+    : '' %}
 
   {% set colorClassSimple = buttonLinkColorSimple is defined
     and buttonLinkColorSimple is not empty
     ? 'link--color-' ~ buttonLinkColorSimple
-    : ''
-  %}
+    : '' %}
 
   {# Width class #}
   {% set widthClass = fullWidth is defined and fullWidth == true
     ? 'link--full-width'
-    : ''
-  %}
+    : '' %}
 
   {# Icon position class #}
   {% set iconPositionClass = iconPosition is defined
     and iconPosition is not empty
     ? 'link--icon-' ~ iconPosition
-    : ''
-  %}
+    : '' %}
 
   {# Download attribute #}
   {% set downloadAttribute = target is defined and target == 'download'
     ? 'download'
-    : ''
-  %}
+    : '' %}
 
   {# Target blank attribute #}
   {% set targetBlankAttribute = target is defined
     and (target == 'external' or target == 'download')
     ? 'target="_blank"'
-    : ''
-  %}
+    : '' %}
 
   {# Output #}
-  <a class="link {{ typeClass }} {{ targetClass }} {{ colorClass }} {{
-    colorClassSimple
-    }} {{ widthClass }} {{ iconPositionClass }}"
+  <a
+    class="link {{ typeClass }} {{ targetClass }} {{ colorClass }} {{ colorClassSimple }} {{ widthClass }} {{ iconPositionClass }} {{ customClass }}"
     {{ targetBlankAttribute }}
     {{ downloadAttribute }}
     href="{{ linkUrl }}">
     <span class="link__text">{{ linkText }}</span>
     {% if
       (type is defined and type == 'button')
-        or (target is defined
-        and target == 'internal'
-        and iconPosition is defined
-          and iconPosition == 'after') %}
+      or (target is defined
+      and target == 'internal'
+      and iconPosition is defined
+      and iconPosition == 'after') %}
       <div class="link__icon-wrapper link__icon-wrapper--internal">
-        {{
-          macros.svg('arrow_42')|attr({
-            class: 'link__icon link__icon--internal icon icon--42'
-          })
-        }}
+        {{ macros.svg('arrow_42')|attr({
+          class: 'link__icon link__icon--internal icon icon--42'
+        }) }}
       </div>
     {% endif %}
   </a>

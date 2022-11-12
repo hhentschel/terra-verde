@@ -1,23 +1,22 @@
 columnSuffix: null
 contentColumnType: string
 fieldGroup: bcc2f7c9-e4b5-432b-b079-3cd963db5854 # Produzenten
-handle: manufactorTags
+handle: mancufactors
 instructions: ''
-name: 'Produzenten Tags'
+name: 'Produzent:innen'
 searchable: false
 settings:
-  allowLimit: false
-  allowMultipleSources: false
   allowSelfRelations: false
-  limit: null
+  limit: ''
   localizeRelations: false
   selectionLabel: ''
   showSiteMenu: true
-  source: 'taggroup:ad7f3368-57d3-4f97-ba54-6224326f9b95' # ähnliche Produzenten
-  sources: '*'
+  source: null
+  sources:
+    - 'section:8e2bbb53-7b2a-493f-9592-4847ec7d1194' # Produzenten
   targetSiteId: null
   validateRelatedElements: false
   viewMode: null
 translationKeyFormat: null
 translationMethod: site
-type: craft\fields\Tags
+type: craft\fields\Entries

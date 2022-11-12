@@ -23,15 +23,19 @@
 {% set productQuery = craft.products() %}
 {% set product = craft.products.id(productId).one() %}
 
-   {% set manufactors = product.defaultVariant.mancufactors %}
-
 
 <a href="javascript: history.back()" class="product-detail__button-back product-detail__button-back-arrow">Zurück zur
   Übersicht</a>
 
-<h2 class="heading layout-helper__margin-top--s">
-  {{ product.defaultVariant.title }}
-</h2>
+<div class="product-detail__title layout-helper__margin-vertical--xs">
+  <h2 class="heading layout-helper__margin-vertical--none">
+    {{ product.defaultVariant.title }}
+  </h2>
+  {% if product.articleDescriptionAdditional %}
+    <div class="product-detail__title-sub layout-helper__margin-vertical--none">
+      – {{ product.articleDescriptionAdditional }}</div>
+  {% endif %}
+</div>
 
 <div class="row">
   <div class="col col-xs-12 col-md-6 col-lg-6">
@@ -180,15 +184,6 @@
 
       </div>
     </form>
-
-
-    {% for manufactor in manufactors %}
-      <div>
-        <a href="{{ manufactor.url }}">
-          {{ manufactors.title }}
-        </a>
-      </div>
-    {% endfor %}
 
     {% include 'shop/produkte/_includes/detail-summary.twig' %}
 

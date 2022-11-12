@@ -72,7 +72,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: fddfa707-62df-4882-973d-aa4cff515c7d # Produkte (Relationfield)
+            fieldUid: 97b7e259-6116-4890-be78-8fba45ab52d0 # Produkte
             instructions: null
             label: null
             required: false

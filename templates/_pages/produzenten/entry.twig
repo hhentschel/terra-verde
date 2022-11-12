@@ -1,6 +1,8 @@
 {% extends '_layouts/main' %}
 {% set pageTitle = entry.pageTitle is not empty ? entry.pageTitle : entry.title %}
-{% set products = entry.productsRelationfield %}
+{% set products = entry.productsManufactor.all() %}
+
+{# {% set manufactors = product.mancufactors.all() %} #}
 
 {% block content %}
   <div class="grid">
@@ -39,17 +41,28 @@
           contentElements: entry.contentElements.level(1),
           usesGrid: false
         } %}
-        
-        <ul>
+
+        <h3 class="heading heading--3">
+          Produkte
+
+        </h3>
+
+        <ul class="producers-detail__product-list">
           {% for product in products %}
+
+            {% set manufactorproducts = (product.title) ~ ', ' ~ (product.articleVolume) ~ (product.articleVolumeUnit) %}
+
             {% set variant = product.defaultVariant %}
+
             <li>
-              <a href="{{ product.url }}">
-                {{ product.title }},
-                {% if product.articleVolume %}
-                  {{ product.articleVolume }} {{ product.articleVolumeUnit }}
-                {% endif %}
-              </a>
+              {% include '_components/_content-elements/link' with {
+                linkUrl: product.url(),
+                linkText: manufactorproducts,
+                target: 'internal',
+                iconPosition: 'after',
+                customClass: 'producers-detail__product-link'
+              } %}
+
             </li>
           {% endfor %}
         </ul>
