@@ -9,6 +9,7 @@ use craft\commerce\elements\Order;
 use craft\commerce\models\OrderAdjustment;
 use craft\commerce\Plugin;
 use craft\commerce\Model;
+use craft\elements\User;
 
 // use craft\commerce\elements\Product;
 // use craft\commerce\elements\Variant;
@@ -18,12 +19,18 @@ use craft\commerce\Model;
 //if the amount in the cart is greater than 100$ a discount of 5% is applied.
 //if the amount in the cart is greater than 200$ a discount of 10% is applied.
 
-class OrderAdjuster extends Component implements AdjusterInterface
+/*class OrderAdjuster extends Component implements AdjusterInterface
 {
+
+  const PRIVATE_USER_GROUP_ID = 2;
+
   public function adjust(Order $order): array
   {
 
     $adjustments = [];
+
+    $user = Craft::$app->getUser()->getIdentity();
+
 
     if ($order->itemSubtotal > 1000) {
 
@@ -55,9 +62,10 @@ class OrderAdjuster extends Component implements AdjusterInterface
 
       $adjustments[] = $adjustment;
     }
+
     return $adjustments;
 
 
   }
 
-}
+}*/

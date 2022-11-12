@@ -26,7 +26,8 @@ return [
     'useEmailAsUsername' => true,
 
 
-    'errorTemplatePrefix' => "404.twig",
+    // Error template path
+    'errorTemplatePrefix' => '_',
 
     'autoLoginAfterAccountActivation' => true,
     'setPasswordSuccessPath' => '/customer/account/login',
@@ -36,9 +37,7 @@ return [
     'postLoginRedirect' => '/',
 
     'generateTransformsBeforePageLoad' => true,
-    // Set to 0 if you want users to stay logged in as long as their browser is open
-    'rememberedUserSessionDuration' => 'P1Y',
-    'userSessionDuration' => 'P1Y',
+    'userSessionDuration' => '0',
 
 
     // setPasswordPath
@@ -63,14 +62,14 @@ return [
 
     'limitAutoSlugsToAscii' => true,
 
-    'isSystemLive' => (bool)getenv('IS_SYSTEM_LIVE'),
+
     'runQueueAutomatically' => (bool)getenv('RUN_QUEUE_AUTOMATICALLY'),
   ],
 
   // Dev LOCAL environment settings
   'local' => [
     // Dev Mode (see https://craftcms.com/guides/what-dev-mode-does)
-    'devMode' => true,
+    'devMode' => (getenv('DEV_MODE') === "true") ? true : false,
 
     // Prevent crawlers from indexing pages and following links
     'disallowRobots' => true,
@@ -79,11 +78,14 @@ return [
     'allowUpdates' => true,
     'backupCommand' => getenv('BACKUP_COMMAND'),
     'restoreCommand' => getenv('RESTORE_COMMAND'),
-    // 'isSystemLive' => true,
+    
   ],
 
   // Staging (pre-production) environment
   'staging' => [
+
+    'devMode' => (getenv('DEV_MODE') === "true") ? true : false,
+
     // Set this to `false` to prevent administrative changes from being made on Staging
     'allowAdminChanges' => true,
 
@@ -105,11 +107,9 @@ return [
     // Don’t allow updates on Production
     'allowUpdates' => false,
 
-    'devMode' => false,
+    'devMode' => (getenv('DEV_MODE') === "true") ? true : false,
 
     'enableTemplateCaching' => true,
-
-    'isSystemLive' => true,
 
   ],
 ];

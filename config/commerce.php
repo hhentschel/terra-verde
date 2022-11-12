@@ -14,9 +14,7 @@ return [
   // Global settings
   '*' => [
 
-    'activeCartDuration' => 86400,
-
-    'userSessionDuration' => 86400,
+    'activeCartDuration' => 172800, // 48 hours
 
     'allowCheckoutWithoutPayment' => true,
 
@@ -39,6 +37,8 @@ return [
 
   // Production environment settings
   'production' => [
+
+    'activeCartDuration' => 172800, // 48 hours
 
   ],
 ];

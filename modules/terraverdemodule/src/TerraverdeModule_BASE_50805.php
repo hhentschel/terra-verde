@@ -33,9 +33,7 @@ use yii\base\Module;
 
 use craft\commerce\services\OrderAdjustments;
 use craft\events\RegisterComponentTypesEvent;
-
-/*use OrderAdjuster*/;
-
+use OrderAdjuster;
 use GiftWrapAdjuster;
 use GiftNoteAdjuster;
 use PickUpDiscount;
@@ -146,12 +144,12 @@ class TerraverdeModule extends Module
       OrderAdjustments::EVENT_REGISTER_ORDER_ADJUSTERS,
       function (RegisterComponentTypesEvent $event) {
 
-        /*$event->types[] = adjusters\OrderAdjuster::class;*/
-
+        $event->types[] = adjusters\OrderAdjuster::class;
         $event->types[] = adjusters\PickUpDiscount::class;
         $event->types[] = adjusters\PickUpDiscountB2B::class;
         $event->types[] = adjusters\GiftWrapAdjuster::class;
         $event->types[] = adjusters\GiftNoteAdjuster::class;
+        // $event->types[] = adjusters\Discount10::class;
       });
 
     // run queue automatically

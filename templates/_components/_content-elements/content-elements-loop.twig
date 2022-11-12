@@ -169,7 +169,6 @@
       {% endset %}
 
       {# Image Block #}
-
     {% case 'image' %}
       {% set cmt = cmt ? cmt : 'layout-helper__margin-top--m' %}
       {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--m' %}
@@ -180,6 +179,19 @@
           img: block.image,
           imageAltText: block.imageAltText,
           imageCaption: block.imageCaption
+        } %}
+      {% endset %}
+
+      {# Video Block #}
+
+    {% case 'video' %}
+      {% set cmt = cmt ? cmt : 'layout-helper__margin-top--m' %}
+      {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--m' %}
+      {% set colClasses =
+        'col col-xs-12 col-md-10 col-md-shift-1 col-lg-8 col-lg-shift-2' %}
+      {% set contentBlock %}
+        {% include '_components/_content-elements/videocontent' with {
+          video: block.videoFiles
         } %}
       {% endset %}
 
