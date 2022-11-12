@@ -1,4 +1,4 @@
-dateModified: 1668267426
+dateModified: 1668271481
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: 'Terra Verde'
@@ -273,6 +273,7 @@ meta:
     f73632b8-d77e-478a-9a4b-1a9a41ed6c45: Allergene # Allergene
     f80417a4-4032-4133-b6b3-695f48119fa2: Map # Map
     f836488e-b5ab-4d7d-8b93-f9d9fb95263f: 'Bild Alt-Text' # Bild Alt-Text
+    fa7328da-f0a7-4390-bc23-08484a72e884: 'Produzent Vorschaubild' # Produzent Vorschaubild
     faaeac52-013c-4936-b046-a6d014828fc0: 'Public Schema' # Public Schema
     fb0e70a8-788b-4091-bf0e-d42b87eb6bf2: 'Bild 1/3' # Bild 1/3
     fcafffd6-069a-4a92-95f7-70ffeac6759d: Alterüberprüfung # Alterüberprüfung
