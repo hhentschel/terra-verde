@@ -1,5 +1,36 @@
 {% extends '_layouts/main' %}
 {% set pageTitle = entry.pageTitle is not empty ? entry.pageTitle : entry.title %}
+{% set allManufactors =
+  craft.entries.section('producersStructure').level(1).all() %}
+
+{% set regionIT = craft.categories()
+  .slug('italy')
+  .one() %}
+{% set regionES = craft.categories()
+  .slug('spain')
+  .one() %}
+{% set regionDE = craft.categories()
+  .slug('germany')
+  .one() %}
+{% set regionFR = craft.categories()
+  .slug('france')
+  .one() %}
+{% set regionPOR = craft.categories()
+  .slug('portugalwine')
+  .one() %}
+{% set regionBO = craft.categories()
+  .slug('bosnia')
+  .one() %}
+
+{% set allManufactorsIT =
+  craft.entries.section('producersStructure')
+    .relatedTo(regionIT)
+    .level(1)
+    .all() %}
+
+{% set allManufactorsNOTIT = craft.entries.section('producersStructure')
+  .relatedTo([ 'or', regionES, regionDE, regionFR, regionPOR, regionBO])
+  .all() %}
 
 {% block content %}
   <div class="grid">
@@ -15,24 +46,68 @@
 
   <section class="grid">
     <div class="row">
+      <div class="col col-xs-12 col-md-12 col-lg-8">
+        {% include '_pages/produzenten/map' %}
+      </div>
+
+      <div class="col col-xs-12 col-md-12 col-lg-4">
+        <h4 class="heading heading--h4 heading--no-margin-top">
+          Italien
+        </h4>
+        <ul class="producers-list">
+          {% for entry in allManufactorsIT %}
+            <li>
+              <a href="#{{ entry.id }}" title="{{ entry.title }}" class="producers-list__item">
+                {{ entry.title }}
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+
+        <h4 class="heading heading--h4 layout-helper__margin-vertical--xxs">
+          Spanien, Portugal, Frankreich, Deutschland
+        </h4>
+        <ul class="producers-list">
+          {% for entry in allManufactorsNOTIT %}
+            {# Fetch all of the categories related to this entry #}
+            {% set categories = craft.categories.relatedTo(entry) %}
+
+            <li>
+              <a href="#{{ entry.id }}" title="{{ entry.title }}" class="producers-list__item">
+                {{ entry.title }},<span class="producers-list__item-place"> {{ categories|join(', ') }}</span>
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+
+
+    </div>
+  </section>
+
+  <section class=" grid">
+    <div class="row">
       <div class="col col-xs-12 col-md-12 col-lg-12">
         <div class="producers-grid">
 
-          {% set relatedSection =
-            craft.entries.section('producersStructure').level(1).all() %}
-          {% if relatedSection|length %}
-            {% for entry in relatedSection %}
-              <div class="producers producers-overview">
-                <h3 class="producers-overview__title">
-                  {{ entry.title }}
-                </h3>
 
-                <div class="producers-overview__preview">
-                  {% if
-                    entry.contentElements is defined
-                    and entry.contentElements is not empty %}
-                    <a href="{{ entry.url }}"
-                       class="producers-overview__preview-image">
+          {% if allManufactors|length %}
+            {% for entry in allManufactors %}
+              <a href="{{ entry.url }}"
+                 class="producers-overview__preview-image" id="{{ entry.id }}">
+                <div class="producers producers-overview">
+                  <h3 class="producers-overview__title heading--3 heading">
+                    {{ entry.title }}
+                  </h3>
+
+                  {# Fetch all of the categories related to this entry #}
+                  {% set categories = craft.categories.relatedTo(entry) %}
+                  {{ categories|join(', ') }}
+
+                  <div class="producers-overview__preview">
+                    {% if
+                      entry.contentElements is defined
+                      and entry.contentElements is not empty %}
 
                       {% set transform =
                         transformation|default('producersThumb') %}
@@ -43,24 +118,22 @@
                           transform: transform
                         } %}
                       {% endif %}
-                    </a>
+                    {% endif %}
+
+                  </div>
+
+                  {% if
+                    entry.contentElements is defined
+                    and entry.contentElements is not empty %}
+                    <span href="{{ entry.url }}"
+                          class="link producers producers-overview__linkdetail">
+                    mehr Informationen
+                    </span>
+
 
                   {% endif %}
-
-                  {# <div class="producers-overview__preview-lead">
-                  {{ entry.leadText }}
-                </div> #}
                 </div>
-
-                {% if
-                  entry.contentElements is defined
-                  and entry.contentElements is not empty %}
-                  <a href="{{ entry.url }}"
-                     class="producers producers-overview__linkdetail">
-                    mehr Informationen
-                  </a>
-                {% endif %}
-              </div>
+              </a>
             {% endfor %}
           {% endif %}
         </div>

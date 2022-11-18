@@ -1,0 +1,48 @@
+{% set attributes = {
+  class: ['logo']
+} %}
+
+{% set logoUrl = '@webroot/assets/images/content/map/italy.svg' %}
+{% set mapUrl = '@webroot/assets/images/content/map/Mount_Rushmore.jpg' %}
+
+{# <div {{ attr(attributes) }}>
+  <a class="logo__link" href="#">
+    {{ svg(logoUrl)
+    |attr({
+      class: 'logo__image'
+    })
+    |prepend('<title>' ~ 'Terra Verde - Produzenten' ~ '</title>') }}
+    <span class="sr-only logo__text">{{ 'header.logo'|t }}</span>
+  </a>
+</div> #}
+
+
+<figure id="imagemap">
+  <svg viewBox="0 0 610 792">
+    <defs>
+      <style>
+        circle:hover {
+          fill: #496640;
+          opacity: 1;
+        }
+      </style>
+    </defs>
+
+    <image xlink:href="assets/images/content/map/italy.svg">
+      <title>Terra Verde Produzent:innen</title>
+    </image>
+
+    {% for entry in allManufactors %}
+      <a xlink:href="#{{ entry.id }}" id="{{ entry.id }}">
+        <circle cx="{{ entry.manufactorLatitude }}" cy="{{ entry.manufactorLongitude }}" r="8" opacity="1"
+                fill="#E4D24D"/>
+      </a>
+    {% endfor %}
+
+    {#   <a xlink:href="#">
+      <circle cx="120" cy="120" r="8" opacity="1" fill="#E4D24D"/>
+    </a> #}
+
+
+  </svg>
+</figure>

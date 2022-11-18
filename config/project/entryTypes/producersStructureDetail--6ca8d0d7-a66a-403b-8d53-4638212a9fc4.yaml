@@ -25,7 +25,25 @@ fieldLayouts:
             title: null
             type: craft\fieldlayoutelements\EntryTitleField
             warning: null
-            width: 100
+            width: 50
+          -
+            fieldUid: af345c98-96c3-4865-a4e5-82c5a93953f3
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: 269c37e5-8217-47e1-820c-5db4d8e8817a # Regionen
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
           -
             fieldUid: 421eaf0b-f542-45ff-8051-2921d93b3eeb # Vorschautext
             instructions: null
@@ -45,24 +63,6 @@ fieldLayouts:
             warning: null
             width: 50
           -
-            fieldUid: f836488e-b5ab-4d7d-8b93-f9d9fb95263f # Bild Alt-Text
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            warning: null
-            width: 25
-          -
-            fieldUid: 79922ac9-edbc-44e9-850c-3995f6bcdbee # Bild Legende
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            warning: null
-            width: 25
-          -
             fieldUid: 9f46731d-7fdd-4245-9ca1-719db0672448 # Inhaltselemente
             instructions: null
             label: null
@@ -81,7 +81,16 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: d438ea68-d87f-4238-b23e-cdaa8a840149 # Produzenten Tags
+            fieldUid: c5aca99d-541e-4996-a962-3790cbed27bf # Latitude
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: 169ef8db-7ba9-459c-b40f-17678b94dce7 # Longitude
             instructions: null
             label: null
             required: false
