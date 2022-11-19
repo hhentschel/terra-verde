@@ -130,15 +130,22 @@
   &__item {
     line-height: $line-height--xm;
   }
-}
 
-.forms__checkout--link {
-  visibility: visible;
-  display: block;
+  &__container {
+    visibility: visible;
+    display: block;
+  }
+
+  &__container-info {
+    line-height: $line-height--s;
+    display: block;
+    margin: px-to-rem($space--m) 0;
+    color: $color--red-dark;
+  }
 }
 
 /* Show hidden content when the checkbox is checked */
-#billingAddressSameAsShipping:checked ~ .forms__checkout--link {
+#billingAddressSameAsShipping:checked ~ .address-list__container {
   visibility: collapse;
   display: none;
 }

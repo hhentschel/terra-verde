@@ -3,7 +3,7 @@
 {% set primaryBillingAddress = customer.getPrimaryBillingAddress() %}
 {% set primaryShippingAddress = customer.getPrimaryShippingAddress() %}
 
-<div class="js-address-fieldset {{ class }}">
+<div class="js-address-fieldset">
 
 
   {% if addresses and currentUser %}
@@ -35,7 +35,7 @@
                 </a>
               </span>
             </span>
-            <span class="cart-box__select-hint">
+            {#            <span class="cart-box__select-hint">
               {% if cart.customer.primaryBillingAddressId == address.id %}
                 <span title="{{ 'Primary billing address'|t }}">
                   <svg class="icon--check"
@@ -48,25 +48,25 @@
                               clip-rule="evenodd"/>
                     </svg>
                   Primäre Rechnungsadresse
-                  {# 💳 #}
-                </span>
-              {% endif %}
-              {% if cart.customer.primaryShippingAddressId == address.id %}
-                <span title="{{ 'Primary shipping address'|t }}">
-                  <svg class="icon--check"
-                       xmlns="http://www.w3.org/2000/svg"
-                       viewBox="0 0 20 20"
-                       fill="currentColor"
-                       role="img" aria-label="Check Mark">
-                        <path fill-rule="evenodd"
-                              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                              clip-rule="evenodd"/>
-                    </svg>
-                  Primäre Versandadresse
-                  {# 📦 #}
-                </span>
-              {% endif %}
+            #}{# 💳 #}{#
             </span>
+          {% endif %}
+          {% if cart.customer.primaryShippingAddressId == address.id %}
+            <span title="{{ 'Primary shipping address'|t }}">
+              <svg class="icon--check"
+                   xmlns="http://www.w3.org/2000/svg"
+                   viewBox="0 0 20 20"
+                   fill="currentColor"
+                   role="img" aria-label="Check Mark">
+                    <path fill-rule="evenodd"
+                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                          clip-rule="evenodd"/>
+                </svg>
+              Primäre Versandadresse
+            #}{# 📦 #}{#
+            </span>
+          {% endif %}
+        </span> #}
           </label>
         </div>
       {% endfor %}
