@@ -17,7 +17,7 @@
 </div> #}
 
 
-<figure id="imagemap">
+<figure id="imagemap" class="map-list">
   <svg viewBox="0 0 610 792">
     <defs>
       <style>
@@ -25,6 +25,12 @@
           fill: #496640;
           opacity: 1;
         }
+
+        .map-link.active circle {
+          fill: #496640;
+        }
+
+
       </style>
     </defs>
 
@@ -33,7 +39,7 @@
     </image>
 
     {% for entry in allManufactors %}
-      <a xlink:href="#{{ entry.id }}" id="{{ entry.id }}">
+      <a xlink:href="{{ entry.url }}" data-id="{{ entry.id }}" class="map-link">
         <circle cx="{{ entry.manufactorLatitude }}" cy="{{ entry.manufactorLongitude }}" r="8" opacity="1"
                 fill="#E4D24D"/>
       </a>

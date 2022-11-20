@@ -9,6 +9,8 @@ require("./modules/focus");
 
 require("./modules/header");
 
+require("./modules/map-link");
+
 var _accordion = _interopRequireDefault(require("./modules/accordion"));
 
 var _anchorLink = _interopRequireDefault(require("./modules/anchor-link"));
@@ -19,7 +21,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "d
  * Use this file for main application handling and initializing of modules
  */
 // imports
-// import './modules/responsive-view-handler';
 
 /* Accordions */
 var accordions = document.querySelectorAll('.accordion');
@@ -33,7 +34,7 @@ anchorLinks.forEach(function (anchorLink) {
   new _anchorLink["default"](anchorLink);
 });
 
-},{"./modules/accordion":2,"./modules/anchor-link":3,"./modules/focus":4,"./modules/header":5,"./modules/mobile-nav":6,"./modules/nav-main":7}],2:[function(require,module,exports){
+},{"./modules/accordion":2,"./modules/anchor-link":3,"./modules/focus":4,"./modules/header":5,"./modules/map-link":6,"./modules/mobile-nav":7,"./modules/nav-main":8}],2:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -164,6 +165,8 @@ var AnchorNav = /*#__PURE__*/function () {
       anchorTarget: null
     });
 
+    _defineProperty(this, "scrollTargetOffset", 36);
+
     this.anchorLink = anchorLink;
     this.anchorTarget = document.querySelector("[id='".concat(this.anchorLink.getAttribute('href').replace('#', ''), "']"));
 
@@ -176,9 +179,8 @@ var AnchorNav = /*#__PURE__*/function () {
     key: "clickHandler",
     value: function clickHandler(event) {
       event.preventDefault();
-      var scrollTargetOffset = document.querySelector('.header').offsetHeight;
       window.scrollTo({
-        top: window.pageYOffset + (this.anchorTarget.getBoundingClientRect().top - scrollTargetOffset),
+        top: window.pageYOffset + (this.anchorTarget.getBoundingClientRect().top - this.scrollTargetOffset),
         behavior: 'smooth'
       });
     }
@@ -357,6 +359,98 @@ exports["default"] = _default;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports["default"] = void 0;
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var MapLink = /*#__PURE__*/function () {
+  function MapLink() {
+    _classCallCheck(this, MapLink);
+
+    _defineProperty(this, "classes", {
+      nav: 'nav-main',
+      prodList: 'producers-list',
+      mapList: 'map-list',
+      mapLinkSingle: 'map-link',
+      prodListItem: 'producers-list__item',
+      active: 'active'
+    });
+
+    _defineProperty(this, "html", {
+      nav: null,
+      prodList: null,
+      mapList: null,
+      mapLinkSingle: null,
+      prodListItem: null,
+      mapLinks: [],
+      prodListItems: []
+    });
+
+    this.html.prodList = document.querySelector(".".concat(this.classes.prodList));
+    this.html.nav = document.querySelector(".".concat(this.classes.nav));
+    this.html.mapList = document.querySelector(".".concat(this.classes.mapList));
+    this.html.prodListItems = Array.from(this.html.prodList.querySelectorAll(".".concat(this.classes.prodListItem)));
+    this.html.mapLinkSingle = document.querySelector(".".concat(this.classes.mapLinkSingle));
+    this.html.mapLinks = Array.from(this.html.mapList.querySelectorAll(".".concat(this.classes.mapLinkSingle)));
+    this.init();
+  }
+
+  _createClass(MapLink, [{
+    key: "init",
+    value: function init() {
+      var _this = this;
+
+      this.html.prodListItems.forEach(function (mapLinkSingle) {
+        mapLinkSingle.addEventListener('click', _this.navClickHandler.bind(_this));
+      });
+    }
+  }, {
+    key: "navClickHandler",
+    value: function navClickHandler(event) {
+      var index = this.html.mapLinks.indexOf(event.currentTarget);
+      console.log(this.html.mapLinks); // clicked button is active
+
+      if (event.currentTarget.classList.contains(this.classes.active)) {
+        this.removeLink(index);
+      } else {
+        console.log('hallo add');
+        this.addLink(index);
+      }
+    }
+  }, {
+    key: "addLink",
+    value: function addLink(index) {
+      var targetLink = this.html.prodListItems[index];
+      targetLink.classList.add(this.classes.active);
+    }
+  }, {
+    key: "removeLink",
+    value: function removeLink(index) {
+      var targetLink = this.html.prodListItems[index];
+      targetLink.classList.remove(this.classes.active);
+    }
+  }]);
+
+  return MapLink;
+}(); // export as singleton
+
+
+var _default = new MapLink();
+
+exports["default"] = _default;
+
+},{}],7:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 exports["default"] = exports.MobileNav = void 0;
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -486,7 +580,7 @@ var _default = new MobileNav();
 
 exports["default"] = _default;
 
-},{}],7:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {

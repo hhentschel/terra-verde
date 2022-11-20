@@ -12,9 +12,7 @@ export default class AnchorNav {
 
   constructor(anchorLink) {
     this.anchorLink = anchorLink;
-    this.anchorTarget = document.querySelector(
-      `[id='${this.anchorLink.getAttribute('href').replace('#', '')}']`
-    );
+    this.anchorTarget = document.querySelector(`[id='${this.anchorLink.getAttribute('href').replace('#', '')}']`);
     if (this.anchorTarget) {
       this.anchorLink.addEventListener('click', this.clickHandler.bind(this));
     }

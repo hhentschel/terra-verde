@@ -1,33 +1,65 @@
-export default class AnchorNav {
+class MapLink {
   classes = {
-    anchorLink: 'anchor-link',
+    nav: 'nav-main',
+    prodList: 'producers-list',
+    mapList: 'map-list',
+    mapLinkSingle: 'map-link',
+    prodListItem: 'producers-list__item',
+    active: 'active',
   };
 
   html = {
-    anchorLink: null,
-    anchorTarget: null,
+    nav: null,
+    prodList: null,
+    mapList: null,
+    mapLinkSingle: null,
+    prodListItem: null,
+    mapLinks: [],
+    prodListItems: [],
   };
 
-  scrollTargetOffset = 36;
+  constructor() {
+    this.html.prodList = document.querySelector(`.${this.classes.prodList}`);
+    this.html.nav = document.querySelector(`.${this.classes.nav}`);
+    this.html.mapList = document.querySelector(`.${this.classes.mapList}`);
+    this.html.prodListItems = Array.from(this.html.prodList.querySelectorAll(`.${this.classes.prodListItem}`));
+    this.html.mapLinkSingle = document.querySelector(`.${this.classes.mapLinkSingle}`);
+    this.html.mapLinks = Array.from(this.html.mapList.querySelectorAll(`.${this.classes.mapLinkSingle}`));
 
-  constructor(anchorLink) {
-    this.anchorLink = anchorLink;
-    this.anchorTarget = document.querySelector(
-      `[id='${this.anchorLink.getAttribute('href').replace('#', '')}']`
-    );
-    if (this.anchorTarget) {
-      this.anchorLink.addEventListener('click', this.clickHandler.bind(this));
+    this.init();
+  }
+
+  init() {
+    this.html.prodListItems.forEach((mapLinkSingle) => {
+      mapLinkSingle.addEventListener('click', this.navClickHandler.bind(this));
+    });
+  }
+
+  navClickHandler(event) {
+    const index = this.html.mapLinks.indexOf(event.currentTarget);
+    console.log(this.html.mapLinks);
+
+    // clicked button is active
+    if (event.currentTarget.classList.contains(this.classes.active)) {
+      this.removeLink(index);
+    } else {
+      console.log('hallo add');
+      this.addLink(index);
     }
   }
 
-  clickHandler(event) {
-    event.preventDefault();
-    window.scrollTo({
-      top:
-        window.pageYOffset +
-        (this.anchorTarget.getBoundingClientRect().top -
-          this.scrollTargetOffset),
-      behavior: 'smooth',
-    });
+  addLink(index) {
+    const targetLink = this.html.prodListItems[index];
+
+    targetLink.classList.add(this.classes.active);
+  }
+
+  removeLink(index) {
+    const targetLink = this.html.prodListItems[index];
+
+    targetLink.classList.remove(this.classes.active);
   }
 }
+
+// export as singleton
+export default new MapLink();

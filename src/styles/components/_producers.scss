@@ -69,6 +69,13 @@
 
     &__item {
       color: $color--blue;
+      display: inline-block;
+      padding: px-to-rem($space--xxs) px-to-rem($space--xs);
+
+      &:hover {
+        background-color: $color--blue-light;
+        color: $color--white;
+      }
     }
 
     &__item-place {
