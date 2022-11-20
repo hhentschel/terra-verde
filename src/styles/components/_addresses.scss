@@ -22,6 +22,14 @@ $accordion--transition-timing-function: easing(open);
     border: 2px solid $color--blue;
   }
 
+  &:hover {
+    background-color: rgba(104, 138, 161, 0.35);
+    /*
+    color: $color--white;
+    */
+    border: 2px solid $color--blue;
+  }
+
   background-color: $color--grey-lightest;
   margin: 0 0 px-to-rem($space--m) 0;
 
