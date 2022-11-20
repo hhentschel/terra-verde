@@ -31,7 +31,7 @@ use pompom\addressimporter\plugin\Events;
  * @package   AddressImporter
  * @since     1.0.0
  */
-class AddressImporter extends Plugin
+class AddressImporter extends \craft\base\Plugin
 {
 
   // Traits
