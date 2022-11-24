@@ -39,7 +39,8 @@
   {% endif %}
 
   {# Automatically set Form tags with Return, CSRF and Honeypot (if enabled) #}
-  {{ form.openTag({ return: '?success=1' }) }}
+  {# {{ form.openTag({ return: '?success=1' }) }} #}
+  {{ form.openTag({ returnUrl: 'success' }) }}
 
   <div class="form-row">
     <div class="form-group {{ form.fields.firstName.hasErrors ? ' has-error' }}">

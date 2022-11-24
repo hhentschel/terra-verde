@@ -18,9 +18,9 @@ $form-input--spacing: px-to-rem($space--m + $space--xs);
 
     &--success {
       background: linear-gradient(
-        $background-gradient__angle,
-        $color--green-gradient-start 0%,
-        $color--green-gradient-end 100%
+          $background-gradient__angle,
+          $color--green-gradient-start 0%,
+          $color--green-gradient-end 100%
       );
     }
 
@@ -176,9 +176,17 @@ $form-input--spacing: px-to-rem($space--m + $space--xs);
     button {
       align-self: flex-end;
     }
+
     &__success-message {
       background-color: rgba($color--green-bio, 0.2);
       padding: px-to-rem($space--m);
     }
   }
+}
+
+// MEAG Form 
+
+.alert-success {
+  background-color: rgba($color--green-bio, 0.2);
+  padding: px-to-rem($space--m);
 }
