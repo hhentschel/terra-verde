@@ -1,4 +1,4 @@
-dateModified: 1668267426
+dateModified: 1669224089
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: 'Terra Verde'
@@ -117,7 +117,9 @@ meta:
     121a4c00-ea55-46f5-b606-4288506164da: 'Kategorien (Status)' # Kategorien (Status)
     127bba7e-6a96-4ffa-8cbb-f4c17d39e347: Team # Team
     149a3219-5b27-4275-8a0f-b97cbff1e3ec: Shop # Shop
+    169ef8db-7ba9-459c-b40f-17678b94dce7: Longitude # Longitude
     219d5317-b509-4c72-87a2-15026938e903: Blog # Blog
+    269c37e5-8217-47e1-820c-5db4d8e8817a: Regionen # Regionen
     273d5a0c-4e06-47ec-8a4b-c1fcffa5684d: 'Mindestbestellwert (betrifft nur Detailhandel) - Privat ist Mindestbestellwert generell deaktiviert.' # Mindestbestellwert (betrifft nur Detailhandel) - Privat ist Mindestbestellwert generell deaktiviert.
     328c6ddf-69e0-47e5-8057-5c04984d8d85: 'Weine Portugal' # Weine Portugal
     348a200e-7d31-4262-b613-e8cc6e039fb2: Degustationsnotiz # Degustationsnotiz
@@ -214,6 +216,7 @@ meta:
     bf8bc4b2-3d7f-4972-9768-3026cc9f2184: 'Geschenke & Degustationen' # Geschenke & Degustationen
     c0a61470-04af-4d9c-997c-1f9f722bdf70: New # New
     c2e36e10-c3d1-44f3-9a20-e3ff8f8b0dd1: 'Externer Link Preview' # Externer Link Preview
+    c5aca99d-541e-4996-a962-3790cbed27bf: Latitude # Latitude
     c7a7ef3f-d8c6-4afb-ab46-b0082ef038d6: Delikatessen # Delikatessen
     c8c7989d-9a6a-4faa-a787-7538cf72ee11: 'Produzenten Übersicht' # Produzenten Übersicht
     c9a26bae-e663-4915-aa68-950ce62120a5: Quicklink # Quicklink
@@ -254,6 +257,7 @@ meta:
     e45ebe2d-560e-4f8b-9bc9-6bda46de1a4f: 'Inhaltselemente Startseite' # Inhaltselemente Startseite
     e61fb032-eec0-4f11-b450-86d1adea8934: Rezepte # Rezepte
     e65f535e-dc60-4351-a7bb-9a558ae2c75d: Newsletter # Newsletter
+    e68dfbb6-8313-490e-b596-66d83d042378: Regionen # Regionen
     e408f37d-9b71-4f78-ae4a-18fe5c8dbef7: News # News
     e22957f0-c9f4-40f0-aaed-0cb3d674851f: Status # Status
     e221908a-3496-4eb9-8727-682969a83304: Startseite # Startseite
@@ -273,6 +277,7 @@ meta:
     f73632b8-d77e-478a-9a4b-1a9a41ed6c45: Allergene # Allergene
     f80417a4-4032-4133-b6b3-695f48119fa2: Map # Map
     f836488e-b5ab-4d7d-8b93-f9d9fb95263f: 'Bild Alt-Text' # Bild Alt-Text
+    fa7328da-f0a7-4390-bc23-08484a72e884: 'Produzent Vorschaubild' # Produzent Vorschaubild
     faaeac52-013c-4936-b046-a6d014828fc0: 'Public Schema' # Public Schema
     fb0e70a8-788b-4091-bf0e-d42b87eb6bf2: 'Bild 1/3' # Bild 1/3
     fcafffd6-069a-4a92-95f7-70ffeac6759d: Alterüberprüfung # Alterüberprüfung
@@ -439,6 +444,24 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 1.0.0
+  express-forms:
+    edition: lite
+    enabled: true
+    schemaVersion: 1.0.2
+    settings:
+      duplicatePreventionEnabled: true
+      emailNotificationsDirectoryPath: /Users/henrikhentschel/Sites/localhost/terra-verde/templates/express-forms-demo/_notifications
+      enhancedUI: true
+      honeypotBehaviour: simulate_success
+      honeypotEnabled: '1'
+      honeypotInputName: form_handler
+      name: null
+      recaptchaEnabled: ''
+      recaptchaLoadScript: '1'
+      recaptchaSecretKey: null
+      recaptchaSiteKey: null
+      recaptchaTheme: light
+      showErrorLogBanner: true
   feed-me:
     edition: standard
     enabled: true

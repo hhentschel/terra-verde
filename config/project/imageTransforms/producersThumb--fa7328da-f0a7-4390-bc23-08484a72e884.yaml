@@ -1,0 +1,9 @@
+format: null
+handle: producersThumb
+height: 300
+interlace: none
+mode: crop
+name: 'Produzent Vorschaubild'
+position: center-center
+quality: null
+width: null

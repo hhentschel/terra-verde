@@ -1,0 +1,78 @@
+{% set pageTitle = "Manual with Macro Example" %}
+{% set page = "manual-macro" %}
+
+{% block content %}
+
+  {% set form = craft.expressforms.form("meagGiftSets") %}
+
+  {# Macro for Field Errors #}
+  {% macro renderErrors(field) %}
+    {% if field.hasErrors and field.errors|length %}
+      <ul class="errors">
+        {% for error in field.errors %}
+          <li>{{ "Dieses Feld ist erforderlich."|t }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  {% endmacro %}
+  {% import _self as forms %}
+
+  {# Flash Success #}
+  {% if form.submittedSuccessfully %}
+    <div class="alert alert-success" role="alert">
+      {{ "Das Formular wurde erfolgreich übermittelt"|t }}
+    </div>
+  {% endif %}
+
+  {# General Error Handling #}
+  {% if not form.valid %}
+    <div class="alert alert-danger" role="alert">
+      {{ "Fehler! Bitte alle Felder ausfüllen."|t }}
+      {% if form.errors|length %}
+        <ul>
+          {% for error in form.errors %}
+            <li>{{ error|t }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </div>
+  {% endif %}
+
+  {# Automatically set Form tags with Return, CSRF and Honeypot (if enabled) #}
+  {{ form.openTag({ return: '?success=1' }) }}
+
+  <div class="form-row">
+    <div class="form-group {{ form.fields.firstName.hasErrors ? ' has-error' }}">
+      <label for="firstName"{{ form.fields.firstName.isRequired ? ' class="required"' }}>
+        {{ form.fields.firstName.label }}
+      </label>
+      <input type="text" name="firstName" id="firstName" value="{{ form.fields.firstName.value }}"
+             class="input">
+      {{ forms.renderErrors(form.fields.firstName) }}
+    </div>
+
+    <div class="form-group layout-helper__margin-top--xxs{{ form.fields.lastName.hasErrors ? ' has-error' }}">
+      <label for="lastName"{{ form.fields.lastName.isRequired ? ' class="required"' }}>
+        {{ form.fields.lastName.label }}
+      </label>
+      <input type="text" name="lastName" id="lastName" value="{{ form.fields.lastName.value }}" class="input">
+      {{ forms.renderErrors(form.fields.lastName) }}
+    </div>
+  </div>
+
+  <div class="form-group layout-helper__margin-top--xxs{{ form.fields.message.hasErrors ? ' has-error' }}">
+    <label for="message"{{ form.fields.message.isRequired ? ' class="required"' }}>
+      {{ form.fields.message.label }}
+    </label>
+    <textarea name="message" id="message" rows="3" class="input">
+            {{- form.fields.message.value -}}
+        </textarea>
+    {{ forms.renderErrors(form.fields.message) }}
+  </div>
+
+
+  <button type="submit" class="layout-helper__margin-top--xxs button--primary">Absenden</button>
+
+  {{ form.closeTag }}
+
+{% endblock %}
