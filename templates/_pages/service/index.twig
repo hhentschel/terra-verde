@@ -42,6 +42,10 @@
       {% elseif entry.id == 28567 or entry.id == 28380 or entry.id == 30160 %}
         <div class="col col-xs-12 col-md-9 col-lg-6">
           {% include '_pages/service/meag-form.twig' %}
+          {% include '_components/_content-elements/content-elements-loop' with {
+            contentElements: entry.contentElements.level(1),
+            usesGrid: false
+          } %}
         </div>
       {% else %}
         <div class="col col-xs-12 col-md-9 col-lg-9">
