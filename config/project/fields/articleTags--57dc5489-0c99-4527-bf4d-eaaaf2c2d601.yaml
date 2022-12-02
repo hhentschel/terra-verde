@@ -4,7 +4,7 @@ fieldGroup: 4fe8dfc1-b512-4508-a756-d29539b14b62 # Artikel
 handle: articleTags
 instructions: ''
 name: 'Artikel Tags'
-searchable: false
+searchable: true
 settings:
   allowLimit: false
   allowMultipleSources: false
@@ -12,7 +12,7 @@ settings:
   limit: null
   localizeRelations: false
   selectionLabel: ''
-  showSiteMenu: false
+  showSiteMenu: true
   source: 'taggroup:47c3ee37-8371-469c-8566-fb641a48324e' # Ähnliche Produkte Apero
   sources: '*'
   targetSiteId: null
