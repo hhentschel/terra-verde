@@ -1,4 +1,4 @@
-dateModified: 1669984901
+dateModified: 1669985492
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: 'Terra Verde'
@@ -70,6 +70,7 @@ meta:
     8aec977e-df97-4119-93e9-0b745252a944: 'Weine Frankreich' # Weine Frankreich
     8d844c54-289e-4640-9d67-9664d20a9353: 'Link auf Eintrag' # Link auf Eintrag
     8d976e17-a05f-4e1e-bfe6-7f9b617fda72: 'Kategorien (shop)' # Kategorien (shop)
+    8dce558c-c3bb-4f7f-80bd-87240a69ccff: Shopartikel # Shopartikel
     8e2bbb53-7b2a-493f-9592-4847ec7d1194: Produzenten # Produzenten
     8e510c18-b6c3-47e7-aa2a-ba9bb8147ce7: 'Produzent:innen' # Produzent:innen
     8fa0d8eb-0c01-49db-a2ba-515d571b8805: 'Passt zu' # Passt zu

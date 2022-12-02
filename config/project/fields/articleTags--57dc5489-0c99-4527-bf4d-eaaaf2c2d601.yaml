@@ -13,7 +13,7 @@ settings:
   localizeRelations: false
   selectionLabel: ''
   showSiteMenu: true
-  source: 'taggroup:47c3ee37-8371-469c-8566-fb641a48324e' # Ähnliche Produkte Apero
+  source: 'taggroup:8dce558c-c3bb-4f7f-80bd-87240a69ccff' # Shopartikel
   sources: '*'
   targetSiteId: null
   validateRelatedElements: false
