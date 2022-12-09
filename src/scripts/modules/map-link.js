@@ -16,6 +16,11 @@ class MapLink {
     prodListItem: null,
     mapLinks: [],
     prodListItems: [],
+    currentLinkId: '',
+  };
+
+  attributes = {
+    currentLinkId: 'data-id',
   };
 
   constructor() {
@@ -25,7 +30,7 @@ class MapLink {
     this.html.prodListItems = Array.from(this.html.prodList.querySelectorAll(`.${this.classes.prodListItem}`));
     this.html.mapLinkSingle = document.querySelector(`.${this.classes.mapLinkSingle}`);
     this.html.mapLinks = Array.from(this.html.mapList.querySelectorAll(`.${this.classes.mapLinkSingle}`));
-
+    this.attributes.currentLinkId = this.attributes.getAttribute(this.attributes.currentLinkId);
     this.init();
   }
 
@@ -37,7 +42,7 @@ class MapLink {
 
   navClickHandler(event) {
     const index = this.html.mapLinks.indexOf(event.currentTarget);
-    console.log(this.html.mapLinks);
+    console.log(index);
 
     // clicked button is active
     if (event.currentTarget.classList.contains(this.classes.active)) {
@@ -50,7 +55,8 @@ class MapLink {
 
   addLink(index) {
     const targetLink = this.html.prodListItems[index];
-
+    console.log(targetLink);
+    console.log('hallo active link class');
     targetLink.classList.add(this.classes.active);
   }
 
