@@ -1,4 +1,4 @@
-dateModified: 1670598191
+dateModified: 1671052712
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: 'Terra Verde'
@@ -120,6 +120,7 @@ meta:
     93be6bc6-5c6c-4bc1-9542-05ce2d7fe57b: 'Blog-Bild Vorschau' # Blog-Bild Vorschau
     95d567e2-ef54-4216-b7bf-f3afd51b9ddd: 'Kreditkarte, Postfinance, Twint' # Kreditkarte, Postfinance, Twint
     97b7e259-6116-4890-be78-8fba45ab52d0: Produkte # Produkte
+    97ff157d-5ed8-4a67-a839-94a32375265f: Produkte # Produkte
     99dbe745-472a-4403-8fbe-15424920fb29: Newsletter # Newsletter
     105f3719-0e2b-409f-851b-64e895b976aa: Redakteure # Redakteure
     121a4c00-ea55-46f5-b606-4288506164da: 'Kategorien (Status)' # Kategorien (Status)
@@ -134,6 +135,7 @@ meta:
     421eaf0b-f542-45ff-8051-2921d93b3eeb: Vorschautext # Vorschautext
     0434bb85-e818-4834-be05-c89d49427ca9: 'Quicklinks Liste' # Quicklinks Liste
     437e0241-3704-4701-a904-0082985e64ed: 'Externer Link' # Externer Link
+    439c86f8-b7ed-48bd-a46c-c2b9f29de26d: Produkte # Produkte
     523ac297-f2c3-49a9-bb1d-08fc4108631e: Impressum # Impressum
     546e63c7-3ad2-424d-ad71-31f33a561a7f: 'Kontakt | Globals' # Kontakt | Globals
     552eac55-d86f-40a3-8aea-50f54038afbc: Textfeld # Textfeld
@@ -210,6 +212,7 @@ meta:
     a4445e03-c8ae-4613-8723-b3b5d35858f1: Weine # Weine
     a15405fd-3249-492f-981b-636b505548bc: 'Artikel Dimensionen' # Artikel Dimensionen
     a91450b5-15a1-4780-96c1-0dffea095613: 'Akkordeon Zustand' # Akkordeon Zustand
+    a7921184-b0c0-43a4-8068-8da81ab26957: Produkte # Produkte
     ab11f679-477b-4903-9086-d00fb5489f93: Fax # Fax
     ac56b463-604b-4eb0-afca-e3cf6579de22: 'Link Farbe' # Link Farbe
     ad7f3368-57d3-4f97-ba54-6224326f9b95: 'ähnliche Produzenten' # ähnliche Produzenten

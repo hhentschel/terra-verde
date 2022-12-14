@@ -279,6 +279,11 @@
                 <td align="left" style="font-size:0px;padding:10px 25px;word-break:break-word;">
                   <div style="font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:13px;line-height:1;text-align:left;color:#000000;">{% for block in campaign.contentElementsNewsletter.all() %} {% if block.type == "headingFieldNewsletter" %} <h3 style="color:{{ block.colorHeadingNewsletter }}; background-color:{{ block.bgColHeadingNewsletter }}; padding-left:25px; padding-right:25px; padding-bottom:30px; padding-top:20px"> {{ block.headingFieldNewsletter }} </h3> {% elseif block.type == "textFieldNewsletter" %} <mj-text color="{{ block.colorTextNewsletter }}" background-color="{{ block.bgColTextNewsletter }}" font-size="20px" font-family="'Open Sans', Arial, sans-serif" padding-left="0px" padding-right="0px" padding-bottom="0px" padding-top="0px">
                     {{ block.textFieldNewsletter }}
+                  </mj-text> {% elseif block.type == "itemsShop" %} <mj-text color="{{ block.colorTextNewsletter }}" background-color="{{ block.bgColTextNewsletter }}" font-size="20px" font-family="'Open Sans', Arial, sans-serif" padding-left="0px" padding-right="0px" padding-bottom="0px" padding-top="0px"> {% for product in block.itemsShop %} {% set variant = product.defaultVariant %} {% set image = product.articleImage.one() %} <mj-column width="60%">
+                    <h3>{{ product.title }}</h3> {% if variant.onSale %} <p>{{ variant.salePrice|commerceCurrency() }}</p> {% endif %} <p>{{ variant.priceAsCurrency }}</p>
+                    <a href="{{ variant.url }}">Einkaufen</a>
+                  </mj-column>
+                    <mj-column width="40%"> {% if image is defined and image is not empty %} <img src="{{ image ? image.url }}" height="auto" width="80px" /> {% endif %} </mj-column> {%	endfor%}
                   </mj-text> {% endif %} {% endfor %}</div>
                 </td>
               </tr>
