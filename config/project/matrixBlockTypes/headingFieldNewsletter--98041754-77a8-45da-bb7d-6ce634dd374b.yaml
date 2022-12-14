@@ -1,0 +1,85 @@
+field: a48a5f48-ae99-438a-94f7-9574fe7fbf92 # Inhaltselemente
+fieldLayouts:
+  7d4ff2aa-39ff-4a4f-87f2-3858ffe30b17:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: afe4e6a7-a49c-4cff-a116-4448c27458b6 # Überschrift hinzufügen
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 5ef15fca-47ed-4dee-adec-77febb2c6249 # Hintergrundfarbe
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: 2540e579-b4ff-4321-b5ed-bad90d434737 # Textfarbe
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+        name: Content
+        sortOrder: 1
+fields:
+  5ef15fca-47ed-4dee-adec-77febb2c6249: # Hintergrundfarbe
+    columnSuffix: cogabwbg
+    contentColumnType: string(7)
+    fieldGroup: null
+    handle: bgColHeadingNewsletter
+    instructions: ''
+    name: Hintergrundfarbe
+    searchable: false
+    settings:
+      defaultColor: '#ffffff'
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Color
+  2540e579-b4ff-4321-b5ed-bad90d434737: # Textfarbe
+    columnSuffix: zfrovmho
+    contentColumnType: string(7)
+    fieldGroup: null
+    handle: colorHeadingNewsletter
+    instructions: ''
+    name: Textfarbe
+    searchable: false
+    settings:
+      defaultColor: '#000000'
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Color
+  afe4e6a7-a49c-4cff-a116-4448c27458b6: # Überschrift hinzufügen
+    columnSuffix: icltltow
+    contentColumnType: text
+    fieldGroup: null
+    handle: headingFieldNewsletter
+    instructions: ''
+    name: 'Überschrift hinzufügen'
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+handle: headingFieldNewsletter
+name: Überschrift
+sortOrder: 1

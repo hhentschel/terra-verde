@@ -1,0 +1,12 @@
+columnSuffix: ketankif
+contentColumnType: string
+fieldGroup: 99dbe745-472a-4403-8fbe-15424920fb29 # Newsletter
+handle: eMail
+instructions: ''
+name: E-Mail
+searchable: false
+settings:
+  placeholder: ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Email

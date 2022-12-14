@@ -1,0 +1,19 @@
+columnSuffix: xiaynbsz
+contentColumnType: text
+fieldGroup: 99dbe745-472a-4403-8fbe-15424920fb29 # Newsletter
+handle: firstName
+instructions: ''
+name: Vorname
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: null
+  code: ''
+  columnType: null
+  initialRows: '4'
+  multiline: ''
+  placeholder: null
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

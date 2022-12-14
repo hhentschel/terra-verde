@@ -1,4 +1,4 @@
-dateModified: 1669985492
+dateModified: 1670598191
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: 'Terra Verde'
@@ -25,6 +25,7 @@ meta:
     1eb38f57-6c17-4bd1-9c83-fb9a7f776e7d: Bild # Bild
     1fa8d56e-80b3-4840-a038-6addcd516984: 'Bild 1 Schnellzugriff' # Bild 1 Schnellzugriff
     2a604d11-f35a-4546-a33a-b2465e0017a9: 'Email 1' # Email 1
+    2d7664a5-cf66-40d5-a9cf-e4ce91afcfc2: Vorname # Vorname
     2d50879a-a5aa-4121-98eb-ebb68c191811: 'Produktliste Shop' # Produktliste Shop
     2db88e09-5caa-44ec-a62a-3780b2b427c0: Detailhandel # Detailhandel
     3a6dc86b-ac74-45a6-bd26-0fb73094890e: Zeitpunkt # Zeitpunkt
@@ -53,7 +54,9 @@ meta:
     5a1fe9c1-0c99-4949-8ed0-abc213429469: 'Dokumente (PDF)' # Dokumente (PDF)
     5b79e8ea-6dae-4a41-9366-09f6cb81d456: 'VirtureMart Country ID' # VirtureMart Country ID
     05cb055e-53ce-470a-9d53-333696986ac7: Zusatz # Zusatz
+    5ef15fca-47ed-4dee-adec-77febb2c6249: Hintergrundfarbe # Hintergrundfarbe
     05f55dad-fac0-482c-95a1-3b41ffa621c1: 'Kategorien (Weine)' # Kategorien (Weine)
+    06be1401-4934-4dfa-9342-a78552156b4e: 'Textfeld hinzufügen' # Textfeld hinzufügen
     06c0da13-2423-4cbb-8b58-6dddb456fa8c: 'Artikel Einheit Gewicht/Volumen' # Artikel Einheit Gewicht/Volumen
     6c0e2ddc-0771-4d85-91e8-370646ba43f0: AGB # AGB
     6ca8d0d7-a66a-403b-8d53-4638212a9fc4: 'Produzenten Detailseite' # Produzenten Detailseite
@@ -87,6 +90,7 @@ meta:
     25be000d-e33e-4660-8f91-eb82c826edd6: 'Bestellung TV Website an bestellung@terra-verde.ch' # Bestellung TV Website an bestellung@terra-verde.ch
     27ee92fc-2ecb-42a3-86cb-ff619931841a: Vegan # Vegan
     31d89d29-5bb5-4d25-81f8-d582276516b3: 'Artikel Grundpreis (EVP inkl.)' # Artikel Grundpreis (EVP inkl.)
+    32cd07ee-add2-4f02-8691-39b96171693c: Textfarbe # Textfarbe
     34eecfa5-9662-4a5c-addd-6a484fbebe8d: 'Verkaufsstellen Orte' # Verkaufsstellen Orte
     037a2847-d799-44e7-ae4b-4bf40233db70: Kategorien # Kategorien
     44a134bf-a896-43b6-897a-a294f6c27325: 'Blog Aktuell' # Blog Aktuell
@@ -98,11 +102,13 @@ meta:
     57dc5489-0c99-4527-bf4d-eaaaf2c2d601: 'Artikel Tags' # Artikel Tags
     57e5fec1-460f-4063-a3db-815af978dc8f: Bild # Bild
     59c7fdcf-31f8-482b-b017-d267318b81ef: 'Bild / Text - 50% / 50%' # Bild / Text - 50% / 50%
+    60bbf046-1ea7-47a6-ae44-cd64c8ec15f4: Nachname # Nachname
     61fb34f1-bb5b-4ed1-8b63-94b839150936: Rezepte # Rezepte
     62aa7cc1-c9ad-4ef4-9d94-4fc3275ba26a: Produzenten # Produzenten
     63fb2479-518b-42d4-b388-594c194ee08d: Bestell-PDF # Bestell-PDF
     072ea0f1-6edc-4617-a088-60b1c99374ba: 'Karten Vorschaubild' # Karten Vorschaubild
     81f5a5aa-48c2-4dd4-9c77-0bf699ac2423: Weine # Weine
+    81fa4d93-70d8-41a1-b50f-cac685f28201: Hintergrundfarbe # Hintergrundfarbe
     84b58543-313b-40d6-a50b-2fbf9262c271: Benutzer # Benutzer
     84e9acf3-3abc-4c6e-9375-3a7093c1a3d6: 'Youtube Video Source' # Youtube Video Source
     85ecf639-70f3-47d4-8ad7-c2996049794d: 'Über uns' # Über uns
@@ -114,6 +120,7 @@ meta:
     93be6bc6-5c6c-4bc1-9542-05ce2d7fe57b: 'Blog-Bild Vorschau' # Blog-Bild Vorschau
     95d567e2-ef54-4216-b7bf-f3afd51b9ddd: 'Kreditkarte, Postfinance, Twint' # Kreditkarte, Postfinance, Twint
     97b7e259-6116-4890-be78-8fba45ab52d0: Produkte # Produkte
+    99dbe745-472a-4403-8fbe-15424920fb29: Newsletter # Newsletter
     105f3719-0e2b-409f-851b-64e895b976aa: Redakteure # Redakteure
     121a4c00-ea55-46f5-b606-4288506164da: 'Kategorien (Status)' # Kategorien (Status)
     127bba7e-6a96-4ffa-8cbb-f4c17d39e347: Team # Team
@@ -129,6 +136,7 @@ meta:
     437e0241-3704-4701-a904-0082985e64ed: 'Externer Link' # Externer Link
     523ac297-f2c3-49a9-bb1d-08fc4108631e: Impressum # Impressum
     546e63c7-3ad2-424d-ad71-31f33a561a7f: 'Kontakt | Globals' # Kontakt | Globals
+    552eac55-d86f-40a3-8aea-50f54038afbc: Textfeld # Textfeld
     641bd187-bf07-49f6-9cdd-90462c76cc88: Nummer # Nummer
     667e84c9-349c-41fc-b5dd-be60c8d94861: Downloadlink # Downloadlink
     673dbddb-972b-44b7-b50c-ac5b649321ab: Öffnungszeiten # Öffnungszeiten
@@ -145,9 +153,11 @@ meta:
     1746b6f6-7af3-4e0c-9f4d-5be0656816b1: 'Produkt Detail' # Produkt Detail
     1856a1a8-498c-4498-84ad-6fcbe1de89f7: Kategorien # Kategorien
     2133d0ff-1af0-4a47-b4ab-4b5da820381e: Einzeleinträge # Einzeleinträge
+    2540e579-b4ff-4321-b5ed-bad90d434737: Textfarbe # Textfarbe
     2941dc0e-4ee6-4e86-873c-6f930bfad4e4: Rezepte # Rezepte
     4572c692-2d3a-4c96-ae75-06bc37ceb6e2: Einordnung # Einordnung
     5312d07d-5231-47b2-a41f-e3524322da7c: Matchcode # Matchcode
+    8540aca9-3717-4353-9317-a938ede99db4: E-Mail # E-Mail
     13456c46-75a5-4427-af83-ab20099cf05b: InstaShop # InstaShop
     34381c5f-24e3-4876-a534-c12339c44433: EANNummer # EANNummer
     34406d5e-074d-493b-9894-adb4145b5f83: AGB # AGB
@@ -177,6 +187,7 @@ meta:
     76367094-179e-4fc3-8e70-b0f8fccc3422: 'Shop Anpassungen' # Shop Anpassungen
     80046407-de11-4bdb-9670-56b00656fb46: Bild # Bild
     84380320-2899-45dc-b326-bd0b24416c50: Video # Video
+    98041754-77a8-45da-bb7d-6ce634dd374b: Überschrift # Überschrift
     a0f9f7a2-3635-47ba-a758-47e6b1bc400e: Zusatzinfo # Zusatzinfo
     a01e981b-9ab4-498e-9274-b1858943fc1c: 'Produkt Beschreibung' # Produkt Beschreibung
     a07d178f-23fa-43bc-857d-062984e9bffc: 'In Bearbeitung' # In Bearbeitung
@@ -187,12 +198,14 @@ meta:
     a6deb9a0-e67c-4fba-bc55-fcba596d4822: 'Adresse Karte' # Adresse Karte
     a6f0989b-fec7-4460-8864-b015e8efc34e: Neuheiten # Neuheiten
     a43c6629-df33-4fa2-a5ca-e073c8ca5841: Mitteilung # Mitteilung
+    a48a5f48-ae99-438a-94f7-9574fe7fbf92: Inhaltselemente # Inhaltselemente
     a67b61db-e6cc-4102-85f1-473d36f52ea8: 'Weine Italien' # Weine Italien
     a97b796e-a3c3-4b9f-971e-53f15a8ca5fe: Detailseite # Detailseite
     a214badf-b1be-4871-8312-b8431887cd19: Rezeptbild # Rezeptbild
     a354c002-1918-4e7e-8500-c8a2a83fcf06: 'Stückliste 7 Variante' # Stückliste 7 Variante
     a558bd32-cc07-430e-9de6-96d6d5989dd6: Beschreibung # Beschreibung
     a629ed94-6a0d-445a-a486-7053cd507178: 'Artikel Gewicht/Volumen' # Artikel Gewicht/Volumen
+    a936e12c-9de8-4357-940a-6e95e373f08c: Einstiegstext # Einstiegstext
     a2441c10-1f1b-4c83-a406-220a6e33dd17: Footer # Footer
     a4445e03-c8ae-4613-8723-b3b5d35858f1: Weine # Weine
     a15405fd-3249-492f-981b-636b505548bc: 'Artikel Dimensionen' # Artikel Dimensionen
@@ -202,6 +215,9 @@ meta:
     ad7f3368-57d3-4f97-ba54-6224326f9b95: 'ähnliche Produzenten' # ähnliche Produzenten
     ada66c36-aa65-4328-b07e-d15f78f13aca: Fax # Fax
     af1c566f-cdf2-4ae1-a225-934165929d1a: 'Email 2' # Email 2
+    af6dbdfc-a694-4baf-9682-4991b9c728aa: Bild # Bild
+    afe4e6a7-a49c-4cff-a116-4448c27458b6: 'Überschrift hinzufügen' # Überschrift hinzufügen
+    b2afc73d-5d7d-4782-93b1-a4c8eae0e113: Hintergrundfarbe # Hintergrundfarbe
     b2b053ff-c5c8-4e2a-83c4-068e2d9ff597: Zutaten # Zutaten
     b2d6c348-fea4-4475-b096-15d5b21075bd: Ort # Ort
     b3b2990b-d4d1-42dc-81cd-09d825a893a0: Bezeichnung # Bezeichnung
@@ -210,6 +226,7 @@ meta:
     b19c563f-f580-49f7-88f1-896078bcca7a: 'Titel H2' # Titel H2
     b32fd57a-109a-4013-bf90-72b25ad6b6cd: 'Weine Spanien' # Weine Spanien
     b205d303-121a-4aae-8c85-bb00a76f312a: Titel # Titel
+    b696c979-d69e-481e-9fe6-248daa5b218a: Hintergrundfarbe # Hintergrundfarbe
     bb672809-bd78-4ed8-b9cd-b634c8216640: Video # Video
     bcc2f7c9-e4b5-432b-b079-3cd963db5854: Produzenten # Produzenten
     be9d7d5b-f31e-4cf0-8aa5-c8371ea536dd: 'Newsletter (Mailchimp)' # Newsletter (Mailchimp)
@@ -250,10 +267,12 @@ meta:
     dbadaaf2-9348-4069-9d8d-3e8e37e3d775: Postleitzahl # Postleitzahl
     dcb77335-6819-4597-a153-2b3ecfc9586f: Artikelgruppe # Artikelgruppe
     dd0cd05e-0cb9-4a76-b993-3cb70e6fc147: 'Terra Verde' # Terra Verde
+    dd105ceb-4213-4f13-875f-6f606b9927c2: Titel # Titel
     dfaab58f-1a21-400b-804b-168b3442cc1e: Titel # Titel
     dfd8ec22-0c0a-44f4-8fd2-245a0f02be60: Bild # Bild
     e4ad79d0-709f-4444-be82-99fe0dd9a6c2: InstaShop # InstaShop
     e5c66396-f991-4b4c-8edc-5e4960340ca3: Startseite # Startseite
+    e7fec16d-a352-4a94-8ec1-8e902b366c3b: Textfarbe # Textfarbe
     e9d74d60-1b19-494e-a1af-537c054484c9: Login # Login
     e45ebe2d-560e-4f8b-9bc9-6bda46de1a4f: 'Inhaltselemente Startseite' # Inhaltselemente Startseite
     e61fb032-eec0-4f11-b450-86d1adea8934: Rezepte # Rezepte
@@ -351,8 +370,11 @@ plugins:
         __assoc__:
           -
             - apiKey
-            - $SENDGRID_API_KEY
-      transportType: putyourlightson\sendgrid\mail\SendgridAdapter
+            - $MAILJET_API_KEY
+          -
+            - apiSecret
+            - $MAILJET_SECRET_KEY
+      transportType: bertoost\mailjet\adapters\MailjetAdapter
   ckeditor:
     edition: standard
     enabled: true
