@@ -1,0 +1,67 @@
+field: a48a5f48-ae99-438a-94f7-9574fe7fbf92 # Inhaltselemente
+fieldLayouts:
+  b4502132-92bc-4ec6-9290-8b62818c3dda:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: b6ed6ef4-8338-451e-bc14-6edc247afd54 # Abstand
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  b6ed6ef4-8338-451e-bc14-6edc247afd54: # Abstand
+    columnSuffix: mxvxawbq
+    contentColumnType: string
+    fieldGroup: null
+    handle: spacerHeight
+    instructions: ''
+    name: Abstand
+    searchable: false
+    settings:
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - klein
+            -
+              - value
+              - '20'
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - mittel
+            -
+              - value
+              - '50'
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - gross
+            -
+              - value
+              - '100'
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\RadioButtons
+handle: spacer
+name: Abstand
+sortOrder: 4
