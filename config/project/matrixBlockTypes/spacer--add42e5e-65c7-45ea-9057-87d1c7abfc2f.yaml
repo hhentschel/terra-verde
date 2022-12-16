@@ -33,10 +33,10 @@ fields:
               - klein
             -
               - value
-              - '20'
+              - '15'
             -
               - default
-              - ''
+              - '1'
         -
           __assoc__:
             -
@@ -44,7 +44,7 @@ fields:
               - mittel
             -
               - value
-              - '50'
+              - '35'
             -
               - default
               - ''
@@ -55,7 +55,7 @@ fields:
               - gross
             -
               - value
-              - '100'
+              - '70'
             -
               - default
               - ''

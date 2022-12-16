@@ -1,4 +1,4 @@
-dateModified: 1671052712
+dateModified: 1671197139
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: 'Terra Verde'
@@ -217,6 +217,7 @@ meta:
     ac56b463-604b-4eb0-afca-e3cf6579de22: 'Link Farbe' # Link Farbe
     ad7f3368-57d3-4f97-ba54-6224326f9b95: 'ähnliche Produzenten' # ähnliche Produzenten
     ada66c36-aa65-4328-b07e-d15f78f13aca: Fax # Fax
+    add42e5e-65c7-45ea-9057-87d1c7abfc2f: Abstand # Abstand
     af1c566f-cdf2-4ae1-a225-934165929d1a: 'Email 2' # Email 2
     af6dbdfc-a694-4baf-9682-4991b9c728aa: Bild # Bild
     afe4e6a7-a49c-4cff-a116-4448c27458b6: 'Überschrift hinzufügen' # Überschrift hinzufügen
@@ -224,10 +225,12 @@ meta:
     b2b053ff-c5c8-4e2a-83c4-068e2d9ff597: Zutaten # Zutaten
     b2d6c348-fea4-4475-b096-15d5b21075bd: Ort # Ort
     b3b2990b-d4d1-42dc-81cd-09d825a893a0: Bezeichnung # Bezeichnung
+    b6ed6ef4-8338-451e-bc14-6edc247afd54: Abstand # Abstand
     b8c91d6b-e592-4719-8fc9-9e7b3fd6e439: 'Newsletter Form' # Newsletter Form
     b19b8881-bd3a-41ed-bc5a-d4841f75b793: 'In Bearbeitung' # In Bearbeitung
     b19c563f-f580-49f7-88f1-896078bcca7a: 'Titel H2' # Titel H2
     b32fd57a-109a-4013-bf90-72b25ad6b6cd: 'Weine Spanien' # Weine Spanien
+    b67f46b2-ef36-4032-9237-2c14068a27a7: 'Abstand mittel' # Abstand mittel
     b205d303-121a-4aae-8c85-bb00a76f312a: Titel # Titel
     b696c979-d69e-481e-9fe6-248daa5b218a: Hintergrundfarbe # Hintergrundfarbe
     bb672809-bd78-4ed8-b9cd-b634c8216640: Video # Video
