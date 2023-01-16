@@ -2,11 +2,10 @@
   "buttons": [
     "bold",
     "italic",
-    "unorderedlist",
-    "orderedlist"
+    "link"
   ],
   "plugins": [
-    "fullscreen"
+    "alignment"
   ],
   "linkNewTab": true,
   "toolbarFixed": true

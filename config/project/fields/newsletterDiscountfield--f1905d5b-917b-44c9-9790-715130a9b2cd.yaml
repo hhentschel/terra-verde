@@ -3,7 +3,7 @@ contentColumnType: text
 fieldGroup: 4fe8dfc1-b512-4508-a756-d29539b14b62 # Artikel
 handle: newsletterDiscountfield
 instructions: ''
-name: 'Newsletter Rabbatt Feld'
+name: 'Newsletter Rabatt Feld'
 searchable: false
 settings:
   byteLimit: null

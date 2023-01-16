@@ -1,8 +1,16 @@
+{% set mailingList = craft.campaign.mailingLists.id(28616).one() %}
+
+{% set contact = craft.campaign.contacts.userId(currentUser.id).one() %}
+{% set mailingLists = contact.getMailingLists() %}
+
 <img src="https://terra-verde-staging.cl-eu-west-2.servd.dev/assets/images/logo/TerraVerde_jpg_email.jpg"
      alt="Terra-Verde Logo"/>
 
-<h2>Guten Tag {{ pendingContact.firstName }} {{ pendingContact.lastName }}</h2>
-<p>Vielen Dank fürs Abonnieren der Terra-Verde Mailing-Liste. Bitte verifizieren Sie Ihre E-Mail-Adresse durch Klick auf
+<h2>Guten Tag {{ contact.firstName }} {{ contact.lastName }}</h2>
+
+<p>Vielen Dank fürs Abonnieren der Terra-Verde Mailing-Liste - {{ mailingList.title }}. Bitte verifizieren Sie Ihre
+  E-Mail-Adresse durch Klick auf
   folgenden Link: <br/>
-  <a href="{{ url }}" style="color:#000; text-decoration:none; margin-top: 20px;">E-Mail verifizieren</a>
+  <a href="" style="color:#000; text-decoration:none; margin-top: 20px;">E-Mail verifizieren</a>
 </p>
+

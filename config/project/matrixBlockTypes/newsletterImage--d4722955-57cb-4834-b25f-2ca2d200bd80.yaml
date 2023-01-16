@@ -13,9 +13,34 @@ fieldLayouts:
             type: craft\fieldlayoutelements\CustomField
             warning: null
             width: 100
+          -
+            fieldUid: 397ec96e-7519-4a11-9175-e1f4fd8353d6 # Bild verlinken
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
         name: Content
         sortOrder: 1
 fields:
+  397ec96e-7519-4a11-9175-e1f4fd8353d6: # Bild verlinken
+    columnSuffix: yiqwewzf
+    contentColumnType: string(255)
+    fieldGroup: null
+    handle: imageLink
+    instructions: ''
+    name: 'Bild verlinken'
+    searchable: false
+    settings:
+      maxLength: '255'
+      placeholder: null
+      types:
+        - url
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Url
   c643c446-b355-4f11-bc2d-368f69751075: # Bild
     columnSuffix: null
     contentColumnType: string
@@ -27,15 +52,16 @@ fields:
     settings:
       allowSelfRelations: false
       allowUploads: true
-      allowedKinds: null
+      allowedKinds:
+        - image
       defaultUploadLocationSource: 'volume:789fdb6d-520f-4cf1-be1e-478056358e79' # Inhaltsbilder
       defaultUploadLocationSubpath: ''
       limit: ''
       localizeRelations: false
       previewMode: full
-      restrictFiles: ''
+      restrictFiles: '1'
       selectionLabel: ''
-      showSiteMenu: false
+      showSiteMenu: true
       showUnpermittedFiles: false
       showUnpermittedVolumes: false
       singleUploadLocationSource: 'volume:789fdb6d-520f-4cf1-be1e-478056358e79' # Inhaltsbilder
@@ -64,4 +90,4 @@ fields:
     type: craft\fields\Assets
 handle: newsletterImage
 name: Bild
-sortOrder: 7
+sortOrder: 4

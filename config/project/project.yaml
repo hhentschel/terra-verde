@@ -1,4 +1,4 @@
-dateModified: 1671197139
+dateModified: 1673629528
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: 'Terra Verde'
@@ -71,6 +71,7 @@ meta:
     7fec1130-1fea-4054-9bcb-ddff47a64b84: 'Newsletter List' # Newsletter List
     08a487ae-35d0-46a6-b036-6dde9ca93d51: Blog # Blog
     8aec977e-df97-4119-93e9-0b745252a944: 'Weine Frankreich' # Weine Frankreich
+    8c10bf88-c972-4f72-98a8-920a146cd7da: 'Überschrift hinzufügen (mittel)' # Überschrift hinzufügen (mittel)
     8d844c54-289e-4640-9d67-9664d20a9353: 'Link auf Eintrag' # Link auf Eintrag
     8d976e17-a05f-4e1e-bfe6-7f9b617fda72: 'Kategorien (shop)' # Kategorien (shop)
     8dce558c-c3bb-4f7f-80bd-87240a69ccff: Shopartikel # Shopartikel
@@ -78,6 +79,7 @@ meta:
     8e510c18-b6c3-47e7-aa2a-ba9bb8147ce7: 'Produzent:innen' # Produzent:innen
     8fa0d8eb-0c01-49db-a2ba-515d571b8805: 'Passt zu' # Passt zu
     9bfae22d-cf09-477b-8222-028196b40c01: 'Titel H2' # Titel H2
+    9cc5f98d-af34-4b84-a575-6d7228dc3494: Farbe # Farbe
     9dd685d0-40db-4d68-81b5-48322accac9a: Zustimmung # Zustimmung
     9efdc3ee-64c5-4d32-a3e9-e133c73a1c54: 'Produzenten Übersicht' # Produzenten Übersicht
     9f46731d-7fdd-4245-9ca1-719db0672448: Inhaltselemente # Inhaltselemente
@@ -132,10 +134,12 @@ meta:
     273d5a0c-4e06-47ec-8a4b-c1fcffa5684d: 'Mindestbestellwert (betrifft nur Detailhandel) - Privat ist Mindestbestellwert generell deaktiviert.' # Mindestbestellwert (betrifft nur Detailhandel) - Privat ist Mindestbestellwert generell deaktiviert.
     328c6ddf-69e0-47e5-8057-5c04984d8d85: 'Weine Portugal' # Weine Portugal
     348a200e-7d31-4262-b613-e8cc6e039fb2: Degustationsnotiz # Degustationsnotiz
+    397ec96e-7519-4a11-9175-e1f4fd8353d6: 'Bild verlinken' # Bild verlinken
     421eaf0b-f542-45ff-8051-2921d93b3eeb: Vorschautext # Vorschautext
     0434bb85-e818-4834-be05-c89d49427ca9: 'Quicklinks Liste' # Quicklinks Liste
     437e0241-3704-4701-a904-0082985e64ed: 'Externer Link' # Externer Link
     439c86f8-b7ed-48bd-a46c-c2b9f29de26d: Produkte # Produkte
+    442d67d8-a8df-49bb-9ea3-bc0a6323ce71: 'Überschrift Grösse' # Überschrift Grösse
     523ac297-f2c3-49a9-bb1d-08fc4108631e: Impressum # Impressum
     546e63c7-3ad2-424d-ad71-31f33a561a7f: 'Kontakt | Globals' # Kontakt | Globals
     552eac55-d86f-40a3-8aea-50f54038afbc: Textfeld # Textfeld
@@ -155,11 +159,13 @@ meta:
     1746b6f6-7af3-4e0c-9f4d-5be0656816b1: 'Produkt Detail' # Produkt Detail
     1856a1a8-498c-4498-84ad-6fcbe1de89f7: Kategorien # Kategorien
     2133d0ff-1af0-4a47-b4ab-4b5da820381e: Einzeleinträge # Einzeleinträge
+    2223dfdb-654e-401a-a89b-30cfb7a8002e: Textfarbe # Textfarbe
     2540e579-b4ff-4321-b5ed-bad90d434737: Textfarbe # Textfarbe
     2941dc0e-4ee6-4e86-873c-6f930bfad4e4: Rezepte # Rezepte
     4572c692-2d3a-4c96-ae75-06bc37ceb6e2: Einordnung # Einordnung
     5312d07d-5231-47b2-a41f-e3524322da7c: Matchcode # Matchcode
     8540aca9-3717-4353-9317-a938ede99db4: E-Mail # E-Mail
+    9267a231-c006-41e0-9559-7c1747e8e50c: 'Newsletter Infofeld' # Newsletter Infofeld
     13456c46-75a5-4427-af83-ab20099cf05b: InstaShop # InstaShop
     34381c5f-24e3-4876-a534-c12339c44433: EANNummer # EANNummer
     34406d5e-074d-493b-9894-adb4145b5f83: AGB # AGB
@@ -189,7 +195,7 @@ meta:
     76367094-179e-4fc3-8e70-b0f8fccc3422: 'Shop Anpassungen' # Shop Anpassungen
     80046407-de11-4bdb-9670-56b00656fb46: Bild # Bild
     84380320-2899-45dc-b326-bd0b24416c50: Video # Video
-    98041754-77a8-45da-bb7d-6ce634dd374b: Überschrift # Überschrift
+    98041754-77a8-45da-bb7d-6ce634dd374b: "Überschrift |\_Gross" # Überschrift | Gross
     a0f9f7a2-3635-47ba-a758-47e6b1bc400e: Zusatzinfo # Zusatzinfo
     a01e981b-9ab4-498e-9274-b1858943fc1c: 'Produkt Beschreibung' # Produkt Beschreibung
     a07d178f-23fa-43bc-857d-062984e9bffc: 'In Bearbeitung' # In Bearbeitung
@@ -202,6 +208,7 @@ meta:
     a43c6629-df33-4fa2-a5ca-e073c8ca5841: Mitteilung # Mitteilung
     a48a5f48-ae99-438a-94f7-9574fe7fbf92: Inhaltselemente # Inhaltselemente
     a67b61db-e6cc-4102-85f1-473d36f52ea8: 'Weine Italien' # Weine Italien
+    a69a6939-31d3-4964-81f6-5f2c00c44b86: Hintergrundfarbe # Hintergrundfarbe
     a97b796e-a3c3-4b9f-971e-53f15a8ca5fe: Detailseite # Detailseite
     a214badf-b1be-4871-8312-b8431887cd19: Rezeptbild # Rezeptbild
     a354c002-1918-4e7e-8500-c8a2a83fcf06: 'Stückliste 7 Variante' # Stückliste 7 Variante
@@ -219,8 +226,8 @@ meta:
     ada66c36-aa65-4328-b07e-d15f78f13aca: Fax # Fax
     add42e5e-65c7-45ea-9057-87d1c7abfc2f: Abstand # Abstand
     af1c566f-cdf2-4ae1-a225-934165929d1a: 'Email 2' # Email 2
-    af6dbdfc-a694-4baf-9682-4991b9c728aa: Bild # Bild
-    afe4e6a7-a49c-4cff-a116-4448c27458b6: 'Überschrift hinzufügen' # Überschrift hinzufügen
+    af6dbdfc-a694-4baf-9682-4991b9c728aa: Kopf-Bild # Kopf-Bild
+    afe4e6a7-a49c-4cff-a116-4448c27458b6: 'Überschrift hinzufügen (gross)' # Überschrift hinzufügen (gross)
     b2afc73d-5d7d-4782-93b1-a4c8eae0e113: Hintergrundfarbe # Hintergrundfarbe
     b2b053ff-c5c8-4e2a-83c4-068e2d9ff597: Zutaten # Zutaten
     b2d6c348-fea4-4475-b096-15d5b21075bd: Ort # Ort
@@ -242,12 +249,14 @@ meta:
     c2e36e10-c3d1-44f3-9a20-e3ff8f8b0dd1: 'Externer Link Preview' # Externer Link Preview
     c5aca99d-541e-4996-a962-3790cbed27bf: Latitude # Latitude
     c7a7ef3f-d8c6-4afb-ab46-b0082ef038d6: Delikatessen # Delikatessen
+    c7c217a8-bccd-462e-9792-2e93111dc56a: "Überschrift |\_Mittel" # Überschrift | Mittel
     c8c7989d-9a6a-4faa-a787-7538cf72ee11: 'Produzenten Übersicht' # Produzenten Übersicht
     c9a26bae-e663-4915-aa68-950ce62120a5: Quicklink # Quicklink
     c9e74448-323c-4314-8339-8767051c39f5: 'Titel, Text & Links' # Titel, Text & Links
     c84df4c8-43eb-4b3c-92e6-8f0cf6ee14b6: 'Bild / Text - 30% / 70%' # Bild / Text - 30% / 70%
     c280f1d1-4f12-4055-8607-8006585970fd: Telefon # Telefon
     c519b9f5-777f-4693-8ccb-c0ca93df332e: Video # Video
+    c643c446-b355-4f11-bc2d-368f69751075: Bild # Bild
     c8246e09-6dc5-4d7c-91e5-e4ad36778317: OptimizedImages # OptimizedImages
     c243569d-1495-477e-81d5-8e56d348fc88: Text # Text
     cbf7f593-68bf-4c83-b97d-b6959558cb3e: 'Titel H3' # Titel H3
@@ -269,10 +278,12 @@ meta:
     d953a3a0-62dc-4cd9-ad85-a7656faa8d58: Suche # Suche
     d1470d44-1f37-4fc8-997d-958262298de7: 'Rabatt 23% (Bachsermärte)' # Rabatt 23% (Bachsermärte)
     d549006b-271c-486c-900d-a9348f0ca63d: Blog # Blog
+    d4722955-57cb-4834-b25f-2ca2d200bd80: Bild # Bild
     db07ae15-a8d7-40c0-80e9-c918f6874a6d: Abgeschlossen # Abgeschlossen
     dbadaaf2-9348-4069-9d8d-3e8e37e3d775: Postleitzahl # Postleitzahl
     dcb77335-6819-4597-a153-2b3ecfc9586f: Artikelgruppe # Artikelgruppe
     dd0cd05e-0cb9-4a76-b993-3cb70e6fc147: 'Terra Verde' # Terra Verde
+    dd89c2d2-200f-426c-9643-acb4e10acbac: Linie # Linie
     dd105ceb-4213-4f13-875f-6f606b9927c2: Titel # Titel
     dfaab58f-1a21-400b-804b-168b3442cc1e: Titel # Titel
     dfd8ec22-0c0a-44f4-8fd2-245a0f02be60: Bild # Bild
@@ -284,6 +295,7 @@ meta:
     e61fb032-eec0-4f11-b450-86d1adea8934: Rezepte # Rezepte
     e65f535e-dc60-4351-a7bb-9a558ae2c75d: Newsletter # Newsletter
     e68dfbb6-8313-490e-b596-66d83d042378: Regionen # Regionen
+    e319ec0b-b25d-4aad-a44a-e1b83b9de831: Linie # Linie
     e408f37d-9b71-4f78-ae4a-18fe5c8dbef7: News # News
     e22957f0-c9f4-40f0-aaed-0cb3d674851f: Status # Status
     e221908a-3496-4eb9-8727-682969a83304: Startseite # Startseite
@@ -300,6 +312,7 @@ meta:
     f9ea37ad-b93c-4731-90ad-312428b52e6f: 'Preise (Detailhandel)' # Preise (Detailhandel)
     f171c298-b09b-4b12-8d5a-f876e71109f3: 'Titel H4' # Titel H4
     f659b749-959d-41b7-aca0-80889378ead1: Verkaufsstellen # Verkaufsstellen
+    f1905d5b-917b-44c9-9790-715130a9b2cd: 'Newsletter Rabatt Feld' # Newsletter Rabatt Feld
     f73632b8-d77e-478a-9a4b-1a9a41ed6c45: Allergene # Allergene
     f80417a4-4032-4133-b6b3-695f48119fa2: Map # Map
     f836488e-b5ab-4d7d-8b93-f9d9fb95263f: 'Bild Alt-Text' # Bild Alt-Text
@@ -359,14 +372,14 @@ plugins:
         - 50.31.156.77
         - 18.217.206.57
       purgePendingContactsDuration: 0
-      reCaptcha: false
-      reCaptchaBadge: null
+      reCaptcha: ''
+      reCaptchaBadge: bottomright
       reCaptchaErrorMessage: 'Your form submission was blocked by Google reCAPTCHA. Please go back and try again.'
-      reCaptchaSecretKey: null
-      reCaptchaSiteKey: null
-      reCaptchaSize: null
-      reCaptchaTheme: null
-      reCaptchaVersion: 2
+      reCaptchaSecretKey: ''
+      reCaptchaSiteKey: ''
+      reCaptchaSize: normal
+      reCaptchaTheme: light
+      reCaptchaVersion: '3'
       sendVerificationEmailsViaCraft: false
       sendoutJobTtr: 300
       testMode: '1'

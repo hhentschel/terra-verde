@@ -3,7 +3,7 @@ contentColumnType: string
 fieldGroup: 99dbe745-472a-4403-8fbe-15424920fb29 # Newsletter
 handle: headImageNewsletter
 instructions: ''
-name: Bild
+name: Kopf-Bild
 searchable: false
 settings:
   allowSelfRelations: false
@@ -16,7 +16,7 @@ settings:
   previewMode: full
   restrictFiles: ''
   selectionLabel: ''
-  showSiteMenu: false
+  showSiteMenu: true
   showUnpermittedFiles: false
   showUnpermittedVolumes: false
   singleUploadLocationSource: 'volume:789fdb6d-520f-4cf1-be1e-478056358e79' # Inhaltsbilder

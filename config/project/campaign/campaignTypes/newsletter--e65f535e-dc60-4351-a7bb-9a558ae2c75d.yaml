@@ -13,7 +13,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: af6dbdfc-a694-4baf-9682-4991b9c728aa # Bild
+            fieldUid: af6dbdfc-a694-4baf-9682-4991b9c728aa # Kopf-Bild
             instructions: null
             label: null
             required: false

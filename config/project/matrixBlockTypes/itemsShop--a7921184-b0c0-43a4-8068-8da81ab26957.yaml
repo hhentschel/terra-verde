@@ -40,4 +40,4 @@ fields:
     type: craft\commerce\fields\Products
 handle: itemsShop
 name: Produkte
-sortOrder: 3
+sortOrder: 5

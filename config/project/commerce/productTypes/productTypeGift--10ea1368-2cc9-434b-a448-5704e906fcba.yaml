@@ -199,6 +199,28 @@ productFieldLayouts:
             width: 50
         name: Kategorien
         sortOrder: 2
+      -
+        elements:
+          -
+            fieldUid: f1905d5b-917b-44c9-9790-715130a9b2cd # Newsletter Rabatt Feld
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 9267a231-c006-41e0-9559-7c1747e8e50c # Newsletter Infofeld
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Newsletter
+        sortOrder: 3
 productTitleFormat: ''
 siteSettings:
   dd0cd05e-0cb9-4a76-b993-3cb70e6fc147: # Terra Verde

@@ -38,7 +38,7 @@ fields:
     columnSuffix: qbgsagrw
     contentColumnType: text
     fieldGroup: null
-    handle: headingH2FieldNewsletter
+    handle: headingH3FieldNewsletter
     instructions: ''
     name: 'Überschrift hinzufügen (mittel)'
     searchable: false
@@ -67,7 +67,7 @@ fields:
     contentColumnType: string(7)
     fieldGroup: null
     handle: colorHeadingH3Newsletter
-    instructions: ''
+    instructions: 'Grundeinstellung: schwarz'
     name: Textfarbe
     searchable: false
     settings:
@@ -80,7 +80,7 @@ fields:
     contentColumnType: string(7)
     fieldGroup: null
     handle: bgColHeadingH3Newsletter
-    instructions: ''
+    instructions: 'Grundeinstellung: weiss'
     name: Hintergrundfarbe
     searchable: false
     settings:

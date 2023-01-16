@@ -39,7 +39,7 @@ fields:
     contentColumnType: string(7)
     fieldGroup: null
     handle: bgColHeadingH2Newsletter
-    instructions: ''
+    instructions: 'Grundeinstellung: weiss'
     name: Hintergrundfarbe
     searchable: false
     settings:
@@ -52,7 +52,7 @@ fields:
     contentColumnType: string(7)
     fieldGroup: null
     handle: colorHeadingH2Newsletter
-    instructions: ''
+    instructions: 'Grundeinstellung: schwarz'
     name: Textfarbe
     searchable: false
     settings:
