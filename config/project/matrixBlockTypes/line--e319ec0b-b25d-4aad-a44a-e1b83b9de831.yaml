@@ -1,0 +1,42 @@
+field: a48a5f48-ae99-438a-94f7-9574fe7fbf92 # Inhaltselemente
+fieldLayouts:
+  ee336560-4994-434e-a274-8885164db19f:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: dd89c2d2-200f-426c-9643-acb4e10acbac # Linie
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  dd89c2d2-200f-426c-9643-acb4e10acbac: # Linie
+    columnSuffix: egdgebht
+    contentColumnType: smallint(2)
+    fieldGroup: null
+    handle: line
+    instructions: Strichstärke
+    name: Linie
+    searchable: false
+    settings:
+      decimals: 0
+      defaultValue: 1
+      max: 10
+      min: 0
+      prefix: null
+      previewCurrency: ''
+      previewFormat: none
+      size: null
+      suffix: null
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Number
+handle: line
+name: Linie
+sortOrder: 6

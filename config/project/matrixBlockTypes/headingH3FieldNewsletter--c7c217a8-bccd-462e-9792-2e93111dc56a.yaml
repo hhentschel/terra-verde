@@ -1,0 +1,93 @@
+field: a48a5f48-ae99-438a-94f7-9574fe7fbf92 # Inhaltselemente
+fieldLayouts:
+  f67aafea-dc3b-4c3a-8559-2704d42085a4:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 8c10bf88-c972-4f72-98a8-920a146cd7da # Überschrift hinzufügen (mittel)
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 2223dfdb-654e-401a-a89b-30cfb7a8002e # Textfarbe
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 25
+          -
+            fieldUid: a69a6939-31d3-4964-81f6-5f2c00c44b86 # Hintergrundfarbe
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 25
+        name: Content
+        sortOrder: 1
+fields:
+  8c10bf88-c972-4f72-98a8-920a146cd7da: # Überschrift hinzufügen (mittel)
+    columnSuffix: qbgsagrw
+    contentColumnType: text
+    fieldGroup: null
+    handle: headingH2FieldNewsletter
+    instructions: ''
+    name: 'Überschrift hinzufügen (mittel)'
+    searchable: false
+    settings:
+      availableTransforms: '*'
+      availableVolumes: '*'
+      columnType: text
+      configSelectionMode: choose
+      defaultTransform: ''
+      manualConfig: ''
+      purifierConfig: ''
+      purifyHtml: '1'
+      redactorConfig: Newsletter-Title.json
+      removeEmptyTags: '1'
+      removeInlineStyles: '1'
+      removeNbsp: '1'
+      showHtmlButtonForNonAdmins: ''
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: false
+      uiMode: enlarged
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\redactor\Field
+  2223dfdb-654e-401a-a89b-30cfb7a8002e: # Textfarbe
+    columnSuffix: fmrmprwt
+    contentColumnType: string(7)
+    fieldGroup: null
+    handle: colorHeadingH3Newsletter
+    instructions: ''
+    name: Textfarbe
+    searchable: false
+    settings:
+      defaultColor: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Color
+  a69a6939-31d3-4964-81f6-5f2c00c44b86: # Hintergrundfarbe
+    columnSuffix: ecmzsrwa
+    contentColumnType: string(7)
+    fieldGroup: null
+    handle: bgColHeadingH3Newsletter
+    instructions: ''
+    name: Hintergrundfarbe
+    searchable: false
+    settings:
+      defaultColor: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Color
+handle: headingH3FieldNewsletter
+name: "Überschrift |\_Mittel"
+sortOrder: 2
