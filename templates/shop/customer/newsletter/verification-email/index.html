@@ -1,4 +1,4 @@
-{% set mailingList = craft.campaign.mailingLists.id(28616).one() %}
+{% set mailingList = craft.campaign.mailingLists.slug('newsletter-privatkunden').one() %}
 
 {% set contact = craft.campaign.contacts.userId(currentUser.id).one() %}
 {% set mailingLists = contact.getMailingLists() %}

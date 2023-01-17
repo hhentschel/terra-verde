@@ -1,4 +1,4 @@
-{% set mailingList = craft.campaign.mailingLists.id(28616).one() %}
+{% set mailingList = craft.campaign.mailingLists.slug('newsletter-privatkunden').one() %}
 
         {# If there were any validation errors, a `contact` variable will be passed to the
    template, which contains the posted values and validation errors. If that’s not

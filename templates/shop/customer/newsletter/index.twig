@@ -1,6 +1,7 @@
 {% extends '/_layouts/main' %}
 
-{% set mailingList = craft.campaign.mailingLists.id(28616).one() %}
+{# {% set mailingList = craft.campaign.mailingLists.id(28616).one() %} #}
+{% set mailingList = craft.campaign.mailingLists.slug('newsletter-privatkunden').one() %}
 
 {% block content %}
   <!-- Template: {{ _self }}.twig -->
