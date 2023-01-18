@@ -9,4 +9,4 @@ subscribeVerificationSuccessTemplate: shop/customer/newsletter/verification-succ
 unsubscribeFormAllowed: true
 unsubscribeSuccessTemplate: shop/customer/newsletter/unsubscribe-success/index.twig
 unsubscribeVerificationEmailSubject: 'Terra-Verde Newsletter: Abmeldung verifizieren'
-unsubscribeVerificationEmailTemplate: ''
+unsubscribeVerificationEmailTemplate: shop/customer/newsletter/verification-email-unsubscribe/index.html

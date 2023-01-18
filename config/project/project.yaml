@@ -1,4 +1,4 @@
-dateModified: 1674034921
+dateModified: 1674079419
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: 'Terra Verde'
@@ -81,6 +81,7 @@ meta:
     9bfae22d-cf09-477b-8222-028196b40c01: 'Titel H2' # Titel H2
     9cc5f98d-af34-4b84-a575-6d7228dc3494: Farbe # Farbe
     9dd685d0-40db-4d68-81b5-48322accac9a: Zustimmung # Zustimmung
+    9ebc7c8b-c103-4448-b46f-2b29f154a805: SEO # SEO
     9efdc3ee-64c5-4d32-a3e9-e133c73a1c54: 'Produzenten Übersicht' # Produzenten Übersicht
     9f46731d-7fdd-4245-9ca1-719db0672448: Inhaltselemente # Inhaltselemente
     10ea1368-2cc9-434b-a448-5704e906fcba: Geschenke # Geschenke
@@ -232,6 +233,7 @@ meta:
     b2b053ff-c5c8-4e2a-83c4-068e2d9ff597: Zutaten # Zutaten
     b2d6c348-fea4-4475-b096-15d5b21075bd: Ort # Ort
     b3b2990b-d4d1-42dc-81cd-09d825a893a0: Bezeichnung # Bezeichnung
+    b4b7c4fa-292f-48ba-837c-da1b5017ed0a: 'SEO Beschreibung' # SEO Beschreibung
     b6ed6ef4-8338-451e-bc14-6edc247afd54: Abstand # Abstand
     b8c91d6b-e592-4719-8fc9-9e7b3fd6e439: 'Newsletter Form' # Newsletter Form
     b19b8881-bd3a-41ed-bc5a-d4841f75b793: 'In Bearbeitung' # In Bearbeitung

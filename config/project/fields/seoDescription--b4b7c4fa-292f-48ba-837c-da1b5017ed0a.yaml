@@ -1,0 +1,19 @@
+columnSuffix: rlemnwrf
+contentColumnType: text
+fieldGroup: 9ebc7c8b-c103-4448-b46f-2b29f154a805 # SEO
+handle: seoDescription
+instructions: ''
+name: 'SEO Beschreibung'
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: null
+  code: ''
+  columnType: null
+  initialRows: '4'
+  multiline: ''
+  placeholder: null
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText
