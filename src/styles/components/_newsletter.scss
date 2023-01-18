@@ -1,6 +1,7 @@
 .newsletter {
   &-form {
     display: flex;
+    gap: px-to-rem($space--m);
     flex-wrap: wrap;
     width: 100%;
 
@@ -59,12 +60,7 @@
   }
 
   &-form__item {
-    margin: px-to-rem($space--m) 0 px-to-rem($space--s) 0;
     width: 100%;
-
-    @include breakpoint('tablet-portrait') {
-      margin: 0 px-to-rem($space--m) 0 0;
-    }
   }
 
   &-form__submit {
