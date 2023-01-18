@@ -1,4 +1,4 @@
-dateModified: 1674079419
+dateModified: 1674081410
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: 'Terra Verde'
@@ -343,7 +343,7 @@ plugins:
     enabled: true
     schemaVersion: 1.0.0
   campaign:
-    edition: pro
+    edition: lite
     enabled: true
     licenseKey: 4JP28H3CA67ZG8DVAY1YX6M5
     schemaVersion: 1.21.0
