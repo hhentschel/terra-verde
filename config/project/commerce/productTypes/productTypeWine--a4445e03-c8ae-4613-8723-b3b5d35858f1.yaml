@@ -18,6 +18,9 @@ productFieldLayouts:
             type: craft\commerce\fieldlayoutelements\VariantsField
             warning: null
           -
+            heading: Grundinformationen
+            type: craft\fieldlayoutelements\Heading
+          -
             autocapitalize: true
             autocomplete: false
             autocorrect: true
@@ -41,15 +44,6 @@ productFieldLayouts:
             warning: null
             width: 50
           -
-            fieldUid: a01e981b-9ab4-498e-9274-b1858943fc1c # Produkt Beschreibung
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            warning: null
-            width: 50
-          -
             fieldUid: ea603a9d-ad1a-46a9-8400-4c237d4f779e # Artikelnummer
             instructions: null
             label: null
@@ -57,7 +51,52 @@ productFieldLayouts:
             tip: null
             type: craft\fieldlayoutelements\CustomField
             warning: null
-            width: 50
+            width: 25
+          -
+            fieldUid: 06c0da13-2423-4cbb-8b58-6dddb456fa8c # Artikel Einheit Gewicht/Volumen
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 25
+          -
+            fieldUid: f021083a-e208-4eaa-974d-3ae4d7e91811 # Artikel Einheit Volumen/Gewicht
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 25
+          -
+            fieldUid: 31d89d29-5bb5-4d25-81f8-d582276516b3 # Artikel Grundpreis (EVP inkl.)
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 25
+          -
+            fieldUid: 6d8afd42-06ac-41d2-9772-f8a1144b0152 # Artikel Einheit für Grundpreis
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 25
+          -
+            fieldUid: 9041254e-7c39-4bd9-9590-0a646283a360 # Artikel Einheit (Gl, Fl, Dose, Stk., Kan.)
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 25
           -
             fieldUid: 2625559c-aa75-481d-a655-1c6590d7106d # Preis (Privatkunden)
             instructions: null
@@ -69,24 +108,6 @@ productFieldLayouts:
             width: 50
           -
             fieldUid: f9ea37ad-b93c-4731-90ad-312428b52e6f # Preise (Detailhandel)
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            warning: null
-            width: 50
-          -
-            fieldUid: 31d89d29-5bb5-4d25-81f8-d582276516b3 # Artikel Grundpreis (EVP inkl.)
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            warning: null
-            width: 50
-          -
-            fieldUid: 34381c5f-24e3-4876-a534-c12339c44433 # EANNummer
             instructions: null
             label: null
             required: false
@@ -113,16 +134,10 @@ productFieldLayouts:
             warning: null
             width: 50
           -
-            fieldUid: dcb77335-6819-4597-a153-2b3ecfc9586f # Artikelgruppe
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            warning: null
-            width: 50
+            heading: Inhalt
+            type: craft\fieldlayoutelements\Heading
           -
-            fieldUid: d63d76f8-75e4-40eb-9992-4ea21ba5b437 # Artikel Zusatz Beschreibung
+            fieldUid: a01e981b-9ab4-498e-9274-b1858943fc1c # Produkt Beschreibung
             instructions: null
             label: null
             required: false
@@ -149,7 +164,7 @@ productFieldLayouts:
             warning: null
             width: 50
           -
-            fieldUid: 1c95f87a-2123-4b4b-a9f8-831335adfe84 # Artikel Nährstoffe
+            fieldUid: 348a200e-7d31-4262-b613-e8cc6e039fb2 # Degustationsnotiz
             instructions: null
             label: null
             required: false
@@ -176,52 +191,7 @@ productFieldLayouts:
             warning: null
             width: 50
           -
-            fieldUid: a4e3c0b2-c990-461b-b016-eeed4b33412e # Bio-Zertifizierung
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            warning: null
-            width: 50
-          -
-            fieldUid: 06d544a4-f99f-422c-b445-cb1b03a87860 # Vinifikation
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            warning: null
-            width: 50
-          -
-            fieldUid: 9041254e-7c39-4bd9-9590-0a646283a360 # Artikel Einheit (Gl, Fl, Dose, Stk., Kan.)
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            warning: null
-            width: 50
-          -
-            fieldUid: 06c0da13-2423-4cbb-8b58-6dddb456fa8c # Artikel Einheit Gewicht/Volumen
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            warning: null
-            width: 50
-          -
-            fieldUid: f021083a-e208-4eaa-974d-3ae4d7e91811 # Artikel Einheit Volumen/Gewicht
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            warning: null
-            width: 50
-          -
-            fieldUid: 6d8afd42-06ac-41d2-9772-f8a1144b0152 # Artikel Einheit für Grundpreis
+            fieldUid: 3b29092d-6e27-4661-87d3-a212528b2a3a # Trinktemperatur
             instructions: null
             label: null
             required: false
@@ -239,34 +209,7 @@ productFieldLayouts:
             warning: null
             width: 50
           -
-            fieldUid: 3b29092d-6e27-4661-87d3-a212528b2a3a # Trinktemperatur
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            warning: null
-            width: 50
-          -
-            fieldUid: f73632b8-d77e-478a-9a4b-1a9a41ed6c45 # Allergene
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            warning: null
-            width: 50
-          -
-            fieldUid: 348a200e-7d31-4262-b613-e8cc6e039fb2 # Degustationsnotiz
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            warning: null
-            width: 50
-          -
-            fieldUid: 27ee92fc-2ecb-42a3-86cb-ff619931841a # Vegan
+            fieldUid: 06d544a4-f99f-422c-b445-cb1b03a87860 # Vinifikation
             instructions: null
             label: null
             required: false
@@ -284,7 +227,45 @@ productFieldLayouts:
             warning: null
             width: 50
           -
-            fieldUid: 090ca3e8-52f7-44f4-8eb1-31b1d8706ff5 # Hersteller
+            fieldUid: a4e3c0b2-c990-461b-b016-eeed4b33412e # Bio-Zertifizierung
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: f73632b8-d77e-478a-9a4b-1a9a41ed6c45 # Allergene
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: 27ee92fc-2ecb-42a3-86cb-ff619931841a # Vegan
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: 34381c5f-24e3-4876-a534-c12339c44433 # EANNummer
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            type: craft\fieldlayoutelements\HorizontalRule
+          -
+            fieldUid: dcb77335-6819-4597-a153-2b3ecfc9586f # Artikelgruppe
             instructions: null
             label: null
             required: false
@@ -300,7 +281,16 @@ productFieldLayouts:
             tip: null
             type: craft\fieldlayoutelements\CustomField
             warning: null
-            width: 100
+            width: 50
+          -
+            fieldUid: 090ca3e8-52f7-44f4-8eb1-31b1d8706ff5 # Hersteller
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
         name: Inhalt
         sortOrder: 1
       -
@@ -365,19 +355,6 @@ productFieldLayouts:
             width: 100
         name: Newsletter
         sortOrder: 3
-      -
-        elements:
-          -
-            fieldUid: b4b7c4fa-292f-48ba-837c-da1b5017ed0a # SEO Beschreibung
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            warning: null
-            width: 100
-        name: SEO
-        sortOrder: 4
 productTitleFormat: ''
 siteSettings:
   dd0cd05e-0cb9-4a76-b993-3cb70e6fc147: # Terra Verde

@@ -187,7 +187,7 @@
                     <tbody>
                     <tr>
                       <td style="width:150px;">
-                        <img alt="Terra-Verde Logo" height="auto" src="https://terra-verde-staging.cl-eu-west-2.servd.dev/assets/images/logo/TerraVerde_jpg_email.jpg" style="border:none;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;" width="150" />
+                        <img alt="Terra-Verde Logo" height="auto" src="https://terra-verde.ch/assets/images/logo/TerraVerde_jpg_email.jpg" style="border:none;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;" width="150" />
                       </td>
                     </tr>
                     </tbody>
@@ -279,14 +279,14 @@
         <td style="direction:ltr;font-size:0px;padding:20px 0;text-align:center;">
           <!--[if mso | IE]><table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><td align="left" class="" style="" ><![endif]-->
           <div style="font-family:'Open Sans', Arial, sans-serif;font-size:13px;line-height:1;text-align:left;color:#000000;">{% for block in campaign.contentElementsNewsletter.all() %} <mj-section background-color="{{ block.bgColHeadingH2Newsletter }}">
-            <mj-column width="100%"> {% if block.type == "headingH2FieldNewsletter" %} <mj-text css-class="heading heading-h2" style="font-size:24px; font-family:'Open Sans', Arial, sans-serif;  color:{{ block.colorHeadingH2Newsletter }}; line-height: 1.3; background-color:{{ block.bgColHeadingH2Newsletter }}; padding-left:25px; padding-right:25px; padding-bottom:5px; padding-top:10px; margin: 0; display: block"> {{ block.headingH2FieldNewsletter }} </mj-text>
+            <mj-column width="100%"> {% if block.type == "headingH2FieldNewsletter" %} <mj-text padding-left="25px" padding-right="25px" padding-bottom="10px" padding-top="5px" css-class="heading heading-h2" style="display: block; font-size:24px; font-family:'Open Sans', Arial, sans-serif;  color:{{ block.colorHeadingH2Newsletter }}; line-height: 1.3; background-color:{{ block.bgColHeadingH2Newsletter }}; margin-left: 0px; margin-right: 0px; display: block"> {{ block.headingH2FieldNewsletter }} </mj-text>
           </mj-section>
             </mj-column>
-            <mj-column> {% elseif block.type == "headingH3FieldNewsletter" %} <mj-text width="100%" css-class="heading heading-h3" style="font-size:21px; font-family:'Open Sans', Arial, sans-serif;  color:{{ block.colorHeadingH3Newsletter }}; line-height: 1.3; background-color:{{ block.bgColHeadingH3Newsletter }}; padding-left:25px; padding-right:25px; padding-bottom:5px; padding-top:10px; margin: 0; display:block"> {{ block.headingH3FieldNewsletter }} </mj-text>
+            <mj-column width="100%"> {% elseif block.type == "headingH3FieldNewsletter" %} <mj-text width="100%" css-class="heading heading-h3" style=" display: block; font-size:21px; font-family:'Open Sans', Arial, sans-serif;  color:{{ block.colorHeadingH3Newsletter }}; line-height: 1.3; background-color:{{ block.bgColHeadingH3Newsletter }}; padding-left:25px; padding-right:25px; padding-bottom:5px; padding-top:0px; margin-left: 0px; margin-right: 10px "> {{ block.headingH3FieldNewsletter }} </mj-text>
             </mj-column>
-            <mj-column> {% elseif block.type == "headingH4FieldNewsletter" %} <mj-text width="100%" css-class="heading heading-h4" style="font-size:18px; font-family:'Open Sans', Arial, sans-serif;  color:{{ block.colorHeadingH4Newsletter }}; line-height: 1.3; background-color:{{ block.bgColHeadingH4Newsletter }}; padding-left:25px; padding-right:25px; padding-bottom:5px; padding-top:10px; margin: 0px; display:block"> {{ block.headingH4FieldNewsletter }} </mj-text>
+            <mj-column width="100%"> {% elseif block.type == "headingH4FieldNewsletter" %} <mj-text width="100%" css-class="heading heading-h4" style="display: block; font-size:18px; font-family:'Open Sans', Arial, sans-serif;  color:{{ block.colorHeadingH4Newsletter }}; line-height: 1.3; background-color:{{ block.bgColHeadingH4Newsletter }}; padding-left:25px; padding-right:25px; padding-bottom:5px; padding-top:0px; margin-left: 0px; margin-right: 10px "> {{ block.headingH4FieldNewsletter }} </mj-text>
             </mj-column>
-            <mj-column> {% elseif block.type == "textFieldNewsletter" %} <mj-text width="100%" css-class="textfield" style="display: block; color:{{ block.colorTextNewsletter }}; background-color:{{ block.bgColTextNewsletter }}; line-height: 1.3; font-size:15px; font-family:'Open Sans', Arial, sans-serif; padding-left:25px; padding-right:25px; padding-bottom:10px; padding-top:10px; margin: 0px; "> {{ block.textFieldNewsletter }} </mj-text>
+            <mj-column width="100%"> {% elseif block.type == "textFieldNewsletter" %} <mj-text width="100%" css-class="textfield" style="display: block; color:{{ block.colorTextNewsletter }}; background-color:{{ block.bgColTextNewsletter }}; line-height: 1.3; font-size:15px; font-family:'Open Sans', Arial, sans-serif; padding-left:25px; padding-right:25px; padding-bottom:10px; padding-top:10px; margin-left: 0px; margin-right: 0px"> {{ block.textFieldNewsletter }} </mj-text>
             </mj-column>
             <mj-column> {% elseif block.type == "newsletterImage" %} {% set image = block.newsletterImage.one() %} {% if image is defined and image is not empty %} <a href="{{ block.imageLink }}" target="_blank">
               <image width="100%" height="auto" src="{{ image ? image.url }}" />
@@ -296,13 +296,15 @@
             </mj-column>
             <mj-column> {% elseif block.type == "line" %} {% set lineheight = block.line %} {% set colorline = block.color|default('#EAEAEA') %}
               <mj-divider style="width: 100%; display: block; border: {{ lineheight }}px solid {{ colorline }}" border-width="{{ lineheight }}px" border-style="solid" border-color="{{ colorline }}" style="display: block;" />
-            </mj-column> {% elseif block.type == "itemsShop" %} {% for product in block.itemsShop %} {% set variant = product.defaultVariant %} {% set image = product.articleImage.one() %} <mj-group style="display: inline-block; margin-bottom: 20px; border-bottom: 1px solid #EAEAEA; width: 100%">
+            </mj-column> {% elseif block.type == "itemsShop" %} {% for product in block.itemsShop %} {% set variant = product.defaultVariant %} {% set image = product.articleImage.one() %} <mj-group style="display: inline-block; margin-bottom: 20px; border-bottom: 1px solid #EAEAEA; width: 100%;  padding-left:20px; padding-right:20px; padding-bottom:0px; padding-top:0px; ">
               <mj-column style="display: inline-block; vertical-align: top; width: 49%">
-                <h3>{{ product.title }}</h3> {% if product.newsletterDiscountfield %} <p style="display: block; font-size:16px; margin-top: 0px; margin-bottom: 10px; color: #d65e5a">{{ product.newsletterDiscountfield }}</p> {% endif %} {% if variant.onSale %} <p style="font-size: 15px">{{ variant.salePrice|commerceCurrency() }}
+                <a href="{{ variant.url }}" style="text-decoration: none; color:#000000; display: inline">
+                  <h3>{{ product.title }}</h3>
+                </a> {% if product.newsletterDiscountfield %} <p style="display: block; font-size:16px; margin-top: 0px; margin-bottom: 10px; color: #d65e5a">{{ product.newsletterDiscountfield }}</p> {% endif %} {% if variant.onSale %} <p style="font-size: 15px">{{ variant.salePrice|commerceCurrency() }}
                 <span style="font-size: 13px">(statt {{ variant.priceAsCurrency }})</span>
-              </p> {% else %} <p>{{ variant.priceAsCurrency }}</p> {% endif %} {% if product.newsletterInfofield %} <p>{{ product.newsletterInfofield }}</p> {% endif %}
+              </p> {% else %} <p>{{ variant.priceAsCurrency }}</p> {% endif %} {% if product.newsletterInfofield %} <p style="width: 49%">{{ product.newsletterInfofield }}</p> {% endif %}
               </mj-column>
-              <mj-column style="display: inline-block; padding-top: 10px; width: 49%; text-align: center;"> {% if image is defined and image is not empty %} <img src="{{ image ? image.url }}" height="auto" width="80px" /> {% endif %} </mj-column>
+              <mj-column style="display: inline-block; padding-top: 10px; width: 49%; text-align: center;"> {% if image is defined and image is not empty %} <a href="{{ variant.url }}" style="text-decoration: none; display: inline"><img src="{{ image ? image.url }}" height="auto" width="80px" /></a> {% endif %} </mj-column>
               <mj-column style="display: inline-block; width: 100%; margin-top: 30px; margin-bottom: 30px;">
                 <a href="{{ variant.url }}" style="background-color:#222222; color:#ffffff; padding-top:14px; padding-right:12px; padding-bottom:14px; padding-left:12px; border-radius:3px; text-decoration: none">Einkaufen</a>
               </mj-column>
@@ -327,7 +329,7 @@
               <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;" width="100%">
                 <tbody>
                 <tr>
-                  <td align="center" style="font-size:0px;padding:10px 25px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;word-break:break-word;">
+                  <td align="center" style="font-size:0px;padding:10px 25px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:20px;word-break:break-word;">
                     <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:collapse;border-spacing:0px;">
                       <tbody>
                       <tr>
@@ -344,16 +346,24 @@
             </div>
             <!--[if mso | IE]></td><td style="vertical-align:top;width:360px;" ><![endif]-->
             <div class="mj-column-per-60 mj-outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:60%;">
-              <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;" width="100%">
+              <table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
                 <tbody>
                 <tr>
-                  <td align="left" style="font-size:0px;padding:10px 25px;padding-top:0px;padding-right:20px;padding-bottom:10px;padding-left:5px;word-break:break-word;">
-                    <div style="font-family:'Open Sans', Arial, sans-serif;font-size:20px;line-height:1;text-align:left;color:#222222;">Bio dal 1996. Geniessen im Einklang mit der Natur</div>
-                  </td>
-                </tr>
-                <tr>
-                  <td align="left" style="font-size:0px;padding:10px 25px;padding-top:0px;padding-right:20px;padding-bottom:10px;padding-left:5px;word-break:break-word;">
-                    <div style="font-family:'Open Sans', Arial, sans-serif;font-size:15px;line-height:1;text-align:left;color:#222222;">TERRA VERDE steht für faire, mediterrane Delikatessen und Weine aus rein biologischer Produktion.</div>
+                  <td style="vertical-align:top;padding-left:10px;">
+                    <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="" width="100%">
+                      <tbody>
+                      <tr>
+                        <td align="left" style="font-size:0px;padding:10px 25px;padding-top:0px;padding-right:20px;padding-bottom:10px;padding-left:5px;word-break:break-word;">
+                          <div style="font-family:'Open Sans', Arial, sans-serif;font-size:20px;line-height:1;text-align:left;color:#222222;">Bio dal 1996. Geniessen im Einklang mit der Natur</div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td align="left" style="font-size:0px;padding:10px 25px;padding-top:0px;padding-right:20px;padding-bottom:10px;padding-left:5px;word-break:break-word;">
+                          <div style="font-family:'Open Sans', Arial, sans-serif;font-size:15px;line-height:1;text-align:left;color:#222222;">TERRA VERDE steht für faire, mediterrane Delikatessen und Weine aus rein biologischer Produktion.</div>
+                        </td>
+                      </tr>
+                      </tbody>
+                    </table>
                   </td>
                 </tr>
                 </tbody>
@@ -395,7 +405,7 @@
             <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;" width="100%">
               <tbody>
               <tr>
-                <td align="center" style="font-size:0px;padding:10px 25px;word-break:break-word;">
+                <td align="left" style="font-size:0px;padding:10px 25px;word-break:break-word;">
                   <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="margin:0px;">
                     <tbody>
                     <tr>
