@@ -134,6 +134,15 @@ productFieldLayouts:
             warning: null
             width: 50
           -
+            fieldUid: 8e510c18-b6c3-47e7-aa2a-ba9bb8147ce7 # Produzent:innen
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
             heading: Inhalt
             type: craft\fieldlayoutelements\Heading
           -

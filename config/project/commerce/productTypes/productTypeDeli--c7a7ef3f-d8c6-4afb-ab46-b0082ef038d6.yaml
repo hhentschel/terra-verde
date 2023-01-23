@@ -100,9 +100,8 @@ productFieldLayouts:
             warning: null
             width: 25
           -
-            style: tip
-            tip: Inhalt
-            type: craft\fieldlayoutelements\Tip
+            heading: Inhalt
+            type: craft\fieldlayoutelements\Heading
           -
             fieldUid: a01e981b-9ab4-498e-9274-b1858943fc1c # Produkt Beschreibung
             instructions: null
@@ -245,6 +244,10 @@ productFieldLayouts:
             type: craft\fieldlayoutelements\CustomField
             warning: null
             width: 50
+          -
+            style: tip
+            tip: Inhalt
+            type: craft\fieldlayoutelements\Tip
         name: 'Kategorien & Tags'
         sortOrder: 2
       -
