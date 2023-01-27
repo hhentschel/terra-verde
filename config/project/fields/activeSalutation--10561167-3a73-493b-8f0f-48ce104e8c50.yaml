@@ -1,0 +1,34 @@
+columnSuffix: rtqeeyfm
+contentColumnType: string
+fieldGroup: 99dbe745-472a-4403-8fbe-15424920fb29 # Newsletter
+handle: activeSalutation
+instructions: ''
+name: 'Anrede verwenden'
+searchable: false
+settings:
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - Ja
+        -
+          - value
+          - 'yes'
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - Nein
+        -
+          - value
+          - 'no'
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\RadioButtons

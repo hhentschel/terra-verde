@@ -12,7 +12,7 @@ fieldLayouts:
             tip: null
             type: craft\fieldlayoutelements\CustomField
             warning: null
-            width: 100
+            width: 75
           -
             fieldUid: e7fec16d-a352-4a94-8ec1-8e902b366c3b # Textfarbe
             instructions: null

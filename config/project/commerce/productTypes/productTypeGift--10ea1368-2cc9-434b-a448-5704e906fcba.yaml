@@ -48,7 +48,7 @@ productFieldLayouts:
             tip: null
             type: craft\fieldlayoutelements\CustomField
             warning: null
-            width: 50
+            width: 25
           -
             fieldUid: ea603a9d-ad1a-46a9-8400-4c237d4f779e # Artikelnummer
             instructions: null
@@ -57,16 +57,7 @@ productFieldLayouts:
             tip: null
             type: craft\fieldlayoutelements\CustomField
             warning: null
-            width: 50
-          -
-            fieldUid: a01e981b-9ab4-498e-9274-b1858943fc1c # Produkt Beschreibung
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            warning: null
-            width: 50
+            width: 25
           -
             fieldUid: 31d89d29-5bb5-4d25-81f8-d582276516b3 # Artikel Grundpreis (EVP inkl.)
             instructions: null
@@ -75,7 +66,7 @@ productFieldLayouts:
             tip: null
             type: craft\fieldlayoutelements\CustomField
             warning: null
-            width: 50
+            width: 25
           -
             fieldUid: 2625559c-aa75-481d-a655-1c6590d7106d # Preis (Privatkunden)
             instructions: null
@@ -84,7 +75,7 @@ productFieldLayouts:
             tip: null
             type: craft\fieldlayoutelements\CustomField
             warning: null
-            width: 50
+            width: 25
           -
             fieldUid: f9ea37ad-b93c-4731-90ad-312428b52e6f # Preise (Detailhandel)
             instructions: null
@@ -93,9 +84,9 @@ productFieldLayouts:
             tip: null
             type: craft\fieldlayoutelements\CustomField
             warning: null
-            width: 50
+            width: 25
           -
-            fieldUid: d63d76f8-75e4-40eb-9992-4ea21ba5b437 # Artikel Zusatz Beschreibung
+            fieldUid: a01e981b-9ab4-498e-9274-b1858943fc1c # Produkt Beschreibung
             instructions: null
             label: null
             required: false
@@ -113,25 +104,7 @@ productFieldLayouts:
             warning: null
             width: 50
           -
-            fieldUid: 1c95f87a-2123-4b4b-a9f8-831335adfe84 # Artikel Nährstoffe
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            warning: null
-            width: 50
-          -
             fieldUid: 27ee92fc-2ecb-42a3-86cb-ff619931841a # Vegan
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            warning: null
-            width: 25
-          -
-            fieldUid: a4e3c0b2-c990-461b-b016-eeed4b33412e # Bio-Zertifizierung
             instructions: null
             label: null
             required: false
@@ -156,7 +129,7 @@ productFieldLayouts:
             tip: null
             type: craft\fieldlayoutelements\CustomField
             warning: null
-            width: 100
+            width: 25
         name: Inhalt
         sortOrder: 1
       -
@@ -221,19 +194,6 @@ productFieldLayouts:
             width: 100
         name: Newsletter
         sortOrder: 3
-      -
-        elements:
-          -
-            fieldUid: b4b7c4fa-292f-48ba-837c-da1b5017ed0a # SEO Beschreibung
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            warning: null
-            width: 100
-        name: SEO
-        sortOrder: 4
 productTitleFormat: ''
 siteSettings:
   dd0cd05e-0cb9-4a76-b993-3cb70e6fc147: # Terra Verde

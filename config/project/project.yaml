@@ -1,4 +1,4 @@
-dateModified: 1674079419
+dateModified: 1674821297
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: 'Terra Verde'
@@ -191,6 +191,7 @@ meta:
     6140743f-8150-44d8-9c8f-ea48412627bb: AkkordeonPanel # AkkordeonPanel
     9034906b-69ef-4c05-9d30-23370e446767: 'Titel H3' # Titel H3
     9041254e-7c39-4bd9-9590-0a646283a360: 'Artikel Einheit (Gl, Fl, Dose, Stk., Kan.)' # Artikel Einheit (Gl, Fl, Dose, Stk., Kan.)
+    10561167-3a73-493b-8f0f-48ce104e8c50: 'Anrede verwenden' # Anrede verwenden
     16265740-9a81-46f1-9fb8-99fc6b1a8e7f: 'Externer Link (mit Icon)' # Externer Link (mit Icon)
     42065150-3e31-4dfa-ad7d-b6b95f0eba0f: 'Product Home' # Product Home
     76367094-179e-4fc3-8e70-b0f8fccc3422: 'Shop Anpassungen' # Shop Anpassungen
@@ -229,6 +230,7 @@ meta:
     af1c566f-cdf2-4ae1-a225-934165929d1a: 'Email 2' # Email 2
     af6dbdfc-a694-4baf-9682-4991b9c728aa: Kopf-Bild # Kopf-Bild
     afe4e6a7-a49c-4cff-a116-4448c27458b6: 'Überschrift hinzufügen (gross)' # Überschrift hinzufügen (gross)
+    b035fa13-d443-491b-9682-b97c664aa7a3: Anrede # Anrede
     b2afc73d-5d7d-4782-93b1-a4c8eae0e113: Hintergrundfarbe # Hintergrundfarbe
     b2b053ff-c5c8-4e2a-83c4-068e2d9ff597: Zutaten # Zutaten
     b2d6c348-fea4-4475-b096-15d5b21075bd: Ort # Ort
@@ -343,7 +345,7 @@ plugins:
     enabled: true
     schemaVersion: 1.0.0
   campaign:
-    edition: pro
+    edition: lite
     enabled: true
     licenseKey: 4JP28H3CA67ZG8DVAY1YX6M5
     schemaVersion: 1.21.0
@@ -604,10 +606,6 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 1.0.2
-  mjml:
-    edition: standard
-    enabled: true
-    schemaVersion: 1.0.0
   neo:
     edition: standard
     enabled: true

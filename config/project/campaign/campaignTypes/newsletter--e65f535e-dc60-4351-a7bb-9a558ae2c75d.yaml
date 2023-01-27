@@ -22,6 +22,24 @@ fieldLayouts:
             warning: null
             width: 100
           -
+            fieldUid: 10561167-3a73-493b-8f0f-48ce104e8c50 # Anrede verwenden
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: b035fa13-d443-491b-9682-b97c664aa7a3 # Anrede
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
             fieldUid: a936e12c-9de8-4357-940a-6e95e373f08c # Einstiegstext
             instructions: null
             label: null
@@ -57,7 +75,7 @@ fieldLayouts:
             type: craft\fieldlayoutelements\CustomField
             warning: null
             width: 100
-        name: Kampagne
+        name: Campaign
         sortOrder: 1
 handle: newsletter
 htmlTemplate: email/newsletter.html
