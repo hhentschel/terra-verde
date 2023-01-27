@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1edad1cb64a5a07b945c5d24cac93cf5",
+    "content-hash": "ece5d4f90a24f07aec6d18146d6c9c0d",
     "packages": [
         {
             "name": "aws/aws-crt-php",
@@ -425,11 +425,11 @@
         },
         {
             "name": "composer/ca-bundle",
-            "version": "1.3.4",
+            "version": "1.3.5",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/ca-bundle/zipball/69098eca243998b53eed7a48d82dedd28b447cd5",
-                "reference": "69098eca243998b53eed7a48d82dedd28b447cd5",
+                "url": "https://api.github.com/repos/composer/ca-bundle/zipball/74780ccf8c19d6acb8d65c5f39cd72110e132bbd",
+                "reference": "74780ccf8c19d6acb8d65c5f39cd72110e132bbd",
                 "shasum": ""
             },
             "require": {
@@ -466,7 +466,7 @@
                 "ssl",
                 "tls"
             ],
-            "time": "2022-10-12T12:08:29+00:00"
+            "time": "2023-01-11T08:27:00+00:00"
         },
         {
             "name": "composer/composer",
@@ -1411,21 +1411,50 @@
             "time": "2021-04-09T23:57:26+00:00"
         },
         {
-            "name": "doctrine/lexer",
-            "version": "1.2.3",
+            "name": "doctrine/deprecations",
+            "version": "v1.0.0",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/lexer/zipball/c268e882d4dbdd85e36e4ad69e02dc284f89d229",
-                "reference": "c268e882d4dbdd85e36e4ad69e02dc284f89d229",
+                "url": "https://api.github.com/repos/doctrine/deprecations/zipball/0e2a4f1f8cdfc7a92ec3b01c9334898c806b30de",
+                "reference": "0e2a4f1f8cdfc7a92ec3b01c9334898c806b30de",
                 "shasum": ""
             },
             "require": {
+                "php": "^7.1|^8.0"
+            },
+            "suggest": {
+                "psr/log": "Allows logging deprecations via PSR-3 logger implementation"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Doctrine\\Deprecations\\": "lib/Doctrine/Deprecations"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "A small layer on top of trigger_error(E_USER_DEPRECATED) or PSR-3 logging with options to disable all deprecations or selectively for packages.",
+            "homepage": "https://www.doctrine-project.org/",
+            "time": "2022-05-02T15:47:09+00:00"
+        },
+        {
+            "name": "doctrine/lexer",
+            "version": "2.1.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/doctrine/lexer/zipball/39ab8fcf5a51ce4b85ca97c7a7d033eb12831124",
+                "reference": "39ab8fcf5a51ce4b85ca97c7a7d033eb12831124",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/deprecations": "^1.0",
                 "php": "^7.1 || ^8.0"
             },
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "Doctrine\\Common\\Lexer\\": "lib/Doctrine/Common/Lexer"
+                    "Doctrine\\Common\\Lexer\\": "src"
                 }
             },
             "license": [
@@ -1454,7 +1483,7 @@
                 "parser",
                 "php"
             ],
-            "time": "2022-02-28T11:07:21+00:00"
+            "time": "2022-12-14T08:49:07+00:00"
         },
         {
             "name": "dompdf/dompdf",
@@ -1510,15 +1539,15 @@
         },
         {
             "name": "egulias/email-validator",
-            "version": "3.2.1",
+            "version": "3.2.5",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/egulias/EmailValidator/zipball/f88dcf4b14af14a98ad96b14b2b317969eab6715",
-                "reference": "f88dcf4b14af14a98ad96b14b2b317969eab6715",
+                "url": "https://api.github.com/repos/egulias/EmailValidator/zipball/b531a2311709443320c786feb4519cfaf94af796",
+                "reference": "b531a2311709443320c786feb4519cfaf94af796",
                 "shasum": ""
             },
             "require": {
-                "doctrine/lexer": "^1.2",
+                "doctrine/lexer": "^1.2|^2",
                 "php": ">=7.2",
                 "symfony/polyfill-intl-idn": "^1.15"
             },
@@ -1553,7 +1582,7 @@
                 "validation",
                 "validator"
             ],
-            "time": "2022-06-18T20:57:19+00:00"
+            "time": "2023-01-02T17:26:14+00:00"
         },
         {
             "name": "elvanto/litemoji",
@@ -5253,58 +5282,6 @@
             "time": "2020-08-24T09:13:24+00:00"
         },
         {
-            "name": "putyourlightson/craft-sendgrid",
-            "version": "1.3.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/putyourlightson/craft-sendgrid.git",
-                "reference": "2df08c3829419d113f92882cb8e9937c85a49fef"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/putyourlightson/craft-sendgrid/zipball/2df08c3829419d113f92882cb8e9937c85a49fef",
-                "reference": "2df08c3829419d113f92882cb8e9937c85a49fef",
-                "shasum": ""
-            },
-            "require": {
-                "craftcms/cms": "^3.1.0",
-                "sendgrid/sendgrid": "^7.3.0"
-            },
-            "type": "craft-plugin",
-            "extra": {
-                "name": "SendGrid",
-                "handle": "sendgrid",
-                "developer": "PutYourLightsOn",
-                "developerUrl": "https://putyourlightson.com/",
-                "schemaVersion": "1.0.0",
-                "changelogUrl": "https://raw.githubusercontent.com/putyourlightson/craft-sendgrid/v1/CHANGELOG.md",
-                "class": "putyourlightson\\sendgrid\\Sendgrid"
-            },
-            "autoload": {
-                "psr-4": {
-                    "putyourlightson\\sendgrid\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "SendGrid mailer adapter for Craft CMS.",
-            "homepage": "https://github.com/putyourlightson/craft-sendgrid",
-            "keywords": [
-                "Craft",
-                "cms",
-                "craftcms",
-                "email"
-            ],
-            "support": {
-                "docs": "https://putyourlightson.com/plugins/sendgrid",
-                "issues": "https://github.com/putyourlightson/craft-sendgrid/issues",
-                "source": "https://github.com/putyourlightson/craft-sendgrid"
-            },
-            "time": "2022-05-06T12:22:28+00:00"
-        },
-        {
             "name": "putyourlightson/craft-sprig",
             "version": "1.13.0",
             "source": {
@@ -5739,135 +5716,6 @@
             "time": "2022-08-31T10:31:18+00:00"
         },
         {
-            "name": "sendgrid/php-http-client",
-            "version": "3.14.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sendgrid/php-http-client.git",
-                "reference": "6d589564522be290c7d7c18e51bcd8b03aeaf0b6"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sendgrid/php-http-client/zipball/6d589564522be290c7d7c18e51bcd8b03aeaf0b6",
-                "reference": "6d589564522be290c7d7c18e51bcd8b03aeaf0b6",
-                "shasum": ""
-            },
-            "require": {
-                "ext-curl": "*",
-                "ext-json": "*",
-                "ext-mbstring": "*",
-                "php": ">=5.6"
-            },
-            "require-dev": {
-                "friendsofphp/php-cs-fixer": "^2.16",
-                "phpunit/phpunit": "^5.7 || ^6.5",
-                "sebastian/version": "^1.0.6",
-                "squizlabs/php_codesniffer": "~2.0"
-            },
-            "suggest": {
-                "composer/ca-bundle": "Including this library will ensure that a valid CA bundle is available for secure connections"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "SendGrid\\": "lib/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Matt Bernier",
-                    "email": "mbernier@twilio.com"
-                },
-                {
-                    "name": "Elmer Thomas",
-                    "email": "ethomas@twilio.com"
-                }
-            ],
-            "description": "HTTP REST client, simplified for PHP",
-            "homepage": "http://github.com/sendgrid/php-http-client",
-            "keywords": [
-                "api",
-                "fluent",
-                "http",
-                "rest",
-                "sendgrid"
-            ],
-            "support": {
-                "issues": "https://github.com/sendgrid/php-http-client/issues",
-                "source": "https://github.com/sendgrid/php-http-client/tree/3.14.4"
-            },
-            "time": "2022-03-09T20:21:55+00:00"
-        },
-        {
-            "name": "sendgrid/sendgrid",
-            "version": "7.11.5",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sendgrid/sendgrid-php.git",
-                "reference": "1d2fd3b72687fe82264853a8888b014f8f99e81f"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sendgrid/sendgrid-php/zipball/1d2fd3b72687fe82264853a8888b014f8f99e81f",
-                "reference": "1d2fd3b72687fe82264853a8888b014f8f99e81f",
-                "shasum": ""
-            },
-            "require": {
-                "ext-curl": "*",
-                "ext-json": "*",
-                "ext-mbstring": "*",
-                "ext-openssl": "*",
-                "php": ">=5.6",
-                "sendgrid/php-http-client": "~3.10",
-                "starkbank/ecdsa": "0.*"
-            },
-            "replace": {
-                "sendgrid/sendgrid-php": "*"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^5.7.9 || ^6.4.3",
-                "squizlabs/php_codesniffer": "3.*",
-                "swaggest/json-diff": "^3.4"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "SendGrid\\Mail\\": "lib/mail/",
-                    "SendGrid\\Stats\\": "lib/stats/",
-                    "SendGrid\\Helper\\": "lib/helper/",
-                    "SendGrid\\Contacts\\": "lib/contacts/",
-                    "SendGrid\\EventWebhook\\": "lib/eventwebhook/"
-                },
-                "classmap": [
-                    "lib/BaseSendGridClientInterface.php",
-                    "lib/SendGrid.php",
-                    "lib/TwilioEmail.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "This library allows you to quickly and easily send emails through Twilio SendGrid using PHP.",
-            "homepage": "http://github.com/sendgrid/sendgrid-php",
-            "keywords": [
-                "email",
-                "grid",
-                "send",
-                "sendgrid",
-                "twilio sendgrid"
-            ],
-            "support": {
-                "issues": "https://github.com/sendgrid/sendgrid-php/issues",
-                "source": "https://github.com/sendgrid/sendgrid-php/tree/7.11.5"
-            },
-            "time": "2022-03-09T20:21:56+00:00"
-        },
-        {
             "name": "servd/craft-asset-storage",
             "version": "2.7.7",
             "dist": {
@@ -6108,49 +5956,6 @@
             "time": "2022-07-19T13:01:48+00:00"
         },
         {
-            "name": "starkbank/ecdsa",
-            "version": "0.0.5",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/starkbank/ecdsa-php.git",
-                "reference": "484bedac47bac4012dc73df91da221f0a66845cb"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/starkbank/ecdsa-php/zipball/484bedac47bac4012dc73df91da221f0a66845cb",
-                "reference": "484bedac47bac4012dc73df91da221f0a66845cb",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.5"
-            },
-            "type": "library",
-            "autoload": {
-                "files": [
-                    "src/ellipticcurve.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "StarkBank",
-                    "email": "developers@starkbank.com",
-                    "homepage": "https://starkbank.com",
-                    "role": "Developer"
-                }
-            ],
-            "description": "fast openSSL-compatible implementation of the Elliptic Curve Digital Signature Algorithm (ECDSA)",
-            "homepage": "https://github.com/starkbank/ecdsa-php",
-            "support": {
-                "issues": "https://github.com/starkbank/ecdsa-php/issues",
-                "source": "https://github.com/starkbank/ecdsa-php/tree/v0.0.5"
-            },
-            "time": "2021-06-06T22:24:49+00:00"
-        },
-        {
             "name": "sunra/php-simple-html-dom-parser",
             "version": "v1.5.2",
             "dist": {
@@ -6246,11 +6051,11 @@
         },
         {
             "name": "symfony/console",
-            "version": "v5.4.15",
+            "version": "v5.4.19",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/ea59bb0edfaf9f28d18d8791410ee0355f317669",
-                "reference": "ea59bb0edfaf9f28d18d8791410ee0355f317669",
+                "url": "https://api.github.com/repos/symfony/console/zipball/dccb8d251a9017d5994c988b034d3e18aaabf740",
+                "reference": "dccb8d251a9017d5994c988b034d3e18aaabf740",
                 "shasum": ""
             },
             "require": {
@@ -6309,7 +6114,7 @@
                 "console",
                 "terminal"
             ],
-            "time": "2022-10-26T21:41:52+00:00"
+            "time": "2023-01-01T08:32:19+00:00"
         },
         {
             "name": "symfony/deprecation-contracts",
@@ -6357,11 +6162,11 @@
         },
         {
             "name": "symfony/filesystem",
-            "version": "v5.4.13",
+            "version": "v5.4.19",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/filesystem/zipball/ac09569844a9109a5966b9438fc29113ce77cf51",
-                "reference": "ac09569844a9109a5966b9438fc29113ce77cf51",
+                "url": "https://api.github.com/repos/symfony/filesystem/zipball/648bfaca6a494f3e22378123bcee2894045dc9d8",
+                "reference": "648bfaca6a494f3e22378123bcee2894045dc9d8",
                 "shasum": ""
             },
             "require": {
@@ -6394,15 +6199,15 @@
             ],
             "description": "Provides basic utilities for the filesystem",
             "homepage": "https://symfony.com",
-            "time": "2022-09-21T19:53:16+00:00"
+            "time": "2023-01-14T19:14:44+00:00"
         },
         {
             "name": "symfony/finder",
-            "version": "v5.4.11",
+            "version": "v5.4.19",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/finder/zipball/7872a66f57caffa2916a584db1aa7f12adc76f8c",
-                "reference": "7872a66f57caffa2916a584db1aa7f12adc76f8c",
+                "url": "https://api.github.com/repos/symfony/finder/zipball/6071aebf810ad13fe8200c224f36103abb37cf1f",
+                "reference": "6071aebf810ad13fe8200c224f36103abb37cf1f",
                 "shasum": ""
             },
             "require": {
@@ -6434,7 +6239,7 @@
             ],
             "description": "Finds files and directories via an intuitive fluent interface",
             "homepage": "https://symfony.com",
-            "time": "2022-07-29T07:37:50+00:00"
+            "time": "2023-01-14T19:14:44+00:00"
         },
         {
             "name": "symfony/http-foundation",
@@ -7042,11 +6847,11 @@
         },
         {
             "name": "symfony/process",
-            "version": "v5.4.11",
+            "version": "v5.4.19",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/process/zipball/6e75fe6874cbc7e4773d049616ab450eff537bf1",
-                "reference": "6e75fe6874cbc7e4773d049616ab450eff537bf1",
+                "url": "https://api.github.com/repos/symfony/process/zipball/c5ba874c9b636dbccf761e22ce750e88ec3f55e1",
+                "reference": "c5ba874c9b636dbccf761e22ce750e88ec3f55e1",
                 "shasum": ""
             },
             "require": {
@@ -7077,7 +6882,7 @@
             ],
             "description": "Executes commands in sub-processes",
             "homepage": "https://symfony.com",
-            "time": "2022-06-27T16:58:25+00:00"
+            "time": "2023-01-01T08:32:19+00:00"
         },
         {
             "name": "symfony/property-access",
@@ -7256,11 +7061,11 @@
         },
         {
             "name": "symfony/string",
-            "version": "v5.4.15",
+            "version": "v5.4.19",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/string/zipball/571334ce9f687e3e6af72db4d3b2a9431e4fd9ed",
-                "reference": "571334ce9f687e3e6af72db4d3b2a9431e4fd9ed",
+                "url": "https://api.github.com/repos/symfony/string/zipball/0a01071610fd861cc160dfb7e2682ceec66064cb",
+                "reference": "0a01071610fd861cc160dfb7e2682ceec66064cb",
                 "shasum": ""
             },
             "require": {
@@ -7309,7 +7114,7 @@
                 "utf-8",
                 "utf8"
             ],
-            "time": "2022-10-05T15:16:54+00:00"
+            "time": "2023-01-01T08:32:19+00:00"
         },
         {
             "name": "symfony/translation",
@@ -7429,11 +7234,11 @@
         },
         {
             "name": "symfony/yaml",
-            "version": "v5.4.14",
+            "version": "v5.4.19",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/e83fe9a72011f07c662da46a05603d66deeeb487",
-                "reference": "e83fe9a72011f07c662da46a05603d66deeeb487",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/71c05db20cb9b54d381a28255f17580e2b7e36a5",
+                "reference": "71c05db20cb9b54d381a28255f17580e2b7e36a5",
                 "shasum": ""
             },
             "require": {
@@ -7474,7 +7279,7 @@
             ],
             "description": "Loads and dumps YAML files",
             "homepage": "https://symfony.com",
-            "time": "2022-10-03T15:15:50+00:00"
+            "time": "2023-01-10T18:51:14+00:00"
         },
         {
             "name": "tecnickcom/tcpdf",
@@ -7534,11 +7339,11 @@
         },
         {
             "name": "twig/twig",
-            "version": "v2.15.3",
+            "version": "v2.15.4",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/ab402673db8746cb3a4c46f3869d6253699f614a",
-                "reference": "ab402673db8746cb3a4c46f3869d6253699f614a",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/3e059001d6d597dd50ea7c74dd2464b4adea48d3",
+                "reference": "3e059001d6d597dd50ea7c74dd2464b4adea48d3",
                 "shasum": ""
             },
             "require": {
@@ -7586,7 +7391,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2022-09-28T08:40:08+00:00"
+            "time": "2022-12-27T12:26:20+00:00"
         },
         {
             "name": "verbb/base",
@@ -7823,11 +7628,11 @@
         },
         {
             "name": "voku/arrayy",
-            "version": "7.9.5",
+            "version": "7.9.6",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/voku/Arrayy/zipball/4635acfab7d1451124039a88fd5c700b28ee3906",
-                "reference": "4635acfab7d1451124039a88fd5c700b28ee3906",
+                "url": "https://api.github.com/repos/voku/Arrayy/zipball/0e20b8c6eef7fc46694a2906e0eae2f9fc11cade",
+                "reference": "0e20b8c6eef7fc46694a2906e0eae2f9fc11cade",
                 "shasum": ""
             },
             "require": {
@@ -7866,7 +7671,7 @@
                 "utility",
                 "utils"
             ],
-            "time": "2022-10-13T00:27:25+00:00"
+            "time": "2022-12-27T12:58:32+00:00"
         },
         {
             "name": "voku/email-check",
@@ -7953,11 +7758,11 @@
         },
         {
             "name": "voku/portable-utf8",
-            "version": "6.0.10",
+            "version": "6.0.12",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/voku/portable-utf8/zipball/35b21539c309cbc4697266591f3a4ae9ce4e029c",
-                "reference": "35b21539c309cbc4697266591f3a4ae9ce4e029c",
+                "url": "https://api.github.com/repos/voku/portable-utf8/zipball/db0583727bb17666bbd2ba238c85babb973fd165",
+                "reference": "db0583727bb17666bbd2ba238c85babb973fd165",
                 "shasum": ""
             },
             "require": {
@@ -8013,7 +7818,7 @@
                 "utf-8",
                 "utf8"
             ],
-            "time": "2022-10-05T23:42:43+00:00"
+            "time": "2023-01-11T12:26:16+00:00"
         },
         {
             "name": "voku/stop-words",
@@ -8252,11 +8057,11 @@
         },
         {
             "name": "webonyx/graphql-php",
-            "version": "v14.11.8",
+            "version": "v14.11.9",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webonyx/graphql-php/zipball/04a48693acd785330eefd3b0e4fa67df8dfee7c3",
-                "reference": "04a48693acd785330eefd3b0e4fa67df8dfee7c3",
+                "url": "https://api.github.com/repos/webonyx/graphql-php/zipball/ff91c9f3cf241db702e30b2c42bcc0920e70ac70",
+                "reference": "ff91c9f3cf241db702e30b2c42bcc0920e70ac70",
                 "shasum": ""
             },
             "require": {
@@ -8283,7 +8088,7 @@
                 "api",
                 "graphql"
             ],
-            "time": "2022-09-21T15:35:03+00:00"
+            "time": "2023-01-06T12:12:50+00:00"
         },
         {
             "name": "yiisoft/yii2",
