@@ -70,9 +70,9 @@
         max-width: 100%;
       }
 
-      .mj-column-per-16-666666666666668 {
-        width: 16.666666666666668% !important;
-        max-width: 16.666666666666668%;
+      .mj-column-per-14-285714285714286 {
+        width: 14.285714285714286% !important;
+        max-width: 14.285714285714286%;
       }
 
       .mj-column-per-69 {
@@ -112,9 +112,9 @@
       max-width: 100%;
     }
 
-    .moz-text-html .mj-column-per-16-666666666666668 {
-      width: 16.666666666666668% !important;
-      max-width: 16.666666666666668%;
+    .moz-text-html .mj-column-per-14-285714285714286 {
+      width: 14.285714285714286% !important;
+      max-width: 14.285714285714286%;
     }
 
     .moz-text-html .mj-column-per-69 {
@@ -269,11 +269,13 @@
                 <td style="vertical-align:top;padding-top:20px;padding-bottom:30px;padding-left:0px;">
                   <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="" width="100%">
                     <tbody>
-                    <!-- htmlmin:ignore -->{% set activeSalutation = '' %} {% for option in campaign.activeSalutation.options %} {% if campaign.activeSalutation.value == 'yes' %}
+                    <!-- htmlmin:ignore -->{% set activeSalutation = '' %} {% for option in campaign.activeSalutation.options %} {% if campaign.activeSalutation.value == 'yes' %} {% set activeSalutation = true %} {% endif %} {% endfor %}
+                    <!-- htmlmin:ignore -->
+                    <!-- htmlmin:ignore -->{% if activeSalutation %}
                     <!-- htmlmin:ignore -->
                     <tr>
-                      <td align="left" style="font-size:0px;padding:10px 25px;word-break:break-word;">
-                        <div style="font-family:'Open Sans', Arial, sans-serif;font-size:20px;line-height:1;text-align:left;color:#222222;">
+                      <td align="left" style="font-size:0px;padding:10px 25px;padding-bottom:30px;word-break:break-word;">
+                        <div style="font-family:'Open Sans', Arial, sans-serif;font-size:20px;line-height:1;text-align:left;color:{{ campaign.backgroundColorTextNewsletter }};">
                           <!-- htmlmin:ignore -->
                           <mj-raw> {% if contact.firstName %} </mj-raw><!-- htmlmin:ignore -->
                           {{ campaign.newsletterSalutation }} {{ contact.firstName }} {{ contact.lastName }}
@@ -282,7 +284,7 @@
                         </div>
                       </td>
                     </tr>
-                    <!-- htmlmin:ignore -->{% endif %} {% endfor %}
+                    <!-- htmlmin:ignore -->{% endif %}
                     <!-- htmlmin:ignore -->
                     <tr>
                       <td vertical-align="top" style="font-size:0px;padding-top:0px;padding-bottom:0px;word-break:break-word;">
@@ -435,8 +437,8 @@
           <!-- Abstand -->
           <!-- htmlmin:ignore -->{% elseif block.type == "spacer" %}
           <!-- htmlmin:ignore -->
-          <!--[if mso | IE]><td class="" style="vertical-align:top;width:100px;" ><![endif]-->
-          <div class="mj-column-per-16-666666666666668 mj-outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
+          <!--[if mso | IE]><td class="" style="vertical-align:top;width:85.71428571428572px;" ><![endif]-->
+          <div class="mj-column-per-14-285714285714286 mj-outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
             <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;" width="100%">
               <tbody>
               <!-- htmlmin:ignore -->{% set height = '' %} {% for option in block.spacerHeight.options %} {% if option.selected %} {% set height = option.value %} {% endif %} {% endfor %}
@@ -444,6 +446,25 @@
               <tr>
                 <td style="font-size:0px;word-break:break-word;">
                   <div style="height:{{ height }}px;line-height:{{ height }}px;">&#8202;</div>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+          <!--[if mso | IE]></td><![endif]-->
+          <!-- Linie -->
+          <!-- htmlmin:ignore -->{% elseif block.type == "line" %}
+          <!-- htmlmin:ignore -->
+          <!--[if mso | IE]><td class="" style="vertical-align:top;width:600px;" ><![endif]-->
+          <div class="mj-column-per-100 mj-outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
+            <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;" width="100%">
+              <tbody>
+              <tr>
+                <td align="center" style="font-size:0px;padding:10px 25px;word-break:break-word;">
+                  <p style="border-top:solid {{ block.lineHeight }}px {{ block.lineColor }};font-size:1px;margin:0px auto;width:100%;">
+                  </p>
+                  <!--[if mso | IE]><table align="center" border="0" cellpadding="0" cellspacing="0" style="border-top:solid {{ block.lineHeight }}px {{ block.lineColor }};font-size:1px;margin:0px auto;width:550px;" role="presentation" width="550px" ><tr><td style="height:0;line-height:0;"> &nbsp;
+</td></tr></table><![endif]-->
                 </td>
               </tr>
               </tbody>

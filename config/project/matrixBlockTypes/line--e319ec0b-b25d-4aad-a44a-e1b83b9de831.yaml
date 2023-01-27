@@ -29,7 +29,7 @@ fields:
     columnSuffix: xxngbesr
     contentColumnType: string(7)
     fieldGroup: null
-    handle: color
+    handle: lineColor
     instructions: ''
     name: Farbe
     searchable: false
@@ -42,7 +42,7 @@ fields:
     columnSuffix: egdgebht
     contentColumnType: smallint(2)
     fieldGroup: null
-    handle: line
+    handle: lineHeight
     instructions: Strichstärke
     name: Linie
     searchable: false
