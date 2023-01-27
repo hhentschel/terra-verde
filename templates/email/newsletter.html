@@ -70,6 +70,21 @@
         max-width: 100%;
       }
 
+      .mj-column-per-16-666666666666668 {
+        width: 16.666666666666668% !important;
+        max-width: 16.666666666666668%;
+      }
+
+      .mj-column-per-69 {
+        width: 69% !important;
+        max-width: 69%;
+      }
+
+      .mj-column-per-29 {
+        width: 29% !important;
+        max-width: 29%;
+      }
+
       .mj-column-per-40 {
         width: 40% !important;
         max-width: 40%;
@@ -95,6 +110,21 @@
     .moz-text-html .mj-column-per-100 {
       width: 100% !important;
       max-width: 100%;
+    }
+
+    .moz-text-html .mj-column-per-16-666666666666668 {
+      width: 16.666666666666668% !important;
+      max-width: 16.666666666666668%;
+    }
+
+    .moz-text-html .mj-column-per-69 {
+      width: 69% !important;
+      max-width: 69%;
+    }
+
+    .moz-text-html .mj-column-per-29 {
+      width: 29% !important;
+      max-width: 29%;
     }
 
     .moz-text-html .mj-column-per-40 {
@@ -130,7 +160,7 @@
   </style>
   <style type="text/css">
     .leadtext a {
-      color: black !important;
+      color: #222 !important;
       text-decoration: underline !important;
     }
 
@@ -139,7 +169,7 @@
     }
 
     .bodytext p a {
-      color: black !important;
+      color: #222 !important;
       text-decoration: underline !important;
     }
 
@@ -176,7 +206,7 @@
     <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background:#ffffff;background-color:#ffffff;width:100%;">
       <tbody>
       <tr>
-        <td style="direction:ltr;font-size:0px;padding:20px 0;padding-bottom:20px;padding-top:20px;text-align:center;">
+        <td style="direction:ltr;font-size:0px;padding:20px 0;padding-bottom:0px;padding-top:0px;text-align:center;">
           <!--[if mso | IE]><table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><td class="" style="vertical-align:top;width:600px;" ><![endif]-->
           <div class="mj-column-per-100 mj-outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
             <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;" width="100%">
@@ -187,7 +217,7 @@
                     <tbody>
                     <tr>
                       <td style="width:150px;">
-                        <img alt="Terra-Verde Logo" height="auto" src="https://terra-verde-staging.cl-eu-west-2.servd.dev/assets/images/logo/TerraVerde_jpg_email.jpg" style="border:none;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;" width="150" />
+                        <img alt="Terra-Verde Logo" height="auto" src="https://terra-verde.ch/assets/images/logo/TerraVerde_jpg_email.jpg" style="border:none;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;" width="150" />
                       </td>
                     </tr>
                     </tbody>
@@ -213,13 +243,15 @@
           <div class="mj-column-per-100 mj-outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
             <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;" width="100%">
               <tbody>
+              <!-- htmlmin:ignore -->{% set headImage = campaign.headImageNewsletter.one() %}
+              <!-- htmlmin:ignore -->
               <tr>
                 <td align="center" style="font-size:0px;padding:10px 25px;word-break:break-word;">
-                  <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:collapse;border-spacing:0px;">
+                  <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:collapse;border-spacing:0px;" class="mj-full-width-mobile">
                     <tbody>
                     <tr>
-                      <td style="width:550px;">
-                        <img height="auto" src="{{ campaign.headImageNewsletter.one().url }}" style="border:0;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;" width="550" />
+                      <td style="width:550px;" class="mj-full-width-mobile">
+                        <img alt="Kopfbild Terra-Verde" height="auto" src="{{ headImage.url ? headImage.url }}" style="border:0;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;" width="550" />
                       </td>
                     </tr>
                     </tbody>
@@ -231,35 +263,67 @@
           </div>
           <!--[if mso | IE]></td><td class="" style="vertical-align:top;width:600px;" ><![endif]-->
           <div class="mj-column-per-100 mj-outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
-            <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;" width="100%">
+            <table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
               <tbody>
               <tr>
-                <td align="left" style="font-size:0px;padding:10px 25px;padding-top:20px;padding-right:25px;padding-bottom:30px;padding-left:25px;word-break:break-word;">
-                  <div style="font-family:'Open Sans', Arial, sans-serif;font-size:20px;line-height:1;text-align:left;color:#222222;">{% if contact.firstName %} Hallo {{ contact.firstName }} {{ contact.lastName }} {% endif %}</div>
-                </td>
-              </tr>
-              </tbody>
-            </table>
-          </div>
-          <!--[if mso | IE]></td><td class="" style="vertical-align:top;width:600px;" ><![endif]-->
-          <div class="mj-column-per-100 mj-outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
-            <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;" width="100%">
-              <tbody>
-              <tr>
-                <td align="left" style="font-size:0px;padding:10px 25px;padding-top:0px;padding-right:25px;padding-bottom:0px;padding-left:25px;word-break:break-word;">
-                  <div style="font-family:'Open Sans', Arial, sans-serif;font-size:26px;line-height:1;text-align:left;color:{{ campaign.backgroundColorTextNewsletter }};">{{ campaign.titleNewsletter }}</div>
-                </td>
-              </tr>
-              </tbody>
-            </table>
-          </div>
-          <!--[if mso | IE]></td><td class="" style="vertical-align:top;width:600px;" ><![endif]-->
-          <div class="mj-column-per-100 mj-outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
-            <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;" width="100%">
-              <tbody>
-              <tr>
-                <td align="left" class="leadtext" style="font-size:0px;padding:10px 25px;padding-right:25px;padding-left:25px;word-break:break-word;">
-                  <div style="font-family:'Open Sans', Arial, sans-serif;font-size:15px;line-height:1.5;text-align:left;color:{{ campaign.backgroundColorTextNewsletter }};">{{ campaign.leadTextNewsletter }}</div>
+                <td style="vertical-align:top;padding-top:20px;padding-bottom:30px;padding-left:0px;">
+                  <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="" width="100%">
+                    <tbody>
+                    <!-- htmlmin:ignore -->{% set activeSalutation = '' %} {% for option in campaign.activeSalutation.options %} {% if campaign.activeSalutation.value == 'yes' %}
+                    <!-- htmlmin:ignore -->
+                    <tr>
+                      <td align="left" style="font-size:0px;padding:10px 25px;word-break:break-word;">
+                        <div style="font-family:'Open Sans', Arial, sans-serif;font-size:20px;line-height:1;text-align:left;color:#222222;">
+                          <!-- htmlmin:ignore -->
+                          <mj-raw> {% if contact.firstName %} </mj-raw><!-- htmlmin:ignore -->
+                          {{ campaign.newsletterSalutation }} {{ contact.firstName }} {{ contact.lastName }}
+                          <!-- htmlmin:ignore -->
+                          <mj-raw> {% endif %}</mj-raw><!-- htmlmin:ignore -->
+                        </div>
+                      </td>
+                    </tr>
+                    <!-- htmlmin:ignore -->{% endif %} {% endfor %}
+                    <!-- htmlmin:ignore -->
+                    <tr>
+                      <td vertical-align="top" style="font-size:0px;padding-top:0px;padding-bottom:0px;word-break:break-word;">
+                        <div class="mj-column-per-100 mj-outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
+                          <table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+                            <tbody>
+                            <tr>
+                              <td style="vertical-align:top;padding-top:0px;padding-bottom:0px;">
+                                <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="" width="100%">
+                                  <tbody>
+                                  <tr>
+                                    <td align="left" style="font-size:0px;padding:10px 25px;word-break:break-word;">
+                                      <div style="font-family:'Open Sans', Arial, sans-serif;font-size:26px;line-height:1;text-align:left;color:{{ campaign.backgroundColorTextNewsletter }};">{{ campaign.titleNewsletter }}</div>
+                                    </td>
+                                  </tr>
+                                  </tbody>
+                                </table>
+                              </td>
+                            </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td vertical-align="top" style="font-size:0px;word-break:break-word;">
+                        <div class="mj-column-per-100 mj-outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
+                          <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;" width="100%">
+                            <tbody>
+                            <tr>
+                              <td align="left" class="leadtext" style="font-size:0px;padding:10px 25px;word-break:break-word;">
+                                <div style="font-family:'Open Sans', Arial, sans-serif;font-size:15px;line-height:1.5;text-align:left;color:{{ campaign.backgroundColorTextNewsletter }};">{{ campaign.leadTextNewsletter }}</div>
+                              </td>
+                            </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </td>
+                    </tr>
+                    </tbody>
+                  </table>
                 </td>
               </tr>
               </tbody>
@@ -276,39 +340,285 @@
     <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:100%;">
       <tbody>
       <tr>
-        <td style="direction:ltr;font-size:0px;padding:20px 0;text-align:center;">
-          <!--[if mso | IE]><table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><td align="left" class="" style="" ><![endif]-->
-          <div style="font-family:'Open Sans', Arial, sans-serif;font-size:13px;line-height:1;text-align:left;color:#000000;">{% for block in campaign.contentElementsNewsletter.all() %} <mj-section background-color="{{ block.bgColHeadingH2Newsletter }}">
-            <mj-column width="100%"> {% if block.type == "headingH2FieldNewsletter" %} <mj-text css-class="heading heading-h2" style="font-size:24px; font-family:'Open Sans', Arial, sans-serif;  color:{{ block.colorHeadingH2Newsletter }}; line-height: 1.3; background-color:{{ block.bgColHeadingH2Newsletter }}; padding-left:25px; padding-right:25px; padding-bottom:5px; padding-top:10px; margin: 0; display: block"> {{ block.headingH2FieldNewsletter }} </mj-text>
-          </mj-section>
-            </mj-column>
-            <mj-column> {% elseif block.type == "headingH3FieldNewsletter" %} <mj-text width="100%" css-class="heading heading-h3" style="font-size:21px; font-family:'Open Sans', Arial, sans-serif;  color:{{ block.colorHeadingH3Newsletter }}; line-height: 1.3; background-color:{{ block.bgColHeadingH3Newsletter }}; padding-left:25px; padding-right:25px; padding-bottom:5px; padding-top:10px; margin: 0; display:block"> {{ block.headingH3FieldNewsletter }} </mj-text>
-            </mj-column>
-            <mj-column> {% elseif block.type == "headingH4FieldNewsletter" %} <mj-text width="100%" css-class="heading heading-h4" style="font-size:18px; font-family:'Open Sans', Arial, sans-serif;  color:{{ block.colorHeadingH4Newsletter }}; line-height: 1.3; background-color:{{ block.bgColHeadingH4Newsletter }}; padding-left:25px; padding-right:25px; padding-bottom:5px; padding-top:10px; margin: 0px; display:block"> {{ block.headingH4FieldNewsletter }} </mj-text>
-            </mj-column>
-            <mj-column> {% elseif block.type == "textFieldNewsletter" %} <mj-text width="100%" css-class="textfield" style="display: block; color:{{ block.colorTextNewsletter }}; background-color:{{ block.bgColTextNewsletter }}; line-height: 1.3; font-size:15px; font-family:'Open Sans', Arial, sans-serif; padding-left:25px; padding-right:25px; padding-bottom:10px; padding-top:10px; margin: 0px; "> {{ block.textFieldNewsletter }} </mj-text>
-            </mj-column>
-            <mj-column> {% elseif block.type == "newsletterImage" %} {% set image = block.newsletterImage.one() %} {% if image is defined and image is not empty %} <a href="{{ block.imageLink }}" target="_blank">
-              <image width="100%" height="auto" src="{{ image ? image.url }}" />
-            </a> {% endif %} </mj-column>
-            <mj-column> {% elseif block.type == "spacer" %} {% set height = block.spacerHeight %}
-              <mj-spacer style="display: block; height: {{ height }}px" />
-            </mj-column>
-            <mj-column> {% elseif block.type == "line" %} {% set lineheight = block.line %} {% set colorline = block.color|default('#EAEAEA') %}
-              <mj-divider style="width: 100%; display: block; border: {{ lineheight }}px solid {{ colorline }}" border-width="{{ lineheight }}px" border-style="solid" border-color="{{ colorline }}" style="display: block;" />
-            </mj-column> {% elseif block.type == "itemsShop" %} {% for product in block.itemsShop %} {% set variant = product.defaultVariant %} {% set image = product.articleImage.one() %} <mj-group style="display: inline-block; margin-bottom: 20px; border-bottom: 1px solid #EAEAEA; width: 100%">
-              <mj-column style="display: inline-block; vertical-align: top; width: 49%">
-                <h3>{{ product.title }}</h3> {% if product.newsletterDiscountfield %} <p style="display: block; font-size:16px; margin-top: 0px; margin-bottom: 10px; color: #d65e5a">{{ product.newsletterDiscountfield }}</p> {% endif %} {% if variant.onSale %} <p style="font-size: 15px">{{ variant.salePrice|commerceCurrency() }}
-                <span style="font-size: 13px">(statt {{ variant.priceAsCurrency }})</span>
-              </p> {% else %} <p>{{ variant.priceAsCurrency }}</p> {% endif %} {% if product.newsletterInfofield %} <p>{{ product.newsletterInfofield }}</p> {% endif %}
-              </mj-column>
-              <mj-column style="display: inline-block; padding-top: 10px; width: 49%; text-align: center;"> {% if image is defined and image is not empty %} <img src="{{ image ? image.url }}" height="auto" width="80px" /> {% endif %} </mj-column>
-              <mj-column style="display: inline-block; width: 100%; margin-top: 30px; margin-bottom: 30px;">
-                <a href="{{ variant.url }}" style="background-color:#222222; color:#ffffff; padding-top:14px; padding-right:12px; padding-bottom:14px; padding-left:12px; border-radius:3px; text-decoration: none">Einkaufen</a>
-              </mj-column>
-            </mj-group> {% endfor %} {% endif %} {% endfor %}
+        <td style="direction:ltr;font-size:0px;padding:0;text-align:center;">
+          <!--[if mso | IE]><table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><![endif]-->
+          <!-- htmlmin:ignore -->{% for block in campaign.contentElementsNewsletter.all() %}
+          <!-- htmlmin:ignore -->
+          <!-- Überschrift H2 -->
+          <!-- htmlmin:ignore -->{% if block.type == "headingH2FieldNewsletter" %}
+          <!-- htmlmin:ignore -->
+          <!--[if mso | IE]><td class="" style="vertical-align:top;width:600px;" ><![endif]-->
+          <div class="mj-column-per-100 mj-outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
+            <table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+              <tbody>
+              <tr>
+                <td style="background-color:{{ block.bgColHeadingH2Newsletter }};vertical-align:top;padding-top:10px;padding-bottom:10px;">
+                  <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="" width="100%">
+                    <tbody>
+                    <tr>
+                      <td align="left" style="font-size:0px;padding:10px 25px;word-break:break-word;">
+                        <div style="font-family:'Open Sans', Arial, sans-serif;font-size:24px;line-height:1.3;text-align:left;color:{{ block.colorHeadingH2Newsletter }};">{{ block.headingH2FieldNewsletter }}</div>
+                      </td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+              </tbody>
+            </table>
           </div>
-          <!--[if mso | IE]></td></tr></table><![endif]-->
+          <!--[if mso | IE]></td><![endif]-->
+          <!-- Überschrift H3 -->
+          <!-- htmlmin:ignore -->{% elseif block.type == "headingH3FieldNewsletter" %}
+          <!-- htmlmin:ignore -->
+          <!--[if mso | IE]><td class="" style="vertical-align:top;width:600px;" ><![endif]-->
+          <div class="mj-column-per-100 mj-outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
+            <table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+              <tbody>
+              <tr>
+                <td style="background-color:{{ block.bgColHeadingH3Newsletter }};vertical-align:top;padding-top:0px;padding-bottom:10px;">
+                  <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="" width="100%">
+                    <tbody>
+                    <tr>
+                      <td align="left" class="heading heading-h3" style="font-size:0px;padding:10px 25px;word-break:break-word;">
+                        <div style="font-family:'Open Sans', Arial, sans-serif;font-size:21px;line-height:1.3;text-align:left;color:{{ block.colorHeadingH3Newsletter }};">{{ block.headingH3FieldNewsletter }}</div>
+                      </td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+          <!--[if mso | IE]></td><![endif]-->
+          <!-- Textfeld -->
+          <!-- htmlmin:ignore -->{% elseif block.type == "textFieldNewsletter" %}
+          <!-- htmlmin:ignore -->
+          <!--[if mso | IE]><td class="" style="vertical-align:top;width:600px;" ><![endif]-->
+          <div class="mj-column-per-100 mj-outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
+            <table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+              <tbody>
+              <tr>
+                <td style="background-color:{{ block.bgColTextNewsletter }};vertical-align:top;padding-top:10px;padding-bottom:10px;">
+                  <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="" width="100%">
+                    <tbody>
+                    <tr>
+                      <td align="left" class="textfield" style="font-size:0px;padding:10px 25px;word-break:break-word;">
+                        <div style="font-family:'Open Sans', Arial, sans-serif;font-size:15px;line-height:1.3;text-align:left;color:{{ block.colorTextNewsletter }};">{{ block.textFieldNewsletter }}</div>
+                      </td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+          <!--[if mso | IE]></td><![endif]-->
+          <!-- Bild -->
+          <!-- htmlmin:ignore -->{% elseif block.type == "newsletterImage" %} {% set image = block.newsletterImage.one() %} {% if image is defined and image is not empty %}
+          <!-- htmlmin:ignore -->
+          <!--[if mso | IE]><td class="" style="vertical-align:top;width:600px;" ><![endif]-->
+          <div class="mj-column-per-100 mj-outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
+            <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;" width="100%">
+              <tbody>
+              <a href="{{ block.imageLink }}" target="_blank">
+                <image width="100%" height="100%" src="{{ image ? image.url }}" />
+              </a>
+              <!-- htmlmin:ignore -->
+              <mj-raw> {% endif %}</mj-raw> <!-- htmlmin:ignore -->
+              </tbody>
+            </table>
+          </div>
+          <!--[if mso | IE]></td><![endif]-->
+          <!-- Abstand -->
+          <!-- htmlmin:ignore -->{% elseif block.type == "spacer" %}
+          <!-- htmlmin:ignore -->
+          <!--[if mso | IE]><td class="" style="vertical-align:top;width:100px;" ><![endif]-->
+          <div class="mj-column-per-16-666666666666668 mj-outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
+            <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;" width="100%">
+              <tbody>
+              <!-- htmlmin:ignore -->{% set height = '' %} {% for option in block.spacerHeight.options %} {% if option.selected %} {% set height = option.value %} {% endif %} {% endfor %}
+              <!-- htmlmin:ignore -->
+              <tr>
+                <td style="font-size:0px;word-break:break-word;">
+                  <div style="height:{{ height }}px;line-height:{{ height }}px;">&#8202;</div>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+          <!--[if mso | IE]></td><![endif]-->
+          <!-- Produkte -->
+          <!-- htmlmin:ignore -->{% elseif block.type == "itemsShop" %} {% for product in block.itemsShop %} {% set variant = product.defaultVariant %} {% set image = product.articleImage.one() %}
+          <!-- htmlmin:ignore -->
+          <!--[if mso | IE]><td class="" style="" ><table align="center" border="0" cellpadding="0" cellspacing="0" class="" role="presentation" style="width:600px;" width="600" ><tr><td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]-->
+          <div style="margin:0px auto;max-width:600px;">
+            <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:100%;">
+              <tbody>
+              <tr>
+                <td style="border-bottom:1px solid #EAEAEA;direction:ltr;font-size:0px;padding:20px 0;text-align:center;">
+                  <!--[if mso | IE]><table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><td class="" width="600px" ><table align="center" border="0" cellpadding="0" cellspacing="0" class="" role="presentation" style="width:600px;" width="600" ><tr><td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]-->
+                  <div style="margin:0px auto;max-width:600px;">
+                    <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:100%;">
+                      <tbody>
+                      <tr>
+                        <td style="direction:ltr;font-size:0px;padding:0;text-align:center;">
+                          <!--[if mso | IE]><table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><td class="" style="vertical-align:top;width:414px;" ><![endif]-->
+                          <div class="mj-column-per-69 mj-outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
+                            <table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+                              <tbody>
+                              <tr>
+                                <td style="vertical-align:top;padding-top:20px;padding-bottom:0px;">
+                                  <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="" width="100%">
+                                    <tbody>
+                                    <tr>
+                                      <td align="left" vertical-align="middle" style="font-size:0px;padding:10px 25px;padding-top:5px;padding-right:0;padding-bottom:20px;padding-left:0;word-break:break-word;">
+                                        <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:separate;line-height:100%;">
+                                          <tbody>
+                                          <tr>
+                                            <td align="center" bgcolor="transparent" role="presentation" style="border:none;border-radius:3px;cursor:auto;mso-padding-alt:10px 25px;text-align:left;background:transparent;" valign="middle">
+                                              <a href="{{ variant.url }}" style="display:inline-block;background:transparent;color:#222222;font-family:'Open Sans', Arial, sans-serif;font-size:24px;font-weight:normal;line-height:120%;margin:0;text-decoration:none;text-transform:none;padding:10px 25px;mso-padding-alt:0px;border-radius:3px;" target="_blank">
+                                                {{ product.title }}
+                                              </a>
+                                            </td>
+                                          </tr>
+                                          </tbody>
+                                        </table>
+                                      </td>
+                                    </tr>
+                                    <!-- htmlmin:ignore -->{% if product.newsletterDiscountfield %}
+                                    <!-- htmlmin:ignore -->
+                                    <tr>
+                                      <td align="left" style="font-size:0px;padding:10px 25px;word-break:break-word;">
+                                        <div style="font-family:'Open Sans', Arial, sans-serif;font-size:20px;line-height:1;text-align:left;color:#d65e5a;">{{ product.newsletterDiscountfield }}</div>
+                                      </td>
+                                    </tr>
+                                    <!-- htmlmin:ignore -->{% endif %}
+                                    <!-- htmlmin:ignore -->
+                                    <!-- htmlmin:ignore -->{% if variant.onSale %}
+                                    <!-- htmlmin:ignore -->
+                                    <tr>
+                                      <td align="left" style="font-size:0px;padding:10px 25px;word-break:break-word;">
+                                        <div style="font-family:'Open Sans', Arial, sans-serif;font-size:15px;line-height:1;text-align:left;color:#000000;">{{ variant.salePrice|commerceCurrency() }}</div>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td align="left" style="font-size:0px;padding:10px 25px;padding-top:0;word-break:break-word;">
+                                        <div style="font-family:'Open Sans', Arial, sans-serif;font-size:13px;line-height:1;text-align:left;color:#000000;">(statt {{ variant.priceAsCurrency }})</div>
+                                      </td>
+                                    </tr>
+                                    <!-- htmlmin:ignore -->{% else %}
+                                    <!-- htmlmin:ignore -->
+                                    <tr>
+                                      <td align="left" style="font-size:0px;padding:10px 25px;word-break:break-word;">
+                                        <div style="font-family:'Open Sans', Arial, sans-serif;font-size:13px;line-height:1;text-align:left;color:#000000;">{{ variant.priceAsCurrency }}</div>
+                                      </td>
+                                    </tr>
+                                    <!-- htmlmin:ignore -->{% endif %}
+                                    <!-- htmlmin:ignore -->
+                                    <!-- htmlmin:ignore -->{% if product.newsletterInfofield %}
+                                    <!-- htmlmin:ignore -->
+                                    <tr>
+                                      <td align="left" style="font-size:0px;padding:10px 25px;word-break:break-word;">
+                                        <div style="font-family:'Open Sans', Arial, sans-serif;font-size:13px;line-height:1;text-align:left;color:#000000;">{{ product.newsletterInfofield }}</div>
+                                      </td>
+                                    </tr>
+                                    <!-- htmlmin:ignore -->{% endif %}
+                                    <!-- htmlmin:ignore -->
+                                    </tbody>
+                                  </table>
+                                </td>
+                              </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                          <!--[if mso | IE]></td><![endif]-->
+                          <a href="{{ variant.url }}" style="text-decoration: none;">
+                            <!--[if mso | IE]><td class="" style="vertical-align:top;width:174px;" ><![endif]-->
+                            <div class="mj-column-per-29 mj-outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
+                              <table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+                                <tbody>
+                                <tr>
+                                  <td style="vertical-align:top;padding-top:10px;">
+                                    <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="" width="100%">
+                                      <tbody>
+                                      <!-- htmlmin:ignore -->{% if image is defined and image is not empty %}
+                                      <!-- htmlmin:ignore -->
+                                      <tr>
+                                        <td align="center" style="font-size:0px;padding:10px 25px;word-break:break-word;">
+                                          <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:collapse;border-spacing:0px;">
+                                            <tbody>
+                                            <tr>
+                                              <td style="width:80px;">
+                                                <img alt="Terra-Verde Produkt" height="auto" src="{{ image ? image.url }}" style="border:none;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;" width="80" />
+                                              </td>
+                                            </tr>
+                                            </tbody>
+                                          </table>
+                                        </td>
+                                      </tr>
+                                      <!-- htmlmin:ignore -->{% endif %}
+                                      <!-- htmlmin:ignore -->
+                                      </tbody>
+                                    </table>
+                                  </td>
+                                </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                            <!--[if mso | IE]></td><![endif]-->
+                          </a>
+                          <!--[if mso | IE]><td class="" style="vertical-align:top;width:600px;" ><![endif]-->
+                          <div class="mj-column-per-100 mj-outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
+                            <table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+                              <tbody>
+                              <tr>
+                                <td style="vertical-align:top;padding-left:20px;">
+                                  <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="" width="100%">
+                                    <tbody>
+                                    <tr>
+                                      <td align="left" vertical-align="middle" style="font-size:0px;padding:10px 25px;padding-top:14px;padding-right:12px;padding-bottom:14px;padding-left:12px;word-break:break-word;">
+                                        <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:separate;line-height:100%;">
+                                          <tbody>
+                                          <tr>
+                                            <td align="center" bgcolor="#222222" role="presentation" style="border:none;border-radius:3px;cursor:auto;mso-padding-alt:10px 25px;background:#222222;" valign="middle">
+                                              <a href="{{ variant.url }}" style="display:inline-block;background:#222222;color:#ffffff;font-family:'Open Sans', Arial, sans-serif;font-size:13px;font-weight:normal;line-height:120%;margin:0;text-decoration:none;text-transform:none;padding:10px 25px;mso-padding-alt:0px;border-radius:3px;" target="_blank"> Einkaufen </a>
+                                            </td>
+                                          </tr>
+                                          </tbody>
+                                        </table>
+                                      </td>
+                                    </tr>
+                                    </tbody>
+                                  </table>
+                                </td>
+                              </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                          <!--[if mso | IE]></td></tr></table><![endif]-->
+                        </td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <!--[if mso | IE]></td></tr></table></td></tr></table><![endif]-->
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+          <!--[if mso | IE]></td></tr></table></td><![endif]-->
+          <!-- htmlmin:ignore -->{% endfor %}
+          <!-- htmlmin:ignore -->
+          <!-- Ende for product -->
+          <!-- htmlmin:ignore -->{% endif %}
+          <!-- htmlmin:ignore -->
+          <!-- htmlmin:ignore -->{% endfor %}
+          <!-- htmlmin:ignore -->
+          <!--[if mso | IE]></tr></table><![endif]-->
         </td>
       </tr>
       </tbody>
@@ -327,7 +637,7 @@
               <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;" width="100%">
                 <tbody>
                 <tr>
-                  <td align="center" style="font-size:0px;padding:10px 25px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;word-break:break-word;">
+                  <td align="center" style="font-size:0px;padding:10px 25px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:20px;word-break:break-word;">
                     <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:collapse;border-spacing:0px;">
                       <tbody>
                       <tr>
@@ -344,16 +654,24 @@
             </div>
             <!--[if mso | IE]></td><td style="vertical-align:top;width:360px;" ><![endif]-->
             <div class="mj-column-per-60 mj-outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:60%;">
-              <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;" width="100%">
+              <table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
                 <tbody>
                 <tr>
-                  <td align="left" style="font-size:0px;padding:10px 25px;padding-top:0px;padding-right:20px;padding-bottom:10px;padding-left:5px;word-break:break-word;">
-                    <div style="font-family:'Open Sans', Arial, sans-serif;font-size:20px;line-height:1;text-align:left;color:#222222;">Bio dal 1996. Geniessen im Einklang mit der Natur</div>
-                  </td>
-                </tr>
-                <tr>
-                  <td align="left" style="font-size:0px;padding:10px 25px;padding-top:0px;padding-right:20px;padding-bottom:10px;padding-left:5px;word-break:break-word;">
-                    <div style="font-family:'Open Sans', Arial, sans-serif;font-size:15px;line-height:1;text-align:left;color:#222222;">TERRA VERDE steht für faire, mediterrane Delikatessen und Weine aus rein biologischer Produktion.</div>
+                  <td style="vertical-align:top;padding-left:10px;">
+                    <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="" width="100%">
+                      <tbody>
+                      <tr>
+                        <td align="left" style="font-size:0px;padding:10px 25px;padding-top:0px;padding-right:20px;padding-bottom:10px;padding-left:5px;word-break:break-word;">
+                          <div style="font-family:'Open Sans', Arial, sans-serif;font-size:20px;line-height:1;text-align:left;color:#222222;">Bio dal 1996. Geniessen im Einklang mit der Natur</div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td align="left" style="font-size:0px;padding:10px 25px;padding-top:0px;padding-right:20px;padding-bottom:10px;padding-left:5px;word-break:break-word;">
+                          <div style="font-family:'Open Sans', Arial, sans-serif;font-size:15px;line-height:1;text-align:left;color:#222222;">TERRA VERDE steht für faire, mediterrane Delikatessen und Weine aus rein biologischer Produktion.</div>
+                        </td>
+                      </tr>
+                      </tbody>
+                    </table>
                   </td>
                 </tr>
                 </tbody>
@@ -395,7 +713,7 @@
             <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;" width="100%">
               <tbody>
               <tr>
-                <td align="center" style="font-size:0px;padding:10px 25px;word-break:break-word;">
+                <td align="left" style="font-size:0px;padding:10px 25px;word-break:break-word;">
                   <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="margin:0px;">
                     <tbody>
                     <tr>
