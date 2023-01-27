@@ -21,6 +21,13 @@
   </summary>
   <dl class="product-detail__summary-content">
 
+    {% if product.articleDescription %}
+      <dt>
+        Beschreibung
+      </dt>
+      <dd> {{ product.articleDescription }}</dd>
+    {% endif %}
+
     {% if product.articleIngredients %}
       <dt>
         Zutaten
