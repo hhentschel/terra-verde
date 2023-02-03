@@ -3,28 +3,24 @@
   {{ actionInput('users/login') }}
 
   <label for="loginName">E-Mail</label>
-  {{
-    input(
-      'text',
-      'loginName',
-      craft.app.user.rememberedUsername,
-      {
-        id: 'loginName'
-      }
-    )
-  }}
+  {{ input(
+    'text',
+    'loginName',
+    craft.app.user.rememberedUsername,
+    {
+      id: 'loginName'
+    }
+  ) }}
 
   <label for="password">Passwort</label>
-  {{
-    input(
-      'password',
-      'password',
-      null,
-      {
-        id: 'password'
-      }
-    )
-  }}
+  {{ input(
+    'password',
+    'password',
+    null,
+    {
+      id: 'password'
+    }
+  ) }}
 
   <label>
     {{ input('checkbox', 'rememberMe', '1') }}
@@ -38,6 +34,10 @@
       {{ errorMessage }}
     </p>
   {% endif %}
+
+  {# Outputs a hidden input field #}
+  {{ craft.snaptcha.field }}
+
 </form>
 
 <p>

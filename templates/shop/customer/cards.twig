@@ -16,8 +16,7 @@
         {% set paymentSources =
           craft.commerce.paymentSources.getAllPaymentSourcesByUserId(
             currentUser.id
-          )
-        %}
+          ) %}
         {% if paymentSources|length %}
           <h3 class="heading heading--3">
             aktuelle Karten
@@ -41,8 +40,8 @@
                       {{ actionInput('commerce/payment-sources/delete') }}
                       {{ hiddenInput('id', paymentSource.id) }}
                       <input class="input input__secondary"
-                        type="submit"
-                        value="Löschen" />
+                             type="submit"
+                             value="Löschen"/>
                     </form>
                   </div>
                 </div>
@@ -51,7 +50,7 @@
           </div>
         {% endif %}
 
-        <hr class="my-3" />
+        <hr class="my-3"/>
 
         <h3 class="heading heading--3 heading--no-margin">
           Karte hinzufügen
@@ -66,8 +65,7 @@
                 </option>
 
                 {% set gateways =
-                  craft.commerce.gateways.allCustomerEnabledGateways
-                %}
+                  craft.commerce.gateways.allCustomerEnabledGateways %}
                 {% set supportedGateways = {} %}
 
                 {% for gateway in gateways %}
@@ -83,20 +81,18 @@
           <div class="mt-3">
             {% for gateway in gateways if gateway.supportsPaymentSources() %}
               <div id="fields-{{ gateway.id }}"
-                class="js-gateway-fields hidden pt-3 mt-3 border-t border-gray-300 border-dashed">
+                   class="js-gateway-fields hidden pt-3 mt-3 border-t border-gray-300 border-dashed">
                 <form method="post"
-                  action=""
-                  class="form-horizontal max-w-md"
-                  id="gateway-{{ gateway.id }}">
+                      action=""
+                      class="form-horizontal max-w-md"
+                      id="gateway-{{ gateway.id }}">
                   {{ actionInput('commerce/payment-sources/add') }}
                   {{ hiddenInput('gatewayId', gateway.id) }}
                   {{ hiddenInput('cancelUrl', '/shop/customer/cards'|hash) }}
-                  {{
-                    hiddenInput(
-                      'successMessage',
-                      'Zahlungsquelle hinzugefügt.'|hash
-                    )
-                  }}
+                  {{ hiddenInput(
+                    'successMessage',
+                    'Zahlungsquelle hinzugefügt.'|hash
+                  ) }}
                   {{ redirectInput('/shop/customer/cards') }}
                   {{ csrfInput() }}
 
@@ -104,13 +100,16 @@
 
                   <div class="mt-2" data-colspan="1">
                     <input class="input"
-                      type="text"
-                      name="description"
-                      value=""
-                      maxlength="70"
-                      autocomplete="off"
-                      placeholder="Card description" />
+                           type="text"
+                           name="description"
+                           value=""
+                           maxlength="70"
+                           autocomplete="off"
+                           placeholder="Card description"/>
                   </div>
+
+                  {# Outputs a hidden input field #}
+                  {{ craft.snaptcha.field }}
 
                   <div class="mt-2 text-right">
                     <button class="button button--primary" type="submit">
@@ -127,12 +126,12 @@
   </section>
 
   {% js %}var gatewaySelect = document.querySelector('#gatewayId'); var
-  gatewayFields = document.querySelectorAll('.js-gateway-fields');
+    gatewayFields = document.querySelectorAll('.js-gateway-fields');
 
-  if (gatewaySelect && gatewayFields.length) {
-  gatewaySelect.addEventListener('change', function(ev) {
-  gatewayFields.forEach(function(el) { el.classList.add('hidden'); });
+    if (gatewaySelect && gatewayFields.length) {
+    gatewaySelect.addEventListener('change', function(ev) {
+    gatewayFields.forEach(function(el) { el.classList.add('hidden'); });
 
-  var selected = document.querySelector('#fields-' + ev.currentTarget.value); if
-  (selected) { selected.classList.remove('hidden'); } }); }{% endjs %}
+    var selected = document.querySelector('#fields-' + ev.currentTarget.value); if
+    (selected) { selected.classList.remove('hidden'); } }); }{% endjs %}
 {% endblock %}

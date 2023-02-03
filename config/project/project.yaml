@@ -1,4 +1,4 @@
-dateModified: 1674824222
+dateModified: 1675439589
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: 'Terra Verde'
@@ -455,7 +455,13 @@ plugins:
       prependSender: ''
       prependSubject: 'Nachricht vom Kontaktformular der Webseite'
       successFlashMessage: 'Ihre Nachricht wurde erfolgreich gesendet.'
-      toEmail: info@terra-verde.ch
+      toEmail: $SYSTEM_EMAIL
+  contact-form-honeypot:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+    settings:
+      honeypotParam: balsamicoBiancoAcetoTerraVerde
   cp-field-inspect:
     edition: standard
     enabled: true
@@ -732,6 +738,26 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 1.0.0
+  snaptcha:
+    enabled: true
+    licenseKey: TRF8E9T2Z9OM4BJGPNZRMXAX
+    settings:
+      allowList: ''
+      denyList: ''
+      errorButtonText: Absenden
+      errorJavascriptDisabled: 'JavaScript muss aktiviert sein, damit Ihre Eingabe überprüft werden kann. Bitte aktivieren Sie es und aktualisieren Sie die Seite.'
+      errorMessage: 'Aus irgendeinem Grund wurde Ihr Beitrag als Spam markiert. Bitte klicken Sie auf die Schaltfläche unten, um Ihre Daten erneut einzureichen.'
+      errorTemplate: ''
+      errorTitle: Fehler
+      excludeControllerActions: ''
+      expirationTime: '60'
+      fieldName: snaptcha
+      logRejected: '1'
+      minimumSubmitTime: '1'
+      oneTimeKey: '1'
+      salt: qvqbpatsqefrplji
+      validateUsers: '1'
+      validationEnabled: '1'
   sprig:
     edition: standard
     enabled: true

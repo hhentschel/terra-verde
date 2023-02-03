@@ -67,6 +67,10 @@
             </div>
             <input type="hidden" name="variantId" value="{{ product.defaultVariant.id }}">
             <div class="bis-signup__registration-fields">
+
+              {# Outputs a hidden input field #}
+              {{ craft.snaptcha.field }}
+              
               <input class="input bis-signup__registration-input"
                      name="email" type="email" value="{{ cart.email }}"
                      placeholder="name@email.ch">

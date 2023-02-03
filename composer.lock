@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ece5d4f90a24f07aec6d18146d6c9c0d",
+    "content-hash": "c19a77d1321805639b944521004a3363",
     "packages": [
         {
             "name": "aws/aws-crt-php",
@@ -1020,6 +1020,56 @@
                 "source": "https://github.com/craftcms/contact-form"
             },
             "time": "2022-05-02T22:23:57+00:00"
+        },
+        {
+            "name": "craftcms/contact-form-honeypot",
+            "version": "1.0.3",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/craftcms/contact-form-honeypot/zipball/b09df34e860b9c0ffd9f95a80ca01d4dbdaeecf8",
+                "reference": "b09df34e860b9c0ffd9f95a80ca01d4dbdaeecf8",
+                "shasum": ""
+            },
+            "require": {
+                "craftcms/cms": "^3.0.0-beta.20"
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "name": "Contact Form Honeypot",
+                "handle": "contact-form-honeypot",
+                "documentationUrl": "https://github.com/craftcms/contact-form-honeypot/blob/main/README.md"
+            },
+            "autoload": {
+                "psr-4": {
+                    "craft\\contactform\\honeypot\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Pixel & Tonic",
+                    "homepage": "https://pixelandtonic.com/"
+                }
+            ],
+            "description": "Add a honeypot captcha to your Craft CMS contact form",
+            "keywords": [
+                "cms",
+                "contact",
+                "craftcms",
+                "form",
+                "honeypot",
+                "yii2"
+            ],
+            "support": {
+                "email": "support@craftcms.com",
+                "issues": "https://github.com/craftcms/contact-form-honeypot/issues?state=open",
+                "source": "https://github.com/craftcms/contact-form-honeypot",
+                "docs": "https://github.com/craftcms/contact-form-honeypot/blob/main/README.md",
+                "rss": "https://github.com/craftcms/contact-form-honeypot/commits/main.atom"
+            },
+            "time": "2022-05-03T23:30:06+00:00"
         },
         {
             "name": "craftcms/feed-me",
@@ -5280,6 +5330,57 @@
                 "plugin"
             ],
             "time": "2020-08-24T09:13:24+00:00"
+        },
+        {
+            "name": "putyourlightson/craft-snaptcha",
+            "version": "3.0.11",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/putyourlightson/craft-snaptcha/zipball/4a6594762838d1b5ab41ba3990eb786c0250aab2",
+                "reference": "4a6594762838d1b5ab41ba3990eb786c0250aab2",
+                "shasum": ""
+            },
+            "require": {
+                "craftcms/cms": "^3.2.1",
+                "putyourlightson/craft-log-to-file": "^1.2.3"
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "name": "Snaptcha",
+                "handle": "snaptcha",
+                "developer": "PutYourLightsOn",
+                "developerUrl": "https://putyourlightson.com/",
+                "documentationUrl": "https://putyourlightson.com/plugins/snaptcha",
+                "schemaVersion": "3.0.6",
+                "changelogUrl": "https://raw.githubusercontent.com/putyourlightson/craft-snaptcha/v3/CHANGELOG.md",
+                "class": "putyourlightson\\snaptcha\\Snaptcha"
+            },
+            "autoload": {
+                "psr-4": {
+                    "putyourlightson\\snaptcha\\": "src/"
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Automatically validates forms and prevents spam bots from submitting to your site.",
+            "homepage": "https://putyourlightson.com/plugins/snaptcha",
+            "keywords": [
+                "blocker",
+                "cms",
+                "craft",
+                "craftcms",
+                "form",
+                "protection",
+                "security",
+                "spam"
+            ],
+            "support": {
+                "docs": "https://putyourlightson.com/plugins/snaptcha",
+                "source": "https://github.com/putyourlightson/craft-snaptcha",
+                "issues": "https://github.com/putyourlightson/craft-snaptcha/issues"
+            },
+            "time": "2021-12-18T12:42:51+00:00"
         },
         {
             "name": "putyourlightson/craft-sprig",

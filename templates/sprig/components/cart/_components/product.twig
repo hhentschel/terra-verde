@@ -98,6 +98,7 @@
             {% endif %}
           >
 
+
           <a sprig s-action="commerce/cart/update-cart" s-method="post" s-val:purchasable-id="{{ variant.id }}"
              s-replace="#addtocart-{{ variant.id }}" id="addtocart-{{ variant.id }}" href="#"
              class="button--primary {% if addedToCart and purchasableId == variant.id %}button--success {% endif %} text-center">
@@ -121,6 +122,9 @@
       </div>
 
     </div>
+    
+    {# Outputs a hidden input field #}
+    {{ craft.snaptcha.field }}
   </form>
 
 </div>
