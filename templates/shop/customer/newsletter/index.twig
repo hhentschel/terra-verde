@@ -1,6 +1,7 @@
 {% extends '/_layouts/main' %}
 
 {# {% set mailingList = craft.campaign.mailingLists.id(28616).one() %} #}
+{% set contact = craft.campaign.contacts.userId(currentUser.id).one() %}
 {% set mailingList = craft.campaign.mailingLists.slug('newsletter-privatkunden').one() %}
 
 {% block content %}
@@ -22,11 +23,14 @@
 
             <form id="unsubscribe-form" method="post" action="" class="newsletter-form">
               {{ csrfInput() }}
-              {{ actionInput('campaign/forms/unsubscribe') }}
-              {{ redirectInput('unsubscribe-mail') }}
-              {{ hiddenInput('mailingList', mailingList.slug) }}
-              {# <input type="hidden" name="redirect" value="{{ 'shop/customer/newsletter/unsubscribe-mail'|hash }}"/> #}
-              
+              <input type="hidden" name="action" value="campaign/forms/unsubscribe"/>
+              <input type="hidden" name="mailingList" value="{{ mailingList.slug }}"/>
+              <input type="hidden" name="redirect" value="{{ 'shop/customer/newsletter/unsubscribe-mail'|hash }}"/>
+
+              <input type="hidden" name="action" value="campaign/contacts/unsubscribe-mailing-list"/>
+              <input type="hidden" name="contactId" value="{{ contact.id }}"/>
+              <input type="hidden" name="mailingListId" value="{{ mailingList.slug }}"/>
+
               <div class="newsletter-form__item">
                 <h3 class="visually-hidden heading layout-helper__margin-top--none"><label for="email">Email</label>
                 </h3>
