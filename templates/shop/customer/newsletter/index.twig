@@ -24,7 +24,8 @@
               {{ csrfInput() }}
               <input type="hidden" name="action" value="campaign/forms/unsubscribe"/>
               <input type="hidden" name="mailingList" value="{{ mailingList.slug }}"/>
-              <input type="hidden" name="redirect" value="{{ 'shop/customer/newsletter/unsubscribe-mail'|hash }}"/>
+              {# <input type="hidden" name="redirect" value="{{ 'shop/customer/newsletter/unsubscribe-mail'|hash }}"/> #}
+              <input type="hidden" name="redirect" value="{{ 'shop/customer/newsletter/subscribe-success'|hash }}"/>
 
               <div class="newsletter-form__item">
                 <h3 class="visually-hidden heading layout-helper__margin-top--none"><label for="email">Email</label>
@@ -36,7 +37,7 @@
 
               <!-- Required if reCAPTCHA is enabled in plugin settings -->
               {{ craft.campaign.recaptcha }}
-              
+
               {# Outputs a hidden input field #}
               {{ craft.snaptcha.field }}
 
