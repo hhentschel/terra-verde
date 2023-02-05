@@ -13,7 +13,7 @@
         <h2>Newsletter</h2>
 
         <h3>Anmeldung</h3>
-        {#        {% include '_pages/newsletter/index.twig' %} #}
+        {% include '_pages/newsletter/index.twig' %}
 
         <h3>Abmeldung</h3>
 
@@ -34,6 +34,9 @@
 
               <input type="submit" class="input input__primary newsletter-form__submit" value="Abmelden"/>
 
+              <!-- Required if reCAPTCHA is enabled in plugin settings -->
+              {{ craft.campaign.recaptcha }}
+              
               {# Outputs a hidden input field #}
               {{ craft.snaptcha.field }}
 
