@@ -1,4 +1,4 @@
-dateModified: 1675439589
+dateModified: 1675599308
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: 'Terra Verde'
@@ -753,7 +753,7 @@ plugins:
       expirationTime: '60'
       fieldName: snaptcha
       logRejected: '1'
-      minimumSubmitTime: '1'
+      minimumSubmitTime: '2'
       oneTimeKey: '1'
       salt: qvqbpatsqefrplji
       validateUsers: '1'
