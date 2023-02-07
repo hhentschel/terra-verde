@@ -1,4 +1,4 @@
-dateModified: 1675771506
+dateModified: 1675775226
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: 'Terra Verde'
@@ -646,7 +646,7 @@ plugins:
     edition: standard
     enabled: true
     licenseKey: LM5YGWHI1L71SX735CJV990O
-    schemaVersion: 3.0.10
+    schemaVersion: 3.0.11
     settings:
       additionalHeaders: ''
       alwaysStripQueryString: false
