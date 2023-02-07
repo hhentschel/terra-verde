@@ -1,4 +1,4 @@
-dateModified: 1675769975
+dateModified: 1675770289
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: 'Terra Verde'
@@ -735,7 +735,7 @@ plugins:
     enabled: true
     schemaVersion: 1.0.0
   snaptcha:
-    enabled: true
+    enabled: false
     licenseKey: TRF8E9T2Z9OM4BJGPNZRMXAX
     settings:
       allowList: ''
