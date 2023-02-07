@@ -1,8 +1,8 @@
 {
     "require": {
         "bertoost/craft-mailjet": "1.2.3",
-        "craftcms/cms": "3.7.59",
-        "craftcms/commerce": "3.4.18",
+        "craftcms/cms": "3.7.64.1",
+        "craftcms/commerce": "3.4.19",
         "craftcms/contact-form": "2.5.1",
         "craftcms/contact-form-honeypot": "1.0.3",
         "craftcms/feed-me": "4.5.3",
@@ -16,7 +16,7 @@
         "pompom/address-importer": "^1.0",
         "pompom/commerce-datatrans": "^1.0",
         "pompom/omnipay-datatrans": "^3.0",
-        "putyourlightson/craft-campaign": "1.23.5",
+        "putyourlightson/craft-campaign": "1.24.1",
         "putyourlightson/craft-snaptcha": "3.0.11",
         "putyourlightson/craft-sprig": "1.13.0",
         "putyourlightson/craft-untransform": "1.0.2",

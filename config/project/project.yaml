@@ -1,4 +1,4 @@
-dateModified: 1675599308
+dateModified: 1675771506
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: 'Terra Verde'
@@ -329,10 +329,6 @@ meta:
     fddfa707-62df-4882-973d-aa4cff515c7d: 'Produkte (Relationfield)' # Produkte (Relationfield)
 plugins:
   activeusers:
-    edition: standard
-    enabled: true
-    schemaVersion: 1.0.0
-  address-importer:
     edition: standard
     enabled: true
     schemaVersion: 1.0.0
@@ -739,7 +735,7 @@ plugins:
     enabled: true
     schemaVersion: 1.0.0
   snaptcha:
-    enabled: true
+    enabled: false
     licenseKey: TRF8E9T2Z9OM4BJGPNZRMXAX
     settings:
       allowList: ''

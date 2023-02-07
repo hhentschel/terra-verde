@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c19a77d1321805639b944521004a3363",
+    "content-hash": "8c36bd02d81193f5ff9f9f4c3ac0111f",
     "packages": [
         {
             "name": "aws/aws-crt-php",
@@ -761,11 +761,11 @@
         },
         {
             "name": "craftcms/cms",
-            "version": "3.7.59",
+            "version": "3.7.64.1",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/craftcms/cms/zipball/b3e6247db27b315615c02dad6dab89ecd9233d89",
-                "reference": "b3e6247db27b315615c02dad6dab89ecd9233d89",
+                "url": "https://api.github.com/repos/craftcms/cms/zipball/186f83eab9db4dc4fa31177cef4c396aee9b829b",
+                "reference": "186f83eab9db4dc4fa31177cef4c396aee9b829b",
                 "shasum": ""
             },
             "require": {
@@ -790,7 +790,7 @@
                 "league/oauth2-client": "^2.6.0",
                 "mikehaertl/php-shellcommand": "^1.6.3",
                 "php": ">=7.2.5",
-                "pixelandtonic/imagine": "~1.2.4.1",
+                "pixelandtonic/imagine": "~1.3.3.1",
                 "seld/cli-prompt": "^1.0.4",
                 "symfony/yaml": "^5.2.1",
                 "twig/twig": "~2.15.3",
@@ -848,15 +848,15 @@
                 "docs": "https://craftcms.com/docs/3.x/",
                 "rss": "https://github.com/craftcms/cms/releases.atom"
             },
-            "time": "2022-10-27T19:57:02+00:00"
+            "time": "2023-02-05T19:28:27+00:00"
         },
         {
             "name": "craftcms/commerce",
-            "version": "3.4.18",
+            "version": "3.4.19",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/craftcms/commerce/zipball/13b22629770f7518a860b9a9ce950aca75266752",
-                "reference": "13b22629770f7518a860b9a9ce950aca75266752",
+                "url": "https://api.github.com/repos/craftcms/commerce/zipball/53f4e111e4fa19e4aef84a58af66b3358bca7ea5",
+                "reference": "53f4e111e4fa19e4aef84a58af66b3358bca7ea5",
                 "shasum": ""
             },
             "require": {
@@ -869,7 +869,7 @@
             "type": "craft-plugin",
             "extra": {
                 "handle": "commerce",
-                "version": "3.4.18",
+                "version": "3.4.19",
                 "name": "Craft Commerce",
                 "description": "Create beautifully bespoke ecommerce experiences",
                 "developer": "Pixel & Tonic",
@@ -900,7 +900,7 @@
                 "docs": "https://craftcms.com/docs/commerce/3.x/",
                 "rss": "https://github.com/craftcms/commerce/releases.atom"
             },
-            "time": "2022-10-26T15:11:06+00:00"
+            "time": "2022-11-23T18:28:26+00:00"
         },
         {
             "name": "craftcms/commerce-omnipay",
@@ -2971,11 +2971,11 @@
         },
         {
             "name": "matomo/device-detector",
-            "version": "6.0.4",
+            "version": "6.0.6",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/matomo-org/device-detector/zipball/aaed4d27c7a9876756d03ae85386977db306492d",
-                "reference": "aaed4d27c7a9876756d03ae85386977db306492d",
+                "url": "https://api.github.com/repos/matomo-org/device-detector/zipball/ce5ef5e6776c16af306d38e20674973f072e05ed",
+                "reference": "ce5ef5e6776c16af306d38e20674973f072e05ed",
                 "shasum": ""
             },
             "require": {
@@ -3015,7 +3015,7 @@
                 "parser",
                 "useragent"
             ],
-            "time": "2022-10-14T11:08:35+00:00"
+            "time": "2023-01-16T08:18:02+00:00"
         },
         {
             "name": "mediabeastnz/craft-commerce-back-in-stock",
@@ -4776,17 +4776,18 @@
         },
         {
             "name": "pixelandtonic/imagine",
-            "version": "1.2.4.2",
+            "version": "1.3.3.1",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pixelandtonic/Imagine/zipball/5ee4b6a365497818815ba50738c8dcbb555c9fd3",
-                "reference": "5ee4b6a365497818815ba50738c8dcbb555c9fd3",
+                "url": "https://api.github.com/repos/pixelandtonic/Imagine/zipball/4d9bb596ff60504e37ccf9103c0bb705dba7fec6",
+                "reference": "4d9bb596ff60504e37ccf9103c0bb705dba7fec6",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.2"
+                "php": ">=5.5"
             },
             "suggest": {
+                "ext-exif": "to read EXIF metadata",
                 "ext-gd": "to use the GD implementation",
                 "ext-gmagick": "to use the Gmagick implementation",
                 "ext-imagick": "to use the Imagick implementation"
@@ -4794,7 +4795,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-develop": "0.7-dev"
+                    "dev-develop": "1.x-dev"
                 }
             },
             "autoload": {
@@ -4820,7 +4821,7 @@
                 "image manipulation",
                 "image processing"
             ],
-            "time": "2021-06-22T18:26:46+00:00"
+            "time": "2023-01-03T19:18:06+00:00"
         },
         {
             "name": "pompom/address-importer",
@@ -5233,11 +5234,11 @@
         },
         {
             "name": "putyourlightson/craft-campaign",
-            "version": "1.23.5",
+            "version": "1.24.1",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/putyourlightson/craft-campaign/zipball/aaf78990a8fe6504d5a3d73463f74e640d0d630b",
-                "reference": "aaf78990a8fe6504d5a3d73463f74e640d0d630b",
+                "url": "https://api.github.com/repos/putyourlightson/craft-campaign/zipball/770aa777a6b4890435e214d794da96b0bcc91ebe",
+                "reference": "770aa777a6b4890435e214d794da96b0bcc91ebe",
                 "shasum": ""
             },
             "require": {
@@ -5288,7 +5289,7 @@
                 "source": "https://github.com/putyourlightson/craft-campaign",
                 "issues": "https://github.com/putyourlightson/craft-campaign/issues"
             },
-            "time": "2022-10-12T07:13:29+00:00"
+            "time": "2023-01-25T23:36:36+00:00"
         },
         {
             "name": "putyourlightson/craft-log-to-file",
@@ -7384,11 +7385,11 @@
         },
         {
             "name": "tecnickcom/tcpdf",
-            "version": "6.5.0",
+            "version": "6.6.2",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tecnickcom/TCPDF/zipball/cc54c1503685e618b23922f53635f46e87653662",
-                "reference": "cc54c1503685e618b23922f53635f46e87653662",
+                "url": "https://api.github.com/repos/tecnickcom/TCPDF/zipball/e3cffc9bcbc76e89e167e9eb0bbda0cab7518459",
+                "reference": "e3cffc9bcbc76e89e167e9eb0bbda0cab7518459",
                 "shasum": ""
             },
             "require": {
@@ -7436,7 +7437,7 @@
                 "pdf417",
                 "qrcode"
             ],
-            "time": "2022-08-12T07:50:54+00:00"
+            "time": "2022-12-17T10:28:59+00:00"
         },
         {
             "name": "twig/twig",
