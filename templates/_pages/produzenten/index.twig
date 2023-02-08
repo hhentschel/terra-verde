@@ -1,8 +1,10 @@
 {% extends '_layouts/main' %}
 {% set pageTitle = entry.pageTitle is not empty ? entry.pageTitle : entry.title %}
+
 {% set allManufactors =
   craft.entries.section('producersStructure').level(1).all() %}
 
+{# Set up Regions #}
 {% set regionIT = craft.categories()
   .slug('italy')
   .one() %}
@@ -22,14 +24,39 @@
   .slug('bosnia')
   .one() %}
 
+{# Get all Producers from IT #}
 {% set allManufactorsIT =
   craft.entries.section('producersStructure')
     .relatedTo(regionIT)
     .level(1)
     .all() %}
 
+{# Get all Producers NOT from IT #}
 {% set allManufactorsNOTIT = craft.entries.section('producersStructure')
   .relatedTo([ 'or', regionES, regionDE, regionFR, regionPOR, regionBO])
+  .all() %}
+
+
+
+
+{# Set up Producers who sell Food #}
+{% set manufactorFood = craft.categories()
+  .slug('food')
+  .one() %}
+
+{# Set up Producers who sell Wine #}
+{% set manufactorWine = craft.categories()
+  .slug('wine')
+  .one() %}
+
+{# Get all Producers who sell Food #}
+{% set allManufactorsFood = craft.entries.section('producersStructure')
+  .relatedTo([ manufactorFood ])
+  .all() %}
+
+{# Get all Producers who sell Wine #}
+{% set allManufactorsWine = craft.entries.section('producersStructure')
+  .relatedTo([ manufactorWine ])
   .all() %}
 
 {% block content %}
@@ -51,11 +78,9 @@
       </div>
 
       <div class="col col-xs-12 col-md-12 col-lg-4">
-        <h4 class="heading heading--h4 heading--no-margin-top">
-          Italien
-        </h4>
+
         <ul class="producers-list">
-          {% for entry in allManufactorsIT %}
+          {% for entry in allManufactorsFood %}
             <li>
               <a href="#" data-id="{{ entry.id }}" title="{{ entry.title }}" class="producers-list__item">
                 {{ entry.title }}
@@ -64,21 +89,18 @@
           {% endfor %}
         </ul>
 
-        <h4 class="heading heading--h4 layout-helper__margin-vertical--xxs">
-          Spanien, Portugal, Frankreich, Deutschland
-        </h4>
-        <ul class="producers-list">
+        {# <ul class="producers-list">
           {% for entry in allManufactorsNOTIT %}
-            {# Fetch all of the categories related to this entry #}
-            {% set categories = craft.categories.relatedTo(entry) %}
+        #}{# Fetch all of the categories related to this entry #}{#
+        {% set categories = craft.categories.relatedTo(entry) %}
 
-            <li>
-              <a href="{{ entry.url }}" data-id="{{ entry.id }}" title="{{ entry.title }}" class="producers-list__item">
-                {{ entry.title }},<span class="producers-list__item-place"> {{ categories|join(', ') }}</span>
-              </a>
-            </li>
-          {% endfor %}
-        </ul>
+        <li>
+          <a href="{{ entry.url }}" data-id="{{ entry.id }}" title="{{ entry.title }}" class="producers-list__item">
+            {{ entry.title }},<span class="producers-list__item-place"> {{ categories|join(', ') }}</span>
+          </a>
+        </li>
+      {% endfor %}
+    </ul> #}
       </div>
 
 
@@ -88,52 +110,20 @@
   <section class=" grid">
     <div class="row">
       <div class="col col-xs-12 col-md-12 col-lg-12">
+        <h2>Lebensmittel</h2>
         <div class="producers-grid">
+          {% if allManufactorsFood|length %}
+            {% for entry in allManufactorsFood %}
+              {% include '_pages/produzenten/producers-tile.twig' %}
+            {% endfor %}
+          {% endif %}
+        </div>
 
-
-          {% if allManufactors|length %}
-            {% for entry in allManufactors %}
-              <a href="{{ entry.url }}"
-                 class="producers-overview__preview-image" id="{{ entry.id }}">
-                <div class="producers producers-overview">
-                  <h3 class="producers-overview__title heading--3 heading">
-                    {{ entry.title }}
-                  </h3>
-
-                  {# Fetch all of the categories related to this entry #}
-                  {% set categories = craft.categories.relatedTo(entry) %}
-                  {{ categories|join(', ') }}
-
-                  <div class="producers-overview__preview">
-                    {% if
-                      entry.contentElements is defined
-                      and entry.contentElements is not empty %}
-
-                      {% set transform =
-                        transformation|default('producersThumb') %}
-                      {% set img = entry.image.one() ?? null %}
-                      {% if img is defined %}
-                        {% include '_components/_content-elements/image' with {
-                          img: img,
-                          transform: transform
-                        } %}
-                      {% endif %}
-                    {% endif %}
-
-                  </div>
-
-                  {% if
-                    entry.contentElements is defined
-                    and entry.contentElements is not empty %}
-                    <span href="{{ entry.url }}"
-                          class="link producers producers-overview__linkdetail">
-                    mehr Informationen
-                    </span>
-
-
-                  {% endif %}
-                </div>
-              </a>
+        <h2>Weine</h2>
+        <div class="producers-grid">
+          {% if allManufactorsWine|length %}
+            {% for entry in allManufactorsWine %}
+              {% include '_pages/produzenten/producers-tile.twig' %}
             {% endfor %}
           {% endif %}
         </div>

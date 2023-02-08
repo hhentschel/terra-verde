@@ -1,12 +1,12 @@
 handle: newsletterList
 name: 'Newsletter List'
 siteUid: dd0cd05e-0cb9-4a76-b993-3cb70e6fc147 # Terra Verde
-subscribeSuccessTemplate: ''
-subscribeVerificationEmailSubject: ''
-subscribeVerificationEmailTemplate: ''
-subscribeVerificationRequired: 1
-subscribeVerificationSuccessTemplate: ''
-unsubscribeFormAllowed: 0
-unsubscribeSuccessTemplate: ''
-unsubscribeVerificationEmailSubject: ''
-unsubscribeVerificationEmailTemplate: ''
+subscribeSuccessTemplate: shop/customer/newsletter/verification-success/index.twig
+subscribeVerificationEmailSubject: 'Terra-Verde Newsletter: Verifizieren Sie Ihre E-Mail-Adresse'
+subscribeVerificationEmailTemplate: shop/customer/newsletter/verification-email/index.html
+subscribeVerificationRequired: true
+subscribeVerificationSuccessTemplate: shop/customer/newsletter/verification-success/index.twig
+unsubscribeFormAllowed: true
+unsubscribeSuccessTemplate: shop/customer/newsletter/unsubscribe-success/index.twig
+unsubscribeVerificationEmailSubject: 'Terra-Verde Newsletter: Abmeldung verifizieren'
+unsubscribeVerificationEmailTemplate: shop/customer/newsletter/verification-email-unsubscribe/index.html

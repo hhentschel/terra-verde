@@ -1,0 +1,27 @@
+columnSuffix: qeubifas
+contentColumnType: text
+fieldGroup: 99dbe745-472a-4403-8fbe-15424920fb29 # Newsletter
+handle: leadTextNewsletter
+instructions: ''
+name: Einstiegstext
+searchable: false
+settings:
+  availableTransforms: '*'
+  availableVolumes: '*'
+  columnType: text
+  configSelectionMode: choose
+  defaultTransform: ''
+  manualConfig: ''
+  purifierConfig: ''
+  purifyHtml: '1'
+  redactorConfig: Newsletter.json
+  removeEmptyTags: '1'
+  removeInlineStyles: '1'
+  removeNbsp: '1'
+  showHtmlButtonForNonAdmins: ''
+  showUnpermittedFiles: false
+  showUnpermittedVolumes: false
+  uiMode: enlarged
+translationKeyFormat: null
+translationMethod: none
+type: craft\redactor\Field

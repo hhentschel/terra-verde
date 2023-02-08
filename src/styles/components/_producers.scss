@@ -39,7 +39,7 @@
 
       .image__img {
         object-fit: cover;
-        border-radius: 50%;
+        aspect-ratio: 1/1;
       }
 
       &-lead {

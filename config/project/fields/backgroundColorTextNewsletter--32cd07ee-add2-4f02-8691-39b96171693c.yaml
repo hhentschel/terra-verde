@@ -1,0 +1,12 @@
+columnSuffix: ywkmcmmi
+contentColumnType: string(7)
+fieldGroup: 99dbe745-472a-4403-8fbe-15424920fb29 # Newsletter
+handle: backgroundColorTextNewsletter
+instructions: ''
+name: Textfarbe
+searchable: false
+settings:
+  defaultColor: '#000000'
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Color

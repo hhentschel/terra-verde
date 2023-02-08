@@ -1,0 +1,74 @@
+{% set entries = craft.entries.section('producersStructure') %}
+{% set relatedCats = craft.categories.relatedTo(entries) %}
+{% set products = entry.productsManufactor.limit(3) %}
+
+<div href="{{ entry.url }}"
+     class="" id="{{ entry.id }}">
+  <div class="producers producers-overview">
+    <a href="{{ entry.url }}">
+      <h3 class="producers-overview__title heading--3 heading">
+        {{ entry.title }}
+      </h3>
+    </a>
+
+    {% set regionsManu = craft.categories()
+      .group('regionsManu')
+      .all() %}
+
+    {# Fetch all of the categories related to this entry #}
+    {# {% set categories = craft.categories.relatedTo([ 'and', {element: entry} ]) %} #}
+    {% set categories = craft.categories.relatedTo(entry).andRelatedTo(regionsManu) %}
+
+    {% set relatedCats = craft.categories.relatedTo(entry) %}
+    <span>{{ categories|join(', ') }}</span>
+
+    <div class="producers-overview__preview">
+      {% if
+        entry.contentElements is defined
+        and entry.contentElements is not empty %}
+
+        {% set transform =
+          transformation|default('producersThumb') %}
+        {% set img = entry.image.one() ?? null %}
+        {% if img is defined %}
+          <a href="{{ entry.url }}">
+            {% include '_components/_content-elements/image' with {
+              img: img,
+              transform: transform
+            } %}
+          </a>
+        {% endif %}
+      {% endif %}
+    </div>
+
+    <ul class="">
+      {% for product in products %}
+
+        {% set variant = product.defaultVariant %}
+        {% set manufactorproducts = (product.title) ~ ', ' ~ (variant.articleVolume) ~ (variant.articleVolumeUnit) %}
+
+        <li>
+          {% include '/_components/_content-elements/link.twig' with {
+            linkUrl: product.url,
+            linkText: manufactorproducts,
+            target: 'internal',
+            customClass: ''
+          } %}
+
+        </li>
+      {% endfor %}
+    </ul>
+
+    {% if
+      entry.contentElements is defined
+      and entry.contentElements is not empty %}
+      <a href="{{ entry.url }}"
+         class="link producers producers-overview__linkdetail">
+        mehr Informationen
+      </a>
+
+
+    {% endif %}
+  </div>
+</div>
+

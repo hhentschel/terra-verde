@@ -1,0 +1,32 @@
+tabs:
+  -
+    elements:
+      -
+        fieldUid: 2d7664a5-cf66-40d5-a9cf-e4ce91afcfc2 # Vorname
+        instructions: null
+        label: null
+        required: false
+        tip: null
+        type: craft\fieldlayoutelements\CustomField
+        warning: null
+        width: 100
+      -
+        fieldUid: 60bbf046-1ea7-47a6-ae44-cd64c8ec15f4 # Nachname
+        instructions: null
+        label: null
+        required: false
+        tip: null
+        type: craft\fieldlayoutelements\CustomField
+        warning: null
+        width: 100
+      -
+        fieldUid: 8540aca9-3717-4353-9317-a938ede99db4 # E-Mail
+        instructions: null
+        label: null
+        required: false
+        tip: null
+        type: craft\fieldlayoutelements\CustomField
+        warning: null
+        width: 100
+    name: Contact
+    sortOrder: 1

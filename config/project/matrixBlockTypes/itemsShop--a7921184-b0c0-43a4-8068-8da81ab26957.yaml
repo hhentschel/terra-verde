@@ -1,0 +1,43 @@
+field: a48a5f48-ae99-438a-94f7-9574fe7fbf92 # Inhaltselemente
+fieldLayouts:
+  0fd5d6d5-e6c7-4be1-886f-ec7cd7768e6f:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 97ff157d-5ed8-4a67-a839-94a32375265f # Produkte
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  97ff157d-5ed8-4a67-a839-94a32375265f: # Produkte
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: itemsShop
+    instructions: ''
+    name: Produkte
+    searchable: true
+    settings:
+      allowSelfRelations: false
+      limit: ''
+      localizeRelations: false
+      selectionLabel: ''
+      showSiteMenu: true
+      source: null
+      sources: '*'
+      targetSiteId: null
+      validateRelatedElements: false
+      viewMode: null
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\commerce\fields\Products
+handle: itemsShop
+name: Produkte
+sortOrder: 5

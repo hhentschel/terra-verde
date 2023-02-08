@@ -25,9 +25,9 @@ fieldLayouts:
             title: null
             type: craft\fieldlayoutelements\EntryTitleField
             warning: null
-            width: 50
+            width: 100
           -
-            fieldUid: af345c98-96c3-4865-a4e5-82c5a93953f3
+            fieldUid: 269c37e5-8217-47e1-820c-5db4d8e8817a # Regionen
             instructions: null
             label: null
             required: false
@@ -36,7 +36,7 @@ fieldLayouts:
             warning: null
             width: 50
           -
-            fieldUid: 269c37e5-8217-47e1-820c-5db4d8e8817a # Regionen
+            fieldUid: a8014088-d2e3-439c-b662-b918f1951291 # Artikeltyp
             instructions: null
             label: null
             required: false
@@ -100,6 +100,19 @@ fieldLayouts:
             width: 50
         name: Inhalt
         sortOrder: 1
+      -
+        elements:
+          -
+            fieldUid: b4b7c4fa-292f-48ba-837c-da1b5017ed0a # SEO Beschreibung
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: SEO
+        sortOrder: 2
 handle: producersStructureDetail
 hasTitleField: true
 name: 'Produzenten Detailseite'

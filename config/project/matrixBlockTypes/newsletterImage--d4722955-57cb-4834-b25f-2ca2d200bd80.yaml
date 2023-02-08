@@ -1,0 +1,93 @@
+field: a48a5f48-ae99-438a-94f7-9574fe7fbf92 # Inhaltselemente
+fieldLayouts:
+  1c3bac25-bc89-4ae9-bebc-0bf62c591928:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: c643c446-b355-4f11-bc2d-368f69751075 # Bild
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: 397ec96e-7519-4a11-9175-e1f4fd8353d6 # Bild verlinken
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+        name: Content
+        sortOrder: 1
+fields:
+  397ec96e-7519-4a11-9175-e1f4fd8353d6: # Bild verlinken
+    columnSuffix: yiqwewzf
+    contentColumnType: string(255)
+    fieldGroup: null
+    handle: imageLink
+    instructions: ''
+    name: 'Bild verlinken'
+    searchable: false
+    settings:
+      maxLength: '255'
+      placeholder: null
+      types:
+        - url
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Url
+  c643c446-b355-4f11-bc2d-368f69751075: # Bild
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: newsletterImage
+    instructions: ''
+    name: Bild
+    searchable: false
+    settings:
+      allowSelfRelations: false
+      allowUploads: true
+      allowedKinds:
+        - image
+      defaultUploadLocationSource: 'volume:789fdb6d-520f-4cf1-be1e-478056358e79' # Inhaltsbilder
+      defaultUploadLocationSubpath: ''
+      limit: ''
+      localizeRelations: false
+      previewMode: full
+      restrictFiles: '1'
+      selectionLabel: ''
+      showSiteMenu: true
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: false
+      singleUploadLocationSource: 'volume:789fdb6d-520f-4cf1-be1e-478056358e79' # Inhaltsbilder
+      singleUploadLocationSubpath: ''
+      source: null
+      sources:
+        - 'volume:789fdb6d-520f-4cf1-be1e-478056358e79' # Inhaltsbilder
+        - 'volume:63339d3e-c6d1-4455-be6d-33715340baf0' # Produkte
+        - 'volume:127bba7e-6a96-4ffa-8cbb-f4c17d39e347' # Team
+        - 'volume:62aa7cc1-c9ad-4ef4-9d94-4fc3275ba26a' # Produzenten
+        - 'volume:b32fd57a-109a-4013-bf90-72b25ad6b6cd' # Weine Spanien
+        - 'volume:a67b61db-e6cc-4102-85f1-473d36f52ea8' # Weine Italien
+        - 'volume:8aec977e-df97-4119-93e9-0b745252a944' # Weine Frankreich
+        - 'volume:cfba8ac8-e0a0-405f-87ed-accd8f27b372' # Geschenksets
+        - 'volume:1d881bde-d2bf-408a-9434-f2f08b65cff8' # Dokumente
+        - 'volume:e61fb032-eec0-4f11-b450-86d1adea8934' # Rezepte
+        - 'volume:39720a7b-fb62-4919-8f8c-b57fe485a7a6' # Aktuelles
+        - 'volume:57d4d8f2-0e49-45bf-9f84-2e1917ef7c02' # Magazin
+        - 'volume:328c6ddf-69e0-47e5-8057-5c04984d8d85' # Weine Portugal
+      targetSiteId: null
+      useSingleFolder: false
+      validateRelatedElements: false
+      viewMode: list
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
+handle: newsletterImage
+name: Bild
+sortOrder: 4
