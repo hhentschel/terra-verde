@@ -1,4 +1,4 @@
-dateModified: 1675439589
+dateModified: 1675842094
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: 'Terra Verde'
@@ -332,10 +332,6 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 1.0.0
-  address-importer:
-    edition: standard
-    enabled: true
-    schemaVersion: 1.0.0
   assetusage:
     edition: standard
     enabled: true
@@ -650,7 +646,7 @@ plugins:
     edition: standard
     enabled: true
     licenseKey: LM5YGWHI1L71SX735CJV990O
-    schemaVersion: 3.0.10
+    schemaVersion: 3.0.11
     settings:
       additionalHeaders: ''
       alwaysStripQueryString: false
@@ -753,7 +749,7 @@ plugins:
       expirationTime: '60'
       fieldName: snaptcha
       logRejected: '1'
-      minimumSubmitTime: '1'
+      minimumSubmitTime: '2'
       oneTimeKey: '1'
       salt: qvqbpatsqefrplji
       validateUsers: '1'
