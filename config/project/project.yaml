@@ -1,4 +1,4 @@
-dateModified: 1675842094
+dateModified: 1675846799
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: 'Terra Verde'
@@ -745,7 +745,9 @@ plugins:
       errorMessage: 'Aus irgendeinem Grund wurde Ihr Beitrag als Spam markiert. Bitte klicken Sie auf die Schaltfläche unten, um Ihre Daten erneut einzureichen.'
       errorTemplate: ''
       errorTitle: Fehler
-      excludeControllerActions: ''
+      excludeControllerActions:
+        -
+          - commerce/payments/pay
       expirationTime: '60'
       fieldName: snaptcha
       logRejected: '1'
