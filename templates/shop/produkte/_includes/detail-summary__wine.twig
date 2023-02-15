@@ -4,6 +4,13 @@
   </summary>
   <dl class="product-detail__summary-content">
 
+    {% if product.articleDescription %}
+      <dt>
+        Beschreibung
+      </dt>
+      <dd> {{ product.articleDescription }}</dd>
+    {% endif %}
+
     {% if product.articleAdditionalInfo %}
       <dt> Weingut</dt>
       <dd> {{ product.articleAdditionalInfo }}</dd>
