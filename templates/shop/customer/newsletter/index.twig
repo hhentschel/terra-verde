@@ -1,8 +1,5 @@
 {% extends '/_layouts/main' %}
 
-{# {% set mailingList = craft.campaign.mailingLists.id(28616).one() %} #}
-{% set mailingList = craft.campaign.mailingLists.slug('newsletter-privatkunden').one() %}
-
 {% block content %}
   <!-- Template: {{ _self }}.twig -->
 
@@ -20,25 +17,58 @@
         <div class="row">
           <div class="col col-xs-12 col-md-8 col-lg-6">
 
-            <form id="unsubscribe-form" method="post" action="" class="newsletter-form">
-              {{ csrfInput() }}
-              <input type="hidden" name="action" value="campaign/forms/unsubscribe"/>
-              <input type="hidden" name="mailingList" value="{{ mailingList.slug }}"/>
-              <input type="hidden" name="redirect" value="{{ 'shop/customer/newsletter/unsubscribe-mail'|hash }}"/>
+            {% set contact = craft.campaign.contacts.userId(currentUser.id).one() %}
+            {% set mailingLists = contact.getMailingLists() %}
 
-              <div class="newsletter-form__item">
-                <h3 class="visually-hidden heading layout-helper__margin-top--none"><label for="email">Email</label>
-                </h3>
-                <input id="email" type="email" class="input" placeholder="E-Mail" name="email" value="" required/>
-              </div>
 
-              {# Outputs a hidden input field #}
-              {{ craft.snaptcha.field }}
+            {% for mailingList in mailingLists %}
+              <h4
+                class="layout-helper__margin-top--none"> Newsletter: {{ mailingList.title }}</h4>
+              <form id="unsubscribe-form" method="post" action="">
+                {{ csrfInput() }}
+                <input type="hidden" name="action" value="campaign/contacts/unsubscribe-mailing-list"/>
+                <input type="hidden" name="contactId" value="{{ contact.id }}"/>
+                <input type="hidden" name="mailingListId" value="{{ mailingList.id }}"/>
+                <input type="hidden" name="redirect" value="{{ 'shop/customer/newsletter/unsubscribe-mail'|hash }}"/>
 
-              <input type="submit" class="input input__primary newsletter-form__submit" value="Abmelden"/>
+                <input type="submit" class="input input__primary newsletter-form__submit" value="Abmelden"/>
 
-            </form>
+                {# Outputs a hidden input field #}
+                {{ craft.snaptcha.field }}
+              </form>
+            {% endfor %}
 
+
+            {% for mailingList in mailingLists %}
+              <h4> {{ mailingList.title }}</h4>
+
+
+              <form id="unsubscribe-form" method="post" action="" class="newsletter-form">
+                {{ csrfInput() }}
+                {# <input type="hidden" name="action" value="campaign/forms/unsubscribe"/>
+                <input type="hidden" name="mailingList" value="{{ mailingList.slug }}"/>
+                <input type="hidden" name="redirect" value="{{ 'shop/customer/newsletter/unsubscribe-mail'|hash }}"/> #}
+
+                <input type="hidden" name="action" value="campaign/contacts/unsubscribe-mailing-list"/>
+                <input type="hidden" name="contactId" value="{{ contact.id }}"/>
+                <input type="hidden" name="mailingListId" value="{{ mailingList.slug }}"/>
+
+                <div class="newsletter-form__item">
+                  <h3 class="visually-hidden heading layout-helper__margin-top--none"><label for="email">Email</label>
+                  </h3>
+                  <input id="email" type="email" class="input" placeholder="E-Mail" name="email" value="" required/>
+                </div>
+
+                <input type="submit" class="input input__primary newsletter-form__submit" value="Abmelden"/>
+
+                <!-- Required if reCAPTCHA is enabled in plugin settings -->
+                {{ craft.campaign.recaptcha }}
+
+                {# Outputs a hidden input field #}
+                {{ craft.snaptcha.field }}
+
+              </form>
+            {% endfor %}
           </div>
         </div>
 

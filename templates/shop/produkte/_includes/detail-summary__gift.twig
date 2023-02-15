@@ -7,6 +7,12 @@
       <span>{{ product.articleVolume }}{{ product.articleUnit }}</span>
     {% endif %}
 
+    {% if product.articleDescription %}
+      <p>
+        Beschreibung: {{ product.articleDescription }}
+      </p>
+    {% endif %}
+
     {% if product.articleNutritionalValue %}
       <p>
         Zutaten: {{ product.articleNutritionalValue }}
