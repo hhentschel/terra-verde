@@ -1,4 +1,4 @@
-dateModified: 1676482334
+dateModified: 1676554184
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: 'Terra Verde'
@@ -356,7 +356,7 @@ plugins:
       fromNamesEmails:
         -
           - 'Terra Verde'
-          - p@henrik-hentschel.de
+          - info@terra-verde.ch
           - ''
       geoIp: false
       ipstackApiKey: null

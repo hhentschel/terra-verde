@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c19a77d1321805639b944521004a3363",
+    "content-hash": "3468ca285284c0e388c727a145a193e9",
     "packages": [
         {
             "name": "aws/aws-crt-php",
@@ -4821,61 +4821,6 @@
                 "image processing"
             ],
             "time": "2021-06-22T18:26:46+00:00"
-        },
-        {
-            "name": "pompom/address-importer",
-            "version": "1.0.0",
-            "dist": {
-                "type": "path",
-                "url": "./craft-plugins/address-importer",
-                "reference": "c2257e2f954af29cbc3225c3c3778d5ffa56084f"
-            },
-            "require": {
-                "craftcms/cms": "^3.0",
-                "craftcms/commerce": "^3.0",
-                "craftcms/feed-me": "^4.3.0",
-                "php": ">=7.0.22",
-                "phpoffice/phpspreadsheet": "^1.6.0"
-            },
-            "type": "craft-plugin",
-            "extra": {
-                "name": "AddressImporter",
-                "handle": "address-importer",
-                "hasCpSettings": false,
-                "hasCpSection": false,
-                "changelogUrl": "https://raw.githubusercontent.com/noname/address-importer/master/CHANGELOG.md",
-                "basePath": "pompom/address-importer",
-                "class": "pompom\\addressimporter\\AddressImporter"
-            },
-            "autoload": {
-                "psr-4": {
-                    "pompom\\addressimporter\\": "src/"
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Pom Pom",
-                    "homepage": "https://pom-pom.ch"
-                }
-            ],
-            "description": "Customer Address Imported for FeedMe",
-            "keywords": [
-                "cms",
-                "craft",
-                "craft-plugin",
-                "craftcms"
-            ],
-            "support": {
-                "docs": "https://github.com/noname/address-importer/blob/master/README.md",
-                "issues": "https://github.com/noname/address-importer/issues"
-            },
-            "transport-options": {
-                "symlink": true,
-                "relative": true
-            }
         },
         {
             "name": "pompom/commerce-datatrans",
