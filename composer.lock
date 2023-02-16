@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3468ca285284c0e388c727a145a193e9",
+    "content-hash": "0e6e2bb96ea1feab976411cd13cfc637",
     "packages": [
         {
             "name": "aws/aws-crt-php",
@@ -3693,11 +3693,11 @@
         },
         {
             "name": "nystudio107/craft-plugin-vite",
-            "version": "1.0.30",
+            "version": "1.0.32",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nystudio107/craft-plugin-vite/zipball/90e0d7b2f04b8f96b452814992740bad062aad6a",
-                "reference": "90e0d7b2f04b8f96b452814992740bad062aad6a",
+                "url": "https://api.github.com/repos/nystudio107/craft-plugin-vite/zipball/57835a720aa8a2bb27a348a6963b85266234d0bb",
+                "reference": "57835a720aa8a2bb27a348a6963b85266234d0bb",
                 "shasum": ""
             },
             "require": {
@@ -3728,15 +3728,15 @@
                 "docs": "https://github.com/nystudio107/craft-plugin-vite/blob/v1/README.md",
                 "issues": "https://github.com/nystudio107/craft-plugin-vite/issues"
             },
-            "time": "2022-08-29T16:14:15+00:00"
+            "time": "2023-01-25T21:07:40+00:00"
         },
         {
             "name": "nystudio107/craft-retour",
-            "version": "3.2.3",
+            "version": "3.2.8",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nystudio107/craft-retour/zipball/9321844d53d9de42f7a9f0906be656c8198106a0",
-                "reference": "9321844d53d9de42f7a9f0906be656c8198106a0",
+                "url": "https://api.github.com/repos/nystudio107/craft-retour/zipball/3b0b82c0fd6a3a31eb2ad9a4ea01984d0b6fc373",
+                "reference": "3b0b82c0fd6a3a31eb2ad9a4ea01984d0b6fc373",
                 "shasum": ""
             },
             "require": {
@@ -3779,7 +3779,7 @@
                 "docs": "https://nystudio107.com/plugins/retour/documentation",
                 "issues": "https://nystudio107.com/plugins/retour/support"
             },
-            "time": "2022-10-03T20:07:53+00:00"
+            "time": "2023-02-09T22:29:49+00:00"
         },
         {
             "name": "nystudio107/craft-seomatic",
@@ -7626,11 +7626,11 @@
         },
         {
             "name": "voku/anti-xss",
-            "version": "4.1.39",
+            "version": "4.1.41",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/voku/anti-xss/zipball/64a59ba4744e6722866ff3440d93561da9e85cd0",
-                "reference": "64a59ba4744e6722866ff3440d93561da9e85cd0",
+                "url": "https://api.github.com/repos/voku/anti-xss/zipball/55a403436494e44a2547a8d42de68e6cad4bca1d",
+                "reference": "55a403436494e44a2547a8d42de68e6cad4bca1d",
                 "shasum": ""
             },
             "require": {
@@ -7670,7 +7670,7 @@
                 "security",
                 "xss"
             ],
-            "time": "2022-03-08T17:03:58+00:00"
+            "time": "2023-02-12T15:56:55+00:00"
         },
         {
             "name": "voku/arrayy",
