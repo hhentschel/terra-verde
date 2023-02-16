@@ -25,7 +25,7 @@ fieldLayouts:
             title: null
             type: craft\fieldlayoutelements\EntryTitleField
             warning: null
-            width: 50
+            width: 100
           -
             fieldUid: 269c37e5-8217-47e1-820c-5db4d8e8817a # Regionen
             instructions: null
@@ -35,6 +35,24 @@ fieldLayouts:
             type: craft\fieldlayoutelements\CustomField
             warning: null
             width: 50
+          -
+            fieldUid: a8014088-d2e3-439c-b662-b918f1951291 # Artikeltyp
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: 97b7e259-6116-4890-be78-8fba45ab52d0 # Produkte
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
           -
             fieldUid: 421eaf0b-f542-45ff-8051-2921d93b3eeb # Vorschautext
             instructions: null
@@ -55,15 +73,6 @@ fieldLayouts:
             width: 50
           -
             fieldUid: 9f46731d-7fdd-4245-9ca1-719db0672448 # Inhaltselemente
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            warning: null
-            width: 100
-          -
-            fieldUid: 97b7e259-6116-4890-be78-8fba45ab52d0 # Produkte
             instructions: null
             label: null
             required: false

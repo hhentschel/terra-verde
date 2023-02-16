@@ -1,4 +1,4 @@
-dateModified: 1675846799
+dateModified: 1676482334
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: 'Terra Verde'
@@ -78,6 +78,7 @@ meta:
     8e2bbb53-7b2a-493f-9592-4847ec7d1194: Produzenten # Produzenten
     8e510c18-b6c3-47e7-aa2a-ba9bb8147ce7: 'Produzent:innen' # Produzent:innen
     8fa0d8eb-0c01-49db-a2ba-515d571b8805: 'Passt zu' # Passt zu
+    08ff3872-a05e-4722-868b-6bbe52bad972: Produzenten # Produzenten
     9bfae22d-cf09-477b-8222-028196b40c01: 'Titel H2' # Titel H2
     9cc5f98d-af34-4b84-a575-6d7228dc3494: Farbe # Farbe
     9dd685d0-40db-4d68-81b5-48322accac9a: Zustimmung # Zustimmung
@@ -222,6 +223,7 @@ meta:
     a15405fd-3249-492f-981b-636b505548bc: 'Artikel Dimensionen' # Artikel Dimensionen
     a91450b5-15a1-4780-96c1-0dffea095613: 'Akkordeon Zustand' # Akkordeon Zustand
     a7921184-b0c0-43a4-8068-8da81ab26957: Produkte # Produkte
+    a8014088-d2e3-439c-b662-b918f1951291: Artikeltyp # Artikeltyp
     ab11f679-477b-4903-9086-d00fb5489f93: Fax # Fax
     ac56b463-604b-4eb0-afca-e3cf6579de22: 'Link Farbe' # Link Farbe
     ad7f3368-57d3-4f97-ba54-6224326f9b95: 'ähnliche Produzenten' # ähnliche Produzenten
@@ -746,8 +748,10 @@ plugins:
       errorTemplate: ''
       errorTitle: Fehler
       excludeControllerActions:
-        -
+        0:
           - commerce/payments/pay
+        8:
+          - commerce/payments/complete-payment
       expirationTime: '60'
       fieldName: snaptcha
       logRejected: '1'
