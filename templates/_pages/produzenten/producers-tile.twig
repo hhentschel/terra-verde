@@ -11,16 +11,34 @@
       </h3>
     </a>
 
+    <div class="producers producers-overview__products-list">
+      <ul class="">
+        {% for product in products %}
+
+          {% set variant = product.defaultVariant %}
+          {% set manufactorproducts = (product.title) %}
+
+          <li class="producers-overview__products-list--item">
+            {% include '/_components/_content-elements/link.twig' with {
+              linkUrl: product.url,
+              linkText: manufactorproducts,
+              target: 'internal',
+              customClass: ''
+            } %}
+
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+
     {% set regionsManu = craft.categories()
       .group('regionsManu')
       .all() %}
 
     {# Fetch all of the categories related to this entry #}
-    {# {% set categories = craft.categories.relatedTo([ 'and', {element: entry} ]) %} #}
     {% set categories = craft.categories.relatedTo(entry).andRelatedTo(regionsManu) %}
-
     {% set relatedCats = craft.categories.relatedTo(entry) %}
-    <span>{{ categories|join(', ') }}</span>
+    {# <span>{{ categories|join(', ') }}</span> #}
 
     <div class="producers-overview__preview">
       {% if
@@ -31,7 +49,7 @@
           transformation|default('producersThumb') %}
         {% set img = entry.image.one() ?? null %}
         {% if img is defined %}
-          <a href="{{ entry.url }}">
+          <a href="{{ entry.url }}" class="producers-overview__preview-link">
             {% include '_components/_content-elements/image' with {
               img: img,
               transform: transform
@@ -40,24 +58,6 @@
         {% endif %}
       {% endif %}
     </div>
-
-    <ul class="">
-      {% for product in products %}
-
-        {% set variant = product.defaultVariant %}
-        {% set manufactorproducts = (product.title) ~ ', ' ~ (variant.articleVolume) ~ (variant.articleVolumeUnit) %}
-
-        <li>
-          {% include '/_components/_content-elements/link.twig' with {
-            linkUrl: product.url,
-            linkText: manufactorproducts,
-            target: 'internal',
-            customClass: ''
-          } %}
-
-        </li>
-      {% endfor %}
-    </ul>
 
     {% if
       entry.contentElements is defined

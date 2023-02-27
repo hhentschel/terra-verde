@@ -38,17 +38,11 @@
       <title>Terra Verde Produzent:innen</title>
     </image>
 
-    {% for entry in allManufactors %}
-      <a xlink:href="{{ entry.url }}" data-id="{{ entry.id }}" class="map-link">
+    {% for entry in allManufactorsFood %}
+      <a href="#{{ entry.id }}" data-id="{{ entry.id }}" title="{{ entry.title }}" class="map-link anchor-link">
         <circle cx="{{ entry.manufactorLatitude }}" cy="{{ entry.manufactorLongitude }}" r="8" opacity="1"
-                fill="#E4D24D"/>
+                fill="#E4D24D" title="{{ entry.title }}"></circle>
       </a>
     {% endfor %}
-
-    {#   <a xlink:href="#">
-      <circle cx="120" cy="120" r="8" opacity="1" fill="#E4D24D"/>
-    </a> #}
-
-
   </svg>
 </figure>

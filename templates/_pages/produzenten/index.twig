@@ -82,7 +82,8 @@
         <ul class="producers-list">
           {% for entry in allManufactorsFood %}
             <li>
-              <a href="#" data-id="{{ entry.id }}" title="{{ entry.title }}" class="producers-list__item">
+              <a href="#{{ entry.id }}" data-id="{{ entry.id }}" title="{{ entry.title }}"
+                 class="producers-list__item anchor-link">
                 {{ entry.title }}
               </a>
             </li>

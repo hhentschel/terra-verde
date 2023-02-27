@@ -1,4 +1,4 @@
-export default class AnchorNav {
+export default class AnchorLink {
   classes = {
     anchorLink: 'anchor-link',
   };
@@ -8,11 +8,12 @@ export default class AnchorNav {
     anchorTarget: null,
   };
 
-  scrollTargetOffset = 36;
+  scrollTargetOffset = 120;
 
   constructor(anchorLink) {
     this.anchorLink = anchorLink;
     this.anchorTarget = document.querySelector(`[id='${this.anchorLink.getAttribute('href').replace('#', '')}']`);
+
     if (this.anchorTarget) {
       this.anchorLink.addEventListener('click', this.clickHandler.bind(this));
     }
