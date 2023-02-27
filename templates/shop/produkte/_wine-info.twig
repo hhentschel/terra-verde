@@ -70,7 +70,7 @@
 
               {# Outputs a hidden input field #}
               {{ craft.snaptcha.field }}
-              
+
               <input class="input bis-signup__registration-input"
                      name="email" type="email" value="{{ cart.email }}"
                      placeholder="name@email.ch">
@@ -186,6 +186,9 @@
 
           </div>
         {% endfor %}
+
+        {# Outputs a hidden input field #}
+        {{ craft.snaptcha.field }}
 
       </div>
     </form>
