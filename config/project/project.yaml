@@ -1,4 +1,4 @@
-dateModified: 1676554515
+dateModified: 1677521407
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: 'Terra Verde'
@@ -480,6 +480,10 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 2.0.1
+  dumper:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
   enhanced-element-links:
     edition: standard
     enabled: true

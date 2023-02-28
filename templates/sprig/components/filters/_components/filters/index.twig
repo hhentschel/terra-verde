@@ -53,7 +53,7 @@
   {% set aCW = aCW|filter(v => v not in articleCategoriesWineUnselect) %}
 {% endif %}
 
-{% set limit = limit ?? 51 %}
+{% set limit = limit ?? 30 %}
 {% set page = page ?? 1 %}
 {% set vType = vType ?? 'grid' %}
 
@@ -61,7 +61,7 @@
 {% if craft.app.request.isMobileBrowser() %}
   {% set maxPages = 4 %}
 {% else %}
-  {% set maxPages = 7 %}
+  {% set maxPages = 6 %}
 {% endif %}
 {% set orderBy = orderBy ?? 'fProd DESC, postDate DESC' %}
 
@@ -139,7 +139,7 @@
           <button sprig
                   s-val:v-type="list"
                   s-val:page="1"
-                  s-val:limit="102"
+                  s-val:limit="80"
                   s-indicator=".loading-button__indicator"
                   class="btn-viewchange">
             <span class="btn-viewchange__text">Listenansicht</span>
@@ -157,7 +157,7 @@
           <button sprig
                   s-val:v-type="grid"
                   s-val:page="1"
-                  s-val:limit="36"
+                  s-val:limit="30"
                   s-indicator=".loading-button__indicator"
                   class="btn-viewchange">
             <span class="btn-viewchange__text">Rasteransicht</span>
@@ -186,6 +186,7 @@
       {% endfor %}
     </div>
     {# shop-list ende #}
+
 
     {% if (products|length) == 0 %}
       <div class="row">
