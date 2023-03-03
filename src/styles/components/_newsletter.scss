@@ -1,6 +1,7 @@
 .newsletter {
-  &__form {
+  &-form {
     display: flex;
+    gap: px-to-rem($space--m);
     flex-wrap: wrap;
     width: 100%;
 
@@ -8,13 +9,8 @@
       flex-wrap: nowrap;
     }
 
-    .mc-field-group {
-      margin: px-to-rem($space--m) 0 px-to-rem($space--s) 0;
-      width: 100%;
-
-      @include breakpoint('tablet-portrait') {
-        margin: 0 px-to-rem($space--m) 0 0;
-      }
+    &__unsubscribe {
+      width: 50%;
     }
 
     .fui-i {
@@ -31,6 +27,7 @@
         flex-direction: row;
       }
     }
+
     .fui-row {
       margin: 0;
       display: flex;
@@ -40,6 +37,7 @@
         flex-direction: row;
       }
     }
+
     .fui-field:not(.fui-type-hidden-field) {
       margin: px-to-rem($space--m) 0;
       padding: 0;
@@ -59,5 +57,13 @@
         height: $input--height;
       }
     }
+  }
+
+  &-form__item {
+    width: 100%;
+  }
+
+  &-form__submit {
+    align-self: flex-end;
   }
 }

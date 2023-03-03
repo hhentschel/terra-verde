@@ -2,15 +2,14 @@
 
 {% set extraHead %}
   {# We don't want the order info to get indexed by search engines #}
-  <meta name="robots" content="noindex" />
+  <meta name="robots" content="noindex"/>
 {% endset %}
 
 {# The `withLineItems()` parameter avoids n+1 queries when looping over a large number of orders #}
 {% set orders =
   craft.orders.customer(craft.commerce.customers.customer).isCompleted(
     true
-  ).withLineItems().all()
-%}
+  ).withLineItems().all() %}
 
 {% block content %}
   <!-- Template: {{ _self }}.twig -->
@@ -18,8 +17,7 @@
     {% set orders =
       craft.orders.customer(craft.commerce.customers.customer).isCompleted(
         true
-      ).all()
-    %}
+      ).all() %}
 
     <section class="grid">
       <div class="row">
@@ -45,14 +43,14 @@
             <ul class="account__list">
               <li class="account__list-item">
                 <a href="/shop/customer/bestellungen/"
-                  class="account__list-link link">
+                   class="account__list-link link">
                   Meine Bestellungen
                 </a>
               </li>
 
               <li class="account__list-item">
                 <a href="/shop/warenkorb/"
-                  class="account__list-link link">
+                   class="account__list-link link">
                   Warenkorb
                 </a>
               </li>
@@ -66,8 +64,15 @@
 
               <li class="account__list-item">
                 <a class="account__list-link link"
-                  href="{{ url('shop/customer/addresses') }}">
+                   href="{{ url('shop/customer/addresses') }}">
                   Adressen verwalten
+                </a>
+              </li>
+
+              <li class="account__list-item">
+                <a class="account__list-link link"
+                   href="{{ url('shop/customer/newsletter') }}">
+                  Newsletter Einstellungen
                 </a>
               </li>
             </ul>

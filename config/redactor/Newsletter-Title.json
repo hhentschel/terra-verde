@@ -1,0 +1,12 @@
+{
+  "buttons": [
+    "bold",
+    "italic",
+    "link"
+  ],
+  "plugins": [
+    "alignment"
+  ],
+  "linkNewTab": true,
+  "toolbarFixed": true
+}

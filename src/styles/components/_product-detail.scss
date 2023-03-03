@@ -4,28 +4,23 @@
     background-color: $color--brown-lightest;
   }
 
-  &__title {
-    display: flex;
-    flex-direction: column;
-
-    @include breakpoint('tablet') {
-      flex-direction: row;
-    }
-  }
+  /*  &__title {
+      display: flex;
+      flex-direction: column;
+  
+      @include breakpoint('tablet') {
+        flex-direction: row;
+      }
+    }*/
 
   &__title-sub {
-    align-self: start;
+    align-self: flex-start;
     margin: px-to-rem($space--s) 0;
     line-height: 1;
 
     p {
       display: inline;
       margin: 0;
-    }
-
-    @include breakpoint('tablet') {
-      margin: 0 px-to-rem($space--s);
-      align-self: center;
     }
   }
 

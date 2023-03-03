@@ -1,7 +1,51 @@
+{% set mailingList = craft.campaign.mailingLists.slug('newsletter-privatkunden').one() %}
+
+        {# If there were any validation errors, a `contact` variable will be passed to the
+   template, which contains the posted values and validation errors. If that’s not
+   set, we’ll default to a new contact. #}
+        {% set contact = contact ?? create('putyourlightson\\campaign\\elements\\ContactElement') %}
+
+<form id="subscribe-form" class="newsletter-form" method="post" action="">
+  {{ csrfInput() }}
+  <input type="hidden" name="action" value="campaign/forms/subscribe"/>
+  <input type="hidden" name="mailingList" value="{{ mailingList.slug }}"/>
+  <input type="hidden" name="redirect" value="{{ 'shop/customer/newsletter/subscribe-success'|hash }}"/>
+
+  <div class="newsletter-form__item">
+    <h3 class="visually-hidden heading layout-helper__margin-top--none"><label for="email">E-Mail</label></h3>
+    <input id="email" class="input" type="email" placeholder="E-Mail" name="email"
+           value="{{ contact.email }}" required/>
+    {{ contact.getFirstError('email') }}
+  </div>
+
+  <div class="newsletter-form__item">
+    <h3 class="visually-hidden heading layout-helper__margin-top--none"><label for="name">Vorname</label></h3>
+    <input id="name" class="input" type="text" placeholder="Vorname" name="fields[firstName]"
+           value="{{ contact.firstName }}"
+           required/>
+    {{ contact.getFirstError('firstName') }}
+  </div>
+
+  <div class="newsletter-form__item">
+    <h3 class="visually-hidden heading layout-helper__margin-top--none"><label for="name">Nachame</label></h3>
+    <input id="name" class="input" type="text" placeholder="Nachname" name="fields[lastName]"
+           value="{{ contact.lastName }}"
+           required/>
+    {{ contact.getFirstError('lastName') }}
+  </div>
+  <!-- Required if reCAPTCHA is enabled in plugin settings -->
+  {{ craft.campaign.recaptcha }}
+
+  {# Outputs a hidden input field #}
+  {{ craft.snaptcha.field }}
+
+  <input type="submit" class="input input__primary newsletter-form__submit" value="Anmelden"/>
+</form>
+
+
 {# <div class="newsletter__form">
   {{ craft.formie.renderForm('newsletterForm') }}
-</div> #}
-
+</div> #}{#
 <!-- Begin Mailchimp Signup Form -->
 <div id="mc_embed_signup">
   <form action="https://terra-verde.us13.list-manage.com/subscribe/post?u=630fdcf05d4a991b79622fff1&amp;id=b9b2b5a176"
@@ -72,3 +116,4 @@
 </div>
 
 <!-- End mc_embed_signup -->
+#}

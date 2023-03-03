@@ -79,7 +79,7 @@
               />
               <label for="giftwrapped" class="selection__label">
 
-                In Geschenkpapier einpacken (+ 6.50 CHF)
+                Geschenkband mit Masche anbringen (+ 4.50 CHF)
               </label>
             </div>
 
@@ -170,6 +170,9 @@
 
           </div>
         {% endfor %}
+
+        {# Outputs a hidden input field #}
+        {{ craft.snaptcha.field }}
 
       </div>
     </form>

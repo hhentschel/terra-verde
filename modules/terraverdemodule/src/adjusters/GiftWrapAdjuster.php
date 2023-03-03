@@ -19,7 +19,7 @@ use yii\base\Event;
 class GiftWrapAdjuster extends Component implements AdjusterInterface
 {
   const ADJUSTMENT_TYPE = 'Zusatzoption';
-  const GIFTWRAP_PRICE = 6.50;
+  const GIFTWRAP_PRICE = 4.50;
 
   public function adjust(Order $order): array
   {
@@ -34,7 +34,7 @@ class GiftWrapAdjuster extends Component implements AdjusterInterface
           // Don't worry, you can have "positive" discounts, and this handle doesn't show up anywhere in the front-end.
           'type' => self::ADJUSTMENT_TYPE,
           // 'name' => 'Gift Wrap',
-          'description' => 'In Geschenkpapier einpacken',
+          'description' => 'Geschenkband mit Masche anbringen',
           // Set the price, multiplying by the quantity (or not, your choice!)
           // 'amount' => self::GIFTWRAP_PRICE * $lineItem->qty,
           'amount' => self::GIFTWRAP_PRICE * $lineItem->qty,

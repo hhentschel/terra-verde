@@ -154,6 +154,7 @@ $radio--transition-property: background-color, border-color;
     .selection__label {
       min-height: $checkbox--height;
       padding-left: $checkbox--width + $selection--label-padding-right;
+      line-height: $line-height--s;
 
       /*      .checkout__box & {
               padding-right: $checkbox--width + $selection--label-padding-right;

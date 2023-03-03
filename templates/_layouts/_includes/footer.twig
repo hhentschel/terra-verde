@@ -18,6 +18,37 @@
         <div class="col col-xs-12 col-md-9 col-lg-9">
           <div class="form__wrapper">
             {% include '_pages/newsletter/index.twig' %}
+
+            {# {% set mailingList = craft.campaign.mailingLists.id(7).one() %}
+            #}{# If there were any validation errors, a `contact` variable will be passed to the
+   template, which contains the posted values and validation errors. If that’s not
+   set, we’ll default to a new contact. #}{#
+            {% set contact = contact ?? create('putyourlightson\\campaign\\elements\\ContactElement') %}
+
+            <form id="subscribe-form" method="post" action="">
+              {{ csrfInput() }}
+              <input type="hidden" name="action" value="campaign/forms/subscribe"/>
+              <input type="hidden" name="mailingList" value="{{ mailingList.slug }}"/>
+              <input type="hidden" name="redirect" value="{{ 'subscribe-success'|hash }}"/>
+
+              <h3><label for="email">Email</label></h3>
+              <input id="email" type="email" name="email" value="{{ contact.email }}" required/>
+              {{ contact.getFirstError('email') }}
+
+              <h3><label for="name">First Name</label></h3>
+              <input id="name" type="text" name="fields[firstName]" value="{{ contact.firstName }}" required/>
+              {{ contact.getFirstError('firstName') }}
+
+              <h3><label for="name">Last Name</label></h3>
+              <input id="name" type="text" name="fields[lastName]" value="{{ contact.lastName }}" required/>
+              {{ contact.getFirstError('lastName') }}
+
+              <!-- Required if reCAPTCHA is enabled in plugin settings -->
+              {{ craft.campaign.recaptcha }}
+
+              <input type="submit" value="Subscribe"/>
+            </form> #}
+
           </div>
         </div>
 

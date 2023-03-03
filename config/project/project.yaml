@@ -1,4 +1,4 @@
-dateModified: 1676460075
+dateModified: 1677521407
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: 'Terra Verde'
@@ -356,7 +356,7 @@ plugins:
       fromNamesEmails:
         -
           - 'Terra Verde'
-          - p@henrik-hentschel.de
+          - info@terra-verde.ch
           - ''
       geoIp: false
       ipstackApiKey: null
@@ -480,6 +480,10 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 2.0.1
+  dumper:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
   enhanced-element-links:
     edition: standard
     enabled: true
@@ -748,8 +752,10 @@ plugins:
       errorTemplate: ''
       errorTitle: Fehler
       excludeControllerActions:
-        -
+        0:
           - commerce/payments/pay
+        8:
+          - commerce/payments/complete-payment
       expirationTime: '60'
       fieldName: snaptcha
       logRejected: '1'
