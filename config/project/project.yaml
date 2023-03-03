@@ -1,4 +1,4 @@
-dateModified: 1677521407
+dateModified: 1677845161
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: 'Terra Verde'
@@ -111,6 +111,7 @@ meta:
     62aa7cc1-c9ad-4ef4-9d94-4fc3275ba26a: Produzenten # Produzenten
     63fb2479-518b-42d4-b388-594c194ee08d: Bestell-PDF # Bestell-PDF
     072ea0f1-6edc-4617-a088-60b1c99374ba: 'Karten Vorschaubild' # Karten Vorschaubild
+    81d3dd96-7230-437b-8411-d2d56531d649: 'Produkte (Detailhandel)' # Produkte (Detailhandel)
     81f5a5aa-48c2-4dd4-9c77-0bf699ac2423: Weine # Weine
     81fa4d93-70d8-41a1-b50f-cac685f28201: Hintergrundfarbe # Hintergrundfarbe
     84b58543-313b-40d6-a50b-2fbf9262c271: Benutzer # Benutzer
@@ -124,7 +125,7 @@ meta:
     93be6bc6-5c6c-4bc1-9542-05ce2d7fe57b: 'Blog-Bild Vorschau' # Blog-Bild Vorschau
     95d567e2-ef54-4216-b7bf-f3afd51b9ddd: 'Kreditkarte, Postfinance, Twint' # Kreditkarte, Postfinance, Twint
     97b7e259-6116-4890-be78-8fba45ab52d0: Produkte # Produkte
-    97ff157d-5ed8-4a67-a839-94a32375265f: Produkte # Produkte
+    97ff157d-5ed8-4a67-a839-94a32375265f: 'Produkte (Privatkunden)' # Produkte (Privatkunden)
     99dbe745-472a-4403-8fbe-15424920fb29: Newsletter # Newsletter
     105f3719-0e2b-409f-851b-64e895b976aa: Redakteure # Redakteure
     121a4c00-ea55-46f5-b606-4288506164da: 'Kategorien (Status)' # Kategorien (Status)
@@ -140,7 +141,7 @@ meta:
     421eaf0b-f542-45ff-8051-2921d93b3eeb: Vorschautext # Vorschautext
     0434bb85-e818-4834-be05-c89d49427ca9: 'Quicklinks Liste' # Quicklinks Liste
     437e0241-3704-4701-a904-0082985e64ed: 'Externer Link' # Externer Link
-    439c86f8-b7ed-48bd-a46c-c2b9f29de26d: Produkte # Produkte
+    439c86f8-b7ed-48bd-a46c-c2b9f29de26d: 'Produkte (Privatkunden)' # Produkte (Privatkunden)
     442d67d8-a8df-49bb-9ea3-bc0a6323ce71: 'Überschrift Grösse' # Überschrift Grösse
     523ac297-f2c3-49a9-bb1d-08fc4108631e: Impressum # Impressum
     546e63c7-3ad2-424d-ad71-31f33a561a7f: 'Kontakt | Globals' # Kontakt | Globals
@@ -190,6 +191,7 @@ meta:
     911777fe-811a-46e9-bb80-0228ddd66234: Medien # Medien
     2625559c-aa75-481d-a655-1c6590d7106d: 'Preis (Privatkunden)' # Preis (Privatkunden)
     6140743f-8150-44d8-9c8f-ea48412627bb: AkkordeonPanel # AkkordeonPanel
+    6242370d-9e3c-4ad5-b83c-938218ebe1af: 'Produkte (Detailhandel)' # Produkte (Detailhandel)
     9034906b-69ef-4c05-9d30-23370e446767: 'Titel H3' # Titel H3
     9041254e-7c39-4bd9-9590-0a646283a360: 'Artikel Einheit (Gl, Fl, Dose, Stk., Kan.)' # Artikel Einheit (Gl, Fl, Dose, Stk., Kan.)
     10561167-3a73-493b-8f0f-48ce104e8c50: 'Anrede verwenden' # Anrede verwenden
@@ -222,7 +224,7 @@ meta:
     a4445e03-c8ae-4613-8723-b3b5d35858f1: Weine # Weine
     a15405fd-3249-492f-981b-636b505548bc: 'Artikel Dimensionen' # Artikel Dimensionen
     a91450b5-15a1-4780-96c1-0dffea095613: 'Akkordeon Zustand' # Akkordeon Zustand
-    a7921184-b0c0-43a4-8068-8da81ab26957: Produkte # Produkte
+    a7921184-b0c0-43a4-8068-8da81ab26957: 'Produkte (Privatkunden)' # Produkte (Privatkunden)
     a8014088-d2e3-439c-b662-b918f1951291: Artikeltyp # Artikeltyp
     ab11f679-477b-4903-9086-d00fb5489f93: Fax # Fax
     ac56b463-604b-4eb0-afca-e3cf6579de22: 'Link Farbe' # Link Farbe
@@ -279,12 +281,14 @@ meta:
     d42a6068-da20-40a8-9b45-f80f9cb7f929: Testfeld # Testfeld
     d59a8a70-d5e0-42b4-b4d8-d3602f3bbe03: 'Produkt Bild' # Produkt Bild
     d63d76f8-75e4-40eb-9992-4ea21ba5b437: 'Artikel Zusatz Beschreibung' # Artikel Zusatz Beschreibung
+    d212ea74-5630-4a5d-9550-827a9623e32b: 'Subject Feld' # Subject Feld
     d438ea68-d87f-4238-b23e-cdaa8a840149: 'Produzenten Tags' # Produzenten Tags
     d595e861-4c06-4115-8656-93e95a495147: Notiz # Notiz
     d953a3a0-62dc-4cd9-ad85-a7656faa8d58: Suche # Suche
     d1470d44-1f37-4fc8-997d-958262298de7: 'Rabatt 23% (Bachsermärte)' # Rabatt 23% (Bachsermärte)
     d549006b-271c-486c-900d-a9348f0ca63d: Blog # Blog
     d4722955-57cb-4834-b25f-2ca2d200bd80: Bild # Bild
+    da60c058-a6a5-402a-b850-8250242c07af: 'Produkte (Detailhandel)' # Produkte (Detailhandel)
     db07ae15-a8d7-40c0-80e9-c918f6874a6d: Abgeschlossen # Abgeschlossen
     dbadaaf2-9348-4069-9d8d-3e8e37e3d775: Postleitzahl # Postleitzahl
     dcb77335-6819-4597-a153-2b3ecfc9586f: Artikelgruppe # Artikelgruppe

@@ -64,4 +64,4 @@ fields:
     type: craft\fields\RadioButtons
 handle: spacer
 name: Abstand
-sortOrder: 6
+sortOrder: 7

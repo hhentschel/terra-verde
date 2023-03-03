@@ -1,0 +1,43 @@
+field: a48a5f48-ae99-438a-94f7-9574fe7fbf92 # Inhaltselemente
+fieldLayouts:
+  e223df59-709f-4579-8f23-5cce08d27e30:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 6242370d-9e3c-4ad5-b83c-938218ebe1af # Produkte (Detailhandel)
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  6242370d-9e3c-4ad5-b83c-938218ebe1af: # Produkte (Detailhandel)
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: itemsShopBusiness
+    instructions: ''
+    name: 'Produkte (Detailhandel)'
+    searchable: false
+    settings:
+      allowSelfRelations: false
+      limit: ''
+      localizeRelations: false
+      selectionLabel: ''
+      showSiteMenu: false
+      source: null
+      sources: '*'
+      targetSiteId: null
+      validateRelatedElements: false
+      viewMode: null
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\commerce\fields\Products
+handle: itemsShopBusiness
+name: 'Produkte (Detailhandel)'
+sortOrder: 6

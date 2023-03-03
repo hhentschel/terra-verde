@@ -5,7 +5,7 @@ fieldLayouts:
       -
         elements:
           -
-            fieldUid: 97ff157d-5ed8-4a67-a839-94a32375265f # Produkte
+            fieldUid: 97ff157d-5ed8-4a67-a839-94a32375265f # Produkte (Privatkunden)
             instructions: null
             label: null
             required: false
@@ -16,13 +16,13 @@ fieldLayouts:
         name: Content
         sortOrder: 1
 fields:
-  97ff157d-5ed8-4a67-a839-94a32375265f: # Produkte
+  97ff157d-5ed8-4a67-a839-94a32375265f: # Produkte (Privatkunden)
     columnSuffix: null
     contentColumnType: string
     fieldGroup: null
-    handle: itemsShop
+    handle: itemsShopPrivate
     instructions: ''
-    name: Produkte
+    name: 'Produkte (Privatkunden)'
     searchable: true
     settings:
       allowSelfRelations: false
@@ -38,6 +38,6 @@ fields:
     translationKeyFormat: null
     translationMethod: site
     type: craft\commerce\fields\Products
-handle: itemsShop
-name: Produkte
+handle: itemsShopPrivate
+name: 'Produkte (Privatkunden)'
 sortOrder: 5

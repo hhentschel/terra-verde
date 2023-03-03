@@ -61,4 +61,4 @@ fields:
     type: craft\fields\Number
 handle: line
 name: Linie
-sortOrder: 7
+sortOrder: 8
