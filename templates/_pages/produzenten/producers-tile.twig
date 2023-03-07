@@ -1,17 +1,38 @@
-{% set entries = craft.entries.section('producersStructure') %}
+{% set entries = craft.entries
+  .section('producersStructure')
+  .with([
+    'image'
+  ]) %}
 {% set relatedCats = craft.categories.relatedTo(entries) %}
-{% set products = entry.productsManufactor.limit(3) %}
+{# {% set products = entry.productsManufactor.limit(3) %} #}
 
-<div href="{{ entry.url }}"
-     class="" id="{{ entry.id }}">
-  <div class="producers producers-overview">
-    <a href="{{ entry.url }}">
-      <h3 class="producers-overview__title heading--3 heading">
-        {{ entry.title }}
-      </h3>
-    </a>
+<li class="producers">
+  <a href="{{ entry.url }}" class="producers-overview">
+    <h3 class="producers-overview__title heading--3 heading">
+      {{ entry.title }}
+    </h3>
+    <p class="producers-overview__previewtext"> {{ entry.previewText }}</p>
 
-    <div class="producers producers-overview__products-list">
+    <div class="producers-overview__preview">
+
+      {% set transform =
+        transformation|default('producersThumb') %}
+      {% set img = entry.image.one() ?? null %}
+      {% if img is defined %}
+        {% include '_components/_content-elements/image' with {
+          img: img,
+          transform: transform
+        } %}
+      {% endif %}
+    </div>
+
+    <span
+      class="link producers producers-overview__linkdetail"> {{ entry.linkTextDetailPage|default("mehr Informationen") }}
+      </span>
+
+  </a>
+</li>
+{# <div class="producers producers-overview__products-list">
       <ul class="">
         {% for product in products %}
 
@@ -29,18 +50,18 @@
           </li>
         {% endfor %}
       </ul>
-    </div>
+    </div> #}
 
-    {% set regionsManu = craft.categories()
-      .group('regionsManu')
-      .all() %}
+  {% set regionsManu = craft.categories()
+    .group('regionsManu')
+    .all() %}
 
-    {# Fetch all of the categories related to this entry #}
-    {% set categories = craft.categories.relatedTo(entry).andRelatedTo(regionsManu) %}
-    {% set relatedCats = craft.categories.relatedTo(entry) %}
-    {# <span>{{ categories|join(', ') }}</span> #}
+  {# Fetch all of the categories related to this entry #}
+  {% set categories = craft.categories.relatedTo(entry).andRelatedTo(regionsManu) %}
+  {% set relatedCats = craft.categories.relatedTo(entry) %}
+  {# <span>{{ categories|join(', ') }}</span> #}
 
-    <div class="producers-overview__preview">
+  {# <div class="producers-overview__preview">
       {% if
         entry.contentElements is defined
         and entry.contentElements is not empty %}
@@ -57,9 +78,9 @@
           </a>
         {% endif %}
       {% endif %}
-    </div>
+    </div> #}
 
-    {% if
+  {# {% if
       entry.contentElements is defined
       and entry.contentElements is not empty %}
       <a href="{{ entry.url }}"
@@ -68,7 +89,5 @@
       </a>
 
 
-    {% endif %}
-  </div>
-</div>
+    {% endif %} #}
 

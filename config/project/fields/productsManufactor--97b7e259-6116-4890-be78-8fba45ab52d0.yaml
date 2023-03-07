@@ -2,7 +2,7 @@ columnSuffix: null
 contentColumnType: string
 fieldGroup: bcc2f7c9-e4b5-432b-b079-3cd963db5854 # Produzenten
 handle: productsManufactor
-instructions: "Die ersten 3 Produkte werden auf der Produzenten-Übersichtsseite angezeigt. Auf der Detailseite werden alle hier hinterlegten Produkte angezeigt.\r\nDie Reihenfolge kann per Drag & Drop verändert werden. Speichern nicht vergessen. "
+instructions: 'Die Reihenfolge kann per Drag & Drop verändert werden. Speichern nicht vergessen. '
 name: Produkte
 searchable: false
 settings:

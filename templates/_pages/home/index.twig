@@ -64,7 +64,10 @@
   </section>
 
   {# Aktionen #}
-  {% set saleproducts = entry.homeSales %}
+  {% set saleproducts = entry.homeSales
+    .with([
+      'articleImage'
+    ]) %}
   {% if saleproducts|length %}
     <section class="section-home section-home__stripe section-home__campaigns">
       <div class="grid">
@@ -93,7 +96,6 @@
               <div class="col col-xs-12 col-md-4 col-lg-4 section-home__product">
                 <a href="{{ product.url }}"
                    class="section-home__product--link onsale">
-                  {% set transform = transformation|default('productListing') %}
                   {# {% set img = product.articleImage.one().optimizedimages
                     ?? generic.image.one().optimizedimages
                   %}
@@ -133,7 +135,10 @@
   {% endif %}
 
   {# Neuheiten #}
-  {% set newproducts = entry.homeNewProduct %}
+  {% set newproducts = entry.homeNewProduct
+    .with([
+      'articleImage'
+    ]) %}
   {% if newproducts|length %}
     <section class="section-home section-home__stripe section-home__newproducts">
       <div class="grid">
@@ -161,7 +166,6 @@
             {% for variant in product.getVariants() %}
               <div class="col col-xs-12 col-md-4 col-lg-4 section-home__product">
                 <a href="{{ product.url }}" class="section-home__product--link">
-                  {% set transform = transformation|default('productListing') %}
                   {# {% set img = product.articleImage.one().optimizedimages
                     ?? generic.image.one().optimizedimages
                   %}
@@ -201,7 +205,9 @@
   {% endif %}
 
   {# Beliebteste #}
-  {% set favproducts = entry.homeFavorites %}
+  {% set favproducts = entry.homeFavorites.with([
+    'articleImage'
+  ]) %}
   {% if favproducts|length %}
     <section class="section-home section-home__stripe section-home__favorites">
       <div class="grid">
@@ -246,7 +252,9 @@
   {% endif %}
 
   {# Blog Artikel #}
-  {% set blogQuery = craft.entries().section('newsEntries').limit(3) %}
+  {% set blogQuery = craft.entries().section('newsEntries').limit(3).with([
+    'image'
+  ]) %}
   {% set entries = blogQuery.all() %}
   {% if entries|length %}
     <section class="section-home section-home__stripe section-home__blog">

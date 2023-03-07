@@ -5,7 +5,7 @@ fieldLayouts:
       -
         elements:
           -
-            fieldUid: 97ff157d-5ed8-4a67-a839-94a32375265f # Produkte
+            fieldUid: 97ff157d-5ed8-4a67-a839-94a32375265f # Produkte (Privatkunden)
             instructions: null
             label: null
             required: false
@@ -16,7 +16,7 @@ fieldLayouts:
         name: Content
         sortOrder: 1
 fields:
-  97ff157d-5ed8-4a67-a839-94a32375265f: # Produkte
+  97ff157d-5ed8-4a67-a839-94a32375265f: # Produkte (Privatkunden)
     columnSuffix: null
     contentColumnType: string
     fieldGroup: null
