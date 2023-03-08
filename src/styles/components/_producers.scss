@@ -25,9 +25,10 @@
     }
 
     &__previewtext {
-      font-size: px-to-rem($space--m);
+      font-size: px-to-rem($font-size-s);
       line-height: $line-height--s;
       flex: 1 0 auto;
+      hyphens: auto;
     }
 
     &__preview {
@@ -102,6 +103,13 @@
 
   &-list {
 
+    display: none;
+
+    @include breakpoint('tablet') {
+      display: block;
+    }
+
+
     &__item {
       color: $color--blue;
       display: inline-block;
@@ -126,6 +134,21 @@
     }
   }
 
+  &-map {
+    display: none;
+
+    @include breakpoint('tablet') {
+      display: block;
+    }
+  }
+
+  &-map__mobile {
+    display: block;
+
+    @include breakpoint('tablet') {
+      display: none;
+    }
+  }
 
 }
 

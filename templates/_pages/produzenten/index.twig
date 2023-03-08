@@ -4,6 +4,15 @@
 {% set allManufactors =
   craft.entries.section('producersStructure').level(1).all() %}
 
+{% set entry = craft.entries()
+  .section('producersOverview')
+  .with([
+    ['mapMobile', {
+      withTransforms: ['imageContentFull']
+    }]
+  ])
+  .one() %}
+
 {# Set up Regions #}
 {% set regionIT = craft.categories()
   .slug('italy')
@@ -75,11 +84,23 @@
     <div class="row">
       <div class="col col-xs-12 col-md-8 col-lg-8">
         {% include '_pages/produzenten/map' %}
+
+        <div class="producers-map__mobile">
+          {% set transform =
+            transformation|default('imageContentFull') %}
+          {% set img = entry.mapMobile[0] ?? null %}
+          {% if img is defined %}
+            {% include '_components/_content-elements/image' with {
+              img: img,
+              transform: transform
+            } %}
+          {% endif %}
+        </div>
       </div>
 
       <div class="col col-xs-12 col-md-4 col-lg-4">
-        <h3 class="heading heading-3 layout-helper__margin-top--none">Lebensmittel</h3>
         <ul class="producers-list">
+          <h3 class="heading heading-3 layout-helper__margin-top--none">Lebensmittel</h3>
           {% for entry in allManufactorsFood %}
             <li>
               <a href="{{ entry.url }}" data-id="{{ entry.id }}" title="{{ entry.title }}"
@@ -90,8 +111,8 @@
           {% endfor %}
         </ul>
 
-        <h3>Weine</h3>
         <ul class="producers-list">
+          <h3>Weine</h3>
           {% for entry in allManufactorsWine %}
             <li>
               <a href="{{ entry.url }}" data-id="{{ entry.id }}" title="{{ entry.title }}"

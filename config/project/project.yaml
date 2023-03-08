@@ -1,4 +1,4 @@
-dateModified: 1678188001
+dateModified: 1678276082
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: 'Terra Verde'
@@ -145,6 +145,7 @@ meta:
     439c86f8-b7ed-48bd-a46c-c2b9f29de26d: Produkte # Produkte (Privatkunden)
     442d67d8-a8df-49bb-9ea3-bc0a6323ce71: 'Überschrift Grösse' # Überschrift Grösse
     523ac297-f2c3-49a9-bb1d-08fc4108631e: Impressum # Impressum
+    529a5b01-e289-42de-a013-d43f81455999: 'Karte Mobile' # Karte Mobile
     546e63c7-3ad2-424d-ad71-31f33a561a7f: 'Kontakt | Globals' # Kontakt | Globals
     552eac55-d86f-40a3-8aea-50f54038afbc: Textfeld # Textfeld
     641bd187-bf07-49f6-9cdd-90462c76cc88: Nummer # Nummer
