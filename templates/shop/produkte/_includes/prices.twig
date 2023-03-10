@@ -1,8 +1,8 @@
 {% set variantPrice = variant.price %}
-{% set variantPriceRound = round((variantPrice + 0.000001) * 20) / 20 %}
+{% set variantPriceRound = ((variantPrice + 0.000001) * 20)|round / 20 %}
 
 {% set variantSalePrice = variant.salePrice %}
-{% set variantSalePriceRound = round((variantSalePrice + 0.000001) * 20) / 20 %}
+{% set variantSalePriceRound = ((variantSalePrice + 0.000001) * 20)|round / 20 %}
 
 {% set RetailDiscount23 = product.priceRetailTrader * (23 / 100) %}
 {% set RetailDiscount23Price = product.priceRetailTrader - RetailDiscount23 %}
