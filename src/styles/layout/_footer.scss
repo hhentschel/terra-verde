@@ -133,6 +133,7 @@
 
     &__list {
       display: flex;
+      flex-direction: row;
     }
 
     &__list--item {
