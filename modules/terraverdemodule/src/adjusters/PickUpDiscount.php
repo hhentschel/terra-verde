@@ -15,9 +15,6 @@ use craft\commerce\Model;
 // use craft\commerce\services\LineItems;
 
 
-//if the amount in the cart is greater than 100$ a discount of 5% is applied.
-//if the amount in the cart is greater than 200$ a discount of 10% is applied.
-
 class PickUpDiscount extends Component implements AdjusterInterface
 {
   public function adjust(Order $order): array
