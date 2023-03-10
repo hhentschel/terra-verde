@@ -119,8 +119,24 @@
   }
 
   &--box {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
     span {
       display: block;
+    }
+  }
+
+  &--social {
+    margin-top: auto;
+
+    &__list {
+      display: flex;
+    }
+
+    &__list--item {
+      margin-right: px-to-rem($space--m);
     }
   }
 
