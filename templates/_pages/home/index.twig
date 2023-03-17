@@ -94,18 +94,6 @@
                 <a href="{{ product.url }}"
                    class="section-home__product--link onsale">
                   {% set transform = transformation|default('productListing') %}
-                  {# {% set img = product.articleImage.one().optimizedimages
-                    ?? generic.image.one().optimizedimages
-                  %}
-
-                  {% if img is defined %}
-                    {% include '_components/_content-elements/image-product' with {
-                      optimizedImages: img,
-                      transform: transform
-                    } %}
-                  {% endif %} #}
-
-                  {% set transform = transformation|default('productListing') %}
                   {% set img = product.articleImage.one ?? generic.image.one %}
 
                   {% if img is defined %}
@@ -161,18 +149,6 @@
             {% for variant in product.getVariants() %}
               <div class="col col-xs-12 col-md-4 col-lg-4 section-home__product">
                 <a href="{{ product.url }}" class="section-home__product--link">
-                  {% set transform = transformation|default('productListing') %}
-                  {# {% set img = product.articleImage.one().optimizedimages
-                    ?? generic.image.one().optimizedimages
-                  %}
-
-                  {% if img is defined %}
-                    {% include '_components/_content-elements/image' with {
-                      optimizedImages: img,
-                      transform: transform
-                    } %}
-                  {% endif %} #}
-
                   {% set transform = transformation|default('productListing') %}
                   {% set img = product.articleImage.one ?? generic.image.one %}
 
@@ -310,70 +286,3 @@
     </section>
   {% endif %}
 {% endblock %}
-
-{# Alle Neuheiten #}
-{# <section class="grid">
-    <div class="row">
-      <div class="col col-xs-12 col-md-12 col-lg-12">
-        <h2 class="heading heading--h2">
-          Alle Neuheiten
-        </h2>
-        <div>
-          {% for type in craft.commerce.productTypes.allProductTypes %}
-            <ul>
-              <li><a href="{{ type.name }}">{{ type.name }}</a></li>
-            </ul>
-          {% endfor %}
-        </div>
-      </div>
-    </div>
-  </section> #}
-
-{# <div class="">
-      <div class="">
-        {% for sale in craft.commerce.sales.allSales %}
-          {% if sale is defined and sale is not empty %}
-            {{ sale.name }} - {{ sale.description }}
-          {% endif %}
-        {% endfor %}
-
-        {% set sales = craft.commerce.sales.getAllSales() %}
-        {% set categories = [] %}
-        {% set variantIds = [] %}
-
-        {% for sale in sales %}
-          {% set categories = categories|merge(sale.categoryIds) %}
-          {% set variantIds = variantIds|merge(sale.purchasableIds) %}
-        {% endfor %}
-
-        {% set productIds = [] %}
-        {% for product in craft.products.relatedTo(categories).all() %}
-          {% set productIds = productIds|merge([product.id]) %}
-        {% endfor %}
-
-        {% set variants = craft.variants.id(variantIds).all() %}
-        {% for variant in variants %}
-          {% set productIds = productIds|merge([variant.productId]) %}
-        {% endfor %}
-
-        {% set products =
-          craft.products.id(productIds).with('variants').all()
-        %}
-
-        <ol>
-          {% for product in products %}
-            {% set variant = product.defaultVariant %}
-            {% if variant.onSale %}
-              <li>
-                {{ variant.title }}:{{ variant.price }} - {{
-                  variant.salePrice
-                }}
-              </li>
-            {% else %}
-              <li>{{ product.title }}</li>
-            {% endif %}
-          {% endfor %}
-        </ol>
-       {% include '_layouts/_includes/shop.twig' %}
-      </div>
-    </div> #}
