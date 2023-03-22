@@ -6,6 +6,19 @@
   color: $color--white;
   font-size: px-to-rem($font-size-s);
 
+  &--social {
+    margin-top: auto;
+
+    &__list {
+      display: flex;
+      flex-direction: row;
+    }
+
+    &__list--item {
+      margin-right: px-to-rem($space--m);
+    }
+  }
+
   &--heading {
     font-size: px-to-rem($font-size-xl-p);
     color: $color--white;
@@ -119,6 +132,10 @@
   }
 
   &--box {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
     span {
       display: block;
     }
