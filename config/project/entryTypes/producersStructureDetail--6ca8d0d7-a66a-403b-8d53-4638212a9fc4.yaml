@@ -81,7 +81,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: c5aca99d-541e-4996-a962-3790cbed27bf # Latitude
+            fieldUid: c5aca99d-541e-4996-a962-3790cbed27bf # y-Achse
             instructions: null
             label: null
             required: false
@@ -90,7 +90,7 @@ fieldLayouts:
             warning: null
             width: 50
           -
-            fieldUid: 169ef8db-7ba9-459c-b40f-17678b94dce7 # Longitude
+            fieldUid: 169ef8db-7ba9-459c-b40f-17678b94dce7 # x-Achse
             instructions: null
             label: null
             required: false

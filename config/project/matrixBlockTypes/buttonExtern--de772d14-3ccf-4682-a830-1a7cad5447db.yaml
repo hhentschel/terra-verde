@@ -1,0 +1,165 @@
+field: a48a5f48-ae99-438a-94f7-9574fe7fbf92 # Inhaltselemente
+fieldLayouts:
+  96e2d003-c0f2-46b4-885c-85e8167ec2cb:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 1912048b-b250-4a14-a3c7-e96b8e8ed023 # Beschriftung
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 9eabbd70-49cd-4891-a2d1-2f79a0f285fc # Hintergrundfarbe
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 87bf0c7b-cc67-4a6f-a928-5387e6267e85 # Textfarbe
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: e756f32a-9400-41d8-a0d0-e99a58f2706a # Link Adresse
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: b4d3eafa-67df-4a37-b484-41de1bc33766 # Positionierung
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  9eabbd70-49cd-4891-a2d1-2f79a0f285fc: # Hintergrundfarbe
+    columnSuffix: qwevpfqr
+    contentColumnType: string(7)
+    fieldGroup: null
+    handle: buttonExBackgroundColor
+    instructions: ''
+    name: Hintergrundfarbe
+    searchable: false
+    settings:
+      defaultColor: '#000000'
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Color
+  87bf0c7b-cc67-4a6f-a928-5387e6267e85: # Textfarbe
+    columnSuffix: jukrjnkt
+    contentColumnType: string(7)
+    fieldGroup: null
+    handle: buttonExTextColor
+    instructions: ''
+    name: Textfarbe
+    searchable: false
+    settings:
+      defaultColor: '#ffffff'
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Color
+  1912048b-b250-4a14-a3c7-e96b8e8ed023: # Beschriftung
+    columnSuffix: rqzsqfhy
+    contentColumnType: text
+    fieldGroup: null
+    handle: buttonExText
+    instructions: ''
+    name: Beschriftung
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  b4d3eafa-67df-4a37-b484-41de1bc33766: # Positionierung
+    columnSuffix: iuelcifx
+    contentColumnType: string
+    fieldGroup: null
+    handle: buttonExAlign
+    instructions: ''
+    name: Positionierung
+    searchable: false
+    settings:
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - Links
+            -
+              - value
+              - left
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Mitte
+            -
+              - value
+              - middle
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Rechts
+            -
+              - value
+              - right
+            -
+              - default
+              - '1'
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\RadioButtons
+  e756f32a-9400-41d8-a0d0-e99a58f2706a: # Link Adresse
+    columnSuffix: xfowvcme
+    contentColumnType: string(255)
+    fieldGroup: null
+    handle: buttonExAddress
+    instructions: ''
+    name: 'Link Adresse'
+    searchable: false
+    settings:
+      maxLength: '255'
+      placeholder: null
+      types:
+        - url
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Url
+handle: buttonExtern
+name: 'Button Extern'
+sortOrder: 10
