@@ -128,6 +128,10 @@
     }
   }
 
+  &--openinghours {
+    margin-bottom: px-to-rem($space--xm);
+  }
+
   &--social {
     margin-top: auto;
 
