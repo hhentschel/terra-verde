@@ -27,7 +27,6 @@ export default class MapLink {
   }
 
   clickHandler() {
-    console.log('link');
     const circle = document.querySelector(`a[data-id="${this.attributes.currentLinkId}"]`);
     circle.classList.add('producer-circle-active');
   }

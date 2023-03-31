@@ -25,7 +25,6 @@ export default class MapCircleToLink {
   }
 
   clickHandler() {
-    console.log('hover');
     const id = this.circleLink.getAttribute('data-id');
     const linksWithSameId = document.querySelectorAll(`[data-id="${id}"]`);
     linksWithSameId.forEach((linkWithSameId) => {
