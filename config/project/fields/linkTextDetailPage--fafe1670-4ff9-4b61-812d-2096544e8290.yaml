@@ -1,9 +1,9 @@
-columnSuffix: aytwxomw
+columnSuffix: gfxtliwu
 contentColumnType: text
 fieldGroup: bcc2f7c9-e4b5-432b-b079-3cd963db5854 # Produzenten
-handle: manufactorLatitude
-instructions: ''
-name: y-Achse
+handle: linkTextDetailPage
+instructions: 'Wie soll der Link zur Detailseiten heissen?'
+name: Linktext
 searchable: false
 settings:
   byteLimit: null
