@@ -1,10 +1,8 @@
 fieldLayouts:
   22543e78-0719-48a0-9465-8f72d5890080:
     tabs:
-      -
-        elements:
-          -
-            autocapitalize: true
+      - elements:
+          - autocapitalize: true
             autocomplete: false
             autocorrect: true
             class: null
@@ -26,8 +24,7 @@ fieldLayouts:
             type: craft\fieldlayoutelements\EntryTitleField
             warning: null
             width: 50
-          -
-            fieldUid: 57e5fec1-460f-4063-a3db-815af978dc8f # Bild
+          - fieldUid: 57e5fec1-460f-4063-a3db-815af978dc8f # Bild
             instructions: null
             label: null
             required: false
@@ -35,8 +32,7 @@ fieldLayouts:
             type: craft\fieldlayoutelements\CustomField
             warning: null
             width: 50
-          -
-            fieldUid: 269c37e5-8217-47e1-820c-5db4d8e8817a # Regionen
+          - fieldUid: 269c37e5-8217-47e1-820c-5db4d8e8817a # Regionen
             instructions: null
             label: null
             required: false
@@ -44,8 +40,7 @@ fieldLayouts:
             type: craft\fieldlayoutelements\CustomField
             warning: null
             width: 50
-          -
-            fieldUid: 78e66304-15bb-4b53-a1ab-ee1c29492bd3 # Karten - Icon
+          - fieldUid: 78e66304-15bb-4b53-a1ab-ee1c29492bd3 # Karten - Icon
             instructions: null
             label: null
             required: false
@@ -53,8 +48,7 @@ fieldLayouts:
             type: craft\fieldlayoutelements\CustomField
             warning: null
             width: 50
-          -
-            fieldUid: a8014088-d2e3-439c-b662-b918f1951291 # Artikeltyp
+          - fieldUid: a8014088-d2e3-439c-b662-b918f1951291 # Artikeltyp
             instructions: null
             label: null
             required: false
@@ -62,8 +56,7 @@ fieldLayouts:
             type: craft\fieldlayoutelements\CustomField
             warning: null
             width: 50
-          -
-            fieldUid: ee843b1f-3555-4b4c-a096-d348ee0317ac # Vorschautext
+          - fieldUid: ee843b1f-3555-4b4c-a096-d348ee0317ac # Vorschautext
             instructions: null
             label: null
             required: false
@@ -71,8 +64,7 @@ fieldLayouts:
             type: craft\fieldlayoutelements\CustomField
             warning: null
             width: 100
-          -
-            fieldUid: 421eaf0b-f542-45ff-8051-2921d93b3eeb # Vorschautext
+          - fieldUid: 421eaf0b-f542-45ff-8051-2921d93b3eeb # Vorschautext
             instructions: null
             label: null
             required: false
@@ -80,8 +72,7 @@ fieldLayouts:
             type: craft\fieldlayoutelements\CustomField
             warning: null
             width: 100
-          -
-            fieldUid: c5aca99d-541e-4996-a962-3790cbed27bf # y-Achse
+          - fieldUid: c5aca99d-541e-4996-a962-3790cbed27bf # y-Achse
             instructions: null
             label: null
             required: false
@@ -89,8 +80,7 @@ fieldLayouts:
             type: craft\fieldlayoutelements\CustomField
             warning: null
             width: 50
-          -
-            fieldUid: 169ef8db-7ba9-459c-b40f-17678b94dce7 # x-Achse
+          - fieldUid: 169ef8db-7ba9-459c-b40f-17678b94dce7 # x-Achse
             instructions: null
             label: null
             required: false
@@ -98,8 +88,7 @@ fieldLayouts:
             type: craft\fieldlayoutelements\CustomField
             warning: null
             width: 50
-          -
-            fieldUid: fafe1670-4ff9-4b61-812d-2096544e8290 # Linktext
+          - fieldUid: fafe1670-4ff9-4b61-812d-2096544e8290 # Linktext
             instructions: null
             label: null
             required: false
@@ -107,8 +96,7 @@ fieldLayouts:
             type: craft\fieldlayoutelements\CustomField
             warning: null
             width: 100
-          -
-            fieldUid: 97b7e259-6116-4890-be78-8fba45ab52d0 # Produkte
+          - fieldUid: 97b7e259-6116-4890-be78-8fba45ab52d0 # Produkte
             instructions: null
             label: null
             required: false
@@ -116,8 +104,7 @@ fieldLayouts:
             type: craft\fieldlayoutelements\CustomField
             warning: null
             width: 100
-          -
-            fieldUid: 9f46731d-7fdd-4245-9ca1-719db0672448 # Inhaltselemente
+          - fieldUid: 9f46731d-7fdd-4245-9ca1-719db0672448 # Inhaltselemente
             instructions: null
             label: null
             required: false
@@ -125,12 +112,26 @@ fieldLayouts:
             type: craft\fieldlayoutelements\CustomField
             warning: null
             width: 100
+          - fieldUid: c5aca99d-541e-4996-a962-3790cbed27bf # y-Achse
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          - fieldUid: 169ef8db-7ba9-459c-b40f-17678b94dce7 # x-Achse
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
         name: Inhalt
         sortOrder: 1
-      -
-        elements:
-          -
-            fieldUid: b4b7c4fa-292f-48ba-837c-da1b5017ed0a # SEO Beschreibung
+      - elements:
+          - fieldUid: b4b7c4fa-292f-48ba-837c-da1b5017ed0a # SEO Beschreibung
             instructions: null
             label: null
             required: false

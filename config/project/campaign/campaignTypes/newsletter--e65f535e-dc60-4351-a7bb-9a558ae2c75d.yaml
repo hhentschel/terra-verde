@@ -4,6 +4,15 @@ fieldLayouts:
       -
         elements:
           -
+            fieldUid: d212ea74-5630-4a5d-9550-827a9623e32b # Subject Feld
+            instructions: 'Wird nicht im Newsletter angezeigt, sondern in Mailprogrammen'
+            label: ''
+            required: ''
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
             fieldUid: dd105ceb-4213-4f13-875f-6f606b9927c2 # Titel
             instructions: ''
             label: 'Überschrift im Newsletter'
