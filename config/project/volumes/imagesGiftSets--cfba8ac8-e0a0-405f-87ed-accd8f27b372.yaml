@@ -50,6 +50,6 @@ settings:
   securityKey: ''
 sortOrder: 10
 titleTranslationKeyFormat: null
-titleTranslationMethod: null
+titleTranslationMethod: site
 type: servd\AssetStorage\Volume
 url: 'https://cdn2.assets-servd.host/'

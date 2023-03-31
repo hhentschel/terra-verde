@@ -1,4 +1,4 @@
-dateModified: 1679415092
+dateModified: 1680262344
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: 'Terra Verde'
@@ -361,6 +361,74 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 2.0.0
+  blitz:
+    edition: standard
+    enabled: true
+    licenseKey: LC2KTOJEL1OHQOGRGMEVG9FB
+    schemaVersion: 3.10.0
+    settings:
+      apiKey: ''
+      cacheControlHeader: 'public, s-maxage=31536000, max-age=0'
+      cacheDuration: null
+      cacheElementQueries: true
+      cacheElements: true
+      cachePurgerType: putyourlightson\blitz\drivers\purgers\DummyPurger
+      cacheStorageSettings:
+        __assoc__:
+          -
+            - folderPath
+            - '@webroot/cache/blitz'
+          -
+            - createGzipFiles
+            - ''
+          -
+            - createBrotliFiles
+            - ''
+      cacheStorageType: putyourlightson\blitz\drivers\storage\FileStorage
+      cacheWarmerSettings:
+        __assoc__:
+          -
+            - concurrency
+            - '3'
+      cacheWarmerType: putyourlightson\blitz\drivers\warmers\GuzzleWarmer
+      cachingEnabled: ''
+      clearCacheAutomatically: '1'
+      customSiteUris: ''
+      debug: false
+      deployerType: putyourlightson\blitz\drivers\deployers\DummyDeployer
+      driverJobPriority: 100
+      excludedQueryStringParams:
+        - gclid
+        - fbclid
+      excludedUriPatterns: ''
+      includedQueryStringParams:
+        - '.*'
+      includedUriPatterns:
+        -
+          __assoc__:
+            -
+              - uriPattern
+              - '.*'
+      injectScriptEvent: DOMContentLoaded
+      integrations:
+        - putyourlightson\blitz\drivers\integrations\FeedMeIntegration
+        - putyourlightson\blitz\drivers\integrations\SeomaticIntegration
+      maxRetryAttempts: 10
+      mutexTimeout: 1
+      outputComments: true
+      queryStringCaching: '1'
+      queueJobTtr: 300
+      refreshCacheAutomaticallyForGlobals: true
+      refreshCacheJobPriority: 10
+      refreshCacheWhenElementSavedNotLive: false
+      refreshCacheWhenElementSavedUnchanged: false
+      sendPoweredByHeader: true
+      warmCacheAutomatically: '1'
+      warmPagesWithQueryStringParams: true
+  blitz-recommendations:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
   campaign:
     edition: lite
     enabled: true
@@ -373,7 +441,8 @@ plugins:
       contactFieldLayoutId: null
       emailFieldLabel: Email
       fromNamesEmails:
-        - - 'Terra Verde'
+        -
+          - 'Terra Verde'
           - info@terra-verde.ch
           - ''
       geoIp: false
@@ -407,9 +476,11 @@ plugins:
       timeThreshold: 0.8
       transportSettings:
         __assoc__:
-          - - apiKey
+          -
+            - apiKey
             - $MAILJET_API_KEY
-          - - apiSecret
+          -
+            - apiSecret
             - $MAILJET_SECRET_KEY
       transportType: bertoost\mailjet\adapters\MailjetAdapter
   ckeditor:
@@ -497,8 +568,6 @@ plugins:
     enabled: true
     schemaVersion: 2.0.1
   dumper:
-    edition: standard
-    enabled: true
     schemaVersion: 1.0.0
   enhanced-element-links:
     edition: standard
@@ -550,9 +619,12 @@ plugins:
       queueTtr: null
       requestOptions:
         __assoc__:
-          - - headers
-            - __assoc__:
-                - - User-Agent
+          -
+            - headers
+            -
+              __assoc__:
+                -
+                  - User-Agent
                   - 'Feed Me'
       runGcBeforeFeed: false
       skipUpdateFieldHandle: ''
@@ -606,8 +678,10 @@ plugins:
     schemaVersion: 1.0.0
     settings:
       sections:
-        - - Intro
-        - - Anleitungen
+        -
+          - Intro
+        -
+          - Anleitungen
       widgetTitle: Links
   mailchimp-subscribe:
     edition: standard
@@ -695,9 +769,11 @@ plugins:
       cpTitlePrefix: '⚙ '
       cspNonce: ''
       cspScriptSrcPolicies:
-        - __assoc__:
-            - - policy
-              - "'self'"
+        -
+          __assoc__:
+            -
+              - policy
+              - '''self'''
       devModeCpTitlePrefix: '&#x1f6a7;⚙ '
       devModeTitlePrefix: '&#x1f6a7; '
       displayAnalysisSidebar: true
@@ -752,6 +828,7 @@ plugins:
   snaptcha:
     enabled: true
     licenseKey: TRF8E9T2Z9OM4BJGPNZRMXAX
+    schemaVersion: 3.0.6
     settings:
       allowList: ''
       denyList: ''

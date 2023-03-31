@@ -1,6 +1,7 @@
 childBlocks:
   - quicklinkItem
 field: e45ebe2d-560e-4f8b-9bc9-6bda46de1a4f # Inhaltselemente Startseite
+group: null
 handle: quicklinkList
 maxBlocks: 1
 maxChildBlocks: 3
