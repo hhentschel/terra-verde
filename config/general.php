@@ -109,7 +109,7 @@ return [
 
     'devMode' => (getenv('DEV_MODE') === "true") ? true : false,
 
-    'enableTemplateCaching' => true,
+    'enableTemplateCaching' => false,
 
   ],
 ];
