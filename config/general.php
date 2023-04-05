@@ -67,7 +67,7 @@ return [
   ],
 
   // Dev LOCAL environment settings
-  'local' => [
+  'development' => [
     // Dev Mode (see https://craftcms.com/guides/what-dev-mode-does)
     'devMode' => (getenv('DEV_MODE') === "true") ? true : false,
 
@@ -78,7 +78,7 @@ return [
     'allowUpdates' => true,
     'backupCommand' => getenv('BACKUP_COMMAND'),
     'restoreCommand' => getenv('RESTORE_COMMAND'),
-    
+
   ],
 
   // Staging (pre-production) environment
@@ -100,7 +100,7 @@ return [
   ],
 
   // Production LIVE environment settings
-  'live' => [
+  'production' => [
     // Set this to `false` to prevent administrative changes from being made on Production
     'allowAdminChanges' => false,
 
