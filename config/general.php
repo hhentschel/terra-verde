@@ -101,6 +101,9 @@ return [
 
   // Production LIVE environment settings
   'production' => [
+
+    'devMode' => (getenv('DEV_MODE') === "true") ? true : false,
+    
     // Set this to `false` to prevent administrative changes from being made on Production
     'allowAdminChanges' => false,
 
