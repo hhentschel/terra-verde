@@ -149,7 +149,7 @@ meta:
     439c86f8-b7ed-48bd-a46c-c2b9f29de26d: 'Produkte (Privatkunden)' # Produkte (Privatkunden)
     442d67d8-a8df-49bb-9ea3-bc0a6323ce71: 'Überschrift Grösse' # Überschrift Grösse
     523ac297-f2c3-49a9-bb1d-08fc4108631e: Impressum # Impressum
-    529a5b01-e289-42de-a013-d43f81455999: 'Produzentenkarte Mobile ' # Produzentenkarte Mobile 
+    529a5b01-e289-42de-a013-d43f81455999: 'Produzentenkarte Mobile ' # Produzentenkarte Mobile
     546e63c7-3ad2-424d-ad71-31f33a561a7f: 'Kontakt | Globals' # Kontakt | Globals
     552eac55-d86f-40a3-8aea-50f54038afbc: Textfeld # Textfeld
     641bd187-bf07-49f6-9cdd-90462c76cc88: Nummer # Nummer
@@ -361,70 +361,6 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 2.0.0
-  blitz:
-    edition: standard
-    enabled: true
-    licenseKey: LC2KTOJEL1OHQOGRGMEVG9FB
-    schemaVersion: 3.10.0
-    settings:
-      apiKey: ''
-      cacheControlHeader: 'public, s-maxage=31536000, max-age=0'
-      cacheDuration: null
-      cacheElementQueries: true
-      cacheElements: true
-      cachePurgerType: putyourlightson\blitz\drivers\purgers\DummyPurger
-      cacheStorageSettings:
-        __assoc__:
-          -
-            - folderPath
-            - '@webroot/cache/blitz'
-          -
-            - createGzipFiles
-            - ''
-          -
-            - createBrotliFiles
-            - ''
-      cacheStorageType: putyourlightson\blitz\drivers\storage\FileStorage
-      cacheWarmerSettings:
-        __assoc__:
-          -
-            - concurrency
-            - '3'
-      cacheWarmerType: putyourlightson\blitz\drivers\warmers\GuzzleWarmer
-      cachingEnabled: ''
-      clearCacheAutomatically: '1'
-      customSiteUris: ''
-      debug: false
-      deployerType: putyourlightson\blitz\drivers\deployers\DummyDeployer
-      driverJobPriority: 100
-      excludedQueryStringParams:
-        - gclid
-        - fbclid
-      excludedUriPatterns: ''
-      includedQueryStringParams:
-        - '.*'
-      includedUriPatterns:
-        -
-          __assoc__:
-            -
-              - uriPattern
-              - '.*'
-      injectScriptEvent: DOMContentLoaded
-      integrations:
-        - putyourlightson\blitz\drivers\integrations\FeedMeIntegration
-        - putyourlightson\blitz\drivers\integrations\SeomaticIntegration
-      maxRetryAttempts: 10
-      mutexTimeout: 1
-      outputComments: true
-      queryStringCaching: '1'
-      queueJobTtr: 300
-      refreshCacheAutomaticallyForGlobals: true
-      refreshCacheJobPriority: 10
-      refreshCacheWhenElementSavedNotLive: false
-      refreshCacheWhenElementSavedUnchanged: false
-      sendPoweredByHeader: true
-      warmCacheAutomatically: '1'
-      warmPagesWithQueryStringParams: true
   blitz-recommendations:
     edition: standard
     enabled: true
@@ -441,8 +377,7 @@ plugins:
       contactFieldLayoutId: null
       emailFieldLabel: Email
       fromNamesEmails:
-        -
-          - 'Terra Verde'
+        - - 'Terra Verde'
           - info@terra-verde.ch
           - ''
       geoIp: false
@@ -476,11 +411,9 @@ plugins:
       timeThreshold: 0.8
       transportSettings:
         __assoc__:
-          -
-            - apiKey
+          - - apiKey
             - $MAILJET_API_KEY
-          -
-            - apiSecret
+          - - apiSecret
             - $MAILJET_SECRET_KEY
       transportType: bertoost\mailjet\adapters\MailjetAdapter
   ckeditor:
@@ -619,12 +552,9 @@ plugins:
       queueTtr: null
       requestOptions:
         __assoc__:
-          -
-            - headers
-            -
-              __assoc__:
-                -
-                  - User-Agent
+          - - headers
+            - __assoc__:
+                - - User-Agent
                   - 'Feed Me'
       runGcBeforeFeed: false
       skipUpdateFieldHandle: ''
@@ -678,10 +608,8 @@ plugins:
     schemaVersion: 1.0.0
     settings:
       sections:
-        -
-          - Intro
-        -
-          - Anleitungen
+        - - Intro
+        - - Anleitungen
       widgetTitle: Links
   mailchimp-subscribe:
     edition: standard
@@ -769,10 +697,8 @@ plugins:
       cpTitlePrefix: '⚙ '
       cspNonce: ''
       cspScriptSrcPolicies:
-        -
-          __assoc__:
-            -
-              - policy
+        - __assoc__:
+            - - policy
               - '''self'''
       devModeCpTitlePrefix: '&#x1f6a7;⚙ '
       devModeTitlePrefix: '&#x1f6a7; '
