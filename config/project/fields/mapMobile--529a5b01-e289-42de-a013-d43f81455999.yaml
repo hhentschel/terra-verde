@@ -3,7 +3,7 @@ contentColumnType: string
 fieldGroup: bcc2f7c9-e4b5-432b-b079-3cd963db5854 # Produzenten
 handle: mapMobile
 instructions: ''
-name: 'Karte Mobile'
+name: 'Produzentenkarte Mobile '
 searchable: false
 settings:
   allowSelfRelations: false
@@ -16,7 +16,7 @@ settings:
   previewMode: full
   restrictFiles: ''
   selectionLabel: ''
-  showSiteMenu: false
+  showSiteMenu: true
   showUnpermittedFiles: false
   showUnpermittedVolumes: false
   singleUploadLocationSource: 'volume:789fdb6d-520f-4cf1-be1e-478056358e79' # Inhaltsbilder

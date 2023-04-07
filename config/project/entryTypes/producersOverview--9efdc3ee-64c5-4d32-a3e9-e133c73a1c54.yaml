@@ -36,7 +36,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: 529a5b01-e289-42de-a013-d43f81455999 # Karte Mobile
+            fieldUid: 529a5b01-e289-42de-a013-d43f81455999 # Produzentenkarte Mobile 
             instructions: null
             label: null
             required: false
