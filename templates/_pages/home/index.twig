@@ -64,10 +64,7 @@
   </section>
 
   {# Aktionen #}
-  {% set saleproducts = entry.homeSales
-    .with([
-      'articleImage'
-    ]) %}
+  {% set saleproducts = entry.homeSales %}
   {% if saleproducts|length %}
     <section class="section-home section-home__stripe section-home__campaigns">
       <div class="grid">
