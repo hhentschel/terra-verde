@@ -132,10 +132,12 @@
   {% endif %}
 
   {# Neuheiten #}
-  {% set newproducts = entry.homeNewProduct
+  {#  {% set newproducts = entry.homeNewProduct
     .with([
       'articleImage'
-    ]) %}
+    ]) %} #}
+
+  {% set newproducts = entry.homeNewProduct %}
   {% if newproducts|length %}
     <section class="section-home section-home__stripe section-home__newproducts">
       <div class="grid">
@@ -202,9 +204,7 @@
   {% endif %}
 
   {# Beliebteste #}
-  {% set favproducts = entry.homeFavorites.with([
-    'articleImage'
-  ]) %}
+  {% set favproducts = entry.homeFavorites %}
   {% if favproducts|length %}
     <section class="section-home section-home__stripe section-home__favorites">
       <div class="grid">
@@ -249,9 +249,11 @@
   {% endif %}
 
   {# Blog Artikel #}
-  {% set blogQuery = craft.entries().section('newsEntries').limit(3).with([
+  {#  {% set blogQuery = craft.entries().section('newsEntries').limit(3).with([
     'image'
-  ]) %}
+  ]) %} #}
+
+  {% set blogQuery = craft.entries().section('newsEntries').limit(3) %}
   {% set entries = blogQuery.all() %}
   {% if entries|length %}
     <section class="section-home section-home__stripe section-home__blog">
