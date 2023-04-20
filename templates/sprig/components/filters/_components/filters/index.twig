@@ -85,12 +85,19 @@
 
 {% set categories = aCatDeli
   |merge(aCG)
-  |merge(aCW)
-  |merge(articleCategoriesStatus) %}
+  |merge(aCW) %}
 
-{% if categories is not empty %}
-  {% do productQuery.andRelatedTo(categories) %}
+ {% if categories is not empty %}
+   {% do productQuery.andRelatedTo(categories) %}
+ {% endif %}
+
+{% if articleCategoriesStatus is not empty %}
+  {% do productQuery.andRelatedTo(articleCategoriesStatus) %}
 {% endif %}
+
+{# {% if categories is not empty or articleCategoriesStatus is not empty %}
+  {% do productQuery.relatedTo('and', categories, articleCategoriesStatus) %}
+{% endif %} #}
 
 {# Paginate entry query to get page info. #}
 {% set pageInfo = sprig.paginate(productQuery, page) %}
@@ -130,7 +137,7 @@
         <span class="">{{ pageInfo.total }}</span>
         Produkten
       </p>
-      
+
       {{ sprig('sprig/components/filters/_components/indicator') }}
 
       {% if vType == 'grid' %}
@@ -180,7 +187,8 @@
     <div class="shop-list{% if vType == 'list' %}__listview{% endif %}">
       {% for product in products %}
         {% for variant in product.getVariants() %}
-          {% include 'sprig/components/cart/_components/product' %}
+          {# {% include 'sprig/components/cart/_components/product' %} #}
+          {{ sprig('sprig/components/cart/_components/product', {variantId : variant.id, productId : product.id}) }}
         {% endfor %}
       {% endfor %}
     </div>
