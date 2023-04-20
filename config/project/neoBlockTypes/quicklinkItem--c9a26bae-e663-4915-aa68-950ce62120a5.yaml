@@ -52,6 +52,7 @@ fieldLayouts:
             width: 100
         name: Inhalt
         sortOrder: 1
+group: null
 handle: quicklinkItem
 maxBlocks: 0
 maxChildBlocks: 3

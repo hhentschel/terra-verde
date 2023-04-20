@@ -5,7 +5,8 @@
 <meta name="format-detection" content="telephone=no"/>
 
 {# STYLES #}
-<link rel="stylesheet" href="{{ alias('@web') }}/assets/styles/{{ cssFile }}" media="screen"/>
+<link rel="stylesheet" href="{{ alias('@web') }}/assets/styles/{{ cssFile }}?v={{ getenv('SERVD_BUNDLE_HASH') }}"
+      media="screen"/>
 <link rel="preconnect" href="https://fonts.gstatic.com"/>
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap"
       rel="stylesheet" media="screen"/>

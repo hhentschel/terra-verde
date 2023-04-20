@@ -34,6 +34,7 @@ fieldLayouts:
             width: 100
         name: Inhalt
         sortOrder: 1
+group: null
 handle: image
 maxBlocks: 0
 maxChildBlocks: 0

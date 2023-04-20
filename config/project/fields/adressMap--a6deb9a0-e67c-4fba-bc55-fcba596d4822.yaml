@@ -6,7 +6,7 @@ instructions: ''
 name: 'Adresse Karte'
 searchable: true
 settings:
-  errorMessage: 'Component class ''doublesecretagency\googlemaps\fields\AddressField'' belongs to a disabled plugin (Google Maps).'
+  errorMessage: 'Unable to find component class ''doublesecretagency\googlemaps\fields\AddressField''.'
   expectedType: doublesecretagency\googlemaps\fields\AddressField
   settings: '{"coordinatesDefault":{"lat":"47.3833835","lng":"8.4862362","zoom":"10"},"coordinatesMode":"readOnly","mapOnSearch":"open","mapOnStart":"close","showMap":false,"subfieldConfig":{"street1":{"label":"Street Address","width":"100","enabled":"1","position":"1"},"street2":{"label":"Apartment or Suite","width":"100","position":"2"},"city":{"label":"City","width":"50","enabled":"1","position":"3"},"state":{"label":"State","width":"15","position":"4"},"zip":{"label":"Zip Code","width":"50","enabled":"1","position":"5"},"country":{"label":"Country","width":"100","position":"6"}},"visibilityToggle":"both"}'
 translationKeyFormat: null

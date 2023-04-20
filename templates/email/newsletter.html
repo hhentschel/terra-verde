@@ -70,11 +70,6 @@
         max-width: 100%;
       }
 
-      .mj-column-per-50 {
-        width: 50% !important;
-        max-width: 50%;
-      }
-
       .mj-column-per-69 {
         width: 69% !important;
         max-width: 69%;
@@ -110,11 +105,6 @@
     .moz-text-html .mj-column-per-100 {
       width: 100% !important;
       max-width: 100%;
-    }
-
-    .moz-text-html .mj-column-per-50 {
-      width: 50% !important;
-      max-width: 50%;
     }
 
     .moz-text-html .mj-column-per-69 {
@@ -244,63 +234,27 @@
         <td style="direction:ltr;font-size:0px;padding:0;text-align:center;">
           <!--[if mso | IE]><table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><td class="" style="vertical-align:top;width:600px;" ><![endif]-->
           <div class="mj-column-per-100 mj-outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
-            <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;" width="100%">
-              <tbody>
-              <!-- htmlmin:ignore -->{% set headImage = campaign.headImageNewsletter.one() %}
-              <!-- htmlmin:ignore -->
-              <tr>
-                <td align="center" style="font-size:0px;padding:10px 25px;word-break:break-word;">
-                  <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:collapse;border-spacing:0px;" class="mj-full-width-mobile">
-                    <tbody>
-                    <tr>
-                      <td style="width:550px;" class="mj-full-width-mobile">
-                        <img alt="Kopfbild Terra-Verde" height="auto" src="{{ headImage.url ? headImage.url }}" style="border:0;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;" width="550" />
-                      </td>
-                    </tr>
-                    </tbody>
-                  </table>
-                </td>
-              </tr>
-              </tbody>
-            </table>
-          </div>
-          <!--[if mso | IE]></td></tr></table><![endif]-->
-        </td>
-      </tr>
-      </tbody>
-    </table>
-  </div>
-  <!--[if mso | IE]></td></tr></table><table align="center" border="0" cellpadding="0" cellspacing="0" class="" role="presentation" style="width:600px;" width="600" bgcolor="{{ campaign.backgroundColorHeadingNewsletter }}" ><tr><td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]-->
-  <div style="background:{{ campaign.backgroundColorHeadingNewsletter }};background-color:{{ campaign.backgroundColorHeadingNewsletter }};margin:0px auto;max-width:600px;">
-    <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background:{{ campaign.backgroundColorHeadingNewsletter }};background-color:{{ campaign.backgroundColorHeadingNewsletter }};width:100%;">
-      <tbody>
-      <tr>
-        <td style="direction:ltr;font-size:0px;padding:0;text-align:center;">
-          <!--[if mso | IE]><table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><td class="" style="vertical-align:top;width:600px;" ><![endif]-->
-          <div class="mj-column-per-100 mj-outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
             <table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
               <tbody>
               <tr>
-                <td style="vertical-align:top;padding-top:20px;padding-bottom:30px;padding-left:0px;">
+                <td style="vertical-align:top;padding:0;">
                   <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="" width="100%">
                     <tbody>
-                    <!-- htmlmin:ignore -->{% set activeSalutation = '' %} {% for option in campaign.activeSalutation.options %} {% if campaign.activeSalutation.value == 'yes' %} {% set activeSalutation = true %} {% endif %} {% endfor %}
-                    <!-- htmlmin:ignore -->
-                    <!-- htmlmin:ignore -->{% if activeSalutation %}
+                    <!-- htmlmin:ignore -->{% set headImage = campaign.headImageNewsletter.one() %}
                     <!-- htmlmin:ignore -->
                     <tr>
-                      <td align="left" style="font-size:0px;padding:10px 25px;padding-bottom:30px;word-break:break-word;">
-                        <div style="font-family:'Open Sans', Arial, sans-serif;font-size:20px;line-height:1;text-align:left;color:{{ campaign.backgroundColorTextNewsletter }};">
-                          <!-- htmlmin:ignore -->
-                          <mj-raw> {% if contact.firstName %} </mj-raw><!-- htmlmin:ignore -->
-                          {{ campaign.newsletterSalutation }} {{ contact.firstName }} {{ contact.lastName }}
-                          <!-- htmlmin:ignore -->
-                          <mj-raw> {% endif %}</mj-raw><!-- htmlmin:ignore -->
-                        </div>
+                      <td align="center" style="font-size:0px;padding:0;word-break:break-word;">
+                        <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:collapse;border-spacing:0px;" class="mj-full-width-mobile">
+                          <tbody>
+                          <tr>
+                            <td style="width:600px;" class="mj-full-width-mobile">
+                              <img alt="Kopfbild Terra-Verde" height="auto" src="{{ headImage.url ? headImage.url }}" style="border:0;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;" width="600" />
+                            </td>
+                          </tr>
+                          </tbody>
+                        </table>
                       </td>
                     </tr>
-                    <!-- htmlmin:ignore -->{% endif %}
-                    <!-- htmlmin:ignore -->
                     </tbody>
                   </table>
                 </td>
@@ -314,7 +268,12 @@
       </tbody>
     </table>
   </div>
-  <!--[if mso | IE]></td></tr></table><table align="center" border="0" cellpadding="0" cellspacing="0" class="" role="presentation" style="width:600px;" width="600" bgcolor="{{ campaign.backgroundColorHeadingNewsletter }}" ><tr><td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]-->
+  <!--[if mso | IE]></td></tr></table><![endif]-->
+  <!-- htmlmin:ignore -->{% set activeSalutation = '' %} {% for option in campaign.activeSalutation.options %} {% if campaign.activeSalutation.value == 'yes' %} {% set activeSalutation = true %} {% endif %} {% endfor %}
+  <!-- htmlmin:ignore -->
+  <!-- htmlmin:ignore -->{% if activeSalutation == true %}
+  <!-- htmlmin:ignore -->
+  <!--[if mso | IE]><table align="center" border="0" cellpadding="0" cellspacing="0" class="" role="presentation" style="width:600px;" width="600" bgcolor="{{ campaign.backgroundColorHeadingNewsletter }}" ><tr><td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]-->
   <div style="background:{{ campaign.backgroundColorHeadingNewsletter }};background-color:{{ campaign.backgroundColorHeadingNewsletter }};margin:0px auto;max-width:600px;">
     <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background:{{ campaign.backgroundColorHeadingNewsletter }};background-color:{{ campaign.backgroundColorHeadingNewsletter }};width:100%;">
       <tbody>
@@ -325,7 +284,42 @@
             <table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
               <tbody>
               <tr>
-                <td style="vertical-align:top;padding-top:0px;padding-bottom:0px;">
+                <td style="vertical-align:top;padding-top:20px;padding-bottom:0px;padding-left:0px;">
+                  <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="" width="100%">
+                    <tbody>
+                    <tr>
+                      <td align="left" style="font-size:0px;padding:10px 25px;padding-bottom:5px;word-break:break-word;">
+                        <div style="font-family:'Open Sans', Arial, sans-serif;font-size:20px;line-height:1;text-align:left;color:{{ campaign.backgroundColorTextNewsletter }};">{{ campaign.newsletterSalutation }} {{ contact.firstName }} {{ contact.lastName }}</div>
+                      </td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+          <!--[if mso | IE]></td></tr></table><![endif]-->
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <!--[if mso | IE]></td></tr></table><![endif]-->
+  <!-- htmlmin:ignore -->{% endif %}
+  <!-- htmlmin:ignore -->
+  <!--[if mso | IE]><table align="center" border="0" cellpadding="0" cellspacing="0" class="" role="presentation" style="width:600px;" width="600" bgcolor="{{ campaign.backgroundColorHeadingNewsletter }}" ><tr><td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]-->
+  <div style="background:{{ campaign.backgroundColorHeadingNewsletter }};background-color:{{ campaign.backgroundColorHeadingNewsletter }};margin:0px auto;max-width:600px;">
+    <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background:{{ campaign.backgroundColorHeadingNewsletter }};background-color:{{ campaign.backgroundColorHeadingNewsletter }};width:100%;">
+      <tbody>
+      <tr>
+        <td style="direction:ltr;font-size:0px;padding:0;text-align:center;">
+          <!--[if mso | IE]><table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><td class="" style="vertical-align:top;width:600px;" ><![endif]-->
+          <div class="mj-column-per-100 mj-outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
+            <table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+              <tbody>
+              <tr>
+                <td style="vertical-align:top;padding-top:10px;padding-bottom:0px;">
                   <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="" width="100%">
                     <tbody>
                     <tr>
@@ -357,7 +351,7 @@
             <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;" width="100%">
               <tbody>
               <tr>
-                <td align="left" class="leadtext" style="font-size:0px;padding:10px 25px;word-break:break-word;">
+                <td align="left" class="leadtext" style="font-size:0px;padding:10px 25px;padding-bottom:30px;word-break:break-word;">
                   <div style="font-family:'Open Sans', Arial, sans-serif;font-size:15px;line-height:1.5;text-align:left;color:{{ campaign.backgroundColorTextNewsletter }};">{{ campaign.leadTextNewsletter }}</div>
                 </td>
               </tr>
@@ -370,19 +364,19 @@
       </tbody>
     </table>
   </div>
-  <!--[if mso | IE]></td></tr></table><table align="center" border="0" cellpadding="0" cellspacing="0" class="" role="presentation" style="width:600px;" width="600" ><tr><td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]-->
+  <!--[if mso | IE]></td></tr></table><![endif]-->
+  <!-- htmlmin:ignore -->{% for block in campaign.contentElementsNewsletter.all() %}
+  <!-- htmlmin:ignore -->
+  <!-- Überschrift H2 -->
+  <!-- htmlmin:ignore -->{% if block.type == "headingH2FieldNewsletter" %}
+  <!-- htmlmin:ignore -->
+  <!--[if mso | IE]><table align="center" border="0" cellpadding="0" cellspacing="0" class="" role="presentation" style="width:600px;" width="600" ><tr><td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]-->
   <div style="margin:0px auto;max-width:600px;">
     <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:100%;">
       <tbody>
       <tr>
         <td style="direction:ltr;font-size:0px;padding:0;text-align:center;">
-          <!--[if mso | IE]><table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><![endif]-->
-          <!-- htmlmin:ignore -->{% for block in campaign.contentElementsNewsletter.all() %}
-          <!-- htmlmin:ignore -->
-          <!-- Überschrift H2 -->
-          <!-- htmlmin:ignore -->{% if block.type == "headingH2FieldNewsletter" %}
-          <!-- htmlmin:ignore -->
-          <!--[if mso | IE]><td class="" style="vertical-align:top;width:600px;" ><![endif]-->
+          <!--[if mso | IE]><table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><td class="" style="vertical-align:top;width:600px;" ><![endif]-->
           <div class="mj-column-per-100 mj-outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
             <table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
               <tbody>
@@ -410,16 +404,15 @@
   </div>
   <!--[if mso | IE]></td></tr></table><![endif]-->
   <!-- Überschrift H3 -->
+  <!-- htmlmin:ignore -->{% elseif block.type == "headingH3FieldNewsletter" %}
+  <!-- htmlmin:ignore -->
   <!--[if mso | IE]><table align="center" border="0" cellpadding="0" cellspacing="0" class="" role="presentation" style="width:600px;" width="600" ><tr><td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]-->
   <div style="margin:0px auto;max-width:600px;">
     <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:100%;">
       <tbody>
       <tr>
         <td style="direction:ltr;font-size:0px;padding:0;text-align:center;">
-          <!--[if mso | IE]><table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><![endif]-->
-          <!-- htmlmin:ignore -->{% elseif block.type == "headingH3FieldNewsletter" %}
-          <!-- htmlmin:ignore -->
-          <!--[if mso | IE]><td class="" style="vertical-align:top;width:600px;" ><![endif]-->
+          <!--[if mso | IE]><table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><td class="" style="vertical-align:top;width:600px;" ><![endif]-->
           <div class="mj-column-per-100 mj-outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
             <table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
               <tbody>
@@ -447,16 +440,15 @@
   </div>
   <!--[if mso | IE]></td></tr></table><![endif]-->
   <!-- Textfeld -->
+  <!-- htmlmin:ignore -->{% elseif block.type == "textFieldNewsletter" %}
+  <!-- htmlmin:ignore -->
   <!--[if mso | IE]><table align="center" border="0" cellpadding="0" cellspacing="0" class="" role="presentation" style="width:600px;" width="600" ><tr><td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]-->
   <div style="margin:0px auto;max-width:600px;">
     <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:100%;">
       <tbody>
       <tr>
         <td style="direction:ltr;font-size:0px;padding:0;text-align:center;">
-          <!--[if mso | IE]><table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><![endif]-->
-          <!-- htmlmin:ignore -->{% elseif block.type == "textFieldNewsletter" %}
-          <!-- htmlmin:ignore -->
-          <!--[if mso | IE]><td class="" style="vertical-align:top;width:600px;" ><![endif]-->
+          <!--[if mso | IE]><table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><td class="" style="vertical-align:top;width:600px;" ><![endif]-->
           <div class="mj-column-per-100 mj-outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
             <table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
               <tbody>
@@ -484,16 +476,15 @@
   </div>
   <!--[if mso | IE]></td></tr></table><![endif]-->
   <!-- Bild -->
+  <!-- htmlmin:ignore -->{% elseif block.type == "newsletterImage" %} {% set image = block.newsletterImage.one() %} {% if image is defined and image is not empty %}
+  <!-- htmlmin:ignore -->
   <!--[if mso | IE]><table align="center" border="0" cellpadding="0" cellspacing="0" class="" role="presentation" style="width:600px;" width="600" ><tr><td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]-->
   <div style="margin:0px auto;max-width:600px;">
     <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:100%;">
       <tbody>
       <tr>
         <td style="direction:ltr;font-size:0px;padding:0;text-align:center;">
-          <!--[if mso | IE]><table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><![endif]-->
-          <!-- htmlmin:ignore -->{% elseif block.type == "newsletterImage" %} {% set image = block.newsletterImage.one() %} {% if image is defined and image is not empty %}
-          <!-- htmlmin:ignore -->
-          <!--[if mso | IE]><td class="" style="vertical-align:top;width:600px;" ><![endif]-->
+          <!--[if mso | IE]><table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><td class="" style="vertical-align:top;width:600px;" ><![endif]-->
           <div class="mj-column-per-100 mj-outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
             <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;" width="100%">
               <tbody>
@@ -505,12 +496,24 @@
               </tbody>
             </table>
           </div>
-          <!--[if mso | IE]></td><![endif]-->
-          <!-- Abstand -->
-          <!-- htmlmin:ignore -->{% elseif block.type == "spacer" %}
-          <!-- htmlmin:ignore -->
-          <!--[if mso | IE]><td class="" style="vertical-align:top;width:300px;" ><![endif]-->
-          <div class="mj-column-per-50 mj-outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
+          <!--[if mso | IE]></td></tr></table><![endif]-->
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <!--[if mso | IE]></td></tr></table><![endif]-->
+  <!-- Abstand -->
+  <!-- htmlmin:ignore -->{% elseif block.type == "spacer" %}
+  <!-- htmlmin:ignore -->
+  <!--[if mso | IE]><table align="center" border="0" cellpadding="0" cellspacing="0" class="" role="presentation" style="width:600px;" width="600" ><tr><td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]-->
+  <div style="margin:0px auto;max-width:600px;">
+    <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:100%;">
+      <tbody>
+      <tr>
+        <td style="direction:ltr;font-size:0px;padding:0;text-align:center;">
+          <!--[if mso | IE]><table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><td class="" style="vertical-align:top;width:600px;" ><![endif]-->
+          <div class="mj-column-per-100 mj-outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
             <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;" width="100%">
               <tbody>
               <!-- htmlmin:ignore -->{% set height = '' %} {% for option in block.spacerHeight.options %} {% if option.selected %} {% set height = option.value %} {% endif %} {% endfor %}
@@ -523,15 +526,15 @@
               </tbody>
             </table>
           </div>
-          <!--[if mso | IE]></td><![endif]-->
-          <!-- Linie -->
-          <!--[if mso | IE]></tr></table><![endif]-->
+          <!--[if mso | IE]></td></tr></table><![endif]-->
         </td>
       </tr>
       </tbody>
     </table>
   </div>
-  <!--[if mso | IE]></td></tr></table><table align="center" border="0" cellpadding="0" cellspacing="0" class="" role="presentation" style="width:600px;" width="600" ><tr><td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]-->
+  <!--[if mso | IE]></td></tr></table><![endif]-->
+  <!-- Linie -->
+  <!--[if mso | IE]><table align="center" border="0" cellpadding="0" cellspacing="0" class="" role="presentation" style="width:600px;" width="600" ><tr><td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]-->
   <div style="margin:0px auto;max-width:600px;">
     <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:100%;">
       <tbody>
@@ -550,6 +553,98 @@
                   </p>
                   <!--[if mso | IE]><table align="center" border="0" cellpadding="0" cellspacing="0" style="border-top:solid {{ block.lineHeight }}px {{ block.lineColor }};font-size:1px;margin:0px auto;width:550px;" role="presentation" width="550px" ><tr><td style="height:0;line-height:0;"> &nbsp;
 </td></tr></table><![endif]-->
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+          <!--[if mso | IE]></td></tr></table><![endif]-->
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <!--[if mso | IE]></td></tr></table><![endif]-->
+  <!-- Button Intern -->
+  <!-- htmlmin:ignore -->{% elseif block.type == "buttonIntern" %} {% set entryButton = block.buttonInAddress.one() %} {% set buttonInAlign = '' %} {% for option in block.buttonInAlign.options %} {% if option.selected %} {% set buttonInAlign = option.value %} {% endif %} {% endfor %}
+  <!-- htmlmin:ignore -->
+  <!--[if mso | IE]><table align="center" border="0" cellpadding="0" cellspacing="0" class="" role="presentation" style="width:600px;" width="600" ><tr><td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]-->
+  <div style="margin:0px auto;max-width:600px;">
+    <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:100%;">
+      <tbody>
+      <tr>
+        <td style="direction:ltr;font-size:0px;padding:0;text-align:center;">
+          <!--[if mso | IE]><table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><td class="" style="vertical-align:top;width:600px;" ><![endif]-->
+          <div class="mj-column-per-100 mj-outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
+            <table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+              <tbody>
+              <tr>
+                <td style="vertical-align:top;padding:0;">
+                  <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="" width="100%">
+                    <tbody>
+                    <tr>
+                      <td align="{{ buttonInAlign }}" vertical-align="middle" style="font-size:0px;padding:0;word-break:break-word;">
+                        <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:separate;line-height:100%;">
+                          <tbody>
+                          <tr>
+                            <td align="center" bgcolor="{{ block.buttonInBackgroundColor }}" role="presentation" style="border:none;border-radius:3px;cursor:auto;mso-padding-alt:10px 25px;background:{{ block.buttonInBackgroundColor }};" valign="middle">
+                              <a href="{{ entryButton.url() }}" style="display:inline-block;background:{{ block.buttonInBackgroundColor }};color:{{ block.buttonInTextColor }};font-family:'Open Sans', Arial, sans-serif;font-size:13px;font-weight:normal;line-height:120%;margin:0;text-decoration:none;text-transform:none;padding:10px 25px;mso-padding-alt:0px;border-radius:3px;" target="_self">
+                                {{ block.buttonInText }}
+                              </a>
+                            </td>
+                          </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+          <!--[if mso | IE]></td></tr></table><![endif]-->
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <!--[if mso | IE]></td></tr></table><![endif]-->
+  <!-- Button Extern -->
+  <!-- htmlmin:ignore -->{% elseif block.type == "buttonExtern" %} {% set buttonExAlign = '' %} {% for option in block.buttonExAlign.options %} {% if option.selected %} {% set buttonExAlign = option.value %} {% endif %} {% endfor %}
+  <!-- htmlmin:ignore -->
+  <!--[if mso | IE]><table align="center" border="0" cellpadding="0" cellspacing="0" class="" role="presentation" style="width:600px;" width="600" ><tr><td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]-->
+  <div style="margin:0px auto;max-width:600px;">
+    <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:100%;">
+      <tbody>
+      <tr>
+        <td style="direction:ltr;font-size:0px;padding:0;text-align:center;">
+          <!--[if mso | IE]><table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><td class="" style="vertical-align:top;width:600px;" ><![endif]-->
+          <div class="mj-column-per-100 mj-outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
+            <table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+              <tbody>
+              <tr>
+                <td style="vertical-align:top;padding:0;">
+                  <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="" width="100%">
+                    <tbody>
+                    <tr>
+                      <td align="{{ buttonExAlign }}" vertical-align="middle" style="font-size:0px;padding:0;word-break:break-word;">
+                        <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:separate;line-height:100%;">
+                          <tbody>
+                          <tr>
+                            <td align="center" bgcolor="{{ block.buttonExBackgroundColor }}" role="presentation" style="border:none;border-radius:3px;cursor:auto;mso-padding-alt:10px 25px;background:{{ block.buttonExBackgroundColor }};" valign="middle">
+                              <a href="{{ block.buttonExAddress }}" style="display:inline-block;background:{{ block.buttonExBackgroundColor }};color:{{ block.buttonExTextColor }};font-family:'Open Sans', Arial, sans-serif;font-size:13px;font-weight:normal;line-height:120%;margin:0;text-decoration:none;text-transform:none;padding:10px 25px;mso-padding-alt:0px;border-radius:3px;" target="_blank">
+                                {{ block.buttonExText }}
+                              </a>
+                            </td>
+                          </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                    </tbody>
+                  </table>
                 </td>
               </tr>
               </tbody>
@@ -664,8 +759,8 @@
                                   <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:collapse;border-spacing:0px;">
                                     <tbody>
                                     <tr>
-                                      <td style="width:80px;">
-                                        <img alt="Terra-Verde Produkt" height="auto" src="{{ image ? image.url }}" style="border:none;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;" width="80" />
+                                      <td style="width:124px;">
+                                        <img alt="Terra-Verde Produkt" height="auto" src="{{ image ? image.url }}" style="border:none;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;" width="124" />
                                       </td>
                                     </tr>
                                     </tbody>
@@ -841,8 +936,8 @@
                                   <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:collapse;border-spacing:0px;">
                                     <tbody>
                                     <tr>
-                                      <td style="width:80px;">
-                                        <img alt="Terra-Verde Produkt" height="auto" src="{{ image ? image.url }}" style="border:none;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;" width="80" />
+                                      <td style="width:124px;">
+                                        <img alt="Terra-Verde Produkt" height="auto" src="{{ image ? image.url }}" style="border:none;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;" width="124" />
                                       </td>
                                     </tr>
                                     </tbody>
