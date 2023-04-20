@@ -1,47 +1,47 @@
 {% extends '/_layouts/main' %}
 
 {% block content %}
-  <!-- Template: {{ _self }}.twig -->
+<!-- Template: {{ _self }}.twig -->
 
-  <section class="grid">
-    <div class="row">
-      <div class="col col-xs-12 col-md-12 col-lg-12">
-        <h1 class="heading heading--2 heading--no-margin">
-          Shop
-        </h1>
+<section class="grid">
+  <div class="row">
+    <div class="col col-xs-12 col-md-12 col-lg-12">
+      <h1 class="heading heading--2 heading--no-margin">
+        Shop
+      </h1>
 
-        <div id="order-hints" class="order-hints mobile">
-          <div class="order-hints__discount">
-            <h4 class="order-hints__discount--heading">
-              10% Rabatt
-            </h4>
-            <p class="order-hints__discount--text">
-              ab 6 Stück des selben Artikels *
-            </p>
-            <p class="order-hints__discount--mark">
-              * Ausnahmen Geschenksets & Aktionen
-            </p>
-          </div>
-          <div class="order-hints__shipping">
-            <h4 class="order-hints__shipping--text">
-              Portofrei ab 100 CHF
-            </h4>
-          </div>
+      <div id="order-hints" class="order-hints mobile">
+        <div class="order-hints__discount">
+          <h4 class="order-hints__discount--heading">
+            10% Rabatt
+          </h4>
+          <p class="order-hints__discount--text">
+            ab 6 Stück des selben Artikels *
+          </p>
+          <p class="order-hints__discount--mark">
+            * Ausnahmen Geschenksets & Aktionen
+          </p>
         </div>
-
-        <div class="">
-          {{ sprig('sprig/components/filters/_components/filters', {}, { id: 'product-filters' }) }}
-
-          {% js %}
-            htmx.on('#product-filters', 'htmx:afterSwap', function(event) {
-            htmx.trigger('#cartsize', 'refresh');
-            htmx.trigger('#cartsizemobile', 'refresh');
-            });
-          {% endjs %}
+        <div class="order-hints__shipping">
+          <h4 class="order-hints__shipping--text">
+            Portofrei ab 100 CHF
+          </h4>
         </div>
-
       </div>
-    </div>
-  </section
 
-{% endblock %}
+      <div class="">
+        {{ sprig('sprig/components/filters/_components/filters', {}, { id: 'product-filters' }) }}
+      </div>
+
+    </div>
+  </div>
+</section
+
+  {% endblock %}
+
+  {% js %}
+    htmx.on('#product-filters', 'htmx:afterSwap', function(event) {
+    htmx.trigger('#cartsize', 'refresh');
+    htmx.trigger('#cartsizemobile', 'refresh');
+    });
+  {% endjs %}
