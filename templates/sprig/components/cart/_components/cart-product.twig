@@ -1,0 +1,244 @@
+{% set product = craft.products.id(productId).one() %}
+
+{% if cart is not defined %}
+  {% set cart = craft.commerce.carts.cart %}
+{% endif %}
+
+{% for item in cart.lineItems %}
+  <tr class="henrik">
+    <td class="item__column-one" rowspan="2">
+      <div class="item__column-product">
+
+        <div class="item__column-image">
+          <a href="{{ item.purchasable.url }}"
+          {% set transform = transformation|default('basketThumb') %}
+          {% set img = item.purchasable.product.articleImage.one() ?? null %}
+
+          {% if img is defined %}
+            {% include '_components/_content-elements/image-product'
+              with {
+              image: img,
+              transform: transform
+            } %}
+          {% endif %}
+          </a>
+        </div>
+        <div class="item__column-info">
+          <div>
+            <strong class="{% if item.hasErrors() %}error{% endif %}">
+              <a href="{{ item.purchasable.url }}" class="form__cart-table--itemtitle">
+                {{ item.description }}
+              </a>
+            </strong>
+          </div>
+          {% if item.purchasable.product.articleVolume %}
+            <div class="form-addtobasket__info-unit">
+                  <span>
+                    {{ item.purchasable.articleVolume }} {{ item.purchasable.articleVolumeUnit }}
+                  </span>
+            </div>
+          {% endif %}
+          <span class="">Artikelnummer: {{ item.purchasable.product.articleNumber }}</span><br/>
+        </div>
+      </div>
+
+      {% if (item.purchasable.product.getType().name == 'Geschenke') or  ((item.purchasable.product.getType().name == 'Geschenke' and item.purchasable.product.getType().name == 'Delikatessen')) %}
+        {% if (item.options.giftWrapped is defined) or (item.options.giftNote is defined) %}
+          <div class="form__cart-table--options">
+            <div class="form__cart-table--options-header">
+              <h4 class="layout-helper__margin-vertical--none form__cart-table--options-heading">
+                Zusatzoptionen</h4>
+              {% set vals = {('lineItems[' ~ item.id ~ '][options][remove]'): 1}|json_encode %}
+              <a sprig s-action="commerce/cart/update-cart" s-method="post" s-vals="{{ vals }}" href="#"
+                 class="button button--tertiary">
+                entfernen
+              </a>
+            </div>
+
+            {% if (item.options.giftWrapped is defined) and (item.options.giftWrapped is not empty) %}
+              <span class="form__cart-table--options-item"> - Geschenkband</span>
+            {% endif %}
+            {% if (item.options.giftNote is defined) and (item.options.giftNote is not empty) %}
+            <span class="form__cart-table--options-item"> - Grusskarte</span>
+            <label for="lineitem-note-{{ item.id }}" class="form__cart-table--note-label">
+              Textfeld für Grusskarte</label>
+            <textarea sprig s-action="commerce/cart/update-cart" s-method="post"
+                      s-trigger="keyup changed delay:3s" s-replace="#results" id="lineitem-note-{{ item.id }}"
+                      class="input" type="text" name="lineItems[{{ item.id }}][note]" value="{{ item.note }}"
+                      placeholder="Text für Grusskarte" rows="2">{{ item.note }}</textarea>
+            <span>Text wird automatisch gespeichert<span>
+                        <div id="results">
+                        </div>
+                    {% endif %}
+
+          </div>
+
+        {% endif %}
+      {% endif %}
+
+    </td>
+    <td class="py-3 {{ not loop.first ? 'border-t border-gray-300 border-dashed' : '' }}">
+      {% if item.options.donationAmount is defined %}
+        <label for="lineitem-note-{{ item.id }}" class="text-xs uppercase block">Donation Betrag</label>
+        <input class="input input-small"
+               type="text" name="lineItems[{{ item.id }}][options][donationAmount]" placeholder="Donation"
+               value="{{ item.options.donationAmount }}">
+      {% endif %}
+
+      <span class=" {{ item.options.donationAmount is defined ? 'hidden' : '' }}">
+                  <input sprig s-action="commerce/cart/update-cart" s-method="post"
+                         class="input  input-small {% if item.getFirstError('qty') %}border-red-500 border{% endif %}"
+                         type="{% if item.options.donationAmount is defined %}hidden{% else %}number{% endif %}"
+                         name="lineItems[{{ item.id }}][qty]"
+                         {# ANPASSUNGEN DETAILHANDEL #}
+                    {% if currentUser %}
+                      {% if currentUser.isInGroup('userGroupRetail') %}
+                        min="{{ item.purchasable.product.artikelMinOrderSize }}"
+                      {% else %}
+                        min="1"
+                      {% endif %}
+                    {% else %}
+                      min="1"
+                    {% endif %}
+                         value="{{ item.qty }}">
+              </span>
+    </td>
+
+    <td
+      class="form__cart-table--item-prices {{ not loop.first ? 'border-t border-gray-300 border-dashed' : '' }} text-right">
+      {% if not cart.hasErrors() %}
+        <div class="form__cart-table--item-price" title="{{ item.price }}">
+          <div class="form__cart-table--item-price-name">Einzelpreis:</div>
+          {% if item.onSale %}
+            <div class="form__cart-table--item-price-number">
+              <del>
+                {{ item.price|commerceCurrency(cart.currency) }}
+              </del>
+            </div>
+            <div class="form__cart-table--item-price-number form__cart-table--item-price-number-bold">
+              {{ item.salePrice|commerceCurrency(cart.currency) }}
+            </div>
+          {% endif %}
+          {% if item.onSale %}
+
+          {% else %}
+            <div class="form__cart-table--item-price-number form__cart-table--item-price-number-bold">
+              {{ item.price|commerceCurrency(cart.currency) }}</div>
+          {% endif %}
+        </div>
+        {% if item.onSale %}
+
+          {% set itemSales = item.snapshot.sales ?? [] %}
+          {% if itemSales|length %}
+            <div class="flex w-full justify-end">
+              <div class="text-xs pr-2">Aktion:</div>
+              <div class="text-xs">
+                {% for sale in itemSales %}
+                  {{ sale.name }}<br>
+                {% endfor %}
+              </div>
+            </div>
+          {% endif %}
+        {% endif %}
+      {% endif %}
+
+      <span class="form__cart-table--item-remove">
+               {% set vals = {('lineItems[' ~ item.id ~ '][remove]'): 1}|json_encode %}
+               <a sprig s-action="commerce/cart/update-cart" s-method="post" s-vals="{{ vals }}"
+                  href="#"
+                  class="button button--tertiary">
+                 Entfernen
+               </a>
+             </span>
+    </td>
+
+  </tr>
+
+  <tr class="form__cart--adjustments">
+    <td>&nbsp;</td>
+    <td class="text-right" colspan="2">
+      {% if not cart.hasErrors() and item.adjustments|length %}
+
+        <div class="form__cart-table--item-price" title="{{ item.subtotal }}">
+          <div class="form__cart-table--item-price-name">Gesamtpreis Artikel:</div>
+          <div class="form__cart-table--item-price-number">
+            {{ item.subtotal|commerceCurrency(cart.currency) }}
+          </div>
+        </div>
+        <div class="adjustments">
+
+          {# wenn geschenksets #}
+          {% if (item.purchasable.product.getType().name == 'Geschenke') %}
+
+            {# für anpassungen als Discount und nicht MWST (weil bei geschensets keine MWST angezeigt werden soll) #}
+            {% for adjustment in item.adjustments if adjustment.type != "discount" and adjustment.type != "tax" %}
+              <div class="adjustments__data">
+                {% if adjustment.name %}
+                  <div class="adjustments__data--type">
+                    {{ adjustment.name }}
+                  </div>
+                {% endif %}
+                <div class="">
+                  <span class="adjustments__data--name">{{ adjustment.description }}</span>
+                </div>
+                <div class="adjustments__data--amount">
+                          <span class=""
+                                title="{{ adjustment.amount }}"> {{ adjustment.amount|commerceCurrency(cart.currency) }}</span>
+                </div>
+              </div>
+            {% endfor %}
+
+          {% else %}
+
+            {# für Anpassungen als Discount #}
+            {% for adjustment in item.adjustments if adjustment.type == "discount" %}
+              <div class="adjustments__data">
+
+                <div class="adjustments__data--type">
+                  {{ adjustment.description }}
+                </div>
+
+                <div class="adjustments__data--amount">
+                          <span class=""
+                                title="{{ adjustment.amount }}">
+                            {{ adjustment.amount|commerceCurrency(cart.currency) }}
+                          </span>
+                </div>
+              </div>
+            {% endfor %}
+
+            {# für Anpassungen nicht als Discount #} {# MWST: Ausgabe #}
+            {# {% for adjustment in item.adjustments if adjustment.type != "discount" %}
+                       <div class="adjustments__data">
+
+                         {% if adjustment.name %}
+                           <div class="adjustments__data--type">
+                             {{ adjustment.name }}
+                           </div>
+                         {% endif %}
+                         <div class="">
+                           <span class="adjustments__data--name">{{ adjustment.description }}</span>
+                         </div>
+                         <div class="adjustments__data--amount">
+                          <span class=""
+                                title="{{ adjustment.amount }}"> {{ adjustment.amount|commerceCurrency(cart.currency) }}</span>
+                         </div>
+                       </div>
+                     {% endfor %} #}
+
+          {% endif %}
+
+        </div>
+      {% endif %}
+
+      {% if not cart.hasErrors() %}
+        <div class="form__cart-table--item-price" title="{{ item.total }}">
+          <div class="form__cart-table--item-price-name">Subtotal:</div>
+          <div class="form__cart-table--item-price-number">
+            {{ item.total|commerceCurrency(cart.currency) }}
+          </div>
+        </div>
+      {% endif %}
+    </td>
+  </tr>
+{% endfor %}
