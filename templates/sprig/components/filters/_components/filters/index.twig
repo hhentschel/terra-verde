@@ -85,11 +85,14 @@
 
 {% set categories = aCatDeli
   |merge(aCG)
-  |merge(aCW)
-  |merge(articleCategoriesStatus) %}
+  |merge(aCW) %}
 
 {% if categories is not empty %}
   {% do productQuery.andRelatedTo(categories) %}
+{% endif %}
+
+{% if articleCategoriesStatus is not empty %}
+  {% do productQuery.andRelatedTo(articleCategoriesStatus) %}
 {% endif %}
 
 {# Paginate entry query to get page info. #}
