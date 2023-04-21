@@ -28,7 +28,9 @@
          </tr>
          </thead>
          <tbody>
-         {{ sprig('sprig/components/cart/_components/cart-product', {productId : product.id}, {'class': 'cart__item'}) }}
+
+         {{ sprig('sprig/components/cart/_components/cart-product', {}, {'class': 'cart__item'}) }}
+
 
          {% if not cart.hasErrors() %}
            <tr>

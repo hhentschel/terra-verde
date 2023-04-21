@@ -137,17 +137,16 @@ $button-small--vertical-padding: px-to-em(8);
     }
 
     &:focus {
-      @if (has($button-primary--focus-background-color)) {
-        background-color: $button-primary--focus-background-color;
+      @if (has($button-success--background-color)) {
+        background-color: $button-success--background-color;
+      }
+      @if (has($button-success--border-color)) {
+        border-color: $button-success--border-color;
       }
 
-      @if (has($button-primary--focus-color)) {
-        color: $button-primary--focus-color;
-      }
 
-      @if (has($button-primary--focus-border-color)) {
-        border-color: $button-primary--focus-border-color;
-      }
+      text-align: center;
+      color: $color--green;
     }
 
     &:hover {

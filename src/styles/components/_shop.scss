@@ -589,3 +589,10 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
   }
 
 }
+
+
+.loading-button__indicator--loading {
+  .button--primary__text {
+    display: none;
+  }
+}
