@@ -1,0 +1,50 @@
+<div class="image-matrix__container">
+  {% for block in block.imageMatrix.all() %}
+
+    {% set imageSizeParam = imageSize is defined and imageSize is not empty
+      ? imageSize
+      : '' %}
+
+    {% set img = block.imgMatrix.one() ?? null %}
+    {% set transform = transformation|default('imageOneThird') %}
+    {% set imageUrl = img.getUrl(transform)|default('') %}
+
+    {% set imageStandardAltText = img
+      and block.imageAltText is defined
+      and block.imageAltText is not empty
+      ? block.imageAltText
+      : 'Terra Verde' %}
+    {% set imageAltText = block.imageAltText is defined and block.imageAltText is not empty
+      ? block.imageAltText
+      : imageStandardAltText %}
+
+    {% set imageStandardCaption = img
+      and block.imageCaption is defined
+      and block.imageCaption is not empty
+      ? block.imageCaption
+      : '' %}
+    {% set imageCaption = block.imageCaption is defined and block.imageCaption is not empty
+      ? block.imageCaption
+      : imageStandardCaption %}
+
+    {% set imageTypeClass = imageSizeParam is defined
+      and imageSizeParam is not empty
+      ? imageSizeParam
+      : '' %}
+    <div class="image-matrix  {{ imageTypeClass }}">
+      {% if imageUrl %}
+        <figure class="image">
+          <div class="image__wrapper">
+            <img class="image__img" src="{{ imageUrl }}" alt="{{ imageAltText }}"/>
+          </div>
+          {% if imageCaption %}
+            <figcaption class="image__caption">
+              {{ imageCaption }}
+            </figcaption>
+          {% endif %}
+        </figure>
+      {% endif %}
+
+    </div>
+  {% endfor %}
+</div>

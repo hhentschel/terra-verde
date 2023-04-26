@@ -1,4 +1,6 @@
-<div class="col col-xs-12 col-md-12 col-lg-10 col-lg-shift-2">
+{% set pageTitle = entry.pageTitle is not empty ? entry.pageTitle : entry.title %}
+
+<div class="col col-xs-12 col-md-12 col-lg-9 col-lg-shift-2">
   {% block content %}
     <div class="content__detail-header">
       <div class="content__detail-image producers-overview__image">
@@ -7,11 +9,15 @@
 
         {% if img is defined and img is not empty %}
           {% include '_components/_content-elements/image' with {
-            optimizedimages: img,
+            img: img,
             transform: transform
           } %}
         {% endif %}
       </div>
+
+      <h2 class="heading heading--h2 heading--site heading--no-margin-top">
+        {{ pageTitle }}
+      </h2>
 
       <div class="content__detail-lead producers-overview__lead">
         {{ entry.leadText }}
@@ -24,144 +30,3 @@
     } %}
   {% endblock %}
 </div>
-
-
-{#
-{% block content %}
-<div class="blog-entry blog-entry__recipe">
-<div class="row">
-  <div class="col col-xs-12 col-md-6 col-lg-6">
-     <div class="blog-entry__lead">
-      {{ entry.leadText }}
-    </div>
-
-    {% if entry.recipes.serves is defined and entry.recipes.serves is not empty %}
-    <p class="recipe-serves">
-      Für {{ entry.recipes.serves }} Personen
-    </p>
-  {% endif %}
-  {% if
-    entry.recipes.prepTime is defined and entry.recipes.prepTime is not empty %}
-    <p class="recipe-preptime">
-      Vorbereitungszeit: {{ entry.recipes.prepTime }} min.
-    </p>
-  {% endif %}
-  {% if
-    entry.recipes.cookTime is defined and entry.recipes.cookTime is not empty %}
-    <p class="recipe-cooktime">
-      Kochzeit: {{ entry.recipes.cookTime }} min.
-    </p>
-  {% endif %}
-  {% if
-    entry.recipes.totalTime is defined
-      and entry.recipes.totalTime is not empty %}
-    <p class="recipe-totaltime">
-      Gesamtzeit: {{ entry.recipes.totalTime }} min.
-    </p>
-  {% endif %}
-
-  {% if entry.recipes.author is defined and entry.recipes.author is not empty %}
-    <p class="recipe-author">
-      Autor: {{ entry.recipes.author }}
-    </p>
-  {% endif %}
-
-  {% if
-    entry.recipes.recipeCategory is defined
-      and entry.recipes.recipeCategory is not empty %}
-    <p class="recipe-category">
-      {{ entry.recipes.recipeCategory }}
-    </p>
-  {% endif %}
-
-  {% if
-    entry.recipes.recipeCuisine is defined
-      and entry.recipes.recipeCuisine is not empty %}
-    <p class="recipe-style">
-      {{ entry.recipes.recipeCuisine }}
-    </p>
-  {% endif %}
-
-  {% if entry.recipes.skill is defined and entry.recipes.skill is not empty %}
-    <p class="recipe-skill">
-      Level: {{ entry.recipes.skill }}
-    </p>
-  {% endif %}
-  </div>
-
-  <div class="col col-xs-12 col-md-6 col-lg-6">
-      <div class="content__detail-image blog-entry-overview__image">
-        {% set transform = transformation|default('imageRecipeBig') %}
-        {% set img = entry.recipes.getImageUrl(transform) ?? generic.image.one() %}
-
-        {% if img is defined %}
-          {% include '_components/_content-elements/image-recipe' with {
-            img: img
-          } %}
-        {% endif %}
-      </div>
-  </div>
-
-</div>
-#}
-{# <h3>
-    {{ entry.recipes.name }}
-  </h3> #}{#
-<div class="row">
-  <div class="col col-xs-12 col-md-6 col-lg-6">
-    {% set ingredients = entry.recipes.getIngredients('metric') %}
-    {% if ingredients %}
-       <h2 class="heading--3 layout-helper__margin-top--m">
-        Zutaten
-      </h2>
-      <ul class="recipe-list__ingredient">
-        {% for ingredient in ingredients %}
-          <li>{{ ingredient }}</li>
-#}
-{# <li>
-            {{
-              ingredient|replace({
-                ' tbsp': ' Teelöffel'
-              })
-            }}
-          </li> #}{#
-{% endfor %}
-</ul>
-{% endif %}
-
-</div>
-
-
-
-<div class="col col-xs-12 col-md-6 col-lg-6">
-{% set directions = entry.recipes.getDirections() %}
-{% if directions %}
-<h2 class="heading--3 layout-helper__margin-top--m">
-Anleitung
-</h2>
-<ol class="recipe-directions">
-{% for direction in directions %}
-  <li>{{ direction }}</li>
-{% endfor %}
-</ol>
-{% endif %}
-
-{% set equipment = entry.recipes.getEquipment() %}
-{% if equipment %}
-<h4>
-Zubehör
-</h4>
-<ul class="recipe-list">
-{% for item in equipment %}
-  <li>{{ item }}</li>
-{% endfor %}
-</ul>
-{% endif %}
-{% endblock %}
-
-
-
-</div>
-</div>
-</div>
-#}

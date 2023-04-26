@@ -1,0 +1,13 @@
+.content__detail {
+
+  &-heading {
+    font-size: px-to-rem(36);
+    margin-bottom: px-to-rem($space--m);
+  }
+
+  &-meta {
+    font-size: px-to-rem(15);
+    margin-bottom: px-to-rem($space--m);
+    color: $color--grey-darker;
+  }
+}

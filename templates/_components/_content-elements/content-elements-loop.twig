@@ -233,6 +233,21 @@
         } %}
       {% endset %}
 
+
+      {# ImageText 50/50 Block #}
+    {% case 'image5050' %}
+      {% set cmt = cmt ? cmt : 'layout-helper__margin-top--m' %}
+      {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--m' %}
+      {% set colClasses =
+        'col col-xs-12 col-md-10 col-md-shift-1 col-lg-8 col-lg-shift-2' %}
+      {% set transform = transformation|default('imageHalf') %}
+      {% set contentBlock %}
+        {% include '_components/_content-elements/image-matrix' with {
+          imageSize: 'image--half',
+          transform: transform
+        } %}
+      {% endset %}
+
       {# Image 1/2 Block #}
     {% case 'imageHalfWidth' %}
       {% set cmt = cmt ? cmt : 'layout-helper__margin-top--m' %}

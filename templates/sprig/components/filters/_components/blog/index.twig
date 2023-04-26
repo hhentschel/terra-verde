@@ -75,26 +75,9 @@
   <div class="blog-list">
     {% if entries|length %}
       {% for entry in entries %}
-        <div class="blog-list__item">
-          <div class="blog-list__item--top">
-            <a href="{{ entry.url }}">
-              <h3 class="blog-list__item--title">
-                {{ entry.title }}
-              </h3>
-            </a>
-            {% if catBlogOptions is defined and catBlogOptions is not empty %}
-              {% set categories = entry.catsForBlogEntries.all() %}
-              <div class="blog-list__item--cat-container">
-                {% for cat in categories %}
-                  <span
-                    class="blog-list__item--cat-item blog-list__item--cat-item--{% if cat.id == 16717 %}news{% elseif cat.id == 16718 %}recipe{% elseif cat.id == 16719 %}magazin{% endif %}">
-                      {{ cat.title }}
-                    </span>
-                {% endfor %}
-              </div>
-            {% endif %}
-
-            <a href="{{ entry.url }}">
+        <a href="{{ entry.url }}">
+          <div class="blog-list__item">
+            <div class="blog-list__item--top">
               <div class="blog-list__item--preview">
                 {% if
                   entry.contentElements is defined
@@ -110,17 +93,41 @@
                     } %}
                   {% endif %}
                 {% endif %}
+              </div>
+
+              <div class="blog-list__item--meta">
+                {% if catBlogOptions is defined and catBlogOptions is not empty %}
+                  {% set categories = entry.catsForBlogEntries.all() %}
+                  <div class="blog-list__item--cat-container">
+                    {% for cat in categories %}
+                      <span
+                        class="blog-list__item--cat-item blog-list__item--cat-item--{% if cat.id == 16717 %}news{% elseif cat.id == 16718 %}recipe{% elseif cat.id == 16719 %}magazin{% endif %}">
+                      {{ cat.title }}
+                    </span>
+                    {% endfor %}
+                  </div>
+                {% endif %}
+                <span>{{ entry.author }}</span>, <span>{{ entry.postDate | date("d.m.Y") }}</span>
 
               </div>
-              <div class="blog-list__item--preview-lead">
-                {{ entry.leadText }}
+
+              <div class="blog-list__item--title-container">
+
+
+                <h3 class="blog-list__item--title">
+                  {{ entry.title }}
+                </h3>
+
+                <div class="blog-list__item--preview-lead">
+                  {{ entry.leadText }}
+                </div>
               </div>
-            </a>
 
-          </div>
 
-          <a href="{{ entry.url }}"
-             class="blog-list__item--linkdetail link link--button link--internal link--color-lightblue link--icon-after">
+            </div>
+
+            <span
+              class="blog-list__item--linkdetail link link--button link--internal link--color-lightblue link--icon-after">
                 <span class="link__text">
                 {% if
                   entry.contentElements is defined
@@ -128,14 +135,15 @@
                   mehr Informationen
                 {% endif %}
                 </span>
-            <div class="link__icon-wrapper link__icon-wrapper--internal">
-              <svg class="link__icon link__icon--internal icon icon--42">
-                <path
-                  d="M36.907 21.411a.999.999 0 01-.089.133.95.95 0 01-.066.115l-7 8a1 1 0 11-1.504-1.318L33.796 22H6a1 1 0 010-2h27.796l-5.548-6.341a1 1 0 111.504-1.318l7 8a.95.95 0 01.066.115.999.999 0 01.089.133c.009.02.015.04.022.062a.96.96 0 01.037.16.991.991 0 01.027.157c0 .011.007.02.007.032s-.006.02-.007.032a.991.991 0 01-.027.156.96.96 0 01-.037.161c-.007.021-.013.042-.022.062z"></path>
-              </svg>
-            </div>
-          </a>
-        </div>
+              <div class="link__icon-wrapper link__icon-wrapper--internal">
+                <svg class="link__icon link__icon--internal icon icon--42">
+                  <path
+                    d="M36.907 21.411a.999.999 0 01-.089.133.95.95 0 01-.066.115l-7 8a1 1 0 11-1.504-1.318L33.796 22H6a1 1 0 010-2h27.796l-5.548-6.341a1 1 0 111.504-1.318l7 8a.95.95 0 01.066.115.999.999 0 01.089.133c.009.02.015.04.022.062a.96.96 0 01.037.16.991.991 0 01.027.157c0 .011.007.02.007.032s-.006.02-.007.032a.991.991 0 01-.027.156.96.96 0 01-.037.161c-.007.021-.013.042-.022.062z"></path>
+                </svg>
+              </div>
+            </span>
+          </div>
+        </a>
       {% endfor %}
     {% endif %}
   </div>

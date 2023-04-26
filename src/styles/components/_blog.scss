@@ -93,23 +93,38 @@
       justify-content: space-between;
     }
 
+    &--top {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &--title-container {
+      display: flex;
+      flex-direction: column;
+    }
+
     &--title {
-      margin-top: 0;
+      margin-top: px-to-rem($space--xs);
       line-height: $line-height--s;
-      min-height: px-to-rem(60);
-      font-size: px-to-rem($font-size-l);
+      /* min-height: px-to-rem(80);*/
+      font-size: px-to-rem($font-size-xm);
+    }
+
+    &--meta {
+      font-size: px-to-rem($font-size-s);
     }
 
     &--cat-container {
       display: flex;
       align-self: flex-start;
       gap: px-to-rem(10);
+      margin-bottom: px-to-rem($space--xs);
     }
 
     &--cat-item {
       color: $color--white;
       font-size: px-to-rem(12);
-      padding: px-to-rem(4) px-to-rem(6);
+      padding: px-to-rem(2) px-to-rem(6);
       background-color: $color--grey-light;
       border-radius: px-to-rem(3);
 
@@ -128,9 +143,10 @@
 
     &--preview {
       display: flex;
-      margin: px-to-rem($space--m) 0;
+      margin: 0 0 px-to-rem($space--m) 0;
       flex-wrap: wrap;
       flex-direction: column;
+      aspect-ratio: 1;
 
       @include breakpoint('tablet-landscape') {
         flex-wrap: nowrap;

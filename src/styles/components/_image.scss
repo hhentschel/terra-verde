@@ -47,4 +47,13 @@
 
     margin-top: px-to-rem($space--xxs);
   }
+
+  &-matrix__container {
+    display: flex;
+    flex-wrap: wrap;
+
+    .image--half {
+      margin: 0;
+    }
+  }
 }

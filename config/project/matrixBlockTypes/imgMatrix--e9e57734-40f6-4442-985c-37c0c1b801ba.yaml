@@ -1,0 +1,112 @@
+field: 6bc749d9-f805-48a4-b8de-1702b40ae534 # Bild Matrix
+fieldLayouts:
+  3d3820f1-36a8-41f2-bbfd-45537750e9dc:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: d74f6685-54ad-4654-b9dc-039321354725 # Bild
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 6a02f93d-f0bf-453f-935a-b0ef6ade8e5b # Bild Alt-Text
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 652a02e0-42f9-4996-9964-e0494e69fd0e # Bild Legende
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  6a02f93d-f0bf-453f-935a-b0ef6ade8e5b: # Bild Alt-Text
+    columnSuffix: hrrtxsff
+    contentColumnType: text
+    fieldGroup: null
+    handle: imageAltText
+    instructions: ''
+    name: 'Bild Alt-Text'
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  652a02e0-42f9-4996-9964-e0494e69fd0e: # Bild Legende
+    columnSuffix: mizcbatc
+    contentColumnType: text
+    fieldGroup: null
+    handle: imageCaption
+    instructions: ''
+    name: 'Bild Legende'
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  d74f6685-54ad-4654-b9dc-039321354725: # Bild
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: imgMatrix
+    instructions: ''
+    name: Bild
+    searchable: false
+    settings:
+      allowSelfRelations: false
+      allowUploads: true
+      allowedKinds: null
+      defaultUploadLocationSource: 'volume:789fdb6d-520f-4cf1-be1e-478056358e79' # Inhaltsbilder
+      defaultUploadLocationSubpath: ''
+      limit: ''
+      localizeRelations: false
+      previewMode: full
+      restrictFiles: ''
+      selectionLabel: ''
+      showSiteMenu: true
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: false
+      singleUploadLocationSource: 'volume:789fdb6d-520f-4cf1-be1e-478056358e79' # Inhaltsbilder
+      singleUploadLocationSubpath: ''
+      source: null
+      sources: '*'
+      targetSiteId: null
+      useSingleFolder: false
+      validateRelatedElements: false
+      viewMode: list
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
+handle: imgMatrix
+name: Bild
+sortOrder: 1
