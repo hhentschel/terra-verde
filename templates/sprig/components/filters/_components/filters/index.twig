@@ -95,9 +95,9 @@
   {% do productQuery.andRelatedTo(articleCategoriesStatus) %}
 {% endif %}
 
-{# {% if categories is not empty or articleCategoriesStatus is not empty %}
-  {% do productQuery.relatedTo('and', categories, articleCategoriesStatus) %}
-{% endif %} #}
+{% if articleCategoriesStatus is not empty %}
+  {% do productQuery.andRelatedTo(articleCategoriesStatus) %}
+{% endif %}
 
 {# Paginate entry query to get page info. #}
 {% set pageInfo = sprig.paginate(productQuery, page) %}

@@ -10,7 +10,6 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
 }
 
 .shop {
-
   &__board {
     display: flex;
     flex-wrap: wrap;
@@ -258,7 +257,7 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
     display: grid;
     grid-template-columns: repeat(
       auto-fill,
-        minmax(var(--grid-col-breakpoint-shop), 1fr)
+      minmax(var(--grid-col-breakpoint-shop), 1fr)
     );
     grid-column-gap: var(--grid-col-gap);
     grid-row-gap: var(--grid-row-gap);
@@ -387,7 +386,6 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
     }
   }
 
-
   &__item {
     width: 100%;
     display: flex;
@@ -428,13 +426,18 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
     justify-content: space-between;
     flex: 1 1 auto;
 
-    padding: 0 ($shop-list__grid-gutter--phone / 2) ($shop-list__grid-gutter--phone / 3) ($shop-list__grid-gutter--phone / 2);
+    padding: 0 ($shop-list__grid-gutter--phone / 2)
+      ($shop-list__grid-gutter--phone / 3) ($shop-list__grid-gutter--phone / 2);
 
     @include breakpoint('tablet-landscape') {
-      padding: 0 $shop-list__grid-gutter--tablet / 2 $shop-list__grid-gutter--tablet / 2 $shop-list__grid-gutter--tablet / 2;
+      padding: 0 $shop-list__grid-gutter--tablet / 2
+        $shop-list__grid-gutter--tablet / 2 $shop-list__grid-gutter--tablet / 2;
     }
     @include breakpoint('desktop') {
-      padding: ($shop-list__grid-gutter--desktop / 4) ($shop-list__grid-gutter--desktop / 2) ($shop-list__grid-gutter--desktop / 3) ($shop-list__grid-gutter--desktop / 2);
+      padding: ($shop-list__grid-gutter--desktop / 4)
+        ($shop-list__grid-gutter--desktop / 2)
+        ($shop-list__grid-gutter--desktop / 3)
+        ($shop-list__grid-gutter--desktop / 2);
     }
 
     > h3 {
@@ -578,7 +581,6 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
       }
     }
 
-
     &__no-result {
       text-align: center;
       padding: px-to-rem($space--xm);
@@ -587,9 +589,7 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
       font-size: px-to-rem($font-size-xm);
     }
   }
-
 }
-
 
 .loading-button__indicator--loading {
   .button--primary__text {
