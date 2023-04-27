@@ -87,8 +87,12 @@
   |merge(aCG)
   |merge(aCW) %}
 
-{% if categories is not empty %}
-  {% do productQuery.andRelatedTo(categories) %}
+ {% if categories is not empty %}
+   {% do productQuery.andRelatedTo(categories) %}
+ {% endif %}
+
+{% if articleCategoriesStatus is not empty %}
+  {% do productQuery.andRelatedTo(articleCategoriesStatus) %}
 {% endif %}
 
 {% if articleCategoriesStatus is not empty %}
@@ -133,7 +137,6 @@
         <span class="">{{ pageInfo.total }}</span>
         Produkten
       </p>
-
 
       {{ sprig('sprig/components/filters/_components/indicator') }}
 
@@ -184,7 +187,8 @@
     <div class="shop-list{% if vType == 'list' %}__listview{% endif %}">
       {% for product in products %}
         {% for variant in product.getVariants() %}
-          {% include 'sprig/components/cart/_components/product' %}
+          {# {% include 'sprig/components/cart/_components/product' %} #}
+          {{ sprig('sprig/components/cart/_components/product', {variantId : variant.id, productId : product.id}, {'class': 'shop-list__item'}) }}
         {% endfor %}
       {% endfor %}
     </div>
