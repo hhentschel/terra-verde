@@ -1,4 +1,4 @@
-dateModified: 1682602522
+dateModified: 1682632549
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: 'Terra Verde'
@@ -57,6 +57,8 @@ meta:
     05cb055e-53ce-470a-9d53-333696986ac7: Zusatz # Zusatz
     5ef15fca-47ed-4dee-adec-77febb2c6249: Hintergrundfarbe # Hintergrundfarbe
     05f55dad-fac0-482c-95a1-3b41ffa621c1: 'Kategorien (Weine)' # Kategorien (Weine)
+    6a02f93d-f0bf-453f-935a-b0ef6ade8e5b: 'Bild Alt-Text' # Bild Alt-Text
+    6bc749d9-f805-48a4-b8de-1702b40ae534: 'Bild Matrix' # Bild Matrix
     06be1401-4934-4dfa-9342-a78552156b4e: 'Textfeld hinzufügen' # Textfeld hinzufügen
     06c0da13-2423-4cbb-8b58-6dddb456fa8c: 'Artikel Einheit Gewicht/Volumen' # Artikel Einheit Gewicht/Volumen
     6c0e2ddc-0771-4d85-91e8-370646ba43f0: AGB # AGB
@@ -153,6 +155,7 @@ meta:
     546e63c7-3ad2-424d-ad71-31f33a561a7f: 'Kontakt | Globals' # Kontakt | Globals
     552eac55-d86f-40a3-8aea-50f54038afbc: Textfeld # Textfeld
     641bd187-bf07-49f6-9cdd-90462c76cc88: Nummer # Nummer
+    652a02e0-42f9-4996-9964-e0494e69fd0e: 'Bild Legende' # Bild Legende
     667e84c9-349c-41fc-b5dd-be60c8d94861: Downloadlink # Downloadlink
     673dbddb-972b-44b7-b50c-ac5b649321ab: Öffnungszeiten # Öffnungszeiten
     676d6484-bb25-4582-abcd-c9f07f618d98: 'Artikel Jahrgang' # Artikel Jahrgang
@@ -205,6 +208,7 @@ meta:
     10561167-3a73-493b-8f0f-48ce104e8c50: 'Anrede verwenden' # Anrede verwenden
     16265740-9a81-46f1-9fb8-99fc6b1a8e7f: 'Externer Link (mit Icon)' # Externer Link (mit Icon)
     42065150-3e31-4dfa-ad7d-b6b95f0eba0f: 'Product Home' # Product Home
+    75076778-568e-4d8c-8a9b-dadb8a0e180a: 'Bild / Bild - 50% / 50%' # Bild / Bild - 50% / 50%
     76367094-179e-4fc3-8e70-b0f8fccc3422: 'Shop Anpassungen' # Shop Anpassungen
     80046407-de11-4bdb-9670-56b00656fb46: Bild # Bild
     84380320-2899-45dc-b326-bd0b24416c50: Video # Video
@@ -292,6 +296,7 @@ meta:
     d42a6068-da20-40a8-9b45-f80f9cb7f929: Testfeld # Testfeld
     d59a8a70-d5e0-42b4-b4d8-d3602f3bbe03: 'Produkt Bild' # Produkt Bild
     d63d76f8-75e4-40eb-9992-4ea21ba5b437: 'Artikel Zusatz Beschreibung' # Artikel Zusatz Beschreibung
+    d74f6685-54ad-4654-b9dc-039321354725: Bild # Bild
     d212ea74-5630-4a5d-9550-827a9623e32b: 'Subject Feld' # Subject Feld
     d438ea68-d87f-4238-b23e-cdaa8a840149: 'Produzenten Tags' # Produzenten Tags
     d595e861-4c06-4115-8656-93e95a495147: Notiz # Notiz
@@ -315,6 +320,7 @@ meta:
     e7fec16d-a352-4a94-8ec1-8e902b366c3b: Textfarbe # Textfarbe
     e8ec6f5f-8e58-4745-861e-ad59123d9db7: 'Button Intern' # Button Intern
     e9d74d60-1b19-494e-a1af-537c054484c9: Login # Login
+    e9e57734-40f6-4442-985c-37c0c1b801ba: Bild # Bild
     e45ebe2d-560e-4f8b-9bc9-6bda46de1a4f: 'Inhaltselemente Startseite' # Inhaltselemente Startseite
     e61fb032-eec0-4f11-b450-86d1adea8934: Rezepte # Rezepte
     e65f535e-dc60-4351-a7bb-9a558ae2c75d: Newsletter # Newsletter
@@ -774,24 +780,47 @@ plugins:
       errorTemplate: ''
       errorTitle: Fehler
       excludeControllerActions:
-        0:
-          - commerce/payments/pay
-        8:
-          - commerce/payments/complete-payment
-        9:
-          - users/save-user
-        10:
-          - users/login
-        11:
-          - shop/checkout/register-signin
-        12:
-          - users/send-password-reset-email
-        13:
-          - users/set-password
-        14:
-          - commerce/customer-addresses/save
-        15:
-          - commerce/cart/update-cart
+        __assoc__:
+          -
+            - 0
+            -
+              - commerce/payments/pay
+          -
+            - 18
+            -
+              - sprig-core/components/render
+          -
+            - 8
+            -
+              - commerce/payments/complete-payment
+          -
+            - 9
+            -
+              - users/save-user
+          -
+            - 10
+            -
+              - users/login
+          -
+            - 11
+            -
+              - shop/checkout/register-signin
+          -
+            - 12
+            -
+              - users/send-password-reset-email
+          -
+            - 13
+            -
+              - users/set-password
+          -
+            - 14
+            -
+              - commerce/customer-addresses/save
+          -
+            - 17
+            -
+              - commerce/cart/update-cart
       expirationTime: '60'
       fieldName: snaptcha
       logRejected: '1'
