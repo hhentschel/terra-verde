@@ -67,7 +67,7 @@
 <form class="js-form">
 
   <div class="shop-list__item-cart">
-    <div class="item-cart__qty-btn">
+    <div class="item-cart__qty-btn" id="addtocart-{{ variant.id }}">
 
       {% if variant.stock > 0 or variant.hasUnlimitedStock %}
 
@@ -89,7 +89,7 @@
             min="1"
           {% endif %}
         >
-
+        
 
         <a sprig
            s-action="commerce/cart/update-cart"
@@ -97,9 +97,11 @@
            s-val:purchasable-id="{{ variant.id }}"
            s-replace="#addtocart-{{ variant.id }}"
 
-           id="addtocart-{{ variant.id }}" href="#"
+          {# id="addtocart-{{ variant.id }}" #}
+           href="#"
            class="button--primary {% if addedToCart and purchasableId == variant.id %}button--success {% endif %} text-center">
-          {{ sprig('sprig/components/filters/_components/indicator-addtocart') }}
+          {# {{ sprig('sprig/components/filters/_components/indicator-addtocart') }} #}
+          {% include 'sprig/components/filters/_components/indicator-addtocart' %}
           {% if addedToCart and purchasableId == variant.id %}
             <svg class="icon--check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
               <path fill-rule="evenodd"
@@ -107,8 +109,12 @@
                     clip-rule="evenodd"/>
             </svg>
             Im Warenkorb
-          {% elseif purchasableId == variant.id %}
-            s-indicator=".loading-button__indicator-addtocart"
+            {# {% elseif purchasableId == variant.id %} #}
+
+            {# {% include 'sprig/components/filters/_components/indicator-addtocart' %} #}
+            {# {{ sprig('sprig/components/filters/_components/indicator-addtocart') }} #}
+
+            {# s-indicator=".loading-button__indicator-addtocart" #}
           {% else %}
             <span class="button--primary__text">In den Warenkorb</span>
           {% endif %}
