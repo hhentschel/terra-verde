@@ -100,13 +100,28 @@
   }
 
   &-list {
+    &__wrapper {
+      display: none;
 
-    display: none;
-
-    @include breakpoint('tablet') {
-      display: block;
+      @include breakpoint('tablet') {
+        display: flex;
+        gap: px-to-rem($space--xm);
+        flex: 1;
+      }
     }
 
+    &__wine {
+      flex: 1 0 0;
+
+      .heading {
+        text-align: center;
+      }
+
+      .anchor-link {
+        display: block;
+        text-align: center;
+      }
+    }
 
     &__item {
       color: $color--blue;
