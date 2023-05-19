@@ -1,4 +1,4 @@
-dateModified: 1682632549
+dateModified: 1684486841
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: 'Terra Verde'
@@ -261,6 +261,7 @@ meta:
     b67f46b2-ef36-4032-9237-2c14068a27a7: 'Abstand mittel' # Abstand mittel
     b205d303-121a-4aae-8c85-bb00a76f312a: Titel # Titel
     b696c979-d69e-481e-9fe6-248daa5b218a: Hintergrundfarbe # Hintergrundfarbe
+    b234429e-e8aa-45cb-9368-865e39d9f37a: 'Bild Detailseite' # Bild Detailseite
     bb672809-bd78-4ed8-b9cd-b634c8216640: Video # Video
     bcaacf3a-9840-4591-ab39-370581ab8eda: 'Karten Icons' # Karten Icons
     bcc2f7c9-e4b5-432b-b079-3cd963db5854: Produzenten # Produzenten
