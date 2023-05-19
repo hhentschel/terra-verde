@@ -1,4 +1,4 @@
-dateModified: 1684507093
+dateModified: 1684509324
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: 'Terra Verde'
@@ -71,6 +71,7 @@ meta:
     6dfef0ec-decc-450c-8400-fe2f9d6a01a1: Positionierung # Positionierung
     6f495a5e-4e7f-4c5d-9163-d674db71d0ea: 'Interner Link (hervorgehoben)' # Interner Link (hervorgehoben)
     07a64db3-fc15-40a2-af10-a8499ce5a108: VirtueMart-userInfo-Id # VirtueMart-userInfo-Id
+    7db4c821-db84-4144-b750-0170f1401afb: '' # 
     7f760799-8cd2-47b0-981a-c91cfe3036b4: AGB # AGB
     7fec1130-1fea-4054-9bcb-ddff47a64b84: 'Newsletter List' # Newsletter List
     08a487ae-35d0-46a6-b036-6dde9ca93d51: Blog # Blog
@@ -304,6 +305,7 @@ meta:
     d212ea74-5630-4a5d-9550-827a9623e32b: 'Subject Feld' # Subject Feld
     d438ea68-d87f-4238-b23e-cdaa8a840149: 'Produzenten Tags' # Produzenten Tags
     d595e861-4c06-4115-8656-93e95a495147: Notiz # Notiz
+    d833edb0-ac40-45aa-a109-8951fde17c85: Galerie # Galerie
     d953a3a0-62dc-4cd9-ad85-a7656faa8d58: Suche # Suche
     d1470d44-1f37-4fc8-997d-958262298de7: 'Rabatt 23% (Bachsermärte)' # Rabatt 23% (Bachsermärte)
     d5337c95-45d7-4dcf-9005-3c3ed8d37df1: 'Karten- Icons' # Karten- Icons

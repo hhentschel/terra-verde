@@ -286,6 +286,18 @@
         } %}
       {% endset %}
 
+      {# Bildgalerie Block #}
+    {% case 'imageGallery' %}
+      {% set cmt = cmt ? cmt : 'layout-helper__margin-top--m' %}
+      {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--l' %}
+      {% set colClasses =
+        'col col-xs-12 col-md-12 col-lg-12' %}
+      {% set contentBlock %}
+        {% include '_components/_content-elements/gallery' with {
+          items: block.children
+        } %}
+      {% endset %}
+
       {# Infobox Block #}
     {% case 'infobox' %}
       {% set cmt = cmt ? cmt : 'layout-helper__margin-top--m' %}

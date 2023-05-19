@@ -1,3 +1,6 @@
 <!-- Template: {{ _self }}.twig -->
 {% set file = devMode ? 'main.js' : 'main.min.js' %}
 <script src="{{ alias('@web') }}/assets/scripts/{{ file }}?v={{ getenv('SERVD_BUNDLE_HASH') }}" defer async></script>
+
+<!-- JavaScript -->
+<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
