@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5c0adeb801837f3f7e497f62cc8e7a17",
+    "content-hash": "36fbdd703c8c8f1817ce0c0937a3b675",
     "packages": [
         {
             "name": "aws/aws-crt-php",
@@ -9066,16 +9066,16 @@
         },
         {
             "name": "nystudio107/craft-autocomplete",
-            "version": "1.10.0",
+            "version": "1.11.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nystudio107/craft-autocomplete.git",
-                "reference": "7674239a9a9be4e39dda760befea3653657c8b04"
+                "reference": "157f6a7a10d36888f70772f9fdfc97e13a7a439c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nystudio107/craft-autocomplete/zipball/7674239a9a9be4e39dda760befea3653657c8b04",
-                "reference": "7674239a9a9be4e39dda760befea3653657c8b04",
+                "url": "https://api.github.com/repos/nystudio107/craft-autocomplete/zipball/157f6a7a10d36888f70772f9fdfc97e13a7a439c",
+                "reference": "157f6a7a10d36888f70772f9fdfc97e13a7a439c",
                 "shasum": ""
             },
             "require": {
@@ -9126,7 +9126,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-02-28T03:26:49+00:00"
+            "time": "2022-12-19T23:52:34+00:00"
         },
         {
             "name": "psy/psysh",
@@ -9281,5 +9281,5 @@
     "platform-overrides": {
         "php": "7.4.12"
     },
-    "plugin-api-version": "2.2.0"
+    "plugin-api-version": "2.3.0"
 }
