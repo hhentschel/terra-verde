@@ -33,7 +33,7 @@
           <div class="content__detail-image producers-overview__image">
             {% set transform = transformation|default('imageOneThird') %}
 
-            {% set img = entry.image.one() ?? null %}
+            {% set img = entry.imageDetailPage.one() ? entry.imageDetailPage.one() : entry.image.one() %}
             {% if img is defined %}
               {% include '_components/_content-elements/image' with {
                 img: img,
@@ -78,7 +78,7 @@
             </li>
           {% endfor %}
         </ul>
-        
+
       </div>
     </div>
   </section>
