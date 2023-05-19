@@ -1,0 +1,45 @@
+columnSuffix: tsnshhsh
+contentColumnType: string
+fieldGroup: bcc2f7c9-e4b5-432b-b079-3cd963db5854 # Produzenten
+handle: infoboxAlign
+instructions: ''
+name: 'Infobox Positionierung'
+searchable: false
+settings:
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - Links
+        -
+          - value
+          - 'col-md-shift-0 col-lg-shift-0'
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - Mitte
+        -
+          - value
+          - 'col-md-shift-1 col-lg-shift-2'
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - Rechts
+        -
+          - value
+          - 'col-md-shift-3 col-lg-shift-4 col-lg-shift-helper-4'
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\RadioButtons

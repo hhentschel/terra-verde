@@ -13,7 +13,7 @@ fieldLayouts:
             tip: null
             type: craft\fieldlayoutelements\CustomField
             warning: null
-            width: 50
+            width: 25
           -
             fieldUid: f836488e-b5ab-4d7d-8b93-f9d9fb95263f # Bild Alt-Text
             instructions: null
@@ -22,7 +22,7 @@ fieldLayouts:
             tip: null
             type: craft\fieldlayoutelements\CustomField
             warning: null
-            width: 50
+            width: 25
           -
             fieldUid: 79922ac9-edbc-44e9-850c-3995f6bcdbee # Bild Legende
             instructions: null
@@ -49,7 +49,7 @@ fieldLayouts:
             tip: null
             type: craft\fieldlayoutelements\CustomField
             warning: null
-            width: 100
+            width: 50
         name: Inhalt
         sortOrder: 1
 group: 911777fe-811a-46e9-bb80-0228ddd66234 # Medien

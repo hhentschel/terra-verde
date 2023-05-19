@@ -1,6 +1,7 @@
 {% set pageTitle = entry.pageTitle is not empty ? entry.pageTitle : entry.title %}
 
-<div class="col col-xs-12 col-md-12 col-lg-9 col-lg-shift-2">
+{# <div class="col col-xs-12 col-md-12 col-lg-9 col-lg-shift-2"> #}
+<div class="col col-xs-12 col-md-12 col-lg-12">
   {% block content %}
     <div class="content__detail-header">
       <div class="content__detail-image producers-overview__image">
@@ -19,7 +20,6 @@
         {{ pageTitle }}
       </h1>
       <div class="content__detail-meta">
-
         <span>{{ entry.author }}</span>, <span>{{ entry.postDate | date("d.m.Y") }}</span>
       </div>
 
@@ -27,7 +27,7 @@
 
     {% include '_components/_content-elements/content-elements-loop' with {
       contentElements: entry.contentElements.level(1),
-      usesGrid: false
+      usesGrid: true
     } %}
   {% endblock %}
 </div>

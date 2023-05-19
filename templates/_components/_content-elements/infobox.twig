@@ -1,0 +1,22 @@
+{% set infoboxTitle = block.titleH3 is defined and block.titleH3 is not empty
+  ? block.titleH3
+  : '' %}
+{% set infoboxText = block.textStandardWithoutH1 is defined and block.textStandardWithoutH1 is not empty
+  ? block.textStandardWithoutH1
+  : '' %}
+<div class="infobox layout-helper__margin-bottom--xs">
+
+  <div class="section-header__wrapper">
+    {% if infoboxTitle %}
+      <h2 class="infobox__heading heading heading--no-margin">
+        {{ infoboxTitle }}
+      </h2>
+    {% endif %}
+
+    {% if infoboxText %}
+      <div class="">
+        {{ infoboxText }}
+      </div>
+    {% endif %}
+  </div>
+</div>

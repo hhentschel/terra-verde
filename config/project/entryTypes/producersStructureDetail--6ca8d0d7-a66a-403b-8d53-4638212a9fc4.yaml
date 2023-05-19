@@ -34,7 +34,16 @@ fieldLayouts:
             tip: null
             type: craft\fieldlayoutelements\CustomField
             warning: null
-            width: 50
+            width: 25
+          -
+            fieldUid: b234429e-e8aa-45cb-9368-865e39d9f37a # Bild Detailseite
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 25
           -
             fieldUid: 269c37e5-8217-47e1-820c-5db4d8e8817a # Regionen
             instructions: null

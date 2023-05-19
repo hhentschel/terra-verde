@@ -1,4 +1,4 @@
-dateModified: 1682505199
+dateModified: 1684507093
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: 'Terra Verde'
@@ -194,6 +194,7 @@ meta:
     79922ac9-edbc-44e9-850c-3995f6bcdbee: 'Bild Legende' # Bild Legende
     86598fdd-8228-49e1-88da-4744029bfcef: 'Prdoukte Sortieren' # Prdoukte Sortieren
     87203f45-375b-40d7-98b8-3bdd33b721f1: 'Formatierter Text' # Formatierter Text
+    390892d3-b2a8-4210-a92a-65a000404089: Infobox # Infobox
     434736b1-3abc-42f8-8f60-2c69c3ada053: Beschriftung # Beschriftung
     547698ec-7561-4cee-95b1-f358f727b230: 'Interner Link (simple)' # Interner Link (simple)
     633900fd-0eae-4bfc-b2da-d85a3a01a68b: Produktbild # Produktbild
@@ -207,6 +208,7 @@ meta:
     9041254e-7c39-4bd9-9590-0a646283a360: 'Artikel Einheit (Gl, Fl, Dose, Stk., Kan.)' # Artikel Einheit (Gl, Fl, Dose, Stk., Kan.)
     10561167-3a73-493b-8f0f-48ce104e8c50: 'Anrede verwenden' # Anrede verwenden
     16265740-9a81-46f1-9fb8-99fc6b1a8e7f: 'Externer Link (mit Icon)' # Externer Link (mit Icon)
+    32255436-9130-46f8-89a7-da7a18284166: 'Infobox Positionierung' # Infobox Positionierung
     42065150-3e31-4dfa-ad7d-b6b95f0eba0f: 'Product Home' # Product Home
     75076778-568e-4d8c-8a9b-dadb8a0e180a: 'Bild / Bild - 50% / 50%' # Bild / Bild - 50% / 50%
     76367094-179e-4fc3-8e70-b0f8fccc3422: 'Shop Anpassungen' # Shop Anpassungen
@@ -261,6 +263,7 @@ meta:
     b67f46b2-ef36-4032-9237-2c14068a27a7: 'Abstand mittel' # Abstand mittel
     b205d303-121a-4aae-8c85-bb00a76f312a: Titel # Titel
     b696c979-d69e-481e-9fe6-248daa5b218a: Hintergrundfarbe # Hintergrundfarbe
+    b234429e-e8aa-45cb-9368-865e39d9f37a: 'Bild Detailseite' # Bild Detailseite
     bb672809-bd78-4ed8-b9cd-b634c8216640: Video # Video
     bcaacf3a-9840-4591-ab39-370581ab8eda: 'Karten Icons' # Karten Icons
     bcc2f7c9-e4b5-432b-b079-3cd963db5854: Produzenten # Produzenten
@@ -297,6 +300,7 @@ meta:
     d59a8a70-d5e0-42b4-b4d8-d3602f3bbe03: 'Produkt Bild' # Produkt Bild
     d63d76f8-75e4-40eb-9992-4ea21ba5b437: 'Artikel Zusatz Beschreibung' # Artikel Zusatz Beschreibung
     d74f6685-54ad-4654-b9dc-039321354725: Bild # Bild
+    d87ae540-a64c-4e54-ac23-844cb4371d36: '' # 
     d212ea74-5630-4a5d-9550-827a9623e32b: 'Subject Feld' # Subject Feld
     d438ea68-d87f-4238-b23e-cdaa8a840149: 'Produzenten Tags' # Produzenten Tags
     d595e861-4c06-4115-8656-93e95a495147: Notiz # Notiz
@@ -367,70 +371,6 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 2.0.0
-  blitz:
-    edition: standard
-    enabled: true
-    licenseKey: LC2KTOJEL1OHQOGRGMEVG9FB
-    schemaVersion: 3.10.0
-    settings:
-      apiKey: ''
-      cacheControlHeader: 'public, s-maxage=31536000, max-age=0'
-      cacheDuration: null
-      cacheElementQueries: true
-      cacheElements: true
-      cachePurgerType: putyourlightson\blitz\drivers\purgers\DummyPurger
-      cacheStorageSettings:
-        __assoc__:
-          -
-            - folderPath
-            - '@webroot/cache/blitz'
-          -
-            - createGzipFiles
-            - ''
-          -
-            - createBrotliFiles
-            - ''
-      cacheStorageType: putyourlightson\blitz\drivers\storage\FileStorage
-      cacheWarmerSettings:
-        __assoc__:
-          -
-            - concurrency
-            - '3'
-      cacheWarmerType: putyourlightson\blitz\drivers\warmers\GuzzleWarmer
-      cachingEnabled: ''
-      clearCacheAutomatically: '1'
-      customSiteUris: ''
-      debug: false
-      deployerType: putyourlightson\blitz\drivers\deployers\DummyDeployer
-      driverJobPriority: 100
-      excludedQueryStringParams:
-        - gclid
-        - fbclid
-      excludedUriPatterns: ''
-      includedQueryStringParams:
-        - '.*'
-      includedUriPatterns:
-        -
-          __assoc__:
-            -
-              - uriPattern
-              - '.*'
-      injectScriptEvent: DOMContentLoaded
-      integrations:
-        - putyourlightson\blitz\drivers\integrations\FeedMeIntegration
-        - putyourlightson\blitz\drivers\integrations\SeomaticIntegration
-      maxRetryAttempts: 10
-      mutexTimeout: 1
-      outputComments: true
-      queryStringCaching: '1'
-      queueJobTtr: 300
-      refreshCacheAutomaticallyForGlobals: true
-      refreshCacheJobPriority: 10
-      refreshCacheWhenElementSavedNotLive: false
-      refreshCacheWhenElementSavedUnchanged: false
-      sendPoweredByHeader: true
-      warmCacheAutomatically: '1'
-      warmPagesWithQueryStringParams: true
   blitz-recommendations:
     edition: standard
     enabled: true
@@ -844,24 +784,47 @@ plugins:
       errorTemplate: ''
       errorTitle: Fehler
       excludeControllerActions:
-        0:
-          - commerce/payments/pay
-        8:
-          - commerce/payments/complete-payment
-        9:
-          - users/save-user
-        10:
-          - users/login
-        11:
-          - shop/checkout/register-signin
-        12:
-          - users/send-password-reset-email
-        13:
-          - users/set-password
-        14:
-          - commerce/customer-addresses/save
-        15:
-          - commerce/cart/update-cart
+        __assoc__:
+          -
+            - 0
+            -
+              - commerce/payments/pay
+          -
+            - 18
+            -
+              - sprig-core/components/render
+          -
+            - 8
+            -
+              - commerce/payments/complete-payment
+          -
+            - 9
+            -
+              - users/save-user
+          -
+            - 10
+            -
+              - users/login
+          -
+            - 11
+            -
+              - shop/checkout/register-signin
+          -
+            - 12
+            -
+              - users/send-password-reset-email
+          -
+            - 13
+            -
+              - users/set-password
+          -
+            - 14
+            -
+              - commerce/customer-addresses/save
+          -
+            - 17
+            -
+              - commerce/cart/update-cart
       expirationTime: '60'
       fieldName: snaptcha
       logRejected: '1'
