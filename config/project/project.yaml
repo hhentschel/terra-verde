@@ -1,4 +1,4 @@
-dateModified: 1682632549
+dateModified: 1684916609
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: 'Terra Verde'
@@ -546,7 +546,7 @@ plugins:
   feed-me:
     edition: standard
     enabled: true
-    schemaVersion: 4.4.0
+    schemaVersion: 4.4.1
     settings:
       assetDownloadCurl: false
       backupLimit: 100
@@ -868,5 +868,5 @@ system:
   live: true
   name: 'Terra Verde'
   retryDuration: null
-  schemaVersion: 3.7.33
+  schemaVersion: 3.8.0.1
   timeZone: Europe/Zurich
