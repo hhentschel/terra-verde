@@ -50,6 +50,7 @@ $maxtrix-image-gap: px-to-rem($space--m);
     margin-top: px-to-rem($space--xxs);
   }
 
+
   &-matrix__container {
     display: flex;
     flex-wrap: wrap;
@@ -58,5 +59,7 @@ $maxtrix-image-gap: px-to-rem($space--m);
     .image--half {
       margin: 0;
     }
+
+
   }
 }
