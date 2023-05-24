@@ -10,7 +10,6 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
 }
 
 .shop {
-
   &__board {
     display: flex;
     flex-wrap: wrap;
@@ -387,7 +386,6 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
     }
   }
 
-
   &__item {
     width: 100%;
     display: flex;
@@ -578,7 +576,6 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
       }
     }
 
-
     &__no-result {
       text-align: center;
       padding: px-to-rem($space--xm);
@@ -587,6 +584,11 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
       font-size: px-to-rem($font-size-xm);
     }
   }
-
 }
 
+.loading-button__indicator--loading {
+  .button--primary__text,
+  .icon--check {
+    display: none;
+  }
+}

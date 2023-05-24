@@ -26,92 +26,6 @@
         </h2>
 
         <div class="">
-
-          {# <form method="post" action="">
-            {{ csrfInput() }}
-            {{ actionInput('commerce/cart/update-cart') }}
-            {{ successMessageInput('Addresses selected.') }}
-            {{ redirectInput('shop/checkout/shipping') }}
-
-            {% if not cart.email %}
-              <div class="mb-6">
-                <label for="email">{{ 'Email'|t }}</label>
-                {{ input('email', 'email', cart.email, {
-                  id: 'email',
-                  placeholder: 'email@site.com',
-                  class: ['w-full', 'border border-gray-300 hover:border-gray-500 px-4 py-2 leading-tight rounded']
-                }) }}
-                <span class="flash">{{ cart.getErrors('email')|join }}</span>
-              </div>
-            {% endif %}
-
-            {{ include('shop/_includes/addresses/fieldset', {
-              title: 'Shipping Address'|t,
-              classes: 'ShippingAddress',
-              name: 'shippingAddress'
-            }) }}
-
-            <a class="forms__checkout--link link"
-               href="{{ url('shop/customer/addresses/edit') }}">
-              Neue Adresse hinzufügen
-            </a>
-
-            <hr class="my-5">
-
-            {{ hiddenInput('billingAddressSameAsShipping', 0) }}
-
-            <div class="mt-3">
-              <label>
-                {{ input('checkbox', 'billingAddressSameAsShipping', 1, {
-                  id: 'billingAddressSameAsShipping',
-                  checked: true
-                }) }}
-                {{ 'Use same address for billing'|t }}
-              </label>
-            </div>
-
-            <div class="mt-3">
-              <label>
-                {{ input('checkbox', 'makePrimaryShippingAddress', 1, {
-                  id: 'makePrimaryShippingAddress',
-                }) }}
-                {{ 'Make this my default shipping address'|t }}
-              </label>
-            </div>
-
-            <div class="mt-8">
-              {{ include('shop/_includes/addresses/fieldset', {
-                title: 'Billing Address'|t,
-                classes: 'BillingAddress hidden',
-                name: 'billingAddress'
-              }) }}
-            </div>
-
-            <hr class="my-5">
-
-            <div class="mt-3">
-              <label>
-                {{ input('checkbox', 'makePrimaryBillingAddress', 1, {
-                  id: 'makePrimaryBillingAddress',
-                }) }}
-                {{ 'Make this my default billing address'|t }}
-              </label>
-            </div>
-
-            <div class="mt-3 flex justify-end">
-              {{ tag('button', {
-                type: 'submit',
-                class: 'cursor-pointer rounded px-4 py-2 inline-block bg-blue-500 hover:bg-blue-600 text-white hover:text-white',
-                text: 'Confirm addresses'|t
-              }) }}
-            </div>
-
-            <input type="submit"
-                   class="input input__primary"
-                   value="Adresse bestätigen und weiter"/>
-          </form> #}
-
-
           <form method="post" action="">
             {{ csrfInput() }}
             {{ actionInput('commerce/cart/update-cart') }}
@@ -154,10 +68,6 @@
                 {{ 'Gewählte Adresse auch als Rechnungsadresse verwenden'|t }}
               </label>
 
-              {# <a class="forms__checkout--link link"
-                 href="{{ url('shop/customer/addresses/edit') }}">
-                Neue Adresse hinzufügen
-              </a> #}
               <div class="address-list__container">
                 <span class="address-list__container-info">Bitte wählen Sie eine Adresse aus ihrem Profil aus, indem Sie auf die Adresse klicken. Oder fügen Sie eine
                 <a class="link"
@@ -173,37 +83,6 @@
                     name: 'billingAddress'
                   }) }}
                 </div>
-              </div>
-
-
-              <div class="cart-container__checkboxes">
-                {# <div class="selection--checkbox">
-                  {{ input('checkbox', 'makePrimaryShippingAddress', 1, {
-                    id: 'makePrimaryShippingAddress',
-                    class: "selection__input",
-                  }) }}
-                  <label for="makePrimaryShippingAddress" class="selection__label">
-                    {{ 'Gewählte Adresse als primäre Versandadresse festlegen'|t }}
-                  </label>
-                </div> #}
-
-                {# <div class="mt-8">
-                  {{ include('shop/_includes/addresses/fieldset', {
-                    title: 'Billing Address'|t,
-                    class: 'BillingAddress hidden',
-                    name: 'billingAddress'
-                  }) }}
-                </div> #}
-
-                {# <div class="selection--checkbox">
-                  {{ input('checkbox', 'makePrimaryBillingAddress', 1, {
-                    id: 'makePrimaryBillingAddress',
-                    class: "selection__input",
-                  }) }}
-                  <label for="makePrimaryBillingAddress" class="selection__label">
-                    {{ 'Gewählte Adresse als primäre Rechnungsadresse festlegen'|t }}
-                  </label>
-                </div> #}
               </div>
 
               <div>
@@ -286,7 +165,7 @@
             </div>
 
             {# Outputs a hidden input field #}
-            {{ craft.snaptcha.field }}
+            {# {{ craft.snaptcha.field }} #}
 
           </form>
 

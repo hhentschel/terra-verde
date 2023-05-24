@@ -60,15 +60,6 @@
             <div class="ordersummary__info-data">{{ order.orderNotes }}</div>
           </div>
         {% endif %}
-        
-        {# {% if order.pdfUrl %}
-                    <div class="ordersummary__info">
-                        <div class="ordersummary__info-term">PDF:</div>
-                        <div class="ordersummary__info-data">
-                          <a href="{{ order.getPdfUrl('receiptOrderPdf') }}">Download</a>
-                        </div>
-                    </div>
-                {% endif %} #}
       </div>
     </div>
 
@@ -79,9 +70,6 @@
             <h4 class="layout-helper__margin-top--none">Versandadresse</h4>
             {% if order.shippingAddress %}
               {% include 'shop/_includes/addresses/address' with { address: order.shippingAddress } %}
-              {# {% if order.shippingAddress.sameAs(order.billingAddress) %}
-                        <p>Adressen sind identisch</p>
-                    {% endif %} #}
             {% else %}
               <p>Nicht eingegeben.</p>
             {% endif %}
@@ -93,9 +81,7 @@
           <h4 class="layout-helper__margin-top--none">Rechnungsadresse</h4>
           {% if order.billingAddress %}
             {% include 'shop/_includes/addresses/address' with { address: order.billingAddress } %}
-            {# {% if order.billingAddress.sameAs(order.shippingAddress) %}
-                        <p>Adressen sind identisch</p>
-                    {% endif %} #}
+
           {% else %}
             <p>Nicht eingegeben</p>
           {% endif %}
@@ -128,8 +114,6 @@
                   <div class="pr-2 uppercase">Notiz</div>
                   <div>{{ item.note }}</div>
                 </div>
-                {# <code class="text-xs p-3 pt-8 bg-gray-100 inline-block tracking-wider font-mono text-gray-600">{{ item.options|length ? item.options|json_encode : 'keine Zusatzoptionen.' }}</code>
-                          <span class="absolute top-0 left-0 pt-2 pl-2 text-2xs text-gray-500 uppercase tracking-wider">Optionen</span> #}
               </div>
             {% endif %}
           </td>

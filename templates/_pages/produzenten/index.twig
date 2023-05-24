@@ -1,72 +1,59 @@
 {% extends '_layouts/main' %}
-{% set pageTitle = entry.pageTitle is not empty ? entry.pageTitle : entry.title %}
+{% set pageTitle = entry.pageTitle is not empty ? entry.pageTitle : entry.title
+%}
 
 {% set allManufactors =
-  craft.entries.section('producersStructure').level(1).all() %}
+  craft.entries.section('producersStructure').level(1).all()
+%}
 
-{% set entry = craft.entries()
-  .section('producersOverview')
-  .with([
-    ['mapMobile', {
-      withTransforms: ['imageContentFull']
-    }]
-  ])
-  .one() %}
+{% set entry =
+  craft.entries().section('producersOverview').with(
+    [
+      [
+        'mapMobile',
+        {
+          withTransforms: ['imageContentFull']
+        }
+      ]
+    ]
+  ).one()
+%}
 
 {# Set up Regions #}
-{% set regionIT = craft.categories()
-  .slug('italy')
-  .one() %}
-{% set regionES = craft.categories()
-  .slug('spain')
-  .one() %}
-{% set regionDE = craft.categories()
-  .slug('germany')
-  .one() %}
-{% set regionFR = craft.categories()
-  .slug('france')
-  .one() %}
-{% set regionPOR = craft.categories()
-  .slug('portugalwine')
-  .one() %}
-{% set regionBO = craft.categories()
-  .slug('bosnia')
-  .one() %}
+{% set regionIT = craft.categories().slug('italy').one() %}
+{% set regionES = craft.categories().slug('spain').one() %}
+{% set regionDE = craft.categories().slug('germany').one() %}
+{% set regionFR = craft.categories().slug('france').one() %}
+{% set regionPOR = craft.categories().slug('portugalwine').one() %}
+{% set regionBO = craft.categories().slug('bosnia').one() %}
 
 {# Get all Producers from IT #}
 {% set allManufactorsIT =
-  craft.entries.section('producersStructure')
-    .relatedTo(regionIT)
-    .level(1)
-    .all() %}
+  craft.entries.section('producersStructure').relatedTo(regionIT).level(1).all()
+%}
 
 {# Get all Producers NOT from IT #}
-{% set allManufactorsNOTIT = craft.entries.section('producersStructure')
-  .relatedTo([ 'or', regionES, regionDE, regionFR, regionPOR, regionBO])
-  .all() %}
-
-
-
+{% set allManufactorsNOTIT =
+  craft.entries.section('producersStructure').relatedTo(
+    ['or', regionES, regionDE, regionFR, regionPOR, regionBO]
+  ).all()
+%}
 
 {# Set up Producers who sell Food #}
-{% set manufactorFood = craft.categories()
-  .slug('food')
-  .one() %}
+{% set manufactorFood = craft.categories().slug('food').one() %}
 
 {# Set up Producers who sell Wine #}
-{% set manufactorWine = craft.categories()
-  .slug('wine')
-  .one() %}
+{% set manufactorWine = craft.categories().slug('wine').one() %}
 
 {# Get all Producers who sell Food #}
-{% set allManufactorsFood = craft.entries.section('producersStructure')
-  .relatedTo([ manufactorFood ])
-  .all() %}
+{% set allManufactorsFood =
+  craft.entries.section('producersStructure').relatedTo([manufactorFood]).all()
+%}
 
 {# Get all Producers who sell Wine #}
-{% set allManufactorsWine = craft.entries.section('producersStructure')
-  .relatedTo([ manufactorWine ])
-  .all() %}
+{% set allManufactorsWine =
+  craft.entries.section('producersStructure').relatedTo([manufactorWine]).all()
+%}
 
 {% block content %}
   <div class="grid">
@@ -86,8 +73,7 @@
         {% include '_pages/produzenten/map' %}
 
         <div class="producers-map__mobile">
-          {% set transform =
-            transformation|default('imageContentFull') %}
+          {% set transform = transformation|default('imageContentFull') %}
           {% set img = entry.mapMobile[0] ?? null %}
           {% if img is defined %}
             {% include '_components/_content-elements/image' with {
@@ -100,11 +86,15 @@
 
       <div class="col col-xs-12 col-md-5 col-lg-5">
         <ul class="producers-list">
-          <h3 class="heading heading-3 layout-helper__margin-top--none">Lebensmittel</h3>
+          <h3 class="heading heading-3 layout-helper__margin-top--none">
+            Lebensmittel
+          </h3>
           {% for entry in allManufactorsFood %}
             <li>
-              <a href="{{ entry.url }}" data-id="{{ entry.id }}" title="{{ entry.title }}"
-                 class="producers-list__item map-link">
+              <a href="{{ entry.url }}"
+                data-id="{{ entry.id }}"
+                title="{{ entry.title }}"
+                class="producers-list__item map-link">
                 {{ entry.title }}
               </a>
             </li>
@@ -112,11 +102,15 @@
         </ul>
 
         <ul class="producers-list">
-          <h3>Weine</h3>
+          <h3>
+            Weine
+          </h3>
           {% for entry in allManufactorsWine %}
             <li>
-              <a href="{{ entry.url }}" data-id="{{ entry.id }}" title="{{ entry.title }}"
-                 class="producers-list__item map-link">
+              <a href="{{ entry.url }}"
+                data-id="{{ entry.id }}"
+                title="{{ entry.title }}"
+                class="producers-list__item map-link">
                 {{ entry.title }}
               </a>
             </li>
@@ -125,7 +119,9 @@
 
         {# <ul class="producers-list">
           {% for entry in allManufactorsNOTIT %}
-        #}{# Fetch all of the categories related to this entry #}{#
+        #}
+        {# Fetch all of the categories related to this entry #}
+        {#
         {% set categories = craft.categories.relatedTo(entry) %}
 
         <li>
@@ -136,15 +132,15 @@
       {% endfor %}
     </ul> #}
       </div>
-
-
     </div>
   </section>
 
-  <section class=" grid">
+  <section class="grid">
     <div class="row">
       <div class="col col-xs-12 col-md-12 col-lg-12">
-        <h2>Lebensmittel</h2>
+        <h2>
+          Lebensmittel
+        </h2>
         <ul class="producers-grid">
           {% if allManufactorsFood|length %}
             {% for entry in allManufactorsFood %}
@@ -153,7 +149,9 @@
           {% endif %}
         </ul>
 
-        <h2>Weine</h2>
+        <h2>
+          Weine
+        </h2>
         <div class="producers-grid">
           {% if allManufactorsWine|length %}
             {% for entry in allManufactorsWine %}

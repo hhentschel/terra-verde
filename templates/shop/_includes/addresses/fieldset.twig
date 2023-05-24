@@ -35,38 +35,6 @@
                 </a>
               </span>
             </span>
-            {#            <span class="cart-box__select-hint">
-              {% if cart.customer.primaryBillingAddressId == address.id %}
-                <span title="{{ 'Primary billing address'|t }}">
-                  <svg class="icon--check"
-                       xmlns="http://www.w3.org/2000/svg"
-                       viewBox="0 0 20 20"
-                       fill="currentColor"
-                       role="img" aria-label="Check Mark">
-                        <path fill-rule="evenodd"
-                              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                              clip-rule="evenodd"/>
-                    </svg>
-                  Primäre Rechnungsadresse
-            #}{# 💳 #}{#
-            </span>
-          {% endif %}
-          {% if cart.customer.primaryShippingAddressId == address.id %}
-            <span title="{{ 'Primary shipping address'|t }}">
-              <svg class="icon--check"
-                   xmlns="http://www.w3.org/2000/svg"
-                   viewBox="0 0 20 20"
-                   fill="currentColor"
-                   role="img" aria-label="Check Mark">
-                    <path fill-rule="evenodd"
-                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                          clip-rule="evenodd"/>
-                </svg>
-              Primäre Versandadresse
-            #}{# 📦 #}{#
-            </span>
-          {% endif %}
-        </span> #}
           </label>
         </div>
       {% endfor %}
@@ -74,80 +42,12 @@
   {% endif %}
 
 
-
-  {#  {% if addresses and currentUser %}
-
-    <div class="">
-      {% for address in addresses %}
-        {% if
-          primaryShippingAddress
-          and primaryShippingAddress.id == address.id %}
-          <div class="adress-container">
-            <div class="radio-container">
-              <h2 class="heading heading--2 heading--no-margin-top">
-                Versandadresse
-              </h2>
-
-              <div class="radio-container__box">
-                <div class="radio-container__radio radio-container__box js-radio">
-                  {% include 'shop/_includes/addresses/address' %}
-                </div>
-                <div class="button-container">
-                  <a class="button button--primary button--success"
-                     href="{{ url('shop/customer/addresses/edit?addressId='~ address.id ~'&redirect='~craft.app.request.fullPath) }}">Bearbeiten</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        {% endif %}
-
-
-        {% if
-          primaryBillingAddress
-          and primaryBillingAddress.id == address.id %}
-          <div class="adress-container">
-            <div class="radio-container">
-              <h2 class="heading heading--2 heading--no-margin-top">
-                Rechnungsadresse
-              </h2>
-
-              <div class="radio-container__box">
-                <div class="radio-container__radio radio-container__box js-radio">
-                  {% include 'shop/_includes/addresses/address' %}
-                </div>
-                <div class="button-container">
-                  <a class="button button--primary button--success"
-                     href="{{ url('shop/customer/addresses/edit?addressId='~ address.id ~'&redirect='~craft.app.request.fullPath) }}">Bearbeiten</a>
-                </div>
-              </div>
-
-            </div>
-
-          </div>
-        {% endif %}
-
-      {% endfor %}
-
-    </div>
-  {% endif %} #}
-
   <div class="js-address-select" data-model-name="{{ name }}">
     {% if attribute(cart, name ~ 'Id') %}
       {% set addressHasErrors = attribute(cart, name).hasErrors() %}
     {% else %}
       {% set addressHasErrors = false %}
     {% endif %}
-
-    {#    {% if currentUser %}
-      <div class="js-radio">
-        <label>
-          {{ input('radio', name ~ 'Id', '', {
-            checked: not addresses|length or addressHasErrors
-          }) }}
-          {{ 'New {title}'|t({ title: title }) }}
-        </label>
-      </div>
-    {% endif %} #}
 
     <div class="js-body{% if currentUser %} hidden{% endif %}">
       {% if addressHasErrors %}<span class="flash">{{ cart.getErrors(name)|join }}</span><br>{% endif %}
