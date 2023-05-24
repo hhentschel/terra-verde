@@ -1,0 +1,21 @@
+columnSuffix: null
+contentColumnType: string
+fieldGroup: 99dbe745-472a-4403-8fbe-15424920fb29 # Newsletter
+handle: itemsShopPrivate
+instructions: ''
+name: 'Produkte (Privatkunden)'
+searchable: false
+settings:
+  allowSelfRelations: false
+  limit: ''
+  localizeRelations: false
+  selectionLabel: ''
+  showSiteMenu: true
+  source: null
+  sources: '*'
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: null
+translationKeyFormat: null
+translationMethod: site
+type: craft\commerce\fields\Products

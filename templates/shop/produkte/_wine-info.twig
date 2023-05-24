@@ -24,7 +24,7 @@
 
 {% set product = craft.products.id(productId).one() %}
 
-<a href="javascript: history.back()" class="product-detail__button-back product-detail__button-back-arrow">Zurück zur
+<a href="/shop" class="product-detail__button-back product-detail__button-back-arrow">Zurück zur Shop-
   Übersicht</a>
 
 <h2 class="heading layout-helper__margin-top--s">
@@ -69,7 +69,7 @@
             <div class="bis-signup__registration-fields">
 
               {# Outputs a hidden input field #}
-              {# {{ craft.snaptcha.field }} #}
+              {{ craft.snaptcha.field }}
 
               <input class="input bis-signup__registration-input"
                      name="email" type="email" value="{{ cart.email }}"
@@ -186,6 +186,9 @@
 
           </div>
         {% endfor %}
+
+        {# Outputs a hidden input field #}
+        {{ craft.snaptcha.field }}
 
       </div>
     </form>

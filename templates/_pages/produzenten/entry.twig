@@ -2,7 +2,6 @@
 {% set pageTitle = entry.pageTitle is not empty ? entry.pageTitle : entry.title %}
 {% set products = entry.productsManufactor.all() %}
 
-{# {% set manufactors = product.mancufactors.all() %} #}
 
 {% block content %}
   <div class="grid">
@@ -15,6 +14,17 @@
       </div>
     </div>
   </div>
+
+  <div class="grid">
+    <div class="row">
+      <div class="col col-xs-12 col-md-12 col-lg-12">
+        <a href="/produzenten" class="producers-detail__button-back product-detail__button-back-arrow">Zurück zur
+          Produzent:innen-Übersicht</a>
+      </div>
+    </div>
+  </div>
+
+
 
   <section class="grid">
     <div class="row">
@@ -46,18 +56,19 @@
           <h3 class="heading heading--3">
             Produkte
           </h3>
+
+
         {% endif %}
 
         <ul class="producers-detail__product-list">
           {% for product in products %}
 
-            {% set manufactorproducts = (product.title) ~ ', ' ~ (product.articleVolume) ~ (product.articleVolumeUnit) %}
-
             {% set variant = product.defaultVariant %}
+            {% set manufactorproducts = (product.title) ~ ', ' ~ (variant.articleVolume) ~ (variant.articleVolumeUnit) %}
 
             <li>
               {% include '_components/_content-elements/link' with {
-                linkUrl: product.url(),
+                linkUrl: product.url,
                 linkText: manufactorproducts,
                 target: 'internal',
                 iconPosition: 'after',
@@ -67,26 +78,7 @@
             </li>
           {% endfor %}
         </ul>
-
-
-        {# //Tags #}
-
-        {# {% set myTagQuery = craft.tags().group('aehnlicheProduzenten') %}
-
-      {% set tags = myTagQuery.all() %}
-      <ul>
-          {% for tag in tags %}
-              <li><a href="{{ url('blog/tags/'~tag.id) }}">{{ tag.title }}</a></li>
-          {% endfor %}
-      </ul>
-
-
-      {% set similarEntriesByTags = craft.similar.find({ element: entry, context: entry.manufactorTags }) %}
-      <ul>
-      {% for similarEntry in similarEntriesByTags %}
-          <li>{{ similarEntry.title }} ({{ similarEntry.count }} tags in common)</li>
-      {% endfor %}
-      </ul> #}
+        
       </div>
     </div>
   </section>

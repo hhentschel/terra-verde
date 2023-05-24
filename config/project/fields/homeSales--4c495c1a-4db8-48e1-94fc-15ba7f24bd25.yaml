@@ -7,7 +7,7 @@ name: Aktionen
 searchable: true
 settings:
   allowSelfRelations: false
-  limit: '3'
+  limit: ''
   localizeRelations: false
   selectionLabel: ''
   showSiteMenu: true

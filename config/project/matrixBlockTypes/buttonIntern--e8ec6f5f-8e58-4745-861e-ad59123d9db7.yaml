@@ -1,0 +1,171 @@
+field: a48a5f48-ae99-438a-94f7-9574fe7fbf92 # Inhaltselemente
+fieldLayouts:
+  c35273b8-7f72-4ff5-a485-5d6ac6bc9ae3:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 434736b1-3abc-42f8-8f60-2c69c3ada053 # Beschriftung
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: fbf6aa44-6b72-479a-a2c3-8d5390518d79 # Hintergrundfarbe
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: edfc52a4-9dff-4e04-81f4-6d826098e96b # Textfarbe
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: be68d56e-086c-4caa-b7e9-8d0d1da88a76 # Link Intern
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 6dfef0ec-decc-450c-8400-fe2f9d6a01a1 # Positionierung
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  6dfef0ec-decc-450c-8400-fe2f9d6a01a1: # Positionierung
+    columnSuffix: quefiiwg
+    contentColumnType: string
+    fieldGroup: null
+    handle: buttonInAlign
+    instructions: ''
+    name: Positionierung
+    searchable: false
+    settings:
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - Links
+            -
+              - value
+              - left
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Mitte
+            -
+              - value
+              - middle
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Rechts
+            -
+              - value
+              - right
+            -
+              - default
+              - '1'
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\RadioButtons
+  434736b1-3abc-42f8-8f60-2c69c3ada053: # Beschriftung
+    columnSuffix: fdpognyi
+    contentColumnType: text
+    fieldGroup: null
+    handle: buttonInText
+    instructions: ''
+    name: Beschriftung
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  be68d56e-086c-4caa-b7e9-8d0d1da88a76: # Link Intern
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: buttonInAddress
+    instructions: ''
+    name: 'Link Intern'
+    searchable: false
+    settings:
+      allowSelfRelations: false
+      limit: '1'
+      localizeRelations: false
+      selectionLabel: ''
+      showSiteMenu: true
+      source: null
+      sources: '*'
+      targetSiteId: null
+      validateRelatedElements: false
+      viewMode: null
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Entries
+  edfc52a4-9dff-4e04-81f4-6d826098e96b: # Textfarbe
+    columnSuffix: pgcqgizt
+    contentColumnType: string(7)
+    fieldGroup: null
+    handle: buttonInTextColor
+    instructions: ''
+    name: Textfarbe
+    searchable: false
+    settings:
+      defaultColor: '#ffffff'
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Color
+  fbf6aa44-6b72-479a-a2c3-8d5390518d79: # Hintergrundfarbe
+    columnSuffix: skjtbrgl
+    contentColumnType: string(7)
+    fieldGroup: null
+    handle: buttonInBackgroundColor
+    instructions: ''
+    name: Hintergrundfarbe
+    searchable: false
+    settings:
+      defaultColor: '#000000'
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Color
+handle: buttonIntern
+name: 'Button Intern'
+sortOrder: 9

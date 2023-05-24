@@ -1,0 +1,19 @@
+columnSuffix: hdljadny
+contentColumnType: text
+fieldGroup: 99dbe745-472a-4403-8fbe-15424920fb29 # Newsletter
+handle: subjectFieldNewsletter
+instructions: 'Wird nicht im Newsletter Inhaltsbereich angezeigt, sondern im Preview / Subject Line.'
+name: 'Subject Feld'
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: null
+  code: ''
+  columnType: null
+  initialRows: '4'
+  multiline: ''
+  placeholder: null
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

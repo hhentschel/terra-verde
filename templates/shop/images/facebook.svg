@@ -1,0 +1,3 @@
+<svg viewBox="0 0 11 18" width="30px" height="30px" x="{{ entry.manufactorLatitude }}" y="{{ entry.manufactorLongitude }}" xmlns="http://www.w3.org/2000/svg">
+  <path class="facebook" d="M3.068 18v-7.8H0V6.6h3.068V4.086C3.068 1.347 5.054 0 7.853 0c1.341 0 2.494.087 2.83.126v2.862H8.74c-1.522 0-1.866.632-1.866 1.559V6.6H11l-1.375 3.6h-2.75V18z"/>
+</svg>

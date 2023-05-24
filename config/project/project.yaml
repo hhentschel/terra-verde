@@ -1,4 +1,4 @@
-dateModified: 1675775226
+dateModified: 1682632549
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: 'Terra Verde'
@@ -11,6 +11,7 @@ email:
 meta:
   __names__:
     00a72f8a-e7ae-4303-bcc0-e693888454a0: Geschenke # Geschenke
+    0b04ffdc-fdb6-42d6-b217-167cfa58a455: 'Produzent:innen Map Icon' # Produzent:innen Map Icon
     0b42c27d-7e98-4101-b0bd-4f1dacb84869: 'Youtube Video Src' # Youtube Video Src
     0cbcf3ca-9627-47fb-9dd3-c2e6a8a7b86b: Shop # Shop
     0ea32ec6-2007-4dcf-b0f1-12ac84095283: Bild # Bild
@@ -56,6 +57,8 @@ meta:
     05cb055e-53ce-470a-9d53-333696986ac7: Zusatz # Zusatz
     5ef15fca-47ed-4dee-adec-77febb2c6249: Hintergrundfarbe # Hintergrundfarbe
     05f55dad-fac0-482c-95a1-3b41ffa621c1: 'Kategorien (Weine)' # Kategorien (Weine)
+    6a02f93d-f0bf-453f-935a-b0ef6ade8e5b: 'Bild Alt-Text' # Bild Alt-Text
+    6bc749d9-f805-48a4-b8de-1702b40ae534: 'Bild Matrix' # Bild Matrix
     06be1401-4934-4dfa-9342-a78552156b4e: 'Textfeld hinzufügen' # Textfeld hinzufügen
     06c0da13-2423-4cbb-8b58-6dddb456fa8c: 'Artikel Einheit Gewicht/Volumen' # Artikel Einheit Gewicht/Volumen
     6c0e2ddc-0771-4d85-91e8-370646ba43f0: AGB # AGB
@@ -65,6 +68,7 @@ meta:
     6d38f976-5e94-4016-abac-a9e2da77ab07: Impressum # Impressum
     06d544a4-f99f-422c-b445-cb1b03a87860: Vinifikation # Vinifikation
     006dbb77-603b-4fa5-b89c-16c62df53342: Login # Login
+    6dfef0ec-decc-450c-8400-fe2f9d6a01a1: Positionierung # Positionierung
     6f495a5e-4e7f-4c5d-9163-d674db71d0ea: 'Interner Link (hervorgehoben)' # Interner Link (hervorgehoben)
     07a64db3-fc15-40a2-af10-a8499ce5a108: VirtueMart-userInfo-Id # VirtueMart-userInfo-Id
     7f760799-8cd2-47b0-981a-c91cfe3036b4: AGB # AGB
@@ -78,9 +82,11 @@ meta:
     8e2bbb53-7b2a-493f-9592-4847ec7d1194: Produzenten # Produzenten
     8e510c18-b6c3-47e7-aa2a-ba9bb8147ce7: 'Produzent:innen' # Produzent:innen
     8fa0d8eb-0c01-49db-a2ba-515d571b8805: 'Passt zu' # Passt zu
+    08ff3872-a05e-4722-868b-6bbe52bad972: Produzenten # Produzenten
     9bfae22d-cf09-477b-8222-028196b40c01: 'Titel H2' # Titel H2
     9cc5f98d-af34-4b84-a575-6d7228dc3494: Farbe # Farbe
     9dd685d0-40db-4d68-81b5-48322accac9a: Zustimmung # Zustimmung
+    9eabbd70-49cd-4891-a2d1-2f79a0f285fc: Hintergrundfarbe # Hintergrundfarbe
     9ebc7c8b-c103-4448-b46f-2b29f154a805: SEO # SEO
     9efdc3ee-64c5-4d32-a3e9-e133c73a1c54: 'Produzenten Übersicht' # Produzenten Übersicht
     9f46731d-7fdd-4245-9ca1-719db0672448: Inhaltselemente # Inhaltselemente
@@ -110,12 +116,15 @@ meta:
     62aa7cc1-c9ad-4ef4-9d94-4fc3275ba26a: Produzenten # Produzenten
     63fb2479-518b-42d4-b388-594c194ee08d: Bestell-PDF # Bestell-PDF
     072ea0f1-6edc-4617-a088-60b1c99374ba: 'Karten Vorschaubild' # Karten Vorschaubild
+    78e66304-15bb-4b53-a1ab-ee1c29492bd3: 'Karten - Icon' # Karten - Icon
+    81d3dd96-7230-437b-8411-d2d56531d649: 'Produkte (Detailhandel)' # Produkte (Detailhandel)
     81f5a5aa-48c2-4dd4-9c77-0bf699ac2423: Weine # Weine
     81fa4d93-70d8-41a1-b50f-cac685f28201: Hintergrundfarbe # Hintergrundfarbe
     84b58543-313b-40d6-a50b-2fbf9262c271: Benutzer # Benutzer
     84e9acf3-3abc-4c6e-9375-3a7093c1a3d6: 'Youtube Video Source' # Youtube Video Source
     85ecf639-70f3-47d4-8ad7-c2996049794d: 'Über uns' # Über uns
     86c08488-49e8-48fc-8daf-61b59aaf31fa: 'Button Link auf Eintrag' # Button Link auf Eintrag
+    87bf0c7b-cc67-4a6f-a928-5387e6267e85: Textfarbe # Textfarbe
     89ad33ad-9a9f-47d3-b684-df1fe536b538: 'Contact Form' # Contact Form
     090ca3e8-52f7-44f4-8eb1-31b1d8706ff5: Hersteller # Hersteller
     90ef89be-0cc4-42b9-881d-b782644c5701: Akkordeon # Akkordeon
@@ -123,13 +132,13 @@ meta:
     93be6bc6-5c6c-4bc1-9542-05ce2d7fe57b: 'Blog-Bild Vorschau' # Blog-Bild Vorschau
     95d567e2-ef54-4216-b7bf-f3afd51b9ddd: 'Kreditkarte, Postfinance, Twint' # Kreditkarte, Postfinance, Twint
     97b7e259-6116-4890-be78-8fba45ab52d0: Produkte # Produkte
-    97ff157d-5ed8-4a67-a839-94a32375265f: Produkte # Produkte
+    97ff157d-5ed8-4a67-a839-94a32375265f: 'Produkte (Privatkunden)' # Produkte (Privatkunden)
     99dbe745-472a-4403-8fbe-15424920fb29: Newsletter # Newsletter
     105f3719-0e2b-409f-851b-64e895b976aa: Redakteure # Redakteure
     121a4c00-ea55-46f5-b606-4288506164da: 'Kategorien (Status)' # Kategorien (Status)
     127bba7e-6a96-4ffa-8cbb-f4c17d39e347: Team # Team
     149a3219-5b27-4275-8a0f-b97cbff1e3ec: Shop # Shop
-    169ef8db-7ba9-459c-b40f-17678b94dce7: Longitude # Longitude
+    169ef8db-7ba9-459c-b40f-17678b94dce7: x-Achse # x-Achse
     219d5317-b509-4c72-87a2-15026938e903: Blog # Blog
     269c37e5-8217-47e1-820c-5db4d8e8817a: Regionen # Regionen
     273d5a0c-4e06-47ec-8a4b-c1fcffa5684d: 'Mindestbestellwert (betrifft nur Detailhandel) - Privat ist Mindestbestellwert generell deaktiviert.' # Mindestbestellwert (betrifft nur Detailhandel) - Privat ist Mindestbestellwert generell deaktiviert.
@@ -139,12 +148,14 @@ meta:
     421eaf0b-f542-45ff-8051-2921d93b3eeb: Vorschautext # Vorschautext
     0434bb85-e818-4834-be05-c89d49427ca9: 'Quicklinks Liste' # Quicklinks Liste
     437e0241-3704-4701-a904-0082985e64ed: 'Externer Link' # Externer Link
-    439c86f8-b7ed-48bd-a46c-c2b9f29de26d: Produkte # Produkte
+    439c86f8-b7ed-48bd-a46c-c2b9f29de26d: 'Produkte (Privatkunden)' # Produkte (Privatkunden)
     442d67d8-a8df-49bb-9ea3-bc0a6323ce71: 'Überschrift Grösse' # Überschrift Grösse
     523ac297-f2c3-49a9-bb1d-08fc4108631e: Impressum # Impressum
+    529a5b01-e289-42de-a013-d43f81455999: 'Produzentenkarte Mobile ' # Produzentenkarte Mobile 
     546e63c7-3ad2-424d-ad71-31f33a561a7f: 'Kontakt | Globals' # Kontakt | Globals
     552eac55-d86f-40a3-8aea-50f54038afbc: Textfeld # Textfeld
     641bd187-bf07-49f6-9cdd-90462c76cc88: Nummer # Nummer
+    652a02e0-42f9-4996-9964-e0494e69fd0e: 'Bild Legende' # Bild Legende
     667e84c9-349c-41fc-b5dd-be60c8d94861: Downloadlink # Downloadlink
     673dbddb-972b-44b7-b50c-ac5b649321ab: Öffnungszeiten # Öffnungszeiten
     676d6484-bb25-4582-abcd-c9f07f618d98: 'Artikel Jahrgang' # Artikel Jahrgang
@@ -183,17 +194,21 @@ meta:
     79922ac9-edbc-44e9-850c-3995f6bcdbee: 'Bild Legende' # Bild Legende
     86598fdd-8228-49e1-88da-4744029bfcef: 'Prdoukte Sortieren' # Prdoukte Sortieren
     87203f45-375b-40d7-98b8-3bdd33b721f1: 'Formatierter Text' # Formatierter Text
+    434736b1-3abc-42f8-8f60-2c69c3ada053: Beschriftung # Beschriftung
     547698ec-7561-4cee-95b1-f358f727b230: 'Interner Link (simple)' # Interner Link (simple)
     633900fd-0eae-4bfc-b2da-d85a3a01a68b: Produktbild # Produktbild
     650553f0-dbb7-42c0-ba12-1b19aa58126a: 'Blog Beiträge' # Blog Beiträge
     911777fe-811a-46e9-bb80-0228ddd66234: Medien # Medien
+    1912048b-b250-4a14-a3c7-e96b8e8ed023: Beschriftung # Beschriftung
     2625559c-aa75-481d-a655-1c6590d7106d: 'Preis (Privatkunden)' # Preis (Privatkunden)
     6140743f-8150-44d8-9c8f-ea48412627bb: AkkordeonPanel # AkkordeonPanel
+    6242370d-9e3c-4ad5-b83c-938218ebe1af: 'Produkte (Detailhandel)' # Produkte (Detailhandel)
     9034906b-69ef-4c05-9d30-23370e446767: 'Titel H3' # Titel H3
     9041254e-7c39-4bd9-9590-0a646283a360: 'Artikel Einheit (Gl, Fl, Dose, Stk., Kan.)' # Artikel Einheit (Gl, Fl, Dose, Stk., Kan.)
     10561167-3a73-493b-8f0f-48ce104e8c50: 'Anrede verwenden' # Anrede verwenden
     16265740-9a81-46f1-9fb8-99fc6b1a8e7f: 'Externer Link (mit Icon)' # Externer Link (mit Icon)
     42065150-3e31-4dfa-ad7d-b6b95f0eba0f: 'Product Home' # Product Home
+    75076778-568e-4d8c-8a9b-dadb8a0e180a: 'Bild / Bild - 50% / 50%' # Bild / Bild - 50% / 50%
     76367094-179e-4fc3-8e70-b0f8fccc3422: 'Shop Anpassungen' # Shop Anpassungen
     80046407-de11-4bdb-9670-56b00656fb46: Bild # Bild
     84380320-2899-45dc-b326-bd0b24416c50: Video # Video
@@ -221,7 +236,8 @@ meta:
     a4445e03-c8ae-4613-8723-b3b5d35858f1: Weine # Weine
     a15405fd-3249-492f-981b-636b505548bc: 'Artikel Dimensionen' # Artikel Dimensionen
     a91450b5-15a1-4780-96c1-0dffea095613: 'Akkordeon Zustand' # Akkordeon Zustand
-    a7921184-b0c0-43a4-8068-8da81ab26957: Produkte # Produkte
+    a7921184-b0c0-43a4-8068-8da81ab26957: 'Produkte (Privatkunden)' # Produkte (Privatkunden)
+    a8014088-d2e3-439c-b662-b918f1951291: Artikeltyp # Artikeltyp
     ab11f679-477b-4903-9086-d00fb5489f93: Fax # Fax
     ac56b463-604b-4eb0-afca-e3cf6579de22: 'Link Farbe' # Link Farbe
     ad7f3368-57d3-4f97-ba54-6224326f9b95: 'ähnliche Produzenten' # ähnliche Produzenten
@@ -236,6 +252,7 @@ meta:
     b2d6c348-fea4-4475-b096-15d5b21075bd: Ort # Ort
     b3b2990b-d4d1-42dc-81cd-09d825a893a0: Bezeichnung # Bezeichnung
     b4b7c4fa-292f-48ba-837c-da1b5017ed0a: 'SEO Beschreibung' # SEO Beschreibung
+    b4d3eafa-67df-4a37-b484-41de1bc33766: Positionierung # Positionierung
     b6ed6ef4-8338-451e-bc14-6edc247afd54: Abstand # Abstand
     b8c91d6b-e592-4719-8fc9-9e7b3fd6e439: 'Newsletter Form' # Newsletter Form
     b19b8881-bd3a-41ed-bc5a-d4841f75b793: 'In Bearbeitung' # In Bearbeitung
@@ -245,13 +262,15 @@ meta:
     b205d303-121a-4aae-8c85-bb00a76f312a: Titel # Titel
     b696c979-d69e-481e-9fe6-248daa5b218a: Hintergrundfarbe # Hintergrundfarbe
     bb672809-bd78-4ed8-b9cd-b634c8216640: Video # Video
+    bcaacf3a-9840-4591-ab39-370581ab8eda: 'Karten Icons' # Karten Icons
     bcc2f7c9-e4b5-432b-b079-3cd963db5854: Produzenten # Produzenten
     be9d7d5b-f31e-4cf0-8aa5-c8371ea536dd: 'Newsletter (Mailchimp)' # Newsletter (Mailchimp)
+    be68d56e-086c-4caa-b7e9-8d0d1da88a76: 'Link Intern' # Link Intern
     be930c36-7ffe-488b-b6c5-783c77c32830: Stadt # Stadt
     bf8bc4b2-3d7f-4972-9768-3026cc9f2184: 'Geschenke & Degustationen' # Geschenke & Degustationen
     c0a61470-04af-4d9c-997c-1f9f722bdf70: New # New
     c2e36e10-c3d1-44f3-9a20-e3ff8f8b0dd1: 'Externer Link Preview' # Externer Link Preview
-    c5aca99d-541e-4996-a962-3790cbed27bf: Latitude # Latitude
+    c5aca99d-541e-4996-a962-3790cbed27bf: y-Achse # y-Achse
     c7a7ef3f-d8c6-4afb-ab46-b0082ef038d6: Delikatessen # Delikatessen
     c7c217a8-bccd-462e-9792-2e93111dc56a: "Überschrift |\_Mittel" # Überschrift | Mittel
     c8c7989d-9a6a-4faa-a787-7538cf72ee11: 'Produzenten Übersicht' # Produzenten Übersicht
@@ -277,30 +296,38 @@ meta:
     d42a6068-da20-40a8-9b45-f80f9cb7f929: Testfeld # Testfeld
     d59a8a70-d5e0-42b4-b4d8-d3602f3bbe03: 'Produkt Bild' # Produkt Bild
     d63d76f8-75e4-40eb-9992-4ea21ba5b437: 'Artikel Zusatz Beschreibung' # Artikel Zusatz Beschreibung
+    d74f6685-54ad-4654-b9dc-039321354725: Bild # Bild
+    d212ea74-5630-4a5d-9550-827a9623e32b: 'Subject Feld' # Subject Feld
     d438ea68-d87f-4238-b23e-cdaa8a840149: 'Produzenten Tags' # Produzenten Tags
     d595e861-4c06-4115-8656-93e95a495147: Notiz # Notiz
     d953a3a0-62dc-4cd9-ad85-a7656faa8d58: Suche # Suche
     d1470d44-1f37-4fc8-997d-958262298de7: 'Rabatt 23% (Bachsermärte)' # Rabatt 23% (Bachsermärte)
+    d5337c95-45d7-4dcf-9005-3c3ed8d37df1: 'Karten- Icons' # Karten- Icons
     d549006b-271c-486c-900d-a9348f0ca63d: Blog # Blog
     d4722955-57cb-4834-b25f-2ca2d200bd80: Bild # Bild
+    da60c058-a6a5-402a-b850-8250242c07af: 'Produkte (Detailhandel)' # Produkte (Detailhandel)
     db07ae15-a8d7-40c0-80e9-c918f6874a6d: Abgeschlossen # Abgeschlossen
     dbadaaf2-9348-4069-9d8d-3e8e37e3d775: Postleitzahl # Postleitzahl
     dcb77335-6819-4597-a153-2b3ecfc9586f: Artikelgruppe # Artikelgruppe
     dd0cd05e-0cb9-4a76-b993-3cb70e6fc147: 'Terra Verde' # Terra Verde
     dd89c2d2-200f-426c-9643-acb4e10acbac: Linie # Linie
     dd105ceb-4213-4f13-875f-6f606b9927c2: Titel # Titel
+    de772d14-3ccf-4682-a830-1a7cad5447db: 'Button Extern' # Button Extern
     dfaab58f-1a21-400b-804b-168b3442cc1e: Titel # Titel
     dfd8ec22-0c0a-44f4-8fd2-245a0f02be60: Bild # Bild
     e4ad79d0-709f-4444-be82-99fe0dd9a6c2: InstaShop # InstaShop
     e5c66396-f991-4b4c-8edc-5e4960340ca3: Startseite # Startseite
     e7fec16d-a352-4a94-8ec1-8e902b366c3b: Textfarbe # Textfarbe
+    e8ec6f5f-8e58-4745-861e-ad59123d9db7: 'Button Intern' # Button Intern
     e9d74d60-1b19-494e-a1af-537c054484c9: Login # Login
+    e9e57734-40f6-4442-985c-37c0c1b801ba: Bild # Bild
     e45ebe2d-560e-4f8b-9bc9-6bda46de1a4f: 'Inhaltselemente Startseite' # Inhaltselemente Startseite
     e61fb032-eec0-4f11-b450-86d1adea8934: Rezepte # Rezepte
     e65f535e-dc60-4351-a7bb-9a558ae2c75d: Newsletter # Newsletter
     e68dfbb6-8313-490e-b596-66d83d042378: Regionen # Regionen
     e319ec0b-b25d-4aad-a44a-e1b83b9de831: Linie # Linie
     e408f37d-9b71-4f78-ae4a-18fe5c8dbef7: News # News
+    e756f32a-9400-41d8-a0d0-e99a58f2706a: 'Link Adresse' # Link Adresse
     e22957f0-c9f4-40f0-aaed-0cb3d674851f: Status # Status
     e221908a-3496-4eb9-8727-682969a83304: Startseite # Startseite
     ea3d0d8a-06a4-48ed-b8aa-3e7cbaa24971: Registrieren # Registrieren
@@ -308,7 +335,9 @@ meta:
     eb0e12f9-6563-4af9-a66b-b29028951bcb: Beliebteste # Beliebteste
     eb3ef146-b785-48bc-ab53-40d64959cc24: 'Zusatzfeld Öffnungszeiten' # Zusatzfeld Öffnungszeiten
     ec45610a-116e-4f59-81ef-2b22ad4cf4c8: Blog # Blog
+    edfc52a4-9dff-4e04-81f4-6d826098e96b: Textfarbe # Textfarbe
     ee73ad95-c3b7-4b1a-97d4-77987063c463: Bestell-Bestätigung # Bestell-Bestätigung
+    ee843b1f-3555-4b4c-a096-d348ee0317ac: Vorschautext # Vorschautext
     f021083a-e208-4eaa-974d-3ae4d7e91811: 'Artikel Einheit Volumen/Gewicht' # Artikel Einheit Volumen/Gewicht
     f4d40b23-6531-4583-b509-b7870a992261: Privatkunden # Privatkunden
     f5e90e97-620f-48e1-a794-18752e030b90: Fehler # Fehler
@@ -322,7 +351,9 @@ meta:
     f836488e-b5ab-4d7d-8b93-f9d9fb95263f: 'Bild Alt-Text' # Bild Alt-Text
     fa7328da-f0a7-4390-bc23-08484a72e884: 'Produzent Vorschaubild' # Produzent Vorschaubild
     faaeac52-013c-4936-b046-a6d014828fc0: 'Public Schema' # Public Schema
+    fafe1670-4ff9-4b61-812d-2096544e8290: Linktext # Linktext
     fb0e70a8-788b-4091-bf0e-d42b87eb6bf2: 'Bild 1/3' # Bild 1/3
+    fbf6aa44-6b72-479a-a2c3-8d5390518d79: Hintergrundfarbe # Hintergrundfarbe
     fcafffd6-069a-4a92-95f7-70ffeac6759d: Alterüberprüfung # Alterüberprüfung
     fd760c97-b6fa-4be9-9efc-9bc460f693c9: Übersichtsseite # Übersichtsseite
     fdcda0cf-8d3c-45eb-ae6f-6a586a0b8d57: 'Zusatz Adresse' # Zusatz Adresse
@@ -354,7 +385,7 @@ plugins:
       fromNamesEmails:
         -
           - 'Terra Verde'
-          - p@henrik-hentschel.de
+          - info@terra-verde.ch
           - ''
       geoIp: false
       ipstackApiKey: null
@@ -478,6 +509,8 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 2.0.1
+  dumper:
+    schemaVersion: 1.0.0
   enhanced-element-links:
     edition: standard
     enabled: true
@@ -735,8 +768,9 @@ plugins:
     enabled: true
     schemaVersion: 1.0.0
   snaptcha:
-    enabled: false
+    enabled: true
     licenseKey: TRF8E9T2Z9OM4BJGPNZRMXAX
+    schemaVersion: 3.0.6
     settings:
       allowList: ''
       denyList: ''
@@ -745,7 +779,48 @@ plugins:
       errorMessage: 'Aus irgendeinem Grund wurde Ihr Beitrag als Spam markiert. Bitte klicken Sie auf die Schaltfläche unten, um Ihre Daten erneut einzureichen.'
       errorTemplate: ''
       errorTitle: Fehler
-      excludeControllerActions: ''
+      excludeControllerActions:
+        __assoc__:
+          -
+            - 0
+            -
+              - commerce/payments/pay
+          -
+            - 18
+            -
+              - sprig-core/components/render
+          -
+            - 8
+            -
+              - commerce/payments/complete-payment
+          -
+            - 9
+            -
+              - users/save-user
+          -
+            - 10
+            -
+              - users/login
+          -
+            - 11
+            -
+              - shop/checkout/register-signin
+          -
+            - 12
+            -
+              - users/send-password-reset-email
+          -
+            - 13
+            -
+              - users/set-password
+          -
+            - 14
+            -
+              - commerce/customer-addresses/save
+          -
+            - 17
+            -
+              - commerce/cart/update-cart
       expirationTime: '60'
       fieldName: snaptcha
       logRejected: '1'

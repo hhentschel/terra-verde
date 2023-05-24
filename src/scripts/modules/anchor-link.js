@@ -1,4 +1,4 @@
-export default class AnchorNav {
+export default class AnchorLink {
   classes = {
     anchorLink: 'anchor-link',
   };
@@ -8,9 +8,12 @@ export default class AnchorNav {
     anchorTarget: null,
   };
 
+  scrollTargetOffset = 120;
+
   constructor(anchorLink) {
     this.anchorLink = anchorLink;
     this.anchorTarget = document.querySelector(`[id='${this.anchorLink.getAttribute('href').replace('#', '')}']`);
+
     if (this.anchorTarget) {
       this.anchorLink.addEventListener('click', this.clickHandler.bind(this));
     }
@@ -18,11 +21,11 @@ export default class AnchorNav {
 
   clickHandler(event) {
     event.preventDefault();
-    const scrollTargetOffset = document.querySelector('.header').offsetHeight;
     window.scrollTo({
       top:
         window.pageYOffset +
-        (this.anchorTarget.getBoundingClientRect().top - scrollTargetOffset),
+        (this.anchorTarget.getBoundingClientRect().top -
+          this.scrollTargetOffset),
       behavior: 'smooth',
     });
   }

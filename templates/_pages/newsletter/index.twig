@@ -1,70 +1,22 @@
-{% set mailingList = craft.campaign.mailingLists.slug('newsletter-privatkunden').one() %}
-
-        {# If there were any validation errors, a `contact` variable will be passed to the
-   template, which contains the posted values and validation errors. If that’s not
-   set, we’ll default to a new contact. #}
-        {% set contact = contact ?? create('putyourlightson\\campaign\\elements\\ContactElement') %}
-
-<form id="subscribe-form" class="newsletter-form" method="post" action="">
-  {{ csrfInput() }}
-  <input type="hidden" name="action" value="campaign/forms/subscribe"/>
-  <input type="hidden" name="mailingList" value="{{ mailingList.slug }}"/>
-  <input type="hidden" name="redirect" value="{{ 'shop/customer/newsletter/subscribe-success'|hash }}"/>
-
-  <div class="newsletter-form__item">
-    <h3 class="visually-hidden heading layout-helper__margin-top--none"><label for="email">E-Mail</label></h3>
-    <input id="email" class="input" type="email" placeholder="E-Mail" name="email"
-           value="{{ contact.email }}" required/>
-    {{ contact.getFirstError('email') }}
-  </div>
-
-  <div class="newsletter-form__item">
-    <h3 class="visually-hidden heading layout-helper__margin-top--none"><label for="name">Vorname</label></h3>
-    <input id="name" class="input" type="text" placeholder="Vorname" name="fields[firstName]"
-           value="{{ contact.firstName }}"
-           required/>
-    {{ contact.getFirstError('firstName') }}
-  </div>
-
-  <div class="newsletter-form__item">
-    <h3 class="visually-hidden heading layout-helper__margin-top--none"><label for="name">Nachame</label></h3>
-    <input id="name" class="input" type="text" placeholder="Nachname" name="fields[lastName]"
-           value="{{ contact.lastName }}"
-           required/>
-    {{ contact.getFirstError('lastName') }}
-  </div>
-  <!-- Required if reCAPTCHA is enabled in plugin settings -->
-  {{ craft.campaign.recaptcha }}
-
-  {# Outputs a hidden input field #}
-  {# {{ craft.snaptcha.field }} #}
-
-  <input type="submit" class="input input__primary newsletter-form__submit" value="Anmelden"/>
-</form>
-
-
-{# <div class="newsletter__form">
-  {{ craft.formie.renderForm('newsletterForm') }}
-</div> #}{#
 <!-- Begin Mailchimp Signup Form -->
 <div id="mc_embed_signup">
   <form action="https://terra-verde.us13.list-manage.com/subscribe/post?u=630fdcf05d4a991b79622fff1&amp;id=b9b2b5a176"
-    method="post"
-    id="mc-embedded-subscribe-form"
-    name="mc-embedded-subscribe-form"
-    class="validate newsletter__form"
-    target="_blank"
-    novalidate>
+        method="post"
+        id="mc-embedded-subscribe-form"
+        name="mc-embedded-subscribe-form"
+        class="validate newsletter-form"
+        target="_blank"
+        novalidate>
     <div class="mc-field-group">
       <label for="mce-VNAME" class="visually-hidden">
         Vorname <span class="asterisk">*</span>
       </label>
       <input type="text"
-        value=""
-        name="VNAME"
-        class="required input"
-        placeholder="Vorname"
-        id="mce-VNAME" />
+             value=""
+             name="VNAME"
+             class="required input"
+             placeholder="Vorname"
+             id="mce-VNAME"/>
     </div>
 
     <div class="mc-field-group">
@@ -72,11 +24,11 @@
         Nachname <span class="asterisk">*</span>
       </label>
       <input type="text"
-        value=""
-        name="NNAME"
-        placeholder="Nachname"
-        class="required input"
-        id="mce-NNAME" />
+             value=""
+             name="NNAME"
+             placeholder="Nachname"
+             class="required input"
+             id="mce-NNAME"/>
     </div>
 
     <div class="mc-field-group">
@@ -84,36 +36,36 @@
         Email-Adresse <span class="asterisk">*</span>
       </label>
       <input type="email"
-        value=""
-        name="EMAIL"
-        class="required email input"
-        placeholder="E-Mail"
-        id="mce-EMAIL" />
+             value=""
+             name="EMAIL"
+             class="required email input"
+             placeholder="E-Mail"
+             id="mce-EMAIL"/>
     </div>
 
     <div id="mce-responses" class="clear">
       <div class="response" id="mce-error-response" style="display:none"></div>
       <div class="response"
-        id="mce-success-response"
-        style="display:none"></div>
-    </div> <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups -->
+           id="mce-success-response"
+           style="display:none"></div>
+    </div>
+    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups -->
 
     <div style="position: absolute; left: -5000px;" aria-hidden="true">
       <input type="text"
-        name="b_630fdcf05d4a991b79622fff1_b9b2b5a176"
-        tabindex="-1"
-        value="" />
+             name="b_630fdcf05d4a991b79622fff1_b9b2b5a176"
+             tabindex="-1"
+             value=""/>
     </div>
 
     <div class="clear">
       <input type="submit"
-        value="Abonnieren"
-        name="subscribe"
-        id="mc-embedded-subscribe"
-        class="input input__primary" />
+             value="Abonnieren"
+             name="subscribe"
+             id="mc-embedded-subscribe"
+             class="input input__primary"/>
     </div>
   </form>
 </div>
 
 <!-- End mc_embed_signup -->
-#}

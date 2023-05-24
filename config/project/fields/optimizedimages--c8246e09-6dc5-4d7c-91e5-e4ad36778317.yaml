@@ -1,115 +1,14 @@
 columnSuffix: plzkohgw
-contentColumnType: text
+contentColumnType: string
 fieldGroup: 4fe8dfc1-b512-4508-a756-d29539b14b62 # Artikel
 handle: optimizedimages
 instructions: ''
 name: OptimizedImages
 searchable: false
 settings:
-  displayDominantColorPalette: '1'
-  displayLazyLoadPlaceholderImages: '1'
-  displayOptimizedImageVariants: '1'
-  fieldVolumeSettings:
-    __assoc__:
-      -
-        - contentImages
-        - '*'
-      -
-        - products
-        - ''
-      -
-        - producersImg
-        - '*'
-      -
-        - productImageWineSpain
-        - ''
-      -
-        - productImageWineItaly
-        - ''
-      -
-        - productImageWineFrancePortugal
-        - ''
-      -
-        - imagesGiftSets
-        - ''
-  ignoreFilesOfType:
-    - image/gif
-  variants:
-    -
-      __assoc__:
-        -
-          - width
-          - '1200'
-        -
-          - useAspectRatio
-          - '1'
-        -
-          - aspectRatioX
-          - '4'
-        -
-          - aspectRatioY
-          - '3'
-        -
-          - retinaSizes
-          -
-            - '1'
-            - '2'
-        -
-          - quality
-          - '82'
-        -
-          - format
-          - ''
-    -
-      __assoc__:
-        -
-          - width
-          - '960'
-        -
-          - useAspectRatio
-          - '1'
-        -
-          - aspectRatioX
-          - '4'
-        -
-          - aspectRatioY
-          - '3'
-        -
-          - retinaSizes
-          -
-            - '1'
-            - '2'
-        -
-          - quality
-          - '82'
-        -
-          - format
-          - ''
-    -
-      __assoc__:
-        -
-          - width
-          - '600'
-        -
-          - useAspectRatio
-          - '1'
-        -
-          - aspectRatioX
-          - '4'
-        -
-          - aspectRatioY
-          - '3'
-        -
-          - retinaSizes
-          -
-            - '1'
-            - '2'
-        -
-          - quality
-          - '60'
-        -
-          - format
-          - ''
+  errorMessage: 'Component class ''nystudio107\imageoptimize\fields\OptimizedImages'' belongs to an uninstalled plugin (ImageOptimize).'
+  expectedType: nystudio107\imageoptimize\fields\OptimizedImages
+  settings: '{"displayDominantColorPalette":"1","displayLazyLoadPlaceholderImages":"1","displayOptimizedImageVariants":"1","fieldVolumeSettings":{"contentImages":"*","products":"","producersImg":"*","productImageWineSpain":"","productImageWineItaly":"","productImageWineFrancePortugal":"","imagesGiftSets":""},"ignoreFilesOfType":["image/gif"],"variants":[{"width":"1200","useAspectRatio":"1","aspectRatioX":"4","aspectRatioY":"3","retinaSizes":["1","2"],"quality":"82","format":""},{"width":"960","useAspectRatio":"1","aspectRatioX":"4","aspectRatioY":"3","retinaSizes":["1","2"],"quality":"82","format":""},{"width":"600","useAspectRatio":"1","aspectRatioX":"4","aspectRatioY":"3","retinaSizes":["1","2"],"quality":"60","format":""}]}'
 translationKeyFormat: null
 translationMethod: none
-type: nystudio107\imageoptimize\fields\OptimizedImages
+type: craft\fields\MissingField

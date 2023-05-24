@@ -1,11 +1,11 @@
 field: a48a5f48-ae99-438a-94f7-9574fe7fbf92 # Inhaltselemente
 fieldLayouts:
-  0fd5d6d5-e6c7-4be1-886f-ec7cd7768e6f:
+  e223df59-709f-4579-8f23-5cce08d27e30:
     tabs:
       -
         elements:
           -
-            fieldUid: 97ff157d-5ed8-4a67-a839-94a32375265f # Produkte
+            fieldUid: 6242370d-9e3c-4ad5-b83c-938218ebe1af # Produkte (Detailhandel)
             instructions: null
             label: null
             required: false
@@ -16,14 +16,14 @@ fieldLayouts:
         name: Content
         sortOrder: 1
 fields:
-  97ff157d-5ed8-4a67-a839-94a32375265f: # Produkte
+  6242370d-9e3c-4ad5-b83c-938218ebe1af: # Produkte (Detailhandel)
     columnSuffix: null
     contentColumnType: string
     fieldGroup: null
-    handle: itemsShop
+    handle: itemsShopBusiness
     instructions: ''
-    name: Produkte
-    searchable: true
+    name: 'Produkte (Detailhandel)'
+    searchable: false
     settings:
       allowSelfRelations: false
       limit: ''
@@ -38,6 +38,6 @@ fields:
     translationKeyFormat: null
     translationMethod: site
     type: craft\commerce\fields\Products
-handle: itemsShop
-name: Produkte
-sortOrder: 5
+handle: itemsShopBusiness
+name: 'Produkte (Detailhandel)'
+sortOrder: 6

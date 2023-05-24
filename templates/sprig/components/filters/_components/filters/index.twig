@@ -53,7 +53,7 @@
   {% set aCW = aCW|filter(v => v not in articleCategoriesWineUnselect) %}
 {% endif %}
 
-{% set limit = limit ?? 51 %}
+{% set limit = limit ?? 30 %}
 {% set page = page ?? 1 %}
 {% set vType = vType ?? 'grid' %}
 
@@ -61,7 +61,7 @@
 {% if craft.app.request.isMobileBrowser() %}
   {% set maxPages = 4 %}
 {% else %}
-  {% set maxPages = 7 %}
+  {% set maxPages = 6 %}
 {% endif %}
 {% set orderBy = orderBy ?? 'fProd DESC, postDate DESC' %}
 
@@ -75,7 +75,7 @@
   limit: limit,
   with: [
     [
-      'image',
+      'articleImage',
       {
         withTransforms: ['productListing']
       }
@@ -85,11 +85,14 @@
 
 {% set categories = aCatDeli
   |merge(aCG)
-  |merge(aCW)
-  |merge(articleCategoriesStatus) %}
+  |merge(aCW) %}
 
-{% if categories is not empty %}
-  {% do productQuery.andRelatedTo(categories) %}
+ {% if categories is not empty %}
+   {% do productQuery.andRelatedTo(categories) %}
+ {% endif %}
+
+{% if articleCategoriesStatus is not empty %}
+  {% do productQuery.andRelatedTo(articleCategoriesStatus) %}
 {% endif %}
 
 {# Paginate entry query to get page info. #}
@@ -131,7 +134,6 @@
         Produkten
       </p>
 
-
       {{ sprig('sprig/components/filters/_components/indicator') }}
 
       {% if vType == 'grid' %}
@@ -139,7 +141,7 @@
           <button sprig
                   s-val:v-type="list"
                   s-val:page="1"
-                  s-val:limit="102"
+                  s-val:limit="80"
                   s-indicator=".loading-button__indicator"
                   class="btn-viewchange">
             <span class="btn-viewchange__text">Listenansicht</span>
@@ -157,7 +159,7 @@
           <button sprig
                   s-val:v-type="grid"
                   s-val:page="1"
-                  s-val:limit="36"
+                  s-val:limit="30"
                   s-indicator=".loading-button__indicator"
                   class="btn-viewchange">
             <span class="btn-viewchange__text">Rasteransicht</span>
@@ -181,11 +183,13 @@
     <div class="shop-list{% if vType == 'list' %}__listview{% endif %}">
       {% for product in products %}
         {% for variant in product.getVariants() %}
-          {% include 'sprig/components/cart/_components/product' %}
+          {# {% include 'sprig/components/cart/_components/product' %} #}
+          {{ sprig('sprig/components/cart/_components/product', {variantId : variant.id, productId : product.id}, {'class': 'shop-list__item'}) }}
         {% endfor %}
       {% endfor %}
     </div>
     {# shop-list ende #}
+
 
     {% if (products|length) == 0 %}
       <div class="row">

@@ -1,0 +1,26 @@
+childBlocks: null
+field: 9f46731d-7fdd-4245-9ca1-719db0672448 # Inhaltselemente
+fieldLayouts:
+  2e02b6b3-2ea7-4644-b314-ec348922f2f3:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 6bc749d9-f805-48a4-b8de-1702b40ae534 # Bild Matrix
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Inhalt
+        sortOrder: 1
+group: 911777fe-811a-46e9-bb80-0228ddd66234 # Medien
+handle: image5050
+maxBlocks: 0
+maxChildBlocks: 0
+maxSiblingBlocks: 0
+name: 'Bild / Bild - 50% / 50%'
+sortOrder: 18
+topLevel: true

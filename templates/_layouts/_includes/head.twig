@@ -3,10 +3,10 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <meta name="format-detection" content="telephone=no"/>
-<meta name="description" content="Terra Verde Bio-Gourmet AG | Bio-Zertifizierte Produkte aus Italien | Bio dal 1996">
 
 {# STYLES #}
-<link rel="stylesheet" href="{{ alias('@web') }}/assets/styles/{{ cssFile }}" media="screen"/>
+<link rel="stylesheet" href="{{ alias('@web') }}/assets/styles/{{ cssFile }}?v={{ getenv('SERVD_BUNDLE_HASH') }}"
+      media="screen"/>
 <link rel="preconnect" href="https://fonts.gstatic.com"/>
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap"
       rel="stylesheet" media="screen"/>
@@ -40,7 +40,7 @@
 {# http://craftsnippets.com/articles/adding-favicons-to-craft-cms-website #}
 
 {# requires global with handle 'favicon' containing asset field with handle 'faviconFile' #}
-{% cache globally %}
+
   {% set sizesIcon = [192, 48, 32, 16] %}
   {% set sizesAppleTouch = [180] %}
   {% if
@@ -84,6 +84,5 @@
       {% endif %}
     {% endfor %}
   {% endif %}
-{% endcache %}
 
 {# FONTS #}

@@ -3,7 +3,7 @@ contentColumnType: text
 fieldGroup: bcc2f7c9-e4b5-432b-b079-3cd963db5854 # Produzenten
 handle: manufactorLatitude
 instructions: ''
-name: Latitude
+name: y-Achse
 searchable: false
 settings:
   byteLimit: null

@@ -21,7 +21,7 @@
   {# HOMEPAGE-NEWS MOBILE #}
   {% if
     entry.newsHomepageField is defined
-    and entry.newsHomepageField is not empty %}
+      and entry.newsHomepageField is not empty %}
     {% for block in entry.newsHomepageField.all() %}
       <div class="homepage-news homepage-news--mobile">
         <span class="homepage-news__time">{{ block.newsHomepageTime }}</span>
@@ -51,12 +51,14 @@
           Auswahl aus dem Shop
         </h2>
         <a class="home__link layout-helper__margin-bottom--s"
-           href="{{ navNewArticles.url }}">
+          href="{{ navNewArticles.url }}">
           <span class="link__text link__text--section">{{ 'Shop'|t }}</span>
           <div class="link__icon-wrapper link__icon-wrapper--internal">
-            {{ macros.svg('arrow_42')|attr({
-              class: 'link__icon link__icon--internal icon icon--42'
-            }) }}
+            {{
+              macros.svg('arrow_42')|attr({
+                class: 'link__icon link__icon--internal icon icon--42'
+              })
+            }}
           </div>
         </a>
       </div>
@@ -74,14 +76,16 @@
               Aktionen
             </h3>
             <a class="section-home__link"
-               href="shop/produkte?search=&aCatDelAll=0&articleCategoriesStatus%5B0%5D=10744&orderBy=fProd%20DESC%2C%20postDate%20DESC&page=1&vType=grid">
+              href="shop/produkte?search=&aCatDelAll=0&articleCategoriesStatus%5B0%5D=10744&orderBy=fProd%20DESC%2C%20postDate%20DESC&page=1&vType=grid">
               <span class="link__text link__text--section">
                 {{ 'Alle Aktionen'|t }}
               </span>
               <div class="link__icon-wrapper link__icon-wrapper--internal">
-                {{ macros.svg('arrow_42')|attr({
-                  class: 'link__icon link__icon--internal icon icon--42'
-                }) }}
+                {{
+                  macros.svg('arrow_42')|attr({
+                    class: 'link__icon link__icon--internal icon icon--42'
+                  })
+                }}
               </div>
             </a>
           </div>
@@ -92,19 +96,7 @@
             {% for variant in product.getVariants() %}
               <div class="col col-xs-12 col-md-4 col-lg-4 section-home__product">
                 <a href="{{ product.url }}"
-                   class="section-home__product--link onsale">
-                  {% set transform = transformation|default('productListing') %}
-                  {# {% set img = product.articleImage.one().optimizedimages
-                    ?? generic.image.one().optimizedimages
-                  %}
-
-                  {% if img is defined %}
-                    {% include '_components/_content-elements/image-product' with {
-                      optimizedImages: img,
-                      transform: transform
-                    } %}
-                  {% endif %} #}
-
+                  class="section-home__product--link onsale">
                   {% set transform = transformation|default('productListing') %}
                   {% set img = product.articleImage.one ?? generic.image.one %}
 
@@ -133,6 +125,11 @@
   {% endif %}
 
   {# Neuheiten #}
+  {#  {% set newproducts = entry.homeNewProduct
+    .with([
+      'articleImage'
+    ]) %} #}
+
   {% set newproducts = entry.homeNewProduct %}
   {% if newproducts|length %}
     <section class="section-home section-home__stripe section-home__newproducts">
@@ -143,14 +140,16 @@
               Neuheiten
             </h3>
             <a class="section-home__link"
-               href="shop/produkte?search=&aCatDelAll=0&articleCategoriesStatus%5B0%5D=10745&orderBy=fProd%20DESC%2C%20postDate%20DESC&page=1&vType=grid">
+              href="shop/produkte?search=&aCatDelAll=0&articleCategoriesStatus%5B0%5D=10745&orderBy=fProd%20DESC%2C%20postDate%20DESC&page=1&vType=grid">
               <span class="link__text link__text--section">
                 {{ 'Alle Neuheiten'|t }}
               </span>
               <div class="link__icon-wrapper link__icon-wrapper--internal">
-                {{ macros.svg('arrow_42')|attr({
-                  class: 'link__icon link__icon--internal icon icon--42'
-                }) }}
+                {{
+                  macros.svg('arrow_42')|attr({
+                    class: 'link__icon link__icon--internal icon icon--42'
+                  })
+                }}
               </div>
             </a>
           </div>
@@ -161,18 +160,6 @@
             {% for variant in product.getVariants() %}
               <div class="col col-xs-12 col-md-4 col-lg-4 section-home__product">
                 <a href="{{ product.url }}" class="section-home__product--link">
-                  {% set transform = transformation|default('productListing') %}
-                  {# {% set img = product.articleImage.one().optimizedimages
-                    ?? generic.image.one().optimizedimages
-                  %}
-
-                  {% if img is defined %}
-                    {% include '_components/_content-elements/image' with {
-                      optimizedImages: img,
-                      transform: transform
-                    } %}
-                  {% endif %} #}
-
                   {% set transform = transformation|default('productListing') %}
                   {% set img = product.articleImage.one ?? generic.image.one %}
 
@@ -246,6 +233,10 @@
   {% endif %}
 
   {# Blog Artikel #}
+  {#  {% set blogQuery = craft.entries().section('newsEntries').limit(3).with([
+    'image'
+  ]) %} #}
+
   {% set blogQuery = craft.entries().section('newsEntries').limit(3) %}
   {% set entries = blogQuery.all() %}
   {% if entries|length %}
@@ -261,9 +252,11 @@
                 {{ 'Zum Blog'|t }}
               </span>
               <div class="link__icon-wrapper link__icon-wrapper--internal">
-                {{ macros.svg('arrow_42')|attr({
-                  class: 'link__icon link__icon--internal icon icon--42'
-                }) }}
+                {{
+                  macros.svg('arrow_42')|attr({
+                    class: 'link__icon link__icon--internal icon icon--42'
+                  })
+                }}
               </div>
             </a>
           </div>
@@ -277,7 +270,7 @@
 
                 {% if
                   entry.recipes.name is defined
-                  and entry.recipes.name is not empty %}
+                    and entry.recipes.name is not empty %}
                   {% set img = entry.recipes.getImageUrl() %}
                   {% if img is defined %}
                     {% include '_components/_content-elements/image-recipe' with {
@@ -310,70 +303,3 @@
     </section>
   {% endif %}
 {% endblock %}
-
-{# Alle Neuheiten #}
-{# <section class="grid">
-    <div class="row">
-      <div class="col col-xs-12 col-md-12 col-lg-12">
-        <h2 class="heading heading--h2">
-          Alle Neuheiten
-        </h2>
-        <div>
-          {% for type in craft.commerce.productTypes.allProductTypes %}
-            <ul>
-              <li><a href="{{ type.name }}">{{ type.name }}</a></li>
-            </ul>
-          {% endfor %}
-        </div>
-      </div>
-    </div>
-  </section> #}
-
-{# <div class="">
-      <div class="">
-        {% for sale in craft.commerce.sales.allSales %}
-          {% if sale is defined and sale is not empty %}
-            {{ sale.name }} - {{ sale.description }}
-          {% endif %}
-        {% endfor %}
-
-        {% set sales = craft.commerce.sales.getAllSales() %}
-        {% set categories = [] %}
-        {% set variantIds = [] %}
-
-        {% for sale in sales %}
-          {% set categories = categories|merge(sale.categoryIds) %}
-          {% set variantIds = variantIds|merge(sale.purchasableIds) %}
-        {% endfor %}
-
-        {% set productIds = [] %}
-        {% for product in craft.products.relatedTo(categories).all() %}
-          {% set productIds = productIds|merge([product.id]) %}
-        {% endfor %}
-
-        {% set variants = craft.variants.id(variantIds).all() %}
-        {% for variant in variants %}
-          {% set productIds = productIds|merge([variant.productId]) %}
-        {% endfor %}
-
-        {% set products =
-          craft.products.id(productIds).with('variants').all()
-        %}
-
-        <ol>
-          {% for product in products %}
-            {% set variant = product.defaultVariant %}
-            {% if variant.onSale %}
-              <li>
-                {{ variant.title }}:{{ variant.price }} - {{
-                  variant.salePrice
-                }}
-              </li>
-            {% else %}
-              <li>{{ product.title }}</li>
-            {% endif %}
-          {% endfor %}
-        </ol>
-       {% include '_layouts/_includes/shop.twig' %}
-      </div>
-    </div> #}

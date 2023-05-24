@@ -27,6 +27,15 @@ fieldLayouts:
             warning: null
             width: 50
           -
+            fieldUid: 57e5fec1-460f-4063-a3db-815af978dc8f # Bild
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
             fieldUid: 269c37e5-8217-47e1-820c-5db4d8e8817a # Regionen
             instructions: null
             label: null
@@ -35,6 +44,33 @@ fieldLayouts:
             type: craft\fieldlayoutelements\CustomField
             warning: null
             width: 50
+          -
+            fieldUid: 78e66304-15bb-4b53-a1ab-ee1c29492bd3 # Karten - Icon
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: a8014088-d2e3-439c-b662-b918f1951291 # Artikeltyp
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: ee843b1f-3555-4b4c-a096-d348ee0317ac # Vorschautext
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
           -
             fieldUid: 421eaf0b-f542-45ff-8051-2921d93b3eeb # Vorschautext
             instructions: null
@@ -45,7 +81,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: 57e5fec1-460f-4063-a3db-815af978dc8f # Bild
+            fieldUid: c5aca99d-541e-4996-a962-3790cbed27bf # y-Achse
             instructions: null
             label: null
             required: false
@@ -54,7 +90,16 @@ fieldLayouts:
             warning: null
             width: 50
           -
-            fieldUid: 9f46731d-7fdd-4245-9ca1-719db0672448 # Inhaltselemente
+            fieldUid: 169ef8db-7ba9-459c-b40f-17678b94dce7 # x-Achse
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: fafe1670-4ff9-4b61-812d-2096544e8290 # Linktext
             instructions: null
             label: null
             required: false
@@ -72,23 +117,14 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: c5aca99d-541e-4996-a962-3790cbed27bf # Latitude
+            fieldUid: 9f46731d-7fdd-4245-9ca1-719db0672448 # Inhaltselemente
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
             warning: null
-            width: 50
-          -
-            fieldUid: 169ef8db-7ba9-459c-b40f-17678b94dce7 # Longitude
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            warning: null
-            width: 50
+            width: 100
         name: Inhalt
         sortOrder: 1
       -
