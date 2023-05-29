@@ -6,6 +6,24 @@ fieldLayouts:
       -
         elements:
           -
+            fieldUid: b19c563f-f580-49f7-88f1-896078bcca7a # Titel H2
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: 421eaf0b-f542-45ff-8051-2921d93b3eeb # Vorschautext
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
             fieldUid: 6bc749d9-f805-48a4-b8de-1702b40ae534 # Bild Matrix
             instructions: null
             label: null

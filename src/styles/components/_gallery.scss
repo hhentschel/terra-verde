@@ -3,21 +3,20 @@
   grid-column: 1 / -1;
 
   &__header {
-    display: flex;
-    justify-content: flex-end;
-    gap: px-to-rem($space--m);
-    margin: 0 px-to-rem($space--m) px-to-rem($space--m) 0;
-  }
+    display: grid;
+    grid-template-columns: 1fr 70ch 1fr;
+    margin-bottom: px-to-rem($space--m);
 
-  &-navigation {
-    position: relative;
-
-    &:hover {
-      cursor: pointer;
+    &--info {
+      grid-column: 2/3;
     }
 
-    &__button--next {
+    &--navigation {
+      grid-column: 3/3;
 
+      &:hover {
+        cursor: pointer;
+      }
     }
   }
 

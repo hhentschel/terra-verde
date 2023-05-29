@@ -211,8 +211,8 @@
 
       {# ImageText 30/70 Block #}
     {% case 'imageText3070' %}
-      {% set cmt = cmt ? cmt : 'layout-helper__margin-top--m' %}
-      {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--m' %}
+      {% set cmt = cmt ? cmt : 'layout-helper__margin-top--xxs' %}
+      {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--xxs' %}
       {% set colClasses =
         '' %}
       {% set transform = transformation|default('imageOneThird') %}
@@ -302,13 +302,15 @@
 
       {# Bildgalerie Block #}
     {% case 'imageGallery' %}
-      {% set cmt = cmt ? cmt : 'layout-helper__margin-top--m' %}
+      {% set cmt = cmt ? cmt : 'layout-helper__margin-top--s' %}
       {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--l' %}
       {% set colClasses =
         'gallery' %}
       {% set contentBlock %}
         {% include '_components/_content-elements/gallery' with {
-          items: block.children
+          items: block.children,
+          title: block.titleH2,
+          leadtext: block.leadText
         } %}
       {% endset %}
 

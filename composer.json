@@ -46,7 +46,8 @@
         },
         "allow-plugins": {
             "yiisoft/yii2-composer": true,
-            "craftcms/plugin-installer": true
+            "craftcms/plugin-installer": true,
+            "php-http/discovery": true
         }
     },
     "scripts": {
