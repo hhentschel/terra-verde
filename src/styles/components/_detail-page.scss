@@ -2,7 +2,11 @@
   &__wrapper {
     display: grid;
     grid-template-columns: repeat(2, 1fr) calc(min(70ch, calc(100% - 64px))) repeat(2, 1fr);
-    grid-column-gap: 32px;
+    grid-column-gap: 16px;
+
+    @include breakpoint('tablet-portrait') {
+      grid-column-gap: 32px;
+    }
 
     & > * {
       grid-column: 3;
@@ -21,7 +25,11 @@
   }
 
   .image-wide {
-    grid-column: 2 / 5;
+    grid-column: 1 / -1;
+
+    @include breakpoint('tablet-portrait') {
+      grid-column: 2 / 5;
+    }
 
     .image__img {
       width: 100%;
@@ -36,14 +44,23 @@
 
 
     &__left {
-      grid-column: 2 /4;
-      width: 75%;
+      grid-column: 1 /-1;
+      width: 100%;
+
+      @include breakpoint('tablet-portrait') {
+        width: 75%;
+        grid-column: 2 /4;
+      }
     }
 
     &__right {
       grid-column: 3 /5;
-      width: 75%;
+      width: 100%;
       justify-self: flex-end;
+
+      @include breakpoint('tablet-portrait') {
+        width: 75%;
+      }
     }
   }
 

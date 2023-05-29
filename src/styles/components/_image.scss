@@ -54,6 +54,11 @@ $maxtrix-image-gap: px-to-rem($space--m);
   &-matrix__container {
     display: flex;
     gap: px-to-rem($space--m);
+    flex-wrap: wrap;
+
+    @include breakpoint('tablet-portrait') {
+      flex-wrap: nowrap;
+    }
 
     .image--half {
       margin: 0;
