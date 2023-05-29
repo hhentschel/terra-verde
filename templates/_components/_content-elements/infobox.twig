@@ -4,11 +4,15 @@
 {% set infoboxText = block.textStandardWithoutH1 is defined and block.textStandardWithoutH1 is not empty
   ? block.textStandardWithoutH1
   : '' %}
-<div class="infobox layout-helper__margin-bottom--xs">
+
+{% set infoboxBgColor = block.infoboxBgColor %}
+{% set infoboxTextColor = block.infoboxTextColor %}
+<div class="infobox layout-helper__margin-bottom--xs"
+     style="background-color: {{ infoboxBgColor }}; color: {{ infoboxTextColor }}">
 
   <div class="section-header__wrapper">
     {% if infoboxTitle %}
-      <h2 class="infobox__heading heading heading--no-margin">
+      <h2 class="infobox__heading heading heading--no-margin" style="color: {{ infoboxTextColor }}">
         {{ infoboxTitle }}
       </h2>
     {% endif %}

@@ -9,12 +9,10 @@
     </div>
   </div>
 
-  <section class="grid">
-    <div class="row">
-      {% include [
-        '/_pages/blog/_types/' ~ entry.type,
-        '/_pages/blog/_types/default'
-      ] %}
-    </div>
+  <section class="detail-page detail-page__wrapper">
+    {% include [
+      '/_pages/blog/_types/' ~ entry.type,
+      '/_pages/blog/_types/default'
+    ] %}
   </section>
 {% endblock %}

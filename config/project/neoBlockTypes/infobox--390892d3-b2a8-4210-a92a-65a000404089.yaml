@@ -31,7 +31,25 @@ fieldLayouts:
             tip: null
             type: craft\fieldlayoutelements\CustomField
             warning: null
-            width: 100
+            width: 50
+          -
+            fieldUid: 51d5398a-9cc0-4781-bacb-713a68986d17 # Infobox Hintergrundfarbe
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 25
+          -
+            fieldUid: 685ad3f3-ef40-45d9-8934-ec8c2926422f # Infobox Textfarbe
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 25
         name: Inhalt
         sortOrder: 1
 group: d87ae540-a64c-4e54-ac23-844cb4371d36 # 
@@ -40,5 +58,5 @@ maxBlocks: 0
 maxChildBlocks: 0
 maxSiblingBlocks: 0
 name: Infobox
-sortOrder: 23
+sortOrder: 24
 topLevel: true

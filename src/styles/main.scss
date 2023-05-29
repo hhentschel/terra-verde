@@ -4,7 +4,7 @@
 // required for typography
 @import 'node_modules/dialog-typography/dist/dialog-typography';
 
-//@import 'flickity/dist/flickity.min.css';
+@import 'node_modules/flickity/css/flickity';
 
 // abstracts
 @import 'abstracts/settings';
@@ -65,7 +65,7 @@
 @import 'components/pills';
 @import 'components/search';
 @import 'components/blog';
-@import 'components/blog-detail';
+@import 'components/detail-page';
 @import 'components/recipe';
 @import 'components/infobox';
 @import 'components/gallery';

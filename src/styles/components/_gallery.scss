@@ -1,0 +1,40 @@
+.gallery {
+  width: 100%;
+  grid-column: 1 / -1;
+
+  &__header {
+    display: flex;
+    justify-content: flex-end;
+    gap: px-to-rem($space--m);
+    margin: 0 px-to-rem($space--m) px-to-rem($space--m) 0;
+  }
+
+  &-navigation {
+    position: relative;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &__button--next {
+
+    }
+  }
+
+  &-slider {
+
+    figure {
+      width: min-content;
+    }
+
+    .image__img {
+      display: block;
+      max-width: none;
+      height: 200px;
+
+      @include breakpoint('tablet-landscape') {
+        height: 600px;
+      }
+    }
+  }
+}

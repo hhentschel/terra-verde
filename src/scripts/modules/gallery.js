@@ -1,35 +1,43 @@
-/*
-import Swiper from 'swiper';
+import Flickity from 'flickity';
+// import sliderImageFlickity from '../../../web/assets/scripts/main';
 
-// configure Swiper to use modules
-Swiper.use([Navigation]);
-
-export default class TeaserSlider {
+export default class GallerySlider {
   element = null;
 
-  constructor(sliderTeaserElement) {
-    this.element = sliderTeaserElement;
+  constructor(GalleryElement) {
+    this.element = GalleryElement;
     this.init();
   }
 
   init() {
-    const swiperContainer = this.element.querySelector('.swiper-container');
-    new Swiper(swiperContainer, {
-      direction: 'horizontal',
-      slidesPerView: 1,
-      breakpoints: {
-        900: {
-          slidesPerView: 2,
-        },
-        1200: {
-          slidesPerView: 3,
-        },
-      },
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
+    const flickitySlider = this.element.querySelector('.gallery-slider');
+    const buttonPrev = document.querySelector('.gallery-navigation__button--prev');
+    const buttonNext = document.querySelector('.gallery-navigation__button--next');
+    // const flickitySlide = this.element.querySelector('.image-matrix');
+    const flkty = new Flickity(flickitySlider, {
+      cellAlign: 'center',
+      contain: false,
+      imagesLoaded: true,
+      prevNextButtons: false,
+      pageDots: true,
+      percentPosition: false,
+
+      /* on: {
+         change:
+           function () {
+             console.log('Flickity ready');
+             flickitySlide.style.width = '100%';
+           },
+       }, */
+    });
+
+
+    buttonNext.addEventListener('click', () => {
+      flkty.next();
+    });
+
+    buttonPrev.addEventListener('click', () => {
+      flkty.previous();
     });
   }
 }
-*/

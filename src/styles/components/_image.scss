@@ -7,7 +7,7 @@ $maxtrix-image-gap: px-to-rem($space--m);
     margin-right: px-to-rem($space--xm);
 
     @include breakpoint('tablet') {
-      flex: 0 0 calc(50% - #{$maxtrix-image-gap});
+      flex: 1 0 calc(50% - #{$maxtrix-image-gap});
       max-width: 50%;
     }
   }
@@ -53,13 +53,10 @@ $maxtrix-image-gap: px-to-rem($space--m);
 
   &-matrix__container {
     display: flex;
-    flex-wrap: wrap;
     gap: px-to-rem($space--m);
 
     .image--half {
       margin: 0;
     }
-
-
   }
 }

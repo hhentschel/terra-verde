@@ -14,7 +14,7 @@ settings:
           - Links
         -
           - value
-          - 'col-md-shift-0 col-lg-shift-0'
+          - grid-shift__left
         -
           - default
           - ''
@@ -25,7 +25,7 @@ settings:
           - Mitte
         -
           - value
-          - 'col-md-shift-1 col-lg-shift-2'
+          - ''
         -
           - default
           - ''
@@ -36,7 +36,7 @@ settings:
           - Rechts
         -
           - value
-          - 'col-md-shift-3 col-lg-shift-4 col-lg-shift-helper-4'
+          - grid-shift__right
         -
           - default
           - ''

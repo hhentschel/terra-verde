@@ -1,4 +1,4 @@
-dateModified: 1684509324
+dateModified: 1685355650
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: 'Terra Verde'
@@ -106,6 +106,7 @@ meta:
     44a134bf-a896-43b6-897a-a294f6c27325: 'Blog Aktuell' # Blog Aktuell
     47c3ee37-8371-469c-8566-fb641a48324e: 'Ähnliche Produkte Apero' # Ähnliche Produkte Apero
     50ff7a2e-9fc7-4f85-aa48-b24f439d44cb: 'Bild Inhalt Voll' # Bild Inhalt Voll
+    51d5398a-9cc0-4781-bacb-713a68986d17: 'Infobox Hintergrundfarbe' # Infobox Hintergrundfarbe
     52b07f6a-0a03-4f36-90a6-237e75e980b9: Text # Text
     56e224de-e1ef-4c9a-897c-ab4a05fd8c96: 'Terra Verde' # Terra Verde
     57d4d8f2-0e49-45bf-9f84-2e1917ef7c02: Magazin # Magazin
@@ -151,6 +152,7 @@ meta:
     437e0241-3704-4701-a904-0082985e64ed: 'Externer Link' # Externer Link
     439c86f8-b7ed-48bd-a46c-c2b9f29de26d: 'Produkte (Privatkunden)' # Produkte (Privatkunden)
     442d67d8-a8df-49bb-9ea3-bc0a6323ce71: 'Überschrift Grösse' # Überschrift Grösse
+    508b8346-e9c6-483b-b039-08cfb035e306: 'Bild Breit' # Bild Breit
     523ac297-f2c3-49a9-bb1d-08fc4108631e: Impressum # Impressum
     529a5b01-e289-42de-a013-d43f81455999: 'Produzentenkarte Mobile ' # Produzentenkarte Mobile 
     546e63c7-3ad2-424d-ad71-31f33a561a7f: 'Kontakt | Globals' # Kontakt | Globals
@@ -160,6 +162,7 @@ meta:
     667e84c9-349c-41fc-b5dd-be60c8d94861: Downloadlink # Downloadlink
     673dbddb-972b-44b7-b50c-ac5b649321ab: Öffnungszeiten # Öffnungszeiten
     676d6484-bb25-4582-abcd-c9f07f618d98: 'Artikel Jahrgang' # Artikel Jahrgang
+    685ad3f3-ef40-45d9-8934-ec8c2926422f: 'Infobox Textfarbe' # Infobox Textfarbe
     723ee43b-e0d2-448a-9126-13f9a28125bc: Suche # Suche
     763aeea2-9aa6-475b-ab99-66fb8c6b67f2: Startseite # Startseite
     789fdb6d-520f-4cf1-be1e-478056358e79: Inhaltsbilder # Inhaltsbilder
@@ -552,7 +555,7 @@ plugins:
   feed-me:
     edition: standard
     enabled: true
-    schemaVersion: 4.4.0
+    schemaVersion: 4.4.1
     settings:
       assetDownloadCurl: false
       backupLimit: 100
@@ -874,5 +877,5 @@ system:
   live: true
   name: 'Terra Verde'
   retryDuration: null
-  schemaVersion: 3.7.33
+  schemaVersion: 3.8.0.1
   timeZone: Europe/Zurich
