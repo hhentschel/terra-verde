@@ -1,4 +1,4 @@
-dateModified: 1684916609
+dateModified: 1685449724
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: 'Terra Verde'
@@ -71,6 +71,7 @@ meta:
     6dfef0ec-decc-450c-8400-fe2f9d6a01a1: Positionierung # Positionierung
     6f495a5e-4e7f-4c5d-9163-d674db71d0ea: 'Interner Link (hervorgehoben)' # Interner Link (hervorgehoben)
     07a64db3-fc15-40a2-af10-a8499ce5a108: VirtueMart-userInfo-Id # VirtueMart-userInfo-Id
+    7db4c821-db84-4144-b750-0170f1401afb: '' # 
     7f760799-8cd2-47b0-981a-c91cfe3036b4: AGB # AGB
     7fec1130-1fea-4054-9bcb-ddff47a64b84: 'Newsletter List' # Newsletter List
     08a487ae-35d0-46a6-b036-6dde9ca93d51: Blog # Blog
@@ -105,6 +106,7 @@ meta:
     44a134bf-a896-43b6-897a-a294f6c27325: 'Blog Aktuell' # Blog Aktuell
     47c3ee37-8371-469c-8566-fb641a48324e: 'Ähnliche Produkte Apero' # Ähnliche Produkte Apero
     50ff7a2e-9fc7-4f85-aa48-b24f439d44cb: 'Bild Inhalt Voll' # Bild Inhalt Voll
+    51d5398a-9cc0-4781-bacb-713a68986d17: 'Infobox Hintergrundfarbe' # Infobox Hintergrundfarbe
     52b07f6a-0a03-4f36-90a6-237e75e980b9: Text # Text
     56e224de-e1ef-4c9a-897c-ab4a05fd8c96: 'Terra Verde' # Terra Verde
     57d4d8f2-0e49-45bf-9f84-2e1917ef7c02: Magazin # Magazin
@@ -150,6 +152,7 @@ meta:
     437e0241-3704-4701-a904-0082985e64ed: 'Externer Link' # Externer Link
     439c86f8-b7ed-48bd-a46c-c2b9f29de26d: 'Produkte (Privatkunden)' # Produkte (Privatkunden)
     442d67d8-a8df-49bb-9ea3-bc0a6323ce71: 'Überschrift Grösse' # Überschrift Grösse
+    508b8346-e9c6-483b-b039-08cfb035e306: 'Bild Breit' # Bild Breit
     523ac297-f2c3-49a9-bb1d-08fc4108631e: Impressum # Impressum
     529a5b01-e289-42de-a013-d43f81455999: 'Produzentenkarte Mobile ' # Produzentenkarte Mobile 
     546e63c7-3ad2-424d-ad71-31f33a561a7f: 'Kontakt | Globals' # Kontakt | Globals
@@ -159,6 +162,7 @@ meta:
     667e84c9-349c-41fc-b5dd-be60c8d94861: Downloadlink # Downloadlink
     673dbddb-972b-44b7-b50c-ac5b649321ab: Öffnungszeiten # Öffnungszeiten
     676d6484-bb25-4582-abcd-c9f07f618d98: 'Artikel Jahrgang' # Artikel Jahrgang
+    685ad3f3-ef40-45d9-8934-ec8c2926422f: 'Infobox Textfarbe' # Infobox Textfarbe
     723ee43b-e0d2-448a-9126-13f9a28125bc: Suche # Suche
     763aeea2-9aa6-475b-ab99-66fb8c6b67f2: Startseite # Startseite
     789fdb6d-520f-4cf1-be1e-478056358e79: Inhaltsbilder # Inhaltsbilder
@@ -194,6 +198,7 @@ meta:
     79922ac9-edbc-44e9-850c-3995f6bcdbee: 'Bild Legende' # Bild Legende
     86598fdd-8228-49e1-88da-4744029bfcef: 'Prdoukte Sortieren' # Prdoukte Sortieren
     87203f45-375b-40d7-98b8-3bdd33b721f1: 'Formatierter Text' # Formatierter Text
+    390892d3-b2a8-4210-a92a-65a000404089: Infobox # Infobox
     434736b1-3abc-42f8-8f60-2c69c3ada053: Beschriftung # Beschriftung
     547698ec-7561-4cee-95b1-f358f727b230: 'Interner Link (simple)' # Interner Link (simple)
     633900fd-0eae-4bfc-b2da-d85a3a01a68b: Produktbild # Produktbild
@@ -207,6 +212,7 @@ meta:
     9041254e-7c39-4bd9-9590-0a646283a360: 'Artikel Einheit (Gl, Fl, Dose, Stk., Kan.)' # Artikel Einheit (Gl, Fl, Dose, Stk., Kan.)
     10561167-3a73-493b-8f0f-48ce104e8c50: 'Anrede verwenden' # Anrede verwenden
     16265740-9a81-46f1-9fb8-99fc6b1a8e7f: 'Externer Link (mit Icon)' # Externer Link (mit Icon)
+    32255436-9130-46f8-89a7-da7a18284166: 'Infobox Positionierung' # Infobox Positionierung
     42065150-3e31-4dfa-ad7d-b6b95f0eba0f: 'Product Home' # Product Home
     75076778-568e-4d8c-8a9b-dadb8a0e180a: 'Bild / Bild - 50% / 50%' # Bild / Bild - 50% / 50%
     76367094-179e-4fc3-8e70-b0f8fccc3422: 'Shop Anpassungen' # Shop Anpassungen
@@ -261,6 +267,7 @@ meta:
     b67f46b2-ef36-4032-9237-2c14068a27a7: 'Abstand mittel' # Abstand mittel
     b205d303-121a-4aae-8c85-bb00a76f312a: Titel # Titel
     b696c979-d69e-481e-9fe6-248daa5b218a: Hintergrundfarbe # Hintergrundfarbe
+    b234429e-e8aa-45cb-9368-865e39d9f37a: 'Bild Detailseite' # Bild Detailseite
     bb672809-bd78-4ed8-b9cd-b634c8216640: Video # Video
     bcaacf3a-9840-4591-ab39-370581ab8eda: 'Karten Icons' # Karten Icons
     bcc2f7c9-e4b5-432b-b079-3cd963db5854: Produzenten # Produzenten
@@ -297,9 +304,11 @@ meta:
     d59a8a70-d5e0-42b4-b4d8-d3602f3bbe03: 'Produkt Bild' # Produkt Bild
     d63d76f8-75e4-40eb-9992-4ea21ba5b437: 'Artikel Zusatz Beschreibung' # Artikel Zusatz Beschreibung
     d74f6685-54ad-4654-b9dc-039321354725: Bild # Bild
+    d87ae540-a64c-4e54-ac23-844cb4371d36: '' # 
     d212ea74-5630-4a5d-9550-827a9623e32b: 'Subject Feld' # Subject Feld
     d438ea68-d87f-4238-b23e-cdaa8a840149: 'Produzenten Tags' # Produzenten Tags
     d595e861-4c06-4115-8656-93e95a495147: Notiz # Notiz
+    d833edb0-ac40-45aa-a109-8951fde17c85: Galerie # Galerie
     d953a3a0-62dc-4cd9-ad85-a7656faa8d58: Suche # Suche
     d1470d44-1f37-4fc8-997d-958262298de7: 'Rabatt 23% (Bachsermärte)' # Rabatt 23% (Bachsermärte)
     d5337c95-45d7-4dcf-9005-3c3ed8d37df1: 'Karten- Icons' # Karten- Icons
