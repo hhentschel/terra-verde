@@ -1,5 +1,5 @@
 handle: datratrans
-isFrontendEnabled: true
+isFrontendEnabled: false
 name: 'Kreditkarte, Postfinance, Twint'
 paymentType: purchase
 settings:
@@ -15,7 +15,7 @@ settings:
   testHmac1Key: $DATATRANS_HMAC_1_KEY_TEST
   testHmac2Key: $DATATRANS_HMAC_2_KEY_TEST
   testMerchantId: $DATATRANS_MERCHANT_ID_TEST
-  testMode: '1'
+  testMode: ''
   testSignKey: $DATATRANS_SIGN_KEY_TEST
   useOldBasketFormat: false
   vendor: null
