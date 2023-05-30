@@ -1,0 +1,12 @@
+columnSuffix: ssrvmsni
+contentColumnType: string(7)
+fieldGroup: bcc2f7c9-e4b5-432b-b079-3cd963db5854 # Produzenten
+handle: infoboxTextColor
+instructions: ''
+name: 'Infobox Textfarbe'
+searchable: false
+settings:
+  defaultColor: '#003333'
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Color

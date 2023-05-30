@@ -1,0 +1,33 @@
+columnSuffix: null
+contentColumnType: string
+fieldGroup: bcc2f7c9-e4b5-432b-b079-3cd963db5854 # Produzenten
+handle: imageDetailPage
+instructions: 'Wenn kein Bild ausgewählt, wird das Hauptbild genommen.'
+name: 'Bild Detailseite'
+searchable: false
+settings:
+  allowSelfRelations: false
+  allowUploads: true
+  allowedKinds: null
+  defaultUploadLocationSource: 'volume:789fdb6d-520f-4cf1-be1e-478056358e79' # Inhaltsbilder
+  defaultUploadLocationSubpath: ''
+  limit: ''
+  localizeRelations: false
+  previewMode: full
+  restrictFiles: ''
+  selectionLabel: ''
+  showSiteMenu: true
+  showUnpermittedFiles: false
+  showUnpermittedVolumes: false
+  singleUploadLocationSource: 'volume:789fdb6d-520f-4cf1-be1e-478056358e79' # Inhaltsbilder
+  singleUploadLocationSubpath: ''
+  source: null
+  sources:
+    - 'volume:62aa7cc1-c9ad-4ef4-9d94-4fc3275ba26a' # Produzenten
+  targetSiteId: null
+  useSingleFolder: false
+  validateRelatedElements: false
+  viewMode: list
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Assets

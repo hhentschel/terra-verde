@@ -1,0 +1,44 @@
+childBlocks: null
+field: 9f46731d-7fdd-4245-9ca1-719db0672448 # Inhaltselemente
+fieldLayouts:
+  67296320-95fa-4f52-9a7a-2dc209784191:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: b19c563f-f580-49f7-88f1-896078bcca7a # Titel H2
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: 421eaf0b-f542-45ff-8051-2921d93b3eeb # Vorschautext
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: 6bc749d9-f805-48a4-b8de-1702b40ae534 # Bild Matrix
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Inhalt
+        sortOrder: 1
+group: 7db4c821-db84-4144-b750-0170f1401afb # 
+handle: imageGallery
+maxBlocks: 0
+maxChildBlocks: 0
+maxSiblingBlocks: 0
+name: Galerie
+sortOrder: 26
+topLevel: true
