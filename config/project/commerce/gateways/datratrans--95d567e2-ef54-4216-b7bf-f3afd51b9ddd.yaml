@@ -1,5 +1,5 @@
 handle: datratrans
-isFrontendEnabled: false
+isFrontendEnabled: true
 name: 'Kreditkarte, Postfinance, Twint'
 paymentType: purchase
 settings:
