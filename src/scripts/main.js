@@ -9,7 +9,7 @@ import './modules/mobile-nav';
 import './modules/focus';
 import './modules/header';
 import Accordion from './modules/accordion';
-/* import AnchorLink from './modules/anchor-link'; */
+import AnchorLink from './modules/anchor-link';
 import MapLinkToCircle from './modules/map-linktocircle';
 import MapCircleToLink from './modules/map-circletolink';
 
@@ -20,10 +20,10 @@ accordions.forEach((accordion) => {
 });
 
 /* Anchor links */
-/* const anchorLinks = document.querySelectorAll('.anchor-link');
+const anchorLinks = document.querySelectorAll('.anchor-link');
 anchorLinks.forEach((anchorLink) => {
   new AnchorLink(anchorLink);
-}); */
+});
 
 /* Map links to circle */
 const mapLinkstoCircle = document.querySelectorAll('.map-link');
