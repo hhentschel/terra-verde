@@ -129,14 +129,15 @@
                   {% if id == cart.gatewayId %}
                     Bestellung abschicken
                   {% else %}
-                    {{ cart.totalPrice|commerceCurrency(cart.paymentCurrency,convert=true) }} jetzt bezahlen
+                    {#                    {{ cart.totalPrice|commerceCurrency(cart.paymentCurrency,convert=true) }} jetzt bezahlen #}
+                    Jetzt bezahlen
                   {% endif %}
                 </button>
               </div>
             {% endif %}
 
             {# Outputs a hidden input field #}
-            {{ craft.snaptcha.field }}
+            {# {{ craft.snaptcha.field }} #}
 
           </form>
         </div>

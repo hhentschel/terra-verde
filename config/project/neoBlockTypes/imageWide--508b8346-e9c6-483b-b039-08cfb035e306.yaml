@@ -1,7 +1,7 @@
 childBlocks: null
 field: 9f46731d-7fdd-4245-9ca1-719db0672448 # Inhaltselemente
 fieldLayouts:
-  cee308b0-8238-4075-9171-e7ca25136182:
+  99d585cd-d509-4cc1-9a84-736754107e29:
     tabs:
       -
         elements:
@@ -35,10 +35,10 @@ fieldLayouts:
         name: Inhalt
         sortOrder: 1
 group: 911777fe-811a-46e9-bb80-0228ddd66234 # Medien
-handle: image
+handle: imageWide
 maxBlocks: 0
 maxChildBlocks: 0
 maxSiblingBlocks: 0
-name: Bild
-sortOrder: 12
+name: 'Bild Breit'
+sortOrder: 13
 topLevel: true

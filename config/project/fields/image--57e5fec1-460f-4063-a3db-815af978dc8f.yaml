@@ -9,7 +9,7 @@ settings:
   allowSelfRelations: false
   allowUploads: true
   allowedKinds: null
-  defaultUploadLocationSource: 'volume:789fdb6d-520f-4cf1-be1e-478056358e79' # Inhaltsbilder
+  defaultUploadLocationSource: 'volume:62aa7cc1-c9ad-4ef4-9d94-4fc3275ba26a' # Produzenten
   defaultUploadLocationSubpath: ''
   limit: ''
   localizeRelations: false
@@ -22,8 +22,7 @@ settings:
   singleUploadLocationSource: 'volume:63339d3e-c6d1-4455-be6d-33715340baf0' # Produkte
   singleUploadLocationSubpath: ''
   source: null
-  sources:
-    - 'volume:62aa7cc1-c9ad-4ef4-9d94-4fc3275ba26a' # Produzenten
+  sources: '*'
   targetSiteId: null
   useSingleFolder: false
   validateRelatedElements: false
