@@ -74,60 +74,62 @@
 
   <div class="blog-list">
     {% if entries|length %}
+
       {% for entry in entries %}
-        <a href="{{ entry.url }}">
-          <div class="blog-list__item">
-            <div class="blog-list__item--top">
-              <div class="blog-list__item--preview">
-                {% if
-                  entry.contentElements is defined
-                  and entry.contentElements is not empty %}
 
-                  {% set transform = transformation|default('blogPreviewThumb') %}
-                  {% set img = entry.image.one ?? generic.image.one() %}
+        <a href="{{ entry.url }}"
+           class="blog-list__item  {% if entry.highlightEntry %} blog-list__item--highlighted {% endif %}">
+          <div class="blog-list__item--top">
+            <div class="blog-list__item--preview">
+              {% if
+                entry.contentElements is defined
+                and entry.contentElements is not empty %}
 
-                  {% if img is defined and img is not empty %}
-                    {% include '_components/_content-elements/image' with {
-                      img: img,
-                      transform: transform
-                    } %}
-                  {% endif %}
+                {% set transform = transformation|default('blogPreviewThumb') %}
+                {% set img = entry.image.one ?? generic.image.one() %}
+
+                {% if img is defined and img is not empty %}
+                  {% include '_components/_content-elements/image' with {
+                    img: img,
+                    transform: transform
+                  } %}
                 {% endif %}
-              </div>
+              {% endif %}
+            </div>
 
-              <div class="blog-list__item--meta">
-                {% if catBlogOptions is defined and catBlogOptions is not empty %}
-                  {% set categories = entry.catsForBlogEntries.all() %}
-                  <div class="blog-list__item--cat-container">
-                    {% for cat in categories %}
-                      <span
-                        class="blog-list__item--cat-item blog-list__item--cat-item--{% if cat.id == 16717 %}news{% elseif cat.id == 16718 %}recipe{% elseif cat.id == 16719 %}magazin{% endif %}">
+            <div class="blog-list__item--meta">
+              {% if catBlogOptions is defined and catBlogOptions is not empty %}
+                {% set categories = entry.catsForBlogEntries.all() %}
+                <div class="blog-list__item--cat-container">
+                  {% for cat in categories %}
+                    <span
+                      class="blog-list__item--cat-item blog-list__item--cat-item--{% if cat.id == 16717 %}news{% elseif cat.id == 16718 %}recipe{% elseif cat.id == 16719 %}magazin{% endif %}">
                       {{ cat.title }}
                     </span>
-                    {% endfor %}
-                  </div>
-                {% endif %}
-                <span>{{ entry.author }}</span>, <span>{{ entry.postDate | date("d.m.Y") }}</span>
-
-              </div>
-
-              <div class="blog-list__item--title-container">
-
-
-                <h3 class="blog-list__item--title">
-                  {{ entry.title }}
-                </h3>
-
-                <div class="blog-list__item--preview-lead">
-                  {{ entry.leadText }}
+                  {% endfor %}
                 </div>
-              </div>
-
+              {% endif %}
+              <span>{{ entry.author }}</span>, <span>{{ entry.postDate | date("d.m.Y") }}</span>
 
             </div>
 
-            <span
-              class="blog-list__item--linkdetail link link--button link--internal link--color-lightblue link--icon-after">
+            <div class="blog-list__item--title-container">
+
+
+              <h3 class="blog-list__item--title">
+                {{ entry.title }}
+              </h3>
+
+              <div class="blog-list__item--preview-lead">
+                {{ entry.leadText }}
+              </div>
+            </div>
+
+
+          </div>
+
+          <span
+            class="blog-list__item--linkdetail link link--button link--internal link--color-lightblue link--icon-after">
                 <span class="link__text">
                 {% if
                   entry.contentElements is defined
@@ -142,7 +144,6 @@
                 </svg>
               </div>
             </span>
-          </div>
         </a>
       {% endfor %}
     {% endif %}

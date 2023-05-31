@@ -21,6 +21,7 @@
       background-color: $color--grey-darkest;
       color: $color--white;
     }
+
   }
 
   &--item-active {
@@ -81,6 +82,11 @@
       @include breakpoint('desktop') {
         width: 33.33%;
       }
+    }
+
+
+    &--highlighted {
+      grid-column: 1/3;
     }
   }
 
@@ -146,7 +152,6 @@
       margin: 0 0 px-to-rem($space--m) 0;
       flex-wrap: wrap;
       flex-direction: column;
-      aspect-ratio: 1;
 
       @include breakpoint('tablet-landscape') {
         flex-wrap: nowrap;
