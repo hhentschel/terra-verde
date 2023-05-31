@@ -54,6 +54,10 @@ $link__button-secondary-color-hover: $color--primary-hover;
 
   &__text {
     flex: 1 0 0;
+
+    &--section {
+      display: block;
+    }
   }
 
   &__block {

@@ -1,10 +1,9 @@
 {% extends '_layouts/main' %}
-{% set pageTitle = entry.pageTitle is not empty ? entry.pageTitle : entry.title
-%}
+{% import '_helpers/macros.twig' as macros %}
+{% set pageTitle = entry.pageTitle is not empty ? entry.pageTitle : entry.title %}
 
 {% set allManufactors =
-  craft.entries.section('producersStructure').level(1).all()
-%}
+  craft.entries.section('producersStructure').level(1).all() %}
 
 {% set entry =
   craft.entries().section('producersOverview').with(
@@ -16,8 +15,7 @@
         }
       ]
     ]
-  ).one()
-%}
+  ).one() %}
 
 {# Set up Regions #}
 {% set regionIT = craft.categories().slug('italy').one() %}
@@ -29,15 +27,13 @@
 
 {# Get all Producers from IT #}
 {% set allManufactorsIT =
-  craft.entries.section('producersStructure').relatedTo(regionIT).level(1).all()
-%}
+  craft.entries.section('producersStructure').relatedTo(regionIT).level(1).all() %}
 
 {# Get all Producers NOT from IT #}
 {% set allManufactorsNOTIT =
   craft.entries.section('producersStructure').relatedTo(
     ['or', regionES, regionDE, regionFR, regionPOR, regionBO]
-  ).all()
-%}
+  ).all() %}
 
 {# Set up Producers who sell Food #}
 {% set manufactorFood = craft.categories().slug('food').one() %}
@@ -47,13 +43,11 @@
 
 {# Get all Producers who sell Food #}
 {% set allManufactorsFood =
-  craft.entries.section('producersStructure').relatedTo([manufactorFood]).all()
-%}
+  craft.entries.section('producersStructure').relatedTo([manufactorFood]).all() %}
 
 {# Get all Producers who sell Wine #}
 {% set allManufactorsWine =
-  craft.entries.section('producersStructure').relatedTo([manufactorWine]).all()
-%}
+  craft.entries.section('producersStructure').relatedTo([manufactorWine]).all() %}
 
 {% block content %}
   <div class="grid">
@@ -84,53 +78,41 @@
         </div>
       </div>
 
-      <div class="col col-xs-12 col-md-5 col-lg-5">
-        <ul class="producers-list">
-          <h3 class="heading heading-3 layout-helper__margin-top--none">
-            Lebensmittel
-          </h3>
-          {% for entry in allManufactorsFood %}
-            <li>
-              <a href="{{ entry.url }}"
-                data-id="{{ entry.id }}"
-                title="{{ entry.title }}"
-                class="producers-list__item map-link">
-                {{ entry.title }}
-              </a>
-            </li>
-          {% endfor %}
-        </ul>
+      <div class="col col-xs-12 col-md-5 col-lg-5 producers-list">
+        <div class="producers-list__wrapper">
 
-        <ul class="producers-list">
-          <h3>
-            Weine
-          </h3>
-          {% for entry in allManufactorsWine %}
-            <li>
-              <a href="{{ entry.url }}"
-                data-id="{{ entry.id }}"
-                title="{{ entry.title }}"
-                class="producers-list__item map-link">
-                {{ entry.title }}
-              </a>
-            </li>
-          {% endfor %}
-        </ul>
+          <ul class="producers-list__deli">
+            <h3 class="heading heading-3 layout-helper__margin-top--none">
+              Lebensmittel
+            </h3>
+            {% for entry in allManufactorsFood %}
+              <li>
+                <a href="{{ entry.url }}"
+                   data-id="{{ entry.id }}"
+                   title="{{ entry.title }}"
+                   class="producers-list__item map-link">
+                  {{ entry.title }}
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+          <div class="producers-list__wine">
+            <h3 class="heading heading-3 layout-helper__margin-top--none">
+              Weine
+            </h3>
+            <a class="anchor-link" href="#winelist">
+              <span class="link__text link__text--section">
+                {{ 'Zu unseren Wein-produzent:innen'|t }}
+              </span>
+              <div class="link__icon-wrapper link__icon-wrapper--internal">
+                {{ macros.svg('carret_down_24')|attr({
+                  class: 'link__icon link__icon--down icon icon--24'
+                }) }}
+              </div>
+            </a>
+          </div>
+        </div>
 
-        {# <ul class="producers-list">
-          {% for entry in allManufactorsNOTIT %}
-        #}
-        {# Fetch all of the categories related to this entry #}
-        {#
-        {% set categories = craft.categories.relatedTo(entry) %}
-
-        <li>
-          <a href="{{ entry.url }}" data-id="{{ entry.id }}" title="{{ entry.title }}" class="producers-list__item">
-            {{ entry.title }},<span class="producers-list__item-place"> {{ categories|join(', ') }}</span>
-          </a>
-        </li>
-      {% endfor %}
-    </ul> #}
       </div>
     </div>
   </section>
@@ -152,7 +134,7 @@
         <h2>
           Weine
         </h2>
-        <div class="producers-grid">
+        <div class="producers-grid" id="winelist">
           {% if allManufactorsWine|length %}
             {% for entry in allManufactorsWine %}
               {% include '_pages/produzenten/producers-tile.twig' %}

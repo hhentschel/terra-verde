@@ -8,7 +8,7 @@ export default class AnchorLink {
     anchorTarget: null,
   };
 
-  scrollTargetOffset = 120;
+  scrollTargetOffset = 200;
 
   constructor(anchorLink) {
     this.anchorLink = anchorLink;
