@@ -1,4 +1,4 @@
-dateModified: 1685451579
+dateModified: 1685652124
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: 'Terra Verde'
@@ -71,7 +71,7 @@ meta:
     6dfef0ec-decc-450c-8400-fe2f9d6a01a1: Positionierung # Positionierung
     6f495a5e-4e7f-4c5d-9163-d674db71d0ea: 'Interner Link (hervorgehoben)' # Interner Link (hervorgehoben)
     07a64db3-fc15-40a2-af10-a8499ce5a108: VirtueMart-userInfo-Id # VirtueMart-userInfo-Id
-    7db4c821-db84-4144-b750-0170f1401afb: '' #
+    7db4c821-db84-4144-b750-0170f1401afb: '' # 
     7f760799-8cd2-47b0-981a-c91cfe3036b4: AGB # AGB
     7fec1130-1fea-4054-9bcb-ddff47a64b84: 'Newsletter List' # Newsletter List
     08a487ae-35d0-46a6-b036-6dde9ca93d51: Blog # Blog
@@ -154,7 +154,7 @@ meta:
     442d67d8-a8df-49bb-9ea3-bc0a6323ce71: 'Überschrift Grösse' # Überschrift Grösse
     508b8346-e9c6-483b-b039-08cfb035e306: 'Bild Breit' # Bild Breit
     523ac297-f2c3-49a9-bb1d-08fc4108631e: Impressum # Impressum
-    529a5b01-e289-42de-a013-d43f81455999: 'Produzentenkarte Mobile ' # Produzentenkarte Mobile
+    529a5b01-e289-42de-a013-d43f81455999: 'Produzentenkarte Mobile ' # Produzentenkarte Mobile 
     546e63c7-3ad2-424d-ad71-31f33a561a7f: 'Kontakt | Globals' # Kontakt | Globals
     552eac55-d86f-40a3-8aea-50f54038afbc: Textfeld # Textfeld
     641bd187-bf07-49f6-9cdd-90462c76cc88: Nummer # Nummer
@@ -167,6 +167,7 @@ meta:
     763aeea2-9aa6-475b-ab99-66fb8c6b67f2: Startseite # Startseite
     789fdb6d-520f-4cf1-be1e-478056358e79: Inhaltsbilder # Inhaltsbilder
     809da76b-a716-40fe-aed3-55f1fc0c57e9: 'Blog Kategorien' # Blog Kategorien
+    822da130-432e-4062-a8d4-da32df299928: 'Highlight Artikel ?' # Highlight Artikel ?
     842f167d-10b6-44fb-826b-d13831f73ff9: Common # Common
     872de5f4-04bb-4eb5-8c3f-7a3151ea37ea: Rechnung # Rechnung
     942ff559-0290-4738-ae31-bd8570484d25: Adresse # Adresse
@@ -304,7 +305,7 @@ meta:
     d59a8a70-d5e0-42b4-b4d8-d3602f3bbe03: 'Produkt Bild' # Produkt Bild
     d63d76f8-75e4-40eb-9992-4ea21ba5b437: 'Artikel Zusatz Beschreibung' # Artikel Zusatz Beschreibung
     d74f6685-54ad-4654-b9dc-039321354725: Bild # Bild
-    d87ae540-a64c-4e54-ac23-844cb4371d36: '' #
+    d87ae540-a64c-4e54-ac23-844cb4371d36: '' # 
     d212ea74-5630-4a5d-9550-827a9623e32b: 'Subject Feld' # Subject Feld
     d438ea68-d87f-4238-b23e-cdaa8a840149: 'Produzenten Tags' # Produzenten Tags
     d595e861-4c06-4115-8656-93e95a495147: Notiz # Notiz
@@ -376,6 +377,90 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 2.0.0
+  blitz:
+    edition: standard
+    enabled: true
+    licenseKey: 1XZ9DCIWQEDUB7WTNX9NARMC
+    schemaVersion: 3.10.0
+    settings:
+      apiKey: ''
+      cacheControlHeader: 'public, s-maxage=31536000, max-age=0'
+      cacheDuration: null
+      cacheElementQueries: true
+      cacheElements: true
+      cachePurgerType: putyourlightson\blitz\drivers\purgers\DummyPurger
+      cacheStorageSettings:
+        __assoc__:
+          -
+            - folderPath
+            - '@webroot/cache/blitz'
+          -
+            - createGzipFiles
+            - ''
+          -
+            - createBrotliFiles
+            - ''
+      cacheStorageType: putyourlightson\blitz\drivers\storage\FileStorage
+      cacheWarmerSettings:
+        __assoc__:
+          -
+            - concurrency
+            - '3'
+      cacheWarmerType: putyourlightson\blitz\drivers\warmers\GuzzleWarmer
+      cachingEnabled: '1'
+      clearCacheAutomatically: '1'
+      customSiteUris: ''
+      debug: false
+      deployerType: putyourlightson\blitz\drivers\deployers\DummyDeployer
+      driverJobPriority: 100
+      excludedQueryStringParams:
+        - gclid
+        - fbclid
+      excludedUriPatterns: ''
+      includedQueryStringParams:
+        - '.*'
+      includedUriPatterns:
+        -
+          __assoc__:
+            -
+              - uriPattern
+              - /shop
+        -
+          __assoc__:
+            -
+              - uriPattern
+              - /ueberuns
+        -
+          __assoc__:
+            -
+              - uriPattern
+              - /blog
+        -
+          __assoc__:
+            -
+              - uriPattern
+              - /produzentinnen
+        -
+          __assoc__:
+            -
+              - uriPattern
+              - '/produzentinnen/.*'
+      injectScriptEvent: DOMContentLoaded
+      integrations:
+        - putyourlightson\blitz\drivers\integrations\FeedMeIntegration
+        - putyourlightson\blitz\drivers\integrations\SeomaticIntegration
+      maxRetryAttempts: 10
+      mutexTimeout: 1
+      outputComments: true
+      queryStringCaching: '0'
+      queueJobTtr: 300
+      refreshCacheAutomaticallyForGlobals: true
+      refreshCacheJobPriority: 10
+      refreshCacheWhenElementSavedNotLive: false
+      refreshCacheWhenElementSavedUnchanged: false
+      sendPoweredByHeader: true
+      warmCacheAutomatically: '1'
+      warmPagesWithQueryStringParams: true
   blitz-recommendations:
     edition: standard
     enabled: true
@@ -392,7 +477,8 @@ plugins:
       contactFieldLayoutId: null
       emailFieldLabel: Email
       fromNamesEmails:
-        - - 'Terra Verde'
+        -
+          - 'Terra Verde'
           - info@terra-verde.ch
           - ''
       geoIp: false
@@ -426,9 +512,11 @@ plugins:
       timeThreshold: 0.8
       transportSettings:
         __assoc__:
-          - - apiKey
+          -
+            - apiKey
             - $MAILJET_API_KEY
-          - - apiSecret
+          -
+            - apiSecret
             - $MAILJET_SECRET_KEY
       transportType: bertoost\mailjet\adapters\MailjetAdapter
   ckeditor:
@@ -567,9 +655,12 @@ plugins:
       queueTtr: null
       requestOptions:
         __assoc__:
-          - - headers
-            - __assoc__:
-                - - User-Agent
+          -
+            - headers
+            -
+              __assoc__:
+                -
+                  - User-Agent
                   - 'Feed Me'
       runGcBeforeFeed: false
       skipUpdateFieldHandle: ''
@@ -623,8 +714,10 @@ plugins:
     schemaVersion: 1.0.0
     settings:
       sections:
-        - - Intro
-        - - Anleitungen
+        -
+          - Intro
+        -
+          - Anleitungen
       widgetTitle: Links
   mailchimp-subscribe:
     edition: standard
@@ -712,9 +805,11 @@ plugins:
       cpTitlePrefix: '⚙ '
       cspNonce: ''
       cspScriptSrcPolicies:
-        - __assoc__:
-            - - policy
-              - "'self'"
+        -
+          __assoc__:
+            -
+              - policy
+              - '''self'''
       devModeCpTitlePrefix: '&#x1f6a7;⚙ '
       devModeTitlePrefix: '&#x1f6a7; '
       displayAnalysisSidebar: true
@@ -780,26 +875,46 @@ plugins:
       errorTitle: Fehler
       excludeControllerActions:
         __assoc__:
-          - - 0
-            - - commerce/payments/pay
-          - - 18
-            - - sprig-core/components/render
-          - - 8
-            - - commerce/payments/complete-payment
-          - - 9
-            - - users/save-user
-          - - 10
-            - - users/login
-          - - 11
-            - - shop/checkout/register-signin
-          - - 12
-            - - users/send-password-reset-email
-          - - 13
-            - - users/set-password
-          - - 14
-            - - commerce/customer-addresses/save
-          - - 17
-            - - commerce/cart/update-cart
+          -
+            - 0
+            -
+              - commerce/payments/pay
+          -
+            - 18
+            -
+              - sprig-core/components/render
+          -
+            - 8
+            -
+              - commerce/payments/complete-payment
+          -
+            - 9
+            -
+              - users/save-user
+          -
+            - 10
+            -
+              - users/login
+          -
+            - 11
+            -
+              - shop/checkout/register-signin
+          -
+            - 12
+            -
+              - users/send-password-reset-email
+          -
+            - 13
+            -
+              - users/set-password
+          -
+            - 14
+            -
+              - commerce/customer-addresses/save
+          -
+            - 17
+            -
+              - commerce/cart/update-cart
       expirationTime: '60'
       fieldName: snaptcha
       logRejected: '1'

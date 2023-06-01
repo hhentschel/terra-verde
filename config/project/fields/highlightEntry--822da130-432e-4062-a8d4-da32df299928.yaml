@@ -1,0 +1,14 @@
+columnSuffix: znmlqgnd
+contentColumnType: boolean
+fieldGroup: bcc2f7c9-e4b5-432b-b079-3cd963db5854 # Produzenten
+handle: highlightEntry
+instructions: ''
+name: 'Highlight Artikel ?'
+searchable: false
+settings:
+  default: false
+  offLabel: nein
+  onLabel: ja
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Lightswitch

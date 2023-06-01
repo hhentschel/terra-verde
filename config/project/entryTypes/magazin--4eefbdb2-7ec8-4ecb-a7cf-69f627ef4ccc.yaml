@@ -72,6 +72,15 @@ fieldLayouts:
             warning: null
             width: 100
           -
+            fieldUid: 822da130-432e-4062-a8d4-da32df299928 # Highlight Artikel ?
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
             fieldUid: 9f46731d-7fdd-4245-9ca1-719db0672448 # Inhaltselemente
             instructions: null
             label: null
