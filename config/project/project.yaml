@@ -1,4 +1,4 @@
-dateModified: 1685652124
+dateModified: 1685653183
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: 'Terra Verde'
@@ -388,19 +388,8 @@ plugins:
       cacheDuration: null
       cacheElementQueries: true
       cacheElements: true
-      cachePurgerType: putyourlightson\blitz\drivers\purgers\DummyPurger
-      cacheStorageSettings:
-        __assoc__:
-          -
-            - folderPath
-            - '@webroot/cache/blitz'
-          -
-            - createGzipFiles
-            - ''
-          -
-            - createBrotliFiles
-            - ''
-      cacheStorageType: putyourlightson\blitz\drivers\storage\FileStorage
+      cachePurgerType: servd\AssetStorage\Blitz\CachePurger
+      cacheStorageType: putyourlightson\blitz\drivers\storage\YiiCacheStorage
       cacheWarmerSettings:
         __assoc__:
           -
@@ -849,9 +838,10 @@ plugins:
       assetsEnvironment: ''
       assetsEnvironmentOverwrite: ''
       cacheClearMode: full
-      clearCachesOnSave: always
+      clearCachesOnSave: never
       disableDynamic: ''
       disableTransforms: ''
+      imageAutoConversion: webp
       injectCors: ''
       projectSlug: $SERVD_PROJECT_SLUG
       securityKey: $SERVD_SECURITY_KEY
