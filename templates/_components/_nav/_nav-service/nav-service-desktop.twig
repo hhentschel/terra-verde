@@ -2,12 +2,12 @@
 {% import '_helpers/macros.twig' as macros %}
 
 {% set loginLink = craft.entries.section('loginStructure').one() %}
-{% set sucheLink = craft.entries.section('searchSingle').one() %}
-{# {% set instashop = craft.entries.section('instashop').one() %} #}
+{% set navSearch = craft.entries.section('searchSingle').one() %}
 
+{#
 {% set url = craft.app.request.pathInfo %}
+#}
 
-{# <div class="header__nav-service"> #}
 <nav class="nav-service" role="navigation">
   <h2 class="visually-hidden">
     {{ 'nav.serviceNavigation'|t }}
@@ -15,36 +15,34 @@
 
   <ul class="nav-service__list nav-service__list-top">
     <li class="nav-service__list-item">
-      {% if currentUser %}
+      {% if sprig.isRequest %}
+
+        {% if currentUser %}
+          <span class="currentuser">
+          <a href="/shop/customer">
+            Profil
+          </a>
+        </span>
+        {% else %}
+          <a href="{{ loginLink.url }}" class="nav__link">{{ 'Login'|t }}</a>
+        {% endif %}
+      {% else %}
         <span class="currentuser">
           <a href="/shop/customer">
             Profil
-            {# | <strong>{{ currentUser.friendlyName }}</strong> #}
           </a>
         </span>
-      {% else %}
-        <a href="{{ loginLink.url }}" class="nav__link">{{ 'Login'|t }}</a>
       {% endif %}
     </li>
 
     {% include '_components/_nav/_nav-shop/nav-shop-desktop' %}
 
     <li class="nav-service__list-item">
-      <a href="{{ sucheLink.url }}"
-        class="nav__link {{ macros.isActive('suche', 1, 'nav__link--') }}">
+      <a href="{{ navSearch.url }}"
+         class="nav__link {{ macros.isActive('suche', 1, 'nav__link--') }}">
         {{ 'Suche'|t }}
       </a>
     </li>
   </ul>
 
-  {# <ul class="nav-service__list nav-service__list-bottom"> #}
-  {# <li class="nav-service__list-item">
-        <a href="{{ instashop.url }}"
-          class="nav__link {{ macros.isActive('instashop', 1, 'nav__link--') }}">
-          {{ 'InstaShop'|t }}
-        </a>
-      </li> #}
-
-  {# </ul> #}
 </nav>
-{# </div> #}

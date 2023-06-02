@@ -42,6 +42,5 @@
   {% js %}
     htmx.on('#product-filters', 'htmx:afterSwap', function(event) {
     htmx.trigger('#cartsize', 'refresh');
-    htmx.trigger('#cartsizemobile', 'refresh');
     });
   {% endjs %}

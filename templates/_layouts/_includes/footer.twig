@@ -17,7 +17,11 @@
 
         <div class="col col-xs-12 col-md-9 col-lg-9">
           <div class="form__wrapper">
-            {% include '_pages/newsletter/index.twig' %}
+            {# {% include '_pages/newsletter/index.twig' %} #}
+
+            {{ craft.blitz.getTemplate('_pages/newsletter/index.twig') }}
+
+            {# {{ sprig('_pages/newsletter/index.twig', {} , { 's-trigger': 'load' } ) }} #}
 
             {# {% set mailingList = craft.campaign.mailingLists.id(7).one() %}
             #}{# If there were any validation errors, a `contact` variable will be passed to the
