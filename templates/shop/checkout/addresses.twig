@@ -12,12 +12,17 @@
 {% set modelName = modelName is defined ? modelName : 'address' %}
 {% set model = address is defined ? address : null %}
 
+{# addresses: 'craft.commerce.customers.customer.addresses',
+              'cartId': cart.id #}
+
 {% block content %}
   <!-- Template: {{ _self }}.twig -->
   <section class="grid">
     <div class="row">
       <div class="col col-xs-12 col-md-6 col-lg-5">
-        {% include 'shop/checkout/_includes/order-summary' %}
+        {# {{ craft.blitz.getTemplate('shop/checkout/_includes/order-summary') }} #}
+        {{ sprig('shop/checkout/_includes/order-summary', {} , { 's-trigger': 'load' } ) }}
+        {# {% include 'shop/checkout/_includes/order-summary' %} #}
       </div>
 
       <div class="col col-xs-12 col-md-6 col-lg-7">
@@ -46,11 +51,16 @@
             {% endif %}
 
             <h3 class="heading heading--3 heading--no-margin-top">Versandadresse wählen</h3>
-            {{ include('shop/_includes/addresses/fieldset', {
+            {{ sprig('shop/_includes/addresses/fieldset', {
+              title: 'Shipping Address'|t,
+              class: 'ShippingAddress',
+              name: 'shippingAddress',
+            } , { 's-trigger': 'load' } ) }}
+            {#  {{ include('shop/_includes/addresses/fieldset', {
               title: 'Shipping Address'|t,
               class: 'ShippingAddress',
               name: 'shippingAddress'
-            }) }}
+            }) }} #}
             {# Wenn schon Kunde vorhanden #}
             {% if userExists %}
 
@@ -77,11 +87,16 @@
                    hinzu.</span>
                 <h3 class="heading heading--3 heading--no-margin-top">Rechnungsadresse wählen</h3>
                 <div class="mt-8">
-                  {{ include('shop/_includes/addresses/fieldset', {
+                  {{ sprig('shop/_includes/addresses/fieldset', {
                     title: 'Billing Address'|t,
                     class: 'BillingAddress hidden',
                     name: 'billingAddress'
-                  }) }}
+                  } , { 's-trigger': 'load' } ) }}
+                  {# {{ include('shop/_includes/addresses/fieldset', {
+                    title: 'Billing Address'|t,
+                    class: 'BillingAddress hidden',
+                    name: 'billingAddress'
+                  }) }} #}
                 </div>
               </div>
 
@@ -134,11 +149,16 @@
 
                   <div class="forms__checkout--link">
                     <h3>Rechnungsadresse</h3>
-                    {{ include('shop/_includes/addresses/fieldset', {
+                    {{ sprig('shop/_includes/addresses/fieldset', {
+                      title: 'Billing Address'|t,
+                      class: 'BillingAddress hidden',
+                      name: 'billingAddress'
+                    } , { 's-trigger': 'load' } ) }}
+                    {# {{ include('shop/_includes/addresses/fieldset', {
                       title: 'Billing Address'|t,
                       class: 'BillingAddress',
                       name: 'billingAddress'
-                    }) }}
+                    }) }} #}
                   </div>
                 </div>
 

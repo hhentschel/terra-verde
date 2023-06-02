@@ -31,7 +31,7 @@
 <meta content="de_DE" property="og:locale">
 <meta content="Terra Verde" property="og:site_name">
 <meta content="website" property="og:type">
-<meta content="http://terraverde.local/shop/checkout/addresses" property="og:url">
+<meta content="http://terraverde.local/shop/checkout/shipping" property="og:url">
 <meta content="Biologische Produkte" property="og:title">
 <meta content="Unter dem Label von Terra Verde werden ausschliesslich qualitativ hochstehende Weine und Delikatessen aus zertifizierter biologischer Produktion angeboten." property="og:description">
 <meta content="https://optimise2.assets-servd.host/terra-verde/development/assets/images/content/content/TerraVerde_Logo.jpeg?w=1200&amp;h=630&amp;q=82&amp;auto=format&amp;fit=clip&amp;dm=1643979840&amp;s=9e59c57278bd5d468c841e3e5e3f7d44" property="og:image">
@@ -159,7 +159,7 @@
                 </div>
               </div>
 
-              <div id="component-jxbccm" class="sprig-component" data-hx-target="this" data-hx-include="this" data-hx-trigger="load" data-hx-get="http://terraverde.local/index.php?p=actions/sprig-core/components/render" data-hx-vals="{&quot;sprig:siteId&quot;:&quot;e9e08d9265e19c3479e7c9089e97c4c14297f7e8572aa3c45f1e72af52cea3721&quot;,&quot;sprig:template&quot;:&quot;d664f0171946b5706392d52329776aa70212877681a73b122ae97b751c82c9de_components\/_nav\/_nav-service\/nav-service-desktop&quot;}" s-trigger="load">
+              <div id="component-kormoq" class="sprig-component" data-hx-target="this" data-hx-include="this" data-hx-trigger="load" data-hx-get="http://terraverde.local/index.php?p=actions/sprig-core/components/render" data-hx-vals="{&quot;sprig:siteId&quot;:&quot;e9e08d9265e19c3479e7c9089e97c4c14297f7e8572aa3c45f1e72af52cea3721&quot;,&quot;sprig:template&quot;:&quot;d664f0171946b5706392d52329776aa70212877681a73b122ae97b751c82c9de_components\/_nav\/_nav-service\/nav-service-desktop&quot;}" s-trigger="load">
 
 
 <nav class="nav-service" role="navigation">
@@ -341,13 +341,13 @@
       ">
                 Profil
               </a>
-                                                                      <a href="http://terraverde.local/shop/checkout/addresses"
+                                        <a href="http://terraverde.local/shop/checkout/addresses"
                 class="payment-steps__nav--link
             
       ">
                 Addresse
               </a>
-                                        <a href="http://terraverde.local/shop/checkout/shipping"
+                                                                      <a href="http://terraverde.local/shop/checkout/shipping"
                 class="payment-steps__nav--link
             
       ">
@@ -368,25 +368,91 @@
                       </nav>
           <div class="payment-steps__bar" style="width:100%;"></div>
           <div class="payment-steps__bar--active"
-            style="width:40%;"></div>
+            style="width:56.666666666667%;"></div>
         </div>
       </div>
     </div>
   </section>
-                        <!-- Template: shop/checkout/addresses.twig -->
+                        <!-- Template: shop/checkout/shipping.twig -->
   <section class="grid">
     <div class="row">
-      <div class="col col-xs-12 col-md-6 col-lg-5">
-                <div id="component-idudet" class="sprig-component" data-hx-target="this" data-hx-include="this" data-hx-trigger="load" data-hx-get="http://terraverde.local/index.php?p=actions/sprig-core/components/render" data-hx-vals="{&quot;sprig:siteId&quot;:&quot;e9e08d9265e19c3479e7c9089e97c4c14297f7e8572aa3c45f1e72af52cea3721&quot;,&quot;sprig:template&quot;:&quot;0cc4dc6cffeeda0676a28a53e26afc0c6fd6257bd89301c6f6816009bfa1a547shop\/checkout\/_includes\/order-summary&quot;}" s-trigger="load"><!-- Template: shop/checkout/_includes/order-summary.twig -->
+
+      <div class="col col-xs-12 col-md-6 col-lg-6">
+        <!-- Template: shop/checkout/_includes/order-summary.twig -->
 
 
-  
+
   
 <div class="checkout__box checkout__box-summary">
   <h2 class="heading heading--2 heading--no-margin-top">
     Bestellübersicht
   </h2>
 
+      <div class="checkout__box--adresses">
+
+      <div class="checkout__box--adresses-single">
+
+        <h4 class="heading heading--4 checkout__box--subheading">
+          Versandadresse
+        </h4>
+                  <div class="address-select js-address-select border-0">
+            <!-- Template: shop/_includes/addresses/address.twig -->
+<ul class="address-list">
+    	<li class="address-list__item">
+              <strong>            Henrik Beschenkter
+              </strong>
+          </li>
+    	<li class="address-list__item">
+            Hüslibachstrasse 72b
+          </li>
+    	<li class="address-list__item">
+            Zürich
+          </li>
+    	<li class="address-list__item">
+            8041
+          </li>
+    	<li class="address-list__item">
+            Schweiz
+          </li>
+  </ul>
+          </div>
+
+        
+      </div>
+
+      <div class="checkout__box--adresses-single">
+                  <h4 class="heading heading--4 checkout__box--subheading">
+            Rechnungsadresse
+          </h4>
+          <div class="js-address-select border-0">
+            <!-- Template: shop/_includes/addresses/address.twig -->
+<ul class="address-list">
+    	<li class="address-list__item">
+              <strong>            Henrik Beschenkter
+              </strong>
+          </li>
+    	<li class="address-list__item">
+            Hüslibachstrasse 72b
+          </li>
+    	<li class="address-list__item">
+            Zürich
+          </li>
+    	<li class="address-list__item">
+            8041
+          </li>
+    	<li class="address-list__item">
+            Schweiz
+          </li>
+  </ul>
+
+          </div>
+              </div>
+
+    </div>
+
+    <div class="checkout__box--button-change">
+      <a href="/shop/checkout/addresses" class="button--small button button--primary">Adressen ändern</a>
+    </div>
   
 
   
@@ -571,427 +637,99 @@
     
 
 </div>
-</div>
-              </div>
+      </div>
 
-      <div class="col col-xs-12 col-md-6 col-lg-7">
-        <h2 class="heading heading--2 heading--no-margin-top">
-          Wohin soll die Bestellung versendet werden?
-        </h2>
+      <div class="col col-xs-12 col-md-6 col-lg-6">
 
-        <div class="">
-          <form method="post" action="">
-            <input type="hidden" name="CRAFT_CSRF_TOKEN" value="CZdDOIRFiP0RhY3kP9JJ4xy_cVaWrHBbkFgX-a27hNzRlOBye7YMvjHEGF8LmY85A2oiqGoqXvqe9x16n-XtcqVDU2zKf6mzuxlVBtAT22XToq_mFZKybCmCl8VUQTh4mV4nj_FcE68Aj6S5k7hpc0Ys8oRBzo60D5wI6qJHiXmuhArJN_r-KE6OAPrkvsI1qTE8YvYBXc0C7pwk78bQdYU-piT9KRDZwhwQ8xRSk5nXqemyo7M-DtN1x02iL287_LoMMQxDngsZa56sknlCrdeORMQlMVmvRs2KjyBjMeB26Qeyks3Wd_CGDxzgrqBgJAAcoWhDushucJ045MX79vEuFScZmM91hNnDSqRKsuQI5xXl50aMXc6SBXvtN6moy6dM0E0N">
-            <input type="hidden" name="action" value="commerce/cart/update-cart">
-            <input type="hidden" name="successMessage" value="1c40b12deeef4fb72c2f3eb4b4c52aa14d49995d8ef7eafce0c21494364f8ef8Addresses selected.">
-            <input type="hidden" name="redirect" value="d0c5ad49ba884edff8260a2220b982a0bb7778547fa2a25ff8be862d16aa6ad5shop/checkout/shipping">
-            <input type="hidden" name="fields[orderNotes]" value="">
+                                      <p>Ab 100,- CHF ist der Economy Versand kostenlos.</p>
+                  
 
-            
-            <h3 class="heading heading--3 heading--no-margin-top">Versandadresse wählen</h3>
-            <div id="component-pbcjix" class="sprig-component" data-hx-target="this" data-hx-include="this" data-hx-trigger="load" data-hx-get="http://terraverde.local/index.php?p=actions/sprig-core/components/render" data-hx-vals="{&quot;sprig:siteId&quot;:&quot;e9e08d9265e19c3479e7c9089e97c4c14297f7e8572aa3c45f1e72af52cea3721&quot;,&quot;sprig:template&quot;:&quot;923bb4b31a7b4d769f46dad7145440d88ea6b123352ad1fc80dab599ccf105e1shop\/_includes\/addresses\/fieldset&quot;,&quot;sprig:variables[title]&quot;:&quot;394bd3681b90a31f2cd37ab92464ec60840bcfc6a61b7e1daa5778bec9bbb15aShipping Address&quot;,&quot;sprig:variables[class]&quot;:&quot;ea1c68d781c762069ce14f0abd7a02020b6876c80928802d3c11bc74a71a6164ShippingAddress&quot;,&quot;sprig:variables[name]&quot;:&quot;ed50de70ebc2ea3032c60658d67a9c9b4967768bad3849ddd92f6fd3e6ae6d8dshippingAddress&quot;}" s-trigger="load"><!-- Template: shop/_includes/addresses/fieldset.twig -->
-<div class="js-address-fieldset">
+                
+        
+                  <div class="mt-3">
+            <form method="post" class="forms__checkout">
+              <input type="hidden" name="action" value="commerce/cart/update-cart">
 
+                              <input type="hidden" name="shippingSameAsBilling" value="1">
+                <input type="hidden" name="redirect" value="c07e26049df3c2f35afc1002efcc50d28a5e1c1358a2ee9731bdb48adc84e1feshop/checkout/payment">
+                            <input type="hidden" name="CRAFT_CSRF_TOKEN" value="_A7-LvsyLpze2VIc3vhd-9hNcNwt23BqQe3xHaELzD_-c-oDreixSGvJjWlbvt9L_VJcu2UTHUbmps72NqyLN7F7lKMp2hODTGOXCRf_TU6u_o35GIxC_xeLM2tjAkLgYbyuuNVNFjRe8cwDgYCVuRP1k-8-xDoRkn73MyAgLrdby8uoH0LzzAncVmIP7yLo1pPcl2-8S7J1SP3rsxkolK8qvuAPKJpitRwhIqG0d5Vn4QqdRLlP2I3IMRevullr2-p-zzQ9jQQgKCLUw6rOBJ7oAdAd9pZM43e6eFqhPieafyzPzu_Jeu52nCLpCg5XZ3qEWYrKjex_dQZmmq1B5MnS33LA-aQKjm1m10a1a2ZvQNsQqIftdXaf4Ty_YTFDmkeRr-_t">
 
-      <div class="md:flex md:flex-wrap md:-mx-2 pb-4">
-                      <div class="cart-box__select">
-          <label data-address-id="1248"
-                 class="address-select js-address-select cart-box__select-label"
-          >
-            <span class="cart-box__select-radio">
-              <span class="js-radio cart-box__select-radioinput">
-                <input type="radio" name="shippingAddressId" value="1248" checked data-model-name="shippingAddress">
-                <span class="-mt-2 ml-3 mb-2">
-                  <!-- Template: shop/_includes/addresses/address.twig -->
-<ul class="address-list">
-    	<li class="address-list__item">
-              <strong>            Henrik Beschenkter
-              </strong>
-          </li>
-    	<li class="address-list__item">
-            Hüslibachstrasse 72b
-          </li>
-    	<li class="address-list__item">
-            Zürich
-          </li>
-    	<li class="address-list__item">
-            8041
-          </li>
-    	<li class="address-list__item">
-            Schweiz
-          </li>
-  </ul>
+                                                          
+                              
+                                  <div class="js-shipping-select mt-2">
+                    <label class="block bg-gray-100 p-2 hover:bg-gray-200 cursor-pointer">
+                      <div class="flex justify-start items-center">
+                        <div class="pr-2">
+                          <input type="radio" name="shippingMethodHandle" class="shippingMethodHandle"
+                                 value="B2C_pickUpAtStore"
+                                 checked />
+                        </div>
+                        <div>
+                          5% Abholrabatt bei Abholung vor Ort, am Wasser 55, 8049 Zürich-Höngg<br>
+                          <strong><span
+                              class="price">0,00 CHF</span></strong>
+                        </div>
+                      </div>
+                    </label>
+                  </div>
+                
 
-                </span>
-              </span>
-              <span class="cart-box__select-editbutton">
-                <a href="/shop/customer/addresses/edit?addressId=1248&amp;redirect=shop/checkout/addresses"
-                   class="button button--primary button--success button--small">Bearbeiten</a>
-              </span>
-            </span>
-          </label>
-        </div>
-                      <div class="cart-box__select">
-          <label data-address-id="3573"
-                 class="address-select js-address-select cart-box__select-label"
-          >
-            <span class="cart-box__select-radio">
-              <span class="js-radio cart-box__select-radioinput">
-                <input type="radio" name="shippingAddressId" value="3573" data-model-name="shippingAddress">
-                <span class="-mt-2 ml-3 mb-2">
-                  <!-- Template: shop/_includes/addresses/address.twig -->
-<ul class="address-list">
-    	<li class="address-list__item">
-              <strong>            Henrik Hentschel
-              </strong>
-          </li>
-    	<li class="address-list__item">
-            Mutsschellenstrasse 19
-          </li>
-    	<li class="address-list__item">
-            Zürich
-          </li>
-    	<li class="address-list__item">
-            8048
-          </li>
-    	<li class="address-list__item">
-            Schweiz
-          </li>
-  </ul>
+                              
+                                  <div class="js-shipping-select mt-2">
+                    <label class="block bg-gray-100 p-2 hover:bg-gray-200 cursor-pointer">
+                      <div class="flex justify-start items-center">
+                        <div class="pr-2">
+                          <input type="radio" name="shippingMethodHandle" class="shippingMethodHandle"
+                                 value="B2C_BPost5Kg"
+                                  />
+                        </div>
+                        <div>
+                          B-Post (Economy) bis 5kg - Lieferung innert 3-5 Arbeitstagen<br>
+                          <strong><span
+                              class="price">9,00 CHF</span></strong>
+                        </div>
+                      </div>
+                    </label>
+                  </div>
+                
 
-                </span>
-              </span>
-              <span class="cart-box__select-editbutton">
-                <a href="/shop/customer/addresses/edit?addressId=3573&amp;redirect=shop/checkout/addresses"
-                   class="button button--primary button--success button--small">Bearbeiten</a>
-              </span>
-            </span>
-          </label>
-        </div>
-          </div>
-  
+                              
+                                  <div class="js-shipping-select mt-2">
+                    <label class="block bg-gray-100 p-2 hover:bg-gray-200 cursor-pointer">
+                      <div class="flex justify-start items-center">
+                        <div class="pr-2">
+                          <input type="radio" name="shippingMethodHandle" class="shippingMethodHandle"
+                                 value="B2C_APost5Kgb"
+                                  />
+                        </div>
+                        <div>
+                          Post Paket Priority bis 5kg - Lieferung innert 2 Arbeitstagen (Bestellung bis 12 Uhr - Aufschlag: CHF 5.-)<br>
+                          <strong><span
+                              class="price">14,00 CHF</span></strong>
+                        </div>
+                      </div>
+                    </label>
+                  </div>
+                
 
-  <div class="js-address-select" data-model-name="shippingAddress">
               
-    <div class="js-body hidden">
-            <!-- Template: shop/_includes/addresses/form.twig -->
-
-
-<div class="js-addressBox shippingAddress">
-
-  <div class="flex -mx-4">
-    <div class="form-adress">
-
-      <div class="form-adress__item">
-        <label for="shippingAddress-firstName">Vorname *</label>
-        <input type="text" id="shippingAddress-firstName" class="input" name="shippingAddress[firstName]"
-               value="Henrik">
-              </div>
-
-      <div class="form-adress__item">
-        <label for="shippingAddress-lastName">Nachname *</label>
-        <input type="text" id="shippingAddress-lastName" class="input" name="shippingAddress[lastName]"
-               value="Beschenkter">
-              </div>
-
-
-      <div class="form-adress__item">
-        <label for="shippingAddress-businessName">Firma</label>
-        <input type="text" id="shippingAddress-businessName" class="input" name="shippingAddress[businessName]"
-               value="">
-              </div>
-
-      <div class="form-adress__item">
-        <label for="shippingAddress-phone">Telefon *</label>
-        <input type="text" id="shippingAddress-phone" class="input" name="shippingAddress[phone]"
-               value="">
-              </div>
-
-      <div class="form-adress__item">
-        <label for="shippingAddress-address1">Adresse *</label>
-        <input type="text" id="shippingAddress-address1" class="input" name="shippingAddress[address1]"
-               value="Hüslibachstrasse 72b">
-              </div>
-
-      <div class="form-adress__item">
-        <label for="shippingAddress-address2">Zusatz Adresse</label>
-        <input type="text" id="shippingAddress-address2" class="input" name="shippingAddress[address2]"
-               value="">
-              </div>
-
-      <div class="form-adress__item">
-        <div class="">
-          <label for="shippingAddress-zipCode">Postleitzahl *</label>
-          <input type="text" id="shippingAddress-zipCode" class="input" name="shippingAddress[zipCode]"
-                 value="8041">
-                  </div>
-      </div>
-
-      <div class="form-adress__item">
-        <div class="layout-helper__width-100">
-          <label for="shippingAddress-city">Ort *</label>
-          <input type="text" id="shippingAddress-city" class="input" name="shippingAddress[city]"
-                 value="Zürich">
-                  </div>
-      </div>
-
-
-      <div class="form-adress__item">
-        <div class="layout-helper__width-100">
-          <label for="shippingAddress-countryId">Land *</label>
-          <select class="js-address-country input" name="shippingAddress[countryId]">
-                                        <option value="215"  selected>Schweiz</option>
-                                        <option value="128" >Liechtenstein</option>
-                      </select>
-                  </div>
-      </div>
-
-      <div class="form-adress__item">
-        <label for="shippingAddress-notes">Hinweise</label>
-        <textarea class="input" name="shippingAddress[notes]" id="shippingAddress-notes" cols="30"
-                  rows="5"></textarea>
-              </div>
-
-    </div>
-  </div>
-</div>
-
-
-    </div>
-  </div>
-
-</div></div>
-                                    
-            
-            <input type="hidden" name="billingAddressSameAsShipping" value="0">
-
-            <div class="selection--checkbox">
-              <input type="checkbox" id="billingAddressSameAsShipping" class="selection__input" name="billingAddressSameAsShipping" value="1" checked>
-              <label for="billingAddressSameAsShipping" class="selection__label">
-                Gewählte Adresse auch als Rechnungsadresse verwenden
-              </label>
-
-              <div class="address-list__container">
-                <span class="address-list__container-info">Bitte wählen Sie eine Adresse aus ihrem Profil aus, indem Sie auf die Adresse klicken. Oder fügen Sie eine
-                <a class="link"
-                   href="http://terraverde.local/shop/customer/addresses/edit">
-                  neue Adresse in ihrem Profil
-                </a>
-                   hinzu.</span>
-                <h3 class="heading heading--3 heading--no-margin-top">Rechnungsadresse wählen</h3>
-                <div class="mt-8">
-                  <div id="component-byvxhv" class="sprig-component" data-hx-target="this" data-hx-include="this" data-hx-trigger="load" data-hx-get="http://terraverde.local/index.php?p=actions/sprig-core/components/render" data-hx-vals="{&quot;sprig:siteId&quot;:&quot;e9e08d9265e19c3479e7c9089e97c4c14297f7e8572aa3c45f1e72af52cea3721&quot;,&quot;sprig:template&quot;:&quot;923bb4b31a7b4d769f46dad7145440d88ea6b123352ad1fc80dab599ccf105e1shop\/_includes\/addresses\/fieldset&quot;,&quot;sprig:variables[title]&quot;:&quot;34c57086945dbd67f3d76b617f617c900c2e90d134592d6f0b7ff281e2e5caa6Billing Address&quot;,&quot;sprig:variables[class]&quot;:&quot;d62ca149ad7cf8d9fc4165575d984647e2f1120e95e29f2f21c87551ca168ad1BillingAddress hidden&quot;,&quot;sprig:variables[name]&quot;:&quot;ad2dda11558f5b146accadc0d4e31c486c894b575bf37e2bb53244c0001daf19billingAddress&quot;}" s-trigger="load"><!-- Template: shop/_includes/addresses/fieldset.twig -->
-<div class="js-address-fieldset">
-
-
-      <div class="md:flex md:flex-wrap md:-mx-2 pb-4">
-                      <div class="cart-box__select">
-          <label data-address-id="1248"
-                 class="address-select js-address-select cart-box__select-label"
-          >
-            <span class="cart-box__select-radio">
-              <span class="js-radio cart-box__select-radioinput">
-                <input type="radio" name="billingAddressId" value="1248" checked data-model-name="billingAddress">
-                <span class="-mt-2 ml-3 mb-2">
-                  <!-- Template: shop/_includes/addresses/address.twig -->
-<ul class="address-list">
-    	<li class="address-list__item">
-              <strong>            Henrik Beschenkter
-              </strong>
-          </li>
-    	<li class="address-list__item">
-            Hüslibachstrasse 72b
-          </li>
-    	<li class="address-list__item">
-            Zürich
-          </li>
-    	<li class="address-list__item">
-            8041
-          </li>
-    	<li class="address-list__item">
-            Schweiz
-          </li>
-  </ul>
-
-                </span>
-              </span>
-              <span class="cart-box__select-editbutton">
-                <a href="/shop/customer/addresses/edit?addressId=1248&amp;redirect=shop/checkout/addresses"
-                   class="button button--primary button--success button--small">Bearbeiten</a>
-              </span>
-            </span>
-          </label>
-        </div>
-                      <div class="cart-box__select">
-          <label data-address-id="3573"
-                 class="address-select js-address-select cart-box__select-label"
-          >
-            <span class="cart-box__select-radio">
-              <span class="js-radio cart-box__select-radioinput">
-                <input type="radio" name="billingAddressId" value="3573" data-model-name="billingAddress">
-                <span class="-mt-2 ml-3 mb-2">
-                  <!-- Template: shop/_includes/addresses/address.twig -->
-<ul class="address-list">
-    	<li class="address-list__item">
-              <strong>            Henrik Hentschel
-              </strong>
-          </li>
-    	<li class="address-list__item">
-            Mutsschellenstrasse 19
-          </li>
-    	<li class="address-list__item">
-            Zürich
-          </li>
-    	<li class="address-list__item">
-            8048
-          </li>
-    	<li class="address-list__item">
-            Schweiz
-          </li>
-  </ul>
-
-                </span>
-              </span>
-              <span class="cart-box__select-editbutton">
-                <a href="/shop/customer/addresses/edit?addressId=3573&amp;redirect=shop/checkout/addresses"
-                   class="button button--primary button--success button--small">Bearbeiten</a>
-              </span>
-            </span>
-          </label>
-        </div>
-          </div>
-  
-
-  <div class="js-address-select" data-model-name="billingAddress">
-              
-    <div class="js-body hidden">
-            <!-- Template: shop/_includes/addresses/form.twig -->
-
-
-<div class="js-addressBox billingAddress">
-
-  <div class="flex -mx-4">
-    <div class="form-adress">
-
-      <div class="form-adress__item">
-        <label for="billingAddress-firstName">Vorname *</label>
-        <input type="text" id="billingAddress-firstName" class="input" name="billingAddress[firstName]"
-               value="Henrik">
-              </div>
-
-      <div class="form-adress__item">
-        <label for="billingAddress-lastName">Nachname *</label>
-        <input type="text" id="billingAddress-lastName" class="input" name="billingAddress[lastName]"
-               value="Beschenkter">
-              </div>
-
-
-      <div class="form-adress__item">
-        <label for="billingAddress-businessName">Firma</label>
-        <input type="text" id="billingAddress-businessName" class="input" name="billingAddress[businessName]"
-               value="">
-              </div>
-
-      <div class="form-adress__item">
-        <label for="billingAddress-phone">Telefon *</label>
-        <input type="text" id="billingAddress-phone" class="input" name="billingAddress[phone]"
-               value="">
-              </div>
-
-      <div class="form-adress__item">
-        <label for="billingAddress-address1">Adresse *</label>
-        <input type="text" id="billingAddress-address1" class="input" name="billingAddress[address1]"
-               value="Hüslibachstrasse 72b">
-              </div>
-
-      <div class="form-adress__item">
-        <label for="billingAddress-address2">Zusatz Adresse</label>
-        <input type="text" id="billingAddress-address2" class="input" name="billingAddress[address2]"
-               value="">
-              </div>
-
-      <div class="form-adress__item">
-        <div class="">
-          <label for="billingAddress-zipCode">Postleitzahl *</label>
-          <input type="text" id="billingAddress-zipCode" class="input" name="billingAddress[zipCode]"
-                 value="8041">
-                  </div>
-      </div>
-
-      <div class="form-adress__item">
-        <div class="layout-helper__width-100">
-          <label for="billingAddress-city">Ort *</label>
-          <input type="text" id="billingAddress-city" class="input" name="billingAddress[city]"
-                 value="Zürich">
-                  </div>
-      </div>
-
-
-      <div class="form-adress__item">
-        <div class="layout-helper__width-100">
-          <label for="billingAddress-countryId">Land *</label>
-          <select class="js-address-country input" name="billingAddress[countryId]">
-                                        <option value="215"  selected>Schweiz</option>
-                                        <option value="128" >Liechtenstein</option>
-                      </select>
-                  </div>
-      </div>
-
-      <div class="form-adress__item">
-        <label for="billingAddress-notes">Hinweise</label>
-        <textarea class="input" name="billingAddress[notes]" id="billingAddress-notes" cols="30"
-                  rows="5"></textarea>
-              </div>
-
-    </div>
-  </div>
-</div>
-
-
-    </div>
-  </div>
-
-</div></div>
-                                  </div>
-              </div>
-
-              <div>
-                Adressen können auch im <a href="/shop/customer" class="link">
-                  Profil
-                </a> hinzugefügt und geändert werden.
-              </div>
-
-              <div class="add-address-info">
-                <p class="add-address-info__text">Hier können Sie weitere Informationen für den Versand hinterlegen.
-                  Zusätzlich können Sie in der Adressverwaltung in Ihrem Profil auch für jede Adresse spezifische
-                  Angaben abspeichern.<br/>
-                  ACHTUNG: dieses Feld nicht für Grusstexte verwenden. Bitte eine <a class="link"
-                                                                                     href="/shop/diverses/karte-nach-wunsch-beschriften">separate
-                    Grusskarte</a> erwerben oder Grusskarte beim geschenkset auswählen.</p>
-                <textarea name="fields[orderNotes]" value="" class="input" cols="20"
-                          rows="3"></textarea>
-              </div>
-
+                            
+              <span class="flash"></span>
               <div class="checkout__steps">
-                <div class="checkout__steps--button">
-                  <input type="submit"
-                         class="input input__primary"
-                         value="Adresse bestätigen und weiter"/>
+                <div class="checkout__steps--button ">
+                  <input type="submit" class="input input__primary"
+                         value="Weiter"/>
                 </div>
               </div>
-
-                                          
-            </div>
-
-                        
-          </form>
-
-        </div>
+            </form>
+          </div>
+        
       </div>
+    </div>
     </div>
   </section>
 
-      </div>
+    </div>
   </main>
 
   
@@ -1242,7 +980,7 @@
   </div>
             
 
-          <script>console.log('Cart on page load: ', {"number":"9b800d4dceb023a0cbafe6c9ea37a8ed","reference":null,"couponCode":null,"isCompleted":"0","dateOrdered":null,"datePaid":null,"dateAuthorized":null,"currency":"CHF","gatewayId":"2","lastIp":"::1","message":null,"returnUrl":"https:\/\/terra-verde.ch\/shop\/customer\/order?number=9b800d4dceb023a0cbafe6c9ea37a8ed&success=true","cancelUrl":"https:\/\/terra-verde.ch\/shop\/checkout\/payment","orderStatusId":null,"orderLanguage":"de","orderSiteId":1,"origin":"web","billingAddressId":"1248","shippingAddressId":"1248","makePrimaryShippingAddress":null,"makePrimaryBillingAddress":null,"shippingSameAsBilling":null,"billingSameAsShipping":null,"estimatedBillingAddressId":null,"estimatedShippingAddressId":null,"estimatedBillingSameAsShipping":null,"shippingMethodHandle":"B2C_pickUpAtStore","shippingMethodName":"5% Abholrabatt bei Abholung vor Ort, am Wasser 55, 8049 Z\u00fcrich-H\u00f6ngg","customerId":"1","registerUserOnOrderComplete":null,"paymentSourceId":null,"storedTotalPrice":"48.2900","storedTotalPaid":"0.0000","storedItemTotal":"50.8400","storedItemSubtotal":"50.8400","storedTotalShippingCost":"0.0000","storedTotalDiscount":"0.0000","storedTotalTax":"0.0000","storedTotalTaxIncluded":"2.7600","id":31758,"tempId":null,"draftId":null,"revisionId":null,"isProvisionalDraft":false,"uid":"53806ca1-6ffb-42a3-b412-48c314d96c77","siteSettingsId":31758,"fieldLayoutId":112,"contentId":31452,"enabled":true,"archived":false,"siteId":1,"title":null,"slug":null,"uri":null,"dateCreated":{"date":"07.02.2023","time":"10:31"},"dateUpdated":{"date":"02.06.2023","time":"11:44"},"dateLastMerged":null,"dateDeleted":null,"trashed":false,"isNewForSite":false,"canonicalId":31758,"ref":null,"status":"enabled","structureId":null,"url":null,"orderNotes":"TEST","adjustmentSubtotal":-2.55,"adjustmentsTotal":-2.55,"paymentCurrency":"CHF","paymentAmount":48.29,"email":"p@henrik-hentschel.de","isPaid":false,"itemSubtotal":50.839999999999996,"itemTotal":50.839999999999996,"lineItems":[{"id":12442,"weight":467,"length":0,"height":0,"width":0,"qty":1,"note":"","privateNote":"","purchasableId":"12764","orderId":31758,"lineItemStatusId":null,"taxCategoryId":1,"shippingCategoryId":1,"dateCreated":"2023-06-02T11:44:29+02:00","dateUpdated":"2023-06-02T11:44:29+02:00","uid":"1658a5ed-521b-4d0d-b3a2-2ccc0beb1c4d","adjustments":[{"id":343354,"name":"Mwst:","description":"2.5%","type":"tax","amount":0.11,"included":true,"orderId":31758,"lineItemId":12442,"isEstimated":false,"sourceSnapshot":{"id":"1","name":"Mwst:","code":"Lebensmittel","rate":"0.0250000000","include":"1","removeIncluded":"0","removeVatIncluded":"0","isVat":"0","taxable":"price","taxCategoryId":"1","isLite":null,"taxZoneId":"1","dateCreated":"2021-07-23T14:35:37+02:00","dateUpdated":"2022-03-02T15:18:16+01:00"},"amountAsCurrency":"0,11\u00a0CHF"}],"description":"Sugo al Basilico","options":[],"optionsSignature":"d751713988987e9331980363e24189ce","onSale":false,"price":4.5,"saleAmount":0,"salePrice":4.5,"sku":"7640111970637","total":4.5,"priceAsCurrency":"4,50\u00a0CHF","saleAmountAsCurrency":"0,00\u00a0CHF","salePriceAsCurrency":"4,50\u00a0CHF","subtotalAsCurrency":"4,50\u00a0CHF","totalAsCurrency":"4,50\u00a0CHF","discountAsCurrency":"0,00\u00a0CHF","shippingCostAsCurrency":"0,00\u00a0CHF","taxAsCurrency":"0,00\u00a0CHF","taxIncludedAsCurrency":"0,11\u00a0CHF","adjustmentsTotalAsCurrency":"0,00\u00a0CHF","subtotal":4.5},{"id":12441,"weight":210,"length":0,"height":0,"width":0,"qty":1,"note":"","privateNote":"","purchasableId":"12896","orderId":31758,"lineItemStatusId":null,"taxCategoryId":1,"shippingCategoryId":1,"dateCreated":"2023-06-02T11:43:45+02:00","dateUpdated":"2023-06-02T11:44:29+02:00","uid":"8cd21858-5d81-4973-be1c-d82513578db3","adjustments":[{"id":343355,"name":"Mwst:","description":"2.5%","type":"tax","amount":0.12,"included":true,"orderId":31758,"lineItemId":12441,"isEstimated":false,"sourceSnapshot":{"id":"1","name":"Mwst:","code":"Lebensmittel","rate":"0.0250000000","include":"1","removeIncluded":"0","removeVatIncluded":"0","isVat":"0","taxable":"price","taxCategoryId":"1","isLite":null,"taxZoneId":"1","dateCreated":"2021-07-23T14:35:37+02:00","dateUpdated":"2022-03-02T15:18:16+01:00"},"amountAsCurrency":"0,12\u00a0CHF"}],"description":"Grissini Senatore Cappelli con sesamo","options":[],"optionsSignature":"d751713988987e9331980363e24189ce","onSale":true,"price":5.9,"saleAmount":1.1800000000000006,"salePrice":4.72,"sku":"8056477810156","total":4.72,"priceAsCurrency":"5,90\u00a0CHF","saleAmountAsCurrency":"1,18\u00a0CHF","salePriceAsCurrency":"4,72\u00a0CHF","subtotalAsCurrency":"4,72\u00a0CHF","totalAsCurrency":"4,72\u00a0CHF","discountAsCurrency":"0,00\u00a0CHF","shippingCostAsCurrency":"0,00\u00a0CHF","taxAsCurrency":"0,00\u00a0CHF","taxIncludedAsCurrency":"0,12\u00a0CHF","adjustmentsTotalAsCurrency":"0,00\u00a0CHF","subtotal":4.72},{"id":12440,"weight":355,"length":0,"height":0,"width":0,"qty":1,"note":"","privateNote":"","purchasableId":"29446","orderId":31758,"lineItemStatusId":null,"taxCategoryId":1,"shippingCategoryId":1,"dateCreated":"2023-06-02T11:41:50+02:00","dateUpdated":"2023-06-02T11:44:29+02:00","uid":"5572ae06-bce2-4df3-88a2-ff7fe12d5a44","adjustments":[{"id":343356,"name":"Mwst:","description":"2.5%","type":"tax","amount":0.12,"included":true,"orderId":31758,"lineItemId":12440,"isEstimated":false,"sourceSnapshot":{"id":"1","name":"Mwst:","code":"Lebensmittel","rate":"0.0250000000","include":"1","removeIncluded":"0","removeVatIncluded":"0","isVat":"0","taxable":"price","taxCategoryId":"1","isLite":null,"taxZoneId":"1","dateCreated":"2021-07-23T14:35:37+02:00","dateUpdated":"2022-03-02T15:18:16+01:00"},"amountAsCurrency":"0,12\u00a0CHF"}],"description":"Bohnen Hummus","options":[],"optionsSignature":"d751713988987e9331980363e24189ce","onSale":false,"price":4.9,"saleAmount":0,"salePrice":4.9,"sku":"7640111970637-1","total":4.9,"priceAsCurrency":"4,90\u00a0CHF","saleAmountAsCurrency":"0,00\u00a0CHF","salePriceAsCurrency":"4,90\u00a0CHF","subtotalAsCurrency":"4,90\u00a0CHF","totalAsCurrency":"4,90\u00a0CHF","discountAsCurrency":"0,00\u00a0CHF","shippingCostAsCurrency":"0,00\u00a0CHF","taxAsCurrency":"0,00\u00a0CHF","taxIncludedAsCurrency":"0,12\u00a0CHF","adjustmentsTotalAsCurrency":"0,00\u00a0CHF","subtotal":4.9},{"id":12439,"weight":1500,"length":0,"height":0,"width":0,"qty":1,"note":"","privateNote":"","purchasableId":"21025","orderId":31758,"lineItemStatusId":null,"taxCategoryId":2,"shippingCategoryId":1,"dateCreated":"2023-06-02T11:39:59+02:00","dateUpdated":"2023-06-02T11:44:29+02:00","uid":"41f8d513-1b86-4d05-884b-7c207b6f37b7","adjustments":[{"id":343358,"name":"Mwst:","description":"7.7%","type":"tax","amount":1.28,"included":true,"orderId":31758,"lineItemId":12439,"isEstimated":false,"sourceSnapshot":{"id":"2","name":"Mwst:","code":"Wein","rate":"0.0770000000","include":"1","removeIncluded":"0","removeVatIncluded":"0","isVat":"0","taxable":"price","taxCategoryId":"2","isLite":null,"taxZoneId":"1","dateCreated":"2021-07-27T11:52:38+02:00","dateUpdated":"2022-03-02T15:18:02+01:00"},"amountAsCurrency":"1,28\u00a0CHF"}],"description":"Barbera d'Asti DOCG \u00abLe Querce\u00bb","options":[],"optionsSignature":"d751713988987e9331980363e24189ce","onSale":false,"price":17.9,"saleAmount":0,"salePrice":17.9,"sku":"171.002.00","total":17.9,"priceAsCurrency":"17,90\u00a0CHF","saleAmountAsCurrency":"0,00\u00a0CHF","salePriceAsCurrency":"17,90\u00a0CHF","subtotalAsCurrency":"17,90\u00a0CHF","totalAsCurrency":"17,90\u00a0CHF","discountAsCurrency":"0,00\u00a0CHF","shippingCostAsCurrency":"0,00\u00a0CHF","taxAsCurrency":"0,00\u00a0CHF","taxIncludedAsCurrency":"1,28\u00a0CHF","adjustmentsTotalAsCurrency":"0,00\u00a0CHF","subtotal":17.9},{"id":12438,"weight":1500,"length":0,"height":0,"width":0,"qty":1,"note":"","privateNote":"","purchasableId":"21054","orderId":31758,"lineItemStatusId":null,"taxCategoryId":2,"shippingCategoryId":1,"dateCreated":"2023-06-02T11:37:23+02:00","dateUpdated":"2023-06-02T11:44:29+02:00","uid":"f86d1803-7da6-416f-9a89-2365f49ecf0e","adjustments":[{"id":343359,"name":"Mwst:","description":"7.7%","type":"tax","amount":1.02,"included":true,"orderId":31758,"lineItemId":12438,"isEstimated":false,"sourceSnapshot":{"id":"2","name":"Mwst:","code":"Wein","rate":"0.0770000000","include":"1","removeIncluded":"0","removeVatIncluded":"0","isVat":"0","taxable":"price","taxCategoryId":"2","isLite":null,"taxZoneId":"1","dateCreated":"2021-07-27T11:52:38+02:00","dateUpdated":"2022-03-02T15:18:02+01:00"},"amountAsCurrency":"1,02\u00a0CHF"}],"description":"Langhe DOC Arneis \"Barivel\"","options":[],"optionsSignature":"d751713988987e9331980363e24189ce","onSale":true,"price":17.9,"saleAmount":3.5799999999999983,"salePrice":14.32,"sku":"171.006.00","total":14.32,"priceAsCurrency":"17,90\u00a0CHF","saleAmountAsCurrency":"3,58\u00a0CHF","salePriceAsCurrency":"14,32\u00a0CHF","subtotalAsCurrency":"14,32\u00a0CHF","totalAsCurrency":"14,32\u00a0CHF","discountAsCurrency":"0,00\u00a0CHF","shippingCostAsCurrency":"0,00\u00a0CHF","taxAsCurrency":"0,00\u00a0CHF","taxIncludedAsCurrency":"1,02\u00a0CHF","adjustmentsTotalAsCurrency":"0,00\u00a0CHF","subtotal":14.32},{"id":11590,"weight":454,"length":0,"height":0,"width":0,"qty":1,"note":"","privateNote":"","purchasableId":"12766","orderId":31758,"lineItemStatusId":null,"taxCategoryId":1,"shippingCategoryId":1,"dateCreated":"2023-02-07T10:32:00+01:00","dateUpdated":"2023-06-02T11:44:29+02:00","uid":"fa702a3a-8365-48f9-a097-50878e2e57bb","adjustments":[{"id":343357,"name":"Mwst:","description":"2.5%","type":"tax","amount":0.11,"included":true,"orderId":31758,"lineItemId":11590,"isEstimated":false,"sourceSnapshot":{"id":"1","name":"Mwst:","code":"Lebensmittel","rate":"0.0250000000","include":"1","removeIncluded":"0","removeVatIncluded":"0","isVat":"0","taxable":"price","taxCategoryId":"1","isLite":null,"taxZoneId":"1","dateCreated":"2021-07-23T14:35:37+02:00","dateUpdated":"2022-03-02T15:18:16+01:00"},"amountAsCurrency":"0,11\u00a0CHF"}],"description":"Sugo all'arrabbiata","options":[],"optionsSignature":"d751713988987e9331980363e24189ce","onSale":false,"price":4.5,"saleAmount":0,"salePrice":4.5,"sku":"7640111970644","total":4.5,"priceAsCurrency":"4,50\u00a0CHF","saleAmountAsCurrency":"0,00\u00a0CHF","salePriceAsCurrency":"4,50\u00a0CHF","subtotalAsCurrency":"4,50\u00a0CHF","totalAsCurrency":"4,50\u00a0CHF","discountAsCurrency":"0,00\u00a0CHF","shippingCostAsCurrency":"0,00\u00a0CHF","taxAsCurrency":"0,00\u00a0CHF","taxIncludedAsCurrency":"0,11\u00a0CHF","adjustmentsTotalAsCurrency":"0,00\u00a0CHF","subtotal":4.5}],"orderAdjustments":[{"id":343360,"name":"Abholung","description":"5%","type":"Abholrabatt","amount":-2.55,"included":false,"orderId":31758,"lineItemId":null,"isEstimated":false,"sourceSnapshot":{"data":"value"},"amountAsCurrency":"-2,55\u00a0CHF"}],"outstandingBalance":48.29,"paidStatus":"unpaid","recalculationMode":"all","shortNumber":"9b800d4","totalPaid":0,"total":48.29,"totalPrice":48.29,"totalQty":6,"totalSaleAmount":4.759999999999999,"totalTaxablePrice":45.53,"totalWeight":4486,"adjustmentSubtotalAsCurrency":"-2,55\u00a0CHF","adjustmentsTotalAsCurrency":"-2,55\u00a0CHF","itemSubtotalAsCurrency":"50,84\u00a0CHF","itemTotalAsCurrency":"50,84\u00a0CHF","outstandingBalanceAsCurrency":"48,29\u00a0CHF","paymentAmountAsCurrency":"48,29\u00a0CHF","totalPaidAsCurrency":"0,00\u00a0CHF","totalAsCurrency":"48,29\u00a0CHF","totalPriceAsCurrency":"48,29\u00a0CHF","totalSaleAmountAsCurrency":"4,76\u00a0CHF","totalTaxablePriceAsCurrency":"45,53\u00a0CHF","totalTaxAsCurrency":"0,00\u00a0CHF","totalTaxIncludedAsCurrency":"2,76\u00a0CHF","totalShippingCostAsCurrency":"0,00\u00a0CHF","totalDiscountAsCurrency":"0,00\u00a0CHF","storedTotalPriceAsCurrency":"48,29\u00a0CHF","storedTotalPaidAsCurrency":"0,00\u00a0CHF","storedItemTotalAsCurrency":"50,84\u00a0CHF","storedItemSubtotalAsCurrency":"50,84\u00a0CHF","storedTotalShippingCostAsCurrency":"0,00\u00a0CHF","storedTotalDiscountAsCurrency":"0,00\u00a0CHF","storedTotalTaxAsCurrency":"0,00\u00a0CHF","storedTotalTaxIncludedAsCurrency":"2,76\u00a0CHF","paidStatusHtml":"<span class=\"commerceStatusLabel\"><span class=\"status red\"><\/span> Nicht bezahlt<\/span>","customerLinkHtml":"<span>p@henrik-hentschel.de<\/span>","orderStatusHtml":"","totalTax":0,"totalTaxIncluded":2.76,"totalShippingCost":0,"totalDiscount":0});</script>
+          <script>console.log('Cart on page load: ', {"number":"9b800d4dceb023a0cbafe6c9ea37a8ed","reference":null,"couponCode":null,"isCompleted":"0","dateOrdered":null,"datePaid":null,"dateAuthorized":null,"currency":"CHF","gatewayId":"2","lastIp":"::1","message":null,"returnUrl":"https:\/\/terra-verde.ch\/shop\/customer\/order?number=9b800d4dceb023a0cbafe6c9ea37a8ed&success=true","cancelUrl":"https:\/\/terra-verde.ch\/shop\/checkout\/payment","orderStatusId":null,"orderLanguage":"de","orderSiteId":1,"origin":"web","billingAddressId":"1248","shippingAddressId":"1248","makePrimaryShippingAddress":null,"makePrimaryBillingAddress":null,"shippingSameAsBilling":null,"billingSameAsShipping":null,"estimatedBillingAddressId":null,"estimatedShippingAddressId":null,"estimatedBillingSameAsShipping":null,"shippingMethodHandle":"B2C_pickUpAtStore","shippingMethodName":"5% Abholrabatt bei Abholung vor Ort, am Wasser 55, 8049 Z\u00fcrich-H\u00f6ngg","customerId":"1","registerUserOnOrderComplete":null,"paymentSourceId":null,"storedTotalPrice":"48.2900","storedTotalPaid":"0.0000","storedItemTotal":"50.8400","storedItemSubtotal":"50.8400","storedTotalShippingCost":"0.0000","storedTotalDiscount":"0.0000","storedTotalTax":"0.0000","storedTotalTaxIncluded":"2.7600","id":31758,"tempId":null,"draftId":null,"revisionId":null,"isProvisionalDraft":false,"uid":"53806ca1-6ffb-42a3-b412-48c314d96c77","siteSettingsId":31758,"fieldLayoutId":112,"contentId":31452,"enabled":true,"archived":false,"siteId":1,"title":null,"slug":null,"uri":null,"dateCreated":{"date":"07.02.2023","time":"10:31"},"dateUpdated":{"date":"02.06.2023","time":"12:45"},"dateLastMerged":null,"dateDeleted":null,"trashed":false,"isNewForSite":false,"canonicalId":31758,"ref":null,"status":"enabled","structureId":null,"url":null,"orderNotes":null,"adjustmentSubtotal":-2.55,"adjustmentsTotal":-2.55,"paymentCurrency":"CHF","paymentAmount":48.29,"email":"p@henrik-hentschel.de","isPaid":false,"itemSubtotal":50.839999999999996,"itemTotal":50.839999999999996,"lineItems":[{"id":12442,"weight":467,"length":0,"height":0,"width":0,"qty":1,"note":"","privateNote":"","purchasableId":"12764","orderId":31758,"lineItemStatusId":null,"taxCategoryId":1,"shippingCategoryId":1,"dateCreated":"2023-06-02T11:44:29+02:00","dateUpdated":"2023-06-02T12:45:48+02:00","uid":"1658a5ed-521b-4d0d-b3a2-2ccc0beb1c4d","adjustments":[{"id":343692,"name":"Mwst:","description":"2.5%","type":"tax","amount":0.11,"included":true,"orderId":31758,"lineItemId":12442,"isEstimated":false,"sourceSnapshot":{"id":"1","name":"Mwst:","code":"Lebensmittel","rate":"0.0250000000","include":"1","removeIncluded":"0","removeVatIncluded":"0","isVat":"0","taxable":"price","taxCategoryId":"1","isLite":null,"taxZoneId":"1","dateCreated":"2021-07-23T14:35:37+02:00","dateUpdated":"2022-03-02T15:18:16+01:00"},"amountAsCurrency":"0,11\u00a0CHF"}],"description":"Sugo al Basilico","options":[],"optionsSignature":"d751713988987e9331980363e24189ce","onSale":false,"price":4.5,"saleAmount":0,"salePrice":4.5,"sku":"7640111970637","total":4.5,"priceAsCurrency":"4,50\u00a0CHF","saleAmountAsCurrency":"0,00\u00a0CHF","salePriceAsCurrency":"4,50\u00a0CHF","subtotalAsCurrency":"4,50\u00a0CHF","totalAsCurrency":"4,50\u00a0CHF","discountAsCurrency":"0,00\u00a0CHF","shippingCostAsCurrency":"0,00\u00a0CHF","taxAsCurrency":"0,00\u00a0CHF","taxIncludedAsCurrency":"0,11\u00a0CHF","adjustmentsTotalAsCurrency":"0,00\u00a0CHF","subtotal":4.5},{"id":12441,"weight":210,"length":0,"height":0,"width":0,"qty":1,"note":"","privateNote":"","purchasableId":"12896","orderId":31758,"lineItemStatusId":null,"taxCategoryId":1,"shippingCategoryId":1,"dateCreated":"2023-06-02T11:43:45+02:00","dateUpdated":"2023-06-02T12:45:48+02:00","uid":"8cd21858-5d81-4973-be1c-d82513578db3","adjustments":[{"id":343693,"name":"Mwst:","description":"2.5%","type":"tax","amount":0.12,"included":true,"orderId":31758,"lineItemId":12441,"isEstimated":false,"sourceSnapshot":{"id":"1","name":"Mwst:","code":"Lebensmittel","rate":"0.0250000000","include":"1","removeIncluded":"0","removeVatIncluded":"0","isVat":"0","taxable":"price","taxCategoryId":"1","isLite":null,"taxZoneId":"1","dateCreated":"2021-07-23T14:35:37+02:00","dateUpdated":"2022-03-02T15:18:16+01:00"},"amountAsCurrency":"0,12\u00a0CHF"}],"description":"Grissini Senatore Cappelli con sesamo","options":[],"optionsSignature":"d751713988987e9331980363e24189ce","onSale":true,"price":5.9,"saleAmount":1.1800000000000006,"salePrice":4.72,"sku":"8056477810156","total":4.72,"priceAsCurrency":"5,90\u00a0CHF","saleAmountAsCurrency":"1,18\u00a0CHF","salePriceAsCurrency":"4,72\u00a0CHF","subtotalAsCurrency":"4,72\u00a0CHF","totalAsCurrency":"4,72\u00a0CHF","discountAsCurrency":"0,00\u00a0CHF","shippingCostAsCurrency":"0,00\u00a0CHF","taxAsCurrency":"0,00\u00a0CHF","taxIncludedAsCurrency":"0,12\u00a0CHF","adjustmentsTotalAsCurrency":"0,00\u00a0CHF","subtotal":4.72},{"id":12440,"weight":355,"length":0,"height":0,"width":0,"qty":1,"note":"","privateNote":"","purchasableId":"29446","orderId":31758,"lineItemStatusId":null,"taxCategoryId":1,"shippingCategoryId":1,"dateCreated":"2023-06-02T11:41:50+02:00","dateUpdated":"2023-06-02T12:45:48+02:00","uid":"5572ae06-bce2-4df3-88a2-ff7fe12d5a44","adjustments":[{"id":343694,"name":"Mwst:","description":"2.5%","type":"tax","amount":0.12,"included":true,"orderId":31758,"lineItemId":12440,"isEstimated":false,"sourceSnapshot":{"id":"1","name":"Mwst:","code":"Lebensmittel","rate":"0.0250000000","include":"1","removeIncluded":"0","removeVatIncluded":"0","isVat":"0","taxable":"price","taxCategoryId":"1","isLite":null,"taxZoneId":"1","dateCreated":"2021-07-23T14:35:37+02:00","dateUpdated":"2022-03-02T15:18:16+01:00"},"amountAsCurrency":"0,12\u00a0CHF"}],"description":"Bohnen Hummus","options":[],"optionsSignature":"d751713988987e9331980363e24189ce","onSale":false,"price":4.9,"saleAmount":0,"salePrice":4.9,"sku":"7640111970637-1","total":4.9,"priceAsCurrency":"4,90\u00a0CHF","saleAmountAsCurrency":"0,00\u00a0CHF","salePriceAsCurrency":"4,90\u00a0CHF","subtotalAsCurrency":"4,90\u00a0CHF","totalAsCurrency":"4,90\u00a0CHF","discountAsCurrency":"0,00\u00a0CHF","shippingCostAsCurrency":"0,00\u00a0CHF","taxAsCurrency":"0,00\u00a0CHF","taxIncludedAsCurrency":"0,12\u00a0CHF","adjustmentsTotalAsCurrency":"0,00\u00a0CHF","subtotal":4.9},{"id":12439,"weight":1500,"length":0,"height":0,"width":0,"qty":1,"note":"","privateNote":"","purchasableId":"21025","orderId":31758,"lineItemStatusId":null,"taxCategoryId":2,"shippingCategoryId":1,"dateCreated":"2023-06-02T11:39:59+02:00","dateUpdated":"2023-06-02T12:45:48+02:00","uid":"41f8d513-1b86-4d05-884b-7c207b6f37b7","adjustments":[{"id":343696,"name":"Mwst:","description":"7.7%","type":"tax","amount":1.28,"included":true,"orderId":31758,"lineItemId":12439,"isEstimated":false,"sourceSnapshot":{"id":"2","name":"Mwst:","code":"Wein","rate":"0.0770000000","include":"1","removeIncluded":"0","removeVatIncluded":"0","isVat":"0","taxable":"price","taxCategoryId":"2","isLite":null,"taxZoneId":"1","dateCreated":"2021-07-27T11:52:38+02:00","dateUpdated":"2022-03-02T15:18:02+01:00"},"amountAsCurrency":"1,28\u00a0CHF"}],"description":"Barbera d'Asti DOCG \u00abLe Querce\u00bb","options":[],"optionsSignature":"d751713988987e9331980363e24189ce","onSale":false,"price":17.9,"saleAmount":0,"salePrice":17.9,"sku":"171.002.00","total":17.9,"priceAsCurrency":"17,90\u00a0CHF","saleAmountAsCurrency":"0,00\u00a0CHF","salePriceAsCurrency":"17,90\u00a0CHF","subtotalAsCurrency":"17,90\u00a0CHF","totalAsCurrency":"17,90\u00a0CHF","discountAsCurrency":"0,00\u00a0CHF","shippingCostAsCurrency":"0,00\u00a0CHF","taxAsCurrency":"0,00\u00a0CHF","taxIncludedAsCurrency":"1,28\u00a0CHF","adjustmentsTotalAsCurrency":"0,00\u00a0CHF","subtotal":17.9},{"id":12438,"weight":1500,"length":0,"height":0,"width":0,"qty":1,"note":"","privateNote":"","purchasableId":"21054","orderId":31758,"lineItemStatusId":null,"taxCategoryId":2,"shippingCategoryId":1,"dateCreated":"2023-06-02T11:37:23+02:00","dateUpdated":"2023-06-02T12:45:48+02:00","uid":"f86d1803-7da6-416f-9a89-2365f49ecf0e","adjustments":[{"id":343697,"name":"Mwst:","description":"7.7%","type":"tax","amount":1.02,"included":true,"orderId":31758,"lineItemId":12438,"isEstimated":false,"sourceSnapshot":{"id":"2","name":"Mwst:","code":"Wein","rate":"0.0770000000","include":"1","removeIncluded":"0","removeVatIncluded":"0","isVat":"0","taxable":"price","taxCategoryId":"2","isLite":null,"taxZoneId":"1","dateCreated":"2021-07-27T11:52:38+02:00","dateUpdated":"2022-03-02T15:18:02+01:00"},"amountAsCurrency":"1,02\u00a0CHF"}],"description":"Langhe DOC Arneis \"Barivel\"","options":[],"optionsSignature":"d751713988987e9331980363e24189ce","onSale":true,"price":17.9,"saleAmount":3.5799999999999983,"salePrice":14.32,"sku":"171.006.00","total":14.32,"priceAsCurrency":"17,90\u00a0CHF","saleAmountAsCurrency":"3,58\u00a0CHF","salePriceAsCurrency":"14,32\u00a0CHF","subtotalAsCurrency":"14,32\u00a0CHF","totalAsCurrency":"14,32\u00a0CHF","discountAsCurrency":"0,00\u00a0CHF","shippingCostAsCurrency":"0,00\u00a0CHF","taxAsCurrency":"0,00\u00a0CHF","taxIncludedAsCurrency":"1,02\u00a0CHF","adjustmentsTotalAsCurrency":"0,00\u00a0CHF","subtotal":14.32},{"id":11590,"weight":454,"length":0,"height":0,"width":0,"qty":1,"note":"","privateNote":"","purchasableId":"12766","orderId":31758,"lineItemStatusId":null,"taxCategoryId":1,"shippingCategoryId":1,"dateCreated":"2023-02-07T10:32:00+01:00","dateUpdated":"2023-06-02T12:45:48+02:00","uid":"fa702a3a-8365-48f9-a097-50878e2e57bb","adjustments":[{"id":343695,"name":"Mwst:","description":"2.5%","type":"tax","amount":0.11,"included":true,"orderId":31758,"lineItemId":11590,"isEstimated":false,"sourceSnapshot":{"id":"1","name":"Mwst:","code":"Lebensmittel","rate":"0.0250000000","include":"1","removeIncluded":"0","removeVatIncluded":"0","isVat":"0","taxable":"price","taxCategoryId":"1","isLite":null,"taxZoneId":"1","dateCreated":"2021-07-23T14:35:37+02:00","dateUpdated":"2022-03-02T15:18:16+01:00"},"amountAsCurrency":"0,11\u00a0CHF"}],"description":"Sugo all'arrabbiata","options":[],"optionsSignature":"d751713988987e9331980363e24189ce","onSale":false,"price":4.5,"saleAmount":0,"salePrice":4.5,"sku":"7640111970644","total":4.5,"priceAsCurrency":"4,50\u00a0CHF","saleAmountAsCurrency":"0,00\u00a0CHF","salePriceAsCurrency":"4,50\u00a0CHF","subtotalAsCurrency":"4,50\u00a0CHF","totalAsCurrency":"4,50\u00a0CHF","discountAsCurrency":"0,00\u00a0CHF","shippingCostAsCurrency":"0,00\u00a0CHF","taxAsCurrency":"0,00\u00a0CHF","taxIncludedAsCurrency":"0,11\u00a0CHF","adjustmentsTotalAsCurrency":"0,00\u00a0CHF","subtotal":4.5}],"orderAdjustments":[{"id":343698,"name":"Abholung","description":"5%","type":"Abholrabatt","amount":-2.55,"included":false,"orderId":31758,"lineItemId":null,"isEstimated":false,"sourceSnapshot":{"data":"value"},"amountAsCurrency":"-2,55\u00a0CHF"}],"outstandingBalance":48.29,"paidStatus":"unpaid","recalculationMode":"all","shortNumber":"9b800d4","totalPaid":0,"total":48.29,"totalPrice":48.29,"totalQty":6,"totalSaleAmount":4.759999999999999,"totalTaxablePrice":45.53,"totalWeight":4486,"adjustmentSubtotalAsCurrency":"-2,55\u00a0CHF","adjustmentsTotalAsCurrency":"-2,55\u00a0CHF","itemSubtotalAsCurrency":"50,84\u00a0CHF","itemTotalAsCurrency":"50,84\u00a0CHF","outstandingBalanceAsCurrency":"48,29\u00a0CHF","paymentAmountAsCurrency":"48,29\u00a0CHF","totalPaidAsCurrency":"0,00\u00a0CHF","totalAsCurrency":"48,29\u00a0CHF","totalPriceAsCurrency":"48,29\u00a0CHF","totalSaleAmountAsCurrency":"4,76\u00a0CHF","totalTaxablePriceAsCurrency":"45,53\u00a0CHF","totalTaxAsCurrency":"0,00\u00a0CHF","totalTaxIncludedAsCurrency":"2,76\u00a0CHF","totalShippingCostAsCurrency":"0,00\u00a0CHF","totalDiscountAsCurrency":"0,00\u00a0CHF","storedTotalPriceAsCurrency":"48,29\u00a0CHF","storedTotalPaidAsCurrency":"0,00\u00a0CHF","storedItemTotalAsCurrency":"50,84\u00a0CHF","storedItemSubtotalAsCurrency":"50,84\u00a0CHF","storedTotalShippingCostAsCurrency":"0,00\u00a0CHF","storedTotalDiscountAsCurrency":"0,00\u00a0CHF","storedTotalTaxAsCurrency":"0,00\u00a0CHF","storedTotalTaxIncludedAsCurrency":"2,76\u00a0CHF","paidStatusHtml":"<span class=\"commerceStatusLabel\"><span class=\"status red\"><\/span> Nicht bezahlt<\/span>","customerLinkHtml":"<span>p@henrik-hentschel.de<\/span>","orderStatusHtml":"","totalTax":0,"totalTaxIncluded":2.76,"totalShippingCost":0,"totalDiscount":0});</script>
       <script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -1254,9 +992,9 @@
                 "@type": "ImageObject",
                 "url": "https://optimise2.assets-servd.host/terra-verde/development/assets/images/content/content/TerraVerde_Logo.jpeg?w=1200&h=630&q=82&auto=format&fit=clip&dm=1643979840&s=9e59c57278bd5d468c841e3e5e3f7d44"
             },
-            "mainEntityOfPage": "http://terraverde.local/shop/checkout/addresses",
+            "mainEntityOfPage": "http://terraverde.local/shop/checkout/shipping",
             "name": "Biologische Produkte",
-            "url": "http://terraverde.local/shop/checkout/addresses"
+            "url": "http://terraverde.local/shop/checkout/shipping"
         },
         {
             "@id": "https://www.terra-verde.ch#identity",
@@ -1457,96 +1195,7 @@
     ]
 }
 </script><script src="https://polyfill.io/v3/polyfill.min.js?features=fetch%2CPromise%2CCustomEvent" nomodule></script>
-<script>var states = [];
-
-  var $countrySelects = document.querySelectorAll('select.js-address-country');
-
-  if ($countrySelects && $countrySelects.length) {
-  $countrySelects.forEach(function(el) {
-  el.addEventListener('change', function(ev) {
-  var $this = ev.target;
-
-  // get the value of the selected country.
-  var cid = $this.value;
-  var $closestAddressBox = $this.closest('.js-addressBox');
-
-  if ($closestAddressBox) {
-
-  var $states = $closestAddressBox.querySelector('select.js-address-stateId');
-  var $stateName = $closestAddressBox.querySelector('input.js-address-stateName');
-
-  if ($states && $stateName) {
-  var $options = $states.querySelectorAll('option');
-
-  if ($options && $options.length) {
-  $options.forEach(function(el) {
-  el.remove();
-  });
-  }
-
-  if (states.hasOwnProperty(cid))
-  {
-  // We have states for this country, show the states drop down.
-  $states.classList.remove('hidden');
-  $states.setAttribute('name', $states.dataset.modelname + '[stateValue]');
-
-  // We have states for this country, hide the stateName input.
-  $stateName.removeAttribute('name');
-  $stateName.classList.add('hidden');
-  $stateName.value = '';
-
-  // Add all states as options to drop down.
-  for (var id in states[cid])
-  {
-  var state = states[cid][id];
-  var $option = document.createElement('OPTION');
-  $option.text = state;
-  $option.value = id;
-  $states.appendChild($option);
-  }
-
-  } else {
-  // hide the states dropdown, since this country has none.
-  $states.classList.add('hidden');
-  $states.removeAttribute('name');
-
-  // show the stateName
-  $stateName.classList.remove('hidden');
-  $stateName.setAttribute('name', $stateName.dataset.modelname + '[stateValue]');
-  }
-  }
-  }
-  });
-  });
-  };
-var $fieldsets = document.querySelectorAll('.js-address-fieldset');
-
-    if ($fieldsets && $fieldsets.length) { $fieldsets.forEach(function (el) { var
-    $addressSelects = el.querySelectorAll('.js-address-select');
-
-    if ($addressSelects && $addressSelects.length) {
-    $addressSelects.forEach(function(el) { var $radio =
-    el.querySelector('.js-radio input'); var $body = el.querySelector('.js-body');
-
-    if ($radio) { if ($body) { // Creating new address
-    $radio.addEventListener('change', function(ev) { if (ev.target.checked) {
-    $body.classList.remove('hidden'); } else { $body.classList.add('hidden'); }
-    });
-
-    if ($radio.checked) { $body.classList.remove('hidden'); } } else { //
-    Selecting existing address $radio.addEventListener('change', function(ev) { if
-    (ev.target.checked) { var $newBox =
-    document.querySelector('.js-address-select[data-model-name="' +
-    ev.target.dataset.modelName + '"]'); if ($newBox) {
-    $newBox.querySelector('.js-body').classList.add('hidden'); } } }); } } }); }
-    }); }
-
-    var $billingSameAs = document.querySelector('#billingAddressSameAsShipping');
-    if ($billingSameAs) { $billingSameAs.addEventListener('change', function(ev) {
-    var $billingFieldSet =
-    document.querySelector('.js-address-fieldset.BillingAddress');
-    $billingFieldSet.classList.toggle('hidden'); });};
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+<script>var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
         function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
@@ -1657,4 +1306,4 @@ function replaceUrls(url, injectElements) {
     });
 };</script></body>
 </html>
-<!-- Cached by Blitz on 2023-06-02T12:42:14+02:00 -->
+<!-- Cached by Blitz on 2023-06-02T12:46:01+02:00 -->

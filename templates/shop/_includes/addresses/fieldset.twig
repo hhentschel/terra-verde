@@ -2,7 +2,8 @@
 {% set customer = craft.commerce.customers.customer %}
 {% set primaryBillingAddress = customer.getPrimaryBillingAddress() %}
 {% set primaryShippingAddress = customer.getPrimaryShippingAddress() %}
-
+{% set cart = craft.commerce.carts.cart %}
+{% set addresses = craft.commerce.customers.customer.addresses %}
 <div class="js-address-fieldset">
 
 

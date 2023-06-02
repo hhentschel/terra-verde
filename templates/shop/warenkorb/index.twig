@@ -10,15 +10,14 @@
           Warenkorb
         </h2>
 
-        {{
-          sprig(
-            'shop/warenkorb/_includes/products.twig',
-            {},
-            {
-              id: 'cartproducts'
-            }
-          )
-        }}
+        {{ sprig(
+          'shop/warenkorb/_includes/products.twig',
+          {},
+          {
+            id: 'cartproducts',
+            's-trigger': 'load'
+          }
+        ) }}
 
         {% if not cart.lineItems|length %}
           <p>
