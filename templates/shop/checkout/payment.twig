@@ -11,8 +11,8 @@
   <div class="row">
 
     <div class="col col-xs-12 col-md-12 col-lg-9 col-lg-shift-3">
-      {% include "shop/checkout/_includes/order-summary" with { showShippingAddress: true, showShippingMethod: true } %}
-
+      {# {% include "shop/checkout/_includes/order-summary" with { showShippingAddress: true, showShippingMethod: true } %} #}
+      {{ sprig('shop/checkout/_includes/order-summary', {'showShippingAddress': true, 'showShippingMethod': true} , { 's-trigger': 'load' } ) }}
       {# Payment form #}
       {% if cart.gatewayId or cart.paymentSourceId %}
         {% if paymentForm is defined %}
@@ -49,7 +49,8 @@
 
             {{ hiddenInput('orderEmail', cart.email) }}
 
-            {{ csrfInput() }}
+            {# {{ csrfInput() }} #}
+            {{ craft.blitz.csrfInput() }}
             {% if cart.gatewayId %}
 
               {{ hiddenInput('gatewayId', cart.gatewayId) }}

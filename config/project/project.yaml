@@ -1,4 +1,4 @@
-dateModified: 1685701314
+dateModified: 1686233085
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: 'Terra Verde'
@@ -425,41 +425,11 @@ plugins:
       includedQueryStringParams:
         - '.*'
       includedUriPatterns:
-        -
+        7:
           __assoc__:
             -
               - uriPattern
-              - /shop
-        -
-          __assoc__:
-            -
-              - uriPattern
-              - /ueberuns
-        -
-          __assoc__:
-            -
-              - uriPattern
-              - /blog
-        -
-          __assoc__:
-            -
-              - uriPattern
-              - /produzentinnen
-        -
-          __assoc__:
-            -
-              - uriPattern
-              - '/produzentinnen/.*'
-        -
-          __assoc__:
-            -
-              - uriPattern
-              - ''
-        -
-          __assoc__:
-            -
-              - uriPattern
-              - suche
+              - '.*'
       injectScriptEvent: DOMContentLoaded
       integrations:
         - putyourlightson\blitz\drivers\integrations\FeedMeIntegration

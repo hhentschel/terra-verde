@@ -7,10 +7,12 @@
     <div class="row">
 
       <div class="col col-xs-12 col-md-6 col-lg-6">
-        {% include 'shop/checkout/_includes/order-summary' with {
+        {#        {% include 'shop/checkout/_includes/order-summary' with {
           showShippingAddress: true,
           showShippingMethod: true
-        } %}
+        } %} #}
+
+        {{ sprig('shop/checkout/_includes/order-summary', {'showShippingAddress': true, 'showShippingMethod': true} , { 's-trigger': 'load' } ) }}
       </div>
 
       <div class="col col-xs-12 col-md-6 col-lg-6">
