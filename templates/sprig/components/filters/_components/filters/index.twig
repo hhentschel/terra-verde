@@ -184,7 +184,7 @@
       {% for product in products %}
         {% for variant in product.getVariants() %}
           {# {% include 'sprig/components/cart/_components/product' %} #}
-          {{ sprig('sprig/components/cart/_components/product', {variantId : variant.id, productId : product.id}, {'class': 'shop-list__item'}) }}
+          {{ sprig('sprig/components/cart/_components/product', {variantId : variant.id, productId : product.id}, {'class': 'shop-list__item',  's-trigger': 'load' }) }}
         {% endfor %}
       {% endfor %}
     </div>
