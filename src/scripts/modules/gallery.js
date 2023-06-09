@@ -18,7 +18,7 @@ export default class GallerySlider {
       cellAlign: 'center',
       contain: false,
       imagesLoaded: true,
-      prevNextButtons: false,
+      prevNextButtons: true,
       pageDots: true,
       percentPosition: false,
 

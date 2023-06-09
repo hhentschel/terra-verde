@@ -13,6 +13,9 @@
 
     &--navigation {
       grid-column: 3/3;
+      align-items: flex-end;
+      display: flex;
+      gap: px-to-rem($space--m);
 
       &:hover {
         cursor: pointer;
