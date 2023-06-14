@@ -29,56 +29,59 @@
   <section class="grid">
     <div class="row">
       <div class="col col-xs-12 col-md-12 col-lg-12">
-        <div class="content__detail-header">
-          <div class="content__detail-image producers-overview__image">
-            {% set transform = transformation|default('imageOneThird') %}
+        <section class="detail-page__wrapper">
+          <div class="detail-page__header">
+            <div class="content__detail-image producers-overview__image">
+              {% set transform = transformation|default('imageOneThird') %}
 
-            {% set img = entry.imageDetailPage.one() ? entry.imageDetailPage.one() : entry.image.one() %}
-            {% if img is defined %}
-              {% include '_components/_content-elements/image' with {
-                img: img,
-                transform: transform
-              } %}
-            {% endif %}
+              {% set img = entry.imageDetailPage.one() ? entry.imageDetailPage.one() : entry.image.one() %}
+              {% if img is defined %}
+                {% include '_components/_content-elements/image' with {
+                  img: img,
+                  transform: transform
+                } %}
+              {% endif %}
+            </div>
+
+            <div class="content__detail-lead producers-overview__lead">
+              {{ entry.leadText }}
+            </div>
           </div>
 
-          <div class="content__detail-lead producers-overview__lead">
-            {{ entry.leadText }}
-          </div>
-        </div>
 
-        {% include '_components/_content-elements/content-elements-loop' with {
-          contentElements: entry.contentElements.level(1),
-          usesGrid: false
-        } %}
-
-        {% if products %}
-          <h3 class="heading heading--3">
-            Produkte
-          </h3>
+          {% include '_components/_content-elements/content-elements-loop' with {
+            contentElements: entry.contentElements.level(1),
+            usesGrid: true
+          } %}
 
 
-        {% endif %}
+          {% if products %}
+            <h3 class="heading heading--3">
+              Produkte
+            </h3>
 
-        <ul class="producers-detail__product-list">
-          {% for product in products %}
 
-            {% set variant = product.defaultVariant %}
-            {% set manufactorproducts = (product.title) ~ ', ' ~ (variant.articleVolume) ~ (variant.articleVolumeUnit) %}
+          {% endif %}
 
-            <li>
-              {% include '_components/_content-elements/link' with {
-                linkUrl: product.url,
-                linkText: manufactorproducts,
-                target: 'internal',
-                iconPosition: 'after',
-                customClass: 'producers-detail__product-link'
-              } %}
+          <ul class="producers-detail__product-list">
+            {% for product in products %}
 
-            </li>
-          {% endfor %}
-        </ul>
+              {% set variant = product.defaultVariant %}
+              {% set manufactorproducts = (product.title) ~ ', ' ~ (variant.articleVolume) ~ (variant.articleVolumeUnit) %}
 
+              <li>
+                {% include '_components/_content-elements/link' with {
+                  linkUrl: product.url,
+                  linkText: manufactorproducts,
+                  target: 'internal',
+                  iconPosition: 'after',
+                  customClass: 'producers-detail__product-link'
+                } %}
+
+              </li>
+            {% endfor %}
+          </ul>
+        </section>
       </div>
     </div>
   </section>

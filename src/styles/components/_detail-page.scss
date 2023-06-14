@@ -18,9 +18,12 @@
     margin-bottom: px-to-rem($space--m);
   }
 
+  &__header {
+    margin-bottom: px-to-rem($space--m);
+  }
+  
   &__meta {
     font-size: px-to-rem(15);
-    margin-bottom: px-to-rem($space--m);
     color: $color--grey-darker;
   }
 
