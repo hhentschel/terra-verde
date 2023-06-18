@@ -209,25 +209,6 @@
         } %}
       {% endset %}
 
-      {# ImageText 30/70 Block #}
-    {% case 'imageText3070' %}
-      {% set cmt = cmt ? cmt : 'layout-helper__margin-top--xxs' %}
-      {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--xxs' %}
-      {% set colClasses =
-        '' %}
-      {% set transform = transformation|default('imageOneThird') %}
-      {% set contentBlock %}
-        {% include '_components/_content-elements/image-text' with {
-          img: block.image,
-          title: block.titleH3,
-          imageAltText: block.imageAltText,
-          imageCaption: block.imageCaption,
-          formattedText: block.textStandardWithoutH1,
-          imageSize: 'image--one-third',
-          transform: transform
-        } %}
-      {% endset %}
-
       {# ImageText 50/50 Block #}
     {% case 'imageText5050' %}
       {% set cmt = cmt ? cmt : 'layout-helper__margin-top--xxs' %}
@@ -314,27 +295,54 @@
         } %}
       {% endset %}
 
+      {# ImageText 30/70 Block #}
+    {% case 'imageText3070' %}
+      {% set colClasses = '' %}
+      {% set cmt = cmt ? cmt : 'layout-helper__margin-top--xxs' %}
+      {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--xxs' %}
+
+      {% set transform = transformation|default('imageOneThird') %}
+      {% set contentBlock %}
+        {% include '_components/_content-elements/image-text' with {
+          img: block.image,
+          title: block.titleH3,
+          imageAltText: block.imageAltText,
+          imageCaption: block.imageCaption,
+          formattedText: block.textStandardWithoutH1,
+          imageSize: 'image--one-third',
+          transform: transform
+        } %}
+      {% endset %}
+
       {# Infobox Block #}
     {% case 'infobox' %}
       {% set cmt = cmt ? cmt : 'layout-helper__margin-top--xxs' %}
       {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--s' %}
 
-      {% set infoboxAlign = '' %}
-      {% for option in block.infoboxAlign.options %}
+      {% set boxAlign = '' %}
+      {% for option in block.boxAlign.options %}
         {% if option.selected %}
-          {% set infoboxAlign = option.value %}
+          {% set boxAlign = option.value %}
         {% endif %}
       {% endfor %}
       {#      String to Array conversion #}
-      {% set infoboxAlignArray = infoboxAlign|split(', ') %}
+      {% set boxAlignArray = boxAlign|split(', ') %}
 
       {#      Merge with the normal Classes #}
       {% set colClassesBasic = ['infobox'] %}
-      {% set colClasses = colClassesBasic|merge(infoboxAlignArray) %}
+      {% set colClasses = colClassesBasic|merge(boxAlignArray) %}
 
       {% set contentBlock %}
-        {% include '_components/_content-elements/infobox' with {
-          items: block.children
+        {% include '_components/_content-elements/image-text' with {
+          items: block.children,
+          title: block.titleH3,
+          formattedText: block.textStandardWithoutH1,
+          img: block.image,
+          imageAltText: block.imageAltText,
+          imageCaption: block.imageCaption,
+          imageSize: 'image--one-third',
+          transform: transform,
+          infobox: true
         } %}
       {% endset %}
     {% endswitch %}

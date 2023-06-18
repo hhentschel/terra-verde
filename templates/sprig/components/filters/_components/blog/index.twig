@@ -1,5 +1,7 @@
 {# Sets default values. #}
 
+{% import '_helpers/macros.twig' as macros %}
+
 {% set articleCategoriesBlog = articleCategoriesBlog ?? [] %}
 {% set orderBy = orderBy ?? 'postDate desc' %}
 
@@ -134,14 +136,18 @@
                 {% if
                   entry.contentElements is defined
                   and entry.contentElements is not empty %}
-                  mehr Informationen
+                  Weiterlesen
                 {% endif %}
                 </span>
               <div class="link__icon-wrapper link__icon-wrapper--internal">
-                <svg class="link__icon link__icon--internal icon icon--42">
+               {# <svg class="link__icon link__icon--internal icon icon--42">
                   <path
                     d="M36.907 21.411a.999.999 0 01-.089.133.95.95 0 01-.066.115l-7 8a1 1 0 11-1.504-1.318L33.796 22H6a1 1 0 010-2h27.796l-5.548-6.341a1 1 0 111.504-1.318l7 8a.95.95 0 01.066.115.999.999 0 01.089.133c.009.02.015.04.022.062a.96.96 0 01.037.16.991.991 0 01.027.157c0 .011.007.02.007.032s-.006.02-.007.032a.991.991 0 01-.027.156.96.96 0 01-.037.161c-.007.021-.013.042-.022.062z"></path>
-                </svg>
+                </svg> #}
+
+                {{ macros.svg('arrow_24')|attr({
+                  class: 'link__icon link__icon--internal icon icon--24'
+                }) }}
               </div>
             </span>
         </a>

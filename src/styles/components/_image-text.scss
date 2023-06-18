@@ -8,6 +8,10 @@
     flex-direction: row;
   }
 
+  &__bg {
+    padding: px-to-rem($space--m);
+  }
+
   &__image {
     margin-bottom: px-to-rem($space--m);
 
@@ -27,5 +31,13 @@
       line-height: $line-height--xm;
       @include lhCrop(0.5);
     }
+  }
+}
+
+.infobox {
+  > .image-text {
+    background-color: $color--white;
+    color: $color--black;
+    padding: px-to-rem($space--m);
   }
 }
