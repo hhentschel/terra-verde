@@ -1,4 +1,4 @@
-dateModified: 1685525924
+dateModified: 1687109120
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: 'Terra Verde'
@@ -71,7 +71,7 @@ meta:
     6dfef0ec-decc-450c-8400-fe2f9d6a01a1: Positionierung # Positionierung
     6f495a5e-4e7f-4c5d-9163-d674db71d0ea: 'Interner Link (hervorgehoben)' # Interner Link (hervorgehoben)
     07a64db3-fc15-40a2-af10-a8499ce5a108: VirtueMart-userInfo-Id # VirtueMart-userInfo-Id
-    7db4c821-db84-4144-b750-0170f1401afb: '' #
+    7db4c821-db84-4144-b750-0170f1401afb: '' # 
     7f760799-8cd2-47b0-981a-c91cfe3036b4: AGB # AGB
     7fec1130-1fea-4054-9bcb-ddff47a64b84: 'Newsletter List' # Newsletter List
     08a487ae-35d0-46a6-b036-6dde9ca93d51: Blog # Blog
@@ -106,7 +106,7 @@ meta:
     44a134bf-a896-43b6-897a-a294f6c27325: 'Blog Aktuell' # Blog Aktuell
     47c3ee37-8371-469c-8566-fb641a48324e: 'Ähnliche Produkte Apero' # Ähnliche Produkte Apero
     50ff7a2e-9fc7-4f85-aa48-b24f439d44cb: 'Bild Inhalt Voll' # Bild Inhalt Voll
-    51d5398a-9cc0-4781-bacb-713a68986d17: 'Infobox Hintergrundfarbe' # Infobox Hintergrundfarbe
+    51d5398a-9cc0-4781-bacb-713a68986d17: 'Box Hintergrundfarbe' # Box Hintergrundfarbe
     52b07f6a-0a03-4f36-90a6-237e75e980b9: Text # Text
     56e224de-e1ef-4c9a-897c-ab4a05fd8c96: 'Terra Verde' # Terra Verde
     57d4d8f2-0e49-45bf-9f84-2e1917ef7c02: Magazin # Magazin
@@ -154,7 +154,7 @@ meta:
     442d67d8-a8df-49bb-9ea3-bc0a6323ce71: 'Überschrift Grösse' # Überschrift Grösse
     508b8346-e9c6-483b-b039-08cfb035e306: 'Bild Breit' # Bild Breit
     523ac297-f2c3-49a9-bb1d-08fc4108631e: Impressum # Impressum
-    529a5b01-e289-42de-a013-d43f81455999: 'Produzentenkarte Mobile ' # Produzentenkarte Mobile
+    529a5b01-e289-42de-a013-d43f81455999: 'Produzentenkarte Mobile ' # Produzentenkarte Mobile 
     546e63c7-3ad2-424d-ad71-31f33a561a7f: 'Kontakt | Globals' # Kontakt | Globals
     552eac55-d86f-40a3-8aea-50f54038afbc: Textfeld # Textfeld
     641bd187-bf07-49f6-9cdd-90462c76cc88: Nummer # Nummer
@@ -162,7 +162,7 @@ meta:
     667e84c9-349c-41fc-b5dd-be60c8d94861: Downloadlink # Downloadlink
     673dbddb-972b-44b7-b50c-ac5b649321ab: Öffnungszeiten # Öffnungszeiten
     676d6484-bb25-4582-abcd-c9f07f618d98: 'Artikel Jahrgang' # Artikel Jahrgang
-    685ad3f3-ef40-45d9-8934-ec8c2926422f: 'Infobox Textfarbe' # Infobox Textfarbe
+    685ad3f3-ef40-45d9-8934-ec8c2926422f: 'Box Textfarbe' # Box Textfarbe
     723ee43b-e0d2-448a-9126-13f9a28125bc: Suche # Suche
     763aeea2-9aa6-475b-ab99-66fb8c6b67f2: Startseite # Startseite
     789fdb6d-520f-4cf1-be1e-478056358e79: Inhaltsbilder # Inhaltsbilder
@@ -213,7 +213,7 @@ meta:
     9041254e-7c39-4bd9-9590-0a646283a360: 'Artikel Einheit (Gl, Fl, Dose, Stk., Kan.)' # Artikel Einheit (Gl, Fl, Dose, Stk., Kan.)
     10561167-3a73-493b-8f0f-48ce104e8c50: 'Anrede verwenden' # Anrede verwenden
     16265740-9a81-46f1-9fb8-99fc6b1a8e7f: 'Externer Link (mit Icon)' # Externer Link (mit Icon)
-    32255436-9130-46f8-89a7-da7a18284166: 'Infobox Positionierung' # Infobox Positionierung
+    32255436-9130-46f8-89a7-da7a18284166: 'Box Positionierung' # Box Positionierung
     42065150-3e31-4dfa-ad7d-b6b95f0eba0f: 'Product Home' # Product Home
     75076778-568e-4d8c-8a9b-dadb8a0e180a: 'Bild / Bild - 50% / 50%' # Bild / Bild - 50% / 50%
     76367094-179e-4fc3-8e70-b0f8fccc3422: 'Shop Anpassungen' # Shop Anpassungen
@@ -305,7 +305,7 @@ meta:
     d59a8a70-d5e0-42b4-b4d8-d3602f3bbe03: 'Produkt Bild' # Produkt Bild
     d63d76f8-75e4-40eb-9992-4ea21ba5b437: 'Artikel Zusatz Beschreibung' # Artikel Zusatz Beschreibung
     d74f6685-54ad-4654-b9dc-039321354725: Bild # Bild
-    d87ae540-a64c-4e54-ac23-844cb4371d36: '' #
+    d87ae540-a64c-4e54-ac23-844cb4371d36: '' # 
     d212ea74-5630-4a5d-9550-827a9623e32b: 'Subject Feld' # Subject Feld
     d438ea68-d87f-4238-b23e-cdaa8a840149: 'Produzenten Tags' # Produzenten Tags
     d595e861-4c06-4115-8656-93e95a495147: Notiz # Notiz
@@ -377,6 +377,105 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 2.0.0
+  blitz:
+    edition: standard
+    enabled: true
+    licenseKey: 1XZ9DCIWQEDUB7WTNX9NARMC
+    schemaVersion: 3.10.0
+    settings:
+      apiKey: ''
+      cacheControlHeader: 'public, s-maxage=31536000, max-age=0'
+      cacheDuration: null
+      cacheElementQueries: true
+      cacheElements: true
+      cachePurgerType: putyourlightson\blitz\drivers\purgers\DummyPurger
+      cacheStorageSettings:
+        __assoc__:
+          -
+            - folderPath
+            - '@webroot/cache/blitz'
+          -
+            - createGzipFiles
+            - ''
+          -
+            - createBrotliFiles
+            - ''
+      cacheStorageType: putyourlightson\blitz\drivers\storage\FileStorage
+      cacheWarmerSettings:
+        __assoc__:
+          -
+            - concurrency
+            - '3'
+      cacheWarmerType: putyourlightson\blitz\drivers\warmers\GuzzleWarmer
+      cachingEnabled: '1'
+      clearCacheAutomatically: '1'
+      customSiteUris: ''
+      debug: false
+      deployerType: putyourlightson\blitz\drivers\deployers\DummyDeployer
+      driverJobPriority: 100
+      excludedQueryStringParams:
+        - gclid
+        - fbclid
+      excludedUriPatterns:
+        -
+          __assoc__:
+            -
+              - uriPattern
+              - customer
+        -
+          __assoc__:
+            -
+              - uriPattern
+              - reset-password
+        -
+          __assoc__:
+            -
+              - uriPattern
+              - checkout
+        -
+          __assoc__:
+            -
+              - uriPattern
+              - logout
+        -
+          __assoc__:
+            -
+              - uriPattern
+              - registrieren
+        -
+          __assoc__:
+            -
+              - uriPattern
+              - login
+        -
+          __assoc__:
+            -
+              - uriPattern
+              - sitemaps
+      includedQueryStringParams:
+        - '.*'
+      includedUriPatterns:
+        7:
+          __assoc__:
+            -
+              - uriPattern
+              - '.*'
+      injectScriptEvent: DOMContentLoaded
+      integrations:
+        - putyourlightson\blitz\drivers\integrations\FeedMeIntegration
+        - putyourlightson\blitz\drivers\integrations\SeomaticIntegration
+      maxRetryAttempts: 10
+      mutexTimeout: 1
+      outputComments: true
+      queryStringCaching: '0'
+      queueJobTtr: 300
+      refreshCacheAutomaticallyForGlobals: true
+      refreshCacheJobPriority: 10
+      refreshCacheWhenElementSavedNotLive: false
+      refreshCacheWhenElementSavedUnchanged: false
+      sendPoweredByHeader: true
+      warmCacheAutomatically: '1'
+      warmPagesWithQueryStringParams: true
   blitz-recommendations:
     edition: standard
     enabled: true
@@ -393,7 +492,8 @@ plugins:
       contactFieldLayoutId: null
       emailFieldLabel: Email
       fromNamesEmails:
-        - - 'Terra Verde'
+        -
+          - 'Terra Verde'
           - info@terra-verde.ch
           - ''
       geoIp: false
@@ -427,9 +527,11 @@ plugins:
       timeThreshold: 0.8
       transportSettings:
         __assoc__:
-          - - apiKey
+          -
+            - apiKey
             - $MAILJET_API_KEY
-          - - apiSecret
+          -
+            - apiSecret
             - $MAILJET_SECRET_KEY
       transportType: bertoost\mailjet\adapters\MailjetAdapter
   ckeditor:
@@ -568,9 +670,12 @@ plugins:
       queueTtr: null
       requestOptions:
         __assoc__:
-          - - headers
-            - __assoc__:
-                - - User-Agent
+          -
+            - headers
+            -
+              __assoc__:
+                -
+                  - User-Agent
                   - 'Feed Me'
       runGcBeforeFeed: false
       skipUpdateFieldHandle: ''
@@ -624,8 +729,10 @@ plugins:
     schemaVersion: 1.0.0
     settings:
       sections:
-        - - Intro
-        - - Anleitungen
+        -
+          - Intro
+        -
+          - Anleitungen
       widgetTitle: Links
   mailchimp-subscribe:
     edition: standard
@@ -713,9 +820,11 @@ plugins:
       cpTitlePrefix: '⚙ '
       cspNonce: ''
       cspScriptSrcPolicies:
-        - __assoc__:
-            - - policy
-              - "'self'"
+        -
+          __assoc__:
+            -
+              - policy
+              - '''self'''
       devModeCpTitlePrefix: '&#x1f6a7;⚙ '
       devModeTitlePrefix: '&#x1f6a7; '
       displayAnalysisSidebar: true
@@ -755,9 +864,10 @@ plugins:
       assetsEnvironment: ''
       assetsEnvironmentOverwrite: ''
       cacheClearMode: full
-      clearCachesOnSave: always
+      clearCachesOnSave: never
       disableDynamic: ''
       disableTransforms: ''
+      imageAutoConversion: webp
       injectCors: ''
       projectSlug: $SERVD_PROJECT_SLUG
       securityKey: $SERVD_SECURITY_KEY
@@ -781,26 +891,46 @@ plugins:
       errorTitle: Fehler
       excludeControllerActions:
         __assoc__:
-          - - 0
-            - - commerce/payments/pay
-          - - 18
-            - - sprig-core/components/render
-          - - 8
-            - - commerce/payments/complete-payment
-          - - 9
-            - - users/save-user
-          - - 10
-            - - users/login
-          - - 11
-            - - shop/checkout/register-signin
-          - - 12
-            - - users/send-password-reset-email
-          - - 13
-            - - users/set-password
-          - - 14
-            - - commerce/customer-addresses/save
-          - - 17
-            - - commerce/cart/update-cart
+          -
+            - 0
+            -
+              - commerce/payments/pay
+          -
+            - 18
+            -
+              - sprig-core/components/render
+          -
+            - 8
+            -
+              - commerce/payments/complete-payment
+          -
+            - 9
+            -
+              - users/save-user
+          -
+            - 10
+            -
+              - users/login
+          -
+            - 11
+            -
+              - shop/checkout/register-signin
+          -
+            - 12
+            -
+              - users/send-password-reset-email
+          -
+            - 13
+            -
+              - users/set-password
+          -
+            - 14
+            -
+              - commerce/customer-addresses/save
+          -
+            - 17
+            -
+              - commerce/cart/update-cart
       expirationTime: '60'
       fieldName: snaptcha
       logRejected: '1'

@@ -24,7 +24,7 @@ fieldLayouts:
             warning: null
             width: 50
           -
-            fieldUid: 32255436-9130-46f8-89a7-da7a18284166 # Infobox Positionierung
+            fieldUid: 57e5fec1-460f-4063-a3db-815af978dc8f # Bild
             instructions: null
             label: null
             required: false
@@ -33,7 +33,7 @@ fieldLayouts:
             warning: null
             width: 50
           -
-            fieldUid: 51d5398a-9cc0-4781-bacb-713a68986d17 # Infobox Hintergrundfarbe
+            fieldUid: f836488e-b5ab-4d7d-8b93-f9d9fb95263f # Bild Alt-Text
             instructions: null
             label: null
             required: false
@@ -42,7 +42,7 @@ fieldLayouts:
             warning: null
             width: 25
           -
-            fieldUid: 685ad3f3-ef40-45d9-8934-ec8c2926422f # Infobox Textfarbe
+            fieldUid: 79922ac9-edbc-44e9-850c-3995f6bcdbee # Bild Legende
             instructions: null
             label: null
             required: false
@@ -50,6 +50,33 @@ fieldLayouts:
             type: craft\fieldlayoutelements\CustomField
             warning: null
             width: 25
+          -
+            fieldUid: 32255436-9130-46f8-89a7-da7a18284166 # Box Positionierung
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 51d5398a-9cc0-4781-bacb-713a68986d17 # Box Hintergrundfarbe
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: 685ad3f3-ef40-45d9-8934-ec8c2926422f # Box Textfarbe
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
         name: Inhalt
         sortOrder: 1
 group: d87ae540-a64c-4e54-ac23-844cb4371d36 # 

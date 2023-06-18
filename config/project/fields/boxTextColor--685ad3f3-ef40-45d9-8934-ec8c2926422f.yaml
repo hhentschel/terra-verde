@@ -1,12 +1,12 @@
-columnSuffix: ijwtpocl
+columnSuffix: ssrvmsni
 contentColumnType: string(7)
 fieldGroup: bcc2f7c9-e4b5-432b-b079-3cd963db5854 # Produzenten
-handle: infoboxBgColor
+handle: boxTextColor
 instructions: ''
-name: 'Infobox Hintergrundfarbe'
+name: 'Box Textfarbe'
 searchable: false
 settings:
-  defaultColor: '#f7f5f0'
+  defaultColor: '#112211'
 translationKeyFormat: null
 translationMethod: none
 type: craft\fields\Color
