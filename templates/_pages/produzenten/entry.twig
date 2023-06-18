@@ -32,7 +32,7 @@
         <section class="detail-page__wrapper">
           <div class="detail-page__header">
             <div class="content__detail-image producers-overview__image">
-              {% set transform = transformation|default('imageOneThird') %}
+              {% set transform = transformation|default('productDetail') %}
 
               {% set img = entry.imageDetailPage.one() ? entry.imageDetailPage.one() : entry.image.one() %}
               {% if img is defined %}
