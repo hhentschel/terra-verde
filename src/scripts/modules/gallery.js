@@ -11,8 +11,8 @@ export default class GallerySlider {
 
   init() {
     const flickitySlider = this.element.querySelector('.gallery-slider');
-    // const buttonPrev = document.querySelector('.gallery-navigation__button--prev');
-    // const buttonNext = document.querySelector('.gallery-navigation__button--next');
+    const buttonPrev = document.querySelector('.gallery-navigation__button--prev');
+    const buttonNext = document.querySelector('.gallery-navigation__button--next');
     // const flickitySlide = this.element.querySelector('.image-matrix');
     const flkty = new Flickity(flickitySlider, {
       cellAlign: 'center',
@@ -32,12 +32,12 @@ export default class GallerySlider {
     });
 
 
-    /*buttonNext.addEventListener('click', () => {
+    buttonNext.addEventListener('click', () => {
       flkty.next();
     });
 
     buttonPrev.addEventListener('click', () => {
       flkty.previous();
-    });*/
+    });
   }
 }
