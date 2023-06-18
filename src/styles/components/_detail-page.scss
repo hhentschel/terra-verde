@@ -21,7 +21,7 @@
   &__header {
     margin-bottom: px-to-rem($space--m);
   }
-  
+
   &__meta {
     font-size: px-to-rem(15);
     color: $color--grey-darker;
@@ -57,12 +57,17 @@
     }
 
     &__right {
-      grid-column: 3 /5;
+      grid-column: 1 /-1;
       width: 100%;
       justify-self: flex-end;
 
       @include breakpoint('tablet-portrait') {
         width: 75%;
+        grid-column: 3 /4;
+      }
+
+      @include breakpoint('tablet-landscape') {
+        grid-column: 3 /5;
       }
     }
   }
