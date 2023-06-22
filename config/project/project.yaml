@@ -1,4 +1,4 @@
-dateModified: 1686235573
+dateModified: 1687445355
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: 'Terra Verde'
@@ -106,7 +106,7 @@ meta:
     44a134bf-a896-43b6-897a-a294f6c27325: 'Blog Aktuell' # Blog Aktuell
     47c3ee37-8371-469c-8566-fb641a48324e: 'Ähnliche Produkte Apero' # Ähnliche Produkte Apero
     50ff7a2e-9fc7-4f85-aa48-b24f439d44cb: 'Bild Inhalt Voll' # Bild Inhalt Voll
-    51d5398a-9cc0-4781-bacb-713a68986d17: 'Infobox Hintergrundfarbe' # Infobox Hintergrundfarbe
+    51d5398a-9cc0-4781-bacb-713a68986d17: 'Box Hintergrundfarbe' # Box Hintergrundfarbe
     52b07f6a-0a03-4f36-90a6-237e75e980b9: Text # Text
     56e224de-e1ef-4c9a-897c-ab4a05fd8c96: 'Terra Verde' # Terra Verde
     57d4d8f2-0e49-45bf-9f84-2e1917ef7c02: Magazin # Magazin
@@ -162,7 +162,7 @@ meta:
     667e84c9-349c-41fc-b5dd-be60c8d94861: Downloadlink # Downloadlink
     673dbddb-972b-44b7-b50c-ac5b649321ab: Öffnungszeiten # Öffnungszeiten
     676d6484-bb25-4582-abcd-c9f07f618d98: 'Artikel Jahrgang' # Artikel Jahrgang
-    685ad3f3-ef40-45d9-8934-ec8c2926422f: 'Infobox Textfarbe' # Infobox Textfarbe
+    685ad3f3-ef40-45d9-8934-ec8c2926422f: 'Box Textfarbe' # Box Textfarbe
     723ee43b-e0d2-448a-9126-13f9a28125bc: Suche # Suche
     763aeea2-9aa6-475b-ab99-66fb8c6b67f2: Startseite # Startseite
     789fdb6d-520f-4cf1-be1e-478056358e79: Inhaltsbilder # Inhaltsbilder
@@ -213,7 +213,7 @@ meta:
     9041254e-7c39-4bd9-9590-0a646283a360: 'Artikel Einheit (Gl, Fl, Dose, Stk., Kan.)' # Artikel Einheit (Gl, Fl, Dose, Stk., Kan.)
     10561167-3a73-493b-8f0f-48ce104e8c50: 'Anrede verwenden' # Anrede verwenden
     16265740-9a81-46f1-9fb8-99fc6b1a8e7f: 'Externer Link (mit Icon)' # Externer Link (mit Icon)
-    32255436-9130-46f8-89a7-da7a18284166: 'Infobox Positionierung' # Infobox Positionierung
+    32255436-9130-46f8-89a7-da7a18284166: 'Box Positionierung' # Box Positionierung
     42065150-3e31-4dfa-ad7d-b6b95f0eba0f: 'Product Home' # Product Home
     75076778-568e-4d8c-8a9b-dadb8a0e180a: 'Bild / Bild - 50% / 50%' # Bild / Bild - 50% / 50%
     76367094-179e-4fc3-8e70-b0f8fccc3422: 'Shop Anpassungen' # Shop Anpassungen
@@ -451,7 +451,7 @@ plugins:
           __assoc__:
             -
               - uriPattern
-              - sitemaps
+              - kontakt
       includedQueryStringParams:
         - '.*'
       includedUriPatterns:
