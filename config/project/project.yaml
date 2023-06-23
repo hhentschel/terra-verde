@@ -1,4 +1,4 @@
-dateModified: 1687294162
+dateModified: 1687512410
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: 'Terra Verde'
@@ -407,7 +407,7 @@ plugins:
             - concurrency
             - '3'
       cacheWarmerType: putyourlightson\blitz\drivers\warmers\GuzzleWarmer
-      cachingEnabled: ''
+      cachingEnabled: '1'
       clearCacheAutomatically: '1'
       customSiteUris: ''
       debug: false
@@ -451,7 +451,7 @@ plugins:
           __assoc__:
             -
               - uriPattern
-              - sitemaps
+              - kontakt
       includedQueryStringParams:
         - '.*'
       includedUriPatterns:
