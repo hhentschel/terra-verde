@@ -1,4 +1,4 @@
-dateModified: 1687445355
+dateModified: 1687522933
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: 'Terra Verde'
@@ -447,11 +447,6 @@ plugins:
             -
               - uriPattern
               - login
-        -
-          __assoc__:
-            -
-              - uriPattern
-              - kontakt
       includedQueryStringParams:
         - '.*'
       includedUriPatterns:
