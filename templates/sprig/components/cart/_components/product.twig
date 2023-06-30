@@ -90,17 +90,13 @@
           {% endif %}
         >
 
+        <button sprig
+                s-action="commerce/cart/update-cart"
+                s-method="post"
+                s-val:purchasable-id="{{ variant.id }}"
+                s-replace="#addtocart-{{ variant.id }}"
 
-        <a sprig
-           s-action="commerce/cart/update-cart"
-           s-method="post"
-           s-val:purchasable-id="{{ variant.id }}"
-           s-replace="#addtocart-{{ variant.id }}"
-          
-          {# id="addtocart-{{ variant.id }}" #}
-           href="#"
-           class="button--primary {% if addedToCart and purchasableId == variant.id %}button--success {% endif %} text-center">
-          {# {{ sprig('sprig/components/filters/_components/indicator-addtocart') }} #}
+                class="button--primary {% if addedToCart and purchasableId == variant.id %}button--success {% endif %} text-center">
           {% include 'sprig/components/filters/_components/indicator-addtocart' %}
           {% if addedToCart and purchasableId == variant.id %}
             <svg class="icon--check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
@@ -109,16 +105,11 @@
                     clip-rule="evenodd"/>
             </svg>
             <span class="button--primary__text">Im Warenkorb</span>
-            {# {% elseif purchasableId == variant.id %} #}
 
-            {# {% include 'sprig/components/filters/_components/indicator-addtocart' %} #}
-            {# {{ sprig('sprig/components/filters/_components/indicator-addtocart') }} #}
-
-            {# s-indicator=".loading-button__indicator-addtocart" #}
           {% else %}
             <span class="button--primary__text">In den Warenkorb</span>
           {% endif %}
-        </a>
+        </button>
       {% else %}
         <a class="button button--primary button--primary-bis button--small" href="{{ product.url }}">
           <span>Benachrichtigen Sie mich</span>
@@ -129,8 +120,6 @@
 
   </div>
 
-  {# Outputs a hidden input field #}
-  {{ craft.snaptcha.field }}
 </form>
 
 

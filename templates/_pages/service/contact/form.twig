@@ -21,7 +21,6 @@
           s-action="contact-form/send"
           accept-charset="UTF-8"
           class="form-contact">
-      {{ craft.blitz.getUri('/actions/snaptcha/field/get-field') }}
       <h3 class="layout-helper__margin-bottom--none layout-helper__margin-top--xxs">
         <label for="from-name">Name</label>
       </h3>
@@ -84,6 +83,10 @@
 
       {# Outputs a hidden input field #}
       {{ craft.snaptcha.field }}
+
+      {# Dynamically fetches and outputs a hidden input field #}
+      {{ craft.blitz.getUri('/actions/snaptcha/field/get-field') }}
+
       {# <input id="balsamicoBiancoAcetoTerraVerde" name="balsamicoBiancoAcetoTerraVerde" type="text"> #}
 
       <button class="layout-helper__margin-top--xxs button--primary"
