@@ -1,13 +1,13 @@
 defaultPlacement: end
 enableVersioning: true
-handle: instashop
-name: InstaShop
+handle: productStructure
+name: Produkte
 previewTargets:
   -
     __assoc__:
       -
         - label
-        - 'Primäre eintrag Seite'
+        - 'Primary entry page'
       -
         - urlFormat
         - '{url}'
@@ -19,6 +19,9 @@ siteSettings:
   dd0cd05e-0cb9-4a76-b993-3cb70e6fc147: # Terra Verde
     enabledByDefault: true
     hasUrls: true
-    template: _pages/insta/index
-    uriFormat: instashop
-type: single
+    template: _pages/produkte/index
+    uriFormat: '{parent.uri}/{slug}'
+structure:
+  maxLevels: null
+  uid: 1c54cf34-7687-4e38-b651-a0f332dfed05
+type: structure

@@ -1,4 +1,4 @@
-dateModified: 1688113229
+dateModified: 1688210970
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: 'Terra Verde'
@@ -82,6 +82,7 @@ meta:
     8dce558c-c3bb-4f7f-80bd-87240a69ccff: Shopartikel # Shopartikel
     8e2bbb53-7b2a-493f-9592-4847ec7d1194: Produzenten # Produzenten
     8e510c18-b6c3-47e7-aa2a-ba9bb8147ce7: 'Produzent:innen' # Produzent:innen
+    8f1e7780-d8aa-4122-8ecc-ee4d3d499102: Default # Default
     8fa0d8eb-0c01-49db-a2ba-515d571b8805: 'Passt zu' # Passt zu
     08ff3872-a05e-4722-868b-6bbe52bad972: Produzenten # Produzenten
     9bfae22d-cf09-477b-8222-028196b40c01: 'Titel H2' # Titel H2
@@ -183,7 +184,6 @@ meta:
     5312d07d-5231-47b2-a41f-e3524322da7c: Matchcode # Matchcode
     8540aca9-3717-4353-9317-a938ede99db4: E-Mail # E-Mail
     9267a231-c006-41e0-9559-7c1747e8e50c: 'Newsletter Infofeld' # Newsletter Infofeld
-    13456c46-75a5-4427-af83-ab20099cf05b: InstaShop # InstaShop
     34381c5f-24e3-4876-a534-c12339c44433: EANNummer # EANNummer
     34406d5e-074d-493b-9894-adb4145b5f83: AGB # AGB
     39720a7b-fb62-4919-8f8c-b57fe485a7a6: Aktuelles # Aktuelles
@@ -199,6 +199,7 @@ meta:
     79922ac9-edbc-44e9-850c-3995f6bcdbee: 'Bild Legende' # Bild Legende
     86598fdd-8228-49e1-88da-4744029bfcef: 'Prdoukte Sortieren' # Prdoukte Sortieren
     87203f45-375b-40d7-98b8-3bdd33b721f1: 'Formatierter Text' # Formatierter Text
+    93138aa1-7db6-41da-a8b4-2bd1fa4855bb: Produkte # Produkte
     390892d3-b2a8-4210-a92a-65a000404089: Infobox # Infobox
     434736b1-3abc-42f8-8f60-2c69c3ada053: Beschriftung # Beschriftung
     547698ec-7561-4cee-95b1-f358f727b230: 'Interner Link (simple)' # Interner Link (simple)
@@ -292,7 +293,6 @@ meta:
     c243569d-1495-477e-81d5-8e56d348fc88: Text # Text
     cbf7f593-68bf-4c83-b97d-b6959558cb3e: 'Titel H3' # Titel H3
     cc57da94-196b-4536-a2f4-3b4e6d7a67ab: 'Kategorien (Geschenke)' # Kategorien (Geschenke)
-    cc842991-9c05-4640-8cf0-0d6ad46fac39: Verkaufsstellen # Verkaufsstellen
     ceeb55b1-0aab-46a0-9d39-91e0f706901f: 'Youtube Video Liste' # Youtube Video Liste
     cfba8ac8-e0a0-405f-87ed-accd8f27b372: Geschenksets # Geschenksets
     cfbe4629-cba3-461e-a930-5e32a064326f: GTIN # GTIN
@@ -325,7 +325,6 @@ meta:
     de772d14-3ccf-4682-a830-1a7cad5447db: 'Button Extern' # Button Extern
     dfaab58f-1a21-400b-804b-168b3442cc1e: Titel # Titel
     dfd8ec22-0c0a-44f4-8fd2-245a0f02be60: Bild # Bild
-    e4ad79d0-709f-4444-be82-99fe0dd9a6c2: InstaShop # InstaShop
     e5c66396-f991-4b4c-8edc-5e4960340ca3: Startseite # Startseite
     e7fec16d-a352-4a94-8ec1-8e902b366c3b: Textfarbe # Textfarbe
     e8ec6f5f-8e58-4745-861e-ad59123d9db7: 'Button Intern' # Button Intern
@@ -354,7 +353,6 @@ meta:
     f8be2317-2ae7-4930-9092-eae68c86d393: Diverses # Diverses
     f9ea37ad-b93c-4731-90ad-312428b52e6f: 'Preise (Detailhandel)' # Preise (Detailhandel)
     f171c298-b09b-4b12-8d5a-f876e71109f3: 'Titel H4' # Titel H4
-    f659b749-959d-41b7-aca0-80889378ead1: Verkaufsstellen # Verkaufsstellen
     f1905d5b-917b-44c9-9790-715130a9b2cd: 'Newsletter Rabatt Feld' # Newsletter Rabatt Feld
     f73632b8-d77e-478a-9a4b-1a9a41ed6c45: Allergene # Allergene
     f80417a4-4032-4133-b6b3-695f48119fa2: Map # Map

@@ -1,5 +1,5 @@
 fieldLayouts:
-  e59e62f8-556a-41a3-a5c7-cdfc361c9b8d:
+  c1480f2c-5dbc-4603-b7aa-d127b64c0e49:
     tabs:
       -
         elements:
@@ -27,7 +27,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: b205d303-121a-4aae-8c85-bb00a76f312a # Titel
+            fieldUid: 9f46731d-7fdd-4245-9ca1-719db0672448 # Inhaltselemente
             instructions: null
             label: null
             required: false
@@ -35,13 +35,13 @@ fieldLayouts:
             type: craft\fieldlayoutelements\CustomField
             warning: null
             width: 100
-        name: Inhalt
+        name: Content
         sortOrder: 1
-handle: instashop
+handle: default
 hasTitleField: true
-name: InstaShop
-section: 13456c46-75a5-4427-af83-ab20099cf05b # InstaShop
+name: Default
+section: 93138aa1-7db6-41da-a8b4-2bd1fa4855bb # Produkte
 sortOrder: 1
-titleFormat: '{section.name|raw}'
+titleFormat: null
 titleTranslationKeyFormat: null
 titleTranslationMethod: site

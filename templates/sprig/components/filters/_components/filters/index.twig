@@ -187,7 +187,7 @@
             variantId : variant.id,
             productId : product.id
           } %} #}
-          {{ sprig('sprig/components/cart/_components/product', {variantId : variant.id, productId : product.id}, {'class': 'shop-list__item', 's-trigger': 'refresh'}) }}
+          {{ sprig('sprig/components/cart/_components/product', {variantId : variant.id, productId : product.id}, {'class': 'shop-list__item'}) }}
         {% endfor %}
       {% endfor %}
     </div>

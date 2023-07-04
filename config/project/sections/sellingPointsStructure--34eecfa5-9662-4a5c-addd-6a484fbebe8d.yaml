@@ -17,7 +17,7 @@ previewTargets:
 propagationMethod: all
 siteSettings:
   dd0cd05e-0cb9-4a76-b993-3cb70e6fc147: # Terra Verde
-    enabledByDefault: true
+    enabledByDefault: false
     hasUrls: true
     template: _pages/verkaufsstellen/_entry
     uriFormat: '{% if object.level == 1 %}verkaufsstellen/{slug}{% else %}{parent.uri}/{slug}{% endif %}'
