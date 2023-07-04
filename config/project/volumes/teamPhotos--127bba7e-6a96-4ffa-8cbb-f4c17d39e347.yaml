@@ -57,6 +57,7 @@ settings:
   optimiseUrlPattern: ''
   projectSlug: ''
   securityKey: ''
+  subfolder: terra-verde/development/assets/images/content/team/
 sortOrder: 5
 titleTranslationKeyFormat: null
 titleTranslationMethod: site

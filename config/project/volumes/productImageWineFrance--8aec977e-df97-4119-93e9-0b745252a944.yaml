@@ -39,6 +39,7 @@ settings:
   optimiseUrlPattern: ''
   projectSlug: ''
   securityKey: ''
+  subfolder: terra-verde/development/assets/images/content/products/wine/franceportugal/
 sortOrder: 9
 titleTranslationKeyFormat: null
 titleTranslationMethod: site

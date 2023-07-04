@@ -48,6 +48,7 @@ settings:
   optimiseUrlPattern: ''
   projectSlug: ''
   securityKey: ''
+  subfolder: terra-verde/development/assets/images/content/products/giftsets/
 sortOrder: 10
 titleTranslationKeyFormat: null
 titleTranslationMethod: site

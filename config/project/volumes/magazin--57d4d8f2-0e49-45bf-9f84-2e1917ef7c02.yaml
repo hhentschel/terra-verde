@@ -39,6 +39,7 @@ settings:
   optimiseUrlPattern: ''
   projectSlug: ''
   securityKey: ''
+  subfolder: terra-verde/development/assets/images/content/content/magazin/
 sortOrder: 14
 titleTranslationKeyFormat: null
 titleTranslationMethod: site
