@@ -206,9 +206,9 @@
 
     {% endfor %}
   {% endfor %} #}
-      {# {{ sprig('sprig/components/cart/_components/product', {}, {'class': 'shop-list__item'}) }} #}
+      {{ sprig('sprig/components/cart/_components/product', {}, {'class': 'shop-list__item'}) }}
 
-      {% include 'sprig/components/cart/_components/product' with {} %}
+      {# {% include 'sprig/components/cart/_components/product' with {} %} #}
     </div>
     {# shop-list ende #}
 
