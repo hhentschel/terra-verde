@@ -331,6 +331,7 @@
       {#      Merge with the normal Classes #}
       {% set colClassesBasic = ['infobox'] %}
       {% set colClasses = colClassesBasic|merge(boxAlignArray) %}
+      {% set transform = transformation|default('imageOneThird') %}
 
       {% set contentBlock %}
         {% include '_components/_content-elements/image-text' with {

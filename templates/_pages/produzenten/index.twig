@@ -56,34 +56,34 @@
   <div class="grid">
     <div class="row">
       <div class="col col-xs-12 col-md-12 col-lg-12 col-lg-shift-3">
-	<nav class="breadcrumb" aria-label="{{ 'breadcrumbs'|t }}">
-	  <ul itemscope itemtype="http://schema.org/BreadcrumbList">
-	    <li class=""
+        <nav class="breadcrumb" aria-label="{{ 'breadcrumbs'|t }}">
+          <ul itemscope itemtype="http://schema.org/BreadcrumbList">
+            <li class=""
 
-		itemprop="itemListElement"
-		itemscope
-		itemtype="http://schema.org/ListItem">
-	      <a href="/"
-		 itemtype="http://schema.org/Thing"
-		 itemprop="item">
-		<span itemprop="name">Startseite</span>
-	      </a>
-	    </li>
+                itemprop="itemListElement"
+                itemscope
+                itemtype="http://schema.org/ListItem">
+              <a href="/"
+                 itemtype="http://schema.org/Thing"
+                 itemprop="item">
+                <span itemprop="name">Startseite</span>
+              </a>
+            </li>
+           
+            <li class="is-active"
 
-	    <li class="is-active"
+                itemprop="itemListElement"
+                itemscope
+                itemtype="http://schema.org/ListItem">
+              <a href=""
+                 itemtype="http://schema.org/Thing"
+                 itemprop="item">
+                <span itemprop="name">Produzent:innen</span>
+              </a>
+            </li>
 
-		itemprop="itemListElement"
-		itemscope
-		itemtype="http://schema.org/ListItem">
-	      <a href=""
-		 itemtype="http://schema.org/Thing"
-		 itemprop="item">
-		<span itemprop="name">Produzent:innen</span>
-	      </a>
-	    </li>
-
-	  </ul>
-	</nav>
+          </ul>
+        </nav>
         <h2 class="heading heading--h2 heading--site heading--no-margin-top">
           {{ pageTitle }}
         </h2>
@@ -94,12 +94,12 @@
   <section class="grid">
     <div class="row">
       <div class="col col-xs-12 col-md-12 col-lg-3">
-	{{ include ('./_pages/produkte/_includes/subnav.twig') }}
+        {{ include ('./_pages/produkte/_includes/subnav.twig') }}
       </div>
 
 
       <div class="col col-xs-12 col-md-7 col-lg-6">
-	{% include '_pages/produkte/produzenten/map' %}
+        {% include '_pages/produkte/produzenten/map' %}
 
         <div class="producers-map__mobile">
           {% set transform = transformation|default('imageContentFull') %}
@@ -132,21 +132,21 @@
             </a>
           </div>
 
-	  <ul class="producers-list__deli">
-	    <h3 class="heading heading-3 layout-helper__margin-top--none">
-	      Lebensmittel
-	    </h3>
-	    {% for entry in allManufactorsFood %}
-	      <li>
-		<a href="{{ entry.url }}"
-		   data-id="{{ entry.id }}"
-		   title="{{ entry.title }}"
-		   class="producers-list__item map-link">
-		  {{ entry.title }}
-		</a>
-	      </li>
-	    {% endfor %}
-	  </ul>
+          <ul class="producers-list__deli">
+            <h3 class="heading heading-3 layout-helper__margin-top--none">
+              Lebensmittel
+            </h3>
+            {% for entry in allManufactorsFood %}
+              <li>
+                <a href="{{ entry.url }}"
+                   data-id="{{ entry.id }}"
+                   title="{{ entry.title }}"
+                   class="producers-list__item map-link">
+                  {{ entry.title }}
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
 
         </div>
 
@@ -163,7 +163,7 @@
         <ul class="producers-grid">
           {% if allManufactorsFood|length %}
             {% for entry in allManufactorsFood %}
-	      {% include '_pages/produkte/produzenten/producers-tile.twig' %}
+              {% include '_pages/produkte/produzenten/producers-tile.twig' %}
             {% endfor %}
           {% endif %}
         </ul>
@@ -174,7 +174,7 @@
         <div class="producers-grid" id="winelist">
           {% if allManufactorsWine|length %}
             {% for entry in allManufactorsWine %}
-	      {% include '_pages/produkte/produzenten/producers-tile.twig' %}
+              {% include '_pages/produkte/produzenten/producers-tile.twig' %}
             {% endfor %}
           {% endif %}
         </div>

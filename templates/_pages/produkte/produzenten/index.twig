@@ -1,4 +1,4 @@
-{% extends '_layouts/main' %}
+{% extends './_layouts/main' %}
 {% import '_helpers/macros.twig' as macros %}
 {% set pageTitle = entry.pageTitle is not empty ? entry.pageTitle : entry.title %}
 
@@ -9,10 +9,10 @@
   craft.entries().section('producersOverview').with(
     [
       [
-	'mapMobile',
-	{
-	  withTransforms: ['imageContentFull']
-	}
+        'mapMobile',
+        {
+          withTransforms: ['imageContentFull']
+        }
       ]
     ]
   ).one() %}
@@ -49,69 +49,106 @@
 {% set allManufactorsWine =
   craft.entries.section('producersStructure').relatedTo([manufactorWine]).all() %}
 
+{% set allManufactors =
+  craft.entries.section('producersOverview').one() %}
+
 {% block content %}
   <div class="grid">
     <div class="row">
-      <div class="col col-xs-12 col-md-12 col-lg-12">
-	{% include '_components/breadcrumb.twig' %}
-	<h2 class="heading heading--h2 heading--site heading--no-margin-top">
-	  {{ pageTitle }}
-	</h2>
+      <div class="col col-xs-12 col-md-12 col-lg-12 col-lg-shift-3">
+        <nav class="breadcrumb" aria-label="{{ 'breadcrumbs'|t }}">
+          <ul itemscope itemtype="http://schema.org/BreadcrumbList">
+            <li class=""
+
+                itemprop="itemListElement"
+                itemscope
+                itemtype="http://schema.org/ListItem">
+              <a href="/"
+                 itemtype="http://schema.org/Thing"
+                 itemprop="item">
+                <span itemprop="name">Startseite</span>
+              </a>
+            </li>
+           
+            <li class="is-active"
+
+                itemprop="itemListElement"
+                itemscope
+                itemtype="http://schema.org/ListItem">
+              <a href=""
+                 itemtype="http://schema.org/Thing"
+                 itemprop="item">
+                <span itemprop="name">Produzent:innen</span>
+              </a>
+            </li>
+
+          </ul>
+        </nav>
+        <h2 class="heading heading--h2 heading--site heading--no-margin-top">
+          {{ pageTitle }}
+        </h2>
       </div>
     </div>
   </div>
 
   <section class="grid">
     <div class="row">
-      <div class="col col-xs-12 col-md-7 col-lg-7">
-	{% include '_pages/produzenten/map' %}
-
-	<div class="producers-map__mobile">
-	  {% set transform = transformation|default('imageContentFull') %}
-	  {% set img = entry.mapMobile[0] ?? null %}
-	  {% if img is defined %}
-	    {% include '_components/_content-elements/image' with {
-	      img: img,
-	      transform: transform
-	    } %}
-	  {% endif %}
-	</div>
+      <div class="col col-xs-12 col-md-12 col-lg-3">
+        {{ include ('./_pages/produkte/_includes/subnav.twig') }}
       </div>
 
-      <div class="col col-xs-12 col-md-5 col-lg-5 producers-list">
-	<div class="producers-list__wrapper">
 
-	  <ul class="producers-list__deli">
-	    <h3 class="heading heading-3 layout-helper__margin-top--none">
-	      Lebensmittel
-	    </h3>
-	    {% for entry in allManufactorsFood %}
-	      <li>
-		<a href="{{ entry.url }}"
-		   data-id="{{ entry.id }}"
-		   title="{{ entry.title }}"
-		   class="producers-list__item map-link">
-		  {{ entry.title }}
-		</a>
-	      </li>
-	    {% endfor %}
-	  </ul>
-	  <div class="producers-list__wine">
-	    <h3 class="heading heading-3 layout-helper__margin-top--none">
-	      Weine
-	    </h3>
-	    <a class="anchor-link" href="#winelist">
-	      <span class="link__text link__text--section">
-		{{ 'Zu unseren Wein-produzent:innen'|t }}
-	      </span>
-	      <div class="link__icon-wrapper link__icon-wrapper--internal">
-		{{ macros.svg('carret_down_24')|attr({
-		  class: 'link__icon link__icon--down icon icon--24'
-		}) }}
-	      </div>
-	    </a>
-	  </div>
-	</div>
+      <div class="col col-xs-12 col-md-7 col-lg-6">
+        {% include '_pages/produkte/produzenten/map' %}
+
+        <div class="producers-map__mobile">
+          {% set transform = transformation|default('imageContentFull') %}
+          {% set img = entry.mapMobile[0] ?? null %}
+          {% if img is defined %}
+            {% include '_components/_content-elements/image' with {
+              img: img,
+              transform: transform
+            } %}
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="col col-xs-12 col-md-5 col-lg-3 producers-list">
+        <div class="producers-list__wrapper">
+
+          <div class="producers-list__wine">
+            <h3 class="heading heading-3 layout-helper__margin-top--none">
+              Weine
+            </h3>
+            <a class="anchor-link" href="#winelist">
+              <span class="link__text link__text--section">
+                {{ 'Zu unseren Wein-produzent:innen'|t }}
+              </span>
+              <div class="link__icon-wrapper link__icon-wrapper--internal">
+                {{ macros.svg('carret_down_24')|attr({
+                  class: 'link__icon link__icon--down icon icon--24'
+                }) }}
+              </div>
+            </a>
+          </div>
+
+          <ul class="producers-list__deli">
+            <h3 class="heading heading-3 layout-helper__margin-top--none">
+              Lebensmittel
+            </h3>
+            {% for entry in allManufactorsFood %}
+              <li>
+                <a href="{{ entry.url }}"
+                   data-id="{{ entry.id }}"
+                   title="{{ entry.title }}"
+                   class="producers-list__item map-link">
+                  {{ entry.title }}
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+
+        </div>
 
       </div>
     </div>
@@ -120,27 +157,27 @@
   <section class="grid">
     <div class="row">
       <div class="col col-xs-12 col-md-12 col-lg-12">
-	<h2>
-	  Lebensmittel
-	</h2>
-	<ul class="producers-grid">
-	  {% if allManufactorsFood|length %}
-	    {% for entry in allManufactorsFood %}
-	      {% include '_pages/produzenten/producers-tile.twig' %}
-	    {% endfor %}
-	  {% endif %}
-	</ul>
+        <h2>
+          Lebensmittel
+        </h2>
+        <ul class="producers-grid">
+          {% if allManufactorsFood|length %}
+            {% for entry in allManufactorsFood %}
+              {% include '_pages/produkte/produzenten/producers-tile.twig' %}
+            {% endfor %}
+          {% endif %}
+        </ul>
 
-	<h2>
-	  Weine
-	</h2>
-	<div class="producers-grid" id="winelist">
-	  {% if allManufactorsWine|length %}
-	    {% for entry in allManufactorsWine %}
-	      {% include '_pages/produzenten/producers-tile.twig' %}
-	    {% endfor %}
-	  {% endif %}
-	</div>
+        <h2>
+          Weine
+        </h2>
+        <div class="producers-grid" id="winelist">
+          {% if allManufactorsWine|length %}
+            {% for entry in allManufactorsWine %}
+              {% include '_pages/produkte/produzenten/producers-tile.twig' %}
+            {% endfor %}
+          {% endif %}
+        </div>
       </div>
     </div>
   </section>

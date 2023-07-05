@@ -16,13 +16,13 @@
     <div class="producers-overview__preview">
 
       {% set transform =
-	transformation|default('producersThumb') %}
+        transformation|default('producersThumb') %}
       {% set img = entry.image.one() ?? null %}
       {% if img is defined %}
-	{% include '_components/_content-elements/image' with {
-	  img: img,
-	  transform: transform
-	} %}
+        {% include '_components/_content-elements/image' with {
+          img: img,
+          transform: transform
+        } %}
       {% endif %}
     </div>
 
@@ -34,21 +34,21 @@
 </li>
 {# <div class="producers producers-overview__products-list">
       <ul class="">
-	{% for product in products %}
+        {% for product in products %}
 
-	  {% set variant = product.defaultVariant %}
-	  {% set manufactorproducts = (product.title) %}
+          {% set variant = product.defaultVariant %}
+          {% set manufactorproducts = (product.title) %}
 
-	  <li class="producers-overview__products-list--item">
-	    {% include '/_components/_content-elements/link.twig' with {
-	      linkUrl: product.url,
-	      linkText: manufactorproducts,
-	      target: 'internal',
-	      customClass: ''
-	    } %}
+          <li class="producers-overview__products-list--item">
+            {% include '/_components/_content-elements/link.twig' with {
+              linkUrl: product.url,
+              linkText: manufactorproducts,
+              target: 'internal',
+              customClass: ''
+            } %}
 
-	  </li>
-	{% endfor %}
+          </li>
+        {% endfor %}
       </ul>
     </div> #}
 
@@ -63,20 +63,20 @@
 
   {# <div class="producers-overview__preview">
       {% if
-	entry.contentElements is defined
-	and entry.contentElements is not empty %}
+        entry.contentElements is defined
+        and entry.contentElements is not empty %}
 
-	{% set transform =
-	  transformation|default('producersThumb') %}
-	{% set img = entry.image.one() ?? null %}
-	{% if img is defined %}
-	  <a href="{{ entry.url }}" class="producers-overview__preview-link">
-	    {% include '_components/_content-elements/image' with {
-	      img: img,
-	      transform: transform
-	    } %}
-	  </a>
-	{% endif %}
+        {% set transform =
+          transformation|default('producersThumb') %}
+        {% set img = entry.image.one() ?? null %}
+        {% if img is defined %}
+          <a href="{{ entry.url }}" class="producers-overview__preview-link">
+            {% include '_components/_content-elements/image' with {
+              img: img,
+              transform: transform
+            } %}
+          </a>
+        {% endif %}
       {% endif %}
     </div> #}
 
@@ -84,9 +84,10 @@
       entry.contentElements is defined
       and entry.contentElements is not empty %}
       <a href="{{ entry.url }}"
-	 class="link producers producers-overview__linkdetail">
-	mehr Informationen
+         class="link producers producers-overview__linkdetail">
+        mehr Informationen
       </a>
 
 
     {% endif %} #}
+

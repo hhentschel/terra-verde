@@ -9,6 +9,11 @@
     display: block;
   }
 
+  &__sub {
+    margin-left: px-to-rem($space--m);
+  }
+
+
   &__link {
     display: block;
     padding: px-to-rem($space--xs) 0;
