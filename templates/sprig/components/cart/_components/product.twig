@@ -114,20 +114,20 @@
 
 {% set addedToCart = success is defined %}
 
-{# {% set product = craft.products.id(productId).one() %}
-{% set variant = craft.variants.id(variantId).one() %} #}
+ {% set product = craft.products.id(productId).one() %}
+{% set variant = craft.variants.id(variantId).one() %}
 
 {% if cart is not defined %}
   {% set cart = craft.commerce.carts.cart %}
 {% endif %}
 
- {% for product in products %}
+{# {% for product in products %}
    {% for variant in product.getVariants() %}
      {{ sprig('sprig/components/cart/_components/productitem', {variantId : variant.id, productId : product.id}, {'class': 'shop-list__item'}) }}
    {% endfor %}
- {% endfor %}
+ {% endfor %} #}
 
-{# <a class="shop-list__link" href="{{ product.url }}">
+<a class="shop-list__link" href="{{ product.url }}">
   {% if variant.onSale %}
     <div class="onsale">
     </div>
@@ -236,6 +236,6 @@
 
   </div>
 
-</form> #}
+</form>
 
 

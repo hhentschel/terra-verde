@@ -206,8 +206,11 @@
 
     {% endfor %}
   {% endfor %} #}
-      {{ sprig('sprig/components/cart/_components/product', {}, {'class': 'shop-list__item'}) }}
-
+      {% for product in products %}
+        {% for variant in product.getVariants() %}
+          {{ sprig('sprig/components/cart/_components/product', {variantId : variant.id, productId : product.id}, {'class': 'shop-list__item'}) }}
+        {% endfor %}
+      {% endfor %}
       {# {% include 'sprig/components/cart/_components/product' with {} %} #}
     </div>
     {# shop-list ende #}
