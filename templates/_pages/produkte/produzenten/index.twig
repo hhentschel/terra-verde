@@ -1,0 +1,147 @@
+{% extends '_layouts/main' %}
+{% import '_helpers/macros.twig' as macros %}
+{% set pageTitle = entry.pageTitle is not empty ? entry.pageTitle : entry.title %}
+
+{% set allManufactors =
+  craft.entries.section('producersStructure').level(1).all() %}
+
+{% set entry =
+  craft.entries().section('producersOverview').with(
+    [
+      [
+	'mapMobile',
+	{
+	  withTransforms: ['imageContentFull']
+	}
+      ]
+    ]
+  ).one() %}
+
+{# Set up Regions #}
+{% set regionIT = craft.categories().slug('italy').one() %}
+{% set regionES = craft.categories().slug('spain').one() %}
+{% set regionDE = craft.categories().slug('germany').one() %}
+{% set regionFR = craft.categories().slug('france').one() %}
+{% set regionPOR = craft.categories().slug('portugalwine').one() %}
+{% set regionBO = craft.categories().slug('bosnia').one() %}
+
+{# Get all Producers from IT #}
+{% set allManufactorsIT =
+  craft.entries.section('producersStructure').relatedTo(regionIT).level(1).all() %}
+
+{# Get all Producers NOT from IT #}
+{% set allManufactorsNOTIT =
+  craft.entries.section('producersStructure').relatedTo(
+    ['or', regionES, regionDE, regionFR, regionPOR, regionBO]
+  ).all() %}
+
+{# Set up Producers who sell Food #}
+{% set manufactorFood = craft.categories().slug('food').one() %}
+
+{# Set up Producers who sell Wine #}
+{% set manufactorWine = craft.categories().slug('wine').one() %}
+
+{# Get all Producers who sell Food #}
+{% set allManufactorsFood =
+  craft.entries.section('producersStructure').relatedTo([manufactorFood]).all() %}
+
+{# Get all Producers who sell Wine #}
+{% set allManufactorsWine =
+  craft.entries.section('producersStructure').relatedTo([manufactorWine]).all() %}
+
+{% block content %}
+  <div class="grid">
+    <div class="row">
+      <div class="col col-xs-12 col-md-12 col-lg-12">
+	{% include '_components/breadcrumb.twig' %}
+	<h2 class="heading heading--h2 heading--site heading--no-margin-top">
+	  {{ pageTitle }}
+	</h2>
+      </div>
+    </div>
+  </div>
+
+  <section class="grid">
+    <div class="row">
+      <div class="col col-xs-12 col-md-7 col-lg-7">
+	{% include '_pages/produzenten/map' %}
+
+	<div class="producers-map__mobile">
+	  {% set transform = transformation|default('imageContentFull') %}
+	  {% set img = entry.mapMobile[0] ?? null %}
+	  {% if img is defined %}
+	    {% include '_components/_content-elements/image' with {
+	      img: img,
+	      transform: transform
+	    } %}
+	  {% endif %}
+	</div>
+      </div>
+
+      <div class="col col-xs-12 col-md-5 col-lg-5 producers-list">
+	<div class="producers-list__wrapper">
+
+	  <ul class="producers-list__deli">
+	    <h3 class="heading heading-3 layout-helper__margin-top--none">
+	      Lebensmittel
+	    </h3>
+	    {% for entry in allManufactorsFood %}
+	      <li>
+		<a href="{{ entry.url }}"
+		   data-id="{{ entry.id }}"
+		   title="{{ entry.title }}"
+		   class="producers-list__item map-link">
+		  {{ entry.title }}
+		</a>
+	      </li>
+	    {% endfor %}
+	  </ul>
+	  <div class="producers-list__wine">
+	    <h3 class="heading heading-3 layout-helper__margin-top--none">
+	      Weine
+	    </h3>
+	    <a class="anchor-link" href="#winelist">
+	      <span class="link__text link__text--section">
+		{{ 'Zu unseren Wein-produzent:innen'|t }}
+	      </span>
+	      <div class="link__icon-wrapper link__icon-wrapper--internal">
+		{{ macros.svg('carret_down_24')|attr({
+		  class: 'link__icon link__icon--down icon icon--24'
+		}) }}
+	      </div>
+	    </a>
+	  </div>
+	</div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="grid">
+    <div class="row">
+      <div class="col col-xs-12 col-md-12 col-lg-12">
+	<h2>
+	  Lebensmittel
+	</h2>
+	<ul class="producers-grid">
+	  {% if allManufactorsFood|length %}
+	    {% for entry in allManufactorsFood %}
+	      {% include '_pages/produzenten/producers-tile.twig' %}
+	    {% endfor %}
+	  {% endif %}
+	</ul>
+
+	<h2>
+	  Weine
+	</h2>
+	<div class="producers-grid" id="winelist">
+	  {% if allManufactorsWine|length %}
+	    {% for entry in allManufactorsWine %}
+	      {% include '_pages/produzenten/producers-tile.twig' %}
+	    {% endfor %}
+	  {% endif %}
+	</div>
+      </div>
+    </div>
+  </section>
+{% endblock %}
