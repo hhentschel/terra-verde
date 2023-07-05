@@ -1,0 +1,125 @@
+{% set lastProductId = lastProductId ?? 0 %}
+{% set purchasableId = purchasableId ?? 0 %}
+
+{% set addedToCart = success is defined %}
+
+{% set product = craft.products.id(productId).one() %}
+{% set variant = craft.variants.id(variantId).one() %}
+
+{% if cart is not defined %}
+  {% set cart = craft.commerce.carts.cart %}
+{% endif %}
+
+
+<a class="shop-list__link" href="{{ product.url }}">
+  {% if variant.onSale %}
+    <div class="onsale">
+    </div>
+  {% endif %}
+  {% if product.articleCategoriesStatus.id('10745').exists() %}
+    <div class="newproduct">
+    </div>
+  {% endif %}
+  {% if variant.hasstock == false %}
+    <div class="oos">
+      <span class="oos-message">zurzeit nicht lieferbar</span>
+    </div>
+  {% endif %}
+  <div class="shop-list__image">
+    {% if product.articleCategoriesGift.id('10887').exists() or product.articleCategoriesGift.id('10888').exists() or product.articleCategoriesGift.id('10889').exists() or product.articleCategoriesGift.id('10890').exists() or product.articleCategoriesGift.id('10891').exists() or product.articleCategoriesGift.id('10892').exists() %}
+      <span class="shop-list__item--infohover">Zusatzoptionen anschauen</span>
+    {% else %}
+      <span class="shop-list__item--infohover">Informationen anschauen</span>
+    {% endif %}
+
+    {% set transform = transformation|default('productListing') %}
+    {# {% set img = product.articleImage.one() ?? null %} #}
+    {% set img = product.articleImage[0] ?? null %}
+
+    {% if img is defined %}
+      {% include '_components/_content-elements/image-product'
+        with {
+        image: img,
+        transform: transform
+      } %}
+    {% endif %}
+
+  </div>
+
+  <div class="shop-list__text">
+    <h3 class="layout-helper__margin-vertical--none">
+      {{ product.title }}
+    </h3>
+    <div class="shop-list__text--pricevolume">
+      {% if variant.articleVolume %}
+        <span class="shop-list__volume">
+            - {{ variant.articleVolume }}{{ variant.articleVolumeUnit }} -
+          </span>
+      {% endif %}
+
+      {% include '/shop/produkte/_includes/prices.twig' %}
+
+    </div>
+  </div>
+
+</a>
+
+<form class="js-form">
+
+  <div class="shop-list__item-cart">
+    <div class="item-cart__qty-btn" id="addtocart-{{ variant.id }}">
+
+      {% if variant.stock > 0 or variant.hasUnlimitedStock %}
+
+        <input class="input input-xsmall"
+               name="qty"
+               type="number"
+               step="1"
+          {% if currentUser %}
+            {% if currentUser.isInGroup('userGroupRetail') %}
+              value="{{ product.artikelMinOrderSize }}"
+              min="{{ product.artikelMinOrderSize }}"
+              placeholder="{{ product.artikelMinOrderSize }}"
+            {% else %}
+              value="1"
+              min="1"
+            {% endif %}
+          {% else %}
+            value="1"
+            min="1"
+          {% endif %}
+        >
+
+        <button sprig
+                s-action="commerce/cart/update-cart"
+                s-method="post"
+                s-val:purchasable-id="{{ variant.id }}"
+                s-replace="#addtocart-{{ variant.id }}"
+
+                class="button--primary {% if addedToCart and purchasableId == variant.id %}button--success {% endif %} text-center">
+          {% include 'sprig/components/filters/_components/indicator-addtocart' %}
+          {% if addedToCart and purchasableId == variant.id %}
+            <svg class="icon--check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd"/>
+            </svg>
+            <span class="button--primary__text">Im Warenkorb</span>
+
+          {% else %}
+            <span class="button--primary__text">In den Warenkorb</span>
+          {% endif %}
+        </button>
+      {% else %}
+        <a class="button button--primary button--primary-bis button--small" href="{{ product.url }}">
+          <span>Benachrichtigen Sie mich</span>
+        </a>
+      {% endif %}
+
+    </div>
+
+  </div>
+
+</form>
+
+

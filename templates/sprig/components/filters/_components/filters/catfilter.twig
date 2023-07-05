@@ -1,3 +1,7 @@
+{#
+{% set catStatusOptions = craft.categories.id(catStatusOptionsId).one() %}
+#}
+
 {% if craft.app.request.isMobileBrowser() %}
   {% set detailopen = false %}
 {% else %}
