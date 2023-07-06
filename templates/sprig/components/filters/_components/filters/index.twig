@@ -148,8 +148,11 @@
         <span class="">{{ pageInfo.total }}</span>
         Produkten
       </p>
-
-      {{ sprig('sprig/components/filters/_components/indicator') }}
+      {% if sprig.isInclude %}
+        
+      {% else %}
+        {{ sprig('sprig/components/filters/_components/indicator') }}
+      {% endif %}
 
       {% if vType == 'grid' %}
         <div>
