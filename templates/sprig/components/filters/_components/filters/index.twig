@@ -54,7 +54,7 @@
   {% set aCW = aCW|filter(v => v not in articleCategoriesWineUnselect) %}
 {% endif %}
 
-{% set limit = limit ?? 30 %}
+{% set limit = limit ?? 15 %}
 {% set page = page ?? 1 %}
 {% set vType = vType ?? 'grid' %}
 
@@ -149,7 +149,7 @@
         Produkten
       </p>
       {% if sprig.isInclude %}
-        
+
       {% else %}
         {{ sprig('sprig/components/filters/_components/indicator') }}
       {% endif %}
@@ -209,6 +209,8 @@
 
     {% endfor %}
   {% endfor %} #}
+
+
       {% for product in products %}
         {% for variant in product.getVariants() %}
           {{ sprig('sprig/components/cart/_components/product', {variantId : variant.id, productId : product.id}, {'class': 'shop-list__item'}) }}
