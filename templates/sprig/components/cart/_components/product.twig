@@ -1,114 +1,3 @@
-{# Sets default values. #}
-{% set search = search ?? '' %}
-{% set section = section ?? '' %}
-{# set the arra of all categories to itself, otherwise to a empty array #}
-{# aCatDeli = articleCategoriesDeli #}
-{% set aCatDeli = aCatDeli ?? [] %}
-{# {% set articleCategoriesWine = articleCategoriesWine ?? [] %} #}
-{% set aCW = aCW ?? [] %}
-{# {% set articleCategoriesGift = articleCategoriesGift ?? [] %} #}
-{# aCG = articleCategoriesGift #}
-{% set aCG = aCG ?? [] %}
-{% set articleCategoriesStatus = articleCategoriesStatus ?? [] %}
-
-{# Get options from category groups. #}
-{% set catDeliOptions = craft.categories.group('catGroupDeli').all() %}
-{% set catDeliOptionsIDs = craft.categories.group('catGroupDeli').ids() %}
-{% set catGiftOptions = craft.categories.group('catGroupGift').all() %}
-{% set catWineOptions = craft.categories.group('catGroupWine').all() %}
-{% set catStatusOptions = craft.categories.group('catGroupStatus').all() %}
-{% set catStatusOptionsIDs = craft.categories.group('catGroupStatus').ids() %}
-
-{# Delikatessen #}
-{# set a variable for selecting all categories to itself otherwise to false #}
-{# {% set articleCategoriesDeliAll = articleCategoriesDeliAll ?? false %} #}
-{% set aCatDelAll = aCatDelAll ?? false %}
-{# set a variable for selecting no categories to itself otherwise to false #}
-{% set articleCategoriesDeliNone = articleCategoriesDeliNone ?? false %}
-{# if the "All" checkbox for all categories is checked/true #}
-{% if aCatDelAll %}
-  {# get all ids from the categories options (could have also been done with:
-  {% set catDeliOptionsIDs = craft.categories.group('catGroupDeli').ids() %})
-  map-> loop though all ids from all elements #}
-  {% set aCatDeli = catDeliOptions|map(v => v.id) %}
-  {# if no categories are selected, then set the aCatDeli variable to an empty string #}
-{% elseif articleCategoriesDeliNone %}
-  {% set aCatDeli = [] %}
-{% endif %}
-
-{# Geschenksets #}
-{% set articleCategoriesGiftAll = articleCategoriesGiftAll ?? false %}
-{% set articleCategoriesGiftNone = articleCategoriesGiftNone ?? false %}
-{% if articleCategoriesGiftAll %}
-  {% set aCG = catGiftOptions|map(v => v.id) %}
-{% elseif articleCategoriesGiftNone %}
-  {% set aCG = [] %}
-{% endif %}
-
-{# Weine #}
-{% set articleCategoriesWineSelect = articleCategoriesWineSelect ?? null %}
-{% set articleCategoriesWineUnselect = articleCategoriesWineUnselect ?? null %}
-{% if articleCategoriesWineSelect %}
-  {% set aCW = aCW|merge(articleCategoriesWineSelect|split(',')) %}
-{% elseif articleCategoriesWineUnselect %}
-  {% set aCW = aCW|filter(v => v not in articleCategoriesWineUnselect) %}
-{% endif %}
-
-{% set limit = limit ?? 30 %}
-{% set page = page ?? 1 %}
-{% set vType = vType ?? 'grid' %}
-
-{# Defines maximum number of pages to show. #}
-{% if craft.app.request.isMobileBrowser() %}
-  {% set maxPages = 4 %}
-{% else %}
-  {% set maxPages = 6 %}
-{% endif %}
-{% set orderBy = orderBy ?? 'fProd DESC, postDate DESC' %}
-
-{% if cart is not defined %}
-  {% set cart = craft.commerce.carts.cart %}
-{% endif %}
-
-{% set productQuery = craft.products({
-  search: search,
-  orderBy: orderBy,
-  limit: limit,
-  with: [
-    [
-      'articleImage',
-      {
-        withTransforms: ['productListing']
-      }
-    ]
-  ]
-}) %}
-
-{% set categories = aCatDeli
-  |merge(aCG)
-  |merge(aCW) %}
-
- {% if categories is not empty %}
-   {% do productQuery.andRelatedTo(categories) %}
- {% endif %}
-
-{% if articleCategoriesStatus is not empty %}
-  {% do productQuery.andRelatedTo(articleCategoriesStatus) %}
-{% endif %}
-
-{# Paginate entry query to get page info. #}
-{% set pageInfo = sprig.paginate(productQuery, page) %}
-
-{% set products = pageInfo.pageResults %}
-
-
-
-
-
-
-
-
-
 {% set lastProductId = lastProductId ?? 0 %}
 {% set purchasableId = purchasableId ?? 0 %}
 
@@ -208,7 +97,37 @@
 
         {% if sprig.isInclude %}
           <button class="button--primary">
-            <span class="button--primary__text">In den Warenkorb (isinclude)</span>
+            <span class="button--primary__text">
+              <svg height="20" width="40" class="loader">
+                <circle class="dot" cx="10" cy="10" r="3" style="fill:white;"/>
+                <circle class="dot" cx="20" cy="10" r="3" style="fill:white;"/>
+                <circle class="dot" cx="30" cy="10" r="3" style="fill:white;"/>
+              </svg>
+              <style>
+                @keyframes blink {
+                  50% {
+                    fill: transparent
+                  }
+                }
+
+                .dot {
+                  animation: 1s blink infinite;
+                  fill: white;
+                }
+
+                .dot:nth-child(2) {
+                  animation-delay: 250ms
+                }
+
+                .dot:nth-child(3) {
+                  animation-delay: 500ms
+                }
+
+                .loader {
+                  color: white;
+                }
+              </style>
+            </span>
           </button>
         {% else %}
 
@@ -229,7 +148,10 @@
               <span class="button--primary__text">Im Warenkorb</span>
 
             {% else %}
-              <span class="button--primary__text">In den Warenkorb</span>
+              <span class="button--primary__text">
+                 In den Warenkorb
+
+              </span>
             {% endif %}
           </button>
 
