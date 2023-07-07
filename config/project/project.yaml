@@ -1,4 +1,4 @@
-dateModified: 1688540885
+dateModified: 1688648822
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: 'Terra Verde'
@@ -465,7 +465,7 @@ plugins:
       maxRetryAttempts: 10
       mutexTimeout: 1
       outputComments: true
-      queryStringCaching: '0'
+      queryStringCaching: '1'
       queueJobTtr: 300
       refreshCacheAutomaticallyForGlobals: true
       refreshCacheJobPriority: 10

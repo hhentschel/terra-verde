@@ -32,6 +32,7 @@ $hintSizeMobile: px-to-rem(90);
 #order-hints > *:nth-child(1) {
   animation-delay: 0s;
 }
+
 #order-hints > *:nth-child(2) {
   animation-delay: 6s;
 }
@@ -66,11 +67,13 @@ $hintSizeMobile: px-to-rem(90);
       padding: px-to-rem($space--m);
     }
   }
+
   &__discount--heading {
     font-weight: 700;
     margin: 0;
     font-size: px-to-rem($font-size-xm);
   }
+
   &__discount--text {
     line-height: $line-height--s;
     margin: 0;
@@ -79,6 +82,7 @@ $hintSizeMobile: px-to-rem(90);
       margin: px-to-rem($space--m) 0;
     }
   }
+
   &__discount--mark {
     font-size: px-to-rem($font-size-xxs);
     line-height: $line-height--m;
@@ -89,11 +93,13 @@ $hintSizeMobile: px-to-rem(90);
       margin: px-to-rem($space--m) 0;
     }
   }
+
   &__shipping {
     padding: px-to-rem($space--m);
     display: flex;
     justify-content: center;
   }
+
   &__shipping--text {
     font-size: px-to-rem($font-size-l);
     color: $color--white;
@@ -124,7 +130,7 @@ $hintSizeMobile: px-to-rem(90);
     }
   }
 
-  &__spinner {
-    display: none;
-  }
+  /*  &__spinner {
+      display: none;
+    }*/
 }
