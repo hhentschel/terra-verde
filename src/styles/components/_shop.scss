@@ -599,16 +599,20 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
   opacity: 1
 }*/
 
-.loading-button__indicator-addtocart {
+/*.loading-button__indicator-addtocart {
+  display: none;
+}*/
+
+.loading-button__indicator--loading {
   display: none;
 }
 
-.htmx-request.loading-button__indicator-addtocart,
-.loading-button__indicator--loading.loading-button__indicator-addtocart {
+.htmx-request .loading-button__indicator--loading {
   display: block;
 }
 
-.loading-button__indicator--loading {
+.loading-button__indicator--loading,
+.htmx-request {
   .button--primary__text,
   .icon--check {
     display: none;
