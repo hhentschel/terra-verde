@@ -51,6 +51,16 @@
 
     {% for variant in product.variants %}
       {% if variant.hasstock == false %}
+        {# {{ sprig(
+          'shop/produkte/_product-backinstock-form.twig',
+          {
+            productId: product.id,
+            cartId: cart.id,
+            cartEmail: cart.email
+          }, {'s-trigger': 'load'}
+        ) }} #}
+
+
         {% if success is defined and success %}
           <div class="bis-complete">
             <div class="bis-signup__complete-message">Vielen Dank. Sie werden benachrichtigt, sobald das Produkt wieder
@@ -66,9 +76,8 @@
             </div>
             <input type="hidden" name="variantId" value="{{ product.defaultVariant.id }}">
             <div class="bis-signup__registration-fields">
-
-              {# Outputs a hidden input field #}
-              {{ craft.snaptcha.field }}
+              {# Outputs a hidden input field
+              {{ craft.snaptcha.field }} #}
 
               <input class="input bis-signup__registration-input"
                      name="email" type="email" value="{{ cart.email }}"
@@ -187,7 +196,7 @@
         {% endfor %}
 
         {# Outputs a hidden input field #}
-        {{ craft.snaptcha.field }}
+        {# {{ craft.snaptcha.field }} #}
 
       </div>
     </form>

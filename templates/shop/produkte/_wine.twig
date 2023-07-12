@@ -11,12 +11,16 @@
     </div>
     <div class="row product-detail">
       <div class="col col-xs-12 col-md-12 col-lg-12">
-        {# {% include 'shop/produkte/_product-info.twig' %} #}
+        {# {% include 'shop/produkte/_wine-info.twig' with {
+          productId: product.id,
+          cartId: cart.id,
+          cartEmail: cart.email
+        } %} #}
         {{ sprig(
           'shop/produkte/_wine-info.twig',
           {
             productId: product.id
-          }
+          }, {'s-tigger': 'refresh'}
         ) }}
       </div>
     </div>
