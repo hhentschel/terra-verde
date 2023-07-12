@@ -57,7 +57,13 @@
 
     {% for variant in product.variants %}
       {% if variant.hasstock == false %}
-        {% if success is defined and success %}
+        {{ sprig(
+          'shop/produkte/_product-info-form.twig',
+          {
+            productId: product.id
+          }, {'s-trigger': 'load'}
+        ) }}
+        {# {% if success is defined and success %}
           <div class="bis-complete">
             <div class="bis-signup__complete-message">Vielen Dank. Sie werden benachrichtigt, sobald das Produkt wieder
               erhältlich ist.
@@ -72,16 +78,15 @@
             </div>
             <input type="hidden" name="variantId" value="{{ product.defaultVariant.id }}">
             <div class="bis-signup__registration-fields">
-              {# Outputs a hidden input field #}
-              {# {{ craft.snaptcha.field }} #}
-
-              <input class="input bis-signup__registration-input"
-                     name="email" type="email" value="{{ cart.email }}"
-                     placeholder="name@email.ch">
-              <button class="bis-signup__registration-btn button button--primary" type="submit">Abschicken</button>
-            </div>
-          </form>
-        {% endif %}
+        #}{# Outputs a hidden input field #}{#
+      #}{# {{ craft.snaptcha.field }} #}{#
+      <input class="input bis-signup__registration-input"
+             name="email" type="email" value="{{ cart.email }}"
+             placeholder="name@email.ch">
+      <button class="bis-signup__registration-btn button button--primary" type="submit">Abschicken</button>
+    </div>
+  </form>
+{% endif %} #}
       {% endif %}
     {% endfor %}
 
