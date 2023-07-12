@@ -1,4 +1,4 @@
-dateModified: 1688648822
+dateModified: 1689021898
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: 'Terra Verde'
@@ -405,7 +405,7 @@ plugins:
             - concurrency
             - '3'
       cacheWarmerType: putyourlightson\blitz\drivers\warmers\GuzzleWarmer
-      cachingEnabled: ''
+      cachingEnabled: '1'
       clearCacheAutomatically: '1'
       customSiteUris: ''
       debug: false
@@ -610,7 +610,7 @@ plugins:
       confirmationEmailTemplate: shop/_email/back-in-stock-confirmation.twig
       emailSubject: 'TERRA VERDE Shop: {{variant.title}} ist wieder erhältlich!'
       emailTemplate: shop/_email/back-in-stock-notification.twig
-      purgeRequests: ''
+      purgeRequests: '1'
       sendConfirmation: '1'
   diy-widget:
     edition: standard
