@@ -6,7 +6,7 @@
   {% block content %}
     <div class="detail-page__header">
       <div class="content-detail__image producers-overview__image">
-        {% set transform = transformation|default('imageOneThird') %}
+        {% set transform = transformation|default('imageContentFull') %}
         {% set img = entry.image.one() ?? null %}
 
         {% if img is defined and img is not empty %}
