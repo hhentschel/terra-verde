@@ -29,6 +29,17 @@
     </li>
 
     <li class="nav-main__list-item">
+      <a href="{{ productLink.url }}"
+         class="nav__link {{ macros.isActive(
+           'produkte',
+           1,
+           'nav__link--'
+         ) }}">
+        {{ 'Produkte'|t }}
+      </a>
+    </li>
+
+    <li class="nav-main__list-item">
       <a href="{{ ueberunsLink.url }}"
          class="nav__link {{ macros.isActive('ueberuns', 1, 'nav__link--') }}">
         {{ 'Über uns'|t }}
@@ -54,17 +65,6 @@
         {{ 'Verkaufsstellen'|t }}
       </a>
     </li> #}
-
-    <li class="nav-main__list-item">
-      <a href="{{ productLink.url }}"
-         class="nav__link {{ macros.isActive(
-           'produkte',
-           1,
-           'nav__link--'
-         ) }}">
-        {{ 'Produkte'|t }}
-      </a>
-    </li>
 
 
     {#    <li class="nav-main__list-item nav-main__list-item-last"> #}
