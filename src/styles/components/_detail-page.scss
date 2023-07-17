@@ -1,10 +1,10 @@
 .detail-page {
   &__wrapper {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr) calc(min(70ch, calc(100% - 64px))) repeat(2, 1fr);
-    grid-column-gap: 16px;
+    /*@include grid-base();*/
 
     @include breakpoint('tablet-landscape') {
+      display: grid;
+      grid-template-columns: calc(25% - 50px) 1fr calc(min(70ch, calc(100% - 64px))) repeat(2, 1fr);
       grid-column-gap: 32px;
     }
 
