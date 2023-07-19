@@ -13,8 +13,8 @@
 
 {% if sprig.isRequest %}
   {% if success is defined and success %}
-<div class="form-contact__success-message">
-  Vielen Dank für Ihre Nachricht. <br/> Wir werden Ihr Anliegen so bald als möglich prüfen.
+    <div class="form-contact__success-message">
+    Vielen Dank für Ihre Nachricht. <br/> Wir werden Ihr Anliegen so bald als möglich prüfen.
   {% else %}
     <form sprig
           s-method="post"
@@ -85,7 +85,7 @@
       {{ craft.snaptcha.field }}
 
       {# Dynamically fetches and outputs a hidden input field #}
-      {{ craft.blitz.getUri('/actions/snaptcha/field/get-field') }}
+      {# {{ craft.blitz.getUri('/actions/snaptcha/field/get-field') }} #}
 
       {# <input id="balsamicoBiancoAcetoTerraVerde" name="balsamicoBiancoAcetoTerraVerde" type="text"> #}
 
@@ -94,6 +94,6 @@
         Absenden
       </button>
     </form>
+    </div>
   {% endif %}
-
-  {% endif %}
+{% endif %}

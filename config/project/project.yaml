@@ -1,4 +1,4 @@
-dateModified: 1689163250
+dateModified: 1689626319
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: 'Terra Verde'
@@ -105,6 +105,7 @@ meta:
     34eecfa5-9662-4a5c-addd-6a484fbebe8d: 'Verkaufsstellen Orte' # Verkaufsstellen Orte
     037a2847-d799-44e7-ae4b-4bf40233db70: Kategorien # Kategorien
     44a134bf-a896-43b6-897a-a294f6c27325: 'Blog Aktuell' # Blog Aktuell
+    46ab3f32-4f48-484f-a551-39bb54341a2e: Leadtext # Leadtext
     47c3ee37-8371-469c-8566-fb641a48324e: 'Ähnliche Produkte Apero' # Ähnliche Produkte Apero
     50ff7a2e-9fc7-4f85-aa48-b24f439d44cb: 'Bild Inhalt Voll' # Bild Inhalt Voll
     51d5398a-9cc0-4781-bacb-713a68986d17: 'Box Hintergrundfarbe' # Box Hintergrundfarbe
@@ -294,6 +295,7 @@ meta:
     cbf7f593-68bf-4c83-b97d-b6959558cb3e: 'Titel H3' # Titel H3
     cc57da94-196b-4536-a2f4-3b4e6d7a67ab: 'Kategorien (Geschenke)' # Kategorien (Geschenke)
     ceeb55b1-0aab-46a0-9d39-91e0f706901f: 'Youtube Video Liste' # Youtube Video Liste
+    cfad9c23-aa6b-47ce-aed3-6c625c6e89a5: Produkte # Produkte
     cfba8ac8-e0a0-405f-87ed-accd8f27b372: Geschenksets # Geschenksets
     cfbe4629-cba3-461e-a930-5e32a064326f: GTIN # GTIN
     d05fe0a7-d34a-429f-8f5b-4005eba39588: Video # Video
@@ -405,7 +407,7 @@ plugins:
             - concurrency
             - '3'
       cacheWarmerType: putyourlightson\blitz\drivers\warmers\GuzzleWarmer
-      cachingEnabled: ''
+      cachingEnabled: '1'
       clearCacheAutomatically: '1'
       customSiteUris: ''
       debug: false
