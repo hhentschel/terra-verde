@@ -1,11 +1,14 @@
 .detail-page {
   &__wrapper {
-    /*@include grid-base();*/
+    @include grid-base();
 
     @include breakpoint('tablet-landscape') {
       display: grid;
       grid-template-columns: calc(25% - 50px) 1fr calc(min(70ch, calc(100% - 64px))) repeat(2, 1fr);
       grid-column-gap: 32px;
+      padding: 0;
+      margin: 0;
+      max-width: 100%;
     }
 
     & > * {
