@@ -17,10 +17,10 @@
         {% endifchildren %}
       </li>
     {% endnav %}
-    
+
     <li class="nav-sidebar__item">
       {% set slug = craft.app.request.getSegment(1) %}
-      <a href="{{ allManufactors.url() }}" class="nav-sidebar__link {{ slug == 'produzentinnen'
+      <a href="/produzenten" class="nav-sidebar__link {{ slug == 'produzentinnen'
       ? 'nav-sidebar__link--active' }}">{{ 'Produzent:innen' }}
       </a>
     </li>

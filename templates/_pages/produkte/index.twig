@@ -10,7 +10,7 @@
   <div class="grid">
     <div class="row">
 
-      <div class="col col-xs-12 col-md-12 col-lg-12">
+      <div class="col col-xs-12 col-md-12 col-lg-9 col-lg-shift-3">
         {% include '_components/breadcrumb.twig' %}
         <div class="detail-page__heading">
           <h1 class="heading heading--h1 detail-page__heading heading--no-margin-top">
@@ -29,17 +29,22 @@
       </div>
 
       <div class="col col-xs-12 col-md-9 col-lg-9">
-        {% include '_components/_content-elements/formatted-text' with {
+        {#        {% include '_components/_content-elements/formatted-text' with {
           formattedText: entry.leadText
+        } %} #}
+
+        {% include '_components/_content-elements/content-elements-loop' with {
+          contentElements: entry.contentElements,
+          usesGrid: false
         } %}
       </div>
     </div>
   </div>
 
-  <section class="detail-page detail-page__wrapper">
+  {#  <section class="detail-page detail-page__wrapper">
     {% include '_components/_content-elements/content-elements-loop' with {
       contentElements: entry.contentElements,
       usesGrid: true
     } %}
-  </section>
+  </section> #}
 {% endblock %}

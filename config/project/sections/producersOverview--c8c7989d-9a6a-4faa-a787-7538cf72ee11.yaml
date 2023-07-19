@@ -19,6 +19,6 @@ siteSettings:
   dd0cd05e-0cb9-4a76-b993-3cb70e6fc147: # Terra Verde
     enabledByDefault: true
     hasUrls: true
-    template: _pages/produzenten/index
+    template: _pages/produkte/produzenten/index
     uriFormat: produzentinnen
 type: single
