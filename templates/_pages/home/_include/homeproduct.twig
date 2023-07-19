@@ -1,0 +1,22 @@
+{% for variant in product.getVariants() %}
+  <div class="col col-xs-12 col-md-4 col-lg-4 section-home__product">
+    <a href="{{ product.url }}" class="section-home__product--link">
+      {% set transform = transformation|default('productListing') %}
+      {% set img = product.articleImage[0] ?? generic.image.one %}
+
+      {% if img is defined %}
+        {% include '_components/_content-elements/image' with {
+          img: img,
+          transform: transform
+        } %}
+      {% endif %}
+
+      <div class="section-home__product--info">
+        <h4 class="section-home__product--heading">
+          {{ product.title }}
+        </h4>
+        {% include '/shop/produkte/_includes/prices.twig' %}
+      </div>
+    </a>
+  </div>
+{% endfor %}

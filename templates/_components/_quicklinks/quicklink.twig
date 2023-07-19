@@ -1,8 +1,14 @@
-{% set items = items is defined and items is not empty ? items : null %}
+{# {% set items = items is defined and items is not empty ? items : null %} #}
 
-{% set transform = transformation|default('imageOneThird') %}
+{% set items = craft.entries.section('homepage')
+  .with([
+    'image',
+    'contentElementsStartpage.image'
+  ])
+  .all() %}
 
-{% if items %}
+{% for entry in items %}
+
   <section class="grid">
     <div>
       <h2 class="visually-hidden">
@@ -10,18 +16,21 @@
       </h2>
 
       <ul class="row quicklinks">
-        {% for item in items.all() %}
+        {% for item in entry.contentElementsStartpage %}
           <li class="col col-xs-12 col-md-4 col-lg-4 quicklinks__items">
             <a href="{{ item.buttonLinkToEntry }}"
                class="quicklinks__items--link">
               {% set transform = transformation|default('imageOneThird') %}
-              {% set img = item.image.one() ?? null %}
-              {% include '_components/_content-elements/image' with {
-                img: img,
-                transform: transform,
-                imageAltText: item.imageAltText,
-                imageCaption: item.imageCaption
-              } %}
+              {% set img = item.image[0] ?? generic.image[0] %}
+
+              {% if img is defined %}
+                {% include '_components/_content-elements/image' with {
+                  img: img,
+                  transform: transform,
+                  imageAltText: item.imageAltText,
+                  imageCaption: item.imageCaption
+                } %}
+              {% endif %}
 
               <h2 class="heading heading--2 heading--no-margin">
                 {{ item.titleH2 }}
@@ -40,4 +49,4 @@
       </ul>
     </div>
   </section>
-{% endif %}
+{% endfor %}

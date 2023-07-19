@@ -1,8 +1,7 @@
 {% set contentPaddingClass = entry.mainImage is defined
   and entry.mainImage is not empty
   ? 'content--has-image'
-  : ''
-%}
+  : '' %}
 
 {% extends '_layouts/base' %}
 
@@ -12,8 +11,15 @@
     {% include '_components/_nav/_nav-main/nav-main-phone' %}
   </div>
 
+  {% set homepagenews = craft.entries.section('homepage')
+    .with([
+      'mainImage',
+    ])
+    .all() %}
+
   <main role="main" class="main">
     <div class="content {{ contentPaddingClass }}">
+
       {% if entry.mainImage is defined and entry.mainImage is not empty %}
         {% include '_components/_main-image/main-image' %}
       {% endif %}
@@ -22,7 +28,7 @@
 
 
       {% include 'shop/_includes/nav-checkout' %}
-                {# {% include 'shop/_includes/nav-main' %} #}
+      {# {% include 'shop/_includes/nav-main' %} #}
       {% block content %}
 
       {% endblock %}
