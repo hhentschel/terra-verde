@@ -3,13 +3,15 @@
   ? 'main-image--full'
   : '' %}
 
+ {% set homepagenews = craft.entries.section('homepage').with(['blockType:newsHomepage']).limit(1) %}
+
 <div class="main-image {{ fullHeight }}"
      style="background-image: url({{ entry.mainImage.one.url }})">
   {# News #}
 
   {% if
-    entry.newsHomepageField is defined
-    and entry.newsHomepageField is not empty %}
+    homepagenews is defined
+    and homepagenews is not empty %}
     {% for block in entry.newsHomepageField.all() %}
       <div class="homepage-news">
         <span class="homepage-news__time">{{ block.newsHomepageTime }}</span>
