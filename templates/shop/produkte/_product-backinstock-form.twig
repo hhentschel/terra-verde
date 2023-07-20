@@ -1,8 +1,12 @@
 {% set product = craft.products.id(productId).one() %}
 {% set cart = craft.orders.id(cartId).one() %}
 
+{% set success = success is defined %}
+
 {% if sprig.isRequest %}
   {% if success is defined and success %}
+
+    {{ success ? 'success' : 'error' }}
     <div class="bis-complete">
       <div class="bis-signup__complete-message">Vielen Dank. Sie werden benachrichtigt, sobald das Produkt wieder
         erhältlich ist.
@@ -20,7 +24,7 @@
         Dieses Produkt ist zurzeit nicht lieferbar. Sobald das Produkt wieder erhältlich ist, werden wir Sie per
         Mail informieren. Fügen Sie dazu bitte hier Ihre E-Mail Adresse ein.
       </div>
-      
+
       <input type="hidden" name="variantId" value="{{ product.defaultVariant.id }}">
       <div class="bis-signup__registration-fields">
         {# Outputs a hidden input field #}
