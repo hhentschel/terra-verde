@@ -1,4 +1,4 @@
-dateModified: 1689777175
+dateModified: 1689856596
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: 'Terra Verde'
@@ -23,7 +23,6 @@ meta:
     1c95f87a-2123-4b4b-a9f8-831335adfe84: 'Artikel Nährstoffe' # Artikel Nährstoffe
     1d881bde-d2bf-408a-9434-f2f08b65cff8: Dokumente # Dokumente
     1daedc6b-3766-4522-aef9-b8a340e0cef5: Versendet # Versendet
-    1eb38f57-6c17-4bd1-9c83-fb9a7f776e7d: Bild # Bild
     1fa8d56e-80b3-4840-a038-6addcd516984: 'Bild 1 Schnellzugriff' # Bild 1 Schnellzugriff
     2a604d11-f35a-4546-a33a-b2465e0017a9: 'Email 1' # Email 1
     2d7664a5-cf66-40d5-a9cf-e4ce91afcfc2: Vorname # Vorname
