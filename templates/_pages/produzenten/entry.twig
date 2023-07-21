@@ -1,6 +1,8 @@
 {% extends './_layouts/main' %}
 {% set pageTitle = entry.pageTitle is not empty ? entry.pageTitle : entry.title %}
-{% set products = entry.productsManufactor.all() %}
+{% set products = entry.productsManufactor.with([
+  'product.title'
+]).all() %}
 
 
 {% block content %}

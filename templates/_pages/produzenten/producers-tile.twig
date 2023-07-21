@@ -1,15 +1,18 @@
-{% set entries = craft.entries
+{# {% set entries = craft.entries
   .section('producersStructure')
   .with([
     'image'
-  ]) %}
+  ]).all() %} #}
+
+{#
 {% set relatedCats = craft.categories.relatedTo(entries) %}
+#}
 {# {% set products = entry.productsManufactor.limit(3) %} #}
 
 <li class="producers">
   <a href="{{ entry.url }}" class="producers-overview">
     <h3 class="producers-overview__title heading--3 heading">
-      {{ entry.title }}
+      {{ entry.title }}asdasdas
     </h3>
     <p class="producers-overview__previewtext"> {{ entry.previewText }}</p>
 
@@ -17,7 +20,7 @@
 
       {% set transform =
         transformation|default('producersThumb') %}
-      {% set img = entry.image.one() ?? null %}
+      {% set img = entry.image[0] ?? null %}
       {% if img is defined %}
         {% include '_components/_content-elements/image' with {
           img: img,
@@ -52,13 +55,16 @@
       </ul>
     </div> #}
 
-  {% set regionsManu = craft.categories()
+{#  {% set regionsManu = craft.categories()
     .group('regionsManu')
-    .all() %}
+    .all() %} #}
 
   {# Fetch all of the categories related to this entry #}
-  {% set categories = craft.categories.relatedTo(entry).andRelatedTo(regionsManu) %}
-  {% set relatedCats = craft.categories.relatedTo(entry) %}
+{#  {% set categories = craft.categories.relatedTo(entry).andRelatedTo(regionsManu) %}
+  {% set relatedCats = craft.categories.relatedTo(entry) %} #}
+
+
+
   {# <span>{{ categories|join(', ') }}</span> #}
 
   {# <div class="producers-overview__preview">
