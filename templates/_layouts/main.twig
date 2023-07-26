@@ -11,7 +11,7 @@
     {% include '_components/_nav/_nav-main/nav-main-phone' %}
   </div>
 
-  {% set homepagenews = craft.entries.section('homepage')
+  {% set homepageentries = craft.entries.section('homepage')
     .with([
       'mainImage',
     ])
@@ -20,9 +20,11 @@
   <main role="main" class="main">
     <div class="content {{ contentPaddingClass }}">
 
+      {# {% for entry in homepageentries %} #}
       {% if entry.mainImage is defined and entry.mainImage is not empty %}
         {% include '_components/_main-image/main-image' %}
       {% endif %}
+      {# {% endfor %} #}
 
       {% include '_layouts/_includes/flash-notices.twig' %}
 

@@ -10,6 +10,8 @@
     [
       [
         'mapMobile',
+        'productsManufactor',
+        imageDetailPage
         {
           withTransforms: ['imageContentFull']
         }
@@ -43,11 +45,11 @@
 
 {# Get all Producers who sell Food #}
 {% set allManufactorsFood =
-  craft.entries.section('producersStructure').relatedTo([manufactorFood]).with(['image', 'mapIcon']).all() %}
+  craft.entries.section('producersStructure').relatedTo([manufactorFood]).with(['image', 'mapIcon', 'productsManufactor', 'imageDetailPage']).all() %}
 
 {# Get all Producers who sell Wine #}
 {% set allManufactorsWine =
-  craft.entries.section('producersStructure').relatedTo([manufactorWine]).with(['image']).all() %}
+  craft.entries.section('producersStructure').relatedTo([manufactorWine]).with(['image', 'productsManufactor', 'imageDetailPage']).all() %}
 
 {# {% set allManufactors =
   craft.entries.section('producersOverview').one() %} #}

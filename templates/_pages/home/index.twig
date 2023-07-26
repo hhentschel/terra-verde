@@ -23,7 +23,7 @@
       'homeFavorites', 'homeFavorites.articleImage',
       'homeNewProduct', 'homeNewProduct.articleImage',
       'homeSales', 'homeSales.articleImage',
-      'newsHomepageField'
+      'newsHomepageField','contentElementsStartpage'
     ])
     .all() %}
 
@@ -49,31 +49,68 @@
       {% endfor %}
     {% endif %}
 
-    {% include '_components/_content-elements/content-elements-startpage-loop' with {
-      contentElementsStartpage: entry.contentElementsStartpage.level(1),
-      usesGrid: false
-    } %}
+
+    <section class="grid">
+      <div>
+        <h2 class="visually-hidden">
+          Quicklinks
+        </h2>
+        <ul class="row quicklinks">
+          {% for block in entry.contentElementsHomepage %}
+            <li class="col col-xs-12 col-md-4 col-lg-4 quicklinks__items hä">
+              <a href="{{ block.buttonLinkToEntry }}"
+                 class="quicklinks__items--link">
+                {% set transform = transformation|default('imageOneThird') %}
+                {% set img = block.image[0] ?? generic.image[0] %}
+
+                {% if img is defined and img is not empty %}
+                  {% include '_components/_content-elements/image' with {
+                    img: img,
+                    transform: transform,
+                    imageAltText: block.imageAltText,
+                    imageCaption: block.imageCaption
+                  } %}
+                {% endif %}
+
+                <h2 class="heading heading--2 heading--no-margin">
+                  {{ block.titleH2 }}
+                </h2>
+              </a>
+              {% include '_components/_content-elements/link' with {
+                linkUrl: block.buttonLinkToEntry,
+                linkText: block.linkText,
+                type: 'button',
+                target: 'internal',
+                iconPosition: 'after',
+                buttonLinkColorSimple: block.buttonLinkColorSimple
+              } %}
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </section>
 
     {# Auswahl aus dem Shop #}
     <section class="grid">
       <div class="row">
         <div class="col col-xs-12 col-md-12 col-lg-12">
-          <h2 class="heading heading--h2">
-            Auswahl aus dem Shop
-          </h2>
-          <a class="home__link layout-helper__margin-bottom--s"
-             href="{{ navNewArticles.url }}">
-            <span class="link__text link__text--section">{{ 'Shop'|t }}</span>
-            <div class="link__icon-wrapper link__icon-wrapper--internal">
-              {{ macros.svg('arrow_42')|attr({
-                class: 'link__icon link__icon--internal icon icon--42'
-              }) }}
-            </div>
-          </a>
+          <div class="layout-helper__center">
+            <h2 class="heading heading--h2">
+              Auswahl aus dem Shop
+            </h2>
+            <a class="home__link layout-helper__margin-bottom--s"
+               href="{{ navNewArticles.url }}">
+              <span class="link__text link__text--section">{{ 'Shop'|t }}</span>
+              <div class="link__icon-wrapper link__icon-wrapper--internal">
+                {{ macros.svg('arrow_42')|attr({
+                  class: 'link__icon link__icon--internal icon icon--42'
+                }) }}
+              </div>
+            </a>
+          </div>
         </div>
       </div>
     </section>
-
 
 
     {# Loop through any eager-loaded sub-entries #}
@@ -170,8 +207,7 @@
 
 
   {% set blogQuery = craft.entries().section('newsEntries').with(['image']).limit(3) %}
-  {% set entries = blogQuery %}
-  {% if entries|length %}
+  {% if blogQuery|length %}
     <section class="section-home section-home__stripe section-home__blog">
       <div class="grid">
         <div class="row">
@@ -193,7 +229,7 @@
         </div>
 
         <div class="row section-home__row-products">
-          {% for entry in entries %}
+          {% for entry in blogQuery %}
             <article class="col col-xs-12 col-md-4 col-lg-4 section-home__blogentry">
               <a href="{{ entry.url }}" class="section-home__product--link">
                 {% set transform = transformation|default('productListing') %}
@@ -205,7 +241,6 @@
                     transform: transform
                   } %}
                 {% endif %}
-
 
                 <div class="section-home__product--info">
                   <h4 class="section-home__product--heading">

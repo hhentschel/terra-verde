@@ -15,7 +15,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: 11b21e6e-604f-4b62-9b9c-63220ad03729 # Link Farbe (simple Button)
+            fieldUid: 11b21e6e-604f-4b62-9b9c-63220ad03729
             instructions: null
             label: null
             required: false

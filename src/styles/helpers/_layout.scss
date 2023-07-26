@@ -152,6 +152,12 @@
   width: 100%;
 }
 
+.layout-helper__center {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
 
 // Horizontal Helper Classes GRID
 
