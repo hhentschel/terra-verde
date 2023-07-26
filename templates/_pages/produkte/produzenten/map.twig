@@ -114,7 +114,7 @@
                 title="{{ entry.title }}">
         </circle>
 
-        {% set image = entry.mapIcon.one() %}
+        {% set image = entry.mapIcon[0] ?? null %}
         {% if image and image.extension == 'svg' %}
           {{ svg(image)|attr({ class: 'map-icon' }) }}
         {% endif %}

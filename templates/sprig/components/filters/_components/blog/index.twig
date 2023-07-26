@@ -38,7 +38,10 @@
   {% do entryQuery.andRelatedTo(articleCategoriesBlog) %}
 {% endif %}
 
-{% set entries = entryQuery.section('newsEntries').level(1).all() %}
+{% set entries = entryQuery.section('newsEntries').level(1).with([
+  'articleCategoriesBlog', 'image',
+  'catsForBlogEntries',
+]).all() %}
 
 {# Push the URL into the history stack with the filters, adding extra values. #}
 
@@ -88,7 +91,7 @@
                 and entry.contentElements is not empty %}
 
                 {% set transform = transformation|default('blogPreviewThumb') %}
-                {% set img = entry.image.one ?? generic.image.one() %}
+                {% set img = entry.image[0] ?? generic.image[0] %}
 
                 {% if img is defined and img is not empty %}
                   {% include '_components/_content-elements/image' with {
@@ -101,7 +104,7 @@
 
             <div class="blog-list__item--meta">
               {% if catBlogOptions is defined and catBlogOptions is not empty %}
-                {% set categories = entry.catsForBlogEntries.all() %}
+                {% set categories = entry.catsForBlogEntries %}
                 <div class="blog-list__item--cat-container">
                   {% for cat in categories %}
                     <span

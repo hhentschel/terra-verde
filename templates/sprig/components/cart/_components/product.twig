@@ -10,23 +10,36 @@
   {% set cart = craft.commerce.carts.cart %}
 {% endif %}
 
+{# Eager Load Images
+https://craftcms.stackexchange.com/questions/39033/eager-loading-of-variant-images #}
+{% do craft.app.elements.eagerLoadElements(
+  className(product),
+  [product],
+  [
+    ['articleImage', { withTransforms: ['productListing'] }],
+    ['articleCategoriesStatus'],
+    ['articleCategoriesGift'],
+  ]
+) %}
 
 <a class="shop-list__link" href="{{ product.url }}">
   {% if variant.onSale %}
     <div class="onsale">
     </div>
   {% endif %}
-  {% if product.articleCategoriesStatus.id('10745').exists() %}
+
+  {% if product.articleCategoriesStatus|contains('id', '10745') %}
     <div class="newproduct">
     </div>
   {% endif %}
+
   {% if variant.hasstock == false %}
     <div class="oos">
       <span class="oos-message">zurzeit nicht lieferbar</span>
     </div>
   {% endif %}
   <div class="shop-list__image">
-    {% if product.articleCategoriesGift.id('10887').exists() or product.articleCategoriesGift.id('10888').exists() or product.articleCategoriesGift.id('10889').exists() or product.articleCategoriesGift.id('10890').exists() or product.articleCategoriesGift.id('10891').exists() or product.articleCategoriesGift.id('10892').exists() %}
+    {% if product.articleCategoriesGift|contains('id', '10887') or product.articleCategoriesGift|contains('id', '10888') or product.articleCategoriesGift|contains('id', '10889') or product.articleCategoriesGift|contains('id', '10890') or product.articleCategoriesGift|contains('id', '10891') or product.articleCategoriesGift|contains('id', '10892') %}
       <span class="shop-list__item--infohover">Zusatzoptionen anschauen</span>
     {% else %}
       <span class="shop-list__item--infohover">Informationen anschauen</span>

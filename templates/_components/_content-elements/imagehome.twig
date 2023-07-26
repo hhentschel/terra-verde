@@ -1,44 +1,38 @@
 {# {% set img = image is defined and image is not empty ? image.one() : null %}
 {% set imageUrl = img ? img.url : '' %} #}
 
-{% set img = entry.image ?? null %}
-{% set imageUrl = entry.image.one()
-  ? entry.image.one().getUrl('productHome')
-  : ''
-%}
+{% set img = entry.image[0] ?? null %}
+{% set imageUrl = entry.image[0]
+  ? entry.image[0].getUrl('productHome')
+  : '' %}
 
 
 {% set imageStandardAltText = img
   and img.imageAltText is defined
   and img.imageAltText is not empty
   ? img.imageAltText
-  : ''
-%}
+  : '' %}
 {% set imageAltText = imageAltText is defined and imageAltText is not empty
   ? imageAltText
-  : imageStandardAltText
-%}
+  : imageStandardAltText %}
 {% set imageStandardCaption = img
   and img.imageCaption is defined
   and img.imageCaption is not empty
   ? img.imageCaption
-  : ''
-%}
+  : '' %}
 {% set imageCaption = imageCaption is defined and imageCaption is not empty
   ? imageCaption
-  : imageStandardCaption
-%}
+  : imageStandardCaption %}
 
 {% set imageTypeClass = imageSizeParam is defined
   and imageSizeParam is not empty
   ? imageSizeParam
-  : ''
-%}
+  : '' %}
 
 {% if imageUrl %}
   <figure class="image {{ imageTypeClass }}">
     <div class="image__wrapper">
-      <img class="image__img" src="{{ imageUrl }}" alt="{{ imageAltText }}" />
+      <img class="image__img" src="{{ imageUrl }}" alt="{{ imageAltText }}"/>
     </div>
     {% if imageCaption %}
       <figcaption class="image__caption">

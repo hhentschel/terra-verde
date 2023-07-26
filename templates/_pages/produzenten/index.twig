@@ -2,8 +2,10 @@
 {% import '_helpers/macros.twig' as macros %}
 {% set pageTitle = entry.pageTitle is not empty ? entry.pageTitle : entry.title %}
 
-{% set allManufactors =
-  craft.entries.section('producersStructure').level(1).all() %}
+{# {% set allManufactors =
+  craft.entries.section('producersStructure').level(1).with([
+    'image'
+  ]).all() %} #}
 
 {% set entry =
   craft.entries().section('producersOverview').with(
@@ -43,14 +45,14 @@
 
 {# Get all Producers who sell Food #}
 {% set allManufactorsFood =
-  craft.entries.section('producersStructure').relatedTo([manufactorFood]).all() %}
+  craft.entries.section('producersStructure').relatedTo([manufactorFood]).with(['image']).all() %}
 
 {# Get all Producers who sell Wine #}
 {% set allManufactorsWine =
   craft.entries.section('producersStructure').relatedTo([manufactorWine]).all() %}
 
-{% set allManufactors =
-  craft.entries.section('producersOverview').one() %}
+{# {% set allManufactors =
+  craft.entries.section('producersOverview').one() %} #}
 
 {% block content %}
   <div class="grid">

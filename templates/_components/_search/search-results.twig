@@ -28,7 +28,7 @@
 </form>
 
 {% set entryQuery = craft.products.search(search) %}
-{% set products = entryQuery.offset(offset).limit(limit).all() %}
+{% set products = entryQuery.offset(offset).limit(limit).with(['articleImage']).all() %}
 
 
 <div class="search__wrapper">
@@ -46,7 +46,7 @@
                     {{ product.title }}
                   </span>
                 {% set transform = transformation|default('productListing') %}
-                {% set img = product.articleImage.one() ?? null %}
+                {% set img = product.articleImage[0] ?? null %}
 
                 {% if img is defined %}
                   {% include '_components/_content-elements/image'
