@@ -11,7 +11,8 @@
 {# {% set verkaufsstellenLink =
   craft.entries.section('sellingPointsStructureSingle').one()
 %} #}
-{% set produzentenLink = craft.entries.section('producersOverview').one() %}
+{# {% set produzentenLink = craft.entries.section('producersOverview').one() %} #}
+{% set productLink = craft.entries.section('productStructure').one() %}
 
 {% set url = craft.app.request.pathInfo %}
 
@@ -24,6 +25,17 @@
       <a href="{{ shopLink.url }}"
          class="nav__link {{ macros.isActive('shop', 1, 'nav__link--') }}">
         {{ 'Shop'|t }}
+      </a>
+    </li>
+
+    <li class="nav-main__list-item">
+      <a href="{{ productLink.url }}"
+         class="nav__link {{ macros.isActive(
+           'produkte',
+           1,
+           'nav__link--'
+         ) }}">
+        {{ 'Produkte'|t }}
       </a>
     </li>
 
@@ -53,17 +65,6 @@
         {{ 'Verkaufsstellen'|t }}
       </a>
     </li> #}
-
-    <li class="nav-main__list-item">
-      <a href="{{ produzentenLink.url }}"
-         class="nav__link {{ macros.isActive(
-           'produzenten',
-           1,
-           'nav__link--'
-         ) }}">
-        {{ 'Produzent:innen'|t }}
-      </a>
-    </li>
 
 
     {#    <li class="nav-main__list-item nav-main__list-item-last"> #}

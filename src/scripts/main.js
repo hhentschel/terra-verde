@@ -9,6 +9,8 @@ import './modules/mobile-nav';
 import './modules/focus';
 import './modules/header';
 import Accordion from './modules/accordion';
+import GallerySlider from './modules/gallery';
+/* import AnchorLink from './modules/anchor-link'; */
 import AnchorLink from './modules/anchor-link';
 import MapLinkToCircle from './modules/map-linktocircle';
 import MapCircleToLink from './modules/map-circletolink';
@@ -23,6 +25,12 @@ accordions.forEach((accordion) => {
 const anchorLinks = document.querySelectorAll('.anchor-link');
 anchorLinks.forEach((anchorLink) => {
   new AnchorLink(anchorLink);
+});
+
+/* Gallery Sliders */
+const gallerySliders = document.querySelectorAll('.gallery-container');
+gallerySliders.forEach((gallery) => {
+  new GallerySlider(gallery);
 });
 
 /* Map links to circle */

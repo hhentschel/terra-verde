@@ -1,0 +1,193 @@
+field: 7df537e7-2575-447a-86a3-3b211f4db9df # Inhaltselemente Startseite
+fieldLayouts:
+  72248314-7958-4092-a7b0-3c3722eead5f:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 282e72b9-e6e1-47e6-80d7-121c617026ea # Bild
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 76009b4e-37cd-4a76-b5f6-4e5308115811 # Titel H2
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: fad2bfee-6d0d-49c9-b397-2c3d46b1896f # Button Link auf Eintrag 2
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 657172ab-8055-4b75-9d66-9f782df0a61f # Link Text 2 
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: c2f65ee1-4492-4fb6-8921-fb5766dcf82c # Link Farbe (simple Button) 2
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  282e72b9-e6e1-47e6-80d7-121c617026ea: # Bild
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: image
+    instructions: ''
+    name: Bild
+    searchable: false
+    settings:
+      allowSelfRelations: false
+      allowUploads: true
+      allowedKinds: null
+      defaultUploadLocationSource: 'volume:789fdb6d-520f-4cf1-be1e-478056358e79' # Inhaltsbilder
+      defaultUploadLocationSubpath: ''
+      limit: ''
+      localizeRelations: false
+      previewMode: full
+      restrictFiles: ''
+      selectionLabel: ''
+      showSiteMenu: true
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: false
+      singleUploadLocationSource: 'volume:789fdb6d-520f-4cf1-be1e-478056358e79' # Inhaltsbilder
+      singleUploadLocationSubpath: ''
+      source: null
+      sources: '*'
+      targetSiteId: null
+      useSingleFolder: false
+      validateRelatedElements: false
+      viewMode: list
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
+  76009b4e-37cd-4a76-b5f6-4e5308115811: # Titel H2
+    columnSuffix: kocqzddt
+    contentColumnType: text
+    fieldGroup: null
+    handle: titleH2
+    instructions: ''
+    name: 'Titel H2'
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  657172ab-8055-4b75-9d66-9f782df0a61f: # Link Text 2 
+    columnSuffix: gylplavh
+    contentColumnType: text
+    fieldGroup: null
+    handle: linkText
+    instructions: ''
+    name: 'Link Text 2 '
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  c2f65ee1-4492-4fb6-8921-fb5766dcf82c: # Link Farbe (simple Button) 2
+    columnSuffix: ijmtkolx
+    contentColumnType: string
+    fieldGroup: null
+    handle: buttonLinkColorSimple
+    instructions: ''
+    name: 'Link Farbe (simple Button) 2'
+    searchable: false
+    settings:
+      optgroups: true
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - hellblau
+            -
+              - value
+              - lightblue
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - braun
+            -
+              - value
+              - brown
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - weiss
+            -
+              - value
+              - white-simple
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
+  fad2bfee-6d0d-49c9-b397-2c3d46b1896f: # Button Link auf Eintrag 2
+    columnSuffix: jtvwxyuy
+    contentColumnType: string(1000)
+    fieldGroup: null
+    handle: buttonLinkToEntry
+    instructions: ''
+    name: 'Button Link auf Eintrag 2'
+    searchable: false
+    settings:
+      maxLength: '1000'
+      placeholder: null
+      types:
+        - url
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Url
+handle: quicklinks
+name: Quicklinks
+sortOrder: 1

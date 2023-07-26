@@ -1,18 +1,16 @@
 columnSuffix: null
 contentColumnType: string
 fieldGroup: 57003c64-aadc-404d-a990-553d81d5fef3 # Startseite
-handle: contentElementsStartpage
+handle: contentElementsHomepage
 instructions: ''
 name: 'Inhaltselemente Startseite'
 searchable: false
 settings:
+  contentTable: '{{%matrixcontent_contentelementshomepage}}'
   maxBlocks: ''
-  maxLevels: ''
-  maxTopBlocks: ''
   minBlocks: ''
   propagationKeyFormat: null
   propagationMethod: all
-  wasModified: true
 translationKeyFormat: null
 translationMethod: site
-type: benf\neo\Field
+type: craft\fields\Matrix

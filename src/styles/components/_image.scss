@@ -1,3 +1,5 @@
+$maxtrix-image-gap: px-to-rem($space--m);
+
 .image {
   &--half {
     flex: 0 0 100%;
@@ -5,7 +7,7 @@
     margin-right: px-to-rem($space--xm);
 
     @include breakpoint('tablet') {
-      flex: 0 0 50%;
+      flex: 1 0 calc(50% - #{$maxtrix-image-gap});
       max-width: 50%;
     }
   }
@@ -46,5 +48,20 @@
     @include typo(caption);
 
     margin-top: px-to-rem($space--xxs);
+  }
+
+
+  &-matrix__container {
+    display: flex;
+    gap: px-to-rem($space--m);
+    flex-wrap: wrap;
+
+    @include breakpoint('tablet-portrait') {
+      flex-wrap: nowrap;
+    }
+
+    .image--half {
+      margin: 0;
+    }
   }
 }

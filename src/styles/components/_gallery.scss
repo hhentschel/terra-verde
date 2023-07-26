@@ -1,0 +1,42 @@
+.gallery {
+  width: 100%;
+  grid-column: 1 / -1;
+
+  &__header {
+    display: grid;
+    grid-template-columns: 1fr 70ch 1fr;
+    margin-bottom: px-to-rem($space--m);
+
+    &--info {
+      grid-column: 2/3;
+    }
+
+    &--navigation {
+      grid-column: 3/3;
+      align-items: flex-end;
+      display: flex;
+      gap: px-to-rem($space--m);
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  &-slider {
+
+    figure {
+      width: min-content;
+    }
+
+    .image__img {
+      display: block;
+      max-width: none;
+      height: 200px;
+
+      @include breakpoint('tablet-landscape') {
+        height: 600px;
+      }
+    }
+  }
+}

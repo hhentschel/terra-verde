@@ -6,7 +6,8 @@
   .home__link {
     text-align: left;
     color: $color--primary;
-    display: block;
+    display: inline-flex;
+    align-items: center;
   }
 }
 
@@ -220,6 +221,7 @@
       align-self: center;
       display: flex;
       flex-direction: row;
+      line-height: 4;
 
       @include breakpoint('tablet-portrait') {
         flex-direction: column;

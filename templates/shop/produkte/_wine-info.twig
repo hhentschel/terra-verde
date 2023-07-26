@@ -21,7 +21,9 @@
 
 {% set productQuery = craft.products() %}
 
-{% set product = craft.products.id(productId).one() %}
+{% set product = craft.products.id(productId).with([
+  'articleImage',
+]).one() %}
 
 <a href="/shop" class="product-detail__button-back product-detail__button-back-arrow">Zurück zur Shop-
   Übersicht</a>
@@ -35,7 +37,7 @@
     <div class="product-detail__image">
 
       {% set transform = transformation|default('productDetail') %}
-      {% set img = product.articleImage.one() ?? null %}
+      {% set img = product.articleImage[0] ?? null %}
 
       {% if img is defined %}
         {% include '_components/_content-elements/image-product'

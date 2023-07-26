@@ -1,43 +1,45 @@
-{% set items = items is defined and items is not empty ? items : null %}
+{# {% set items = items is defined and items is not empty ? items : null %} #}
 
-{% set transform = transformation|default('imageOneThird') %}
+ {% set items = craft.entries.section('homepage')
+   .with([
+     'image',
+     'contentElementsStartpage'
+   ])
+   .all() %}
+ {% for entry in items %}
 
-{% if items %}
-  <section class="grid">
-    <div>
-      <h2 class="visually-hidden">
-        Quicklinks
-      </h2>
 
-      <ul class="row quicklinks">
-        {% for item in items.all() %}
-          <li class="col col-xs-12 col-md-4 col-lg-4 quicklinks__items">
-            <a href="{{ item.buttonLinkToEntry }}"
-               class="quicklinks__items--link">
-              {% set transform = transformation|default('imageOneThird') %}
-              {% set img = item.image.one() ?? null %}
-              {% include '_components/_content-elements/image' with {
-                img: img,
-                transform: transform,
-                imageAltText: item.imageAltText,
-                imageCaption: item.imageCaption
-              } %}
 
-              <h2 class="heading heading--2 heading--no-margin">
-                {{ item.titleH2 }}
-              </h2>
-            </a>
-            {% include '_components/_content-elements/link' with {
-              linkUrl: item.buttonLinkToEntry,
-              linkText: item.linkText,
-              type: 'button',
-              target: 'internal',
-              iconPosition: 'after',
-              buttonLinkColorSimple: item.buttonLinkColorSimple
-            } %}
-          </li>
-        {% endfor %}
-      </ul>
-    </div>
-  </section>
-{% endif %}
+   {% for item in items %}
+     <li class="col col-xs-12 col-md-4 col-lg-4 quicklinks__items">
+       <a href="{{ item.buttonLinkToEntry }}"
+          class="quicklinks__items--link">
+         {% set transform = transformation|default('imageOneThird') %}
+         {% set img = item.image[0] ?? generic.image[0] %}
+
+         {% if img is defined %}
+           {% include '_components/_content-elements/image' with {
+             img: img,
+             transform: transform,
+             imageAltText: item.imageAltText,
+             imageCaption: item.imageCaption
+           } %}
+         {% endif %}
+
+         <h2 class="heading heading--2 heading--no-margin">
+           {{ item.titleH2 }}
+         </h2>
+       </a>
+       {% include '_components/_content-elements/link' with {
+         linkUrl: item.buttonLinkToEntry,
+         linkText: item.linkText,
+         type: 'button',
+         target: 'internal',
+         iconPosition: 'after',
+         buttonLinkColorSimple: item.buttonLinkColorSimple
+       } %}
+     </li>
+   {% endfor %}
+
+
+ {% endfor %}

@@ -1,19 +1,14 @@
 {% set imageSizeParam = imageSize is defined and imageSize is not empty
   ? imageSize
   : '' %}
-{#
-{% set img = entry.image.one() ?? null %}
-{% set transform = transformation|default('imageOneThird') %}
-{% set imageUrl = img.getUrl(transform)|default('') %} #}
 
-<div class="image-text">
-  {# {% include '_components/_content-elements/image' with {
-    img: img,
-    imageAltText: imageAltText,
-    imageCaption: imageCaption,
-    imageSize: imageSizeParam,
-    transform: transform
-  } %} #}
+{% set boxBgColor = block.boxBgColor %}
+{% set boxTextColor = block.boxTextColor %}
+{% set infobox = infobox|default(false) %}
+
+
+<div class="image-text {% if infobox %}image-text__bg{% endif %}"
+     style="background-color: {{ boxBgColor }}; color: {{ boxTextColor }}">
 
   {% set img = img is defined and img is not empty ? img.one() : null %}
 
@@ -55,7 +50,7 @@
   {% endif %}
 
   <div class="formatted-text image-text__text">
-    <h3 class="image-text__title--desktop">
+    <h3 class="image-text__title--desktop" style="color: {{ boxTextColor }}">
       {{ title }}
     </h3>
     {{ formattedText }}

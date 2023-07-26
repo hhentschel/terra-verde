@@ -1,9 +1,9 @@
 {% if
   contentElementsStartpage is defined
-    and contentElementsStartpage is not empty %}
+  and contentElementsStartpage is not empty %}
   {% set contentArray = [] %}
   {# this is an include since it is used again inside a accordion #}
-  {% for block in contentElementsStartpage.all() %}
+  {% for block in contentElementsStartpage %}
     {% set useGrid = true %}
     {% set cmt = '' %} {# classMarginTop #}
     {% set cmb = '' %} {# classMarginBottom #}
@@ -21,79 +21,64 @@
 
     {% switch block.type.handle %}
 
-    {# Quciklinks #}
+      {# Quciklinks #}
     {% case 'quicklinkList' %}
-    {% set useGrid = false %}
-    {% set cmt = cmt ? cmt : 'layout-helper__margin-top--xl' %}
-    {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--xl' %}
-    {% set contentBlock %}
-      {% include '_components/_quicklinks/quicklink.twig' with {
-        items: block.children
-      } %}
-    {% endset %}
+      {% set useGrid = false %}
+      {% set cmt = cmt ? cmt : 'layout-helper__margin-top--xl' %}
+      {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--xl' %}
+      {% set contentBlock %}
+        {% include '_components/_quicklinks/quicklink.twig' with {
+          items: block.children
+        } %}
+      {% endset %}
 
-    {# Image Block #}
-    {% case 'image' %}
-    {% set cmt = cmt ? cmt : 'layout-helper__margin-top--m' %}
-    {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--m' %}
-    {% set colClasses =
-      'col col-xs-12 col-md-10 col-md-shift-1 col-lg-8 col-lg-shift-2'
-    %}
-    {% set contentBlock %}
-      {% include '_components/_content-elements/imagehome' with {
-        img: block.image,
-        imageAltText: block.imageAltText,
-        imageCaption: block.imageCaption
-      } %}
-    {% endset %}
+      {# Image Block #}
+      {#    {% case 'image' %}
+      {% set cmt = cmt ? cmt : 'layout-helper__margin-top--m' %}
+      {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--m' %}
+      {% set colClasses =
+        'col col-xs-12 col-md-10 col-md-shift-1 col-lg-8 col-lg-shift-2' %}
+      {% set contentBlock %}
+        {% include '_components/_content-elements/imagehome' with {
+          img: block.image,
+          imageAltText: block.imageAltText,
+          imageCaption: block.imageCaption
+        } %}
+      {% endset %} #}
 
-    {# Teaser News Big #}
-    {% case 'teaserNewsBig' %}
-    {% set cmt = cmt ? cmt : 'layout-helper__margin-top--m' %}
-    {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--m' %}
-    {% set colClasses = 'col col-xs-12 col-md-12 col-lg-12' %}
-    {% set contentBlock %}
-      {% include '_components/_teasers/teaser-news-big.twig' with {
-        teaser: block.teaserNewsEntry.one(),
-        imgPosition: block.teaserNewsImagePosition
-      } %}
-    {% endset %}
-
-    {# buttonLinkInternal Block #}
+      {# buttonLinkInternal Block #}
     {% case 'buttonLinkInternal' %}
-    {% set cmt = cmt ? cmt : 'layout-helper__margin-top--xs' %}
-    {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--xs' %}
-    {% set colClasses =
-      'col col-xs-12 col-md-10 col-md-shift-1 col-lg-8 col-lg-shift-2'
-    %}
-    {% set contentBlock %}
-      {% include '_components/_content-elements/link' with {
-        linkUrl: block.buttonLinkToEntry.one().url(),
-        linkText: block.linkText,
-        type: 'button',
-        target: 'internal',
-        iconPosition: 'after',
-        buttonLinkColor: block.buttonLinkColor
-      } %}
-    {% endset %}
+      {% set cmt = cmt ? cmt : 'layout-helper__margin-top--xs' %}
+      {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--xs' %}
+      {% set colClasses =
+        'col col-xs-12 col-md-10 col-md-shift-1 col-lg-8 col-lg-shift-2' %}
+      {% set contentBlock %}
+        {% include '_components/_content-elements/link' with {
+          linkUrl: block.buttonLinkToEntry.one().url(),
+          linkText: block.linkText,
+          type: 'button',
+          target: 'internal',
+          iconPosition: 'after',
+          buttonLinkColor: block.buttonLinkColor
+        } %}
+      {% endset %}
 
-    {# buttonLinkInternal Block #}
+      {# buttonLinkInternal Block #}
     {% case 'buttonLinkInternalSimple' %}
-    {% set cmt = cmt ? cmt : 'layout-helper__margin-top--xs' %}
-    {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--xs' %}
-    {% set colClasses =
-      'col col-xs-12 col-md-10 col-md-shift-1 col-lg-8 col-lg-shift-2'
-    %}
-    {% set contentBlock %}
-      {% include '_components/_content-elements/link' with {
-        linkUrl: block.buttonLinkToEntry.one().url(),
-        linkText: block.linkText,
-        type: 'button',
-        target: 'internal',
-        iconPosition: 'after',
-        buttonLinkColor: block.buttonLinkColorSimple
-      } %}
-    {% endset %}
+      {% set cmt = cmt ? cmt : 'layout-helper__margin-top--xs' %}
+      {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--xs' %}
+      {% set colClasses =
+        'col col-xs-12 col-md-10 col-md-shift-1 col-lg-8 col-lg-shift-2' %}
+      {% set contentBlock %}
+        {% include '_components/_content-elements/link' with {
+          linkUrl: block.buttonLinkToEntry.one().url(),
+          linkText: block.linkText,
+          type: 'button',
+          target: 'internal',
+          iconPosition: 'after',
+          buttonLinkColor: block.buttonLinkColorSimple
+        } %}
+      {% endset %}
 
     {% endswitch %}
 

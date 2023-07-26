@@ -18,180 +18,174 @@
     </div>
   </section>
 
-  {# HOMEPAGE-NEWS MOBILE #}
-  {% if
-    entry.newsHomepageField is defined
+  {% set entries = craft.entries.section('homepage')
+    .with([
+      'homeFavorites', 'homeFavorites.articleImage',
+      'homeNewProduct', 'homeNewProduct.articleImage',
+      'homeSales', 'homeSales.articleImage',
+      'newsHomepageField','contentElementsHomepage',
+      'image'
+    ])
+    .all() %}
+
+  {% for entry in entries %}
+
+    {# HOMEPAGE-NEWS MOBILE #}
+    {% if
+      entry.newsHomepageField is defined
       and entry.newsHomepageField is not empty %}
-    {% for block in entry.newsHomepageField.all() %}
-      <div class="homepage-news homepage-news--mobile">
-        <span class="homepage-news__time">{{ block.newsHomepageTime }}</span>
-        <span class="homepage-news__location">
+      {% for block in entry.newsHomepageField %}
+        <div class="homepage-news homepage-news--mobile">
+          <span class="homepage-news__time">{{ block.newsHomepageTime }}</span>
+          <span class="homepage-news__location">
           {{ block.newsHomepageLocation }}
         </span>
-        <h3 class="homepage-news__title heading heading--no-margin heading--3">
-          {{ block.newsHomepageTitle }}
-        </h3>
-        <p class="homepage-news__text">
-          {{ block.newsHomepageText }}
-        </p>
-      </div>
-    {% endfor %}
-  {% endif %}
+          <h3 class="homepage-news__title heading heading--no-margin heading--3">
+            {{ block.newsHomepageTitle }}
+          </h3>
+          <p class="homepage-news__text">
+            {{ block.newsHomepageText }}
+          </p>
+        </div>
+      {% endfor %}
+    {% endif %}
 
-  {% include '_components/_content-elements/content-elements-startpage-loop' with {
-    contentElementsStartpage: entry.contentElementsStartpage.level(1),
-    usesGrid: false
-  } %}
 
-  {# Auswahl aus dem Shop #}
-  <section class="grid">
-    <div class="row">
-      <div class="col col-xs-12 col-md-12 col-lg-12">
-        <h2 class="heading heading--h2">
-          Auswahl aus dem Shop
+    <section class="grid">
+      <div>
+        <h2 class="visually-hidden">
+          Quicklinks
         </h2>
-        <a class="home__link layout-helper__margin-bottom--s"
-          href="{{ navNewArticles.url }}">
-          <span class="link__text link__text--section">{{ 'Shop'|t }}</span>
-          <div class="link__icon-wrapper link__icon-wrapper--internal">
-            {{
-              macros.svg('arrow_42')|attr({
-                class: 'link__icon link__icon--internal icon icon--42'
-              })
-            }}
-          </div>
-        </a>
-      </div>
-    </div>
-  </section>
+        <ul class="row quicklinks">
+          {% for block in entry.contentElementsHomepage %}
+            <li class="col col-xs-12 col-md-4 col-lg-4 quicklinks__items hä">
+              <a href="{{ block.buttonLinkToEntry }}"
+                 class="quicklinks__items--link">
+                {% set transform = transformation|default('imageOneThird') %}
+                {% set img = block.image[0] ?? generic.image[0] %}
 
-  {# Aktionen #}
-  {% set saleproducts = entry.homeSales %}
-  {% if saleproducts|length %}
+                {% if img is defined and img is not empty %}
+                  {% include '_components/_content-elements/image' with {
+                    img: img,
+                    transform: transform,
+                    imageAltText: block.imageAltText,
+                    imageCaption: block.imageCaption
+                  } %}
+                {% endif %}
+
+                <h2 class="heading heading--2 heading--no-margin">
+                  {{ block.titleH2 }}
+                </h2>
+              </a>
+              {% include '_components/_content-elements/link' with {
+                linkUrl: block.buttonLinkToEntry,
+                linkText: block.linkText,
+                type: 'button',
+                target: 'internal',
+                iconPosition: 'after',
+                buttonLinkColorSimple: block.buttonLinkColorSimple
+              } %}
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </section>
+
+    {# Auswahl aus dem Shop #}
+    <section class="grid">
+      <div class="row">
+        <div class="col col-xs-12 col-md-12 col-lg-12">
+          <div class="layout-helper__center">
+            <h2 class="heading heading--h2">
+              Auswahl aus dem Shop
+            </h2>
+            <a class="home__link layout-helper__margin-bottom--s"
+               href="{{ navNewArticles.url }}">
+              <span class="link__text link__text--section">{{ 'Shop'|t }}</span>
+              <div class="link__icon-wrapper link__icon-wrapper--internal">
+                {{ macros.svg('arrow_42')|attr({
+                  class: 'link__icon link__icon--internal icon icon--42'
+                }) }}
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    {# Loop through any eager-loaded sub-entries #}
+
+    {# AKtionen #}
     <section class="section-home section-home__stripe section-home__campaigns">
       <div class="grid">
+
         <div class="row">
           <div class="col col-xs-12 col-md-12 col-lg-12">
             <h3 class="heading heading--h3">
               Aktionen
             </h3>
             <a class="section-home__link"
-              href="shop/produkte?search=&aCatDelAll=0&articleCategoriesStatus%5B0%5D=10744&orderBy=fProd%20DESC%2C%20postDate%20DESC&page=1&vType=grid">
+               href="shop/produkte?search=&aCatDelAll=0&articleCategoriesStatus%5B0%5D=10744&orderBy=fProd%20DESC%2C%20postDate%20DESC&page=1&vType=grid">
               <span class="link__text link__text--section">
                 {{ 'Alle Aktionen'|t }}
               </span>
               <div class="link__icon-wrapper link__icon-wrapper--internal">
-                {{
-                  macros.svg('arrow_42')|attr({
-                    class: 'link__icon link__icon--internal icon icon--42'
-                  })
-                }}
+                {{ macros.svg('arrow_42')|attr({
+                  class: 'link__icon link__icon--internal icon icon--42'
+                }) }}
               </div>
             </a>
           </div>
         </div>
-
+        {# Get the eager-loaded asset, if there is one #}
         <div class="row section-home__row-products">
-          {% for product in saleproducts.all() %}
-            {% for variant in product.getVariants() %}
-              <div class="col col-xs-12 col-md-4 col-lg-4 section-home__product">
-                <a href="{{ product.url }}"
-                  class="section-home__product--link onsale">
-                  {% set transform = transformation|default('productListing') %}
-                  {% set img = product.articleImage.one ?? generic.image.one %}
-
-                  {% if img is defined %}
-                    {% include '_components/_content-elements/image' with {
-                      img: img,
-                      transform: transform
-                    } %}
-                  {% endif %}
-
-                  <div class="section-home__product--info">
-                    <h4 class="section-home__product--heading">
-                      {{ product.title }}
-                    </h4>
-
-                    {% include '/shop/produkte/_includes/prices.twig' %}
-                  </div>
-                </a>
-              </div>
-            {% endfor %}
+          {% for product in entry.homeSales %}
+            {{ include ('_pages/home/_include/homeproduct.twig') }}
           {% endfor %}
+
         </div>
+        <div class="section-home__overlay"></div>
       </div>
-      <div class="section-home__overlay"></div>
     </section>
-  {% endif %}
 
-  {# Neuheiten #}
-  {#  {% set newproducts = entry.homeNewProduct
-    .with([
-      'articleImage'
-    ]) %} #}
-
-  {% set newproducts = entry.homeNewProduct %}
-  {% if newproducts|length %}
+    {# Neuheiten #}
     <section class="section-home section-home__stripe section-home__newproducts">
       <div class="grid">
+
         <div class="row">
           <div class="col col-xs-12 col-md-12 col-lg-12">
             <h3 class="heading heading--h3">
               Neuheiten
             </h3>
             <a class="section-home__link"
-              href="shop/produkte?search=&aCatDelAll=0&articleCategoriesStatus%5B0%5D=10745&orderBy=fProd%20DESC%2C%20postDate%20DESC&page=1&vType=grid">
+               href="shop/produkte?search=&aCatDelAll=0&articleCategoriesStatus%5B0%5D=10745&orderBy=fProd%20DESC%2C%20postDate%20DESC&page=1&vType=grid">
               <span class="link__text link__text--section">
                 {{ 'Alle Neuheiten'|t }}
               </span>
               <div class="link__icon-wrapper link__icon-wrapper--internal">
-                {{
-                  macros.svg('arrow_42')|attr({
-                    class: 'link__icon link__icon--internal icon icon--42'
-                  })
-                }}
+                {{ macros.svg('arrow_42')|attr({
+                  class: 'link__icon link__icon--internal icon icon--42'
+                }) }}
               </div>
             </a>
           </div>
         </div>
-
+        {# Get the eager-loaded asset, if there is one #}
         <div class="row section-home__row-products">
-          {% for product in newproducts.all() %}
-            {% for variant in product.getVariants() %}
-              <div class="col col-xs-12 col-md-4 col-lg-4 section-home__product">
-                <a href="{{ product.url }}" class="section-home__product--link">
-                  {% set transform = transformation|default('productListing') %}
-                  {% set img = product.articleImage.one ?? generic.image.one %}
-
-                  {% if img is defined %}
-                    {% include '_components/_content-elements/image' with {
-                      img: img,
-                      transform: transform
-                    } %}
-                  {% endif %}
-
-                  <div class="section-home__product--info">
-                    <h4 class="section-home__product--heading">
-                      {{ product.title }}
-                    </h4>
-
-                    {% include '/shop/produkte/_includes/prices.twig' %}
-                  </div>
-                </a>
-              </div>
-            {% endfor %}
+          {% for product in entry.homeNewProduct %}
+            {{ include ('_pages/home/_include/homeproduct.twig') }}
           {% endfor %}
-        </div>
-      </div>
-      <div class="section-home__overlay"></div>
-    </section>
-  {% endif %}
 
-  {# Beliebteste #}
-  {% set favproducts = entry.homeFavorites %}
-  {% if favproducts|length %}
+        </div>
+        <div class="section-home__overlay"></div>
+      </div>
+    </section>
+
+    {# Beliebteste #}
     <section class="section-home section-home__stripe section-home__favorites">
       <div class="grid">
+
         <div class="row">
           <div class="col col-xs-12 col-md-12 col-lg-12">
             <h3 class="heading heading--h3">
@@ -199,47 +193,22 @@
             </h3>
           </div>
         </div>
-
+        {# Get the eager-loaded asset, if there is one #}
         <div class="row section-home__row-products">
-          {% for product in favproducts.all() %}
-            {% for variant in product.getVariants() %}
-              <div class="col col-xs-12 col-md-4 col-lg-4 section-home__product">
-                <a href="{{ product.url }}" class="section-home__product--link">
-                  {% set transform = transformation|default('productListing') %}
-                  {% set img = product.articleImage.one ?? generic.image.one %}
-
-                  {% if img is defined %}
-                    {% include '_components/_content-elements/image' with {
-                      img: img,
-                      transform: transform
-                    } %}
-                  {% endif %}
-
-                  <div class="section-home__product--info">
-                    <h4 class="section-home__product--heading">
-                      {{ product.title }}
-                    </h4>
-
-                    {% include '/shop/produkte/_includes/prices.twig' %}
-                  </div>
-                </a>
-              </div>
-            {% endfor %}
+          {% for product in entry.homeFavorites %}
+            {{ include ('_pages/home/_include/homeproduct.twig') }}
           {% endfor %}
+
         </div>
+        <div class="section-home__overlay"></div>
       </div>
-      <div class="section-home__overlay"></div>
     </section>
-  {% endif %}
 
-  {# Blog Artikel #}
-  {#  {% set blogQuery = craft.entries().section('newsEntries').limit(3).with([
-    'image'
-  ]) %} #}
+  {% endfor %}
 
-  {% set blogQuery = craft.entries().section('newsEntries').limit(3) %}
-  {% set entries = blogQuery.all() %}
-  {% if entries|length %}
+
+  {% set blogQuery = craft.entries().section('newsEntries').with(['image']).limit(3) %}
+  {% if blogQuery|length %}
     <section class="section-home section-home__stripe section-home__blog">
       <div class="grid">
         <div class="row">
@@ -252,41 +221,26 @@
                 {{ 'Zum Blog'|t }}
               </span>
               <div class="link__icon-wrapper link__icon-wrapper--internal">
-                {{
-                  macros.svg('arrow_42')|attr({
-                    class: 'link__icon link__icon--internal icon icon--42'
-                  })
-                }}
+                {{ macros.svg('arrow_42')|attr({
+                  class: 'link__icon link__icon--internal icon icon--42'
+                }) }}
               </div>
             </a>
           </div>
         </div>
 
         <div class="row section-home__row-products">
-          {% for entry in entries %}
+          {% for entry in blogQuery %}
             <article class="col col-xs-12 col-md-4 col-lg-4 section-home__blogentry">
               <a href="{{ entry.url }}" class="section-home__product--link">
                 {% set transform = transformation|default('productListing') %}
+                {% set img = entry.image[0] ?? generic.image.one() %}
 
-                {% if
-                  entry.recipes.name is defined
-                    and entry.recipes.name is not empty %}
-                  {% set img = entry.recipes.getImageUrl() %}
-                  {% if img is defined %}
-                    {% include '_components/_content-elements/image-recipe' with {
-                      img: img,
-                      transform: transform
-                    } %}
-                  {% endif %}
-                {% else %}
-                  {% set img = entry.image.one ?? generic.image.one() %}
-
-                  {% if img is defined %}
-                    {% include '_components/_content-elements/image' with {
-                      img: img,
-                      transform: transform
-                    } %}
-                  {% endif %}
+                {% if img is defined %}
+                  {% include '_components/_content-elements/image' with {
+                    img: img,
+                    transform: transform
+                  } %}
                 {% endif %}
 
                 <div class="section-home__product--info">

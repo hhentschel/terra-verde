@@ -1,0 +1,28 @@
+<nav class="detail-page__subnav">
+  <ul class="nav-sidebar">
+    {% set relatedSection =
+      craft.entries.section('productStructure').level('<= 3').all() %}
+
+    {% nav page in relatedSection %}
+      <li class="nav-sidebar__item">
+
+        <a href="{{ page.getUrl() }}" class="nav-sidebar__link {{ page.id == entry.id
+        ? 'nav-sidebar__link--active' }}">{{ page.title }}
+        </a>
+
+        {% ifchildren %}
+          <ul class="nav-sidebar__sub">
+            {% children %}
+          </ul>
+        {% endifchildren %}
+      </li>
+    {% endnav %}
+
+    <li class="nav-sidebar__item">
+      {% set slug = craft.app.request.getSegment(1) %}
+      <a href="/produzenten" class="nav-sidebar__link {{ slug == 'produzentinnen'
+      ? 'nav-sidebar__link--active' }}">{{ 'Produzent:innen' }}
+      </a>
+    </li>
+  </ul>
+</nav>

@@ -1,5 +1,7 @@
 {% set img = img is defined and img is not empty ? img.one() : null %}
 
+{# {% set img = block.image[0] ?? null %} #}
+
 {# {% set img = entry.image.one() ?? null %} #}
 {% set imageUrl = img ? img.getUrl('imageContentFull') : '' %}
 

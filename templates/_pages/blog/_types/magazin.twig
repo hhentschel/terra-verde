@@ -1,26 +1,34 @@
-<div class="col col-xs-12 col-md-12 col-lg-9 col-lg-shift-2">
+{% set pageTitle = entry.pageTitle is not empty ? entry.pageTitle : entry.title %}
+
+{# <div class="col col-xs-12 col-md-12 col-lg-9 col-lg-shift-2"> #}
+{# <div class="col col-xs-12 col-md-12 col-lg-12"> #}
+
   {% block content %}
-    <div class="content__detail-header">
-      <div class="content__detail-image producers-overview__image">
-        {% set transform = transformation|default('imageOneThird') %}
+    <div class="detail-page__header">
+      <div class="detail-page__header--image">
+        {% set transform = transformation|default('imageContentFull') %}
         {% set img = entry.image.one() ?? null %}
 
         {% if img is defined and img is not empty %}
           {% include '_components/_content-elements/image' with {
-            optimizedimages: img,
+            img: img,
             transform: transform
           } %}
         {% endif %}
       </div>
 
-      <div class="content__detail-lead producers-overview__lead">
-        {{ entry.leadText }}
+      <h1 class="heading heading--h2 detail-page__heading">
+        {{ pageTitle }}
+      </h1>
+      <div class="detail-page__meta">
+        <span>{{ entry.author }}</span>, <span>{{ entry.postDate | date("d.m.Y") }}</span>
       </div>
+
     </div>
 
     {% include '_components/_content-elements/content-elements-loop' with {
       contentElements: entry.contentElements.level(1),
-      usesGrid: false
+      usesGrid: true
     } %}
   {% endblock %}
-</div>
+

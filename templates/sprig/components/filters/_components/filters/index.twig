@@ -76,13 +76,24 @@
   limit: limit,
   with: [
     [
+      'product.articleImage',
       'articleImage',
+      'product',
+      'variants',
+      'title',
+      'newsletterInfofield',
+      'articleCategoriesStatus',
       {
         withTransforms: ['productListing']
       }
     ]
   ]
 }) %}
+
+{# 'product',
+'variants',
+'title',
+'newsletterInfofield', #}
 
 {% set categories = aCatDeli
   |merge(aCG)
@@ -213,6 +224,7 @@
 
       {% for product in products %}
         {% for variant in product.getVariants() %}
+          {# {% include 'sprig/components/cart/_components/product' %} #}
           {{ sprig('sprig/components/cart/_components/product', {variantId : variant.id, productId : product.id}, {'class': 'shop-list__item'}) }}
         {% endfor %}
       {% endfor %}

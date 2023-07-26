@@ -1,49 +1,54 @@
 {% extends '_layouts/main' %}
-{% set pageTitle = entry.pageTitle is not empty ? entry.pageTitle : entry.title
-%}
+{% set pageTitle = entry.pageTitle is not empty ? entry.pageTitle : entry.title %}
 {% import '_helpers/macros.twig' as macros %}
 
-{% block content %}
-  <div class="grid">
-    <div class="row">
-      <div class="col col-xs-12 col-md-12 col-lg-12 col-lg-shift-3">
-        {% include '_components/breadcrumb.twig' %}
-        <h2 class="heading heading--h2 heading--site heading--no-margin-top">
-          {{ pageTitle }}
-        </h2>
-      </div>
-    </div>
-  </div>
-
-  <section class="grid">
-    <div class="row">
-      <div class="col col-xs-12 col-md-12 col-lg-3">
-        <ul class="nav-sidebar">
-          {% set relatedSection =
-            craft.entries.section('aboutUsStructure').level(2)
-          %}
-          {% if relatedSection|length %}
-            {% for subnav in relatedSection %}
-              <li class="nav-sidebar__item">
-                <a href="{{ subnav.url }}"
-                  class="nav-sidebar__link {{
-                  subnav.id == entry.id
-                    ? 'nav-sidebar__link--active'
-                  }}">
-                  {{ subnav.title }}
-                </a>
-              </li>
-            {% endfor %}
-          {% endif %}
-        </ul>
+    {% block content %}
+      <div class="grid">
+        <div class="row">
+          <div class="col col-xs-12 col-md-12 col-lg-12 col-lg-shift-3">
+            {% include '_components/breadcrumb.twig' %}
+            <h2 class="heading heading--h2 heading--site heading--no-margin-top">
+              {{ pageTitle }}
+            </h2>
+          </div>
+        </div>
       </div>
 
-      <div class="col col-xs-12 col-md-12 col-lg-9">
-        {% include '_components/_content-elements/content-elements-loop' with {
-          contentElements: entry.contentElements,
-          usesGrid: false
-        } %}
-      </div>
-    </div>
-  </section>
-{% endblock %}
+      <section class="grid">
+        <div class="row">
+          <div class="col col-xs-12 col-md-12 col-lg-3">
+            <ul class="nav-sidebar">
+              {% set relatedSection =
+                craft.entries.section('aboutUsStructure').level(2) %}
+              {% if relatedSection|length %}
+                {% for subnav in relatedSection %}
+                  <li class="nav-sidebar__item">
+                    <a href="{{ subnav.url }}"
+                       class="nav-sidebar__link {{ subnav.id == entry.id
+                       ? 'nav-sidebar__link--active' }}">
+                      {{ subnav.title }}
+                    </a>
+                  </li>
+                {% endfor %}
+              {% endif %}
+            </ul>
+          </div>
+
+          {#          {% set entries = craft.entries.section('aboutUsStructure').level(1)
+            .with([
+              'image', 'contentElements.image',
+            ])
+            .all() %}
+
+          {% for entry in entries %} #}
+          <div class="col col-xs-12 col-md-12 col-lg-9">
+            {% include '_components/_content-elements/content-elements-loop' with {
+              contentElements: entry.contentElements,
+              usesGrid: false
+            } %}
+          </div>
+          {#          {% endfor %} #}
+        </div>
+      </section>
+    {% endblock %}
+

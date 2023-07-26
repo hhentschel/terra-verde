@@ -105,13 +105,16 @@
 
       @include breakpoint('tablet') {
         display: flex;
+        flex-direction: column;
         gap: px-to-rem($space--xm);
         flex: 1;
+
       }
     }
 
     &__wine {
       flex: 1 0 0;
+      background-color: rgba($color--green-bio, 0.2);
 
       .heading {
         text-align: center;
@@ -120,6 +123,7 @@
       .anchor-link {
         display: block;
         text-align: center;
+
       }
     }
 

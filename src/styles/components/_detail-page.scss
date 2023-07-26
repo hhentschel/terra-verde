@@ -1,0 +1,101 @@
+.detail-page {
+  &__wrapper {
+    @include grid-base();
+
+    @include breakpoint('tablet-landscape') {
+      display: grid;
+      grid-template-columns: calc(25% - 50px) 1fr calc(min(70ch, calc(100% - 64px))) repeat(2, 1fr);
+      grid-column-gap: 32px;
+      padding: 0;
+      margin: 0;
+      max-width: 100%;
+    }
+
+    & > * {
+      grid-column: 3;
+    }
+  }
+
+  &__subnav {
+    grid-column: 2 / 3;
+  }
+
+  .nav-sidebar {
+    margin: 0;
+  }
+
+  .breadcrumb {
+    grid-column: 2 / -1;
+  }
+
+  &__heading {
+    font-size: px-to-rem(36);
+    font-weight: 600;
+  }
+
+  &__header {
+    margin-bottom: px-to-rem($space--m);
+
+    .image {
+      margin-bottom: px-to-rem($space--xm);
+    }
+
+  }
+
+  &__meta {
+    font-size: px-to-rem(15);
+    color: $color--grey-darker;
+  }
+
+  .image-wide {
+    grid-column: 1 / -1;
+
+    @include breakpoint('tablet-portrait') {
+      grid-column: 2 / 5;
+    }
+
+    .image__img {
+      width: 100%;
+    }
+  }
+}
+
+
+.grid {
+
+  &-shift {
+
+
+    &__left {
+      grid-column: 1 /-1;
+      width: 100%;
+
+      @include breakpoint('tablet-portrait') {
+        width: 75%;
+        grid-column: 2 /4;
+      }
+    }
+
+    &__right {
+      grid-column: 1 /-1;
+      width: 100%;
+      justify-self: flex-end;
+
+      @include breakpoint('tablet-portrait') {
+        width: 75%;
+        grid-column: 3 /4;
+      }
+
+      @include breakpoint('tablet-landscape') {
+        grid-column: 3 /5;
+      }
+    }
+  }
+
+  &__full-bleed {
+    width: 100%;
+    grid-column: 1 / -1;
+  }
+
+
+}

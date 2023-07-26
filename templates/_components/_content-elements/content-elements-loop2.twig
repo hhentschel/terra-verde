@@ -1,0 +1,361 @@
+{% if contentElements is defined and contentElements is not empty %}
+  {% set usesGrid = usesGrid is defined and usesGrid == true ? true : false %}
+  {% set contentArray = [] %}
+  {# this is an include since it is used again inside a accordion #}
+  {% for block in contentElements.all() %}
+    {% set cmt = '' %} {# classMarginTop #}
+    {% set cmb = '' %} {# classMarginBottom #}
+    {% set colClasses = '' %}
+    {% set contentBlock = '' %}
+    {% if loop.index0 == 0 and loop.index == (contentElements|length) %}
+      {% set cmt = 'layout-helper__margin-top--none' %}
+      {% set cmb = 'layout-helper__margin-bottom--none' %}
+    {% elseif loop.index0 == 0 %}
+      {% set cmt = 'layout-helper__margin-top--none' %}
+    {% elseif loop.index == (contentElements|length) %}
+      {% set cmb = 'layout-helper__margin-bottom--none' %}
+    {% endif %}
+
+    {% switch block.type.handle %}
+      {# formattedText Block #}
+    {% case 'formattedText' %}
+      {% set cmt = cmt ? cmt : 'layout-helper__margin-top--none' %}
+      {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--xs' %}
+      {% set colClasses =
+        'col col-xs-12 col-md-10 col-md-shift-1 col-lg-10 col-lg-shift-2' %}
+      {% set contentBlock %}
+        {% include '_components/_content-elements/formatted-text' with {
+          formattedText: block.textStandardWithoutH1
+        } %}
+      {% endset %}
+
+      {# titleH2 Block #}
+    {% case 'titleH2' %}
+      {% set cmt = cmt ? cmt : 'layout-helper__margin-top--m' %}
+      {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--xxs' %}
+      {% set colClasses =
+        'col col-xs-12 col-md-10 col-md-shift-1 col-lg-9 col-lg-shift-2' %}
+      {% set contentBlock %}
+        <h2 class="heading heading--h2 heading--no-margin">
+          {{ block.titleH2 }}
+        </h2>
+      {% endset %}
+
+      {# table Block #}
+    {% case 'table' %}
+      {% set cmt = cmt ? cmt : 'layout-helper__margin-top--m' %}
+      {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--xxs' %}
+      {% set colClasses =
+        'col col-xs-12 col-md-10 col-md-shift-1 col-lg-9 col-lg-shift-2' %}
+      {% set contentBlock %}
+        <div class="table-container">
+          {{ block.tableContent }}
+        </div>
+      {% endset %}
+
+      {# titleH3 Block #}
+    {% case 'titleH3' %}
+      {% set cmt = cmt ? cmt : 'layout-helper__margin-top--xs' %}
+      {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--xxs' %}
+      {% set colClasses =
+        'col col-xs-12 col-md-10 col-md-shift-1 col-lg-9 col-lg-shift-2' %}
+      {% set contentBlock %}
+        <h3 class="heading heading--h3 heading--no-margin">
+          {{ block.titleH3 }}
+        </h3>
+      {% endset %}
+
+      {# titleH4 Block #}
+    {% case 'titleH4' %}
+      {% set cmt = cmt ? cmt : 'layout-helper__margin-top--s' %}
+      {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--xxs' %}
+      {% set colClasses =
+        'col col-xs-12 col-md-10 col-md-shift-1 col-lg-9 col-lg-shift-2' %}
+      {% set contentBlock %}
+        <h4 class="heading heading--h4 heading--no-margin">
+          {{ block.titleH4 }}
+        </h4>
+      {% endset %}
+
+      {# buttonLinkInternal Block #}
+    {% case 'buttonLinkInternal' %}
+      {% set cmt = cmt ? cmt : 'layout-helper__margin-top--xs' %}
+      {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--xs' %}
+      {% set colClasses =
+        'col col-xs-12 col-md-10 col-md-shift-1 col-lg-9 col-lg-shift-2' %}
+      {% set contentBlock %}
+        {% include '_components/_content-elements/link' with {
+          linkUrl: block.buttonLinkToEntry.one().url(),
+          linkText: block.linkText,
+          type: 'button',
+          target: 'internal',
+          iconPosition: 'after',
+          buttonLinkColor: block.buttonLinkColor
+        } %}
+      {% endset %}
+
+      {# buttonLinkInternal Block #}
+    {% case 'buttonLinkInternalSimple' %}
+      {% set cmt = cmt ? cmt : 'layout-helper__margin-top--xs' %}
+      {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--xs' %}
+      {% set colClasses =
+        'col col-xs-12 col-md-10 col-md-shift-1 col-lg-9 col-lg-shift-2' %}
+      {% set contentBlock %}
+        {% include '_components/_content-elements/link' with {
+          linkUrl: block.buttonLinkToEntry.one().url(),
+          linkText: block.linkText,
+          type: 'button',
+          target: 'internal',
+          iconPosition: 'after',
+          buttonLinkColor: block.buttonLinkColorSimple
+        } %}
+      {% endset %}
+
+      {# LinkInternal Block #}
+    {% case 'LinkInternal' %}
+      {% set cmt = cmt ? cmt : 'layout-helper__margin-top--xs' %}
+      {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--xs' %}
+      {% set colClasses =
+        'col col-xs-12 col-md-10 col-md-shift-1 col-lg-9 col-lg-shift-2' %}
+      {% set contentBlock %}
+        {% include '_components/_content-elements/link' with {
+          linkUrl: block.linkToEntry.one().url(),
+          linkText: block.linkText,
+          target: 'internal',
+          iconPosition: 'before'
+        } %}
+      {% endset %}
+
+      {# externalLink Block #}
+    {% case 'externalLink' %}
+      {% set cmt = cmt ? cmt : 'layout-helper__margin-top--xs' %}
+      {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--xs' %}
+      {% set colClasses =
+        'col col-xs-12 col-md-10 col-md-shift-1 col-lg-9 col-lg-shift-2' %}
+      {% set contentBlock %}
+        {% include '_components/_content-elements/link' with {
+          linkUrl: block.externalLink,
+          linkText: block.linkText,
+          target: 'external',
+          iconPosition: 'before'
+        } %}
+      {% endset %}
+
+      {# externerLinkPreview Block #}
+    {% case 'externerLinkPreview' %}
+      {% set cmt = cmt ? cmt : 'layout-helper__margin-top--m' %}
+      {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--xxs' %}
+      {% set colClasses =
+        'col col-xs-12 col-md-10 col-md-shift-1 col-lg-9 col-lg-shift-2' %}
+      {% set contentBlock %}
+        {% if block.externerLinkPreview.valid %}
+          {% include 'prismatic-preview-links.twig' with block.externerLinkPreview %}
+        {% endif %}
+      {% endset %}
+
+      {# linkDownload Block #}
+    {% case 'linkDownload' %}
+      {% set cmt = cmt ? cmt : 'layout-helper__margin-top--xxs' %}
+      {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--xxs' %}
+      {% set colClasses =
+        'col col-xs-12 col-md-10 col-md-shift-1 col-lg-9 col-lg-shift-2' %}
+      {% set contentBlock %}
+        {% include '_components/_content-elements/link' with {
+          linkUrl: block.linkToDownload.one().url(),
+          linkText: block.linkText,
+          target: 'download',
+          iconPosition: 'before'
+        } %}
+      {% endset %}
+
+      {# Image Block #}
+    {% case 'image' %}
+      {% set cmt = cmt ? cmt : 'layout-helper__margin-top--m' %}
+      {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--m' %}
+      {% set colClasses =
+        'col col-xs-12 col-md-10 col-md-shift-1 col-lg-10 col-lg-shift-2' %}
+      {% set contentBlock %}
+        {% include '_components/_content-elements/imagecontent' with {
+          img: block.image,
+          imageAltText: block.imageAltText,
+          imageCaption: block.imageCaption
+        } %}
+      {% endset %}
+
+      {# Video Block #}
+
+    {% case 'video' %}
+      {% set cmt = cmt ? cmt : 'layout-helper__margin-top--m' %}
+      {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--m' %}
+      {% set colClasses =
+        'col col-xs-12 col-md-10 col-md-shift-1 col-lg-10 col-lg-shift-2' %}
+      {% set contentBlock %}
+        {% include '_components/_content-elements/videocontent' with {
+          video: block.videoFiles
+        } %}
+      {% endset %}
+
+      {# ImageText 30/70 Block #}
+    {% case 'imageText3070' %}
+      {% set cmt = cmt ? cmt : 'layout-helper__margin-top--m' %}
+      {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--m' %}
+      {% set colClasses =
+        'col col-xs-12 col-md-10 col-md-shift-1 col-lg-10 col-lg-shift-2' %}
+      {% set transform = transformation|default('imageOneThird') %}
+      {% set contentBlock %}
+        {% include '_components/_content-elements/image-text' with {
+          img: block.image,
+          title: block.titleH3,
+          imageAltText: block.imageAltText,
+          imageCaption: block.imageCaption,
+          formattedText: block.textStandardWithoutH1,
+          imageSize: 'image--one-third',
+          transform: transform
+        } %}
+      {% endset %}
+
+      {# ImageText 50/50 Block #}
+    {% case 'imageText5050' %}
+      {% set cmt = cmt ? cmt : 'layout-helper__margin-top--m' %}
+      {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--m' %}
+      {% set colClasses =
+        'col col-xs-12 col-md-10 col-md-shift-1 col-lg-10 col-lg-shift-2' %}
+      {% set transform = transformation|default('imageHalf') %}
+      {% set contentBlock %}
+        {% include '_components/_content-elements/image-text' with {
+          img: block.image,
+          title: block.titleH3,
+          imageAltText: block.imageAltText,
+          imageCaption: block.imageCaption,
+          formattedText: block.textStandardWithoutH1,
+          imageSize: 'image--half',
+          transform: transform
+        } %}
+      {% endset %}
+
+
+      {# ImageImage 50/50 Block #}
+    {% case 'image5050' %}
+      {% set cmt = cmt ? cmt : 'layout-helper__margin-top--m' %}
+      {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--m' %}
+      {% set colClasses =
+        'col col-xs-12 col-md-10 col-md-shift-1 col-lg-10 col-lg-shift-2' %}
+      {% set transform = transformation|default('imageHalf') %}
+      {% set contentBlock %}
+        {% include '_components/_content-elements/image-matrix' with {
+          imageSize: 'image--half',
+          transform: transform
+        } %}
+      {% endset %}
+
+      {# Image 1/2 Block #}
+    {% case 'imageHalfWidth' %}
+      {% set cmt = cmt ? cmt : 'layout-helper__margin-top--m' %}
+      {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--m' %}
+      {% set colClasses =
+        'col col-xs-12 col-md-10 col-md-shift-1 col-lg-10 col-lg-shift-2' %}
+      {% set contentBlock %}
+        {% include '_components/_content-elements/imagecontent' with {
+          img: block.image,
+          imageAltText: block.imageAltText,
+          imageSizeParam: 'image--half'
+        } %}
+      {% endset %}
+
+      {# Video Block #}
+    {% case 'youtubeVideo' %}
+      {% set cmt = cmt ? cmt : 'layout-helper__margin-top--m' %}
+      {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--m' %}
+      {% set colClasses =
+        'col col-xs-12 col-md-10 col-md-shift-1 col-lg-10 col-lg-shift-2' %}
+      {% set contentBlock %}
+        {% include '_components/_content-elements/video' with {
+          videoSrc: block.youtubeVideoSrc
+        } %}
+      {% endset %}
+
+      {# Accordion Block #}
+    {% case 'accordion' %}
+      {% set cmt = cmt ? cmt : 'layout-helper__margin-top--m' %}
+      {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--l' %}
+      {% set colClasses =
+        'col col-xs-12 col-md-10 col-md-shift-1 col-lg-10 col-lg-shift-2' %}
+      {% set contentBlock %}
+        {% include '_components/_content-elements/accordion' with {
+          items: block.children
+        } %}
+      {% endset %}
+
+      {# Bildgalerie Block #}
+    {% case 'imageGallery' %}
+      {% set cmt = cmt ? cmt : 'layout-helper__margin-top--m' %}
+      {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--l' %}
+      {% set colClasses =
+        'col col-xs-12 col-md-12 col-lg-12' %}
+      {% set contentBlock %}
+        {% include '_components/_content-elements/gallery' with {
+          items: block.children
+        } %}
+      {% endset %}
+
+      {# Infobox Block #}
+    {% case 'infobox' %}
+      {% set cmt = cmt ? cmt : 'layout-helper__margin-top--m' %}
+      {% set cmb = cmb ? cmb : 'layout-helper__margin-bottom--s' %}
+
+      {% set boxAlign = '' %}
+      {% for option in block.boxAlign.options %}
+        {% if option.selected %}
+          {% set boxAlign = option.value %}
+        {% endif %}
+      {% endfor %}
+      {#      String to Array conversion #}
+      {% set boxAlignArray = boxAlign|split(', ') %}
+
+      {#      Merge with the normal Classes #}
+      {% set colClassesBasic = ['col col-xs-12 col-md-10 col-md-shift-1 col-lg-9 col-lg-shift-2'] %}
+      {% set colClasses = colClassesBasic|merge(boxAlignArray) %}
+
+      {% set contentBlock %}
+        {% include '_components/_content-elements/infobox' with {
+          items: block.children
+        } %}
+      {% endset %}
+    {% endswitch %}
+
+    {# Build Block and add it to contentArray #}
+    {% if usesGrid %}
+      {% set content %}
+        <div class="row {{ cmt }} {{ cmb }}">
+          {#          JOIN - Array to Strong Conversion, because of Infobox #}
+          <div class="{{ colClasses|join(', ') }}">
+            {{ contentBlock }}
+          </div>
+        </div>
+      {% endset %}
+    {% else %}
+      {% set content %}
+        <div class="{{ cmt }} {{ cmb }}">
+          {{ contentBlock }}
+        </div>
+      {% endset %}
+    {% endif %}
+
+    {% set contentArray = contentArray|merge([content]) %}
+  {% endfor %}
+
+  {# Ouput #}
+  <div class="content-elements">
+    {% if usesGrid %}
+      <div class="grid">
+        {% for contentElement in contentArray %}
+          {{ contentElement }}
+        {% endfor %}
+      </div>
+    {% else %}
+      {% for contentElement in contentArray %}
+        {{ contentElement }}
+      {% endfor %}
+    {% endif %}
+  </div>
+{% endif %}

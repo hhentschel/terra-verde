@@ -1,9 +1,11 @@
-{% extends '_layouts/main' %}
+{% extends './_layouts/main' %}
 {% import '_helpers/macros.twig' as macros %}
 {% set pageTitle = entry.pageTitle is not empty ? entry.pageTitle : entry.title %}
 
-{% set allManufactors =
-  craft.entries.section('producersStructure').level(1).all() %}
+{# {% set allManufactors =
+  craft.entries.section('producersStructure').level(1).with([
+    'image'
+  ]).all() %} #}
 
 {% set entry =
   craft.entries().section('producersOverview').with(
@@ -43,28 +45,63 @@
 
 {# Get all Producers who sell Food #}
 {% set allManufactorsFood =
-  craft.entries.section('producersStructure').relatedTo([manufactorFood]).all() %}
+  craft.entries.section('producersStructure').relatedTo([manufactorFood]).with(['image']).all() %}
 
 {# Get all Producers who sell Wine #}
 {% set allManufactorsWine =
   craft.entries.section('producersStructure').relatedTo([manufactorWine]).all() %}
 
+{# {% set allManufactors =
+  craft.entries.section('producersOverview').one() %} #}
+
 {% block content %}
   <div class="grid">
     <div class="row">
-      <div class="col col-xs-12 col-md-12 col-lg-12">
-        {% include '_components/breadcrumb.twig' %}
-        <h2 class="heading heading--h2 heading--site heading--no-margin-top">
+      <div class="col col-xs-12 col-md-12 col-lg-9 col-lg-shift-3">
+        <nav class="breadcrumb" aria-label="{{ 'breadcrumbs'|t }}">
+          <ul itemscope itemtype="http://schema.org/BreadcrumbList">
+            <li class=""
+
+                itemprop="itemListElement"
+                itemscope
+                itemtype="http://schema.org/ListItem">
+              <a href="/"
+                 itemtype="http://schema.org/Thing"
+                 itemprop="item">
+                <span itemprop="name">Startseite</span>
+              </a>
+            </li>
+
+            <li class="is-active"
+
+                itemprop="itemListElement"
+                itemscope
+                itemtype="http://schema.org/ListItem">
+              <a href=""
+                 itemtype="http://schema.org/Thing"
+                 itemprop="item">
+                <span itemprop="name">Produzent:innen</span>
+              </a>
+            </li>
+
+          </ul>
+        </nav>
+        <h1 class="heading heading--h1 detail-page__heading heading--no-margin-top">
           {{ pageTitle }}
-        </h2>
+        </h1>
       </div>
     </div>
   </div>
 
   <section class="grid">
     <div class="row">
-      <div class="col col-xs-12 col-md-7 col-lg-7">
-        {% include '_pages/produzenten/map' %}
+      <div class="col col-xs-12 col-md-12 col-lg-3">
+        {{ include ('./_pages/produkte/_includes/subnav.twig') }}
+      </div>
+
+
+      <div class="col col-xs-12 col-md-7 col-lg-6">
+        {% include '_pages/produkte/produzenten/map' %}
 
         <div class="producers-map__mobile">
           {% set transform = transformation|default('imageContentFull') %}
@@ -78,8 +115,24 @@
         </div>
       </div>
 
-      <div class="col col-xs-12 col-md-5 col-lg-5 producers-list">
+      <div class="col col-xs-12 col-md-5 col-lg-3 producers-list">
         <div class="producers-list__wrapper">
+
+          <div class="producers-list__wine">
+            <h3 class="heading heading-3 layout-helper__margin-top--none">
+              Weine
+            </h3>
+            <a class="anchor-link" href="#winelist">
+              <span class="link__text link__text--section">
+                {{ 'Zu unseren Wein-produzent:innen'|t }}
+              </span>
+              <div class="link__icon-wrapper link__icon-wrapper--internal">
+                {{ macros.svg('carret_down_24')|attr({
+                  class: 'link__icon link__icon--down icon icon--24'
+                }) }}
+              </div>
+            </a>
+          </div>
 
           <ul class="producers-list__deli">
             <h3 class="heading heading-3 layout-helper__margin-top--none">
@@ -96,21 +149,7 @@
               </li>
             {% endfor %}
           </ul>
-          <div class="producers-list__wine">
-            <h3 class="heading heading-3 layout-helper__margin-top--none">
-              Weine
-            </h3>
-            <a class="anchor-link" href="#winelist">
-              <span class="link__text link__text--section">
-                {{ 'Zu unseren Wein-produzent:innen'|t }}
-              </span>
-              <div class="link__icon-wrapper link__icon-wrapper--internal">
-                {{ macros.svg('carret_down_24')|attr({
-                  class: 'link__icon link__icon--down icon icon--24'
-                }) }}
-              </div>
-            </a>
-          </div>
+
         </div>
 
       </div>
@@ -126,7 +165,7 @@
         <ul class="producers-grid">
           {% if allManufactorsFood|length %}
             {% for entry in allManufactorsFood %}
-              {% include '_pages/produzenten/producers-tile.twig' %}
+              {% include '_pages/produkte/produzenten/producers-tile.twig' %}
             {% endfor %}
           {% endif %}
         </ul>
@@ -137,7 +176,7 @@
         <div class="producers-grid" id="winelist">
           {% if allManufactorsWine|length %}
             {% for entry in allManufactorsWine %}
-              {% include '_pages/produzenten/producers-tile.twig' %}
+              {% include '_pages/produkte/produzenten/producers-tile.twig' %}
             {% endfor %}
           {% endif %}
         </div>

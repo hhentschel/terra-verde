@@ -71,8 +71,10 @@ $link__button-secondary-color-hover: $color--primary-hover;
       position: relative;
       display: inline-flex;
       width: $link__icon-width--internal;
-      height: $link__icon-height--internal;
+      /*height: $link__icon-height--internal;*/
+      align-items: center;
       margin-left: $link__icon-distance--external;
+      height: 100%;
     }
   }
 
@@ -81,7 +83,7 @@ $link__button-secondary-color-hover: $color--primary-hover;
 
     &--internal {
       position: absolute;
-      margin-top: px-to-rem(-$space--s);
+      /*margin-top: px-to-rem(-$space--s);*/
     }
   }
 

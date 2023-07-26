@@ -1,0 +1,82 @@
+{% import '_helpers/macros.twig' as macros %}
+
+{% set randomId = random() %}
+
+<div class="gallery gallery-container">
+  <div class="gallery__header">
+    <div class="gallery__header--info">
+      <h2 class="heading heading--h2 heading--no-margin"> {{ title }}</h2>
+      <p> {{ leadtext }}</p>
+    </div>
+    {# <div class="gallery__header--navigation">
+
+      <button class="gallery-navigation gallery-navigation__button--prev"
+              aria-label="Zurück"
+              aria-controls="slider-variant--{{ randomId }}">
+        {{ macros.svg('carret_left_42')|attr({
+          class: 'link__icon--gallery icon icon--42'
+        }) }}
+      </button>
+
+      <button class="gallery-navigation gallery-navigation__button--next"
+              aria-label="Weiter"
+              aria-controls="slider-variant--{{ randomId }}">
+        {{ macros.svg('carret_right_42')|attr({
+          class: 'link__icon--gallery icon icon--42'
+        }) }}
+      </button>
+    </div> #}
+
+  </div>
+
+  <div class="gallery-slider">
+    {% for block in block.imageMatrix.all() %}
+
+      {% set imageSizeParam = imageSize is defined and imageSize is not empty
+        ? imageSize
+        : '' %}
+
+      {% set img = block.imgMatrix.one() ?? null %}
+      {% set transform = transformation|default('imageOneThird') %}
+      {% set imageUrl = img.getUrl(transform)|default('') %}
+
+      {% set imageStandardAltText = img
+        and block.imageAltText is defined
+        and block.imageAltText is not empty
+        ? block.imageAltText
+        : 'Terra Verde' %}
+      {% set imageAltText = block.imageAltText is defined and block.imageAltText is not empty
+        ? block.imageAltText
+        : imageStandardAltText %}
+
+      {% set imageStandardCaption = img
+        and block.imageCaption is defined
+        and block.imageCaption is not empty
+        ? block.imageCaption
+        : '' %}
+      {% set imageCaption = block.imageCaption is defined and block.imageCaption is not empty
+        ? block.imageCaption
+        : imageStandardCaption %}
+
+      {% set imageTypeClass = imageSizeParam is defined
+        and imageSizeParam is not empty
+        ? imageSizeParam
+        : '' %}
+      <div class="image-matrix  {{ imageTypeClass }}">
+        {% if imageUrl %}
+          <figure class="image">
+            <div class="image__wrapper">
+              <img class="image__img" src="{{ imageUrl }}" alt="{{ imageAltText }}"/>
+            </div>
+            {% if imageCaption %}
+              <figcaption class="image__caption">
+                {{ imageCaption }}
+              </figcaption>
+            {% endif %}
+          </figure>
+        {% endif %}
+
+      </div>
+    {% endfor %}
+  </div>
+</div>
