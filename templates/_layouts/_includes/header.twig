@@ -1,8 +1,7 @@
 {% set headerBackground = entry.mainImage is defined
   and entry.mainImage is not empty
   ? 'header__background--with-image'
-  : ''
-%}
+  : '' %}
 
 <header class="header">
   <div class="header__background {{ headerBackground }}"></div>
@@ -14,19 +13,18 @@
           <a class="header__logo-link" href="/">
             <span class="header__logo-line">Terra</span>
             <img class="header__logo-mobile"
-              src="{{
-              alias(
-                '@rootUrl'
-              )
-              }}/assets/images/logo/TerraVerde_Logo05-mobile.png"
-              alt="Terra Verde Logo" />
+                 src="{{ alias(
+                   '@rootUrl'
+                 ) }}/assets/images/logo/TerraVerde_Logo05-mobile.png"
+                 alt="Terra Verde Logo"/>
             <span class="header__logo-line">Verde</span>
           </a>
 
           <div class="circle--bio">
             <span class="circle--bio-word">Bio</span>
-          </div><<<<<<< HEAD ======={% include '_components/_nav/_nav-shop/nav-shop-mobile' %}>>>>>>>
-          origin/develop<div class="header__menu-button-wrapper">
+          </div>
+          {# {% include '_components/_nav/_nav-shop/nav-shop-mobile' %} #}
+          <div class="header__menu-button-wrapper">
             <button class="header__menu-button-mobile" type="button">
               <span class="header__menu-button-text">
                 {{ 'nav.mainNavigation.menutext'|t }}
@@ -51,12 +49,10 @@
             <a class="header__logo-link" href="/">
               <span class="header__logo-line">Terra</span>
               <img class="header__logo"
-                src="{{
-                alias(
-                  '@rootUrl'
-                )
-                }}/assets/images/logo/TerraVerde_Logo05.jpg"
-                alt="Terra Verde Logo" />
+                   src="{{ alias(
+                     '@rootUrl'
+                   ) }}/assets/images/logo/TerraVerde_Logo05.jpg"
+                   alt="Terra Verde Logo"/>
               <span class="header__logo-line">Verde</span>
             </a>
 
@@ -69,15 +65,13 @@
                 </div>
               </div>
 
-              {{
-                sprig(
-                  '_components/_nav/_nav-service/nav-service-desktop',
-                  {},
-                  {
-                    's-trigger': 'load'
-                  }
-                )
-              }}
+              {{ sprig(
+                '_components/_nav/_nav-service/nav-service-desktop',
+                {},
+                {
+                  's-trigger': 'load'
+                }
+              ) }}
             </div>
           </div>
         </div>
