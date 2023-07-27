@@ -1,4 +1,4 @@
-dateModified: 1690355605
+dateModified: 1690468549
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: 'Terra Verde'
@@ -813,7 +813,7 @@ plugins:
     edition: standard
     enabled: true
     licenseKey: OSBH6AWJSPCV05OC9LIU694Q
-    schemaVersion: 3.0.11
+    schemaVersion: 3.0.12
     settings:
       addHrefLang: true
       addPaginatedHreflang: true
