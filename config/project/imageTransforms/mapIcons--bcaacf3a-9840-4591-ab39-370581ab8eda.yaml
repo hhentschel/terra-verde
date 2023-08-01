@@ -6,4 +6,5 @@ mode: crop
 name: 'Karten Icons'
 position: center-center
 quality: null
+upscale: true
 width: 30

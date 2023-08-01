@@ -1,12 +1,12 @@
 <!-- Template: {{ _self }}.twig -->
-{% set customer = craft.commerce.customers.customer %}
-{% set primaryBillingAddress = customer.getPrimaryBillingAddress() %}
-{% set primaryShippingAddress = customer.getPrimaryShippingAddress() %}
+{# {% set customer = craft.commerce.customers.customer %} #}
+{# {% set primaryBillingAddress = customer.getPrimaryBillingAddress() %}
+{% set primaryShippingAddress = customer.getPrimaryShippingAddress() %} #}
 
 <div class="js-address-fieldset">
 
 
-  {% if addresses and currentUser %}
+  {# {% if addresses and currentUser %}
     <div class="md:flex md:flex-wrap md:-mx-2 pb-4">
       {% for address in addresses %}
         {% set editUrl = '/shop/customer/addresses/edit?addressId=' ~ address.id ~ '&redirect=' ~ craft.app.request.fullPath %}
@@ -56,6 +56,6 @@
         address: attribute(cart, name)
       }) }}
     </div>
-  </div>
+  </div> #}
 
 </div>{# js-address-fieldset #}

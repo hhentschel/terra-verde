@@ -1,3 +1,5 @@
 description: 'Benutzer in dieser Gruppe bekommen 23% Rabatt auf Detailhandelpreis (Retailprice)'
 handle: retailDiscount
 name: 'Rabatt 23% (Bachsermärte)'
+permissions:
+  - 'assignusergroup:d1470d44-1f37-4fc8-997d-958262298de7' # Rabatt 23% (Bachsermärte)

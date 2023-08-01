@@ -1,16 +1,93 @@
 {% extends '/_layouts/main' %}
 
-{% set addressId = craft.app.request.param('addressId') %}
+{# {% set addressId = craft.app.request.param('addressId') %}
   {% set redirect = craft.app.request.param('redirect') %}
 
   {% if not address is defined and addressId %}
-    {# @var address \craft\commerce\models\Address #}
-    {% set address = craft.commerce.customers.customer.getAddressById(addressId) %}
+#}{# @var address \craft\commerce\models\Address #}{#
+{% set address = craft.commerce.customers.customer.getAddressById(addressId) %}
+{% endif %} #}
+
+{% set addressId = craft.app.request.queryParam('addressId') %}
+  {% set redirect = craft.app.request.queryParam('redirect') %}
+  {% set countryCode = craft.app.request.queryParam('countryCode') %}
+
+  {% if not address is defined %}
+    {% if addressId %}
+      {% set address = collect(currentUser.addresses).firstWhere('id', addressId) %}
+      {% if not address %}
+        {% exit 404 %}
+      {% endif %}
+    {% else %}
+      {% set address = create({
+        class: 'craft\\elements\\Address',
+        ownerId: currentUser.id,
+        countryCode: countryCode ?? 'CH'
+      }) %}
+    {% endif %}
   {% endif %}
+
+
 {% block content %}
   <!-- Template: {{ _self }}.twig -->
 
   <section class="grid">
+    <div class="row">
+      <div class="col col-xs-12 col-md-12 col-lg-12">
+
+
+        <!-- Template: {{ _self }}.twig -->
+        <h1 class="text-xl font-semibold">
+          {% if addressId %}
+            {{- 'Edit address'|t -}}
+          {% else %}
+            {{- 'Add a new address'|t -}}
+          {% endif %}
+        </h1>
+
+        <form method="post" action="">
+          {{ csrfInput() }}
+          {{ actionInput('users/save-address') }}
+          {{ redirectInput(redirect ?: 'shop/customer/addresses') }}
+
+          {% if addressId %}
+            {{ hiddenInput('addressId', addressId) }}
+          {% endif %}
+
+          {{ include('shop/_includes/address/fields', {
+            address: address,
+            showLabelField: true,
+            showPrimaryCheckboxes: true,
+          }) }}
+          {{ hiddenInput('ownerId', currentUser.id) }}
+
+          <hr class="my-3"/>
+
+          <div class="mt-6 flex justify-between">
+            <div>
+              <a href="{{ redirect ? '/' ~ redirect : url('shop/customer/addresses') }}"
+                 class="text-blue-500 hover:text-blue-600"
+              >
+                {{- 'Cancel'|t -}}
+              </a>
+            </div>
+            <div>
+              {{ tag('button', {
+                type: 'submit',
+                class: 'cursor-pointer rounded px-4 py-2 inline-block bg-blue-500 hover:bg-blue-600 text-white hover:text-white',
+                text: 'Save Address'|t
+              }) }}
+            </div>
+          </div>
+          {# Outputs a hidden input field #}
+          {{ craft.snaptcha.field }}
+        </form>
+
+      </div>
+    </div>
+  </section>
+
+  {# <section class="grid">
     <div class="row">
       <div class="col col-xs-12 col-md-12 col-lg-12">
         <h2 class="heading heading--2">
@@ -81,11 +158,10 @@
                      value="Adresse sichern"/>
             </div>
           </div>
-
-          {# Outputs a hidden input field #}
-          {{ craft.snaptcha.field }}
-        </form>
-      </div>
-    </div>
-  </section>
+  #}{# Outputs a hidden input field #}{#
+{{ craft.snaptcha.field }}
+</form>
+</div>
+</div>
+</section> #}
 {% endblock %}

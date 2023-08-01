@@ -6,4 +6,5 @@ mode: fit
 name: 'Blog-Bild Vorschau'
 position: center-center
 quality: 82
+upscale: true
 width: 320

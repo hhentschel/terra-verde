@@ -2,7 +2,7 @@
 {# http://craftsnippets.com/articles/truncating-text-with-twig-macros-in-craft-cms #}
 {# v1 #}
 {% macro truncateWords(text, length, suffix) %}
-  {% spaceless %}
+  {% apply spaceless %}
     {# settings #}
     {% set defaultSuffix = '...' %}
     {# logic #}
@@ -19,14 +19,14 @@
       {% set string = string|replace('/\\n\\s/', '\n') %}
       {{ string }}
     {% endif %}
-  {% endspaceless %}
+  {% endapply %}
 {% endmacro %}
 
 {# truncate text by number of characters #}
 {# http://craftsnippets.com/articles/truncating-text-with-twig-macros-in-craft-cms #}
 {# v1 #}
 {% macro truncateChars(text, limit, suffix) %}
-  {% spaceless %}
+  {% apply spaceless %}
     {# settings #}
     {% set defaultSuffix = '...' %}
     {# logic #}
@@ -36,38 +36,37 @@
       {% set stringy = create('Stringy\\Stringy', [text]) %}
       {{ stringy.safeTruncate(limit, suffix) }}
     {% endif %}
-  {% endspaceless %}
+  {% endapply %}
 {% endmacro %}
 
 {# turn email in strings into links and secure them from spambots #}
 {# http://craftsnippets.com/articles/converting-email-addresses-into-links-using-twig-macro #}
 {# v1 #}
 {% macro emailLinks(text, class) %}
-  {% spaceless %}
+  {% apply spaceless %}
     {% set text =
       text|replace(
-        '/([a-zA-Z0-9_.+-]+)+@([a-zA-Z0-9-]+.[a-zA-Z]+)/',
-        '<a ' ~ (class ? 'class="' ~ class ~ '" ') ~ 'href="mailto:'
-          ~ '\\1&#64;\\2'
-          ~ '">'
-          ~ '\\1&#64;\\2'
-          ~ '</a>'
-      )
-    %}
+      '/([a-zA-Z0-9_.+-]+)+@([a-zA-Z0-9-]+.[a-zA-Z]+)/',
+      '<a ' ~ (class ? 'class="' ~ class ~ '" ') ~ 'href="mailto:'
+      ~ '\\1&#64;\\2'
+      ~ '">'
+      ~ '\\1&#64;\\2'
+      ~ '</a>'
+      ) %}
     {{ text|raw }}
-  {% endspaceless %}
+  {% endapply %}
 {% endmacro %}
 
 {# @var craft \craft\web\twig\variables\CraftVariable #}
 {# @var entry \craft\elements\Entry #}
 {#
-  Set Active Class
-  ------------------------------------------------------------
-  {% import '_partials/macros/_macro-isActive.twig' as macroIsActive  %}
-  {{ macroIsActive.isActive('news', -1, 'cn') }}
+Set Active Class
+------------------------------------------------------------
+{% import '_partials/macros/_macro-isActive.twig' as macroIsActive  %}
+{{ macroIsActive.isActive('news', -1, 'cn') }}
 #}
 {% macro isActive(segments, position, prefix, cn) %}
-  {% spaceless %}
+  {% apply spaceless %}
     {% set segments = segments|default(null) %}
     {% set position = position|default(- 1) %}
     {% set prefix = prefix|default(null) %}
@@ -75,12 +74,12 @@
 
     {% if
       segments is iterable
-        and craft.app.request.getSegment(position) in segments %}
+      and craft.app.request.getSegment(position) in segments %}
       {{ prefix ? prefix ~ cn : cn }}
     {% elseif craft.app.request.getSegment(position) == segments %}
       {{ prefix ? prefix ~ cn : cn }}
     {% endif %}
-  {% endspaceless %}
+  {% endapply %}
 {% endmacro %}
 
 {% macro activeLinkClass(linkUri, requestSegmentNumber) %}
@@ -114,9 +113,8 @@
     {% if attributes and attributes is not iterable %}
       {% set svg =
         svg|attr({
-          class: attributes
-        })
-      %}
+        class: attributes
+      }) %}
     {% elseif attributes and attributes is iterable %}
       {% set svg = svg|attr(attributes) %}
     {% endif %}

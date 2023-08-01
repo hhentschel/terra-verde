@@ -23,25 +23,16 @@ fieldLayouts:
             step: null
             tip: null
             title: null
-            type: craft\fieldlayoutelements\AssetTitleField
+            type: craft\fieldlayoutelements\assets\AssetTitleField
             warning: null
             width: 100
         name: Content
         sortOrder: 1
+fs: mapIcons
 handle: mapIcons
 hasUrls: true
 name: 'Karten- Icons'
-settings:
-  cdnUrlPattern: ''
-  customSubfolder: /assets/images/content/producers/mapicons
-  makeUploadsPublic: true
-  optimisePrefix: ''
-  optimiseUrlPattern: ''
-  projectSlug: ''
-  securityKey: ''
-  subfolder: terra-verde/development/assets/images/content/producers/mapicons/
 sortOrder: 18
 titleTranslationKeyFormat: null
 titleTranslationMethod: site
-type: servd\AssetStorage\Volume
 url: 'https://cdn2.assets-servd.host/'

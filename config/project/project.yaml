@@ -1,4 +1,294 @@
-dateModified: 1690535673
+dateModified: 1690902902
+elementSources:
+  craft\elements\Asset:
+    -
+      key: 'folder:0779aec9-af1a-4c19-9f71-bb37cc1e99ba'
+      tableAttributes:
+        - filename
+        - size
+        - dateModified
+        - uploader
+        - link
+      type: native
+    -
+      key: 'folder:ea4c3670-a713-4af4-a4a4-3fc935c21a56'
+      tableAttributes:
+        - filename
+        - size
+        - dateModified
+        - uploader
+        - link
+        - currentUsage
+      type: native
+    -
+      heading: Blog
+      type: heading
+    -
+      key: 'folder:c7ef3b29-bb7f-4d11-a4d4-331f2cbe9424'
+      tableAttributes:
+        - filename
+        - size
+        - dateModified
+        - uploader
+        - link
+      type: native
+    -
+      key: 'folder:8f0dc081-3025-421f-8893-9efadf8f2926'
+      type: native
+    -
+      key: 'folder:8153c566-fe39-4976-9a9e-6344b9cde4bf'
+      type: native
+    -
+      key: 'folder:f54eed2a-4ea3-4448-9b61-1708ad15d18d'
+      tableAttributes:
+        - filename
+        - size
+        - dateModified
+        - uploader
+        - link
+        - id
+      type: native
+    -
+      key: 'folder:32fccaea-9c9a-40da-8619-dc240df30cd6'
+      type: native
+    -
+      key: 'folder:31db02d5-bba7-4a06-8bb9-5bdf3a53c879'
+      type: native
+    -
+      key: 'folder:4b43b7c1-a9df-4549-90e7-0fb32784f10f'
+      tableAttributes:
+        - filename
+        - size
+        - dateModified
+        - uploader
+        - link
+      type: native
+    -
+      key: 'folder:d870d415-b886-448f-ab2a-deb6a27df61e'
+      type: native
+    -
+      key: 'folder:b65acfdb-243a-4b92-aa36-e293965181b6'
+      type: native
+    -
+      key: 'folder:ae46b3e1-2ad9-46f9-a807-9635e74dde48'
+      tableAttributes:
+        - filename
+        - size
+        - usage
+        - currentUsage
+      type: native
+    -
+      key: 'folder:d7a260af-1ea0-45f6-9042-2666e0f2097f'
+      type: native
+    -
+      key: 'folder:53391ea5-db8c-4ca1-86aa-6471d5c56987'
+      type: native
+    -
+      key: 'folder:703a9d06-1277-4da9-94ea-47251db4afad'
+      tableAttributes:
+        - filename
+        - size
+        - dateModified
+        - uploader
+        - link
+      type: native
+    -
+      key: 'folder:5eacc065-9765-416c-a75a-6eccf0adf430'
+      type: native
+    -
+      heading: ''
+      type: heading
+  craft\elements\Entry:
+    -
+      key: '*'
+      tableAttributes:
+        - section
+        - postDate
+        - expiryDate
+        - author
+        - link
+      type: native
+    -
+      heading: Einzeleinträge
+      type: heading
+    -
+      key: 'single:e5c66396-f991-4b4c-8edc-5e4960340ca3' # Startseite
+      type: native
+    -
+      key: 'section:48548b44-1daa-40e6-8a33-e8f7fd5a9bb6' # Shop
+      type: native
+    -
+      key: 'section:93138aa1-7db6-41da-a8b4-2bd1fa4855bb' # Produkte
+      tableAttributes:
+        - postDate
+        - expiryDate
+        - author
+        - link
+      type: native
+    -
+      key: 'section:85ecf639-70f3-47d4-8ad7-c2996049794d' # Über uns
+      tableAttributes:
+        - postDate
+        - author
+        - link
+        - dateUpdated
+        - revisionCreator
+      type: native
+    -
+      key: 'single:d549006b-271c-486c-900d-a9348f0ca63d' # Blog
+      type: native
+    -
+      key: 'single:c8c7989d-9a6a-4faa-a787-7538cf72ee11' # Produzenten Übersicht
+      type: native
+    -
+      heading: SAMMELSEITEN
+      type: heading
+    -
+      key: 'section:650553f0-dbb7-42c0-ba12-1b19aa58126a' # Blog Beiträge
+      tableAttributes:
+        - 'field:57e5fec1-460f-4063-a3db-815af978dc8f' # Bild
+        - postDate
+        - dateUpdated
+        - link
+        - type
+        - 'field:037a2847-d799-44e7-ae4b-4bf40233db70' # Kategorien
+        - author
+        - 'field:822da130-432e-4062-a8d4-da32df299928' # Highlight Artikel ?
+      type: native
+    -
+      key: 'section:8e2bbb53-7b2a-493f-9592-4847ec7d1194' # Produzenten
+      tableAttributes:
+        - postDate
+        - expiryDate
+        - author
+        - link
+        - 'field:d438ea68-d87f-4238-b23e-cdaa8a840149' # Produzenten Tags
+        - drafts
+        - 'field:57e5fec1-460f-4063-a3db-815af978dc8f' # Bild
+      type: native
+    -
+      key: 'section:75646a14-9db8-445b-a350-a5068040914b' # Service
+      type: native
+    -
+      key: 'section:34eecfa5-9662-4a5c-addd-6a484fbebe8d' # Verkaufsstellen Orte
+      type: native
+    -
+      heading: SERVICESEITEN
+      type: heading
+    -
+      key: 'section:e9d74d60-1b19-494e-a1af-537c054484c9' # Login
+      type: native
+    -
+      key: 'single:d953a3a0-62dc-4cd9-ad85-a7656faa8d58' # Suche
+      type: native
+    -
+      heading: FOOTER
+      type: heading
+    -
+      key: 'single:6d38f976-5e94-4016-abac-a9e2da77ab07' # Impressum
+      type: native
+    -
+      key: 'single:7f760799-8cd2-47b0-981a-c91cfe3036b4' # AGB
+      type: native
+    -
+      heading: ''
+      type: heading
+    -
+      key: 'single:ea3d0d8a-06a4-48ed-b8aa-3e7cbaa24971' # Registrieren
+      type: native
+    -
+      heading: ''
+      type: heading
+    -
+      key: 'single:2941dc0e-4ee6-4e86-873c-6f930bfad4e4' # Rezepte
+      type: native
+    -
+      key: 'section:809da76b-a716-40fe-aed3-55f1fc0c57e9' # Blog Kategorien
+      type: native
+    -
+      heading: ''
+      type: heading
+  craft\elements\User:
+    -
+      key: '*'
+      tableAttributes:
+        - 'field:982a8eec-f2e3-4260-b25a-904d904b42a9' # Firma
+        - fullName
+        - groups
+        - email
+        - dateCreated
+        - lastLoginDate
+        - id
+        - uid
+        - username
+        - 'field:c280f1d1-4f12-4055-8607-8006585970fd' # Telefon
+        - 'field:3e664364-e972-44e5-9819-78e6cf9ba210' # Telefon (Mobile)
+        - 'field:273d5a0c-4e06-47ec-8a4b-c1fcffa5684d' # Mindestbestellwert (betrifft nur Detailhandel) - Privat ist Mindestbestellwert generell deaktiviert.
+      type: native
+    -
+      heading: Gruppen
+      type: heading
+    -
+      key: admins
+      tableAttributes:
+        - fullName
+        - email
+        - dateCreated
+        - lastLoginDate
+      type: native
+    -
+      key: 'group:105f3719-0e2b-409f-851b-64e895b976aa' # Redakteure
+      tableAttributes:
+        - fullName
+        - email
+        - dateCreated
+        - lastLoginDate
+      type: native
+    -
+      key: 'group:f4d40b23-6531-4583-b509-b7870a992261' # Privatkunden
+      tableAttributes:
+        - fullName
+        - groups
+        - 'field:982a8eec-f2e3-4260-b25a-904d904b42a9' # Firma
+        - 'field:1baab5b6-ddf1-4a49-8435-b3bd6a0cc383' # Anrede
+        - firstName
+        - lastName
+        - email
+        - 'field:dbadaaf2-9348-4069-9d8d-3e8e37e3d775' # Postleitzahl
+        - 'field:be930c36-7ffe-488b-b6c5-783c77c32830' # Stadt
+        - dateCreated
+        - lastLoginDate
+        - id
+        - uid
+        - dateUpdated
+      type: native
+    -
+      key: 'group:2db88e09-5caa-44ec-a62a-3780b2b427c0' # Detailhandel
+      tableAttributes:
+        - username
+        - 'field:982a8eec-f2e3-4260-b25a-904d904b42a9' # Firma
+        - groups
+        - fullName
+        - firstName
+        - lastName
+        - 'field:1baab5b6-ddf1-4a49-8435-b3bd6a0cc383' # Anrede
+        - 'field:dbadaaf2-9348-4069-9d8d-3e8e37e3d775' # Postleitzahl
+        - 'field:be930c36-7ffe-488b-b6c5-783c77c32830' # Stadt
+        - 'field:c280f1d1-4f12-4055-8607-8006585970fd' # Telefon
+        - 'field:3e664364-e972-44e5-9819-78e6cf9ba210' # Telefon (Mobile)
+        - email
+        - lastLoginDate
+        - dateCreated
+        - uid
+        - id
+        - 'field:273d5a0c-4e06-47ec-8a4b-c1fcffa5684d' # Mindestbestellwert (betrifft nur Detailhandel) - Privat ist Mindestbestellwert generell deaktiviert.
+      type: native
+    -
+      heading: ''
+      type: heading
+    -
+      key: 'group:d1470d44-1f37-4fc8-997d-958262298de7' # Rabatt 23% (Bachsermärte)
+      type: native
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: 'Terra Verde'
@@ -8,6 +298,259 @@ email:
     apiKey: $MAILJET_API_KEY
     apiSecret: $MAILJET_SECRET_KEY
   transportType: bertoost\mailjet\adapters\MailjetAdapter
+fs:
+  contentImages:
+    hasUrls: true
+    name: Inhaltsbilder
+    settings:
+      cdnUrlPattern: ''
+      customSubfolder: /assets/images/content/content/
+      makeUploadsPublic: true
+      optimisePrefix: ''
+      optimiseUrlPattern: ''
+      projectSlug: ''
+      securityKey: ''
+      subfolder: terra-verde/development/assets/images/content/content/
+    type: servd\AssetStorage\AssetsPlatform\Fs
+    url: 'https://cdn2.assets-servd.host/'
+  documents:
+    hasUrls: true
+    name: 'Dokumente (PDF)'
+    settings:
+      cdnUrlPattern: ''
+      customSubfolder: /assets/images/content/documents
+      makeUploadsPublic: true
+      optimisePrefix: ''
+      optimiseUrlPattern: ''
+      projectSlug: ''
+      securityKey: ''
+      subfolder: terra-verde/development/assets/images/content/documents/
+    type: servd\AssetStorage\AssetsPlatform\Fs
+    url: 'https://cdn2.assets-servd.host/'
+  filesDocuments:
+    hasUrls: true
+    name: Dokumente
+    settings:
+      cdnUrlPattern: ''
+      customSubfolder: /assets/images/content/products/documents
+      makeUploadsPublic: true
+      optimisePrefix: ''
+      optimiseUrlPattern: ''
+      projectSlug: ''
+      securityKey: ''
+      subfolder: terra-verde/development/assets/images/content/products/documents/
+    type: servd\AssetStorage\AssetsPlatform\Fs
+    url: 'https://cdn2.assets-servd.host/'
+  homepage:
+    hasUrls: true
+    name: Startseite
+    settings:
+      cdnUrlPattern: ''
+      customSubfolder: /assets/images/content/homepage/
+      makeUploadsPublic: true
+      optimisePrefix: ''
+      optimiseUrlPattern: ''
+      projectSlug: ''
+      securityKey: ''
+      subfolder: terra-verde/development/assets/images/content/homepage/
+    type: servd\AssetStorage\AssetsPlatform\Fs
+    url: 'https://cdn2.assets-servd.host/'
+  imagesGiftSets:
+    hasUrls: true
+    name: Geschenksets
+    settings:
+      cdnUrlPattern: ''
+      customSubfolder: /assets/images/content/products/giftsets
+      makeUploadsPublic: true
+      optimisePrefix: ''
+      optimiseUrlPattern: ''
+      projectSlug: ''
+      securityKey: ''
+      subfolder: terra-verde/development/assets/images/content/products/giftsets/
+    type: servd\AssetStorage\AssetsPlatform\Fs
+    url: 'https://cdn2.assets-servd.host/'
+  magazin:
+    hasUrls: true
+    name: Magazin
+    settings:
+      cdnUrlPattern: ''
+      customSubfolder: /assets/images/content/content/magazin
+      makeUploadsPublic: true
+      optimisePrefix: ''
+      optimiseUrlPattern: ''
+      projectSlug: ''
+      securityKey: ''
+      subfolder: terra-verde/development/assets/images/content/content/magazin/
+    type: servd\AssetStorage\AssetsPlatform\Fs
+    url: 'https://cdn2.assets-servd.host/'
+  mapIcons:
+    hasUrls: true
+    name: 'Karten- Icons'
+    settings:
+      cdnUrlPattern: ''
+      customSubfolder: /assets/images/content/producers/mapicons
+      makeUploadsPublic: true
+      optimisePrefix: ''
+      optimiseUrlPattern: ''
+      projectSlug: ''
+      securityKey: ''
+      subfolder: terra-verde/development/assets/images/content/producers/mapicons/
+    type: servd\AssetStorage\AssetsPlatform\Fs
+    url: 'https://cdn2.assets-servd.host/'
+  mapThumbnail:
+    hasUrls: true
+    name: 'Karten Vorschaubilder'
+    settings:
+      cdnUrlPattern: ''
+      customSubfolder: /assets/images/content/mapthumbnails/
+      makeUploadsPublic: true
+      optimisePrefix: ''
+      optimiseUrlPattern: ''
+      projectSlug: ''
+      securityKey: ''
+      subfolder: terra-verde/development/assets/images/content/mapthumbnails/
+    type: servd\AssetStorage\AssetsPlatform\Fs
+    url: 'https://cdn2.assets-servd.host/'
+  news:
+    hasUrls: true
+    name: Aktuelles
+    settings:
+      cdnUrlPattern: ''
+      customSubfolder: /assets/images/content/content/news
+      makeUploadsPublic: true
+      optimisePrefix: ''
+      optimiseUrlPattern: ''
+      projectSlug: ''
+      securityKey: ''
+      subfolder: terra-verde/development/assets/images/content/content/news/
+    type: servd\AssetStorage\AssetsPlatform\Fs
+    url: 'https://cdn2.assets-servd.host/'
+  producersImg:
+    hasUrls: true
+    name: Produzenten
+    settings:
+      cdnUrlPattern: ''
+      customSubfolder: /assets/images/content/producers/
+      makeUploadsPublic: true
+      optimisePrefix: ''
+      optimiseUrlPattern: ''
+      projectSlug: ''
+      securityKey: ''
+      subfolder: terra-verde/development/assets/images/content/producers/
+    type: servd\AssetStorage\AssetsPlatform\Fs
+    url: 'https://cdn2.assets-servd.host/'
+  productImageWineFrance:
+    hasUrls: true
+    name: 'Weine Frankreich'
+    settings:
+      cdnUrlPattern: ''
+      customSubfolder: /assets/images/content/products/wine/franceportugal
+      makeUploadsPublic: true
+      optimisePrefix: ''
+      optimiseUrlPattern: ''
+      projectSlug: ''
+      securityKey: ''
+      subfolder: terra-verde/development/assets/images/content/products/wine/franceportugal/
+    type: servd\AssetStorage\AssetsPlatform\Fs
+    url: 'https://cdn2.assets-servd.host/'
+  productImageWineItaly:
+    hasUrls: true
+    name: 'Weine Italien'
+    settings:
+      cdnUrlPattern: ''
+      customSubfolder: /assets/images/content/products/wine/italy
+      makeUploadsPublic: true
+      optimisePrefix: ''
+      optimiseUrlPattern: ''
+      projectSlug: ''
+      securityKey: ''
+      subfolder: terra-verde/development/assets/images/content/products/wine/italy/
+    type: servd\AssetStorage\AssetsPlatform\Fs
+    url: 'https://cdn2.assets-servd.host/'
+  productImageWinePortugal:
+    hasUrls: true
+    name: 'Weine Portugal'
+    settings:
+      cdnUrlPattern: ''
+      customSubfolder: /assets/images/content/products/wine/portugal/
+      makeUploadsPublic: true
+      optimisePrefix: ''
+      optimiseUrlPattern: ''
+      projectSlug: ''
+      securityKey: ''
+      subfolder: terra-verde/development/assets/images/content/products/wine/portugal/
+    type: servd\AssetStorage\AssetsPlatform\Fs
+    url: 'https://cdn2.assets-servd.host/'
+  productImageWineSpain:
+    hasUrls: true
+    name: 'Weine Spanien'
+    settings:
+      cdnUrlPattern: ''
+      customSubfolder: /assets/images/content/products/wine/spain
+      makeUploadsPublic: true
+      optimisePrefix: ''
+      optimiseUrlPattern: ''
+      projectSlug: ''
+      securityKey: ''
+      subfolder: terra-verde/development/assets/images/content/products/wine/spain/
+    type: servd\AssetStorage\AssetsPlatform\Fs
+    url: 'https://cdn2.assets-servd.host/'
+  products:
+    hasUrls: true
+    name: Produkte
+    settings:
+      cdnUrlPattern: ''
+      customSubfolder: /assets/images/content/products/delicates
+      makeUploadsPublic: true
+      optimisePrefix: ''
+      optimiseUrlPattern: ''
+      projectSlug: ''
+      securityKey: ''
+      subfolder: terra-verde/development/assets/images/content/products/delicates/
+    type: servd\AssetStorage\AssetsPlatform\Fs
+    url: 'https://cdn2.assets-servd.host/'
+  recipes:
+    hasUrls: true
+    name: Rezepte
+    settings:
+      cdnUrlPattern: ''
+      customSubfolder: /assets/images/content/content/recipes
+      makeUploadsPublic: true
+      optimisePrefix: ''
+      optimiseUrlPattern: ''
+      projectSlug: ''
+      securityKey: ''
+      subfolder: terra-verde/development/assets/images/content/content/recipes/
+    type: servd\AssetStorage\AssetsPlatform\Fs
+    url: 'https://cdn2.assets-servd.host/'
+  teamPhotos:
+    hasUrls: true
+    name: Team
+    settings:
+      cdnUrlPattern: ''
+      customSubfolder: /assets/images/content/team/
+      makeUploadsPublic: true
+      optimisePrefix: ''
+      optimiseUrlPattern: ''
+      projectSlug: ''
+      securityKey: ''
+      subfolder: terra-verde/development/assets/images/content/team/
+    type: servd\AssetStorage\AssetsPlatform\Fs
+    url: 'https://cdn2.assets-servd.host/'
+  video:
+    hasUrls: true
+    name: Video
+    settings:
+      cdnUrlPattern: ''
+      customSubfolder: /assets/videos/content/
+      makeUploadsPublic: true
+      optimisePrefix: ''
+      optimiseUrlPattern: ''
+      projectSlug: ''
+      securityKey: ''
+      subfolder: terra-verde/development/assets/videos/content/
+    type: servd\AssetStorage\AssetsPlatform\Fs
+    url: 'https://cdn2.assets-servd.host/'
 meta:
   __names__:
     00a72f8a-e7ae-4303-bcc0-e693888454a0: Geschenke # Geschenke
@@ -25,6 +568,7 @@ meta:
     1daedc6b-3766-4522-aef9-b8a340e0cef5: Versendet # Versendet
     1fa8d56e-80b3-4840-a038-6addcd516984: 'Bild 1 Schnellzugriff' # Bild 1 Schnellzugriff
     2a604d11-f35a-4546-a33a-b2465e0017a9: 'Email 1' # Email 1
+    2b2be968-27df-4895-9f32-8808da118fa7: Title # Title
     2d7664a5-cf66-40d5-a9cf-e4ce91afcfc2: Vorname # Vorname
     2d50879a-a5aa-4121-98eb-ebb68c191811: 'Produktliste Shop' # Produktliste Shop
     2db88e09-5caa-44ec-a62a-3780b2b427c0: Detailhandel # Detailhandel
@@ -103,6 +647,7 @@ meta:
     32cd07ee-add2-4f02-8691-39b96171693c: Textfarbe # Textfarbe
     34eecfa5-9662-4a5c-addd-6a484fbebe8d: 'Verkaufsstellen Orte' # Verkaufsstellen Orte
     037a2847-d799-44e7-ae4b-4bf40233db70: Kategorien # Kategorien
+    40de0ae9-aa16-4969-beb2-ad8dae160183: Notes # Notes
     44a134bf-a896-43b6-897a-a294f6c27325: 'Blog Aktuell' # Blog Aktuell
     46ab3f32-4f48-484f-a551-39bb54341a2e: Leadtext # Leadtext
     47c3ee37-8371-469c-8566-fb641a48324e: 'Ähnliche Produkte Apero' # Ähnliche Produkte Apero
@@ -150,6 +695,7 @@ meta:
     348a200e-7d31-4262-b613-e8cc6e039fb2: Degustationsnotiz # Degustationsnotiz
     397ec96e-7519-4a11-9175-e1f4fd8353d6: 'Bild verlinken' # Bild verlinken
     421eaf0b-f542-45ff-8051-2921d93b3eeb: Vorschautext # Vorschautext
+    435d5797-f856-4521-bc23-a57e3a09b552: 'Phone Number' # Phone Number
     437e0241-3704-4701-a904-0082985e64ed: 'Externer Link' # Externer Link
     439c86f8-b7ed-48bd-a46c-c2b9f29de26d: 'Produkte (Privatkunden)' # Produkte (Privatkunden)
     442d67d8-a8df-49bb-9ea3-bc0a6323ce71: 'Überschrift Grösse' # Überschrift Grösse
@@ -230,7 +776,6 @@ meta:
     a4e3c0b2-c990-461b-b016-eeed4b33412e: Bio-Zertifizierung # Bio-Zertifizierung
     a6b432f1-ba3e-4be3-b533-a80ab1c95250: Übersichtsseite # Übersichtsseite
     a6d404c5-d5dc-4ac6-846b-d068efafba1a: Telefon # Telefon
-    a6deb9a0-e67c-4fba-bc55-fcba596d4822: 'Adresse Karte' # Adresse Karte
     a6f0989b-fec7-4460-8864-b015e8efc34e: Neuheiten # Neuheiten
     a43c6629-df33-4fa2-a5ca-e073c8ca5841: Mitteilung # Mitteilung
     a48a5f48-ae99-438a-94f7-9574fe7fbf92: Inhaltselemente # Inhaltselemente
@@ -351,6 +896,7 @@ meta:
     f021083a-e208-4eaa-974d-3ae4d7e91811: 'Artikel Einheit Volumen/Gewicht' # Artikel Einheit Volumen/Gewicht
     f4d40b23-6531-4583-b509-b7870a992261: Privatkunden # Privatkunden
     f5e90e97-620f-48e1-a794-18752e030b90: Fehler # Fehler
+    f7ca679c-947a-48f3-9202-96c18892f0c3: 'Alternative Phone' # Alternative Phone
     f8be2317-2ae7-4930-9092-eae68c86d393: Diverses # Diverses
     f9ea37ad-b93c-4731-90ad-312428b52e6f: 'Preise (Detailhandel)' # Preise (Detailhandel)
     f59c7689-65b4-4533-8ff4-5e8bf5919b90: Quicklinks # Quicklinks
@@ -382,13 +928,19 @@ plugins:
     edition: standard
     enabled: true
     licenseKey: 1XZ9DCIWQEDUB7WTNX9NARMC
-    schemaVersion: 3.10.0
+    schemaVersion: 4.5.0
     settings:
       apiKey: ''
       cacheControlHeader: 'public, s-maxage=31536000, max-age=0'
       cacheDuration: null
       cacheElementQueries: true
       cacheElements: true
+      cacheGeneratorSettings:
+        __assoc__:
+          -
+            - concurrency
+            - '3'
+      cacheGeneratorType: putyourlightson\blitz\drivers\generators\HttpGenerator
       cachePurgerType: putyourlightson\blitz\drivers\purgers\DummyPurger
       cacheStorageSettings:
         __assoc__:
@@ -402,21 +954,18 @@ plugins:
             - createBrotliFiles
             - ''
       cacheStorageType: putyourlightson\blitz\drivers\storage\FileStorage
-      cacheWarmerSettings:
-        __assoc__:
-          -
-            - concurrency
-            - '3'
-      cacheWarmerType: putyourlightson\blitz\drivers\warmers\GuzzleWarmer
       cachingEnabled: ''
-      clearCacheAutomatically: '1'
       customSiteUris: ''
       debug: false
       deployerType: putyourlightson\blitz\drivers\deployers\DummyDeployer
       driverJobPriority: 100
       excludedQueryStringParams:
-        - gclid
-        - fbclid
+        -
+          queryStringParam: gclid
+          siteId: ''
+        -
+          queryStringParam: fbclid
+          siteId: ''
       excludedUriPatterns:
         -
           __assoc__:
@@ -454,7 +1003,9 @@ plugins:
               - uriPattern
               - warenkorb
       includedQueryStringParams:
-        - '.*'
+        -
+          queryStringParam: '.*'
+          siteId: ''
       includedUriPatterns:
         7:
           __assoc__:
@@ -463,6 +1014,7 @@ plugins:
               - '.*'
       injectScriptEvent: DOMContentLoaded
       integrations:
+        - putyourlightson\blitz\drivers\integrations\CommerceIntegration
         - putyourlightson\blitz\drivers\integrations\FeedMeIntegration
         - putyourlightson\blitz\drivers\integrations\SeomaticIntegration
       maxRetryAttempts: 10
@@ -474,18 +1026,18 @@ plugins:
       refreshCacheJobPriority: 10
       refreshCacheWhenElementSavedNotLive: false
       refreshCacheWhenElementSavedUnchanged: false
+      refreshMode: 3
       sendPoweredByHeader: true
-      warmCacheAutomatically: '1'
       warmPagesWithQueryStringParams: true
   blitz-recommendations:
     edition: standard
     enabled: true
-    schemaVersion: 1.0.0
+    schemaVersion: 2.1.0
   campaign:
     edition: lite
     enabled: true
     licenseKey: 4JP28H3CA67ZG8DVAY1YX6M5
-    schemaVersion: 1.21.0
+    schemaVersion: 2.7.0
     settings:
       allowedOrigins: null
       apiKey: sgadfiltxmcwqqdp
@@ -505,6 +1057,7 @@ plugins:
       maxRetryAttempts: 10
       maxSendAttempts: 3
       maxSendFailsAllowed: 1
+      maxSendFailuresAllowed: 1
       memoryLimit: 1024M
       memoryThreshold: 0.8
       postmarkAllowedIpAddresses:
@@ -523,6 +1076,7 @@ plugins:
       reCaptchaVersion: '3'
       sendVerificationEmailsViaCraft: false
       sendoutJobTtr: 300
+      showSendoutTitleField: true
       testMode: '1'
       timeLimit: 3600
       timeThreshold: 0.8
@@ -543,7 +1097,7 @@ plugins:
     edition: pro
     enabled: true
     licenseKey: 0AK0ZI2780A8KYFBX5GSBRKM
-    schemaVersion: 3.4.13
+    schemaVersion: 4.2.3
     settings:
       activeCartDuration: 3600
       allowEmptyCartOnCheckout: false
@@ -656,7 +1210,7 @@ plugins:
   feed-me:
     edition: standard
     enabled: true
-    schemaVersion: 4.4.1
+    schemaVersion: 5.1.0.0
     settings:
       assetDownloadCurl: false
       backupLimit: 100
@@ -755,7 +1309,7 @@ plugins:
     edition: standard
     enabled: true
     licenseKey: 3Q54BEZF2WFYX60V6UPM2IWL
-    schemaVersion: 2.13.0
+    schemaVersion: 3.6.2
   nsm-fields:
     edition: standard
     enabled: true
@@ -859,7 +1413,7 @@ plugins:
   servd-asset-storage:
     edition: standard
     enabled: true
-    schemaVersion: 2.0.5
+    schemaVersion: 3.0.0
     settings:
       adjustFeedmeLogs: ''
       assetsEnvironment: ''
@@ -952,7 +1506,7 @@ plugins:
   typedlinkfield:
     edition: standard
     enabled: true
-    schemaVersion: 1.0.0
+    schemaVersion: 2.0.0
   untransform:
     edition: standard
     enabled: true
@@ -979,5 +1533,5 @@ system:
   live: true
   name: 'Terra Verde'
   retryDuration: null
-  schemaVersion: 3.8.0.1
+  schemaVersion: 4.4.0.4
   timeZone: Europe/Zurich

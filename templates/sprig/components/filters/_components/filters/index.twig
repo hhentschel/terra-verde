@@ -69,7 +69,36 @@
   {% set cart = craft.commerce.carts.cart %}
 {% endif %}
 
-{% set productQuery = craft.products({
+ {% set productQuery = craft.products({
+   search: search,
+   orderBy: orderBy,
+   limit: limit,
+ })
+   .with([
+     ['product'],
+     ['variants'],
+     ['title'],
+     ['articleImage'],
+     ['product.articleImage'],
+   ]) %}
+
+{# {% set productQuery = craft.products({
+  search: search,
+  orderBy: orderBy,
+  limit: limit,
+}).with([
+  [
+    'product.articleImage',
+    'articleImage',
+    'product',
+    'variants',
+    'title',
+    'newsletterInfofield',
+    'articleCategoriesStatus',
+  ]
+]) %} #}
+
+{# {% set productQuery = craft.products({
   search: search,
   orderBy: orderBy,
   limit: limit,
@@ -87,7 +116,7 @@
       }
     ]
   ]
-}) %}
+}) %} #}
 
 {# 'product',
 'variants',

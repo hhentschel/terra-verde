@@ -6,4 +6,5 @@ mode: fit
 name: 'Produktliste Shop'
 position: center-center
 quality: null
+upscale: true
 width: null

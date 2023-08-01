@@ -23,11 +23,11 @@ fieldLayouts:
             step: null
             tip: null
             title: null
-            type: craft\fieldlayoutelements\EntryTitleField
+            type: craft\fieldlayoutelements\entries\EntryTitleField
             warning: null
             width: 100
           -
-            fieldUid: a6deb9a0-e67c-4fba-bc55-fcba596d4822 # Adresse Karte
+            fieldUid: a6deb9a0-e67c-4fba-bc55-fcba596d4822
             instructions: null
             label: null
             required: false

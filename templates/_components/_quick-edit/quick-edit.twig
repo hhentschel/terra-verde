@@ -1,4 +1,4 @@
-{% if
+{# {% if
   currentUser
     and currentUser.can('accessCp')
     and not craft.app.request.isLivePreview %}
@@ -9,6 +9,30 @@
       {% set editLink = editLink ~ '&draftId=' ~ element.draftId %}
     {% endif %}
     {% set editText = 'Seite bearbeiten' %}
+  {% else %}
+    {% set editLink = cpUrl() %}
+    {% set editText = 'zum TV Backend'|t %}
+  {% endif %}
+  <div class="quick-edit">
+    <a href="{{ editLink }}" target="_blank" class="quick-edit__link">
+      {{ editText }}
+    </a>
+  </div>
+{% endif %} #}
+
+
+{% if
+  currentUser
+  and currentUser.can('accessCp')
+  and not craft.app.request.isLivePreview %}
+  {% set element = element|default(craft.app.urlManager.matchedElement) %}
+  {% if
+    element and element.canSave(currentUser) and element.canView(currentUser) %}
+    {% set editLink = element.getCpEditUrl() %}
+    {% if element.draftId is defined and element.draftId is not null %}
+      {% set editLink = editLink ~ '&draftId=' ~ element.draftId %}
+    {% endif %}
+    {% set editText = 'Seite bearbeiten'|t %}
   {% else %}
     {% set editLink = cpUrl() %}
     {% set editText = 'zum TV Backend'|t %}

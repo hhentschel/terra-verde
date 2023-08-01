@@ -6,4 +6,5 @@ mode: fit
 name: Rezeptbild
 position: center-center
 quality: 82
+upscale: true
 width: 500

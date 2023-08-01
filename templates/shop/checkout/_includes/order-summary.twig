@@ -1,22 +1,39 @@
 <!-- Template: {{ _self }}.twig -->
 {# Allow passing of cart into partial #}
 {% set cart = cart is not defined ? craft.commerce.carts.cart : cart %}
-{% set addresses = craft.commerce.customers.customer.addresses %}
+
+{% set addressId = craft.app.request.queryParam('addressId') %}
+{% set redirect = craft.app.request.queryParam('redirect') %}
+{% set countryCode = craft.app.request.queryParam('countryCode') %}
+
+{% if not address is defined %}
+  {% if addressId %}
+    {% set address = collect(currentUser.addresses).firstWhere('id', addressId) %}
+    {% if not address %}
+      {% exit 404 %}
+    {% endif %}
+  {% else %}
+    {% set address = create({
+      class: 'craft\\elements\\Address',
+      ownerId: currentUser.id,
+      countryCode: countryCode ?? 'CH'
+    }) %}
+  {% endif %}
+{% endif %}
+
+{# {% set addresses = craft.commerce.customers.customer.addresses %} #}
 
 {% set discount = craft.commerce.discounts.getDiscountByCode(cart.couponCode) %}
 
-{% if showShippingAddress is not defined %}
-  {% set showShippingAddress = false %}
-{% endif %}
-
-{% if showShippingMethod is not defined %}
-  {% set showShippingMethod = false %}
-{% endif %}
+{% set showShippingAddress = showShippingAddress ?? false %}
+{% set showShippingMethod = showShippingMethod ?? false %}
 
 <div class="checkout__box checkout__box-summary">
   <h2 class="heading heading--2 heading--no-margin-top">
     Bestellübersicht
   </h2>
+
+  Are the addresses the same: {{ cart.hasMatchingAddresses() ? 'Yes' : 'No' }}
 
   {% if showShippingAddress %}
     <div class="checkout__box--adresses">
@@ -28,15 +45,26 @@
         </h4>
         {% if cart.shippingAddress %}
           <div class="address-select js-address-select border-0">
-            {% include 'shop/_includes/addresses/address' with {
-              address: cart.shippingAddress
-            } %}
+            <ul class="address-list">
+              {% if cart.shippingAddress.organization %}
+                <li class="address-list__item">{{ cart.shippingAddress.organization }}</li>
+              {% endif %}
+              <li class="address-list__item">{{ cart.shippingAddress.firstName }}</li>
+              <li class="address-list__item">{{ cart.shippingAddress.lastName }}</li>
+              <li class="address-list__item">{{ cart.shippingAddress.postalCode }}</li>
+              <li class="address-list__item">{{ cart.shippingAddress.addressLine1 }}</li>
+              {% if cart.shippingAddress.addressLine2 %}
+                <li class="address-list__item">{{ cart.shippingAddress.addressLine2 }}</li>
+              {% endif %}
+              {% if cart.shippingAddress.locality %}
+                <li class="address-list__item">{{ cart.shippingAddress.locality }}</li>
+              {% endif %}
+            </ul>
           </div>
 
         {% else %}
           <p>{{ 'No shipping address selected.'|t }}</p>
         {% endif %}
-
       </div>
 
       <div class="checkout__box--adresses-single">
@@ -45,12 +73,21 @@
             Rechnungsadresse
           </h4>
           <div class="js-address-select border-0">
-            {{ include('shop/_includes/addresses/address', {
-              address: cart.billingAddress,
-              ignoreKeys: ['label'],
-              boldKeys: [],
-              asLines: false
-            }) }}
+            <ul class="address-list">
+              {% if cart.billingAddress.organization %}
+                <li class="address-list__item">{{ cart.billingAddress.organization }}</li>
+              {% endif %}
+              <li class="address-list__item">{{ cart.billingAddress.firstName }}</li>
+              <li class="address-list__item">{{ cart.billingAddress.lastName }}</li>
+              <li class="address-list__item">{{ cart.billingAddress.postalCode }}</li>
+              <li class="address-list__item">{{ cart.billingAddress.addressLine1 }}</li>
+              {% if cart.billingAddress.addressLine2 %}
+                <li class="address-list__item">{{ cart.billingAddress.addressLine2 }}</li>
+              {% endif %}
+              {% if cart.billingAddress.locality %}
+                <li class="address-list__item">{{ cart.billingAddress.locality }}</li>
+              {% endif %}
+            </ul>
           </div>
         {% else %}
           <p>{{ 'No billing address selected.'|t }}</p>
@@ -138,41 +175,8 @@
     </div>
   </div>
 
-  {% if not cart.shippingMethod %}
-    {# If the order requires a shipping method be selected, you could redirect back to the shipping page until
-       one is applied to the order (`{% redirect "shop/checkout/shipping" %}`) #}
-    {# <div class="checkout__box checkout__box--section">
-      <strong>Versand</strong> nicht ausgewählt.
-      <a href="{{ url('shop/checkout/shipping') }}">
-        Eine Versandart auswählen.
-      </a>
-    </div> #}
-  {% endif %}
 
   <div class="checkout__box checkout__box--section">
-    {# <div class="flex w-full justify-end items-center text-xs text-gray-500">
-      <div class="pr-2">
-        Versand:
-      </div>
-      <div>
-        {{ cart.totalShippingCost|commerceCurrency(cart.currency) }}
-      </div>
-    </div> #}
-    {#   <div class="flex w-full justify-end items-center text-xs text-gray-500">
-      <div class="pr-2">
-        Mwst:
-      </div>
-      <div>
-        {{ cart.totalTax|commerceCurrency(cart.currency) }}
-      </div>
-    </div> #}
-
-
-
-
-
-    {# {% if cart.orderAdjustments|length %} #}
-    {# {% for adjustment in cart.orderAdjustments %} #}
     <div class="checkout__box--adjustments-detail">
 
       {% for adjustment in cart.adjustments %}
@@ -208,26 +212,6 @@
         </div>
       </div>
     {% endif %}
-    {#          {% if cart.shippingMethodHandle == 'B2C_pickUpAtStore' %}
-            <span>Rabatt Versand: {{ adjustment.name }}:</span>
-          {% else %}
-            <span>Versand:</span>
-          {% endif %}
-        </div>
-        <div>
-          {{ adjustment.amount|commerceCurrency(cart.currency) }}
-        </div> #}
-
-    {# {% endif %} #}
-
-    {#    <div class="summary__price summary__price--small">
-      <div class="summary__price--title ">
-        (Mwst.:
-      </div>
-      <div>
-        {{ cart.totalTaxIncluded|commerceCurrency(cart.currency) }})
-      </div>
-    </div> #}
 
     <div class="summary__price">
       <div class="summary__price--title summary__price--title-bold">
@@ -251,21 +235,4 @@
       </div>
     </div>
   {% endif %}
-  {% if
-    cart.hasOutstandingBalance
-    and cart.totalPrice != cart.getOutstandingBalance() %}
-    <div class="mt-1 flex w-full justify-end">
-      <div class="text-gray-600 pr-2">
-        Ausstehender Saldo {{ cart.paymentCurrency }}:
-      </div>
-      <div>
-        {{ cart.outstandingBalance|commerceCurrency(
-          cart.paymentCurrency,
-          convert = true
-        ) }}
-      </div>
-    </div>
-  {% endif %}
-
-
 </div>

@@ -1,3 +1,5 @@
 description: ''
 handle: userGroupRetail
 name: Detailhandel
+permissions:
+  - 'assignusergroup:2db88e09-5caa-44ec-a62a-3780b2b427c0' # Detailhandel

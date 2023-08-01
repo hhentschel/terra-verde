@@ -1,17 +1,17 @@
 columnSuffix: uxiqkwwy
-contentColumnType: text
+contentColumnType: mediumtext
 fieldGroup: 4fe8dfc1-b512-4508-a756-d29539b14b62 # Artikel
 handle: orderNotes
-instructions: ''
+instructions: null
 name: Notiz
 searchable: false
 settings:
   byteLimit: null
   charLimit: null
-  code: ''
-  columnType: null
-  initialRows: '4'
-  multiline: '1'
+  code: false
+  columnType: mediumtext
+  initialRows: 4
+  multiline: true
   placeholder: null
   uiMode: enlarged
 translationKeyFormat: null

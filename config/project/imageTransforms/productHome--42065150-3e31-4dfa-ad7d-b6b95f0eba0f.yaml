@@ -6,4 +6,5 @@ mode: crop
 name: 'Product Home'
 position: center-center
 quality: null
+upscale: true
 width: null

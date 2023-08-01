@@ -6,4 +6,5 @@ mode: crop
 name: 'Produkt Detail'
 position: center-center
 quality: null
+upscale: true
 width: null

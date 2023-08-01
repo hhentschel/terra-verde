@@ -23,25 +23,16 @@ fieldLayouts:
             step: null
             tip: null
             title: null
-            type: craft\fieldlayoutelements\AssetTitleField
+            type: craft\fieldlayoutelements\assets\AssetTitleField
             warning: null
             width: 100
         name: Inhalt
         sortOrder: 1
+fs: news
 handle: news
 hasUrls: true
 name: Aktuelles
-settings:
-  cdnUrlPattern: ''
-  customSubfolder: /assets/images/content/content/news
-  makeUploadsPublic: true
-  optimisePrefix: ''
-  optimiseUrlPattern: ''
-  projectSlug: ''
-  securityKey: ''
-  subfolder: terra-verde/development/assets/images/content/content/news/
 sortOrder: 13
 titleTranslationKeyFormat: null
 titleTranslationMethod: site
-type: servd\AssetStorage\Volume
 url: 'https://cdn2.assets-servd.host/'

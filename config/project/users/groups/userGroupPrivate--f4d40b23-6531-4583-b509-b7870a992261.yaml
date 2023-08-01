@@ -1,3 +1,5 @@
 description: ''
 handle: userGroupPrivate
 name: Privatkunden
+permissions:
+  - 'assignusergroup:f4d40b23-6531-4583-b509-b7870a992261' # Privatkunden

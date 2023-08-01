@@ -1,18 +1,30 @@
 {% extends '/_layouts/main' %}
 
+{#
 {% set addresses = craft.commerce.customers.customer.addresses %}
+#}
+{% set addresses = currentUser ? currentUser.getAddresses() : [] %}
 
 {% set cart = craft.commerce.carts.cart %}
+{#
+{% set customerAddresses = currentUser ? currentUser.addresses : [] %}
+#}
+
 {% set userExists = craft.users.email(cart.email ?? 'NULL').one() %}
 
+{#
 {% set customer = craft.commerce.customers.customer %}
-{% set primaryBillingAddress = customer.getPrimaryBillingAddress() %}
-{% set primaryShippingAddress = customer.getPrimaryShippingAddress() %}
+#}
+{# @var primaryBillingAddress \craft\commerce\models\Address #}
+ {% set primaryBillingAddress = currentUser.getPrimaryBillingAddress() %}
+{# @var primaryShippingAddress \craft\commerce\models\Address #}
+ {% set primaryShippingAddress = currentUser.getPrimaryShippingAddress() %}
 
-{% set modelName = modelName is defined ? modelName : 'address' %}
-{% set model = address is defined ? address : null %}
+{# {% set modelName = modelName is defined ? modelName : 'address' %}
+{% set model = address is defined ? address : null %} #}
 
 {% block content %}
+
   <!-- Template: {{ _self }}.twig -->
   <section class="grid">
     <div class="row">
@@ -30,7 +42,7 @@
             {{ csrfInput() }}
             {{ actionInput('commerce/cart/update-cart') }}
             {{ successMessageInput('Addresses selected.') }}
-            {{ redirectInput('shop/checkout/shipping') }}
+            {{ redirectInput(siteUrl('shop/checkout/shipping')) }}
             {{ hiddenInput('fields[orderNotes]', '') }}
 
             {% if not cart.email %}
@@ -39,95 +51,28 @@
                 {{ input('email', 'email', cart.email, {
                   id: 'email',
                   placeholder: 'email@site.com',
-                  class: ['w-full', 'border border-gray-300 hover:border-gray-500 px-4 py-2 leading-tight rounded']
+                  class: ['']
                 }) }}
                 <span class="flash">{{ cart.getErrors('email')|join }}</span>
               </div>
             {% endif %}
 
             <h3 class="heading heading--3 heading--no-margin-top">Versandadresse wählen</h3>
-            {{ include('shop/_includes/addresses/fieldset', {
+            {{ include('shop/_includes/address/fieldset', {
               title: 'Shipping Address'|t,
-              class: 'ShippingAddress',
-              name: 'shippingAddress'
+              classes: 'ShippingAddress',
+              name: 'shippingAddress',
+              primaryIdName: 'primaryShippingAddressId',
+              sourceIdName: 'sourceShippingAddressId',
             }) }}
+
             {# Wenn schon Kunde vorhanden #}
             {% if userExists %}
 
-            {% if customer.addresses|length %}
+              {% if currentUser and addresses|length %}
 
-            {{ hiddenInput('billingAddressSameAsShipping', 0) }}
-
-            <div class="selection--checkbox">
-              {{ input('checkbox', 'billingAddressSameAsShipping', 1, {
-                id: 'billingAddressSameAsShipping',
-                class: "selection__input",
-                checked: true
-              }) }}
-              <label for="billingAddressSameAsShipping" class="selection__label">
-                {{ 'Gewählte Adresse auch als Rechnungsadresse verwenden'|t }}
-              </label>
-
-              <div class="address-list__container">
-                <span class="address-list__container-info">Bitte wählen Sie eine Adresse aus ihrem Profil aus, indem Sie auf die Adresse klicken. Oder fügen Sie eine
-                <a class="link"
-                   href="{{ url('shop/customer/addresses/edit') }}">
-                  neue Adresse in ihrem Profil
-                </a>
-                   hinzu.</span>
-                <h3 class="heading heading--3 heading--no-margin-top">Rechnungsadresse wählen</h3>
-                <div class="mt-8">
-                  {{ include('shop/_includes/addresses/fieldset', {
-                    title: 'Billing Address'|t,
-                    class: 'BillingAddress hidden',
-                    name: 'billingAddress'
-                  }) }}
-                </div>
-              </div>
-
-              <div>
-                Adressen können auch im <a href="/shop/customer" class="link">
-                  Profil
-                </a> hinzugefügt und geändert werden.
-              </div>
-
-              {# <div class="add-address-info">
-                <p class="add-address-info__text">Hier können Sie weitere Informationen für den Versand hinterlegen.
-                  Zusätzlich können Sie in der Adressverwaltung in Ihrem Profil auch für jede Adresse spezifische
-                  Angaben abspeichern.<br/>
-                  ACHTUNG: dieses Feld nicht für Grusstexte verwenden. Bitte eine <a class="link"
-                                                                                     href="/shop/diverses/karte-nach-wunsch-beschriften">separate
-                    Grusskarte</a> erwerben oder Grusskarte beim geschenkset auswählen.</p>
-                <textarea name="fields[orderNotes]" value="" class="input" cols="20"
-                          rows="3"></textarea>
-              </div> #}
-
-              <div class="add-address-info">
-                <p class="add-address-info__text">In der Adressverwaltung in Ihrem Profil können Sie auch für jede
-                  Adresse spezifische
-                  Angaben abspeichern.
-              </div>
-
-              <div class="checkout__steps">
-                <div class="checkout__steps--button">
-                  <input type="submit"
-                         class="input input__primary"
-                         value="Adresse bestätigen und weiter"/>
-                </div>
-              </div>
-
-              {% else %}
-                <div>
-                  Noch keine Adressen hinterlegt.
-                  <a class="button button--primary"
-                     href="{{ url('shop/customer/addresses/edit') }}">
-                    neue Adresse hinzufügen
-                  </a>
-                </div>
-              {% endif %}
-              {# Ansonsten, wenn Gäste Checkout #}
-              {% else %}
                 {{ hiddenInput('billingAddressSameAsShipping', 0) }}
+
                 <div class="selection--checkbox">
                   {{ input('checkbox', 'billingAddressSameAsShipping', 1, {
                     id: 'billingAddressSameAsShipping',
@@ -138,24 +83,41 @@
                     {{ 'Gewählte Adresse auch als Rechnungsadresse verwenden'|t }}
                   </label>
 
-                  <div class="forms__checkout--link">
-                    <h3>Rechnungsadresse</h3>
-                    {{ include('shop/_includes/addresses/fieldset', {
-                      title: 'Billing Address'|t,
-                      class: 'BillingAddress',
-                      name: 'billingAddress'
-                    }) }}
+
+                  <div class="address-list__container">
+                  <span class="address-list__container-info">Bitte wählen Sie eine Adresse aus ihrem Profil aus, indem Sie auf die Adresse klicken. Oder fügen Sie eine
+                  <a class="link"
+                     href="{{ url('shop/customer/addresses/edit') }}">
+                    neue Adresse in ihrem Profil
+                  </a>
+                     hinzu.</span>
+                    <h3 class="heading heading--3 heading--no-margin-top">Rechnungsadresse wählen</h3>
+                    <div class="mt-8">
+                      {{ include('shop/_includes/address/fieldset', {
+                        title: 'Billing Address'|t,
+                        class: 'BillingAddress hidden',
+                        name: 'billingAddress',
+                        primaryIdName: 'primaryBillingAddressId',
+                        sourceIdName: 'sourceBillingAddressId',
+                      }) }}
+                    </div>
+
                   </div>
+
                 </div>
 
+                <div>
+                  Adressen können auch im <a href="/shop/customer" class="link">
+                    Profil
+                  </a> hinzugefügt und geändert werden.
+                </div>
+
+                Are the addresses the same: {{ cart.hasMatchingAddresses() ? 'Yes' : 'No' }}
+
                 <div class="add-address-info">
-                  <p class="add-address-info__text">Hier können Sie weitere Informationen für den Versand hinterlegen.
-                    Zusätzlich können Sie in der Adressverwaltung in Ihrem Profil auch für jede Adresse spezifische
-                    Angaben abspeichern.<br/>
-                    ACHTUNG: dieses Feld nicht für Grusstexte verwenden. Bitte eine <a class="link"
-                                                                                       href="/shop/diverses/karte-nach-wunsch-beschriften">separate
-                      Grusskarte</a> erwerben oder Grusskarte beim geschenkset auswählen.</p>
-                  <textarea name="fields[orderNotes]" value="" class="input" cols="20" rows="3"></textarea>
+                  <p class="add-address-info__text">
+                    In der Adressverwaltung in Ihrem Profil können Sie auch für jede
+                    Adresse spezifische Angaben abspeichern.
                 </div>
 
                 <div class="checkout__steps">
@@ -166,49 +128,129 @@
                   </div>
                 </div>
 
+              {% else %}
+                <div>
+                  Noch keine Adressen hinterlegt.
+                  <a class="button button--primary"
+                     href="{{ url('shop/customer/addresses/edit') }}">
+                    neue Adresse hinzufügen
+                  </a>
+                </div>
               {% endif %}
 
-            </div>
+              {# Ansonsten, wenn Gäste Checkout #}
+            {% else %}
+              {{ hiddenInput('billingAddressSameAsShipping', 0) }}
+              <div class="selection--checkbox">
+                <label for="billingAddressSameAsShipping" class="selection__label">
+                  {{ input('checkbox', 'billingAddressSameAsShipping', 1, {
+                    id: 'billingAddressSameAsShipping',
+                    class: "selection__input",
+                    checked: true
+                  }) }}
 
-            {# Outputs a hidden input field #}
-            {# {{ craft.snaptcha.field }} #}
+                  {{ 'Gewählte Adresse auch als Rechnungsadresse verwenden'|t }}
+                </label>
 
-          </form>
+                <div class="forms__checkout--link">
+                  <h3>Rechnungsadresse</h3>
+                  {{ include('shop/_includes/addresses/fieldset', {
+                    title: 'Billing Address'|t,
+                    class: 'BillingAddress',
+                    name: 'billingAddress',
+                    primaryIdName: 'primaryBillingAddressId',
+                    sourceIdName: 'sourceBillingAddressId',
+                  }) }}
+                </div>
+              </div>
+
+              <div class="checkout__steps">
+                <div class="checkout__steps--button">
+                  <input type="submit"
+                         class="input input__primary"
+                         value="Adresse bestätigen und weiter"/>
+                </div>
+              </div>
+
+            {% endif %}
 
         </div>
+
+        {# Outputs a hidden input field #}
+        {{ craft.snaptcha.field }}
+
+        </form>
+
       </div>
+    </div>
     </div>
   </section>
 
-  {% js %}var $fieldsets = document.querySelectorAll('.js-address-fieldset');
+  {% js %}
+    var $fieldsets = document.querySelectorAll('.js-address-fieldset');
 
-    if ($fieldsets && $fieldsets.length) { $fieldsets.forEach(function (el) { var
-    $addressSelects = el.querySelectorAll('.js-address-select');
+    if ($fieldsets && $fieldsets.length) {
+    $fieldsets.forEach(function(el) {
+    var $addressSelects = el.querySelectorAll('.js-address-select');
 
     if ($addressSelects && $addressSelects.length) {
-    $addressSelects.forEach(function(el) { var $radio =
-    el.querySelector('.js-radio input'); var $body = el.querySelector('.js-body');
+    $addressSelects.forEach(function(el) {
+    var $radio = el.querySelector('.js-radio input');
+    var $body = el.querySelector('.js-body');
 
-    if ($radio) { if ($body) { // Creating new address
-    $radio.addEventListener('change', function(ev) { if (ev.target.checked) {
-    $body.classList.remove('hidden'); } else { $body.classList.add('hidden'); }
+    if ($radio) {
+    if ($body) {
+    // Creating new address
+    $radio.addEventListener('change', function(ev) {
+    console.log('changing');
+    if (ev.target.checked) {
+    $body.classList.remove('hidden');
+    } else {
+    $body.classList.add('hidden');
+    }
     });
 
-    if ($radio.checked) { $body.classList.remove('hidden'); } } else { //
-    Selecting existing address $radio.addEventListener('change', function(ev) { if
-    (ev.target.checked) { var $newBox =
-    document.querySelector('.js-address-select[data-model-name="' +
-    ev.target.dataset.modelName + '"]'); if ($newBox) {
-    $newBox.querySelector('.js-body').classList.add('hidden'); } } }); } } }); }
-    }); }
+    if ($radio.checked) {
+    $body.classList.remove('hidden');
+    }
+    } else {
+    // Selecting existing address
+    $radio.addEventListener('change', function(ev) {
+    console.log(ev.target.checked);
+    if (ev.target.checked) {
+    var $newBox = document.querySelector('.js-address-select[data-model-name="' + ev.target.dataset.modelName + '"]');
+    if ($newBox) {
+    $newBox.querySelector('.js-body').classList.add('hidden');
+    }
+    }
+    });
+    }
+    }
+    });
+    }
+    });
+    }
 
     var $billingSameAs = document.querySelector('#billingAddressSameAsShipping');
-    if ($billingSameAs) { $billingSameAs.addEventListener('change', function(ev) {
-    var $billingFieldSet =
-    document.querySelector('.js-address-fieldset.BillingAddress');
-    $billingFieldSet.classList.toggle('hidden'); });{% if
-    (cart.billingAddressId and cart.billingAddress.hasErrors())
-    or cart.billingAddressId != cart.shippingAddressId %}
-    $billingSameAs.click();
-  {% endif %}}{% endjs %}
+    if ($billingSameAs) {
+    $billingSameAs.addEventListener('change', function(ev) {
+    var $billingFieldSet = document.querySelector('.js-address-fieldset.BillingAddress');
+    $billingFieldSet.classList.toggle('hidden');
+
+    for (let input of $billingFieldSet.querySelectorAll('.js-address-select input')) {
+    if ($billingSameAs.checked === true) {
+    input.setAttribute('disabled', '');
+    } else if (input.hasAttribute('disabled')) {
+    input.removeAttribute('disabled');
+    }
+    }
+    });
+    }
+  {% endjs %}
+
+  {% js %}
+    {% if not cart.hasMatchingAddresses() or (cart.billingAddress and cart.billingAddress.hasErrors() and not cart.hasMatchingAddresses()) %}
+      $billingSameAs.click();
+    {% endif %}
+  {% endjs %}
 {% endblock %}

@@ -1,6 +1,6 @@
 allowPublicRegistration: true
+deactivateByDefault: false
 defaultGroup: f4d40b23-6531-4583-b509-b7870a992261 # Privatkunden
 photoSubpath: null
 photoVolumeUid: 789fdb6d-520f-4cf1-be1e-478056358e79 # Inhaltsbilder
 requireEmailVerification: true
-suspendByDefault: false

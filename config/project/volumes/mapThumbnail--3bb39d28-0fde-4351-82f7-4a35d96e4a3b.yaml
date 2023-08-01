@@ -23,25 +23,16 @@ fieldLayouts:
             step: null
             tip: null
             title: null
-            type: craft\fieldlayoutelements\AssetTitleField
+            type: craft\fieldlayoutelements\assets\AssetTitleField
             warning: null
             width: 100
         name: Inhalt
         sortOrder: 1
+fs: mapThumbnail
 handle: mapThumbnail
 hasUrls: true
 name: 'Karten Vorschaubilder'
-settings:
-  cdnUrlPattern: ''
-  customSubfolder: /assets/images/content/mapthumbnails/
-  makeUploadsPublic: true
-  optimisePrefix: ''
-  optimiseUrlPattern: ''
-  projectSlug: ''
-  securityKey: ''
-  subfolder: terra-verde/development/assets/images/content/mapthumbnails/
 sortOrder: 4
 titleTranslationKeyFormat: null
 titleTranslationMethod: site
-type: servd\AssetStorage\Volume
 url: 'https://cdn2.assets-servd.host/'

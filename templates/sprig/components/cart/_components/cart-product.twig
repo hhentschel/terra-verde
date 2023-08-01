@@ -167,40 +167,46 @@
            {% if (item.purchasable.product.getType().name == 'Geschenke') %}
 
              {# für anpassungen als Discount und nicht MWST (weil bei geschensets keine MWST angezeigt werden soll) #}
-             {% for adjustment in item.adjustments if adjustment.type != "discount" and adjustment.type != "tax" %}
-               <div class="adjustments__data">
-                 {% if adjustment.name %}
-                   <div class="adjustments__data--type">
-                     {{ adjustment.name }}
+             {% for adjustment in item.adjustments %}
+               {% if adjustment.type != "discount" and adjustment.type != "tax" %}
+
+                 <div class="adjustments__data">
+                   {% if adjustment.name %}
+                     <div class="adjustments__data--type">
+                       {{ adjustment.name }}
+                     </div>
+                   {% endif %}
+                   <div class="">
+                     <span class="adjustments__data--name">{{ adjustment.description }}</span>
                    </div>
-                 {% endif %}
-                 <div class="">
-                   <span class="adjustments__data--name">{{ adjustment.description }}</span>
-                 </div>
-                 <div class="adjustments__data--amount">
+                   <div class="adjustments__data--amount">
                           <span class=""
                                 title="{{ adjustment.amount }}"> {{ adjustment.amount|commerceCurrency(cart.currency) }}</span>
+                   </div>
                  </div>
-               </div>
+               {% endif %}
              {% endfor %}
 
            {% else %}
 
              {# für Anpassungen als Discount #}
-             {% for adjustment in item.adjustments if adjustment.type == "discount" %}
-               <div class="adjustments__data">
+             {% for adjustment in item.adjustments %}
+               {% if adjustment.type == "discount" %}
 
-                 <div class="adjustments__data--type">
-                   {{ adjustment.description }}
-                 </div>
+                 <div class="adjustments__data">
 
-                 <div class="adjustments__data--amount">
+                   <div class="adjustments__data--type">
+                     {{ adjustment.description }}
+                   </div>
+
+                   <div class="adjustments__data--amount">
                           <span class=""
                                 title="{{ adjustment.amount }}">
                             {{ adjustment.amount|commerceCurrency(cart.currency) }}
                           </span>
+                   </div>
                  </div>
-               </div>
+               {% endif %}
              {% endfor %}
 
              {# für Anpassungen nicht als Discount #} {# MWST: Ausgabe #}

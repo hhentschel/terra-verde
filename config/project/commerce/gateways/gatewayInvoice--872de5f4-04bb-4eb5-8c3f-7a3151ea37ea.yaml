@@ -1,4 +1,5 @@
 handle: gatewayInvoice
+isArchived: false
 isFrontendEnabled: true
 name: Rechnung
 paymentType: authorize

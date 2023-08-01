@@ -23,25 +23,16 @@ fieldLayouts:
             step: null
             tip: null
             title: null
-            type: craft\fieldlayoutelements\AssetTitleField
+            type: craft\fieldlayoutelements\assets\AssetTitleField
             warning: null
             width: 100
         name: Inhalt
         sortOrder: 1
+fs: productImageWinePortugal
 handle: productImageWinePortugal
 hasUrls: true
 name: 'Weine Portugal'
-settings:
-  cdnUrlPattern: ''
-  customSubfolder: /assets/images/content/products/wine/portugal/
-  makeUploadsPublic: true
-  optimisePrefix: ''
-  optimiseUrlPattern: ''
-  projectSlug: ''
-  securityKey: ''
-  subfolder: terra-verde/development/assets/images/content/products/wine/portugal/
 sortOrder: 15
 titleTranslationKeyFormat: null
 titleTranslationMethod: site
-type: servd\AssetStorage\Volume
 url: 'https://cdn2.assets-servd.host/'

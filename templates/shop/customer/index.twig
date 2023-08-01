@@ -6,18 +6,32 @@
 {% endset %}
 
 {# The `withLineItems()` parameter avoids n+1 queries when looping over a large number of orders #}
-{% set orders =
-  craft.orders.customer(craft.commerce.customers.customer).isCompleted(
-    true
-  ).withLineItems().all() %}
+{# {% set orders =
+  craft.orders.customer(craft.commerce.customers.customer)
+    .isCompleted(true)
+    .withLineItems()
+    .all() %} #}
+
+{# @var orders \craft\commerce\elements\Order[] #}
+{% set orders = craft.orders()
+  .customer(currentUser)
+  .isCompleted(true)
+  .orderBy('dateOrdered DESC')
+  .all() %}
 
 {% block content %}
   <!-- Template: {{ _self }}.twig -->
   {% if currentUser %}
-    {% set orders =
+    {#    {% set orders =
       craft.orders.customer(craft.commerce.customers.customer).isCompleted(
         true
-      ).all() %}
+      ).all() %} #}
+
+    {% set orders = craft.orders()
+      .customer(currentUser)
+      .isCompleted(true)
+      .orderBy('dateOrdered DESC')
+      .all() %}
 
     <section class="grid">
       <div class="row">

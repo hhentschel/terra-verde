@@ -1,4 +1,5 @@
 handle: dummy
+isArchived: false
 isFrontendEnabled: false
 name: Dummy
 paymentType: purchase

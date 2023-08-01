@@ -1,28 +1,29 @@
 <!-- Template: {{ _self }}.twig -->
 <!DOCTYPE html>
 <html lang="de">
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <title>
-      Shop
-    </title>
+<head>
+  <meta charset="utf-8"/>
+  <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+  <title>
+    Shoppppp
+  </title>
 
-    {# <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script> #}
-    {# <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet"> #}
-    {% if extraHead is defined %}{{ extraHead }}{% endif %}
-  </head>
-  <body class="relative text-gray-800 flex flex-col min-h-screen">
-  layouts/main
-    {% if cart is not defined %}
-      {% set cart = craft.commerce.carts.cart %}
-    {% endif %}
+  {# <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script> #}
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+  {% if extraHead is defined %}{{ extraHead }}{% endif %}
+
+</head>
+<body class="relative text-gray-800 flex flex-col min-h-screen">
+layouts/main
+{% if cart is not defined %}
+  {% set cart = craft.commerce.carts.cart %}
+{% endif %}
 
 
 {% set flashNotice = craft.app.session.getFlash('notice') %}
 {% set flashError = craft.app.session.getFlash('error') %}
 
-    {# {% set classes = {
+{# {% set classes = {
       input: 'border border-gray-300 hover:border-gray-500 px-4 py-2 leading-tight rounded',
       box: {
         base: 'bg-gray-100 border-gray-300 border-b-2 p-6',
@@ -38,27 +39,27 @@
       }
     } %} #}
 
-    <header>
-      {# {% include 'shop/_includes/floating-cart' %} #}
+<header>
+  {# {% include 'shop/_includes/floating-cart' %} #}
 
-    {% include 'shop/_includes/nav-main' %}
-    {# {% include 'shop/_includes/nav-checkout' %} #}
-    </header>
+  {% include 'shop/_includes/nav-main' %}
+  {# {% include 'shop/_includes/nav-checkout' %} #}
+</header>
 
-    {% block layout %}
-      <div class="container mx-auto p-6 flex-grow">
-        {% block content %}
+{% block layout %}
+  <div class="container mx-auto p-6 flex-grow">
+    {% block content %}
 
-        {% endblock %}
-      </div>
     {% endblock %}
+  </div>
+{% endblock %}
 
-    {# <footer>
+{# <footer>
     {% include 'shop/_includes/footer' %}
 </footer> #}
 {#
-    {% if devMode %}
-    <script>console.log('Cart on page load: ', {{ cart.toArray()|json_encode|raw }});</script>
+{% if devMode %}
+<script>console.log('Cart on page load: ', {{ cart.toArray()|json_encode|raw }});</script>
 {% endif %} #}
-  </body>
+</body>
 </html>
