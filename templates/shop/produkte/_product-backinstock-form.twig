@@ -6,7 +6,7 @@
 {% if sprig.isRequest %}
   {% if success is defined and success %}
 
-    {{ success ? 'success' : 'error' }}
+    {# {{ success ? 'success' : 'error' }} #}
     <div class="bis-complete">
       <div class="bis-signup__complete-message">Vielen Dank. Sie werden benachrichtigt, sobald das Produkt wieder
         erhältlich ist.
@@ -30,7 +30,7 @@
         {# Outputs a hidden input field #}
         {# {{ craft.snaptcha.field }} #}
         <input class="input bis-signup__registration-input"
-               name="email" type="email" value="{{ cart.email }}"
+               name="email" type="email" value=""
                placeholder="name@email.ch">
 
         {# Outputs a hidden input field #}
