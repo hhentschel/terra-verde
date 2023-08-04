@@ -592,3 +592,8 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
     display: none;
   }
 }
+
+.loading-button__indicator--adjust-item.loading-button__indicator--loading,
+.loading-button__indicator--adjust-item {
+  margin-right: px-to-rem($space--s);
+}

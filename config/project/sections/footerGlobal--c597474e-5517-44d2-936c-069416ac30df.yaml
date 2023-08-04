@@ -1,0 +1,12 @@
+defaultPlacement: end
+enableVersioning: true
+handle: footerGlobal
+name: Footer
+propagationMethod: all
+siteSettings:
+  dd0cd05e-0cb9-4a76-b993-3cb70e6fc147: # Terra Verde
+    enabledByDefault: true
+    hasUrls: false
+    template: null
+    uriFormat: null
+type: single

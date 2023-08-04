@@ -158,6 +158,11 @@
   flex-direction: column;
 }
 
+.layout-helper__flex-justify {
+  display: flex;
+  justify-content: space-between;
+}
+
 // Horizontal Helper Classes GRID
 
 .col-lg-shift-helper-4 {

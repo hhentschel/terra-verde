@@ -18,6 +18,12 @@
     </div>
   </section>
 
+  {% set generic = craft.entries.section('generic')
+    .with([
+      'image',
+    ])
+    .one() %}
+
   {% set entries = craft.entries.section('homepage')
     .with([
       'homeFavorites', 'homeFavorites.articleImage',
@@ -234,7 +240,7 @@
             <article class="col col-xs-12 col-md-4 col-lg-4 section-home__blogentry">
               <a href="{{ entry.url }}" class="section-home__product--link">
                 {% set transform = transformation|default('productListing') %}
-                {% set img = entry.image[0] ?? generic.image.one() %}
+                {% set img = entry.image[0] ?? generic.image[0] %}
 
                 {% if img is defined %}
                   {% include '_components/_content-elements/image' with {

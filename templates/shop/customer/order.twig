@@ -69,7 +69,22 @@
           <div class="{{ classes.box.base }}">
             <h4 class="layout-helper__margin-top--none">Versandadresse</h4>
             {% if order.shippingAddress %}
-              {% include 'shop/_includes/addresses/address' with { address: order.shippingAddress } %}
+
+              <ul class="address-list">
+                {% if order.shippingAddress.organization %}
+                  <li class="address-list__item">{{ order.shippingAddress.organization }}</li>
+                {% endif %}
+                <li class="address-list__item">{{ order.shippingAddress.firstName }}</li>
+                <li class="address-list__item">{{ order.shippingAddress.lastName }}</li>
+                <li class="address-list__item">{{ order.shippingAddress.postalCode }}</li>
+                <li class="address-list__item">{{ order.shippingAddress.addressLine1 }}</li>
+                {% if order.billingAddress.addressLine2 %}
+                  <li class="address-list__item">{{ order.shippingAddress.addressLine2 }}</li>
+                {% endif %}
+                {% if order.shippingAddress.locality %}
+                  <li class="address-list__item">{{ order.shippingAddress.locality }}</li>
+                {% endif %}
+              </ul>
             {% else %}
               <p>Nicht eingegeben.</p>
             {% endif %}
@@ -80,7 +95,21 @@
         <div class="{{ classes.box.base }}">
           <h4 class="layout-helper__margin-top--none">Rechnungsadresse</h4>
           {% if order.billingAddress %}
-            {% include 'shop/_includes/addresses/address' with { address: order.billingAddress } %}
+            <ul class="address-list">
+              {% if order.billingAddress.organization %}
+                <li class="address-list__item">{{ order.billingAddress.organization }}</li>
+              {% endif %}
+              <li class="address-list__item">{{ order.billingAddress.firstName }}</li>
+              <li class="address-list__item">{{ order.billingAddress.lastName }}</li>
+              <li class="address-list__item">{{ order.billingAddress.postalCode }}</li>
+              <li class="address-list__item">{{ order.billingAddress.addressLine1 }}</li>
+              {% if order.billingAddress.addressLine2 %}
+                <li class="address-list__item">{{ order.billingAddress.addressLine2 }}</li>
+              {% endif %}
+              {% if order.billingAddress.locality %}
+                <li class="address-list__item">{{ order.billingAddress.locality }}</li>
+              {% endif %}
+            </ul>
 
           {% else %}
             <p>Nicht eingegeben</p>
@@ -239,12 +268,14 @@
           {% endif %}
 
           {% if order.orderAdjustments|length %}
-            {% for adjustment in order.orderAdjustments if adjustment.type != "shipping" %}
-              <div class="flex items-center w-full justify-end" title="{{ adjustment.name }}">
-                <div class="text-xs text-gray-500 pr-2">Rabatte {{ adjustment.name }}:</div>
-                <div
-                  class="text-sm text-gray-500">{{ adjustment.amount|commerceCurrency(order.currency) }}</div>
-              </div>
+            {% for adjustment in order.orderAdjustments %}
+              {% if adjustment.type != "shipping" %}
+                <div class="flex items-center w-full justify-end" title="{{ adjustment.name }}">
+                  <div class="text-xs text-gray-500 pr-2">Rabatte {{ adjustment.name }}:</div>
+                  <div
+                    class="text-sm text-gray-500">{{ adjustment.amount|commerceCurrency(order.currency) }}</div>
+                </div>
+              {% endif %}
             {% endfor %}
           {% endif %}
 

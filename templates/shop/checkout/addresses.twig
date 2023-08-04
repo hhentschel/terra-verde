@@ -1,14 +1,8 @@
 {% extends '/_layouts/main' %}
 
-{#
-{% set addresses = craft.commerce.customers.customer.addresses %}
-#}
 {% set addresses = currentUser ? currentUser.getAddresses() : [] %}
 
 {% set cart = craft.commerce.carts.cart %}
-{#
-{% set customerAddresses = currentUser ? currentUser.addresses : [] %}
-#}
 
 {% set userExists = craft.users.email(cart.email ?? 'NULL').one() %}
 
@@ -16,12 +10,10 @@
 {% set customer = craft.commerce.customers.customer %}
 #}
 {# @var primaryBillingAddress \craft\commerce\models\Address #}
- {% set primaryBillingAddress = currentUser.getPrimaryBillingAddress() %}
+ {# {% set primaryBillingAddress = currentUser.getPrimaryBillingAddress() %} #}
 {# @var primaryShippingAddress \craft\commerce\models\Address #}
- {% set primaryShippingAddress = currentUser.getPrimaryShippingAddress() %}
+ {# {% set primaryShippingAddress = currentUser.getPrimaryShippingAddress() %} #}
 
-{# {% set modelName = modelName is defined ? modelName : 'address' %}
-{% set model = address is defined ? address : null %} #}
 
 {% block content %}
 
@@ -46,14 +38,14 @@
             {{ hiddenInput('fields[orderNotes]', '') }}
 
             {% if not cart.email %}
-              <div class="mb-6">
+              <div class="">
                 <label for="email">{{ 'Email'|t }}</label>
                 {{ input('email', 'email', cart.email, {
                   id: 'email',
                   placeholder: 'email@site.com',
                   class: ['']
                 }) }}
-                <span class="flash">{{ cart.getErrors('email')|join }}</span>
+                <span>{{ cart.getErrors('email')|join }}</span>
               </div>
             {% endif %}
 
@@ -111,8 +103,6 @@
                     Profil
                   </a> hinzugefügt und geändert werden.
                 </div>
-
-                Are the addresses the same: {{ cart.hasMatchingAddresses() ? 'Yes' : 'No' }}
 
                 <div class="add-address-info">
                   <p class="add-address-info__text">

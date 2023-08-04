@@ -82,46 +82,6 @@
      ['product.articleImage'],
    ]) %}
 
-{# {% set productQuery = craft.products({
-  search: search,
-  orderBy: orderBy,
-  limit: limit,
-}).with([
-  [
-    'product.articleImage',
-    'articleImage',
-    'product',
-    'variants',
-    'title',
-    'newsletterInfofield',
-    'articleCategoriesStatus',
-  ]
-]) %} #}
-
-{# {% set productQuery = craft.products({
-  search: search,
-  orderBy: orderBy,
-  limit: limit,
-  with: [
-    [
-      'product.articleImage',
-      'articleImage',
-      'product',
-      'variants',
-      'title',
-      'newsletterInfofield',
-      'articleCategoriesStatus',
-      {
-        withTransforms: ['productListing']
-      }
-    ]
-  ]
-}) %} #}
-
-{# 'product',
-'variants',
-'title',
-'newsletterInfofield', #}
 
 {% set categories = aCatDeli
   |merge(aCG)

@@ -18,6 +18,7 @@ Outputs a fieldset for selecting one of a user’s available addresses or creati
     primaryBillingAddressId: cart and cart.customer ? cart.customer.primaryBillingAddressId : null,
     primaryShippingAddressId: cart and cart.customer ? cart.customer.primaryShippingAddressId : null,
     showAdd: false,
+    cardWidth: 'cart-box__select',
   }) }}
 
   <div class="js-address-select" data-model-name="{{ name }}">

@@ -9,80 +9,101 @@ Outputs address form fields for editing an address.
 {% set addressName = addressName is defined ? addressName : '' %}
 {% set showLabelField = showLabelField is defined ? showLabelField : false %}
 
+{# @var primaryBillingAddress \craft\commerce\models\Address #}
+{# {% set primaryBillingAddress = currentUser.getPrimaryBillingAddress() %} #}
+{# @var primaryShippingAddress \craft\commerce\models\Address #}
+{# {% set primaryShippingAddress = currentUser.getPrimaryShippingAddress() %} #}
+
+
 {# Define a simple a Twig macro for outputting validation errors and making template less redundant #}
 {% macro displayErrors(address, fieldName) %}
   {% if address and address.getErrors(fieldName) %}
-    <div class="text-red-700">{{ address.getErrors(fieldName)|join }}</div>
+    <div class="red error">{{ address.getErrors(fieldName)|join }}</div>
   {% endif %}
 {% endmacro %}
 
-<div class="">
-  {# First and last name fields #}
-  <div class="my-2 {{ not showLabelField ? 'hidden' : '' }}">
-    <label for="title">
-      {{- 'Address Label'|t -}}
-    </label>
-    {{ input('text', 'title', address ? address.title : '', {
-      id: 'title',
-      class: ['input']
-    }) }}
-    {{ _self.displayErrors(address, 'title') }}
-  </div>
-  {% set countries = craft.commerce.store.store.getCountriesList() %}
-  {% set countryCode = address.countryCode ?? null %}
+<div>
 
-  <div class="my-2">
-    <label for="countryCode">
-      {{- 'Country'|t }} *
-    </label>
-    {% tag 'select' with {
-      id: 'countryCode',
-      name: 'countryCode',
-      class: ['input', countries|length == 0 ? 'hidden' : ''],
-    } %}
-      {{ tag('option', {
-        value: '',
-        disabled: true,
-        selected: countryCode is empty,
-        text: 'Select country'|t ~ '...'
-      }) }}
-      {% for key, option in countries %}
-        {% set optionValue = (countryCode ?: '') %}
-        {{ tag('option', {
-          value: key,
-          selected: key == optionValue,
-          text: option
+  {% if showPrimaryCheckboxes %}
+    <div class="selection--checkbox">
+      {{ hiddenInput('isPrimaryBilling', 0) }}
+      <label>
+        {{ input('checkbox', 'isPrimaryBilling', 1, {
+          checked: address.isPrimaryBilling,
+          class: ''
         }) }}
-      {% endfor %}
-    {% endtag %}
-    {{ _self.displayErrors(address, 'countryCode') }}
-  </div>
+        {{ 'Use as the primary billing address'|t('commerce') }}
+      </label>
+    </div>
 
-  <div class="my-2 {{ 'js-address-field'|namespaceInputId(addressName) }}">
-    <label for="fullName">
-      {{- 'Full Name'|t -}}
-    </label>
-    {{ input('text', 'fullName', address.fullName ?? '', {
-      id: 'fullName',
-      class: ['input']
-    }) }}
-    {{ _self.displayErrors(address, 'fullName') }}
-  </div>
+    <div class="selection--checkbox">
+      {{ hiddenInput('isPrimaryShipping', 0) }}
 
-  <div class="my-2 {{ 'js-address-field'|namespaceInputId(addressName) }}">
-    <label for="addressLine1">
-      {{- 'Address 1'|t -}}
-    </label>
-    {{ input('text', 'addressLine1', address.addressLine1 ?? '', {
-      id: 'addressLine1',
-      class: ['input']
-    }) }}
-    {{ _self.displayErrors(address, 'addressLine1') }}
-  </div>
+      {{ input('checkbox', 'isPrimaryShipping', 1, {
+        checked: address.isPrimaryShipping,
+        class: ''
+      }) }}
+      <label>
+        {{ 'Use as the primary shipping address'|t('commerce') }}
+      </label>
+    </div>
+  {% endif %}
 
-  {# City, state, and postal code fields #}
-  <div class="md:flex md:-mx-4">
-    <div class="md:w-1/3 md:mx-4 my-2 {{ 'js-address-field'|namespaceInputId(addressName) }}">
+  <hr class="form-item">
+
+  <div class="form-adress">
+
+    {# First and last name fields #}
+    {# <div class="form-adress__item {{ not showLabelField ? 'hidden' : '' }}">
+      <label for="title">
+        {{- 'Address Label'|t -}}
+      </label>
+      {{ input('text', 'title', address ? address.title : '', {
+        id: 'title',
+        class: ['input']
+      }) }}
+      {{ _self.displayErrors(address, 'title') }}
+    </div> #}
+    {% set countries = craft.commerce.store.store.getCountriesList() %}
+    {% set countryCode = address.countryCode ?? null %}
+
+    <div class="form-adress__item {{ 'js-address-field'|namespaceInputId(addressName) }}">
+      <label for="fullName">
+        {{- 'Full Name'|t -}}
+      </label>
+      {{ input('text', 'fullName', address.fullName ?? '', {
+        id: 'fullName',
+        class: ['input']
+      }) }}
+      {{ _self.displayErrors(address, 'fullName') }}
+    </div>
+
+
+    <div class="form-adress__item {{ 'js-address-field'|namespaceInputId(addressName) }}">
+      <label for="organization">
+        {{- 'Organization'|t -}}
+      </label>
+      {{ input('text', 'organization', address ? address.organization : '', {
+        id: 'organization',
+        class: ['input']
+      }) }}
+      {{ _self.displayErrors(address, 'organization') }}
+    </div>
+
+    <div class=" form-adress__item {{ 'js-address-field'|namespaceInputId(addressName) }}">
+      <label for="addressLine1">
+        {{- 'Address 1'|t -}}
+      </label>
+      {{ input('text', 'addressLine1', address.addressLine1 ?? '', {
+        id: 'addressLine1',
+        class: ['input']
+      }) }}
+      {{ _self.displayErrors(address, 'addressLine1') }}
+    </div>
+
+    {# City, state, and postal code fields #}
+
+    <div class="form-adress__item {{ 'js-address-field'|namespaceInputId(addressName) }}">
       <label for="locality">
         {{- 'City'|t -}}
       </label>
@@ -93,7 +114,7 @@ Outputs address form fields for editing an address.
       {{ _self.displayErrors(address, 'locality') }}
     </div>
 
-    <div class="md:w-1/3 md:mx-4 my-2 {{ 'js-address-field'|namespaceInputId(addressName) }}">
+    <div class="form-adress__item {{ 'js-address-field'|namespaceInputId(addressName) }}">
       {% set zipCode = address.postalCode ?? '' %}
       <label for="zipCode">
         {{- 'Postal Code'|t -}}
@@ -104,52 +125,55 @@ Outputs address form fields for editing an address.
       }) }}
       {{ _self.displayErrors(address, 'postalCode') }}
     </div>
-  </div>
 
-  <div class="my-2 {{ 'js-address-field'|namespaceInputId(addressName) }}">
-    <label for="organization">
-      {{- 'Organization'|t -}}
-    </label>
-    {{ input('text', 'organization', address ? address.organization : '', {
-      id: 'organization',
-      class: ['input']
-    }) }}
-    {{ _self.displayErrors(address, 'organization') }}
-  </div>
-
-  {% if addressCustomFields|length %}
-    <hr class="my-2">
-    <div
-      class="{{ 'js-address-custom-fields'|namespaceInputId(addressName) }} {{ 'js-address-field'|namespaceInputId(addressName) }}">
-
-      {% for customField in addressCustomFields %}
-        <div class="my-2">
-          <label for="custom-field-{{ customField.handle }}">
-            {{ customField.name }}
-          </label>
-          {{ input('text', 'fields[' ~ customField.handle ~ ']', address ? address[customField.handle] : '', {
-            id: 'custom-field-' ~ customField.handle,
-            class: ['input']
+    <div class="form-adress__item">
+      <label for="countryCode">
+        {{- 'Country'|t }} *
+      </label>
+      {% tag 'select' with {
+        id: 'countryCode',
+        name: 'countryCode',
+        class: ['input', countries|length == 0 ? 'hidden' : ''],
+      } %}
+        {{ tag('option', {
+          value: '',
+          disabled: true,
+          selected: countryCode is empty,
+          text: 'Select country'|t ~ '...'
+        }) }}
+        {% for key, option in countries %}
+          {% set optionValue = (countryCode ?: '') %}
+          {{ tag('option', {
+            value: key,
+            selected: key == optionValue,
+            text: option
           }) }}
-          {{ _self.displayErrors(address, customField.handle) }}
-        </div>
-      {% endfor %}
+        {% endfor %}
+      {% endtag %}
+      {{ _self.displayErrors(address, 'countryCode') }}
     </div>
-  {% endif %}
 
-  {% if showPrimaryCheckboxes %}
-    <hr class="my-2">
-    <div class="my-2">
-      {{ input('text', 'isPrimaryBilling', address.isPrimarybilling ? 1 : 0) }}
-      <label>{{ input('checkbox', 'isPrimaryBillingBox', 1, { checked: address.isPrimaryBilling, 'data-primary-input': 'isPrimaryBilling' }) }}
-        {{ 'Use as the primary billing address'|t('commerce') }}</label>
-    </div>
-    <div class="my-2">
-      {{ input('text', 'isPrimaryShipping', address.isPrimaryShipping ? 1 : 0) }}
-      <label>{{ input('checkbox', 'isPrimaryShippingBox', 1, { checked: address.isPrimaryShipping, 'data-primary-input': 'isPrimaryShipping' }) }}
-        {{ 'Use as the primary shipping address'|t('commerce') }}</label>
-    </div>
-  {% endif %}
+    {% if addressCustomFields|length %}
+
+      <div
+        class="form-adress__item {{ 'js-address-custom-fields'|namespaceInputId(addressName) }} {{ 'js-address-field'|namespaceInputId(addressName) }}">
+
+        {% for customField in addressCustomFields %}
+          <div>
+            <label for="custom-field-{{ customField.handle }}">
+              {{ customField.name }}
+            </label>
+            {{ input('text', 'fields[' ~ customField.handle ~ ']', address ? address[customField.handle] : '', {
+              id: 'custom-field-' ~ customField.handle,
+              class: ['input']
+            }) }}
+            {{ _self.displayErrors(address, customField.handle) }}
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+  </div>
 
 </div>
 

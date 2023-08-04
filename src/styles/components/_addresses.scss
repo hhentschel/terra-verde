@@ -13,20 +13,17 @@ $accordion--transition-timing-function: easing(open);
 .cart-box__select {
 
   border: 2px solid transparent;
+  padding: px-to-rem($space--m);
+  border-radius: 3px;
 
   &:has(input[type="radio"]:checked) {
     background-color: rgba(104, 138, 161, 0.35);
-    /*
-    color: $color--white;
-    */
     border: 2px solid $color--blue;
+
   }
 
   &:hover {
     background-color: rgba(104, 138, 161, 0.35);
-    /*
-    color: $color--white;
-    */
     border: 2px solid $color--blue;
   }
 
@@ -35,10 +32,10 @@ $accordion--transition-timing-function: easing(open);
 
   &-label {
     position: relative;
-    border-radius: 3px;
     display: flex;
-    flex-direction: column;
-    padding: px-to-rem($space--m);
+    gap: px-to-rem($space--s);
+    margin-bottom: px-to-rem($space--m);
+    align-items: baseline;
 
     &:hover {
       cursor: pointer;
@@ -65,15 +62,6 @@ $accordion--transition-timing-function: easing(open);
     }
   }
 
-  &-radioinput {
-    display: flex;
-  }
-
-  &-editbutton {
-    align-self: end;
-    margin: px-to-rem($space--m) 0;
-  }
-
   &-hint {
     display: flex;
     flex-direction: column;
@@ -94,5 +82,17 @@ $accordion--transition-timing-function: easing(open);
   &__text {
     line-height: $line-height--s;
     font-size: px-to-rem($font-size-s);
+  }
+}
+
+.adress-item {
+  &__marker {
+    display: flex;
+    margin-top: px-to-rem($space--s);
+    align-items: center;
+  }
+
+  &__buttons {
+    margin-left: auto;
   }
 }

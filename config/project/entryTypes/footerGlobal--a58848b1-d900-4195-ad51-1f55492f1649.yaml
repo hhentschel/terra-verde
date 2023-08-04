@@ -1,86 +1,123 @@
 fieldLayouts:
-  0eee14fb-4fea-4007-8011-22d7113e5183:
+  11c2a59c-d201-4e42-900b-efd182af2e5f:
     tabs:
       -
+        elementCondition: null
         elements:
           -
+            elementCondition: null
             fieldUid: 4fbda939-0a27-483c-a7c8-7def0a9418ee # Adresse
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: eafff31f-fafc-419d-9f86-932db67c7960
+            userCondition: null
             warning: null
             width: 50
           -
+            elementCondition: null
             fieldUid: a6d404c5-d5dc-4ac6-846b-d068efafba1a # Telefon
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: 5825e29a-af44-4087-98c2-c791d73beb33
+            userCondition: null
             warning: null
             width: 25
           -
+            elementCondition: null
             fieldUid: ab11f679-477b-4903-9086-d00fb5489f93 # Fax
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: 9e487681-7b20-4f8d-8f85-d898445a141a
+            userCondition: null
             warning: null
             width: 25
           -
+            elementCondition: null
             type: craft\fieldlayoutelements\HorizontalRule
+            uid: 68d6d301-5d12-4748-afb1-28473b59f4d5
+            userCondition: null
           -
+            elementCondition: null
             fieldUid: 2a604d11-f35a-4546-a33a-b2465e0017a9 # Email 1
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: 6b9899d2-2adc-476e-8066-e251347a4fdf
+            userCondition: null
             warning: null
             width: 50
           -
+            elementCondition: null
             fieldUid: af1c566f-cdf2-4ae1-a225-934165929d1a # Email 2
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: 42ab40c2-3cb3-4924-9e2c-c323445e9d22
+            userCondition: null
             warning: null
             width: 50
           -
+            elementCondition: null
             type: craft\fieldlayoutelements\HorizontalRule
+            uid: dcdba764-2de8-4afa-9a42-e84289d048c2
+            userCondition: null
           -
+            elementCondition: null
             fieldUid: 673dbddb-972b-44b7-b50c-ac5b649321ab # Öffnungszeiten
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: d7b0ae57-5cf3-4a57-a6aa-3513e5cecff4
+            userCondition: null
             warning: null
             width: 50
           -
+            elementCondition: null
             fieldUid: 023a6dc1-c7ac-4b4a-9908-220b69485841 # Öffnungszeiten Samstag
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: 1c3df970-9f1b-4a32-bf2a-b00394536f1a
+            userCondition: null
             warning: null
             width: 50
           -
+            elementCondition: null
             fieldUid: eb3ef146-b785-48bc-ab53-40d64959cc24 # Zusatzfeld Öffnungszeiten
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: cada691e-6544-4bc6-893c-2c17a5bf04f1
+            userCondition: null
             warning: null
             width: 100
         name: Kontakt
-        sortOrder: 1
+        uid: a67ea814-9666-419e-8099-8a970ed0638d
+        userCondition: null
 handle: footerGlobal
+hasTitleField: false
 name: Footer
-sortOrder: 2
+section: c597474e-5517-44d2-936c-069416ac30df # Footer
+sortOrder: 1
+titleFormat: '{section.name|raw}'
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

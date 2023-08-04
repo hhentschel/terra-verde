@@ -97,14 +97,12 @@
                <div class="{{ cart.getFirstError('couponCode') }} form__cart-table--coupon-box">
                  {# The Update Coupon form uses the single update controller action #}
                  <h4 class="heading heading--4 heading--no-margin-top">Promo Code</h4>
-
+                 {{ sprig('sprig/components/filters/_components/indicator') }}
                  {% if cart.getFirstError('couponCode') %}
                    <div class="text-red-500">{{ cart.getFirstError('couponCode') }}</div>
                  {% endif %}
 
                  <div class="form__cart-table--coupon-box-button">
-                   {# {{ redirectInput('shop/warenkorb') }}
-                                    <input class="button button--secondary" type="submit" value="Coupon anwenden"/> #}
                    {% if cart.couponCode %}
                      <span>
                           <svg class="icon--check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
@@ -116,19 +114,33 @@
                           Code «{{ discount.description }}» angewendet
                       </span>
                      {{ hiddenInput('couponCode', 'Coupon code gelöscht.'|hash) }}
-                     <a sprig s-action="commerce/cart/update-cart" s-method="post" value="null" href="#"
+
+                     <a sprig
+                        s-action="commerce/cart/update-cart"
+                        s-method="post"
+                        s-indicator=".loading-button__indicator"
+                        value="null"
+                        href="#"
                         class="button button--secondary">
                        Code löschen
+
                      </a>
                    {% else %}
                      <input type="text" name="couponCode" width="11"
-                            class="input {% if cart.getFirstError('couponCode') %}text-red-500{% endif %}"
-                       {# value="{{ cart.couponCode }}" #}>
-                     <a sprig s-action="commerce/cart/update-cart" s-method="post" value="{{ cart.couponCode }}"
-                        href="#" class="button button--primary button--small">
+                            class="input {% if cart.getFirstError('couponCode') %}text-red-500{% endif %}">
+
+                     <a sprig
+                        s-action="commerce/cart/update-cart"
+                        s-method="post"
+                        s-indicator=".loading-button__indicator"
+                        value="{{ cart.couponCode }}"
+                        href="#"
+                        class="button button--primary button--small">
                        Code anwenden
+
                      </a>
                    {% endif %}
+
                  </div>
                </div>
              </div>

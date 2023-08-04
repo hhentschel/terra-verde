@@ -6,19 +6,30 @@ instructions: 'Lebensmittel oder Wein?'
 name: Artikeltyp
 searchable: false
 settings:
-  allowLimit: false
-  allowMultipleSources: false
   allowSelfRelations: false
-  branchLimit: '1'
-  limit: null
+  branchLimit: null
   localizeRelations: false
-  selectionLabel: ''
+  maintainHierarchy: false
+  maxRelations: 1
+  minRelations: null
+  selectionCondition:
+    __assoc__:
+      -
+        - elementType
+        - craft\elements\Entry
+      -
+        - fieldContext
+        - global
+      -
+        - class
+        - craft\elements\conditions\entries\EntryCondition
+  selectionLabel: 'Kategorie auswählen'
   showSiteMenu: true
-  source: 'group:08ff3872-a05e-4722-868b-6bbe52bad972' # Produzenten
-  sources: '*'
+  sources:
+    - 'section:d4ae6c44-536a-458d-92da-645295622dd6' # Produzenten Typ
   targetSiteId: null
   validateRelatedElements: false
   viewMode: null
 translationKeyFormat: null
 translationMethod: site
-type: craft\fields\Categories
+type: craft\fields\Entries

@@ -52,10 +52,16 @@
                <h4 class="layout-helper__margin-vertical--none form__cart-table--options-heading">
                  Zusatzoptionen</h4>
                {% set vals = {('lineItems[' ~ item.id ~ '][options][remove]'): 1}|json_encode %}
-               <a sprig s-action="commerce/cart/update-cart" s-method="post" s-vals="{{ vals }}" href="#"
+               <a sprig
+                  s-action="commerce/cart/update-cart"
+                  s-method="post"
+                  s-vals="{{ vals }}"
+                  s-indicator=".loading-button__indicator"
+                  href="#"
                   class="button button--tertiary">
                  entfernen
                </a>
+               {{ sprig('sprig/components/filters/_components/indicator') }}
              </div>
 
              {% if (item.options.giftWrapped is defined) and (item.options.giftWrapped is not empty) %}
@@ -81,29 +87,34 @@
 
      </td>
      <td>
-    <span>
-                  <input sprig s-action="commerce/cart/update-cart" s-method="post"
-                         class="input  input-small {% if item.getFirstError('qty') %}border-red-500 border{% endif %}"
-                         type="{% if item.options.donationAmount is defined %}hidden{% else %}number{% endif %}"
-                         name="lineItems[{{ item.id }}][qty]"
-                         {# ANPASSUNGEN DETAILHANDEL #}
-                    {% if currentUser %}
-                      {% if currentUser.isInGroup('userGroupRetail') %}
-                        min="{{ item.purchasable.product.artikelMinOrderSize }}"
-                      {% else %}
-                        min="1"
-                      {% endif %}
-                    {% else %}
-                      min="1"
-                    {% endif %}
-                         value="{{ item.qty }}">
-              </span>
+    <span class="layout-helper__flex-justify">
+        <input sprig
+               s-action="commerce/cart/update-cart"
+               s-method="post"
+               s-indicator=".loading-button__indicator--adjust-item"
+               class="input  input-small {% if item.getFirstError('qty') %}border-red-500 border{% endif %}"
+               type="{% if item.options.donationAmount is defined %}hidden{% else %}number{% endif %}"
+               name="lineItems[{{ item.id }}][qty]"
+               {# ANPASSUNGEN DETAILHANDEL #}
+          {% if currentUser %}
+            {% if currentUser.isInGroup('userGroupRetail') %}
+              min="{{ item.purchasable.product.artikelMinOrderSize }}"
+            {% else %}
+              min="1"
+            {% endif %}
+          {% else %}
+            min="1"
+          {% endif %}
+               value="{{ item.qty }}">
+
+    </span>
      </td>
 
      <td
        class="form__cart-table--item-prices {{ not loop.first ? 'border-t border-gray-300 border-dashed' : '' }} text-right">
        {% if not cart.hasErrors() %}
          <div class="form__cart-table--item-price" title="{{ item.price }}">
+
            <div class="form__cart-table--item-price-name">Einzelpreis:</div>
            {% if item.onSale %}
              <div class="form__cart-table--item-price-number">
@@ -139,13 +150,17 @@
        {% endif %}
 
        <span class="form__cart-table--item-remove">
-               {% set vals = {('lineItems[' ~ item.id ~ '][remove]'): 1}|json_encode %}
-               <a sprig s-action="commerce/cart/update-cart" s-method="post" s-vals="{{ vals }}"
-                  href="#"
-                  class="button button--tertiary">
-                 Entfernen
-               </a>
-             </span>
+         {% set vals = {('lineItems[' ~ item.id ~ '][remove]'): 1}|json_encode %}
+         <a sprig
+            s-action="commerce/cart/update-cart"
+            s-method="post"
+            s-vals="{{ vals }}"
+            s-indicator=".loading-button__indicator--adjust-item"
+            href="#"
+            class="button button--tertiary">
+           Entfernen
+         </a>
+       </span>
      </td>
 
    </tr>
@@ -156,6 +171,7 @@
        {% if not cart.hasErrors() and item.adjustments|length %}
 
          <div class="form__cart-table--item-price" title="{{ item.subtotal }}">
+           {{ sprig('sprig/components/filters/_components/indicator--adjust-item') }}
            <div class="form__cart-table--item-price-name">Gesamtpreis Artikel:</div>
            <div class="form__cart-table--item-price-number">
              {{ item.subtotal|commerceCurrency(cart.currency) }}

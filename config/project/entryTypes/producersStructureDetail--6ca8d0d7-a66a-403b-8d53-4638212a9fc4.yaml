@@ -45,7 +45,7 @@ fieldLayouts:
             warning: null
             width: 25
           -
-            fieldUid: 269c37e5-8217-47e1-820c-5db4d8e8817a # Regionen
+            fieldUid: 269c37e5-8217-47e1-820c-5db4d8e8817a
             instructions: null
             label: null
             required: false

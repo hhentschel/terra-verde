@@ -35,15 +35,14 @@
     <div class="row">
       <div class="col col-xs-12 col-md-12 col-lg-12">
 
-
         <!-- Template: {{ _self }}.twig -->
-        <h1 class="text-xl font-semibold">
+        <h2 class="h2 heading--2 heading--no-margin-top">
           {% if addressId %}
             {{- 'Edit address'|t -}}
           {% else %}
             {{- 'Add a new address'|t -}}
           {% endif %}
-        </h1>
+        </h2>
 
         <form method="post" action="">
           {{ csrfInput() }}
@@ -61,12 +60,11 @@
           }) }}
           {{ hiddenInput('ownerId', currentUser.id) }}
 
-          <hr class="my-3"/>
-
-          <div class="mt-6 flex justify-between">
+          <hr class="form-item">
+          <div class="layout-helper__flex-justify">
             <div>
               <a href="{{ redirect ? '/' ~ redirect : url('shop/customer/addresses') }}"
-                 class="text-blue-500 hover:text-blue-600"
+                 class="button button--secondary"
               >
                 {{- 'Cancel'|t -}}
               </a>
@@ -74,7 +72,7 @@
             <div>
               {{ tag('button', {
                 type: 'submit',
-                class: 'cursor-pointer rounded px-4 py-2 inline-block bg-blue-500 hover:bg-blue-600 text-white hover:text-white',
+                class: 'button button--primary',
                 text: 'Save Address'|t
               }) }}
             </div>

@@ -1,8 +1,8 @@
-defaultPlacement: end
 fieldLayouts:
-  aae17cea-ebbe-47b2-996c-e2a022a69f42:
+  185f106b-8825-4c67-b053-8f617bb1e2b4:
     tabs:
       -
+        elementCondition: null
         elements:
           -
             autocapitalize: true
@@ -10,6 +10,7 @@ fieldLayouts:
             autocorrect: true
             class: null
             disabled: false
+            elementCondition: null
             id: null
             instructions: null
             label: null
@@ -25,17 +26,18 @@ fieldLayouts:
             tip: null
             title: null
             type: craft\fieldlayoutelements\TitleField
+            uid: ac40a2b8-cc58-4a24-ad5e-068910f9a136
+            userCondition: null
             warning: null
             width: 100
         name: Content
-        sortOrder: 1
-handle: regionsManufactors
-name: Regionen
-siteSettings:
-  dd0cd05e-0cb9-4a76-b993-3cb70e6fc147: # Terra Verde
-    hasUrls: true
-    template: null
-    uriFormat: 'regionen/{slug}'
-structure:
-  maxLevels: null
-  uid: 0a032a6f-9f66-4c5b-9a3b-b3e5e4ab11f1
+        uid: ff8c13b8-0279-418f-b814-76707004907b
+        userCondition: null
+handle: producersType
+hasTitleField: true
+name: 'Produzenten Typ'
+section: d4ae6c44-536a-458d-92da-645295622dd6 # Produzenten Typ
+sortOrder: 1
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

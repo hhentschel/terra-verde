@@ -1,0 +1,24 @@
+defaultPlacement: end
+enableVersioning: true
+handle: producers
+name: 'Produzenten Typ'
+previewTargets:
+  -
+    __assoc__:
+      -
+        - label
+        - 'Primary entry page'
+      -
+        - urlFormat
+        - '{url}'
+propagationMethod: all
+siteSettings:
+  dd0cd05e-0cb9-4a76-b993-3cb70e6fc147: # Terra Verde
+    enabledByDefault: true
+    hasUrls: true
+    template: null
+    uriFormat: 'produzenten/{slug}'
+structure:
+  maxLevels: null
+  uid: 6f798f49-e9a3-407a-bfce-90c0bf55c5e9
+type: structure

@@ -1,15 +1,11 @@
 {% extends './_layouts/main' %}
 {% set pageTitle = entry.pageTitle is not empty ? entry.pageTitle : entry.title %}
 
-{% set entries = craft.entries.section('producersStructure')
-  .with([
-    'imageDetailPage',
-  ])
-  .all() %}
-
-{% for entry in entries %}
+{% do craft.app.elements.eagerLoadElements(className(entry), [entry], ['imageDetailPage', 'image', 'productsManufactor']) %}
 
   {% block content %}
+    {# {% for entry in entries %} #}
+
     <div class="grid">
       <div class="row">
         <div class="col col-xs-12 col-md-12 col-lg-12">
@@ -29,8 +25,6 @@
         </div>
       </div>
     </div>
-
-
 
     <section class="grid">
       <div class="row">
@@ -54,7 +48,6 @@
                 {{ entry.leadText }}
               </div>
             </div>
-
 
             {% include '_components/_content-elements/content-elements-loop' with {
               contentElements: entry.contentElements.level(1),
@@ -91,5 +84,5 @@
         </div>
       </div>
     </section>
+    {#    {% endfor %} #}
   {% endblock %}
-{% endfor %}

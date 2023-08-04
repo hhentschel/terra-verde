@@ -1,4 +1,4 @@
-dateModified: 1690902902
+dateModified: 1691006038
 elementSources:
   craft\elements\Asset:
     -
@@ -208,6 +208,39 @@ elementSources:
     -
       heading: ''
       type: heading
+    -
+      heading: GLOBALS
+      type: heading
+    -
+      defaultSort:
+        - title
+        - asc
+      disabled: false
+      key: 'single:c597474e-5517-44d2-936c-069416ac30df' # Footer
+      tableAttributes:
+        - postDate
+        - expiryDate
+        - author
+        - link
+      type: native
+    -
+      defaultSort:
+        - title
+        - asc
+      disabled: false
+      key: 'single:99a4f4a5-78c2-46a3-a498-739eadb87068' # Generic
+      tableAttributes:
+        - postDate
+        - expiryDate
+        - author
+        - link
+      type: native
+    -
+      heading: Kategorien
+      type: heading
+    -
+      key: 'section:d4ae6c44-536a-458d-92da-645295622dd6' # Produzenten Typ
+      type: native
   craft\elements\User:
     -
       key: '*'
@@ -628,7 +661,6 @@ meta:
     8e510c18-b6c3-47e7-aa2a-ba9bb8147ce7: 'Produzent:innen' # Produzent:innen
     8f1e7780-d8aa-4122-8ecc-ee4d3d499102: Default # Default
     8fa0d8eb-0c01-49db-a2ba-515d571b8805: 'Passt zu' # Passt zu
-    08ff3872-a05e-4722-868b-6bbe52bad972: Produzenten # Produzenten
     9bfae22d-cf09-477b-8222-028196b40c01: 'Titel H2' # Titel H2
     9cc5f98d-af34-4b84-a575-6d7228dc3494: Farbe # Farbe
     9dd685d0-40db-4d68-81b5-48322accac9a: Zustimmung # Zustimmung
@@ -676,19 +708,17 @@ meta:
     89ad33ad-9a9f-47d3-b684-df1fe536b538: 'Contact Form' # Contact Form
     090ca3e8-52f7-44f4-8eb1-31b1d8706ff5: Hersteller # Hersteller
     90ef89be-0cc4-42b9-881d-b782644c5701: Akkordeon # Akkordeon
-    92fe9f1d-016c-47b7-93b0-91c866fd6175: Generic # Generic
     93be6bc6-5c6c-4bc1-9542-05ce2d7fe57b: 'Blog-Bild Vorschau' # Blog-Bild Vorschau
     95d567e2-ef54-4216-b7bf-f3afd51b9ddd: 'Kreditkarte, Postfinance, Twint' # Kreditkarte, Postfinance, Twint
     97b7e259-6116-4890-be78-8fba45ab52d0: Produkte # Produkte
     97ff157d-5ed8-4a67-a839-94a32375265f: 'Produkte (Privatkunden)' # Produkte (Privatkunden)
+    99a4f4a5-78c2-46a3-a498-739eadb87068: Generic # Generic
     99dbe745-472a-4403-8fbe-15424920fb29: Newsletter # Newsletter
     105f3719-0e2b-409f-851b-64e895b976aa: Redakteure # Redakteure
     121a4c00-ea55-46f5-b606-4288506164da: 'Kategorien (Status)' # Kategorien (Status)
     127bba7e-6a96-4ffa-8cbb-f4c17d39e347: Team # Team
-    149a3219-5b27-4275-8a0f-b97cbff1e3ec: Shop # Shop
     169ef8db-7ba9-459c-b40f-17678b94dce7: x-Achse # x-Achse
     219d5317-b509-4c72-87a2-15026938e903: Blog # Blog
-    269c37e5-8217-47e1-820c-5db4d8e8817a: Regionen # Regionen
     273d5a0c-4e06-47ec-8a4b-c1fcffa5684d: 'Mindestbestellwert (betrifft nur Detailhandel) - Privat ist Mindestbestellwert generell deaktiviert.' # Mindestbestellwert (betrifft nur Detailhandel) - Privat ist Mindestbestellwert generell deaktiviert.
     282e72b9-e6e1-47e6-80d7-121c617026ea: Bild # Bild
     328c6ddf-69e0-47e5-8057-5c04984d8d85: 'Weine Portugal' # Weine Portugal
@@ -704,6 +734,7 @@ meta:
     529a5b01-e289-42de-a013-d43f81455999: 'Produzentenkarte Mobile ' # Produzentenkarte Mobile 
     546e63c7-3ad2-424d-ad71-31f33a561a7f: 'Kontakt | Globals' # Kontakt | Globals
     552eac55-d86f-40a3-8aea-50f54038afbc: Textfeld # Textfeld
+    606d2c3a-4654-4a5c-87dd-96e2985688aa: 'Produzenten Typ' # Produzenten Typ
     641bd187-bf07-49f6-9cdd-90462c76cc88: Nummer # Nummer
     652a02e0-42f9-4996-9964-e0494e69fd0e: 'Bild Legende' # Bild Legende
     667e84c9-349c-41fc-b5dd-be60c8d94861: Downloadlink # Downloadlink
@@ -765,7 +796,6 @@ meta:
     32255436-9130-46f8-89a7-da7a18284166: 'Box Positionierung' # Box Positionierung
     42065150-3e31-4dfa-ad7d-b6b95f0eba0f: 'Product Home' # Product Home
     75076778-568e-4d8c-8a9b-dadb8a0e180a: 'Bild / Bild - 50% / 50%' # Bild / Bild - 50% / 50%
-    76367094-179e-4fc3-8e70-b0f8fccc3422: 'Shop Anpassungen' # Shop Anpassungen
     80046407-de11-4bdb-9670-56b00656fb46: Bild # Bild
     84380320-2899-45dc-b326-bd0b24416c50: Video # Video
     98041754-77a8-45da-bb7d-6ce634dd374b: "Überschrift |\_Gross" # Überschrift | Gross
@@ -787,9 +817,9 @@ meta:
     a558bd32-cc07-430e-9de6-96d6d5989dd6: Beschreibung # Beschreibung
     a629ed94-6a0d-445a-a486-7053cd507178: 'Artikel Gewicht/Volumen' # Artikel Gewicht/Volumen
     a936e12c-9de8-4357-940a-6e95e373f08c: Einstiegstext # Einstiegstext
-    a2441c10-1f1b-4c83-a406-220a6e33dd17: Footer # Footer
     a4445e03-c8ae-4613-8723-b3b5d35858f1: Weine # Weine
     a15405fd-3249-492f-981b-636b505548bc: 'Artikel Dimensionen' # Artikel Dimensionen
+    a58848b1-d900-4195-ad51-1f55492f1649: Footer # Footer
     a91450b5-15a1-4780-96c1-0dffea095613: 'Akkordeon Zustand' # Akkordeon Zustand
     a7921184-b0c0-43a4-8068-8da81ab26957: 'Produkte (Privatkunden)' # Produkte (Privatkunden)
     a8014088-d2e3-439c-b662-b918f1951291: Artikeltyp # Artikeltyp
@@ -837,13 +867,16 @@ meta:
     c519b9f5-777f-4693-8ccb-c0ca93df332e: Video # Video
     c643c446-b355-4f11-bc2d-368f69751075: Bild # Bild
     c243569d-1495-477e-81d5-8e56d348fc88: Text # Text
+    c597474e-5517-44d2-936c-069416ac30df: Footer # Footer
     cbf7f593-68bf-4c83-b97d-b6959558cb3e: 'Titel H3' # Titel H3
     cc57da94-196b-4536-a2f4-3b4e6d7a67ab: 'Kategorien (Geschenke)' # Kategorien (Geschenke)
     ceeb55b1-0aab-46a0-9d39-91e0f706901f: 'Youtube Video Liste' # Youtube Video Liste
+    cf6d2e14-00af-47af-999a-9b5aee73a1df: Telefon # Telefon
     cfad9c23-aa6b-47ce-aed3-6c625c6e89a5: Produkte # Produkte
     cfba8ac8-e0a0-405f-87ed-accd8f27b372: Geschenksets # Geschenksets
     cfbe4629-cba3-461e-a930-5e32a064326f: GTIN # GTIN
     d05fe0a7-d34a-429f-8f5b-4005eba39588: Video # Video
+    d4ae6c44-536a-458d-92da-645295622dd6: 'Produzenten Typ' # Produzenten Typ
     d4d7e8e5-0118-407a-a1f3-8bb67c86f0ca: Featured # Featured
     d5eb7b01-8b1f-4b3f-83c7-ccfa4c76d49d: Inhaltselemente # Inhaltselemente
     d8cbe40a-89a4-4804-8992-aba26cbb1aca: 'Youtube Video' # Youtube Video
@@ -869,6 +902,7 @@ meta:
     dd0cd05e-0cb9-4a76-b993-3cb70e6fc147: 'Terra Verde' # Terra Verde
     dd89c2d2-200f-426c-9643-acb4e10acbac: Linie # Linie
     dd105ceb-4213-4f13-875f-6f606b9927c2: Titel # Titel
+    ddcce758-290f-4c6e-8ac4-4ff1cfb5e7a2: Generic # Generic
     de772d14-3ccf-4682-a830-1a7cad5447db: 'Button Extern' # Button Extern
     dfaab58f-1a21-400b-804b-168b3442cc1e: Titel # Titel
     dfd8ec22-0c0a-44f4-8fd2-245a0f02be60: Bild # Bild
@@ -879,7 +913,6 @@ meta:
     e9e57734-40f6-4442-985c-37c0c1b801ba: Bild # Bild
     e61fb032-eec0-4f11-b450-86d1adea8934: Rezepte # Rezepte
     e65f535e-dc60-4351-a7bb-9a558ae2c75d: Newsletter # Newsletter
-    e68dfbb6-8313-490e-b596-66d83d042378: Regionen # Regionen
     e319ec0b-b25d-4aad-a44a-e1b83b9de831: Linie # Linie
     e408f37d-9b71-4f78-ae4a-18fe5c8dbef7: News # News
     e756f32a-9400-41d8-a0d0-e99a58f2706a: 'Link Adresse' # Link Adresse
@@ -892,6 +925,7 @@ meta:
     ec45610a-116e-4f59-81ef-2b22ad4cf4c8: Blog # Blog
     edfc52a4-9dff-4e04-81f4-6d826098e96b: Textfarbe # Textfarbe
     ee73ad95-c3b7-4b1a-97d4-77987063c463: Bestell-Bestätigung # Bestell-Bestätigung
+    ee323d76-f80a-465f-96df-8fd40be07132: Telefon # Telefon
     ee843b1f-3555-4b4c-a096-d348ee0317ac: Vorschautext # Vorschautext
     f021083a-e208-4eaa-974d-3ae4d7e91811: 'Artikel Einheit Volumen/Gewicht' # Artikel Einheit Volumen/Gewicht
     f4d40b23-6531-4583-b509-b7870a992261: Privatkunden # Privatkunden

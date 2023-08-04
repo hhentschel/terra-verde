@@ -1,3 +1,9 @@
+{% set generic = craft.entries.section('generic')
+  .with([
+    'image',
+  ])
+  .one() %}
+
 <div class="blog-list">
   {% if entries|length %}
     {% for entry in entries %}
@@ -25,7 +31,7 @@
               {% set transform =
                 transformation|default('imageOneThird') %}
 
-              {% set img = entry.image.one ?? generic.image.one() %}
+              {% set img = entry.image.one ?? generic.image[0] %}
 
               {% if img is defined and img is not empty %}
                 {% include '_components/_content-elements/image' with {
@@ -38,14 +44,14 @@
 
           </div>
           <div class="blog-list__item--preview-lead">
-            {{ entry.leadText }} leadtextblogentries
+            {{ entry.leadText }}
           </div>
 
         </div>
 
         <a href="{{ entry.url }}"
            class="blog-list__item--linkdetail">
-          mehr Informationen (blogentries.twig)
+          mehr Informationen
         </a>
       </a>
     {% endfor %}

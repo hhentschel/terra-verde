@@ -1,0 +1,29 @@
+fieldLayouts:
+  828ea8cd-3939-4ca2-8f0f-9ad94d4005f6:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            elementCondition: null
+            fieldUid: 57e5fec1-460f-4063-a3db-815af978dc8f # Bild
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: d024baee-a4a5-42f2-a37e-b17d1db40823
+            userCondition: null
+            warning: null
+            width: 100
+        name: Generic
+        uid: 423d3055-a2f2-400c-8852-8c408175bab2
+        userCondition: null
+handle: generic
+hasTitleField: false
+name: Generic
+section: 99a4f4a5-78c2-46a3-a498-739eadb87068 # Generic
+sortOrder: 1
+titleFormat: '{section.name|raw}'
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

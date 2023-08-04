@@ -36,10 +36,10 @@
   ).all() %}
 
 {# Set up Producers who sell Food #}
-{% set manufactorFood = craft.categories().slug('food').one() %}
+{% set manufactorFood = craft.entries.section('producers').slug('food').one() %}
 
 {# Set up Producers who sell Wine #}
-{% set manufactorWine = craft.categories().slug('wine').one() %}
+{% set manufactorWine = craft.entries.section('producers').slug('wine').one() %}
 
 {# Get all Producers who sell Food #}
 {% set allManufactorsFood =

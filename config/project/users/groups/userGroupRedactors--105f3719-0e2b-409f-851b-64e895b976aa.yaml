@@ -78,7 +78,7 @@ permissions:
   - 'deletepeerentrydrafts:e5c66396-f991-4b4c-8edc-5e4960340ca3' # Startseite
   - 'deletepeerentrydrafts:e9d74d60-1b19-494e-a1af-537c054484c9' # Login
   - 'deletepeerentrydrafts:ea3d0d8a-06a4-48ed-b8aa-3e7cbaa24971' # Registrieren
-  - 'editglobalset:a2441c10-1f1b-4c83-a406-220a6e33dd17' # Footer
+  - 'editglobalset:a2441c10-1f1b-4c83-a406-220a6e33dd17'
   - editusers
   - express-forms-forms
   - express-forms-resources
@@ -324,12 +324,12 @@ permissions:
   - 'viewpeercategorydrafts:bf8bc4b2-3d7f-4972-9768-3026cc9f2184' # Geschenke & Degustationen
   - 'savepeercategorydrafts:bf8bc4b2-3d7f-4972-9768-3026cc9f2184' # Geschenke & Degustationen
   - 'deletepeercategorydrafts:bf8bc4b2-3d7f-4972-9768-3026cc9f2184' # Geschenke & Degustationen
-  - 'viewcategories:149a3219-5b27-4275-8a0f-b97cbff1e3ec' # Shop
-  - 'savecategories:149a3219-5b27-4275-8a0f-b97cbff1e3ec' # Shop
-  - 'deletecategories:149a3219-5b27-4275-8a0f-b97cbff1e3ec' # Shop
-  - 'viewpeercategorydrafts:149a3219-5b27-4275-8a0f-b97cbff1e3ec' # Shop
-  - 'savepeercategorydrafts:149a3219-5b27-4275-8a0f-b97cbff1e3ec' # Shop
-  - 'deletepeercategorydrafts:149a3219-5b27-4275-8a0f-b97cbff1e3ec' # Shop
+  - 'viewcategories:149a3219-5b27-4275-8a0f-b97cbff1e3ec'
+  - 'savecategories:149a3219-5b27-4275-8a0f-b97cbff1e3ec'
+  - 'deletecategories:149a3219-5b27-4275-8a0f-b97cbff1e3ec'
+  - 'viewpeercategorydrafts:149a3219-5b27-4275-8a0f-b97cbff1e3ec'
+  - 'savepeercategorydrafts:149a3219-5b27-4275-8a0f-b97cbff1e3ec'
+  - 'deletepeercategorydrafts:149a3219-5b27-4275-8a0f-b97cbff1e3ec'
   - 'viewcategories:81f5a5aa-48c2-4dd4-9c77-0bf699ac2423' # Weine
   - 'savecategories:81f5a5aa-48c2-4dd4-9c77-0bf699ac2423' # Weine
   - 'deletecategories:81f5a5aa-48c2-4dd4-9c77-0bf699ac2423' # Weine
@@ -354,12 +354,12 @@ permissions:
   - 'viewpeercategorydrafts:00a72f8a-e7ae-4303-bcc0-e693888454a0' # Geschenke
   - 'savepeercategorydrafts:00a72f8a-e7ae-4303-bcc0-e693888454a0' # Geschenke
   - 'deletepeercategorydrafts:00a72f8a-e7ae-4303-bcc0-e693888454a0' # Geschenke
-  - 'viewcategories:e68dfbb6-8313-490e-b596-66d83d042378' # Regionen
-  - 'savecategories:e68dfbb6-8313-490e-b596-66d83d042378' # Regionen
-  - 'deletecategories:e68dfbb6-8313-490e-b596-66d83d042378' # Regionen
-  - 'viewpeercategorydrafts:e68dfbb6-8313-490e-b596-66d83d042378' # Regionen
-  - 'savepeercategorydrafts:e68dfbb6-8313-490e-b596-66d83d042378' # Regionen
-  - 'deletepeercategorydrafts:e68dfbb6-8313-490e-b596-66d83d042378' # Regionen
+  - 'viewcategories:e68dfbb6-8313-490e-b596-66d83d042378'
+  - 'savecategories:e68dfbb6-8313-490e-b596-66d83d042378'
+  - 'deletecategories:e68dfbb6-8313-490e-b596-66d83d042378'
+  - 'viewpeercategorydrafts:e68dfbb6-8313-490e-b596-66d83d042378'
+  - 'savepeercategorydrafts:e68dfbb6-8313-490e-b596-66d83d042378'
+  - 'deletepeercategorydrafts:e68dfbb6-8313-490e-b596-66d83d042378'
   - 'viewcategories:e22957f0-c9f4-40f0-aaed-0cb3d674851f' # Status
   - 'savecategories:e22957f0-c9f4-40f0-aaed-0cb3d674851f' # Status
   - 'deletecategories:e22957f0-c9f4-40f0-aaed-0cb3d674851f' # Status
@@ -465,3 +465,8 @@ permissions:
   - 'commerce-deleteproducts:c7a7ef3f-d8c6-4afb-ab46-b0082ef038d6' # Delikatessen
   - 'commerce-createproducts:f8be2317-2ae7-4930-9092-eae68c86d393' # Diverses
   - 'commerce-deleteproducts:f8be2317-2ae7-4930-9092-eae68c86d393' # Diverses
+  - 'viewentries:c597474e-5517-44d2-936c-069416ac30df' # Footer
+  - 'saveentries:c597474e-5517-44d2-936c-069416ac30df' # Footer
+  - 'viewpeerentrydrafts:c597474e-5517-44d2-936c-069416ac30df' # Footer
+  - 'savepeerentrydrafts:c597474e-5517-44d2-936c-069416ac30df' # Footer
+  - 'deletepeerentrydrafts:c597474e-5517-44d2-936c-069416ac30df' # Footer

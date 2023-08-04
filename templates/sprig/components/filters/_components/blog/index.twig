@@ -19,6 +19,12 @@
   orderBy: orderBy
 } %}
 
+ {% set generic = craft.entries.section('generic')
+   .with([
+     'image',
+   ])
+   .one() %}
+
 {% set entryQuery =
   craft.entries(
     filters|merge({

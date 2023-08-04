@@ -8,8 +8,9 @@
 
   .adress-item__buttons {
     display: flex;
-    margin: px-to-rem($space--m) 0 0 0;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: px-to-rem($space--s);
   }
 
   .adress-item__marker {

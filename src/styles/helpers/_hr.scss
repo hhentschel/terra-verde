@@ -4,3 +4,10 @@ hr.basket-item {
   border-top: 1px solid $color--black;
   border-bottom: 1px solid $color--grey;
 }
+
+hr.form-item {
+  margin: px-to-rem($space--s) 0;
+  border: 0;
+  height: 0;
+  border-top: 1px solid $color--grey;
+}

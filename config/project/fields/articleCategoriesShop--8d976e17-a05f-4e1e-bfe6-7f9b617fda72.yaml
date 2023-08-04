@@ -14,7 +14,7 @@ settings:
   localizeRelations: false
   selectionLabel: ''
   showSiteMenu: true
-  source: 'group:149a3219-5b27-4275-8a0f-b97cbff1e3ec' # Shop
+  source: 'group:149a3219-5b27-4275-8a0f-b97cbff1e3ec'
   sources: '*'
   targetSiteId: null
   validateRelatedElements: false
