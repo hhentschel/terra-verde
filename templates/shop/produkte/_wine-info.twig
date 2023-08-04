@@ -168,9 +168,16 @@
 
                 <div class="form-addtobasket__info-button">
                   {% if variant.stock > 0 or variant.hasUnlimitedStock %}
-                    <a sprig s-action="commerce/cart/update-cart" s-method="post"
-                       s-val:purchasable-id="{{ variant.id }}" href="#"
+                    <a sprig
+                       s-action="commerce/cart/update-cart"
+                       s-method="post"
+                       s-val:purchasable-id="{{ variant.id }}"
+                       s-indicator=".loading-button__indicator-addtocart"
+                       href="#"
                        class="button--primary {% if addedToCart and purchasableId == variant.id %}button--success {% endif %} text-center">
+                      {% include 'shop/produkte/_includes/indicator-addtocart--detailproduct' %}
+                      {% include 'sprig/components/filters/_components/indicator-addtocart' %}
+
                       {% if addedToCart and purchasableId == variant.id %}
                         <svg class="icon--svg icon--check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
                              fill="currentColor">
@@ -183,6 +190,7 @@
                         In den Warenkorb
                       {% endif %}
                     </a>
+
                   {% else %}
                     <button disabled type="submit"
                             class="disabled button button--primary text-center"> In den Warenkorb

@@ -57,19 +57,28 @@
 
     {% for variant in product.variants %}
       {% if variant.hasstock == false %}
-        {{ sprig(
+        {#        {{ sprig(
           'shop/produkte/_product-info-form.twig',
           {
             productId: product.id,
             product.defaultVariant.id: product.defaultVariant.id,
             cart.email: cart.email
           }, {'s-trigger': 'load'}
+        ) }} #}
+
+        {{ sprig(
+          'shop/produkte/_product-backinstock-form.twig',
+          {
+            productId: product.id,
+            cartId: cart.id,
+            cartEmail: cart.email
+          }, {'s-trigger': 'load, refresh'}
         ) }}
       {% endif %}
     {% endfor %}
 
     <form class="js-form product-detail__form">
-      {# {{ actionInput('commerce/cart/update-cart') }} #}
+
       {{ hiddenInput(
         'successMessage',
         ('Artikel ' ~ product.title ~ ' wurde zum Warenkorb hinzugefügt.')|hash

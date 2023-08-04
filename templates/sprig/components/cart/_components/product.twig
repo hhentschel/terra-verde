@@ -149,23 +149,9 @@ https://craftcms.stackexchange.com/questions/39033/eager-loading-of-variant-imag
                   s-method="post"
                   s-val:purchasable-id="{{ variant.id }}"
                   s-replace="#addtocart-{{ variant.id }}"
-            {# s-indicator=".loading-button__indicator--loading" #}
-            {# href="#" #}
-
                   class="button--primary {% if addedToCart and purchasableId == variant.id %}button--success {% endif %} text-center">
-            {# {% include 'shop/produkte/_includes/loading-button.twig' %} #}
-            {# {% include 'sprig/components/filters/_components/indicator-addtocart' %} #}
+
             {% include 'sprig/components/filters/_components/indicator-addtocart' %}
-
-
-            {#  {% if sprig.isRequest %}
-              {% include 'sprig/components/filters/_components/indicator-addtocart' %}
-            #}{# {{ sprig('sprig/components/filters/_components/indicator-addtocart', {}, {'s-trigger': 'refresh'}) }} #}{#
-            {% else %} #}
-
-            {# {% endif %} #}
-
-            {# {% include 'sprig/components/filters/_components/indicator-addtocart' %} #}
 
             {% if addedToCart and purchasableId == variant.id %}
               <svg class="icon--check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">

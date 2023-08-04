@@ -5,8 +5,7 @@
 
 {% if sprig.isRequest %}
   {% if success is defined and success %}
-
-    {# {{ success ? 'success' : 'error' }} #}
+    
     <div class="bis-complete">
       <div class="bis-signup__complete-message">Vielen Dank. Sie werden benachrichtigt, sobald das Produkt wieder
         erhältlich ist.
@@ -17,9 +16,7 @@
           s-action="craft-commerce-back-in-stock/base/register-interest"
           s-method="post"
           class="bis-signup__registration-form">
-      {#
-      {{ craft.blitz.csrfInput() }}
-      #}
+
       <div class="bis-signup__registration-message">
         Dieses Produkt ist zurzeit nicht lieferbar. Sobald das Produkt wieder erhältlich ist, werden wir Sie per
         Mail informieren. Fügen Sie dazu bitte hier Ihre E-Mail Adresse ein.
@@ -27,8 +24,7 @@
 
       <input type="hidden" name="variantId" value="{{ product.defaultVariant.id }}">
       <div class="bis-signup__registration-fields">
-        {# Outputs a hidden input field #}
-        {# {{ craft.snaptcha.field }} #}
+
         <input class="input bis-signup__registration-input"
                name="email" type="email" value=""
                placeholder="name@email.ch">
@@ -36,8 +32,6 @@
         {# Outputs a hidden input field #}
         {{ craft.snaptcha.field }}
 
-        {# Dynamically fetches and outputs a hidden input field #}
-        {# {{ craft.blitz.getUri('/actions/snaptcha/field/get-field') }} #}
 
         <button class="bis-signup__registration-btn button button--primary" type="submit">Abschicken</button>
       </div>

@@ -50,28 +50,14 @@
 
     {% for variant in product.variants %}
       {% if variant.hasstock == false %}
-        {% if success is defined and success %}
-          <div class="bis-complete">
-            <div class="bis-signup__complete-message">Vielen Dank. Sie werden benachrichtigt, sobald das Produkt wieder
-              erhältlich ist.
-            </div>
-          </div>
-        {% else %}
-          <form sprig s-action="craft-commerce-back-in-stock/base/register-interest" s-method="post"
-                class="bis-signup__registration-form">
-            <div class="bis-signup__registration-message">
-              Dieses Produkt ist zurzeit nicht lieferbar. Sobald das Produkt wieder erhältlich ist, werden wir Sie per
-              Mail informieren. Fügen Sie dazu bitte hier Ihre E-Mail Adresse ein.
-            </div>
-            <input type="hidden" name="variantId" value="{{ product.defaultVariant.id }}">
-            <div class="bis-signup__registration-fields">
-              <input class="input bis-signup__registration-input"
-                     name="email" type="email" value="{{ cart.email }}"
-                     placeholder="name@email.ch">
-              <button class="bis-signup__registration-btn button button--primary" type="submit">Abschicken</button>
-            </div>
-          </form>
-        {% endif %}
+        {{ sprig(
+          'shop/produkte/_product-backinstock-form.twig',
+          {
+            productId: product.id,
+            cartId: cart.id,
+            cartEmail: cart.email
+          }, {'s-trigger': 'load, refresh'}
+        ) }}
       {% endif %}
     {% endfor %}
 
@@ -174,13 +160,6 @@
 
                   {% if variant.stock > 0 or variant.hasUnlimitedStock %}
 
-                    {#                    {% if success is defined and success %}
-                      Product added to your cart!
-                    {% elseif errors is defined %}
-                      {% for error in errors %}
-                        <p class="error">{{ error|first }}</p>
-                      {% endfor %}
-                    {% endif %} #}
 
                     <a sprig s-action="commerce/cart/update-cart" s-method="post"
                        s-val:purchasable-id="{{ variant.id }}" href="#"
