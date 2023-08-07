@@ -40,11 +40,13 @@
         </span>
       {% else %}
         <span class="shop-list__item--price">
-          {% if currentUser.isInGroup('retailDiscount') %}
-            {{ RetailDiscount23Price|currency('CHF') }}
-          {% else %}
-            {{ product.priceRetailTrader|currency('CHF') }}
-          {% endif %}
+            {% if product.priceRetailTrader is defined and product.priceRetailTrader is not empty %}
+              {% if currentUser.isInGroup('retailDiscount') %}
+                {{ RetailDiscount23Price|currency('CHF') }}
+              {% else %}
+                {{ product.priceRetailTrader|currency('CHF') }}
+              {% endif %}
+            {% endif %}
 
         </span>
       {% endif %}
