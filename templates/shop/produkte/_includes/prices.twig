@@ -4,6 +4,10 @@
 {% set variantSalePrice = variant.salePrice %}
 {% set variantSalePriceRound = ((variantSalePrice + 0.000001) * 20) / 20|round %}
 
+{% if product.priceRetailTrader is defined and product.priceRetailTrader is not empty %}
+
+{% endif %}
+
 {% set RetailDiscount23 = product.priceRetailTrader * (23 / 100) %}
 {% set RetailDiscount23Price = product.priceRetailTrader - RetailDiscount23 %}
 
@@ -40,13 +44,12 @@
         </span>
       {% else %}
         <span class="shop-list__item--price">
-            {% if product.priceRetailTrader is defined and product.priceRetailTrader is not empty %}
+
               {% if currentUser.isInGroup('retailDiscount') %}
                 {{ RetailDiscount23Price|currency('CHF') }}
               {% else %}
                 {{ product.priceRetailTrader|currency('CHF') }}
               {% endif %}
-            {% endif %}
 
         </span>
       {% endif %}
