@@ -33,7 +33,7 @@ h2,
   font-weight: $font-weight--semi-bold;
 
   @include breakpoint('tablet') {
-    margin: px-to-rem($space--l) 0 px-to-rem($space--m);
+    margin: px-to-rem($space--xm) 0 px-to-rem($space--m);
   }
 }
 
