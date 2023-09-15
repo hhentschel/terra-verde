@@ -1,4 +1,4 @@
-dateModified: 1690535673
+dateModified: 1694768448
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: 'Terra Verde'
@@ -30,6 +30,7 @@ meta:
     2db88e09-5caa-44ec-a62a-3780b2b427c0: Detailhandel # Detailhandel
     3a6dc86b-ac74-45a6-bd26-0fb73094890e: Zeitpunkt # Zeitpunkt
     3b8efa16-7fc6-46de-8d3c-d3170b9cd02a: 'Artikel Gewicht gesamt' # Artikel Gewicht gesamt
+    3b68c41e-26c2-4609-86c4-780ba745ca0e: SEO # SEO
     3b29092d-6e27-4661-87d3-a212528b2a3a: Trinktemperatur # Trinktemperatur
     3bb39d28-0fde-4351-82f7-4a35d96e4a3b: 'Karten Vorschaubilder' # Karten Vorschaubilder
     3c5824e6-9e4f-47c8-b1d2-9d1000064cdf: Aufklappelemente # Aufklappelemente
@@ -408,7 +409,7 @@ plugins:
             - concurrency
             - '3'
       cacheWarmerType: putyourlightson\blitz\drivers\warmers\GuzzleWarmer
-      cachingEnabled: ''
+      cachingEnabled: '1'
       clearCacheAutomatically: '1'
       customSiteUris: ''
       debug: false
