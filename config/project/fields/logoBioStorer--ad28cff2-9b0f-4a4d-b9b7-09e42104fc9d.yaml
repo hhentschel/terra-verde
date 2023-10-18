@@ -1,0 +1,33 @@
+columnSuffix: null
+contentColumnType: string
+fieldGroup: a7c18868-89e8-4f41-95af-643c545792a7 # Settings
+handle: logoBioStorer
+instructions: ''
+name: 'Logo - Bio Störer'
+searchable: false
+settings:
+  allowSelfRelations: false
+  allowUploads: true
+  allowedKinds: null
+  defaultUploadLocationSource: 'volume:789fdb6d-520f-4cf1-be1e-478056358e79' # Inhaltsbilder
+  defaultUploadLocationSubpath: ''
+  limit: ''
+  localizeRelations: false
+  previewMode: full
+  restrictFiles: ''
+  selectionLabel: ''
+  showSiteMenu: false
+  showUnpermittedFiles: false
+  showUnpermittedVolumes: false
+  singleUploadLocationSource: 'volume:789fdb6d-520f-4cf1-be1e-478056358e79' # Inhaltsbilder
+  singleUploadLocationSubpath: ''
+  source: null
+  sources:
+    - 'volume:789fdb6d-520f-4cf1-be1e-478056358e79' # Inhaltsbilder
+  targetSiteId: null
+  useSingleFolder: false
+  validateRelatedElements: false
+  viewMode: list
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Assets

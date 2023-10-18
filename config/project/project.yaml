@@ -1,4 +1,4 @@
-dateModified: 1696238770
+dateModified: 1697621153
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: 'Terra Verde'
@@ -233,6 +233,7 @@ meta:
     a6d404c5-d5dc-4ac6-846b-d068efafba1a: Telefon # Telefon
     a6deb9a0-e67c-4fba-bc55-fcba596d4822: 'Adresse Karte' # Adresse Karte
     a6f0989b-fec7-4460-8864-b015e8efc34e: Neuheiten # Neuheiten
+    a7c18868-89e8-4f41-95af-643c545792a7: Settings # Settings
     a43c6629-df33-4fa2-a5ca-e073c8ca5841: Mitteilung # Mitteilung
     a48a5f48-ae99-438a-94f7-9574fe7fbf92: Inhaltselemente # Inhaltselemente
     a67b61db-e6cc-4102-85f1-473d36f52ea8: 'Weine Italien' # Weine Italien
@@ -252,6 +253,7 @@ meta:
     ab11f679-477b-4903-9086-d00fb5489f93: Fax # Fax
     ac56b463-604b-4eb0-afca-e3cf6579de22: 'Link Farbe' # Link Farbe
     ad7f3368-57d3-4f97-ba54-6224326f9b95: 'ähnliche Produzenten' # ähnliche Produzenten
+    ad28cff2-9b0f-4a4d-b9b7-09e42104fc9d: 'Logo - Bio Störer' # Logo - Bio Störer
     ada66c36-aa65-4328-b07e-d15f78f13aca: Fax # Fax
     add42e5e-65c7-45ea-9057-87d1c7abfc2f: Abstand # Abstand
     af1c566f-cdf2-4ae1-a225-934165929d1a: 'Email 2' # Email 2
@@ -272,7 +274,9 @@ meta:
     b67f46b2-ef36-4032-9237-2c14068a27a7: 'Abstand mittel' # Abstand mittel
     b205d303-121a-4aae-8c85-bb00a76f312a: Titel # Titel
     b696c979-d69e-481e-9fe6-248daa5b218a: Hintergrundfarbe # Hintergrundfarbe
+    b3135ba6-e787-4c4f-a81a-fa4898af4a05: 'Logo Bio' # Logo Bio
     b234429e-e8aa-45cb-9368-865e39d9f37a: 'Bild Detailseite' # Bild Detailseite
+    b598732b-20bd-4bcf-85de-3ae589a26f5a: 'Logo Bio Mobile' # Logo Bio Mobile
     bb672809-bd78-4ed8-b9cd-b634c8216640: Video # Video
     bcaacf3a-9840-4591-ab39-370581ab8eda: 'Karten Icons' # Karten Icons
     bcc2f7c9-e4b5-432b-b079-3cd963db5854: Produzenten # Produzenten

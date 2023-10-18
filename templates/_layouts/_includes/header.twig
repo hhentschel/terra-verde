@@ -25,12 +25,16 @@
             <span class="circle--bio-word">Bio</span>
           </div> #}
 
-          <img class="header__biologo-mobile"
-               src="{{ alias(
-                 '@rootUrl'
-               ) }}/assets/images/content/content/bio-logo.png"
-               alt="Terra Verde Bio Logo"
-          />
+          {% set transform = transformation|default('logoBioMobile') %}
+          {% set img = generic.logoBioStorer[0] ?? null %}
+
+          {% if img is defined %}
+            {% include '_components/_content-elements/image-product'
+              with {
+              img: img,
+              transform: transform
+            } %}
+          {% endif %}
 
           {% include '_components/_nav/_nav-shop/nav-shop-mobile' %}
 
@@ -77,12 +81,23 @@
                 </div>
               </div> #}
 
-              <img class="header__biologo"
+              {# <img class="header__biologo"
                    src="{{ alias(
                      '@rootUrl'
-                   ) }}/assets/images/content/content/bio-logo.png"
+                   ) }}/assets/images/logo/bio-logo.png"
                    alt="Terra Verde Bio Logo"
-              />
+              /> #}
+
+              {% set transform = transformation|default('logoBio') %}
+              {% set img = generic.logoBioStorer[0] ?? null %}
+
+              {% if img is defined %}
+                {% include '_components/_content-elements/image-product'
+                  with {
+                  img: img,
+                  transform: transform
+                } %}
+              {% endif %}
 
               {% include '_components/_nav/_nav-service/nav-service-desktop' %}
 
