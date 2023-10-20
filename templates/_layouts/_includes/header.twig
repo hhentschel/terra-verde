@@ -64,11 +64,16 @@
 
               {% include '_components/_nav/_nav-main/nav-main-desktop' %}
 
-              <div class="header__top-nav-logo">
-                <div class="circle--bio">
-                  <span class="circle--bio-word">Bio</span>
-                </div>
-              </div>
+              {% set transform = transformation|default('logoBio') %}
+              {% set img = generic.logoBioStorer[0] ?? null %}
+
+              {% if img is defined %}
+                {% include '_components/_content-elements/image-product'
+                  with {
+                  img: img,
+                  transform: transform
+                } %}
+              {% endif %}
 
               {% include '_components/_nav/_nav-service/nav-service-desktop' %}
 
