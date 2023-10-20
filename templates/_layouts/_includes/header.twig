@@ -21,9 +21,16 @@
             <span class="header__logo-line">Verde</span>
           </a>
 
-          <div class="circle--bio">
-            <span class="circle--bio-word">Bio</span>
-          </div>
+          {% set transform = transformation|default('logoBioMobile') %}
+          {% set img = generic.logoBioStorer[0] ?? null %}
+
+          {% if img is defined %}
+            {% include '_components/_content-elements/image-product'
+              with {
+              img: img,
+              transform: transform
+            } %}
+          {% endif %}
 
           {% include '_components/_nav/_nav-shop/nav-shop-mobile' %}
 
