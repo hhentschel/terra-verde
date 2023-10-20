@@ -2,35 +2,28 @@
   <h4 class="layout-helper__margin-top--none">{{ product.articleDescriptionAdditional }}</h4>
 {% endif %}
 
-<details open class="product-detail__summary">
-  <summary class="product-detail__summary-heading">
-    Beschreibung
-  </summary>
-  <div class="product-detail__summary-content">
+<dl class="product-detail__summary">
 
-    {% if product.articleDescription %}
-      <p>
-        {{ product.articleDescription }}
-      </p>
-    {% endif %}
+  {% if product.articleDescription %}
+    <dt>
+      Beschreibung
+    </dt>
+    <dd> {{ product.articleDescription }}</dd>
+  {% endif %}
 
-    {% if product.articleAdditionalInfo %}
-      <p>
-        {{ product.articleAdditionalInfo }}
-      </p>
-    {% endif %}
+  {% if product.articleAdditionalInfo %}
+    <dt>zusätzliche Informationen</dt>
+    <dd>{{ product.articleAdditionalInfo }}</dd>
+  {% endif %}
 
-    {% if product.articleEanNumber %}
-      <p>
-        EAN-Nummer: {{ product.articleEanNumber }}
-      </p>
-    {% endif %}
+  {% if product.articleEanNumber %}
+    <dt>EAN-Nummer:</dt>
+    <dd>{{ product.articleEanNumber }}</dd>
+  {% endif %}
 
-    {% if product.articleNumber %}
-      <p>
-        Artikelnummer: {{ product.articleNumber }}
-      </p>
-    {% endif %}
-    
-  </div>
-</details>
+  {% if product.articleNumber %}
+    <dt>Artikelnummer:</dt>
+    <dd>{{ product.articleNumber }}</dd>
+  {% endif %}
+
+</dl>

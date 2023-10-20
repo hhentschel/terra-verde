@@ -15,81 +15,76 @@
   {% endfor %}
 {% endif %}
 
-<details open class="product-detail__summary">
-  <summary class="product-detail__summary-heading">
-    Beschreibung
-  </summary>
-  <dl class="product-detail__summary-content">
+<dl class="product-detail__summary">
 
-    {% if product.articleDescription %}
-      <dt>
-        Beschreibung
-      </dt>
-      <dd> {{ product.articleDescription }}</dd>
-    {% endif %}
+  {% if product.articleDescription %}
+    <dt>
+      Beschreibung
+    </dt>
+    <dd> {{ product.articleDescription }}</dd>
+  {% endif %}
 
-    {% if product.articleIngredients %}
-      <dt>
-        Zutaten
-      </dt>
-      <dd> {{ product.articleIngredients }}</dd>
-    {% endif %}
+  {% if product.articleIngredients %}
+    <dt>
+      Zutaten
+    </dt>
+    <dd> {{ product.articleIngredients }}</dd>
+  {% endif %}
 
-    {% if product.articleAllergenic %}
-      <dt>
-        Allergene
-      </dt>
-      <dd>{{ product.articleAllergenic }}</dd>
-    {% endif %}
+  {% if product.articleAllergenic %}
+    <dt>
+      Allergene
+    </dt>
+    <dd>{{ product.articleAllergenic }}</dd>
+  {% endif %}
 
-    {% if product.articleVegan %}
-      <dt>
-        Vegan
-      </dt>
-      <dd>{{ product.articleVegan }}</dd>
-    {% endif %}
+  {% if product.articleVegan %}
+    <dt>
+      Vegan
+    </dt>
+    <dd>{{ product.articleVegan }}</dd>
+  {% endif %}
 
-    {% if product.articleFitsTo %}
-      <dt>
-        Passt zu
-      </dt>
-      <dd>{{ product.articleFitsTo }}</dd>
-    {% endif %}
+  {% if product.articleFitsTo %}
+    <dt>
+      Passt zu
+    </dt>
+    <dd>{{ product.articleFitsTo }}</dd>
+  {% endif %}
 
-    {% if product.articleStorage %}
-      <dt>
-        Lagerung
-      </dt>
-      <dd>{{ product.articleStorage }}</dd>
-    {% endif %}
+  {% if product.articleStorage %}
+    <dt>
+      Lagerung
+    </dt>
+    <dd>{{ product.articleStorage }}</dd>
+  {% endif %}
 
-    {% if product.articleNutritionalValue %}
-      <dt>
-        100g enthalten
-      </dt>
-      <dd> {{ product.articleNutritionalValue }}</dd>
-    {% endif %}
+  {% if product.articleNutritionalValue %}
+    <dt>
+      100g enthalten
+    </dt>
+    <dd> {{ product.articleNutritionalValue }}</dd>
+  {% endif %}
 
-    {% if product.articleNumber %}
-      <dt>
-        Artikelnummer
-      </dt>
-      <dd>{{ product.articleNumber }}</dd>
-    {% endif %}
+  {% if product.articleNumber %}
+    <dt>
+      Artikelnummer
+    </dt>
+    <dd>{{ product.articleNumber }}</dd>
+  {% endif %}
 
-    {% if variant.articleEanNumber %}
-      <dt>
-        EAN-Nummer
-      </dt>
-      <dd>{{ variant.articleEanNumber }}</dd>
-    {% endif %}
+  {% if variant.articleEanNumber %}
+    <dt>
+      EAN-Nummer
+    </dt>
+    <dd>{{ variant.articleEanNumber }}</dd>
+  {% endif %}
 
-    {% if product.articleBioZertifisation %}
-      <dt>
-        Bio-Zertifizierung
-      </dt>
-      <dd>{{ product.articleBioZertifisation }}</dd>
-    {% endif %}
+  {% if product.articleBioZertifisation %}
+    <dt>
+      Bio-Zertifizierung
+    </dt>
+    <dd>{{ product.articleBioZertifisation }}</dd>
+  {% endif %}
 
-  </dl>
-</details>
+</dl>
