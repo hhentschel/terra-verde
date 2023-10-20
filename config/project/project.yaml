@@ -1,4 +1,4 @@
-dateModified: 1691006038
+dateModified: 1697796117
 elementSources:
   craft\elements\Asset:
     -
@@ -1131,7 +1131,7 @@ plugins:
     edition: pro
     enabled: true
     licenseKey: 0AK0ZI2780A8KYFBX5GSBRKM
-    schemaVersion: 4.2.3
+    schemaVersion: 4.2.7
     settings:
       activeCartDuration: 3600
       allowEmptyCartOnCheckout: false
@@ -1194,7 +1194,6 @@ plugins:
   craft-commerce-back-in-stock:
     edition: standard
     enabled: true
-    licenseKey: HJ40MIOSHZVXNFVCVIR04RP7
     schemaVersion: 1.0.0
     settings:
       confirmationEmailSubject: 'Benachrichtigung Artikelverfügbarkeit im TERRA VERDE Shop für Produkt {{variant.title}}'
@@ -1377,7 +1376,7 @@ plugins:
     edition: standard
     enabled: true
     licenseKey: LM5YGWHI1L71SX735CJV990O
-    schemaVersion: 3.0.11
+    schemaVersion: 3.0.12
     settings:
       additionalHeaders: ''
       alwaysStripQueryString: false
@@ -1567,5 +1566,5 @@ system:
   live: true
   name: 'Terra Verde'
   retryDuration: null
-  schemaVersion: 4.4.0.4
+  schemaVersion: 4.5.3.0
   timeZone: Europe/Zurich
