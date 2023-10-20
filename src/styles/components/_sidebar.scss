@@ -1,4 +1,5 @@
 .nav-sidebar {
+  $this: &;
   margin: px-to-rem($space--m) 0 px-to-rem($space--xm) 0;
 
   @include breakpoint('desktop') {
@@ -7,16 +8,30 @@
 
   &__item {
     display: block;
+    line-height: $line-height--xm;
+    margin-bottom: px-to-rem($space--m);
+    font-weight: $font-weight--semi-bold;
   }
 
   &__sub {
     margin-left: px-to-rem($space--m);
+
+    #{$this}__link {
+      font-size: px-to-rem($font-size-sm);
+      padding: px-to-rem($space--xs) 0 px-to-rem($space--xxs) 0;
+      font-weight: $font-weight--base;
+    }
+
+    #{$this}__item {
+      margin-bottom: 0;
+    }
+
   }
 
 
   &__link {
     display: block;
-    padding: px-to-rem($space--xs) 0;
+    padding: px-to-rem($space--xs) 0 px-to-rem($space--xxs) 0;
     font-size: px-to-rem($font-size-m);
     border-bottom: 1px solid $color--white;
 
@@ -27,6 +42,5 @@
 
   &__link--active {
     border-bottom: 1px solid $color--text;
-    padding-bottom: px-to-rem($space--xs);
   }
 }
