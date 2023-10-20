@@ -1,66 +1,61 @@
-<details open class="product-detail__summary">
-  <summary class="product-detail__summary-heading">
-    Beschreibung
-  </summary>
-  <div class="product-detail__summary-content">
-    {% if product.articleVolume %}
-      <span>{{ product.articleVolume }}{{ product.articleUnit }}</span>
-    {% endif %}
+<div class="product-detail__summary">
+  {% if product.articleVolume %}
+    <span>{{ product.articleVolume }}{{ product.articleUnit }}</span>
+  {% endif %}
 
-    {% if product.articleDescription %}
+  {% if product.articleDescription %}
+    <p>
+      Beschreibung: {{ product.articleDescription }}
+    </p>
+  {% endif %}
+
+  {% if product.articleNutritionalValue %}
+    <p>
+      Zutaten: {{ product.articleNutritionalValue }}
+    </p>
+  {% endif %}
+
+  {% if product.articleAlcohol %}
+    <p>
+      Alkoholgehalt: {{ product.articleAlcohol }}
+    </p>
+  {% endif %}
+
+  {% if product.articleIngredients %}
+    <p>
+      Zutaten: {{ product.articleIngredients }}
+    </p>
+  {% endif %}
+
+  {% if product.articleAdditionalInfo %}
+    <p>
+      Zusatzinfo: {{ product.articleAdditionalInfo }}
+    </p>
+  {% endif %}
+
+  {% if product.articleVegan %}
+    <p>
+      Vegan: {{ product.articleVegan }}
+    </p>
+  {% endif %}
+
+  {% if product.articleEanNumber %}
+    <p>
+      EAN-Nummer: {{ product.articleEanNumber }}
+    </p>
+  {% endif %}
+
+  {% if product.articleNumber %}
+    <p>
+      Artikelnummer: {{ product.articleNumber }}
+    </p>
+  {% endif %}
+
+  {% for variant in product.variants %}
+    {% if variant.articleVolume %}
       <p>
-        Beschreibung: {{ product.articleDescription }}
+        Gewicht: {{ variant.articleVolume }}{{ variant.articleVolumeUnit }}
       </p>
     {% endif %}
-
-    {% if product.articleNutritionalValue %}
-      <p>
-        Zutaten: {{ product.articleNutritionalValue }}
-      </p>
-    {% endif %}
-
-    {% if product.articleAlcohol %}
-      <p>
-        Alkoholgehalt: {{ product.articleAlcohol }}
-      </p>
-    {% endif %}
-
-    {% if product.articleIngredients %}
-      <p>
-        Zutaten: {{ product.articleIngredients }}
-      </p>
-    {% endif %}
-
-    {% if product.articleAdditionalInfo %}
-      <p>
-        Zusatzinfo: {{ product.articleAdditionalInfo }}
-      </p>
-    {% endif %}
-
-    {% if product.articleVegan %}
-      <p>
-        Vegan: {{ product.articleVegan }}
-      </p>
-    {% endif %}
-
-    {% if product.articleEanNumber %}
-      <p>
-        EAN-Nummer: {{ product.articleEanNumber }}
-      </p>
-    {% endif %}
-
-    {% if product.articleNumber %}
-      <p>
-        Artikelnummer: {{ product.articleNumber }}
-      </p>
-    {% endif %}
-
-    {% for variant in product.variants %}
-      {% if variant.articleVolume %}
-        <p>
-          Gewicht: {{ variant.articleVolume }}{{ variant.articleVolumeUnit }}
-        </p>
-      {% endif %}
-    {% endfor %}
-  </div>
-</details>
+  {% endfor %}
+</div>

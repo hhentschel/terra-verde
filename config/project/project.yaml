@@ -1,4 +1,4 @@
-dateModified: 1697796590
+dateModified: 1697800919
 elementSources:
   craft\elements\Asset:
     -
@@ -1195,6 +1195,7 @@ plugins:
   craft-commerce-back-in-stock:
     edition: standard
     enabled: true
+    licenseKey: TQH241Z5O8MV86XKU1IGTOHP
     schemaVersion: 1.0.0
     settings:
       confirmationEmailSubject: 'Benachrichtigung Artikelverfügbarkeit im TERRA VERDE Shop für Produkt {{variant.title}}'

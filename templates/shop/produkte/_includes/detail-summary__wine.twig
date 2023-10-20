@@ -1,119 +1,130 @@
-<details open class="product-detail__summary">
-  <summary class="product-detail__summary-heading">
-    Beschreibung
-  </summary>
-  <dl class="product-detail__summary-content">
+{% set variant = product.defaultVariant %}
+{% set manufactors = product.mancufactors.all() %}
 
-    {% if product.articleDescription %}
-      <dt>
-        Beschreibung
-      </dt>
-      <dd> {{ product.articleDescription }}</dd>
-    {% endif %}
+{% if manufactors %}
+  {% for manufactor in manufactors %}
+    <div>
+      Hersteller:
+      {% include '_components/_content-elements/link' with {
+        linkUrl: manufactor.url(),
+        linkText: manufactor.title,
+        target: 'internal',
+        iconPosition: 'after'
+      } %}
+    </div>
+  {% endfor %}
+{% endif %}
 
-    {% if product.articleAdditionalInfo %}
-      <dt> Weingut</dt>
-      <dd> {{ product.articleAdditionalInfo }}</dd>
-    {% endif %}
+<dl class="product-detail__summary">
 
-    {% if product.articleIngredients %}
-      <dt>
-        Traubensorten
-      </dt>
-      <dd> {{ product.articleIngredients }}</dd>
-    {% endif %}
+  {% if product.articleDescription %}
+    <dt>
+      Beschreibung
+    </dt>
+    <dd> {{ product.articleDescription }}</dd>
+  {% endif %}
 
-    {% if product.articleDeguNotice %}
-      <dt>
-        Degustationnotiz
-      </dt>
-      <dd> {{ product.articleDeguNotice }}</dd>
-    {% endif %}
+  {% if product.articleAdditionalInfo %}
+    <dt> Weingut</dt>
+    <dd> {{ product.articleAdditionalInfo }}</dd>
+  {% endif %}
 
-    {% if product.articleFitsTo %}
-      <dt>
-        Passt zu
-      </dt>
-      <dd>{{ product.articleFitsTo }}</dd>
-    {% endif %}
+  {% if product.articleIngredients %}
+    <dt>
+      Traubensorten
+    </dt>
+    <dd> {{ product.articleIngredients }}</dd>
+  {% endif %}
 
-    {% if product.articleTemperature %}
-      <dt>
-        Trinktemperatur
-      </dt>
-      <dd>{{ product.articleTemperature }}</dd>
-    {% endif %}
+  {% if product.articleDeguNotice %}
+    <dt>
+      Degustationnotiz
+    </dt>
+    <dd> {{ product.articleDeguNotice }}</dd>
+  {% endif %}
 
-    {% if product.arcticleVintage %}
-      <dt>
-        Jahrgang
-      </dt>
-      <dd>{{ product.arcticleVintage }}</dd>
-    {% endif %}
+  {% if product.articleFitsTo %}
+    <dt>
+      Passt zu
+    </dt>
+    <dd>{{ product.articleFitsTo }}</dd>
+  {% endif %}
 
-    {% if product.articleAlcohol %}
-      <dt>
-        Alkoholgehalt
-      </dt>
-      <dd>{{ product.articleAlcohol }}</dd>
-    {% endif %}
+  {% if product.articleTemperature %}
+    <dt>
+      Trinktemperatur
+    </dt>
+    <dd>{{ product.articleTemperature }}</dd>
+  {% endif %}
 
-    {% if product.articleVinification %}
-      <dt>
-        Vinifikation
-      </dt>
-      <dd>{{ product.articleVinification }}</dd>
-    {% endif %}
+  {% if product.arcticleVintage %}
+    <dt>
+      Jahrgang
+    </dt>
+    <dd>{{ product.arcticleVintage }}</dd>
+  {% endif %}
 
-    {% if product.articleStorage %}
-      <dt>
-        Lagerung
-      </dt>
-      <dd>{{ product.articleStorage }}</dd>
-    {% endif %}
+  {% if product.articleAlcohol %}
+    <dt>
+      Alkoholgehalt
+    </dt>
+    <dd>{{ product.articleAlcohol }}</dd>
+  {% endif %}
 
-    {% if product.articleBioZertifisation %}
-      <dt>
-        Bio-Zertifizierung
-      </dt>
-      <dd>{{ product.articleBioZertifisation }}</dd>
-    {% endif %}
+  {% if product.articleVinification %}
+    <dt>
+      Vinifikation
+    </dt>
+    <dd>{{ product.articleVinification }}</dd>
+  {% endif %}
 
-    {% if product.articleAllergenic %}
-      <dt>
-        Allergene
-      </dt>
-      <dd>{{ product.articleAllergenic }}</dd>
-    {% endif %}
+  {% if product.articleStorage %}
+    <dt>
+      Lagerung
+    </dt>
+    <dd>{{ product.articleStorage }}</dd>
+  {% endif %}
 
-    {% if product.articleVegan %}
-      <dt>
-        Vegan
-      </dt>
-      <dd>{{ product.articleVegan }}</dd>
-    {% endif %}
+  {% if product.articleBioZertifisation %}
+    <dt>
+      Bio-Zertifizierung
+    </dt>
+    <dd>{{ product.articleBioZertifisation }}</dd>
+  {% endif %}
 
-    {% if product.articleEanNumber %}
-      <dt>
-        EAN-Nummer
-      </dt>
-      <dd>{{ product.articleEanNumber }}</dd>
-    {% endif %}
+  {% if product.articleAllergenic %}
+    <dt>
+      Allergene
+    </dt>
+    <dd>{{ product.articleAllergenic }}</dd>
+  {% endif %}
 
-    {% if product.articleNumber %}
-      <dt>
-        Artikelnummer
-      </dt>
-      <dd>{{ product.articleNumber }}</dd>
-    {% endif %}
+  {% if product.articleVegan %}
+    <dt>
+      Vegan
+    </dt>
+    <dd>{{ product.articleVegan }}</dd>
+  {% endif %}
 
-    {% if product.articleNutritionalValue %}
-      <dt>
-        Zutaten
-      </dt>
-      <dd> {{ product.articleNutritionalValue }}</dd>
-    {% endif %}
+  {% if product.articleEanNumber %}
+    <dt>
+      EAN-Nummer
+    </dt>
+    <dd>{{ product.articleEanNumber }}</dd>
+  {% endif %}
 
+  {% if product.articleNumber %}
+    <dt>
+      Artikelnummer
+    </dt>
+    <dd>{{ product.articleNumber }}</dd>
+  {% endif %}
 
-  </dl>
-</details>
+  {% if product.articleNutritionalValue %}
+    <dt>
+      Zutaten
+    </dt>
+    <dd> {{ product.articleNutritionalValue }}</dd>
+  {% endif %}
+</dl>
+
