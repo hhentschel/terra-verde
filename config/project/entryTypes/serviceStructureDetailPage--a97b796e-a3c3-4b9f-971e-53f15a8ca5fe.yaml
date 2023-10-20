@@ -2,6 +2,7 @@ fieldLayouts:
   c67b4f87-6cab-456e-b29b-9b2c5d3d1e22:
     tabs:
       -
+        elementCondition: null
         elements:
           -
             autocapitalize: true
@@ -9,6 +10,7 @@ fieldLayouts:
             autocorrect: true
             class: null
             disabled: false
+            elementCondition: null
             id: null
             instructions: null
             label: null
@@ -24,23 +26,50 @@ fieldLayouts:
             tip: null
             title: null
             type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 6fdb55f0-d97d-45ac-870e-c644144ab6a7
+            userCondition: null
             warning: null
             width: 100
           -
+            elementCondition: null
             fieldUid: 9f46731d-7fdd-4245-9ca1-719db0672448 # Inhaltselemente
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: 5200d498-1129-42c4-92c9-d4ba851199e3
+            userCondition: null
             warning: null
             width: 100
         name: Inhalt
-        sortOrder: 1
+        uid: c115836d-d4d0-4010-ae43-dea85f4557e4
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            elementCondition: null
+            fieldUid: 838ede95-b646-4f5e-88a9-a41698817481 # SEO
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 53f4ff75-2ab5-4706-903c-d8aafb0e454c
+            userCondition: null
+            warning: null
+            width: 100
+        name: SEO
+        uid: 539aabad-1740-43fe-8eed-3d259eead5c3
+        userCondition: null
 handle: serviceStructureDetailPage
 hasTitleField: true
 name: Detailseite
 section: 75646a14-9db8-445b-a350-a5068040914b # Service
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
 sortOrder: 2
 titleFormat: null
 titleTranslationKeyFormat: null

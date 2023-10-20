@@ -2,6 +2,7 @@ fieldLayouts:
   22543e78-0719-48a0-9465-8f72d5890080:
     tabs:
       -
+        elementCondition: null
         elements:
           -
             autocapitalize: true
@@ -9,6 +10,7 @@ fieldLayouts:
             autocorrect: true
             class: null
             disabled: false
+            elementCondition: null
             id: null
             instructions: null
             label: null
@@ -24,135 +26,182 @@ fieldLayouts:
             tip: null
             title: null
             type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 685e1562-22ed-48e9-baf7-f16bd925b373
+            userCondition: null
             warning: null
             width: 50
           -
+            elementCondition: null
             fieldUid: 57e5fec1-460f-4063-a3db-815af978dc8f # Bild
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: ab14af07-3842-4ede-8e8f-5b82f1a1e24f
+            userCondition: null
             warning: null
             width: 25
           -
+            elementCondition: null
             fieldUid: b234429e-e8aa-45cb-9368-865e39d9f37a # Bild Detailseite
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: 2bf16cb8-1346-4f1d-91bc-e69db829740d
+            userCondition: null
             warning: null
             width: 25
           -
-            fieldUid: 269c37e5-8217-47e1-820c-5db4d8e8817a
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            warning: null
-            width: 50
-          -
+            elementCondition: null
             fieldUid: 78e66304-15bb-4b53-a1ab-ee1c29492bd3 # Karten - Icon
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: 2bf6c437-9505-4d2b-b1e9-20df0c2cfa4e
+            userCondition: null
             warning: null
             width: 50
           -
+            elementCondition: null
             fieldUid: a8014088-d2e3-439c-b662-b918f1951291 # Artikeltyp
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: c00ce48e-233f-49e1-a875-4303fd560200
+            userCondition: null
             warning: null
             width: 50
           -
+            elementCondition: null
             fieldUid: ee843b1f-3555-4b4c-a096-d348ee0317ac # Vorschautext
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: bb9d5c1a-f7f4-437e-a95f-2acf0850b8e0
+            userCondition: null
             warning: null
             width: 100
           -
+            elementCondition: null
             fieldUid: 421eaf0b-f542-45ff-8051-2921d93b3eeb # Vorschautext
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: 09b97cbb-e448-4127-8763-0f3ddb7879fa
+            userCondition: null
             warning: null
             width: 100
           -
+            elementCondition: null
             fieldUid: c5aca99d-541e-4996-a962-3790cbed27bf # y-Achse
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: 42509c4e-ff75-4147-abac-c7f0a21459c7
+            userCondition: null
             warning: null
             width: 50
           -
+            elementCondition: null
             fieldUid: 169ef8db-7ba9-459c-b40f-17678b94dce7 # x-Achse
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: 990dde99-e779-45d9-9332-06fac088f212
+            userCondition: null
             warning: null
             width: 50
           -
+            elementCondition: null
             fieldUid: fafe1670-4ff9-4b61-812d-2096544e8290 # Linktext
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: 08a0c4a4-99ae-4fb2-9a90-dcb5ccea8b9a
+            userCondition: null
             warning: null
             width: 100
           -
+            elementCondition: null
             fieldUid: 97b7e259-6116-4890-be78-8fba45ab52d0 # Produkte
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: 72a444ca-cb72-4bde-b356-b484bb4bbc76
+            userCondition: null
             warning: null
             width: 100
           -
+            elementCondition: null
             fieldUid: 9f46731d-7fdd-4245-9ca1-719db0672448 # Inhaltselemente
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: ef109697-b728-44e4-b9ee-f5c1cb6b8d23
+            userCondition: null
             warning: null
             width: 100
         name: Inhalt
-        sortOrder: 1
+        uid: 6bdaeb5b-343c-451d-916d-c9db264fb75c
+        userCondition: null
       -
+        elementCondition: null
         elements:
           -
+            elementCondition: null
+            fieldUid: 838ede95-b646-4f5e-88a9-a41698817481 # SEO
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 81961160-0283-4fa2-b35e-99d91531064e
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
             fieldUid: b4b7c4fa-292f-48ba-837c-da1b5017ed0a # SEO Beschreibung
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: 8874b00c-a0ac-4897-b58c-f7e3aa7ff993
+            userCondition: null
             warning: null
             width: 100
         name: SEO
-        sortOrder: 2
+        uid: 668a78fd-7944-4068-a67e-443e5081e05a
+        userCondition: null
 handle: producersStructureDetail
 hasTitleField: true
 name: 'Produzenten Detailseite'
 section: 8e2bbb53-7b2a-493f-9592-4847ec7d1194 # Produzenten
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
 sortOrder: 2
 titleFormat: null
 titleTranslationKeyFormat: null

@@ -1,4 +1,4 @@
-dateModified: 1697796117
+dateModified: 1697796590
 elementSources:
   craft\elements\Asset:
     -
@@ -746,6 +746,7 @@ meta:
     789fdb6d-520f-4cf1-be1e-478056358e79: Inhaltsbilder # Inhaltsbilder
     809da76b-a716-40fe-aed3-55f1fc0c57e9: 'Blog Kategorien' # Blog Kategorien
     822da130-432e-4062-a8d4-da32df299928: 'Highlight Artikel ?' # Highlight Artikel ?
+    838ede95-b646-4f5e-88a9-a41698817481: SEO # SEO
     842f167d-10b6-44fb-826b-d13831f73ff9: Common # Common
     872de5f4-04bb-4eb5-8c3f-7a3151ea37ea: Rechnung # Rechnung
     942ff559-0290-4738-ae31-bd8570484d25: Adresse # Adresse

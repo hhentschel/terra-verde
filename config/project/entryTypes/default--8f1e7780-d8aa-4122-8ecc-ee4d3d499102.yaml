@@ -2,6 +2,7 @@ fieldLayouts:
   c1480f2c-5dbc-4603-b7aa-d127b64c0e49:
     tabs:
       -
+        elementCondition: null
         elements:
           -
             autocapitalize: true
@@ -9,6 +10,7 @@ fieldLayouts:
             autocorrect: true
             class: null
             disabled: false
+            elementCondition: null
             id: null
             instructions: null
             label: null
@@ -24,32 +26,62 @@ fieldLayouts:
             tip: null
             title: null
             type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: a9ffad58-e522-40dc-b304-e128977f5760
+            userCondition: null
             warning: null
             width: 100
           -
+            elementCondition: null
             fieldUid: 421eaf0b-f542-45ff-8051-2921d93b3eeb # Vorschautext
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: a1ab02b6-44da-4a8d-809d-71bc256eeabf
+            userCondition: null
             warning: null
             width: 100
           -
+            elementCondition: null
             fieldUid: 9f46731d-7fdd-4245-9ca1-719db0672448 # Inhaltselemente
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: a4d17d8a-6d4f-4995-8ae9-9eca11967527
+            userCondition: null
             warning: null
             width: 100
         name: Content
-        sortOrder: 1
+        uid: 01103371-1da1-42f0-9857-f33582a49db0
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            elementCondition: null
+            fieldUid: 838ede95-b646-4f5e-88a9-a41698817481 # SEO
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: c6d55d7f-c3d6-46f1-b73e-e3356d48b9a8
+            userCondition: null
+            warning: null
+            width: 100
+        name: SEO
+        uid: 0f28689f-6144-43a4-951f-c9bab7bd0539
+        userCondition: null
 handle: default
 hasTitleField: true
 name: Default
 section: 93138aa1-7db6-41da-a8b4-2bd1fa4855bb # Produkte
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
 sortOrder: 1
 titleFormat: null
 titleTranslationKeyFormat: null

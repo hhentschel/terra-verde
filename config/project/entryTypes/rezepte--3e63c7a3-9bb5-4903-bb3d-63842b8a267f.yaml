@@ -2,6 +2,7 @@ fieldLayouts:
   135c80d7-9a9f-45ff-aed1-7284d1095b2c:
     tabs:
       -
+        elementCondition: null
         elements:
           -
             autocapitalize: true
@@ -9,6 +10,7 @@ fieldLayouts:
             autocorrect: true
             class: null
             disabled: false
+            elementCondition: null
             id: null
             instructions: null
             label: null
@@ -24,77 +26,122 @@ fieldLayouts:
             tip: null
             title: null
             type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 61c1b27d-49e0-4bd3-9c57-ceb74aeccf9f
+            userCondition: null
             warning: null
             width: 100
           -
+            elementCondition: null
             fieldUid: 421eaf0b-f542-45ff-8051-2921d93b3eeb # Vorschautext
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: 1129c01f-9462-4430-9fcb-b0fbb02518d4
+            userCondition: null
             warning: null
             width: 100
           -
+            elementCondition: null
             fieldUid: 037a2847-d799-44e7-ae4b-4bf40233db70 # Kategorien
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: c5cab445-8060-4d2b-9a49-917088729825
+            userCondition: null
             warning: null
             width: 100
           -
+            elementCondition: null
             fieldUid: 57e5fec1-460f-4063-a3db-815af978dc8f # Bild
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: 318cee10-8208-424e-8fa2-2324d61b03a7
+            userCondition: null
             warning: null
             width: 100
           -
+            elementCondition: null
             fieldUid: 79922ac9-edbc-44e9-850c-3995f6bcdbee # Bild Legende
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: b9b5df3b-07f9-42f1-8729-25300821148a
+            userCondition: null
             warning: null
             width: 100
           -
+            elementCondition: null
             fieldUid: f836488e-b5ab-4d7d-8b93-f9d9fb95263f # Bild Alt-Text
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: a27b6eff-cb9b-4346-a24c-c38e455298ee
+            userCondition: null
             warning: null
             width: 100
           -
+            elementCondition: null
             fieldUid: 822da130-432e-4062-a8d4-da32df299928 # Highlight Artikel ?
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: 2fa78fea-c6b4-42dd-af5e-187898bc8c15
+            userCondition: null
             warning: null
             width: 100
           -
+            elementCondition: null
             fieldUid: 9f46731d-7fdd-4245-9ca1-719db0672448 # Inhaltselemente
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: dd052e1b-60d5-411d-8a59-09eda371ac81
+            userCondition: null
             warning: null
             width: 100
         name: Inhalt
-        sortOrder: 1
+        uid: 08ec69f9-4709-4de5-a057-48e42436a84c
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            elementCondition: null
+            fieldUid: 838ede95-b646-4f5e-88a9-a41698817481 # SEO
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 522cda6d-29af-461b-ab6c-92fc7785aa32
+            userCondition: null
+            warning: null
+            width: 100
+        name: SEO
+        uid: 947576d3-d460-4471-b0f8-903c28bb701c
+        userCondition: null
 handle: rezepte
 hasTitleField: true
 name: Rezept
 section: 650553f0-dbb7-42c0-ba12-1b19aa58126a # Blog Beiträge
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
 sortOrder: 3
 titleFormat: null
 titleTranslationKeyFormat: null

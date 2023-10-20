@@ -2,6 +2,7 @@ fieldLayouts:
   166912f5-580f-4cf2-8743-e603d4fd387f:
     tabs:
       -
+        elementCondition: null
         elements:
           -
             autocapitalize: true
@@ -9,6 +10,7 @@ fieldLayouts:
             autocorrect: true
             class: null
             disabled: false
+            elementCondition: null
             id: null
             instructions: null
             label: null
@@ -24,14 +26,38 @@ fieldLayouts:
             tip: null
             title: null
             type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 9ed1f49a-a1e3-46be-bac1-156d8d84ec98
+            userCondition: null
             warning: null
             width: 100
         name: Inhalt
-        sortOrder: 1
+        uid: 7c164bc8-a832-47f9-b3e1-30f192cfea85
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            elementCondition: null
+            fieldUid: 838ede95-b646-4f5e-88a9-a41698817481 # SEO
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 09267eab-c609-49c3-b45a-6743fe3a53d9
+            userCondition: null
+            warning: null
+            width: 100
+        name: SEO
+        uid: 1595fbeb-e9f1-4b75-82a1-04441d03ec9d
+        userCondition: null
 handle: shopStructure
 hasTitleField: true
 name: Shop
 section: 48548b44-1daa-40e6-8a33-e8f7fd5a9bb6 # Shop
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
 sortOrder: 1
 titleFormat: null
 titleTranslationKeyFormat: null

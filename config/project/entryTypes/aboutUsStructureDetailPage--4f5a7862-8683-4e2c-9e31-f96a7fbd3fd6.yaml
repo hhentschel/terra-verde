@@ -2,6 +2,7 @@ fieldLayouts:
   4135bc96-d016-467d-b943-534c528c6c3e:
     tabs:
       -
+        elementCondition: null
         elements:
           -
             autocapitalize: true
@@ -9,6 +10,7 @@ fieldLayouts:
             autocorrect: true
             class: null
             disabled: false
+            elementCondition: null
             id: null
             instructions: null
             label: null
@@ -24,23 +26,50 @@ fieldLayouts:
             tip: null
             title: null
             type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 3db10aa3-26de-459d-a0d6-652df363b76a
+            userCondition: null
             warning: null
             width: 100
           -
+            elementCondition: null
             fieldUid: 9f46731d-7fdd-4245-9ca1-719db0672448 # Inhaltselemente
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: aa04d618-4dae-45ea-a170-fb92eadfeb5f
+            userCondition: null
             warning: null
             width: 100
         name: Inhalt
-        sortOrder: 1
+        uid: 9b17876d-026a-496b-94e1-f861e456f09b
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            elementCondition: null
+            fieldUid: 838ede95-b646-4f5e-88a9-a41698817481 # SEO
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 4852162e-fec9-4fb9-b355-1b9c2fde7cbd
+            userCondition: null
+            warning: null
+            width: 100
+        name: SEO
+        uid: 94ca375e-6df8-4791-a5f4-5b6f1d1dd5a3
+        userCondition: null
 handle: aboutUsStructureDetailPage
 hasTitleField: true
 name: Detailseite
 section: 85ecf639-70f3-47d4-8ad7-c2996049794d # Über uns
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
 sortOrder: 2
 titleFormat: null
 titleTranslationKeyFormat: null

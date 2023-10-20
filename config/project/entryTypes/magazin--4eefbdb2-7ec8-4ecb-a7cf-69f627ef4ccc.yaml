@@ -2,6 +2,7 @@ fieldLayouts:
   a4d5f7ef-7d4a-49d9-ab98-fabac94c368f:
     tabs:
       -
+        elementCondition: null
         elements:
           -
             autocapitalize: true
@@ -9,6 +10,7 @@ fieldLayouts:
             autocorrect: true
             class: null
             disabled: false
+            elementCondition: null
             id: null
             instructions: null
             label: null
@@ -24,77 +26,122 @@ fieldLayouts:
             tip: null
             title: null
             type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 2e702122-b89c-4346-a306-be41a212ad82
+            userCondition: null
             warning: null
             width: 100
           -
+            elementCondition: null
             fieldUid: 421eaf0b-f542-45ff-8051-2921d93b3eeb # Vorschautext
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: 1d0aafdf-e06d-49b1-9a2b-8b35084c69b7
+            userCondition: null
             warning: null
             width: 100
           -
+            elementCondition: null
             fieldUid: 037a2847-d799-44e7-ae4b-4bf40233db70 # Kategorien
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: b23c91e5-2e0a-4c4b-b391-4481f6dffc7f
+            userCondition: null
             warning: null
             width: 100
           -
+            elementCondition: null
             fieldUid: 57e5fec1-460f-4063-a3db-815af978dc8f # Bild
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: 8ff78014-56ac-4c66-8a29-e684dc67a9c4
+            userCondition: null
             warning: null
             width: 100
           -
+            elementCondition: null
             fieldUid: f836488e-b5ab-4d7d-8b93-f9d9fb95263f # Bild Alt-Text
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: fd628a99-8306-4fff-9d53-9d8ef5a4cd5d
+            userCondition: null
             warning: null
             width: 100
           -
+            elementCondition: null
             fieldUid: 79922ac9-edbc-44e9-850c-3995f6bcdbee # Bild Legende
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: 2bf7ceae-45a1-462a-af01-fcdf65354e1d
+            userCondition: null
             warning: null
             width: 100
           -
+            elementCondition: null
             fieldUid: 822da130-432e-4062-a8d4-da32df299928 # Highlight Artikel ?
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: 34b15f0e-babd-42e4-98bd-9d9a65586666
+            userCondition: null
             warning: null
             width: 100
           -
+            elementCondition: null
             fieldUid: 9f46731d-7fdd-4245-9ca1-719db0672448 # Inhaltselemente
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: 9ce83b49-d536-4ed4-9020-45fd7b6c74cc
+            userCondition: null
             warning: null
             width: 100
         name: Inhalt
-        sortOrder: 1
+        uid: 368c62eb-962d-476e-bf6d-af4a46a44f96
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            elementCondition: null
+            fieldUid: 838ede95-b646-4f5e-88a9-a41698817481 # SEO
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: fa491e38-affb-4353-bb0e-f7d1a5b7963a
+            userCondition: null
+            warning: null
+            width: 100
+        name: SEO
+        uid: e38c27e7-56a9-4886-b06a-8451ad046576
+        userCondition: null
 handle: magazin
 hasTitleField: true
 name: Magazin
 section: 650553f0-dbb7-42c0-ba12-1b19aa58126a # Blog Beiträge
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
 sortOrder: 2
 titleFormat: null
 titleTranslationKeyFormat: null

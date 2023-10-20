@@ -5,6 +5,32 @@ fieldLayouts:
         elementCondition: null
         elements:
           -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            elementCondition: null
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 7e2d1a72-b2f8-47d0-92c9-b80c9e81229b
+            userCondition: null
+            warning: null
+            width: 100
+          -
             elementCondition: null
             fieldUid: 4fbda939-0a27-483c-a7c8-7def0a9418ee # Adresse
             instructions: null
@@ -113,10 +139,31 @@ fieldLayouts:
         name: Kontakt
         uid: a67ea814-9666-419e-8099-8a970ed0638d
         userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            elementCondition: null
+            fieldUid: 838ede95-b646-4f5e-88a9-a41698817481 # SEO
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 38e9c6ab-bbb6-406b-bbbf-68e9f43e23f2
+            userCondition: null
+            warning: null
+            width: 100
+        name: SEO
+        uid: 5b510654-31a7-4236-89ca-81ba927ee700
+        userCondition: null
 handle: footerGlobal
 hasTitleField: false
 name: Footer
 section: c597474e-5517-44d2-936c-069416ac30df # Footer
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
 sortOrder: 1
 titleFormat: '{section.name|raw}'
 titleTranslationKeyFormat: null

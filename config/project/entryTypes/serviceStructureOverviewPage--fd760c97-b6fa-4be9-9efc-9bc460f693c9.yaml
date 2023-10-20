@@ -2,6 +2,7 @@ fieldLayouts:
   41084cc0-8d20-47cc-9857-9d7d4a1e83f7:
     tabs:
       -
+        elementCondition: null
         elements:
           -
             autocapitalize: true
@@ -9,6 +10,7 @@ fieldLayouts:
             autocorrect: true
             class: null
             disabled: false
+            elementCondition: null
             id: null
             instructions: null
             label: null
@@ -24,32 +26,62 @@ fieldLayouts:
             tip: null
             title: null
             type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 121aef85-ec76-43b7-8e77-68e96fa05faf
+            userCondition: null
             warning: null
             width: 100
           -
+            elementCondition: null
             fieldUid: b205d303-121a-4aae-8c85-bb00a76f312a # Titel
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: f68d2a20-443f-406d-add7-42b223befa6b
+            userCondition: null
             warning: null
             width: 100
           -
+            elementCondition: null
             fieldUid: 9f46731d-7fdd-4245-9ca1-719db0672448 # Inhaltselemente
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: dcb76cc7-cb5f-4ff9-a809-ba3cf2d29a7a
+            userCondition: null
             warning: null
             width: 100
         name: Inhalt
-        sortOrder: 1
+        uid: 5febc03c-bc25-4b41-a9e9-2c7f7eb8b724
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            elementCondition: null
+            fieldUid: 838ede95-b646-4f5e-88a9-a41698817481 # SEO
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 9d9c1810-c0ac-43e3-9d5c-f4051a8ba78e
+            userCondition: null
+            warning: null
+            width: 100
+        name: SEO
+        uid: 3e153ebf-a57c-463c-b760-72e6805d9bb9
+        userCondition: null
 handle: serviceStructureOverviewPage
 hasTitleField: true
 name: Übersichtsseite
 section: 75646a14-9db8-445b-a350-a5068040914b # Service
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
 sortOrder: 1
 titleFormat: null
 titleTranslationKeyFormat: null

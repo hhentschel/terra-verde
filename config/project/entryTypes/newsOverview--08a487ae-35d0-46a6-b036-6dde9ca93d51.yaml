@@ -2,6 +2,7 @@ fieldLayouts:
   14107d76-1cbf-4ba4-a003-3a64cfc876c2:
     tabs:
       -
+        elementCondition: null
         elements:
           -
             autocapitalize: true
@@ -9,6 +10,7 @@ fieldLayouts:
             autocorrect: true
             class: null
             disabled: false
+            elementCondition: null
             id: null
             instructions: null
             label: null
@@ -24,23 +26,50 @@ fieldLayouts:
             tip: null
             title: null
             type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: baad0eb8-6773-4373-894d-dc6f3a0b6dcc
+            userCondition: null
             warning: null
             width: 100
           -
+            elementCondition: null
             fieldUid: b205d303-121a-4aae-8c85-bb00a76f312a # Titel
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: d26c95a3-848b-4658-8152-3a623c25fea7
+            userCondition: null
             warning: null
             width: 100
         name: Inhalt
-        sortOrder: 1
+        uid: b8c1902a-69ee-4c2a-89d8-ac18d8a0fa55
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            elementCondition: null
+            fieldUid: 838ede95-b646-4f5e-88a9-a41698817481 # SEO
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 29d6dc7d-9030-4c3f-b30e-c35a9e388b81
+            userCondition: null
+            warning: null
+            width: 100
+        name: SEO
+        uid: 41de78b7-289d-4dd6-8de2-3cb1d938a88f
+        userCondition: null
 handle: newsOverview
 hasTitleField: true
 name: Blog
 section: d549006b-271c-486c-900d-a9348f0ca63d # Blog
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
 sortOrder: 1
 titleFormat: null
 titleTranslationKeyFormat: null

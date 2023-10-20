@@ -2,6 +2,7 @@ fieldLayouts:
   4394b07c-4197-47f4-b0d9-77111483ee13:
     tabs:
       -
+        elementCondition: null
         elements:
           -
             autocapitalize: true
@@ -9,6 +10,7 @@ fieldLayouts:
             autocorrect: true
             class: null
             disabled: false
+            elementCondition: null
             id: null
             instructions: null
             label: null
@@ -24,32 +26,62 @@ fieldLayouts:
             tip: null
             title: null
             type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 24f4c5f6-b384-47a4-a1c7-53cedf284b06
+            userCondition: null
             warning: null
             width: 100
           -
+            elementCondition: null
             fieldUid: b205d303-121a-4aae-8c85-bb00a76f312a # Titel
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: b483cf5b-ebf0-4ceb-831e-ea1638c053f2
+            userCondition: null
             warning: null
             width: 100
           -
+            elementCondition: null
             fieldUid: 529a5b01-e289-42de-a013-d43f81455999 # Produzentenkarte Mobile 
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: 13108f47-cf21-4f1d-b46e-1263e559a1e2
+            userCondition: null
             warning: null
             width: 100
         name: Inhalt
-        sortOrder: 1
+        uid: cecd0135-fe5a-4c29-a247-9969464e05eb
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            elementCondition: null
+            fieldUid: 838ede95-b646-4f5e-88a9-a41698817481 # SEO
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: cc8701d4-ac8f-4438-81ea-80af2182fc64
+            userCondition: null
+            warning: null
+            width: 100
+        name: SEO
+        uid: ebf4292b-7e53-4406-beb7-3f24d4b295d2
+        userCondition: null
 handle: producersOverview
 hasTitleField: true
 name: 'Produzenten Übersicht'
 section: c8c7989d-9a6a-4faa-a787-7538cf72ee11 # Produzenten Übersicht
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
 sortOrder: 1
 titleFormat: '{section.name|raw}'
 titleTranslationKeyFormat: null

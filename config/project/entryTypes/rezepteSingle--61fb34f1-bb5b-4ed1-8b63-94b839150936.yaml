@@ -2,6 +2,7 @@ fieldLayouts:
   25ed0576-e849-411a-983b-52aac46bd2a4:
     tabs:
       -
+        elementCondition: null
         elements:
           -
             autocapitalize: true
@@ -9,6 +10,7 @@ fieldLayouts:
             autocorrect: true
             class: null
             disabled: false
+            elementCondition: null
             id: null
             instructions: null
             label: null
@@ -24,23 +26,50 @@ fieldLayouts:
             tip: null
             title: null
             type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 26fc3b68-70e3-4776-95cf-a88de08a5456
+            userCondition: null
             warning: null
             width: 100
           -
+            elementCondition: null
             fieldUid: b205d303-121a-4aae-8c85-bb00a76f312a # Titel
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: 45ec3ae8-9f8c-4578-b286-dda58bc16385
+            userCondition: null
             warning: null
             width: 100
         name: Inhalt
-        sortOrder: 1
+        uid: 80b134de-e7a3-4a5e-9981-82e910613303
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            elementCondition: null
+            fieldUid: 838ede95-b646-4f5e-88a9-a41698817481 # SEO
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 56be5137-74a3-48ee-a1ab-7c169d03a742
+            userCondition: null
+            warning: null
+            width: 100
+        name: SEO
+        uid: a4a4b6a4-9f95-4a96-9807-ef0e7d450db0
+        userCondition: null
 handle: rezepteSingle
 hasTitleField: true
 name: Rezepte
 section: 2941dc0e-4ee6-4e86-873c-6f930bfad4e4 # Rezepte
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
 sortOrder: 1
 titleFormat: '{section.name|raw}'
 titleTranslationKeyFormat: null
