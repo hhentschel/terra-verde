@@ -23,7 +23,7 @@
               entry.contentElements is defined
               and entry.contentElements is not empty %}
               {% set transform =
-                transformation|default('imageOneThird') %}
+                transformation|default('imageContentFull') %}
 
               {% set img = entry.image.one ?? generic.image.one() %}
 
@@ -38,7 +38,7 @@
 
           </div>
           <div class="blog-list__item--preview-lead">
-            {{ entry.leadText }} leadtextblogentries
+            {{ entry.leadText }}
           </div>
 
         </div>

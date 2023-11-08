@@ -90,7 +90,11 @@
                 entry.contentElements is defined
                 and entry.contentElements is not empty %}
 
-                {% set transform = transformation|default('blogPreviewThumb') %}
+                {% if entry.highlightEntry %}
+                  {% set transform = transformation|default('blogHighlightPreviewThumb') %}
+                {% else %}
+                  {% set transform = transformation|default('blogPreviewThumb') %}
+                {% endif %}
                 {% set img = entry.image[0] ?? generic.image[0] %}
 
                 {% if img is defined and img is not empty %}

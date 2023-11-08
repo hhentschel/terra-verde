@@ -11,10 +11,18 @@
     line-height: $line-height--xm;
     margin-bottom: px-to-rem($space--m);
     font-weight: $font-weight--semi-bold;
+
+    summary::-webkit-details-marker {
+      color: $color--green;
+    }
+
+    summary::marker {
+      color: $color--green; /* FF */
+    }
   }
 
   &__sub {
-    margin-left: px-to-rem($space--m);
+    margin-left: 24px;
 
     #{$this}__link {
       font-size: px-to-rem($font-size-sm);
@@ -22,21 +30,32 @@
       font-weight: $font-weight--base;
     }
 
-    #{$this}__item {
-      margin-bottom: 0;
-    }
 
+    #{$this}__item {
+      margin-bottom: 0px;
+      position: relative;
+
+      summary::marker {
+        display: none;
+        width: 0;
+        color: white;
+        content: '';
+      }
+
+
+    }
   }
 
 
   &__link {
-    display: block;
+    display: inline-block;
     padding: px-to-rem($space--xs) 0 px-to-rem($space--xxs) 0;
     font-size: px-to-rem($font-size-m);
     border-bottom: 1px solid $color--white;
 
     &:hover {
       border-bottom: 1px solid $color--text;
+      cursor: pointer;
     }
   }
 
