@@ -1,4 +1,4 @@
-dateModified: 1699443585
+dateModified: 1699452455
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: 'Terra Verde'
@@ -741,6 +741,10 @@ plugins:
         -
           - Anleitungen
       widgetTitle: Links
+  image-resizer:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.0.0
   mailchimp-subscribe:
     edition: standard
     enabled: true
