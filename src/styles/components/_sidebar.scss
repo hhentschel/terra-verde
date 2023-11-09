@@ -25,7 +25,7 @@
     margin-left: 24px;
 
     #{$this}__link {
-      font-size: px-to-rem($font-size-sm);
+      font-size: px-to-rem($font-size-s);
       padding: px-to-rem($space--xs) 0 px-to-rem($space--xxs) 0;
       font-weight: $font-weight--base;
     }
