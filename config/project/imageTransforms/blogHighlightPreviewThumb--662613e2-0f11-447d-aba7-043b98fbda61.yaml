@@ -1,9 +1,9 @@
 format: null
 handle: blogHighlightPreviewThumb
-height: 320
+height: null
 interlace: none
-mode: crop
+mode: fit
 name: 'Blog Highlight Bild Vorschau'
 position: center-center
-quality: null
-width: null
+quality: 82
+width: 680

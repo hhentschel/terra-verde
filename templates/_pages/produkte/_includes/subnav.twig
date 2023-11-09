@@ -16,18 +16,23 @@
 {% endfor %} #}
 
   {% nav page in relatedSectionLevel1 %}
-
-    {% if page.id == entry.id %}
+    {# {% if page.id == entry.id %}
       {% set detailopen = true %}
     {% else %}
+      {% set detailopen = true %}
+    {% endif %} #}
+
+    {% if craft.app.request.isMobileBrowser() %}
       {% set detailopen = false %}
+    {% else %}
+      {% set detailopen = true %}
     {% endif %}
 
 
     <div class="nav-sidebar__item">
 
       <details {% if detailopen %}open{% endif %}>
-      
+
         <summary>
           <a href="{{ page.getUrl() }}" class="nav-sidebar__link {{ page.id == entry.id
           ? 'nav-sidebar__link--active' }}">
