@@ -14,10 +14,16 @@
 
     summary::-webkit-details-marker {
       color: $color--green;
+      content: '';
     }
 
     summary::marker {
       color: $color--green; /* FF */
+      content: inherit;
+
+      @include breakpoint('tablet') {
+        content: '';
+      }
     }
   }
 
