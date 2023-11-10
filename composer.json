@@ -1,6 +1,7 @@
 {
   "require": {
     "bertoost/craft-mailjet": "2.0.1",
+    "born05/craft-assetusage": "3.2.0",
     "craftcms/cms": "^4.0.0",
     "craftcms/commerce": "4.3.1",
     "craftcms/contact-form": "3.0.1",
@@ -14,9 +15,9 @@
     "nystudio107/craft-seomatic": "4.0.32",
     "php-http/message": "^1.16",
     "php-http/message-factory": "^1.1",
-    "psr/http-factory": "^1.0",
     "pompom/commerce-datatrans": "^1.0",
     "pompom/omnipay-datatrans": "^3.0",
+    "psr/http-factory": "^1.0",
     "putyourlightson/craft-blitz": "4.6.0",
     "putyourlightson/craft-blitz-recommendations": "2.1.1",
     "putyourlightson/craft-campaign": "2.9.1",
@@ -29,6 +30,7 @@
     "spicyweb/craft-neo": "3.9.6",
     "studioespresso/craft-dumper": "3.0.1",
     "verbb/expanded-singles": "2.0.5",
+    "verbb/image-resizer": "3.0.8",
     "vlucas/phpdotenv": "^5.5.0"
   },
   "require-dev": {

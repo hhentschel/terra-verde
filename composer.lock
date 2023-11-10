@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e46d884fa6f26f7ad5cadcc640b0c2c4",
+    "content-hash": "b55cad11681a2de508109a0ddaa5c607",
     "packages": [
         {
             "name": "amphp/amp",
@@ -935,6 +935,55 @@
                 "plugin"
             ],
             "time": "2022-07-30T11:55:18+00:00"
+        },
+        {
+            "name": "born05/craft-assetusage",
+            "version": "3.2.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/born05/craft-assetusage/zipball/c4efd889714825ae2be8ce9738bc46f679c9eee1",
+                "reference": "c4efd889714825ae2be8ce9738bc46f679c9eee1",
+                "shasum": ""
+            },
+            "require": {
+                "craftcms/cms": "^4.0.0-beta.1",
+                "php": "^8.0.2"
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "name": "Asset Usage",
+                "handle": "assetusage",
+                "hasCpSettings": false,
+                "hasCpSection": false,
+                "changelogUrl": "https://raw.githubusercontent.com/born05/craft-assetusage/craft4/CHANGELOG.md"
+            },
+            "autoload": {
+                "psr-4": {
+                    "born05\\assetusage\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Born05",
+                    "homepage": "https://www.born05.com/"
+                }
+            ],
+            "description": "Adds a column to see which assets are used or unused.",
+            "keywords": [
+                "asset usage",
+                "cms",
+                "craft",
+                "craft-plugin",
+                "craftcms"
+            ],
+            "support": {
+                "docs": "https://github.com/born05/craft-assetusage/blob/craft4/README.md",
+                "issues": "https://github.com/born05/craft-assetusage/issues"
+            },
+            "time": "2023-06-20T14:21:01+00:00"
         },
         {
             "name": "cakephp/core",
@@ -3757,6 +3806,49 @@
                 "url"
             ],
             "time": "2018-11-22T07:55:51+00:00"
+        },
+        {
+            "name": "lsolesen/pel",
+            "version": "0.9.12",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pel/pel/zipball/b95fe29cdacf9d36330da277f10910a13648c84c",
+                "reference": "b95fe29cdacf9d36330da277f10910a13648c84c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "lsolesen\\pel\\": "src/"
+                }
+            },
+            "license": [
+                "GPL-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Lars Olesen",
+                    "email": "lars@intraface.dk",
+                    "homepage": "http://intraface.dk",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Martin Geisler",
+                    "email": "martin@geisler.net",
+                    "homepage": "http://geisler.net",
+                    "role": "Developer"
+                }
+            ],
+            "description": "PHP Exif Library. A library for reading and writing Exif headers in JPEG and TIFF images using PHP.",
+            "homepage": "http://pel.github.com/pel/",
+            "keywords": [
+                "exif",
+                "image"
+            ],
+            "time": "2022-02-18T13:20:54+00:00"
         },
         {
             "name": "mailjet/mailjet-apiv3-php",
@@ -8734,6 +8826,61 @@
             "time": "2023-08-03T06:32:58+00:00"
         },
         {
+            "name": "verbb/image-resizer",
+            "version": "3.0.8",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/verbb/image-resizer/zipball/67471d302bcd79fc8d968acbe6bf055690388b96",
+                "reference": "67471d302bcd79fc8d968acbe6bf055690388b96",
+                "shasum": ""
+            },
+            "require": {
+                "craftcms/cms": "^4.0.0",
+                "lsolesen/pel": "^0.9.6",
+                "php": "^8.0.2",
+                "verbb/base": "^2.0.0"
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "name": "Image Resizer",
+                "handle": "image-resizer",
+                "description": "Image Resizer resizes your assets when they are uploaded.",
+                "documentationUrl": "https://github.com/verbb/image-resizer",
+                "changelogUrl": "https://raw.githubusercontent.com/verbb/image-resizer/craft-4/CHANGELOG.md",
+                "class": "verbb\\imageresizer\\ImageResizer"
+            },
+            "autoload": {
+                "psr-4": {
+                    "verbb\\imageresizer\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Verbb",
+                    "homepage": "https://verbb.io"
+                }
+            ],
+            "description": "Resize assets when they are uploaded.",
+            "keywords": [
+                "cms",
+                "craft",
+                "craft-plugin",
+                "craftcms",
+                "example"
+            ],
+            "support": {
+                "email": "support@verbb.io",
+                "issues": "https://github.com/verbb/image-resizer/issues?state=open",
+                "source": "https://github.com/verbb/image-resizer",
+                "docs": "https://github.com/verbb/image-resizer",
+                "rss": "https://github.com/verbb/image-resizer/commits/v2.atom"
+            },
+            "time": "2023-10-09T22:20:31+00:00"
+        },
+        {
             "name": "vlucas/phpdotenv",
             "version": "v5.5.0",
             "dist": {
@@ -9859,5 +10006,5 @@
     "platform-overrides": {
         "php": "8.1.1"
     },
-    "plugin-api-version": "2.0.0"
+    "plugin-api-version": "2.3.0"
 }
