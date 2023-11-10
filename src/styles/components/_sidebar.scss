@@ -1,7 +1,7 @@
 .nav-sidebar {
   $this: &;
 
-  margin: px-to-rem($space--m) 0 px-to-rem($space--xm) 0;
+  margin: 0 0 px-to-rem($space--xm) 0;
 
   @include breakpoint('desktop') {
     margin: 0;
@@ -18,7 +18,12 @@
     }
 
     summary::marker {
-      color: $color--green; /* FF */
+      color: $color--green;
+      content: inherit;
+
+      @include breakpoint('tablet') {
+        content: '';
+      }
     }
   }
 
