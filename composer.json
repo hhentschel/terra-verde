@@ -15,6 +15,8 @@
     "php-http/message": "^1.16",
     "php-http/message-factory": "^1.1",
     "psr/http-factory": "^1.0",
+    "pompom/commerce-datatrans": "^1.0",
+    "pompom/omnipay-datatrans": "^3.0",
     "putyourlightson/craft-blitz": "4.6.0",
     "putyourlightson/craft-blitz-recommendations": "2.1.1",
     "putyourlightson/craft-campaign": "2.9.1",
