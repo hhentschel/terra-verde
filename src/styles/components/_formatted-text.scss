@@ -2,7 +2,7 @@
 // #FORMATTED TEXT (e.g. for WYSIWYG-Editoren)
 // -----------------------------------------------------------------------------
 .#{$formatted-text-class} {
-  overflow-x: auto;
+  /*overflow-x: auto;*/
 
   & > * {
     &:first-child {

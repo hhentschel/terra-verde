@@ -231,12 +231,11 @@ $link__button-secondary-color-hover: $color--primary-hover;
   @extend .link;
 
   display: inline;
-  border-bottom: 1px solid currentColor;
 
   // External links
   &[rel] {
-    @extend .link--icon-before;
-    @extend .link--external;
+    /*@extend .link--icon-before;
+    @extend .link--external;*/
 
     margin-left: $link__icon-offset-horizontal--formatted-text;
 
