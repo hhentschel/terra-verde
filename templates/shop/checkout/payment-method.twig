@@ -20,7 +20,7 @@
 
         {# Get the available payment sources the user has to be used later in this page #}
         {% set paymentSources =
-          craft.commerce.paymentSources.allPaymentSourcesByUserId(
+          craft.commerce.paymentSources.allPaymentSourcesByCustomerId(
             currentUser.id ?? null
           ) %}
 

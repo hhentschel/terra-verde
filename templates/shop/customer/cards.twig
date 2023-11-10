@@ -14,7 +14,7 @@
           Bezahlmögichkeiten bearbeiten
         </h2>
         {% set paymentSources =
-          craft.commerce.paymentSources.getAllPaymentSourcesByUserId(
+          craft.commerce.paymentSources.getAllPaymentSourcesByCustomerId(
             currentUser.id
           ) %}
         {% if paymentSources|length %}
