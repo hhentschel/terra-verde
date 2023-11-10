@@ -1,4 +1,4 @@
-dateModified: 1697800919
+dateModified: 1699610934
 elementSources:
   craft\elements\Asset:
     -
@@ -296,6 +296,10 @@ elementSources:
         - dateUpdated
       type: native
     -
+      defaultSort:
+        - email
+        - asc
+      disabled: false
       key: 'group:2db88e09-5caa-44ec-a62a-3780b2b427c0' # Detailhandel
       tableAttributes:
         - username
@@ -315,12 +319,22 @@ elementSources:
         - uid
         - id
         - 'field:273d5a0c-4e06-47ec-8a4b-c1fcffa5684d' # Mindestbestellwert (betrifft nur Detailhandel) - Privat ist Mindestbestellwert generell deaktiviert.
+        - 'field:942ff559-0290-4738-ae31-bd8570484d25' # Adresse
       type: native
     -
       heading: ''
       type: heading
     -
       key: 'group:d1470d44-1f37-4fc8-997d-958262298de7' # Rabatt 23% (Bachsermärte)
+      type: native
+    -
+      heading: ''
+      type: heading
+    -
+      key: credentialed
+      type: native
+    -
+      key: inactive
       type: native
 email:
   fromEmail: $SYSTEM_EMAIL
@@ -675,6 +689,7 @@ meta:
     25a44f78-04a9-4629-9428-984e1c1201a3: Aktuell # Aktuell
     25be000d-e33e-4660-8f91-eb82c826edd6: 'Bestellung TV Website an bestellung@terra-verde.ch' # Bestellung TV Website an bestellung@terra-verde.ch
     27ee92fc-2ecb-42a3-86cb-ff619931841a: Vegan # Vegan
+    30f3dce7-d0c9-450b-829c-92601d316324: 'Blog-Highlight Bild Vorschau' # Blog-Highlight Bild Vorschau
     31d89d29-5bb5-4d25-81f8-d582276516b3: 'Artikel Grundpreis (EVP inkl.)' # Artikel Grundpreis (EVP inkl.)
     32cd07ee-add2-4f02-8691-39b96171693c: Textfarbe # Textfarbe
     34eecfa5-9662-4a5c-addd-6a484fbebe8d: 'Verkaufsstellen Orte' # Verkaufsstellen Orte
@@ -1324,6 +1339,10 @@ plugins:
         -
           - Anleitungen
       widgetTitle: Links
+  image-resizer:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.0.0
   mailchimp-subscribe:
     edition: standard
     enabled: true
