@@ -111,8 +111,21 @@
                 {% set categories = entry.catsForBlogEntries %}
                 <div class="blog-list__item--cat-container">
                   {% for cat in categories %}
+                    {% set catname = '' %}
+                    {% if cat.id == 16717 %}
+                      {% set catname = 'news' %}
+                    {% elseif cat.id == 16718 %}
+                      {% set catname = 'recipe' %}
+                    {% elseif cat.id == 16719 %}
+                      {% set catname = 'magazin' %}
+                    {% elseif cat.id == 45598 %}
+                      {% set catname = 'comment' %}
+                    {% elseif cat.id == 45225 %}
+                      {% set catname = 'background-info' %}
+                    {% endif %}
+
                     <span
-                      class="blog-list__item--cat-item blog-list__item--cat-item--{% if cat.id == 16717 %}news{% elseif cat.id == 16718 %}recipe{% elseif cat.id == 16719 %}magazin{% elseif cat.id == 37599 %}comment{% elseif cat.id == 37600 %}background-info{% endif %}">
+                      class="blog-list__item--cat-item blog-list__item--cat-item--{{ catname }}">
                       {{ cat.title }}
                     </span>
                   {% endfor %}
