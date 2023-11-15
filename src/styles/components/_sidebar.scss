@@ -17,6 +17,7 @@
       content: '';
     }
 
+
     summary::marker {
       color: $color--green; /* FF */
       content: inherit;
@@ -24,6 +25,10 @@
       @include breakpoint('tablet') {
         content: '';
       }
+    }
+
+    summary.summary-no-children::marker {
+      content: '';
     }
   }
 
