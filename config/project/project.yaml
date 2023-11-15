@@ -1,4 +1,4 @@
-dateModified: 1699522434
+dateModified: 1700045058
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: 'Terra Verde'
@@ -25,6 +25,7 @@ meta:
     1daedc6b-3766-4522-aef9-b8a340e0cef5: Versendet # Versendet
     1fa8d56e-80b3-4840-a038-6addcd516984: 'Bild 1 Schnellzugriff' # Bild 1 Schnellzugriff
     2a604d11-f35a-4546-a33a-b2465e0017a9: 'Email 1' # Email 1
+    02c41116-23cb-41b0-af33-390a4ef2056d: 'Bild Positionierung' # Bild Positionierung
     2d7664a5-cf66-40d5-a9cf-e4ce91afcfc2: Vorname # Vorname
     2d50879a-a5aa-4121-98eb-ebb68c191811: 'Produktliste Shop' # Produktliste Shop
     2db88e09-5caa-44ec-a62a-3780b2b427c0: Detailhandel # Detailhandel

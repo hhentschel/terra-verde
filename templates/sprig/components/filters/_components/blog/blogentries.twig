@@ -11,7 +11,7 @@
             <div class="blog-list__item--cat-container">
               {% for cat in categories %}
                 <span
-                  class="blog-list__item--cat-item blog-list__item--cat-item--{% if cat.id == 16717 %}news{% elseif cat.id == 16718 %}recipe{% elseif cat.id == 16719 %}magazin{% endif %}">
+                  class="blog-list__item--cat-item blog-list__item--cat-item--{% if cat.id == 16717 %}news{% elseif cat.id == 16718 %}recipe{% elseif cat.id == 16719 %}magazin{% elseif cat.id == 37599 %}comment{% elseif cat.id == 37600 %}background-info{% endif %}">
                   {{ cat.title }}
                 </span>
               {% endfor %}
@@ -45,7 +45,7 @@
 
         <a href="{{ entry.url }}"
            class="blog-list__item--linkdetail">
-          mehr Informationen (blogentries.twig)
+          mehr Informationen
         </a>
       </a>
     {% endfor %}

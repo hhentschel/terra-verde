@@ -150,6 +150,16 @@
       &--magazin {
         background-color: $color--blue;
       }
+
+      &--comment {
+        background-color: $color--blue-dark;
+
+      }
+
+      &--background-info {
+        background-color: $color--yellow;
+        color: $color--black;
+      }
     }
 
     &--preview {

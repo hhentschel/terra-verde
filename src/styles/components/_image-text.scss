@@ -6,7 +6,20 @@
   @include breakpoint('tablet-landscape') {
     margin-bottom: 0;
     flex-direction: row;
+
+    &--reverse {
+      flex-direction: row-reverse;
+    }
   }
+
+  &--reverse {
+    .image--one-third,
+    .image--half {
+      margin: 0 0 0 px-to-rem($space--xm);
+    }
+
+  }
+
 
   &__bg {
     padding: px-to-rem($space--m);
