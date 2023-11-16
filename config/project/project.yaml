@@ -1,4 +1,4 @@
-dateModified: 1700045058
+dateModified: 1700168538
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: 'Terra Verde'
@@ -552,11 +552,15 @@ plugins:
     licenseKey: 0AK0ZI2780A8KYFBX5GSBRKM
     schemaVersion: 3.4.13
     settings:
-      activeCartDuration: 3600
+      _orderPdfPath: null
+      activeCartDuration: 172800
+      allowCheckoutWithoutPayment: true
       allowEmptyCartOnCheckout: false
+      allowPartialPaymentOnCheckout: false
+      autoSetCartShippingMethodOption: false
       autoSetNewCartAddresses: true
       cartVariable: cart
-      defaultView: commerce/products
+      defaultView: commerce/orders
       dimensionUnits: mm
       emailSenderAddress: ''
       emailSenderAddressPlaceholder: null
@@ -566,11 +570,9 @@ plugins:
       gatewayPostRedirectTemplate: ''
       loadCartRedirectUrl: null
       minimumTotalPriceStrategy: default
-      orderPdfFilenameFormat: 'Order-{number}'
-      orderPdfPath: shop/special/receipt
       orderReferenceFormat: '{{number[:7]}}'
       paymentCurrency: null
-      pdfAllowRemoteImages: false
+      pdfAllowRemoteImages: true
       pdfPaperOrientation: portrait
       pdfPaperSize: letter
       purgeInactiveCarts: true
