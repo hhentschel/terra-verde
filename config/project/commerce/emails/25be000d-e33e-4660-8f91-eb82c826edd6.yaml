@@ -6,6 +6,6 @@ name: 'Bestellung TV Website an bestellung@terra-verde.ch'
 plainTextTemplatePath: ''
 recipientType: custom
 replyTo: '{{order.user.email}}'
-subject: 'Bestellung Website – {{order.user.fullName}} –  {{order.user.email}} – Nr.{{order.reference }} – {{ order.shippingMethodName }}'
+subject: 'Bestellung Website – {{order.user.fullName}} – {{order.user.email} – Nr.{{order.reference }} – {{ order.shippingMethodName }}'
 templatePath: /shop/_email/order-confirmation-tv.twig
 to: p@henrik-hentschel.de
