@@ -8,4 +8,4 @@ recipientType: custom
 replyTo: null
 subject: 'Bestellung Website – {{order.user.fullName}} – Nr.{{order.reference }} – {{ order.shippingMethodName }}'
 templatePath: /shop/_email/order-confirmation-tv.twig
-to: p@henrik-hentschel.de
+to: bestellung@terra-verde.ch
