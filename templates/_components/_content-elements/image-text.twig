@@ -3,11 +3,16 @@
   : '' %}
 
 {% set boxBgColor = block.boxBgColor %}
-{% set boxTextColor = block.boxTextColor %}
-{% set infobox = infobox|default(false) %}
+{% set boxTextColor = block.boxTextColor|default('transparent') %}
+{% set infobox = infobox|default(false)|default('inherit') %}
 
+ {% if block.imagePosition %}
+   {% set imagePosition = 'image-text--reverse' %}
+ {% else %}
+   {% set imagePosition = '' %}
+ {% endif %}
 
-<div class="image-text {% if infobox %}image-text__bg{% endif %}"
+<div class="image-text {{ imagePosition }} {% if infobox %}image-text__bg{% endif %}"
      style="background-color: {{ boxBgColor }}; color: {{ boxTextColor }}">
 
   {% set img = img is defined and img is not empty ? img.one() : null %}

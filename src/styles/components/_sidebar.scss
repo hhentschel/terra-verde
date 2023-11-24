@@ -25,6 +25,10 @@
         content: '';
       }
     }
+
+    summary.summary-no-children::marker {
+      content: '';
+    }
   }
 
   &__sub {

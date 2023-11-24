@@ -16,11 +16,12 @@
 {% endfor %} #}
 
   {% nav page in relatedSectionLevel1 %}
-    {# {% if page.id == entry.id %}
-      {% set detailopen = true %}
+
+    {% if page.hasDescendants() %}
+      {% set summaryclass = '' %}
     {% else %}
-      {% set detailopen = true %}
-    {% endif %} #}
+      {% set summaryclass = 'summary-no-children' %}
+    {% endif %}
 
     {% if craft.app.request.isMobileBrowser() %}
       {% set detailopen = false %}
@@ -28,12 +29,11 @@
       {% set detailopen = true %}
     {% endif %}
 
-
     <div class="nav-sidebar__item">
 
       <details {% if detailopen %}open{% endif %}>
 
-        <summary>
+        <summary class="{{ summaryclass }}">
           <a href="{{ page.getUrl() }}" class="nav-sidebar__link {{ page.id == entry.id
           ? 'nav-sidebar__link--active' }}">
             {{ page.title }}
