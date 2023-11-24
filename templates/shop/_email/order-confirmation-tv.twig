@@ -443,11 +443,10 @@
                   <div
                     style="font-family:'Open Sans', Arial, sans-serif;font-size:15px;line-height:1;text-align:left;color:#ffffff;">
                     <h3 style="font-size:16px; color:'#fff'">Rechnungsadresse</h3> {% if order.billingAddress %}
-                      <div
-                        style="line-height: 1.6">{% include 'shop/_includes/addresses/address-email-confirmation' with { address: order.billingAddress } %} {% if order.billingAddress.sameAs(order.shippingAddress) %} {% endif %}</div> {% else %}
-                      <p>Nicht eingegeben</p> {% endif %} {% if order.user.email is defined %}
-                      <p>{{ order.user.email }}</p> {% elseif order.email is defined %}
-                      <p>{{ order.email }}</p> {% else %} <p>{{ cart.email }}</p> {% endif %}
+                    <div
+                      style="line-height: 1.6">{% include 'shop/_includes/addresses/address-email-confirmation' with { address: order.billingAddress } %} {% if order.billingAddress.sameAs(order.shippingAddress) %} </div> {% else %}
+                    <p>Nicht eingegeben</p> {% endif %} {% if order.user.email is defined %}
+                      <p>{{ order.user.email }}</p> {% else %} <p>{{ cart.email }}</p> {% endif %}
                   </div>
                 </td>
               </tr>
@@ -467,11 +466,10 @@
                   <div
                     style="font-family:'Open Sans', Arial, sans-serif;font-size:15px;line-height:1;text-align:left;color:#ffffff;">
                     <h3 style="font-size:16px; color:'#fff'">Versandadresse</h3> {% if order.shippingAddress %}
-                      <div
-                        style="line-height: 1.6">{% include 'shop/_includes/addresses/address-email-confirmation' with { address: order.shippingAddress } %} {% if order.shippingAddress.sameAs(order.billingAddress) %} {% endif %} </div>{% else %}
-                      <p>Nicht eingegeben.</p> {% endif %} {% if order.user.email is defined %}
-                      <p>{{ order.user.email }}</p> {% elseif order.email is defined %}
-                      <p>{{ order.email }}</p> {% else %} <p>{{ cart.email }}</p> {% endif %}
+                    <div
+                      style="line-height: 1.6">{% include 'shop/_includes/addresses/address-email-confirmation' with { address: order.shippingAddress } %} {% if order.shippingAddress.sameAs(order.billingAddress) %} </div>{% else %}
+                    <p>Nicht eingegeben.</p> {% endif %} {% if order.user.email is defined %}
+                      <p>{{ order.user.email }}</p> {% else %} <p>{{ cart.email }}</p> {% endif %}
                   </div>
                 </td>
               </tr>
