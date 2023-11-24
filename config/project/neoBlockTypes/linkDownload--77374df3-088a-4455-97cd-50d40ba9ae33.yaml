@@ -1,35 +1,52 @@
 childBlocks: null
+conditions: null
+description: ''
+enabled: true
 field: 9f46731d-7fdd-4245-9ca1-719db0672448 # Inhaltselemente
 fieldLayouts:
   3ea5593f-0a48-4251-bee3-30499486f062:
     tabs:
       -
+        elementCondition: null
         elements:
           -
+            elementCondition: null
             fieldUid: 15e8e382-ef35-4ba0-b82a-fd65b047ea1e # Link Text
-            instructions: ''
-            label: ''
-            required: '1'
+            instructions: null
+            label: null
+            required: true
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: 47a8797e-13b9-45be-99bb-652206606269
+            userCondition: null
             warning: null
             width: 100
           -
+            elementCondition: null
             fieldUid: 667e84c9-349c-41fc-b5dd-be60c8d94861 # Downloadlink
-            instructions: ''
-            label: ''
-            required: '1'
+            instructions: null
+            label: null
+            required: true
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: 73dd5acf-2bc7-4650-bc74-0e781664cd8f
+            userCondition: null
             warning: null
             width: 100
         name: Inhalt
-        sortOrder: 1
+        uid: 225c53d7-45bc-4e5b-bcae-2890e4d255f0
+        userCondition: null
 group: c9e74448-323c-4314-8339-8767051c39f5 # Titel, Text & Links
+groupChildBlockTypes: true
 handle: linkDownload
+icon: null
+ignorePermissions: true
 maxBlocks: 0
 maxChildBlocks: 0
 maxSiblingBlocks: 0
+minBlocks: 0
+minChildBlocks: 0
+minSiblingBlocks: 0
 name: 'Download Link (mit Icon)'
 sortOrder: 10
 topLevel: true

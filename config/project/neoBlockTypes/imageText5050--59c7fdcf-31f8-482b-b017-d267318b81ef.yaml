@@ -1,62 +1,100 @@
 childBlocks: null
+conditions: null
+description: ''
+enabled: true
 field: 9f46731d-7fdd-4245-9ca1-719db0672448 # Inhaltselemente
 fieldLayouts:
-  67b7a086-081b-49f0-8d16-68fd274d0de9:
+  645e40a8-0232-44d7-b14d-3f92b7ee3870:
     tabs:
       -
+        elementCondition: null
         elements:
           -
+            elementCondition: null
             fieldUid: 57e5fec1-460f-4063-a3db-815af978dc8f # Bild
-            instructions: ''
-            label: ''
+            instructions: null
+            label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: fa7b6b55-cac1-4e29-989f-ae1e2233728f
+            userCondition: null
             warning: null
             width: 25
           -
+            elementCondition: null
             fieldUid: f836488e-b5ab-4d7d-8b93-f9d9fb95263f # Bild Alt-Text
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: db086324-7cc8-4b53-877c-458c35a59c2b
+            userCondition: null
             warning: null
             width: 25
           -
+            elementCondition: null
             fieldUid: 79922ac9-edbc-44e9-850c-3995f6bcdbee # Bild Legende
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: 7d355b59-b985-43e0-9df8-b9252067d2ec
+            userCondition: null
             warning: null
             width: 50
           -
+            elementCondition: null
             fieldUid: cbf7f593-68bf-4c83-b97d-b6959558cb3e # Titel H3
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: 85777560-fd8c-49e5-ab19-eadcd3e79c1c
+            userCondition: null
             warning: null
             width: 50
           -
+            elementCondition: null
             fieldUid: d22d8183-8d37-4569-9fda-4480d52e3498 # Text Standard ohne Titel
-            instructions: ''
-            label: ''
+            instructions: null
+            label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: 4265b34b-8bf4-4746-9ff6-e5b6a019cddc
+            userCondition: null
             warning: null
             width: 50
+          -
+            elementCondition: null
+            fieldUid: 85483609-8f7b-443b-b987-df65cc35c06f # Bild Positionierung
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: a7a9cd11-e6a1-4f6a-a571-4ced6c7f2f8c
+            userCondition: null
+            warning: null
+            width: 100
         name: Inhalt
-        sortOrder: 1
+        uid: dd658802-315f-447b-8bcd-27ec2e297002
+        userCondition: null
 group: 911777fe-811a-46e9-bb80-0228ddd66234 # Medien
+groupChildBlockTypes: true
 handle: imageText5050
+icon: null
+ignorePermissions: true
 maxBlocks: 0
 maxChildBlocks: 0
 maxSiblingBlocks: 0
+minBlocks: 0
+minChildBlocks: 0
+minSiblingBlocks: 0
 name: 'Bild / Text - 50% / 50%'
 sortOrder: 18
 topLevel: true

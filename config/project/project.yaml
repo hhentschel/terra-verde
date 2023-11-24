@@ -1,4 +1,4 @@
-dateModified: 1699610934
+dateModified: 1700833255
 elementSources:
   craft\elements\Asset:
     -
@@ -814,6 +814,7 @@ meta:
     75076778-568e-4d8c-8a9b-dadb8a0e180a: 'Bild / Bild - 50% / 50%' # Bild / Bild - 50% / 50%
     80046407-de11-4bdb-9670-56b00656fb46: Bild # Bild
     84380320-2899-45dc-b326-bd0b24416c50: Video # Video
+    85483609-8f7b-443b-b987-df65cc35c06f: 'Bild Positionierung' # Bild Positionierung
     98041754-77a8-45da-bb7d-6ce634dd374b: "Überschrift |\_Gross" # Überschrift | Gross
     a0f9f7a2-3635-47ba-a758-47e6b1bc400e: Zusatzinfo # Zusatzinfo
     a01e981b-9ab4-498e-9274-b1858943fc1c: 'Produkt Beschreibung' # Produkt Beschreibung
@@ -1087,7 +1088,7 @@ plugins:
     edition: lite
     enabled: true
     licenseKey: 4JP28H3CA67ZG8DVAY1YX6M5
-    schemaVersion: 2.7.0
+    schemaVersion: 2.10.0
     settings:
       allowedOrigins: null
       apiKey: sgadfiltxmcwqqdp
@@ -1139,6 +1140,7 @@ plugins:
             - apiSecret
             - $MAILJET_SECRET_KEY
       transportType: bertoost\mailjet\adapters\MailjetAdapter
+      validateWebhookRequests: false
   ckeditor:
     edition: standard
     enabled: true

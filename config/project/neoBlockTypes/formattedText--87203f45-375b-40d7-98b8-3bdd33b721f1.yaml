@@ -1,26 +1,40 @@
 childBlocks: null
+conditions: null
+description: ''
+enabled: true
 field: 9f46731d-7fdd-4245-9ca1-719db0672448 # Inhaltselemente
 fieldLayouts:
   0e13189f-a46b-481a-bc88-3ad9de084bac:
     tabs:
       -
+        elementCondition: null
         elements:
           -
+            elementCondition: null
             fieldUid: d22d8183-8d37-4569-9fda-4480d52e3498 # Text Standard ohne Titel
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: 33671645-0703-49dc-a6a6-c7054e4d5318
+            userCondition: null
             warning: null
             width: 100
         name: Inhalt
-        sortOrder: 1
+        uid: 24973c82-d7a8-431e-afe9-71b83033e38d
+        userCondition: null
 group: c9e74448-323c-4314-8339-8767051c39f5 # Titel, Text & Links
+groupChildBlockTypes: true
 handle: formattedText
+icon: null
+ignorePermissions: true
 maxBlocks: 0
 maxChildBlocks: 0
 maxSiblingBlocks: 0
+minBlocks: 0
+minChildBlocks: 0
+minSiblingBlocks: 0
 name: 'Formatierter Text'
 sortOrder: 5
 topLevel: true

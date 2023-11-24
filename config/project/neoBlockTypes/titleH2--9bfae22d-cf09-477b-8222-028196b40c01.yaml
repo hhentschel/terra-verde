@@ -1,26 +1,40 @@
 childBlocks: null
+conditions: null
+description: ''
+enabled: true
 field: 9f46731d-7fdd-4245-9ca1-719db0672448 # Inhaltselemente
 fieldLayouts:
   24f61f1c-b1ed-4b2b-903a-0d552ac097e6:
     tabs:
       -
+        elementCondition: null
         elements:
           -
+            elementCondition: null
             fieldUid: b19c563f-f580-49f7-88f1-896078bcca7a # Titel H2
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: fb04b6b7-b30a-4e3f-8839-ae1782025318
+            userCondition: null
             warning: null
             width: 100
         name: Inhalt
-        sortOrder: 1
+        uid: 1765d3b2-59e3-48f6-a3f4-79406c9fbfe8
+        userCondition: null
 group: c9e74448-323c-4314-8339-8767051c39f5 # Titel, Text & Links
+groupChildBlockTypes: true
 handle: titleH2
+icon: null
+ignorePermissions: true
 maxBlocks: 0
 maxChildBlocks: 0
 maxSiblingBlocks: 0
+minBlocks: 0
+minChildBlocks: 0
+minSiblingBlocks: 0
 name: 'Titel H2'
 sortOrder: 2
 topLevel: true

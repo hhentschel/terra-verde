@@ -1,26 +1,40 @@
 childBlocks: null
+conditions: null
+description: ''
+enabled: true
 field: 9f46731d-7fdd-4245-9ca1-719db0672448 # Inhaltselemente
 fieldLayouts:
   2e02b6b3-2ea7-4644-b314-ec348922f2f3:
     tabs:
       -
+        elementCondition: null
         elements:
           -
+            elementCondition: null
             fieldUid: 6bc749d9-f805-48a4-b8de-1702b40ae534 # Bild Matrix
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: ac83d803-6e16-4884-bc47-296d0d8ad28f
+            userCondition: null
             warning: null
             width: 100
         name: Inhalt
-        sortOrder: 1
+        uid: 0f11497e-947b-4e12-928e-84ada5c013c1
+        userCondition: null
 group: 911777fe-811a-46e9-bb80-0228ddd66234 # Medien
+groupChildBlockTypes: true
 handle: image5050
+icon: null
+ignorePermissions: true
 maxBlocks: 0
 maxChildBlocks: 0
 maxSiblingBlocks: 0
+minBlocks: 0
+minChildBlocks: 0
+minSiblingBlocks: 0
 name: 'Bild / Bild - 50% / 50%'
 sortOrder: 19
 topLevel: true

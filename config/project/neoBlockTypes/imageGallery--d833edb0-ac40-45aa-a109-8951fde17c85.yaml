@@ -1,44 +1,64 @@
 childBlocks: null
+conditions: null
+description: ''
+enabled: true
 field: 9f46731d-7fdd-4245-9ca1-719db0672448 # Inhaltselemente
 fieldLayouts:
   67296320-95fa-4f52-9a7a-2dc209784191:
     tabs:
       -
+        elementCondition: null
         elements:
           -
+            elementCondition: null
             fieldUid: b19c563f-f580-49f7-88f1-896078bcca7a # Titel H2
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: e52c4258-1f2b-41e2-b114-635dc7779643
+            userCondition: null
             warning: null
             width: 50
           -
+            elementCondition: null
             fieldUid: 421eaf0b-f542-45ff-8051-2921d93b3eeb # Vorschautext
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: d6baeaf0-3549-4b40-9205-cc7a7f75d7c9
+            userCondition: null
             warning: null
             width: 50
           -
+            elementCondition: null
             fieldUid: 6bc749d9-f805-48a4-b8de-1702b40ae534 # Bild Matrix
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: 3544d788-a0b6-495a-ab41-4091ca915765
+            userCondition: null
             warning: null
             width: 100
         name: Inhalt
-        sortOrder: 1
+        uid: 5348ab2b-cc5d-4f92-851a-e84a0afde6a9
+        userCondition: null
 group: 7db4c821-db84-4144-b750-0170f1401afb # 
+groupChildBlockTypes: true
 handle: imageGallery
+icon: null
+ignorePermissions: true
 maxBlocks: 0
 maxChildBlocks: 0
 maxSiblingBlocks: 0
+minBlocks: 0
+minChildBlocks: 0
+minSiblingBlocks: 0
 name: Galerie
 sortOrder: 26
 topLevel: true

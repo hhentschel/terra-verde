@@ -1,35 +1,52 @@
 childBlocks: null
+conditions: null
+description: ''
+enabled: true
 field: 9f46731d-7fdd-4245-9ca1-719db0672448 # Inhaltselemente
 fieldLayouts:
   4e33616d-1820-4821-9b20-cb5198e6383a:
     tabs:
       -
+        elementCondition: null
         elements:
           -
+            elementCondition: null
             fieldUid: 15e8e382-ef35-4ba0-b82a-fd65b047ea1e # Link Text
-            instructions: ''
-            label: ''
-            required: '1'
+            instructions: null
+            label: null
+            required: true
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: 18adc288-3015-4841-8505-2555b3c91d0d
+            userCondition: null
             warning: null
             width: 100
           -
+            elementCondition: null
             fieldUid: 437e0241-3704-4701-a904-0082985e64ed # Externer Link
-            instructions: ''
-            label: ''
-            required: '1'
+            instructions: null
+            label: null
+            required: true
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: fa6a9a7b-0f8f-4179-a624-5f4001e1ba70
+            userCondition: null
             warning: null
             width: 100
         name: Inhalt
-        sortOrder: 1
+        uid: 72115a66-c3cd-4b44-9896-c2d1632c58cc
+        userCondition: null
 group: c9e74448-323c-4314-8339-8767051c39f5 # Titel, Text & Links
+groupChildBlockTypes: true
 handle: externalLink
+icon: null
+ignorePermissions: true
 maxBlocks: 0
 maxChildBlocks: 0
 maxSiblingBlocks: 0
+minBlocks: 0
+minChildBlocks: 0
+minSiblingBlocks: 0
 name: 'Externer Link (mit Icon)'
 sortOrder: 8
 topLevel: true

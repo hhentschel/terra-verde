@@ -1,35 +1,52 @@
 childBlocks: null
+conditions: null
+description: ''
+enabled: true
 field: 9f46731d-7fdd-4245-9ca1-719db0672448 # Inhaltselemente
 fieldLayouts:
   2752c7ef-10fc-443b-a0fd-d209d92e67b4:
     tabs:
       -
+        elementCondition: null
         elements:
           -
+            elementCondition: null
             fieldUid: 86c08488-49e8-48fc-8daf-61b59aaf31fa # Button Link auf Eintrag
-            instructions: ''
-            label: ''
-            required: '1'
+            instructions: null
+            label: null
+            required: true
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: 7ead75ea-d390-4bb8-9822-61f18272d015
+            userCondition: null
             warning: null
             width: 100
           -
+            elementCondition: null
             fieldUid: 15e8e382-ef35-4ba0-b82a-fd65b047ea1e # Link Text
-            instructions: ''
-            label: ''
-            required: '1'
+            instructions: null
+            label: null
+            required: true
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: 67c84dca-f205-48ce-b335-fccf789c4754
+            userCondition: null
             warning: null
             width: 100
         name: Inhalt
-        sortOrder: 1
+        uid: dcf52263-41a7-47f1-a1d3-a46ce8266d9e
+        userCondition: null
 group: c9e74448-323c-4314-8339-8767051c39f5 # Titel, Text & Links
+groupChildBlockTypes: true
 handle: buttonLinkInternalSimple
+icon: null
+ignorePermissions: true
 maxBlocks: 0
 maxChildBlocks: 0
 maxSiblingBlocks: 0
+minBlocks: 0
+minChildBlocks: 0
+minSiblingBlocks: 0
 name: 'Interner Link (simple)'
 sortOrder: 7
 topLevel: true

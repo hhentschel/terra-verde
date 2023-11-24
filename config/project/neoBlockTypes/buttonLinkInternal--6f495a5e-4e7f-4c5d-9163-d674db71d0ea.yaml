@@ -1,44 +1,64 @@
 childBlocks: null
+conditions: null
+description: ''
+enabled: true
 field: 9f46731d-7fdd-4245-9ca1-719db0672448 # Inhaltselemente
 fieldLayouts:
   5cdec686-f7a0-4cbc-8665-d6985766923c:
     tabs:
       -
+        elementCondition: null
         elements:
           -
+            elementCondition: null
             fieldUid: 86c08488-49e8-48fc-8daf-61b59aaf31fa # Button Link auf Eintrag
-            instructions: ''
-            label: ''
-            required: '1'
+            instructions: null
+            label: null
+            required: true
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: c5b29f9c-0434-46ea-9aac-8aee55b7bd05
+            userCondition: null
             warning: null
             width: 100
           -
+            elementCondition: null
             fieldUid: ac56b463-604b-4eb0-afca-e3cf6579de22 # Link Farbe
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: 482c72ef-0e75-4f3f-b5c9-1bb5ba69e8a7
+            userCondition: null
             warning: null
             width: 100
           -
+            elementCondition: null
             fieldUid: 15e8e382-ef35-4ba0-b82a-fd65b047ea1e # Link Text
-            instructions: ''
-            label: ''
-            required: '1'
+            instructions: null
+            label: null
+            required: true
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: 75146857-ac8a-4212-a4b7-d3b73613006d
+            userCondition: null
             warning: null
             width: 100
         name: Inhalt
-        sortOrder: 1
+        uid: 4dc37b93-f4f3-498d-8904-9eb6d068af6e
+        userCondition: null
 group: c9e74448-323c-4314-8339-8767051c39f5 # Titel, Text & Links
+groupChildBlockTypes: true
 handle: buttonLinkInternal
+icon: null
+ignorePermissions: true
 maxBlocks: 0
 maxChildBlocks: 0
 maxSiblingBlocks: 0
+minBlocks: 0
+minChildBlocks: 0
+minSiblingBlocks: 0
 name: 'Interner Link (hervorgehoben)'
 sortOrder: 6
 topLevel: true
