@@ -1,0 +1,14 @@
+columnSuffix: sprwyaar
+contentColumnType: boolean
+fieldGroup: d5eb7b01-8b1f-4b3f-83c7-ccfa4c76d49d # Inhaltselemente
+handle: imagePosition
+instructions: null
+name: 'Bild Positionierung'
+searchable: false
+settings:
+  default: false
+  offLabel: 'Links (Standard)'
+  onLabel: Rechts
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Lightswitch
