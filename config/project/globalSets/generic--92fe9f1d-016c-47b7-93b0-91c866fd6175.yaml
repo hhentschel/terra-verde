@@ -12,6 +12,15 @@ fieldLayouts:
             type: craft\fieldlayoutelements\CustomField
             warning: null
             width: 100
+          -
+            fieldUid: ad28cff2-9b0f-4a4d-b9b7-09e42104fc9d # Logo - Bio Störer
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
         name: Generic
         sortOrder: 1
 handle: generic

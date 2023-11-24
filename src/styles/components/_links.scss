@@ -45,7 +45,7 @@ $link__button-secondary-color-hover: $color--primary-hover;
   );
 
   display: inline-flex;
-  align-items: flex-start;
+  align-items: center;
   position: relative;
   color: $link__color;
   cursor: pointer;
@@ -231,14 +231,13 @@ $link__button-secondary-color-hover: $color--primary-hover;
   @extend .link;
 
   display: inline;
-  border-bottom: 1px solid currentColor;
 
   // External links
   &[rel] {
-    @extend .link--icon-before;
-    @extend .link--external;
+    /* @extend .link--icon-before;
+     @extend .link--external;*/
 
-    margin-left: $link__icon-offset-horizontal--formatted-text;
+    /*margin-left: $link__icon-offset-horizontal--formatted-text;*/
 
     &:before {
       margin-top: $link__icon-offset-vertical--formatted-text;

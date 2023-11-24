@@ -1,28 +1,68 @@
-<nav class="detail-page__subnav">
-  <ul class="nav-sidebar">
-    {% set relatedSection =
-      craft.entries.section('productStructure').level('<= 3').all() %}
+<nav class="nav-sidebar">
+  {% set relatedSectionLevel1 =
+    craft.entries.section('productStructure').level('<= 2').all() %}
 
-    {% nav page in relatedSection %}
-      <li class="nav-sidebar__item">
+  {% set subPages =
+    craft.entries.section('productStructure').level('<= 2').all() %}
 
-        <a href="{{ page.getUrl() }}" class="nav-sidebar__link {{ page.id == entry.id
-        ? 'nav-sidebar__link--active' }}">{{ page.title }}
-        </a>
+  {#  {% for page in relatedSectionLevel1 %}
+    {% if page.children | length %}
+  #}{# show top nav item treated with chevron etc  #}{#
+  <a href="{{ page.url }}">{{ page.title }}</a>
+{% elseif page.level == 1 %}
+  #}{# show normal top nav treatment #}{#
+  <a href="{{ page.url }}">level == 1{{ page.title }}</a>
+{% endif %}
+{% endfor %} #}
+
+  {% nav page in relatedSectionLevel1 %}
+    {# {% if page.id == entry.id %}
+      {% set detailopen = true %}
+    {% else %}
+      {% set detailopen = true %}
+    {% endif %} #}
+
+    {% if page.hasDescendants() %}
+      {% set summaryclass = '' %}
+    {% else %}
+      {% set summaryclass = 'summary-no-children' %}
+    {% endif %}
+
+    {% if craft.app.request.isMobileBrowser() %}
+      {% set detailopen = false %}
+    {% else %}
+      {% set detailopen = true %}
+    {% endif %}
+
+
+    <div class="nav-sidebar__item">
+
+      <details {% if detailopen %}open{% endif %}>
+
+        <summary class="{{ summaryclass }}">
+          <a href="{{ page.getUrl() }}" class="nav-sidebar__link {{ page.id == entry.id
+          ? 'nav-sidebar__link--active' }}">
+            {{ page.title }}
+          </a>
+        </summary>
+
 
         {% ifchildren %}
           <ul class="nav-sidebar__sub">
             {% children %}
           </ul>
         {% endifchildren %}
-      </li>
-    {% endnav %}
 
-    <li class="nav-sidebar__item">
-      {% set slug = craft.app.request.getSegment(1) %}
-      <a href="/produzenten" class="nav-sidebar__link {{ slug == 'produzentinnen'
-      ? 'nav-sidebar__link--active' }}">{{ 'Produzent:innen' }}
-      </a>
-    </li>
-  </ul>
+      </details>
+    </div>
+
+  {% endnav %}
+
+  <div class="nav-sidebar__item">
+    {% set slug = craft.app.request.getSegment(1) %}
+    <a href="/produzenten" class="nav-sidebar__link {{ slug == 'produzentinnen'
+    ? 'nav-sidebar__link--active' }}">{{ 'Produzent:innen' }}
+    </a>
+  </div>
+
 </nav>

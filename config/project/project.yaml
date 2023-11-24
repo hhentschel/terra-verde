@@ -1,4 +1,4 @@
-dateModified: 1690909308
+dateModified: 1700829768
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: 'Terra Verde'
@@ -25,11 +25,13 @@ meta:
     1daedc6b-3766-4522-aef9-b8a340e0cef5: Versendet # Versendet
     1fa8d56e-80b3-4840-a038-6addcd516984: 'Bild 1 Schnellzugriff' # Bild 1 Schnellzugriff
     2a604d11-f35a-4546-a33a-b2465e0017a9: 'Email 1' # Email 1
+    02c41116-23cb-41b0-af33-390a4ef2056d: 'Bild Positionierung' # Bild Positionierung
     2d7664a5-cf66-40d5-a9cf-e4ce91afcfc2: Vorname # Vorname
     2d50879a-a5aa-4121-98eb-ebb68c191811: 'Produktliste Shop' # Produktliste Shop
     2db88e09-5caa-44ec-a62a-3780b2b427c0: Detailhandel # Detailhandel
     3a6dc86b-ac74-45a6-bd26-0fb73094890e: Zeitpunkt # Zeitpunkt
     3b8efa16-7fc6-46de-8d3c-d3170b9cd02a: 'Artikel Gewicht gesamt' # Artikel Gewicht gesamt
+    3b68c41e-26c2-4609-86c4-780ba745ca0e: SEO # SEO
     3b29092d-6e27-4661-87d3-a212528b2a3a: Trinktemperatur # Trinktemperatur
     3bb39d28-0fde-4351-82f7-4a35d96e4a3b: 'Karten Vorschaubilder' # Karten Vorschaubilder
     3c5824e6-9e4f-47c8-b1d2-9d1000064cdf: Aufklappelemente # Aufklappelemente
@@ -207,6 +209,7 @@ meta:
     633900fd-0eae-4bfc-b2da-d85a3a01a68b: Produktbild # Produktbild
     650553f0-dbb7-42c0-ba12-1b19aa58126a: 'Blog Beiträge' # Blog Beiträge
     657172ab-8055-4b75-9d66-9f782df0a61f: 'Link Text 2 ' # Link Text 2 
+    662613e2-0f11-447d-aba7-043b98fbda61: 'Blog Highlight Bild Vorschau' # Blog Highlight Bild Vorschau
     911777fe-811a-46e9-bb80-0228ddd66234: Medien # Medien
     1912048b-b250-4a14-a3c7-e96b8e8ed023: Beschriftung # Beschriftung
     2625559c-aa75-481d-a655-1c6590d7106d: 'Preis (Privatkunden)' # Preis (Privatkunden)
@@ -232,6 +235,7 @@ meta:
     a6d404c5-d5dc-4ac6-846b-d068efafba1a: Telefon # Telefon
     a6deb9a0-e67c-4fba-bc55-fcba596d4822: 'Adresse Karte' # Adresse Karte
     a6f0989b-fec7-4460-8864-b015e8efc34e: Neuheiten # Neuheiten
+    a7c18868-89e8-4f41-95af-643c545792a7: Settings # Settings
     a43c6629-df33-4fa2-a5ca-e073c8ca5841: Mitteilung # Mitteilung
     a48a5f48-ae99-438a-94f7-9574fe7fbf92: Inhaltselemente # Inhaltselemente
     a67b61db-e6cc-4102-85f1-473d36f52ea8: 'Weine Italien' # Weine Italien
@@ -251,6 +255,7 @@ meta:
     ab11f679-477b-4903-9086-d00fb5489f93: Fax # Fax
     ac56b463-604b-4eb0-afca-e3cf6579de22: 'Link Farbe' # Link Farbe
     ad7f3368-57d3-4f97-ba54-6224326f9b95: 'ähnliche Produzenten' # ähnliche Produzenten
+    ad28cff2-9b0f-4a4d-b9b7-09e42104fc9d: 'Logo - Bio Störer' # Logo - Bio Störer
     ada66c36-aa65-4328-b07e-d15f78f13aca: Fax # Fax
     add42e5e-65c7-45ea-9057-87d1c7abfc2f: Abstand # Abstand
     af1c566f-cdf2-4ae1-a225-934165929d1a: 'Email 2' # Email 2
@@ -271,7 +276,9 @@ meta:
     b67f46b2-ef36-4032-9237-2c14068a27a7: 'Abstand mittel' # Abstand mittel
     b205d303-121a-4aae-8c85-bb00a76f312a: Titel # Titel
     b696c979-d69e-481e-9fe6-248daa5b218a: Hintergrundfarbe # Hintergrundfarbe
+    b3135ba6-e787-4c4f-a81a-fa4898af4a05: 'Logo Bio' # Logo Bio
     b234429e-e8aa-45cb-9368-865e39d9f37a: 'Bild Detailseite' # Bild Detailseite
+    b598732b-20bd-4bcf-85de-3ae589a26f5a: 'Logo Bio Mobile' # Logo Bio Mobile
     bb672809-bd78-4ed8-b9cd-b634c8216640: Video # Video
     bcaacf3a-9840-4591-ab39-370581ab8eda: 'Karten Icons' # Karten Icons
     bcc2f7c9-e4b5-432b-b079-3cd963db5854: Produzenten # Produzenten
@@ -408,7 +415,7 @@ plugins:
             - concurrency
             - '3'
       cacheWarmerType: putyourlightson\blitz\drivers\warmers\GuzzleWarmer
-      cachingEnabled: '1'
+      cachingEnabled: ''
       clearCacheAutomatically: '1'
       customSiteUris: ''
       debug: false
@@ -545,11 +552,15 @@ plugins:
     licenseKey: 0AK0ZI2780A8KYFBX5GSBRKM
     schemaVersion: 3.4.13
     settings:
-      activeCartDuration: 3600
+      _orderPdfPath: null
+      activeCartDuration: 172800
+      allowCheckoutWithoutPayment: true
       allowEmptyCartOnCheckout: false
+      allowPartialPaymentOnCheckout: false
+      autoSetCartShippingMethodOption: false
       autoSetNewCartAddresses: true
       cartVariable: cart
-      defaultView: commerce/products
+      defaultView: commerce/orders
       dimensionUnits: mm
       emailSenderAddress: ''
       emailSenderAddressPlaceholder: null
@@ -559,11 +570,9 @@ plugins:
       gatewayPostRedirectTemplate: ''
       loadCartRedirectUrl: null
       minimumTotalPriceStrategy: default
-      orderPdfFilenameFormat: 'Order-{number}'
-      orderPdfPath: shop/special/receipt
       orderReferenceFormat: '{{number[:7]}}'
       paymentCurrency: null
-      pdfAllowRemoteImages: false
+      pdfAllowRemoteImages: true
       pdfPaperOrientation: portrait
       pdfPaperSize: letter
       purgeInactiveCarts: true
@@ -735,6 +744,10 @@ plugins:
         -
           - Anleitungen
       widgetTitle: Links
+  image-resizer:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.0.0
   mailchimp-subscribe:
     edition: standard
     enabled: true

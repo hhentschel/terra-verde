@@ -16,14 +16,28 @@
                  src="{{ alias(
                    '@rootUrl'
                  ) }}/assets/images/logo/TerraVerde_Logo05-mobile.png"
-                 alt="Terra Verde Logo"/>
+                 alt="Terra Verde Logo"
+            />
             <span class="header__logo-line">Verde</span>
           </a>
 
-          <div class="circle--bio">
+          {# <div class="circle--bio">
             <span class="circle--bio-word">Bio</span>
-          </div>
-          {# {% include '_components/_nav/_nav-shop/nav-shop-mobile' %} #}
+          </div> #}
+
+          {% set transform = transformation|default('logoBioMobile') %}
+          {% set img = generic.logoBioStorer[0] ?? null %}
+
+          {% if img is defined %}
+            {% include '_components/_content-elements/image-product'
+              with {
+              img: img,
+              transform: transform
+            } %}
+          {% endif %}
+
+          {% include '_components/_nav/_nav-shop/nav-shop-mobile' %}
+
           <div class="header__menu-button-wrapper">
             <button class="header__menu-button-mobile" type="button">
               <span class="header__menu-button-text">
@@ -52,30 +66,47 @@
                    src="{{ alias(
                      '@rootUrl'
                    ) }}/assets/images/logo/TerraVerde_Logo05.jpg"
-                   alt="Terra Verde Logo"/>
+                   alt="Terra Verde Logo"
+              />
               <span class="header__logo-line">Verde</span>
             </a>
 
             <div class="header__top-nav">
+
               {% include '_components/_nav/_nav-main/nav-main-desktop' %}
 
-              <div class="header__top-nav-logo">
+              {# <div class="header__top-nav-logo">
                 <div class="circle--bio">
                   <span class="circle--bio-word">Bio</span>
                 </div>
-              </div>
+              </div> #}
 
-              {{ sprig(
-                '_components/_nav/_nav-service/nav-service-desktop',
-                {},
-                {
-                  's-trigger': 'load'
-                }
-              ) }}
+              {# <img class="header__biologo"
+                   src="{{ alias(
+                     '@rootUrl'
+                   ) }}/assets/images/logo/bio-logo.png"
+                   alt="Terra Verde Bio Logo"
+              /> #}
+
+              {% set transform = transformation|default('logoBio') %}
+              {% set img = generic.logoBioStorer[0] ?? null %}
+
+              {% if img is defined %}
+                {% include '_components/_content-elements/image-product'
+                  with {
+                  img: img,
+                  transform: transform
+                } %}
+              {% endif %}
+
+              {% include '_components/_nav/_nav-service/nav-service-desktop' %}
+
             </div>
+
           </div>
         </div>
       </div>
     </div>
   </div>
 </header>
+

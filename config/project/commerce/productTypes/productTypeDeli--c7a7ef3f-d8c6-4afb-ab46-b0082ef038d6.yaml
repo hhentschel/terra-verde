@@ -283,6 +283,19 @@ productFieldLayouts:
             warning: null
         name: Varianten
         sortOrder: 4
+      -
+        elements:
+          -
+            fieldUid: 3b68c41e-26c2-4609-86c4-780ba745ca0e # SEO
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: SEO
+        sortOrder: 5
 productTitleFormat: ''
 siteSettings:
   dd0cd05e-0cb9-4a76-b993-3cb70e6fc147: # Terra Verde

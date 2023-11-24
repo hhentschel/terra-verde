@@ -1,5 +1,6 @@
 .nav-sidebar {
-  margin: px-to-rem($space--m) 0 px-to-rem($space--xm) 0;
+  $this: &;
+  margin: 0 0 px-to-rem($space--xm) 0;
 
   @include breakpoint('desktop') {
     margin: 0;
@@ -7,26 +8,69 @@
 
   &__item {
     display: block;
+    line-height: $line-height--xm;
+    margin-bottom: px-to-rem($space--m);
+    font-weight: $font-weight--semi-bold;
+
+    summary::-webkit-details-marker {
+      color: $color--green;
+      content: '';
+    }
+
+
+    summary::marker {
+      color: $color--green; /* FF */
+      content: inherit;
+
+      @include breakpoint('tablet') {
+        content: '';
+      }
+    }
+
+    summary.summary-no-children::marker {
+      content: '';
+    }
   }
 
   &__sub {
-    margin-left: px-to-rem($space--m);
+    margin-left: 24px;
+
+    #{$this}__link {
+      font-size: px-to-rem($font-size-s);
+      padding: px-to-rem($space--xs) 0 px-to-rem($space--xxs) 0;
+      font-weight: $font-weight--base;
+    }
+
+
+    #{$this}__item {
+      margin-bottom: 0px;
+      position: relative;
+
+      summary::marker {
+        display: none;
+        width: 0;
+        color: white;
+        content: '';
+      }
+
+
+    }
   }
 
 
   &__link {
-    display: block;
-    padding: px-to-rem($space--xs) 0;
+    display: inline-block;
+    padding: px-to-rem($space--xs) 0 px-to-rem($space--xxs) 0;
     font-size: px-to-rem($font-size-m);
     border-bottom: 1px solid $color--white;
 
     &:hover {
       border-bottom: 1px solid $color--text;
+      cursor: pointer;
     }
   }
 
   &__link--active {
     border-bottom: 1px solid $color--text;
-    padding-bottom: px-to-rem($space--xs);
   }
 }

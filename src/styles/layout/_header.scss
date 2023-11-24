@@ -169,6 +169,14 @@ $header-login-overlay--transition-duration-easing: easing(open);
     }
   }
 
+  &__biologo {
+    height: 100px;
+  }
+
+  &__biologo-mobile {
+    height: 60px;
+  }
+
   /* Bottom Row */
   &__bottom-row {
     background-color: $color--white;

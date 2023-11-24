@@ -103,14 +103,14 @@
         </div>
       </div>
 
-      <div class="form-adress__item">
+      {# <div class="form-adress__item">
         <label for="{{ modelName }}-notes">Hinweise</label>
         <textarea class="input" name="{{ modelName }}[notes]" id="{{ modelName }}-notes" cols="30"
                   rows="5">{{ model ? model.notes : '' }}</textarea>
         {% if model and model.getErrors('notes') %}
           <div class="errors">{{ model.getErrors('notes')|join }}</div>
         {% endif %}
-      </div>
+      </div> #}
 
     </div>
   </div>

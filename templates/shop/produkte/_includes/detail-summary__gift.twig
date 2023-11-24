@@ -1,66 +1,58 @@
-<details open class="product-detail__summary">
-  <summary class="product-detail__summary-heading">
-    Beschreibung
-  </summary>
-  <div class="product-detail__summary-content">
-    {% if product.articleVolume %}
-      <span>{{ product.articleVolume }}{{ product.articleUnit }}</span>
+<dl class="product-detail__summary">
+
+  <dl class="product-detail__summary">
+    {% if product.articleDescription %}
+      <dt>
+        Beschreibung
+      </dt>
+      <dd> {{ product.articleDescription }}</dd>
     {% endif %}
 
-    {% if product.articleDescription %}
-      <p>
-        Beschreibung: {{ product.articleDescription }}
-      </p>
+    {% if product.articleVolume %}
+      <dt>{{ product.articleVolume }}</dt>
+      <dd>{{ product.articleUnit }}</dd>
     {% endif %}
 
     {% if product.articleNutritionalValue %}
-      <p>
-        Zutaten: {{ product.articleNutritionalValue }}
-      </p>
+      <dt>Zutaten:</dt>
+      <dd>{{ product.articleNutritionalValue }}</dd>
     {% endif %}
 
     {% if product.articleAlcohol %}
-      <p>
-        Alkoholgehalt: {{ product.articleAlcohol }}
-      </p>
+      <dt>Alkoholgehalt:</dt>
+      <dd>{{ product.articleAlcohol }}</dd>
     {% endif %}
 
     {% if product.articleIngredients %}
-      <p>
-        Zutaten: {{ product.articleIngredients }}
-      </p>
+      <dt>Zutaten:</dt>
+      <dd> {{ product.articleIngredients }}</dd>
     {% endif %}
 
     {% if product.articleAdditionalInfo %}
-      <p>
-        Zusatzinfo: {{ product.articleAdditionalInfo }}
-      </p>
+      <dt>Zusatzinfo:</dt>
+      <dd> {{ product.articleAdditionalInfo }}</dd>
     {% endif %}
 
     {% if product.articleVegan %}
-      <p>
-        Vegan: {{ product.articleVegan }}
-      </p>
+      <dt>Vegan:</dt>
+      <dd> {{ product.articleVegan }}</dd>
     {% endif %}
 
     {% if product.articleEanNumber %}
-      <p>
-        EAN-Nummer: {{ product.articleEanNumber }}
-      </p>
+      <dt>EAN-Nummer:</dt>
+      <dd> {{ product.articleEanNumber }}</dd>
     {% endif %}
 
     {% if product.articleNumber %}
-      <p>
-        Artikelnummer: {{ product.articleNumber }}
-      </p>
+      <dt>Artikelnummer:</dt>
+      <dd> {{ product.articleNumber }}</dd>
     {% endif %}
 
     {% for variant in product.variants %}
       {% if variant.articleVolume %}
-        <p>
-          Gewicht: {{ variant.articleVolume }}{{ variant.articleVolumeUnit }}
-        </p>
+        <dt>Gewicht:</dt>
+        <dd> {{ variant.articleVolume }}{{ variant.articleVolumeUnit }}</dd>
       {% endif %}
     {% endfor %}
-  </div>
-</details>
+  </dl>
+

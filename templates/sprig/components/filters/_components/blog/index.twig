@@ -90,7 +90,11 @@
                 entry.contentElements is defined
                 and entry.contentElements is not empty %}
 
-                {% set transform = transformation|default('blogPreviewThumb') %}
+                {% if entry.highlightEntry %}
+                  {% set transform = transformation|default('blogHighlightPreviewThumb') %}
+                {% else %}
+                  {% set transform = transformation|default('blogPreviewThumb') %}
+                {% endif %}
                 {% set img = entry.image[0] ?? generic.image[0] %}
 
                 {% if img is defined and img is not empty %}
@@ -107,8 +111,21 @@
                 {% set categories = entry.catsForBlogEntries %}
                 <div class="blog-list__item--cat-container">
                   {% for cat in categories %}
+                    {% set catname = '' %}
+                    {% if cat.id == 16717 %}
+                      {% set catname = 'news' %}
+                    {% elseif cat.id == 16718 %}
+                      {% set catname = 'recipe' %}
+                    {% elseif cat.id == 16719 %}
+                      {% set catname = 'magazin' %}
+                    {% elseif cat.id == 44598 %}
+                      {% set catname = 'comment' %}
+                    {% elseif cat.id == 45225 %}
+                      {% set catname = 'background-info' %}
+                    {% endif %}
+
                     <span
-                      class="blog-list__item--cat-item blog-list__item--cat-item--{% if cat.id == 16717 %}news{% elseif cat.id == 16718 %}recipe{% elseif cat.id == 16719 %}magazin{% endif %}">
+                      class="blog-list__item--cat-item blog-list__item--cat-item--{{ catname }}">
                       {{ cat.title }}
                     </span>
                   {% endfor %}
