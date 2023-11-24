@@ -589,16 +589,15 @@
       </tr>
       <tr style="color:#121; border-bottom:1px solid #121;text-align:left;padding:15px 0; font-family="
       'Open Sans' , Arial, sans-serif"">
-      </tr> {% for adjustment in order.orderAdjustments if adjustment.type != "shipping" %} {% if adjustment.amount|commerceCurrency(order.currency)|length %}
+      </tr> {% for adjustment in order.orderAdjustments %} {% if adjustment.type != "shipping" %} {% if adjustment.amount|commerceCurrency(order.currency)|length %}
         <tr>
           <td colspan="2"></td>
           <td colspan="2" align:
-          "right"
-          style="text-align:right"> {% if adjustment.name == "Rundung" %} Rundung: {% else %} Abholrabatt: {% endif %}</td>
+          "right" style="text-align:right"> {% if adjustment.name == "Rundung" %} Rundung: {% else %}
+          Abholrabatt: {% endif %}</td>
           <td align:
-          "right" style="text-align:right">{{ adjustment.amount|commerceCurrency(order.currency) }}
-          </td>
-        </tr> {% endif %} {% endfor %}
+          "right" style="text-align:right">{{ adjustment.amount|commerceCurrency(order.currency) }}</td>
+        </tr> {% endif %} {% endif %} {% endfor %}
       <tr>
         <td colspan="2"></td>
         <td colspan="2" align:
