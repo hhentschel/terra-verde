@@ -391,7 +391,7 @@
         </td>
         <td colspan="3" align: "right" style="text-align:right"> {% if adjustment.name == "Rundung" %} Rundung: {% else %} Kistenrabatt: {% endif %} </td>
         <td align: "right" style="text-align:right">{{ adjustment.amount|commerceCurrency(order.currency) }}</td>
-      </tr> {% endif %} {% endfor %} {% endif %} {% endfor %} {% if order.totalDiscountAsCurrency > 0 %} <tr>
+      </tr> {% endif %} {% endfor %} {% endif %} {% endfor %} {% if order.totalDiscountAsCurrency > 0%} <tr>
         <td colspan="2"></td>
         <td colspan="2" align: "right" style="text-align:right"> Total Artikel-Rabatte: </td>
         <td align: "right" style="text-align:right">{{ order.totalDiscountAsCurrency }}</td>
@@ -406,11 +406,12 @@
         <td align: "right" style="text-align:right">{{ order.getTotalTaxIncluded()|commerceCurrency(order.currency) }}</td>
       </tr>
       <tr style="color:#121; border-bottom:1px solid #121;text-align:left;padding:15px 0; font-family="'Open Sans' , Arial, sans-serif"">
-      </tr> {% for adjustment in order.orderAdjustments %} {% if adjustment.type != "shipping" %} {% if adjustment.amount|commerceCurrency(order.currency)|length %} <tr>
+      </tr> {% for adjustment in order.orderAdjustments if adjustment.type != "shipping" %} {% if adjustment.amount|commerceCurrency(order.currency)|length %} <tr>
         <td colspan="2"></td>
         <td colspan="2" align: "right" style="text-align:right"> {% if adjustment.name == "Rundung" %} Rundung: {% else %} Abholrabatt: {% endif %}</td>
-        <td align: "right" style="text-align:right">{{ adjustment.amount|commerceCurrency(order.currency) }}</td>
-      </tr> {% endif %} {% endif %} {% endfor %} <tr>
+        <td align: "right" style="text-align:right">{{ adjustment.amount|commerceCurrency(order.currency) }}
+        </td>
+      </tr> {% endif %} {% endfor %} <tr>
         <td colspan="2"></td>
         <td colspan="2" align: "right" style="text-align:right">Endsumme: </td>
         <td align: "right" style="text-align:right"><strong>{{ order.totalPrice|commerceCurrency(order.currency) }}</strong></td>
