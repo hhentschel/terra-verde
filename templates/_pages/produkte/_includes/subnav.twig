@@ -5,16 +5,6 @@
   {% set subPages =
     craft.entries.section('productStructure').level('<= 2').all() %}
 
-  {#  {% for page in relatedSectionLevel1 %}
-    {% if page.children | length %}
-  #}{# show top nav item treated with chevron etc  #}{#
-  <a href="{{ page.url }}">{{ page.title }}</a>
-{% elseif page.level == 1 %}
-  #}{# show normal top nav treatment #}{#
-  <a href="{{ page.url }}">level == 1{{ page.title }}</a>
-{% endif %}
-{% endfor %} #}
-
   {% nav page in relatedSectionLevel1 %}
     {# {% if page.id == entry.id %}
       {% set detailopen = true %}
