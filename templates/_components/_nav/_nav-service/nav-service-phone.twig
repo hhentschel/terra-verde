@@ -18,7 +18,9 @@
   </li>
 
   {% if currentUser %}
+    <span class="nav-service__list-item">
     {% include '_components/_nav/_nav-shop/nav-shop-desktop' %}
+  </span>
   {% else %}
     <li class="nav-service-phone-list__item">
       <a href="{{ loginLink.url }}" class="nav__link">{{ 'Login'|t }}</a>

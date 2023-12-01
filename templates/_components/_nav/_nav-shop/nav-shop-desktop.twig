@@ -1,5 +1,4 @@
-<li class="nav-service__list-item nav-service__list-item-shop">
-  <a href="/shop/warenkorb" class="cursor-pointer">
+<a href="/shop/warenkorb" class="cursor-pointer">
     <span class="nav-service__list-item-cartsize">
       {{ sprig(
         'sprig/components/cart/_components/cartsize',
@@ -9,6 +8,5 @@
         }
       ) }}
     </span>
-    {% include 'shop/_images/cart.svg' %}
-  </a>
-</li>
+  {% include 'shop/_images/cart.svg' %}
+</a>
