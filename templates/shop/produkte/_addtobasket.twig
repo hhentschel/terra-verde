@@ -1,0 +1,80 @@
+{% set addedToCart = success is defined %}
+{% set purchasableId = purchasableId ?? 0 %}
+
+{% set addedToCart = success is defined %}
+{% if addedToCart %}
+  <script>
+    htmx.trigger(htmx.find('#cart'), 'refresh');
+  </script>
+{% endif %}
+
+{% if sprig.isRequest %}
+  <script>
+    htmx.trigger('#cartsize', 'refresh');
+    htmx.trigger('#cartsizemobile', 'refresh');
+  </script>
+{% endif %}
+
+{# {% set variant = craft.products.id(variantId).one() %} #}
+ {% set variant = craft.products.id(variantId).one() %}
+{% set variants = craft.commerce.variants({
+  hasStock: true
+}) %}
+
+<div class="form-addtobasket__info-add">
+  <div class="form-addtobasket__info-quantity">
+    <input
+      class="input form-addtobasket__info-quantity--input"
+      type="number"
+      name="qty"
+      step="1"
+      {% if currentUser %}
+        {% if currentUser.isInGroup('userGroupRetail') %}
+          value="{{ product.artikelMinOrderSize }}"
+          min="{{ product.artikelMinOrderSize }}"
+          placeholder="{{ product.artikelMinOrderSize }}"
+        {% else %}
+          value="1"
+          min="1"
+          placeholder="0"
+        {% endif %}
+      {% else %}
+        value="1"
+        min="1"
+        placeholder="0"
+      {% endif %}
+      {% if variants|length <= 0 %}
+        disabled
+      {% endif %}
+
+
+    />
+  </div>
+
+  <div class="form-addtobasket__info-button">
+    {% if variants|length >= 0 %}
+      <a sprig
+         s-action="commerce/cart/update-cart"
+         s-method="post"
+         s-val:purchasable-id="{{ variantId }}"
+         href="#"
+         class="button--primary {% if addedToCart and purchasableId == variantId %}button--success {% endif %} text-center">
+        {% if addedToCart and purchasableId == variantId %}
+          <svg class="icon--svg icon--check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+               fill="currentColor">
+            <path fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                  clip-rule="evenodd"/>
+          </svg>
+          <span>Im Warenkorb</span>
+        {% else %}
+          In den Warenkorb
+        {% endif %}
+      </a>
+    {% else %}
+      <button disabled type="submit"
+              class="disabled button button--primary text-center">nicht verfügbar
+      </button>
+    {% endif %}
+  </div>
+</div>
