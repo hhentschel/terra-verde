@@ -36,7 +36,15 @@
     </li>
 
     <li class="nav-service__list-item nav-service__list-item-shop">
-      {% include '_components/_nav/_nav-shop/nav-shop-desktop' %}
+      {{ sprig(
+        'sprig/components/cart/_components/cartsize',
+        {},
+        {
+          id: 'cartsize',
+          's-trigger': 'load'
+        }
+      ) }}
+      {# {% include '_components/_nav/_nav-shop/nav-shop-desktop' %} #}
     </li>
 
     <li class="nav-service__list-item">

@@ -1,9 +1,27 @@
 {% set cart = craft.commerce.carts.cart %}
-{% if cart.lineItems|length %}
-  <span class="desktop">{{ cart.totalQty }}</span>
-{% else %}
-  <span>0</span>
-{% endif %}
+
+ {% if sprig.isRequest %}
+   <a href="/shop/warenkorb" class="cursor-pointer" id="cartsize">
+    <span class="nav-service__list-item-cartsize">
+      {% if cart.lineItems|length %}
+        <span class="desktop">{{ cart.totalQty }}</span>
+          {% else %}
+        <span>0</span>
+      {% endif %}
+    </span>
+     {% include 'shop/_images/cart.svg' %}
+   </a>
+
+ {% else %}
+   <a href="/shop/warenkorb" class="cursor-pointer">
+     <span class="nav-service__list-item-cartsize">
+        <span>0</span>
+    </span>
+     {% include 'shop/_images/cart.svg' %}
+   </a>
+
+ {% endif %}
+
 
 {# <span class="2" s-swap-oob="true">
   {{ craft.orders.number(cart.number).one().totalQty ?? 0 }}
