@@ -1,0 +1,14 @@
+columnSuffix: tmqkndcc
+contentColumnType: boolean
+fieldGroup: 1856a1a8-498c-4498-84ad-6fcbe1de89f7 # Kategorien
+handle: applyDiscount10Percent6Pieces
+instructions: ''
+name: 'Discount (10% ab 6Stk.) anwenden'
+searchable: false
+settings:
+  default: true
+  offLabel: Nein
+  onLabel: Ja
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Lightswitch

@@ -1,4 +1,4 @@
-dateModified: 1700829768
+dateModified: 1702420635
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: 'Terra Verde'
@@ -35,6 +35,7 @@ meta:
     3b29092d-6e27-4661-87d3-a212528b2a3a: Trinktemperatur # Trinktemperatur
     3bb39d28-0fde-4351-82f7-4a35d96e4a3b: 'Karten Vorschaubilder' # Karten Vorschaubilder
     3c5824e6-9e4f-47c8-b1d2-9d1000064cdf: Aufklappelemente # Aufklappelemente
+    3d3589c3-27bc-4b25-ad69-9855c57cc724: 'Discount (10% ab 6Stk.) anwenden' # Discount (10% ab 6Stk.) anwenden
     3d739192-d1d4-45f2-8239-0effd9b4f3a8: 'Out of Stock' # Out of Stock
     3e5c3431-66db-4b4c-97d4-8069da3cc21e: News # News
     3e29b0f8-b933-4ba4-9773-c1f7d96ec10d: 'Kategorien (Delikatessen)' # Kategorien (Delikatessen)
@@ -335,6 +336,7 @@ meta:
     dfaab58f-1a21-400b-804b-168b3442cc1e: Titel # Titel
     dfd8ec22-0c0a-44f4-8fd2-245a0f02be60: Bild # Bild
     e5c66396-f991-4b4c-8edc-5e4960340ca3: Startseite # Startseite
+    e5f67c80-ce23-4757-ab1e-d958c4211c78: 'Discount 10% ' # Discount 10% 
     e7fec16d-a352-4a94-8ec1-8e902b366c3b: Textfarbe # Textfarbe
     e8ec6f5f-8e58-4745-861e-ad59123d9db7: 'Button Intern' # Button Intern
     e9d74d60-1b19-494e-a1af-537c054484c9: Login # Login

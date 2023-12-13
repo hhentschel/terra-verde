@@ -27,6 +27,15 @@ fieldLayouts:
             type: craft\fieldlayoutelements\TitleField
             warning: null
             width: 100
+          -
+            fieldUid: 3d3589c3-27bc-4b25-ad69-9855c57cc724 # Discount (10% ab 6Stk.) anwenden
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
         name: Inhalt
         sortOrder: 1
 handle: catGroupWine

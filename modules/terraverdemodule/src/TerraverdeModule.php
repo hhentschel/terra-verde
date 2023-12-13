@@ -36,10 +36,11 @@ use craft\events\RegisterComponentTypesEvent;
 
 /*use OrderAdjuster*/;
 
-use GiftWrapAdjuster;
-use GiftNoteAdjuster;
-use PickUpDiscount;
-use PickUpDiscountB2B;
+use modules\terraverdemodule\adjusters\GiftWrapAdjuster;
+use modules\terraverdemodule\adjusters\GiftNoteAdjuster;
+use modules\terraverdemodule\adjusters\PickUpDiscount;
+use modules\terraverdemodule\adjusters\PickUpDiscountB2B;
+use modules\terraverdemodule\adjusters\Discount10;
 
 // for adresse validation
 use craft\commerce\models\Address;
@@ -110,11 +111,11 @@ class TerraverdeModule extends Module
       }
     });
 
-    Event::on(Discounts::class, Discounts::EVENT_DISCOUNT_MATCHES_LINE_ITEM, function (MatchLineItemEvent $event) {
+    /*Event::on(Discounts::class, Discounts::EVENT_DISCOUNT_MATCHES_LINE_ITEM, function (MatchLineItemEvent $event) {
       if ($event->discount->orderConditionFormula == self::NO_STACKING_MAGIC_STRING)
         if ($event->discount->purchaseQty > $event->lineItem->qty)
           $event->isValid = false;
-    });
+    });*/
 
     // Set this as the global instance of this module class
     static::setInstance($this);
@@ -147,11 +148,11 @@ class TerraverdeModule extends Module
       function (RegisterComponentTypesEvent $event) {
 
         /*$event->types[] = adjusters\OrderAdjuster::class;*/
-
-        $event->types[] = adjusters\PickUpDiscount::class;
-        $event->types[] = adjusters\PickUpDiscountB2B::class;
-        $event->types[] = adjusters\GiftWrapAdjuster::class;
-        $event->types[] = adjusters\GiftNoteAdjuster::class;
+        $event->types[] = Discount10::class;
+        $event->types[] = PickUpDiscount::class;
+        $event->types[] = PickUpDiscountB2B::class;
+        $event->types[] = GiftWrapAdjuster::class;
+        $event->types[] = GiftNoteAdjuster::class;
       });
 
     // run queue automatically
