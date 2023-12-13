@@ -92,8 +92,10 @@ https://craftcms.stackexchange.com/questions/39033/eager-loading-of-variant-imag
 <form class="js-form">
   {{ successMessageInput('Produkt wurde zum Warenkorb hinzugefügt.') }}
 
+
   <div class="shop-list__item-cart">
     <div class="item-cart__qty-btn" id="addtocart-{{ variant.id }}">
+
 
       {% if variant.stock > 0 or variant.hasUnlimitedStock %}
 
@@ -116,97 +118,76 @@ https://craftcms.stackexchange.com/questions/39033/eager-loading-of-variant-imag
           {% endif %}
         >
 
+        {% if sprig.isInclude %}
+          <button class="button--primary">
 
-        <a sprig
-           s-action="commerce/cart/update-cart"
-           s-method="post"
-           s-val:purchasable-id="{{ variant.id }}"
-           s-replace="#addtocart-{{ variant.id }}"
-
-          {# id="addtocart-{{ variant.id }}" #}
-           href="#"
-           class="button--primary {% if addedToCart and purchasableId == variant.id %}button--success {% endif %} text-center">
-          {# {{ sprig('sprig/components/filters/_components/indicator-addtocart') }} #}
-          {% include 'sprig/components/filters/_components/indicator-addtocart' %}
-          {% if addedToCart and purchasableId == variant.id %}
-            <svg class="icon--check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-              <path fill-rule="evenodd"
-                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                    clip-rule="evenodd"/>
+            <svg height="20" width="40" class="loader">
+              <circle class="dot" cx="10" cy="10" r="3" style="fill:white;"/>
+              <circle class="dot" cx="20" cy="10" r="3" style="fill:white;"/>
+              <circle class="dot" cx="30" cy="10" r="3" style="fill:white;"/>
             </svg>
-            <span class="button--primary__text">Im Warenkorb</span>
-            {# {% elseif purchasableId == variant.id %} #}
+            <style>
+              @keyframes blink {
+                50% {
+                  fill: transparent
+                }
+              }
 
-            {# {% include 'sprig/components/filters/_components/indicator-addtocart' %} #}
-            {# {{ sprig('sprig/components/filters/_components/indicator-addtocart') }} #}
+              .dot {
+                animation: 1s blink infinite;
+                fill: white;
+              }
 
-            {# s-indicator=".loading-button__indicator-addtocart" #}
-          {% else %}
-            <span class="button--primary__text">In den Warenkorb</span>
-          {% endif %}
-        </a>
+              .dot:nth-child(2) {
+                animation-delay: 250ms
+              }
+
+              .dot:nth-child(3) {
+                animation-delay: 500ms
+              }
+
+              .loader {
+                color: white;
+              }
+            </style>
+
+          </button>
+        {% else %}
+
+          {# {{ sprig ('sprig/components/filters/_components/indicator-addtocart') }} #}
+          <button sprig
+                  s-action="commerce/cart/update-cart"
+                  s-method="post"
+                  s-val:purchasable-id="{{ variant.id }}"
+                  s-replace="#addtocart-{{ variant.id }}"
+                  class="button--primary {% if addedToCart and purchasableId == variant.id %}button--success {% endif %} text-center">
+
+
+            {% include 'sprig/components/filters/_components/indicator-addtocart' %}
+            {% if addedToCart and purchasableId == variant.id %}
+              <svg class="icon--check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clip-rule="evenodd"/>
+              </svg>
+              <span class="button--primary__text">Im Warenkorb</span>
+
+            {% else %}
+              <span class="button--primary__text">
+               In den Warenkorb
+
+            </span>
+            {% endif %}
+          </button>
+
+        {% endif %}
+
+
       {% else %}
         <a class="button button--primary button--primary-bis button--small" href="{{ product.url }}">
           <span>Benachrichtigen Sie mich</span>
         </a>
       {% endif %}
-
-      {# {% if variant.stock > 0 or variant.hasUnlimitedStock %}
-
-        <input class="input input-xsmall"
-               name="qty"
-               type="number"
-               step="1"
-          {% if currentUser %}
-            {% if currentUser.isInGroup('userGroupRetail') %}
-              value="{{ product.artikelMinOrderSize }}"
-              min="{{ product.artikelMinOrderSize }}"
-              placeholder="{{ product.artikelMinOrderSize }}"
-            {% else %}
-              value="1"
-              min="1"
-            {% endif %}
-          {% else %}
-            value="1"
-            min="1"
-          {% endif %}
-        >
-
-      {% if sprig.isInclude %}
-        <button class="button--primary">
-
-          <svg height="20" width="40" class="loader">
-            <circle class="dot" cx="10" cy="10" r="3" style="fill:white;"/>
-            <circle class="dot" cx="20" cy="10" r="3" style="fill:white;"/>
-            <circle class="dot" cx="30" cy="10" r="3" style="fill:white;"/>
-          </svg>
-          <style>
-            @keyframes blink {
-              50% {
-                fill: transparent
-              }
-            }
-
-            .dot {
-              animation: 1s blink infinite;
-              fill: white;
-            }
-
-            .dot:nth-child(2) {
-              animation-delay: 250ms
-            }
-
-            .dot:nth-child(3) {
-              animation-delay: 500ms
-            }
-
-            .loader {
-              color: white;
-            }
-          </style>
-
-        </button>
-      {% else %}
 
       {% if success is defined %}
         <p class="notice">
@@ -240,58 +221,6 @@ https://craftcms.stackexchange.com/questions/39033/eager-loading-of-variant-imag
           {{ success ? flashes.notice : flashes.error }}
         </p>
       {% endif %}
-
-        <script>
-          htmx.config.requestClass = 'loading';
-        </script>
-      #}{# Adds CSS styling to the loading indicator #}{#
-      <style>
-        #indicator .loader {
-          display: none;
-        }
-
-        #indicator.loading .loader {
-          display: inline;
-        }
-
-        #indicator.loading .complete {
-          display: none;
-        }
-      </style>
-      #}{# {{ sprig ('sprig/components/filters/_components/indicator-addtocart') }} #}{#
-      <button sprig
-              s-action="commerce/cart/update-cart"
-              s-method="post"
-              s-val:purchasable-id="{{ variant.id }}"
-              s-replace="#addtocart-{{ variant.id }}"
-              class="button--primary {% if addedToCart and purchasableId == variant.id %}button--success {% endif %} text-center">
-
-
-        {% include 'sprig/components/filters/_components/indicator-addtocart' %}
-        {% if addedToCart and purchasableId == variant.id %}
-          <svg class="icon--check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-            <path fill-rule="evenodd"
-                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                  clip-rule="evenodd"/>
-          </svg>
-          <span class="button--primary__text">Im Warenkorb</span>
-
-        {% else %}
-          <span class="button--primary__text">
-               In den Warenkorb
-
-            </span>
-        {% endif %}
-      </button>
-
-
-    {% endif %}
-
-    {% else %}
-      <a class="button button--primary button--primary-bis button--small" href="{{ product.url }}">
-        <span>Benachrichtigen Sie mich</span>
-      </a>
-    {% endif %} #}
 
     </div>
 
