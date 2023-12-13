@@ -11,11 +11,11 @@
 {% endif %}
 
 
-{# {% if sprig.isRequest %}
-  <script>
-    htmx.trigger('#cartsize', 'refresh');
-  </script>
-{% endif %} #}
+ {% if sprig.isRequest %}
+   <script>
+     htmx.trigger('#cartsize', 'refresh');
+   </script>
+ {% endif %}
 
 {# {% for product in products %}
    {% for variant in product.getVariants() %}
