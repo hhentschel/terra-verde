@@ -56,6 +56,29 @@ class Discount10 extends Component implements AdjusterInterface
 
       Craft::dd($lightSwitchFieldColumnStatus);
 
+      // TEST check if lightswitch is true
+      /*
+      $product = $lineItem->getPurchasable();
+
+      if ($product && $product->hasField('discount10Available')) {
+        $lightswitchValue = $product->getFieldValue('discount10Available');
+        if ($lightswitchValue) {
+          // logic for when the lightswitch is true
+        }
+      }
+      */
+
+      //TEST getting cat id of product
+      /*
+      $categories = $product->getProductType()->getCategories();
+        $categoryID = [];
+
+        foreach ($categories as $category) {
+          $categoryID[] = $category->id;
+        }
+      */
+
+
       foreach ($order->lineItems as $lineItem) {
 
         // Get the associated purchasable (usually a Product)
