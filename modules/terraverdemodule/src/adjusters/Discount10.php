@@ -28,7 +28,7 @@ use yii\base\Event;
 class Discount10 extends Component implements AdjusterInterface
 {
   const ADJUSTMENT_TYPE = 'discount';
-  const DISCOUNT_PRICE = 0.1;
+  const DISCOUNT_PRICE = .1;
 
   // const DISCOUNTED_PERCENTAGE = 10;
 
@@ -102,7 +102,7 @@ class Discount10 extends Component implements AdjusterInterface
               // 'name' => 'Gift Wrap',
               'description' => '10% Rabatt ab 6 Stk. TEST',
               // 'amount' => self::DISCOUNT_PRICE * $lineItem->qty,
-              'amount' => round(($order->itemSubtotal * self::DISCOUNT_PRICE * -1) * 100) / 100,
+              'amount' => ($lineItem->price * self::DISCOUNT_PRICE * -1) * $lineItem->qty,
             ]);
 
             // Make sure the Adjuster knows what Order and LineItem it's supposed to adjust. This also helps calculate stuff in-memory, prior to saving (especially for new LineItems that don't yet have an ID!):
