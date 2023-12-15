@@ -197,39 +197,7 @@ https://craftcms.stackexchange.com/questions/39033/eager-loading-of-variant-imag
           <span>Benachrichtigen Sie mich</span>
         </a>
       {% endif %}
-
-      {% if success is defined %}
-        <p class="notice">
-          <style>
-            .notice {
-              position: fixed;
-              top: 10px;
-              right: 10px;
-              max-width: 250px;
-              border-radius: 5px;
-              background: #EEF5D9;
-              padding: 20px;
-              z-index: 10;
-              animation: seconds 1.0s forwards;
-              animation-iteration-count: 1;
-              animation-delay: 3.5s;
-            }
-
-            @keyframes seconds {
-              0% {
-                opacity: 1;
-                visibility: visible;
-              }
-              100% {
-                opacity: 0;
-                visibility: hidden;
-              }
-            }
-
-          </style>
-          {{ success ? flashes.notice : flashes.error }}
-        </p>
-      {% endif %}
+      
 
     </div>
 
