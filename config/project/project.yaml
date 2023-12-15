@@ -1,4 +1,4 @@
-dateModified: 1702420635
+dateModified: 1702634437
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: 'Terra Verde'
@@ -336,7 +336,7 @@ meta:
     dfaab58f-1a21-400b-804b-168b3442cc1e: Titel # Titel
     dfd8ec22-0c0a-44f4-8fd2-245a0f02be60: Bild # Bild
     e5c66396-f991-4b4c-8edc-5e4960340ca3: Startseite # Startseite
-    e5f67c80-ce23-4757-ab1e-d958c4211c78: 'Discount 10% ' # Discount 10% 
+    e5f67c80-ce23-4757-ab1e-d958c4211c78: 'Discount 10% ab 6 Stk.' # Discount 10% ab 6 Stk.
     e7fec16d-a352-4a94-8ec1-8e902b366c3b: Textfarbe # Textfarbe
     e8ec6f5f-8e58-4745-861e-ad59123d9db7: 'Button Intern' # Button Intern
     e9d74d60-1b19-494e-a1af-537c054484c9: Login # Login

@@ -10,6 +10,7 @@
 
 namespace modules\terraverdemodule;
 
+
 use modules\terraverdemodule\assetbundles\terraverdemodule\TerraverdeModuleAsset;
 
 use Craft;
@@ -41,6 +42,7 @@ use modules\terraverdemodule\adjusters\GiftNoteAdjuster;
 use modules\terraverdemodule\adjusters\PickUpDiscount;
 use modules\terraverdemodule\adjusters\PickUpDiscountB2B;
 use modules\terraverdemodule\adjusters\Discount10;
+use modules\terraverdemodule\adjusters\PriceRoundingAdjuster;
 
 // for adresse validation
 use craft\commerce\models\Address;
@@ -78,7 +80,7 @@ class TerraverdeModule extends Module
    */
   public static $instance;
 
-  const NO_STACKING_MAGIC_STRING = "'nogrouping' == 'nogrouping'";
+  // const NO_STACKING_MAGIC_STRING = "'nogrouping' == 'nogrouping'";
 
   // Public Methods
   // =========================================================================
@@ -147,12 +149,12 @@ class TerraverdeModule extends Module
       OrderAdjustments::EVENT_REGISTER_ORDER_ADJUSTERS,
       function (RegisterComponentTypesEvent $event) {
 
-        /*$event->types[] = adjusters\OrderAdjuster::class;*/
         $event->types[] = Discount10::class;
         $event->types[] = PickUpDiscount::class;
         $event->types[] = PickUpDiscountB2B::class;
         $event->types[] = GiftWrapAdjuster::class;
         $event->types[] = GiftNoteAdjuster::class;
+        // $event->types[] = PriceRoundingAdjuster::class;
       });
 
     // run queue automatically

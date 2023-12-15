@@ -44,6 +44,15 @@ productFieldLayouts:
             warning: null
             width: 50
           -
+            fieldUid: e5f67c80-ce23-4757-ab1e-d958c4211c78 # Discount 10% ab 6 Stk.
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
             fieldUid: ea603a9d-ad1a-46a9-8400-4c237d4f779e # Artikelnummer
             instructions: null
             label: null

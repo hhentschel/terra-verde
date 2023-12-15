@@ -2,8 +2,8 @@ columnSuffix: wozkuksb
 contentColumnType: boolean
 fieldGroup: 4fe8dfc1-b512-4508-a756-d29539b14b62 # Artikel
 handle: discount10Available
-instructions: ''
-name: 'Discount 10% '
+instructions: 'Wird nur für Benutzergruppen Detailhandel und Bächsermarkt angewendet.'
+name: 'Discount 10% ab 6 Stk.'
 searchable: false
 settings:
   default: true
