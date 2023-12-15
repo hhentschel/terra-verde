@@ -30,6 +30,31 @@ $form-input--spacing: px-to-rem($space--m + $space--xs);
     }
   }
 
+  &-addtobasket__notice {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    max-width: 250px;
+    border-radius: 5px;
+    background: #EEF5D9;
+    padding: 20px;
+    z-index: 10;
+    animation: showaddtobasketnotice 1.0s forwards;
+    animation-iteration-count: 1;
+    animation-delay: 3.5s;
+  }
+
+  @keyframes showaddtobasketnotice {
+    0% {
+      opacity: 1;
+      visibility: visible;
+    }
+    100% {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+
   &--has-error {
     #{$this}__label {
       color: $color--red-error;

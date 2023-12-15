@@ -78,6 +78,7 @@ https://craftcms.stackexchange.com/questions/39033/eager-loading-of-variant-imag
 </a>
 
 <form class="js-form">
+  {{ successMessageInput('Produkt wurde zum Warenkorb hinzugefügt.') }}
 
   <div class="shop-list__item-cart">
     <div class="item-cart__qty-btn" id="addtocart-{{ variant.id }}">
@@ -136,6 +137,10 @@ https://craftcms.stackexchange.com/questions/39033/eager-loading-of-variant-imag
         <a class="button button--primary button--primary-bis button--small" href="{{ product.url }}">
           <span>Benachrichtigen Sie mich</span>
         </a>
+      {% endif %}
+
+      {% if success is defined %}
+        <p class="form-addtobasket__notice">{{ success ? flashes.notice : flashes.error }}</p>
       {% endif %}
 
     </div>
