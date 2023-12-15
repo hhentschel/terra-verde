@@ -33,7 +33,10 @@ class Discount10 extends Component implements AdjusterInterface
   const ADJUSTMENT_TYPE = 'discount';
   const DISCOUNTED_PERCENTAGE = .1;
 
-  const DISCOUNTED_RETAIL_USER_GROUP_ID = 2;
+  // Group Detailhandel
+  const DISCOUNTED_RETAIL_USER_GROUP_ID = 1;
+  
+  // Group Baechsermarkt
   const DISCOUNTED_RETAIL_USER_GROUP_PERCENTAGE = 11;
 
   public function adjust(Order $order): array
