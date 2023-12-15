@@ -47,11 +47,8 @@
       {% if variants|length <= 0 %}
         disabled
       {% endif %}
-
-
     />
   </div>
-
   <div class="form-addtobasket__info-button">
     {% if variants|length >= 0 %}
       <a sprig
@@ -60,6 +57,7 @@
          s-val:purchasable-id="{{ variantId }}"
          href="#"
          class="button--primary {% if addedToCart and purchasableId == variantId %}button--success {% endif %} text-center">
+        {% include 'sprig/components/filters/_components/indicator-addtocart' %}
         {% if addedToCart and purchasableId == variantId %}
           <svg class="icon--svg icon--check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
                fill="currentColor">
@@ -67,15 +65,23 @@
                   d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
                   clip-rule="evenodd"/>
           </svg>
-          <span>Im Warenkorb</span>
+          <span class="button--primary__text">Im Warenkorb</span>
         {% else %}
-          In den Warenkorb
+          <span class="button--primary__text">In den Warenkorb</span>
         {% endif %}
       </a>
+
+
+
     {% else %}
       <button disabled type="submit"
               class="disabled button button--primary text-center">nicht verfügbar
       </button>
     {% endif %}
   </div>
-</div>
+  {# </div> #}
+
+
+  {% if success is defined %}
+    <p class="form-addtobasket__notice">{{ success ? flashes.notice : flashes.error }}</p>
+  {% endif %}

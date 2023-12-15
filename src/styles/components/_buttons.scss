@@ -123,6 +123,7 @@ $button-small--vertical-padding: px-to-em(8);
     padding: $button-primary--horizontal-padding $button-primary--vertical-padding;
     text-align: center;
 
+
     @if (has($button-primary--background-color)) {
       background-color: $button-primary--background-color;
     }
@@ -143,10 +144,9 @@ $button-small--vertical-padding: px-to-em(8);
       @if (has($button-success--border-color)) {
         border-color: $button-success--border-color;
       }
-
-
       text-align: center;
       color: $color--green;
+
     }
 
     &:hover {
@@ -293,9 +293,12 @@ $button-small--vertical-padding: px-to-em(8);
       border-color: $button-success--border-color;
     }
 
-
     text-align: center;
     color: $color--green;
+
+    .loading-button__indicator--loading & {
+      min-width: 200px;
+    }
 
     &:hover {
       @if (has($button-success--hover-background-color)) {
