@@ -9,11 +9,11 @@ use craft\commerce\elements\Order;
 
 use craft\commerce\models\OrderAdjustment;
 use craft\commerce\Model;
+use craft\commerce\elements\Variant;
 
-/*
-use craft\commerce\Plugin;
+use craft\commerce\Plugin as Commerce;
 use craft\commerce\elements\Product;
-use craft\commerce\elements\Variant;*/
+
 
 /*use craft\commerce\services\LineItems;
 use craft\commerce\events\LineItemEvent;
@@ -33,7 +33,7 @@ class Discount10 extends Component implements AdjusterInterface
   const ADJUSTMENT_TYPE = 'discount';
   const DISCOUNTED_PERCENTAGE = .1;
 
-  const DISCOUNTED_RETAIL_USER_GROUP_ID = 1;
+  const DISCOUNTED_RETAIL_USER_GROUP_ID = 2;
   const DISCOUNTED_RETAIL_USER_GROUP_PERCENTAGE = 11;
 
   public function adjust(Order $order): array
@@ -43,32 +43,46 @@ class Discount10 extends Component implements AdjusterInterface
 
     $user = Craft::$app->getUser()->getIdentity();
 
+    // check if user is in group detailhandel and baechsermarkt
     if ($user && ($user->isInGroup(self::DISCOUNTED_RETAIL_USER_GROUP_ID) || $user->isInGroup(self::DISCOUNTED_RETAIL_USER_GROUP_PERCENTAGE))) {
 
       foreach ($order->lineItems as $lineItem) {
         $purchasable = $lineItem->getPurchasable(); // Get the Purchasable
-        $product = $purchasable->getProduct(); // Get the Product from the Purchasable
+        // $product = $purchasable->getProduct(); // Get the Product from the Purchasable
 
-        if ($product->discount10Available) {
+        if ($purchasable instanceof Variant) {
+          //get sales applied to products
+          $sales = Commerce::getInstance()->getSales()->getSalesForPurchasable($purchasable);
 
-          if ($lineItem->qty >= 6) {
+          // if there are no sales applied to a product
+          if (empty($sales)) {
+            $product = $purchasable->getProduct();
 
-            $adjustment = new OrderAdjustment([
-              'type' => self::ADJUSTMENT_TYPE,
-              'description' => '10% Rabatt ab 6 Stk. TEST',
-              // 'amount' => self::DISCOUNT_PRICE * $lineItem->qty,
-              'amount' => ($lineItem->price * self::DISCOUNTED_PERCENTAGE * -1) * $lineItem->qty,
-            ]);
+            // product has the lightswitch discount10Available set to true
+            if ($product->discount10Available) {
 
-            // Make sure the Adjuster knows what Order and LineItem it's supposed to adjust. This also helps calculate stuff in-memory, prior to saving (especially for new LineItems that don't yet have an ID!):
-            $adjustment->setOrder($order);
-            $adjustment->setLineItem($lineItem);
+              // if there are more than siy items in cart
+              if ($lineItem->qty >= 6) {
 
-            // Perhaps most importantly! Push that adjustment into the array, so it gets returned:
-            $adjustments[] = $adjustment;
+                $adjustment = new OrderAdjustment([
+                  'type' => self::ADJUSTMENT_TYPE,
+                  'description' => '10% Rabatt ab 6 Stk.',
+                  // 'amount' => self::DISCOUNT_PRICE * $lineItem->qty,
+                  'amount' => ($lineItem->price * self::DISCOUNTED_PERCENTAGE * -1) * $lineItem->qty,
+                ]);
+
+                // Make sure the Adjuster knows what Order and LineItem it's supposed to adjust. This also helps calculate stuff in-memory, prior to saving (especially for new LineItems that don't yet have an ID!):
+                $adjustment->setOrder($order);
+                $adjustment->setLineItem($lineItem);
+
+                // Perhaps most importantly! Push that adjustment into the array, so it gets returned:
+                $adjustments[] = $adjustment;
+              }
+            }
           }
         }
       }
+      /*}*/
       // Return that array—it may be empty, if nothing matched!
     }
     return $adjustments;
