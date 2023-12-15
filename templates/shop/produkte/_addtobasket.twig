@@ -17,6 +17,7 @@
 
 {# {% set variant = craft.products.id(variantId).one() %} #}
  {% set variant = craft.products.id(variantId).one() %}
+{% set product = craft.products.id(productId).one() %}
 {% set variants = craft.commerce.variants({
   hasStock: true
 }) %}

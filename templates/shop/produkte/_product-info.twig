@@ -128,7 +128,8 @@
             {{ sprig(
               'shop/produkte/_addtobasket.twig',
               {
-                variantId: variant.id
+                variantId: variant.id,
+                productId: product.id
               }
             ) }}
             {# <div class="form-addtobasket__info-add">
