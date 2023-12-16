@@ -6,7 +6,7 @@
 
 {% set informBackInStock = success is defined %}
 
-{# {% set addedToCart = success is defined %}
+ {% set addedToCart = success is defined %}
 {% if addedToCart %}
   <script>
     htmx.trigger(htmx.find('#cart'), 'refresh');
@@ -18,7 +18,7 @@
     htmx.trigger('#cartsize', 'refresh');
     htmx.trigger('#cartsizemobile', 'refresh');
   </script>
-{% endif %} #}
+{% endif %}
 
 {% set productQuery = craft.products() %}
 {% set product = craft.products.id(productId).one() %}
@@ -125,14 +125,14 @@
               {% endif %}
             </div>
 
-            {{ sprig(
+            {# {{ sprig(
               'shop/produkte/_addtobasket.twig',
               {
                 variantId: variant.id,
                 productId: product.id
               }
-            ) }}
-            {# <div class="form-addtobasket__info-add">
+            ) }} #}
+            <div class="form-addtobasket__info-add">
               <div class="form-addtobasket__info-quantity">
                 <input
                   class="input form-addtobasket__info-quantity--input"
@@ -162,6 +162,7 @@
 
               <div class="form-addtobasket__info-button">
                 {% if variant.stock > 0 or variant.hasUnlimitedStock %}
+
                   <a sprig s-action="commerce/cart/update-cart" s-method="post"
                      s-val:purchasable-id="{{ variant.id }}" href="#"
                      class="button--primary {% if addedToCart and purchasableId == variant.id %}button--success {% endif %} text-center">
@@ -172,9 +173,9 @@
                               d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
                               clip-rule="evenodd"/>
                       </svg>
-                      <span>Im Warenkorb</span>
+                      <span class="button--primary__text">Im Warenkorb</span>
                     {% else %}
-                      In den Warenkorb
+                      <span class="button--primary__text">In den Warenkorb</span>
                     {% endif %}
                   </a>
                 {% else %}
@@ -183,7 +184,7 @@
                   </button>
                 {% endif %}
               </div>
-            </div> #}
+            </div>
 
           </div>
 
