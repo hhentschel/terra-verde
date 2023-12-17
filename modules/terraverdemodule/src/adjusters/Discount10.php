@@ -35,7 +35,8 @@ class Discount10 extends Component implements AdjusterInterface
 
   // Group Detailhandel
   const DISCOUNTED_RETAIL_USER_GROUP_ID = 1;
-  
+  const PRIVATE_USER_GROUP_ID = 2;
+
   // Group Baechsermarkt
   const DISCOUNTED_RETAIL_USER_GROUP_PERCENTAGE = 11;
 
@@ -47,7 +48,8 @@ class Discount10 extends Component implements AdjusterInterface
     $user = Craft::$app->getUser()->getIdentity();
 
     // check if user is in group detailhandel and baechsermarkt
-    if ($user && ($user->isInGroup(self::DISCOUNTED_RETAIL_USER_GROUP_ID) || $user->isInGroup(self::DISCOUNTED_RETAIL_USER_GROUP_PERCENTAGE))) {
+    /*if ($user && ($user->isInGroup(self::DISCOUNTED_RETAIL_USER_GROUP_ID) || $user->isInGroup(self::DISCOUNTED_RETAIL_USER_GROUP_PERCENTAGE))) {*/
+    if ($user && $user->isInGroup(self::PRIVATE_USER_GROUP_ID)) {
 
       foreach ($order->lineItems as $lineItem) {
         $purchasable = $lineItem->getPurchasable(); // Get the Purchasable
