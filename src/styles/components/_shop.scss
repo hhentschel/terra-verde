@@ -345,24 +345,24 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
     }
   }
 
-  .shop-list__item-cart {
-    // width: 210px;
-    align-items: flex-end;
-
-    .button--primary {
-      width: 160px;
-      padding: px-to-rem($space--s) px-to-rem($space--s);
-    }
-
-    .button--primary-bis {
-      width: 100%;
-    }
-
-    .button--primary.button--success {
-      width: 160px;
-      padding: px-to-rem($space--s) px-to-rem($space--s);
-    }
-  }
+  /*  .shop-list__item-cart {
+      // width: 210px;
+      align-items: flex-end;
+  
+      .button--primary {
+        width: 160px;
+        padding: px-to-rem($space--s) px-to-rem($space--s);
+      }
+  
+      .button--primary-bis {
+        width: 100%;
+      }
+  
+      .button--primary.button--success {
+        width: 160px;
+        padding: px-to-rem($space--s) px-to-rem($space--s);
+      }
+    }*/
 
   .onsale {
     order: 3;
@@ -450,34 +450,34 @@ $shop-list__grid-gutter--desktop: px-to-rem($grid__space-gutter--desktop);
     align-items: center;
   }
 
-  &__item-cart {
-    display: flex;
-    flex-direction: column;
-
-    .item-cart__variants {
-      display: none;
-    }
-
-    .item-cart__qty-btn {
-      display: flex;
-    }
-
-    .input {
-      line-height: $line-height--s;
-    }
-
-    .button--primary {
-      padding: px-to-rem($space--s);
-      width: 100%;
-      margin-left: px-to-rem($space--s);
-      font-size: px-to-rem($button-primary-shop--font-size);
-    }
-
-    .button--primary-bis {
-      margin-left: 0;
-      justify-content: center;
-    }
-  }
+  /* &__item-cart {
+     display: flex;
+     flex-direction: column;
+ 
+     .item-cart__variants {
+       display: none;
+     }
+ 
+     .item-cart__qty-btn {
+       display: flex;
+     }
+ 
+     .input {
+       line-height: $line-height--s;
+     }
+ 
+     .button--primary {
+       padding: px-to-rem($space--s);
+       width: 100%;
+       margin-left: px-to-rem($space--s);
+       font-size: px-to-rem($button-primary-shop--font-size);
+     }
+ 
+     .button--primary-bis {
+       margin-left: 0;
+       justify-content: center;
+     }
+   }*/
 
   &__image {
     background-color: $color--beige-light;

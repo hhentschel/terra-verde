@@ -82,13 +82,48 @@
   }
 
   &__info-quantity {
-    width: 20%;
+    display: flex;
     align-self: center;
-    margin: 0 px-to-rem($space--s) 0 0;
+    width: 100%;
+    justify-content: end;
 
     &--input {
-      padding: px-to-rem(12) px-to-rem($space--xs);
+      padding: px-to-rem(6) px-to-rem($space--xs);
       text-align: center;
+      width: 30%;
+    }
+
+    .input[disabled] {
+      display: none;
+    }
+
+    .button--primary-bis {
+      margin-left: 0;
+      justify-content: center;
+      width: 100%;
+      text-align: center;
+      padding: px-to-rem($space--s);
+      border: $button-primary--border-width solid $button-primary--border-color;
+    }
+
+
+    .button--primary {
+      padding: px-to-rem($space--s);
+      width: 160px;
+      margin-left: px-to-rem($space--s);
+      font-size: px-to-rem($button-primary-shop--font-size);
+    }
+
+
+    .button--primary.button--success {
+      width: 160px;
+      padding: px-to-rem($space--s) px-to-rem($space--s);
+    }
+
+    .button[disabled] {
+      background-color: $color--disabled-background;
+      border-color: $color--disabled-border;
+      cursor: default;
     }
   }
 
@@ -150,20 +185,8 @@
     }
   }
 
-  &__info-button {
-    display: flex;
-    justify-content: flex-end;
-
-
-    .button {
-      background-color: $color--grey-dark;
-      border-color: $color--grey-dark;
-    }
-
-    .button[disabled] {
-      background-color: $color--disabled-background;
-      border-color: $color--disabled-border;
-      cursor: default;
-    }
-  }
+  /*  &__info-button {
+      display: flex;
+      justify-content: flex-end;
+    }*/
 }
