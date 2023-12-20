@@ -122,12 +122,13 @@
                      </a>
                    {% else %}
                      <input type="text" name="couponCode" width="11"
-                            class="input {% if cart.getFirstError('couponCode') %}text-red-500{% endif %}"
-                       {# value="{{ cart.couponCode }}" #}>
+                            class="input {% if cart.getFirstError('couponCode') %}text-red-500{% endif %}">
+
                      <a sprig s-action="commerce/cart/update-cart" s-method="post" value="{{ cart.couponCode }}"
                         href="#" class="button button--primary button--small">
                        Code anwenden
                      </a>
+
                    {% endif %}
                  </div>
                </div>
@@ -163,7 +164,7 @@
                  <div class="form__cart-table--item-pricetotal-number">
 
                    {{ cart.totalPrice|commerceCurrency(cart.currency) }}
-                   
+
                  </div>
                </div>
 
