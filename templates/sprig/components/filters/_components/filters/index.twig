@@ -150,6 +150,7 @@
       {% if vType == 'grid' %}
         <div>
           <button sprig
+                  s-method="post"
                   s-val:v-type="list"
                   s-val:page="1"
                   s-val:limit="80"
@@ -168,6 +169,7 @@
       {% else %}
         <div>
           <button sprig
+                  s-method="post"
                   s-val:v-type="grid"
                   s-val:page="1"
                   s-val:limit="30"
