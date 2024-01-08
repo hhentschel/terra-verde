@@ -42,7 +42,7 @@ class Discount10 extends Component implements AdjusterInterface
 
     /*if ($user && $user->isInGroup(self::PRIVATE_USER_GROUP_ID)) {*/
     /*if ($guest || ($user && (!$user->isInGroup(self::DISCOUNTED_RETAIL_USER_GROUP_ID) || !$user->isInGroup(self::DISCOUNTED_RETAIL_USER_GROUP_PERCENTAGE)))) {*/
-    if ($user && $user->isInGroup('retailDiscount') || $user->isInGroup('userGroupRetail')) {
+    if ($user && $user->isInGroup('retailDiscount') || $user && $user->isInGroup('userGroupRetail')) {
       return [];
     }
 
