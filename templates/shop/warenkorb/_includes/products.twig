@@ -54,6 +54,7 @@
              </td>
            </tr>
          {% endif %}
+         
 
          {% if not cart.hasErrors() and cart.orderAdjustments|length %}
 
@@ -78,9 +79,9 @@
                          {{ adjustment.type }}
                        {% endif %}
                      </div>
-                     {# <div class="">
+                     <div class="">
                        <span class="adjustments__data--name">{{ adjustment.description }}</span>
-                     </div> #}
+                     </div>
                      <div class="adjustments__data--amount">
                        <span class=""
                              title="{{ adjustment.amount }}"> {{ adjustment.amount|commerceCurrency(cart.currency) }}</span>
@@ -158,6 +159,11 @@
                      class="form__cart-table--item-price-number">{{ cart.getTotalDiscount()|commerceCurrency(cart.currency) }}</div>
                  </div>
                {% endif %}
+
+
+               {# <pre>
+ {{ dump(cart.orderAdjustments) }}
+</pre> #}
 
                <div class="form__cart-table--item-pricetotal" title="{{ cart.totalPrice }}">
                  <div class="form__cart-table--item-price-name">Warenkorb Gesamtpreis:</div>

@@ -5,6 +5,7 @@
 
 namespace modules\retailpricing\adjusters;
 
+use Craft;
 use craft\base\Component;
 use craft\commerce\base\AdjusterInterface;
 use craft\commerce\elements\Order;
@@ -30,6 +31,7 @@ class RoundingAdjuster extends Component implements AdjusterInterface
     $adjustment->sourceSnapshot = ['data' => 'value'];
     $adjustment->amount = $difference;
     $adjustment->setOrder($order);
+
 
     return [$adjustment];
   }

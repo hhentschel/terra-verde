@@ -108,18 +108,22 @@
            {% if item.onSale %}
              <div class="form__cart-table--item-price-number">
                <del>
-                 {{ item.price|commerceCurrency(cart.currency) }}
+                 {% set itemprice = (round((item.price + 0.000001) * 20) / 20) %}
+                 {{ itemprice|commerceCurrency(cart.currency) }}
                </del>
              </div>
              <div class="form__cart-table--item-price-number form__cart-table--item-price-number-bold">
-               {{ item.salePrice|commerceCurrency(cart.currency) }}
+               {% set itempriceSale = (round((item.salePrice + 0.000001) * 20) / 20) %}
+               {{ itempriceSale|commerceCurrency(cart.currency) }}
              </div>
-           {% endif %}
-           {% if item.onSale %}
+
 
            {% else %}
              <div class="form__cart-table--item-price-number form__cart-table--item-price-number-bold">
-               {{ item.price|commerceCurrency(cart.currency) }}</div>
+               {# {{ item.price|commerceCurrency(cart.currency) }} #}
+               {% set itemprice = (round((item.price + 0.000001) * 20) / 20) %}
+               {{ itemprice|commerceCurrency(cart.currency) }}
+             </div>
            {% endif %}
          </div>
          {% if item.onSale %}
@@ -153,12 +157,14 @@
    <tr class="form__cart--adjustments">
      <td>&nbsp;</td>
      <td class="text-right" colspan="2">
+
        {% if not cart.hasErrors() and item.adjustments|length %}
 
          <div class="form__cart-table--item-price" title="{{ item.subtotal }}">
            <div class="form__cart-table--item-price-name">Gesamtpreis Artikel:</div>
            <div class="form__cart-table--item-price-number">
-             {{ item.subtotal|commerceCurrency(cart.currency) }}
+             {% set itemSubTotalRound = (round((item.subtotal + 0.000001) * 20) / 20) %}
+             {{ itemSubTotalRound|commerceCurrency(cart.currency) }}
            </div>
          </div>
          <div class="adjustments">
@@ -186,12 +192,14 @@
 
            {% else %}
 
+
+
              {# für Anpassungen als Discount #}
-             {% for adjustment in item.adjustments if adjustment.type == "discount" %}
+             {# {% for adjustment in item.adjustments if adjustment.type == "discount" %}
                <div class="adjustments__data">
 
                  <div class="adjustments__data--type">
-                   {{ adjustment.description }}
+                   {{ adjustment.name }}:
                  </div>
 
                  <div class="adjustments__data--amount">
@@ -201,7 +209,9 @@
                           </span>
                  </div>
                </div>
-             {% endfor %}
+             {% endfor %} #}
+
+             
 
              {# für Anpassungen nicht als Discount #} {# MWST: Ausgabe #}
              {# {% for adjustment in item.adjustments if adjustment.type != "discount" %}
@@ -231,7 +241,8 @@
          <div class="form__cart-table--item-price" title="{{ item.total }}">
            <div class="form__cart-table--item-price-name">Subtotal:</div>
            <div class="form__cart-table--item-price-number">
-             {{ item.total|commerceCurrency(cart.currency) }}
+             {% set itemSubTotalRound = (round((item.total + 0.000001) * 20) / 20) %}
+             {{ itemSubTotalRound|commerceCurrency(cart.currency) }}
            </div>
          </div>
        {% endif %}

@@ -9,12 +9,14 @@ use Craft;
 use craft\base\ElementInterface;
 use craft\commerce\elements\db\VariantQuery;
 use craft\commerce\elements\Variant;
+use craft\commerce\records\Discount;
 use craft\commerce\services\OrderAdjustments;
 use craft\elements\db\ElementQuery;
 use craft\elements\User;
 use craft\events\PopulateElementEvent;
 use craft\events\RegisterComponentTypesEvent;
 use modules\retailpricing\adjusters\RoundingAdjuster;
+use modules\retailpricing\adjusters\DiscountTestAdjuster;
 use yii\base\Event;
 use yii\base\InvalidConfigException;
 use yii\base\Module as Module;
@@ -42,7 +44,7 @@ class RetailPricing extends Module
     } else {
       Event::on(
         OrderAdjustments::class,
-        OrderAdjustments::EVENT_REGISTER_ORDER_ADJUSTERS,
+        OrderAdjustments::EVENT_REGISTER_DISCOUNT_ADJUSTERS,
         function (RegisterComponentTypesEvent $event) {
           $event->types[] = RoundingAdjuster::class;
         }

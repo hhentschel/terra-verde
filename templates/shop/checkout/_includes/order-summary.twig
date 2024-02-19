@@ -99,11 +99,13 @@
         item.options.giftWrapped is defined
         or item.options.giftNote is defined %}
         <div class="">
-          {{ item.total|currency(cart.currency) }}
+          {% set itemTotalRound = (round((item.total + 0.000001) * 20) / 20) %}
+          {{ itemTotalRound|currency(cart.currency) }}
         </div>
       {% else %}
         <div>
-          {{ item.subtotal|currency(cart.currency) }}
+          {% set itemSubTotalRound = (round((item.subtotal + 0.000001) * 20) / 20) %}
+          {{ itemSubTotalRound|currency(cart.currency) }}
         </div>
       {% endif %}
     </div>
@@ -134,7 +136,8 @@
       Zwischensumme:
     </div>
     <div class="summary__price--number">
-      {{ cart.itemSubTotal|commerceCurrency(cart.currency) }}
+      {% set cartItemSubTotalRound = (round((cart.itemSubTotal + 0.000001) * 20) / 20) %}
+      {{ cartItemSubTotalRound|commerceCurrency(cart.currency) }}
     </div>
   </div>
 
