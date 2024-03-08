@@ -2,9 +2,7 @@
 
   <dl class="product-detail__summary">
     {% if product.articleDescription %}
-      <dt>
-        Beschreibung
-      </dt>
+      <dt>Beschreibung</dt>
       <dd> {{ product.articleDescription }}</dd>
     {% endif %}
 
@@ -14,43 +12,43 @@
     {% endif %}
 
     {% if product.articleNutritionalValue %}
-      <dt>Zutaten:</dt>
+      <dt>Zutaten</dt>
       <dd>{{ product.articleNutritionalValue }}</dd>
     {% endif %}
 
     {% if product.articleAlcohol %}
-      <dt>Alkoholgehalt:</dt>
+      <dt>Alkoholgehalt</dt>
       <dd>{{ product.articleAlcohol }}</dd>
     {% endif %}
 
     {% if product.articleIngredients %}
-      <dt>Zutaten:</dt>
+      <dt>Zutaten</dt>
       <dd> {{ product.articleIngredients }}</dd>
     {% endif %}
 
     {% if product.articleAdditionalInfo %}
-      <dt>Zusatzinfo:</dt>
+      <dt>Zusatzinfo</dt>
       <dd> {{ product.articleAdditionalInfo }}</dd>
     {% endif %}
 
     {% if product.articleVegan %}
-      <dt>Vegan:</dt>
+      <dt>Vegan</dt>
       <dd> {{ product.articleVegan }}</dd>
     {% endif %}
 
     {% if product.articleEanNumber %}
-      <dt>EAN-Nummer:</dt>
+      <dt>EAN-Nummer</dt>
       <dd> {{ product.articleEanNumber }}</dd>
     {% endif %}
 
     {% if product.articleNumber %}
-      <dt>Artikelnummer:</dt>
+      <dt>Artikelnummer</dt>
       <dd> {{ product.articleNumber }}</dd>
     {% endif %}
 
     {% for variant in product.variants %}
       {% if variant.articleVolume %}
-        <dt>Gewicht:</dt>
+        <dt>Gewicht</dt>
         <dd> {{ variant.articleVolume }}{{ variant.articleVolumeUnit }}</dd>
       {% endif %}
     {% endfor %}

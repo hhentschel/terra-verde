@@ -81,16 +81,23 @@
     margin-left: px-to-rem($space--s);
   }
 
+  &__info-button {
+    .button--primary {
+      display: block;
+      width: max-content;
+    }
+  }
+
   &__info-quantity {
     display: flex;
     align-self: center;
     width: 100%;
-    justify-content: end;
+    justify-content: center;
 
     &--input {
       padding: px-to-rem(6) px-to-rem($space--xs);
       text-align: center;
-      width: 30%;
+      width: 50%;
     }
 
     .input[disabled] {
