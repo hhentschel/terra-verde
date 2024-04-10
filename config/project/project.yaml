@@ -1,4 +1,4 @@
-dateModified: 1702634437
+dateModified: 1712738459
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: 'Terra Verde'
@@ -346,6 +346,7 @@ meta:
     e68dfbb6-8313-490e-b596-66d83d042378: Regionen # Regionen
     e319ec0b-b25d-4aad-a44a-e1b83b9de831: Linie # Linie
     e408f37d-9b71-4f78-ae4a-18fe5c8dbef7: News # News
+    e619a3a6-e2f7-4feb-b2db-8c51b32b4923: KurzUrl # KurzUrl
     e756f32a-9400-41d8-a0d0-e99a58f2706a: 'Link Adresse' # Link Adresse
     e22957f0-c9f4-40f0-aaed-0cb3d674851f: Status # Status
     e221908a-3496-4eb9-8727-682969a83304: Startseite # Startseite

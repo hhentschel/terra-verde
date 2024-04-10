@@ -1,0 +1,13 @@
+columnSuffix: pszxtzbj
+contentColumnType: string
+fieldGroup: 4fe8dfc1-b512-4508-a756-d29539b14b62 # Artikel
+handle: shortLink
+instructions: ''
+name: KurzUrl
+searchable: false
+settings:
+  redirectHttpCode: '301'
+  redirectSrcMatch: pathonly
+translationKeyFormat: null
+translationMethod: none
+type: nystudio107\retour\fields\ShortLink
