@@ -10,18 +10,16 @@
 {% set RetailDiscount23Price = product.priceRetailTrader - RetailDiscount23 %}
 
 <div class="shop-list__item--prices">
-  {% if currentUser %}
-    {% if variant.onSale %}
-      <strike class="shop-list__item--price-old">
-        {{ variantPriceRound|number_format(2, '.', '')|currency('CHF') }}
-      </strike>
-      <span class="shop-list__item--price-sale">
-        {{ variantSalePriceRound|number_format(2, '.', '')|currency('CHF') }}
-      </span>
-    {% else %}
-      <span class="shop-list__item--price">
-        {{ product.pricePrivateCustomer|currency('CHF') }}
-      </span>
-    {% endif %}
+  {% if variant.onSale %}
+    <strike class="shop-list__item--price-old">
+      {{ variantPriceRound|number_format(2, '.', '')|currency('CHF') }}
+    </strike>
+    <span class="shop-list__item--price-sale">
+      {{ variantSalePriceRound|number_format(2, '.', '')|currency('CHF') }}
+    </span>
+  {% else %}
+    <span class="shop-list__item--price">
+      {{ product.pricePrivateCustomer|currency('CHF') }}
+    </span>
   {% endif %}
 </div>
