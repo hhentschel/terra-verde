@@ -22,8 +22,7 @@ use craft\helpers\App;
 return [
   'id' => App::env('APP_ID') ?: 'CraftCMS',
   'modules' => [
-    'retail-pricing' => modules\retailpricing\RetailPricing::class,
     'terraverde-module' => modules\terraverdemodule\TerraverdeModule::class,
   ],
-  'bootstrap' => ['retail-pricing', 'terraverde-module'],
+  'bootstrap' => ['terraverde-module'],
 ];

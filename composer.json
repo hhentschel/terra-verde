@@ -40,7 +40,6 @@
   },
   "autoload": {
     "psr-4": {
-      "modules\\retailpricing\\": "modules/retail-pricing/src/",
       "modules\\terraverdemodule\\": "modules/terraverdemodule/src/"
     }
   },
