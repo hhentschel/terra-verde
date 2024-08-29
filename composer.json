@@ -1,5 +1,6 @@
 {
   "require": {
+    "aws/aws-sdk-php": "3.319.4",
     "bertoost/craft-mailjet": "1.2.3",
     "born05/craft-assetusage": "2.3.1",
     "craftcms/cms": "3.9.13",
