@@ -1,7 +1,8 @@
 {% set headerBackground = entry.mainImage is defined
   and entry.mainImage is not empty
   ? 'header__background--with-image'
-  : '' %}
+  : ''
+%}
 
 <header class="header">
   <div class="header__background {{ headerBackground }}"></div>
@@ -13,11 +14,12 @@
           <a class="header__logo-link" href="/">
             <span class="header__logo-line">Terra</span>
             <img class="header__logo-mobile"
-                 src="{{ alias(
-                   '@rootUrl'
-                 ) }}/assets/images/logo/TerraVerde_Logo05-mobile.png"
-                 alt="Terra Verde Logo"
-            />
+              src="{{
+              alias(
+                '@rootUrl'
+              )
+              }}/assets/images/logo/TerraVerde_Logo05-mobile.png"
+              alt="Terra Verde Logo" />
             <span class="header__logo-line">Verde</span>
           </a>
 
@@ -29,8 +31,7 @@
           {% set img = generic.logoBioStorer[0] ?? null %}
 
           {% if img is defined %}
-            {% include '_components/_content-elements/image-product'
-              with {
+            {% include '_components/_content-elements/image-product' with {
               img: img,
               transform: transform
             } %}
@@ -63,16 +64,16 @@
             <a class="header__logo-link" href="/">
               <span class="header__logo-line">Terra</span>
               <img class="header__logo"
-                   src="{{ alias(
-                     '@rootUrl'
-                   ) }}/assets/images/logo/TerraVerde_Logo05.jpg"
-                   alt="Terra Verde Logo"
-              />
+                src="{{
+                alias(
+                  '@rootUrl'
+                )
+                }}/assets/images/logo/TerraVerde_Logo05.jpg"
+                alt="Terra Verde Logo" />
               <span class="header__logo-line">Verde</span>
             </a>
 
             <div class="header__top-nav">
-
               {% include '_components/_nav/_nav-main/nav-main-desktop' %}
 
               {# <div class="header__top-nav-logo">
@@ -92,21 +93,17 @@
               {% set img = generic.logoBioStorer[0] ?? null %}
 
               {% if img is defined %}
-                {% include '_components/_content-elements/image-product'
-                  with {
+                {% include '_components/_content-elements/image-product' with {
                   img: img,
                   transform: transform
                 } %}
               {% endif %}
 
               {% include '_components/_nav/_nav-service/nav-service-desktop' %}
-
             </div>
-
           </div>
         </div>
       </div>
     </div>
   </div>
 </header>
-
